@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Filtercontribution
+Bundle-SymbolicName: hu.bme.mit.transima.filtercontribution;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: hu.bme.mit.transima.filtercontribution.internal.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ hu.bme.mit.transima.simulink.api,
+ hu.bme.mit.transima.models.simulink,
+ simulink.communication.bundle;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: hu.bme.mit.transima.filtercontribution

@@ -1,0 +1,2367 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Fri Mar 22 10:12:12 2013" file="complex_with_stateflow.mdl">
+  <simulinkRef name="complex_with_stateflow"/>
+  <contains xsi:type="simulink:SubSystem" tag="">
+    <simulinkRef name="CPU" qualifier="complex_with_stateflow"/>
+    <properties name="custom_block_type" value="Cpu"/>
+    <properties name="slot_number" value="0"/>
+    <properties name="fixed_slot" value="off"/>
+    <properties name="lower_limit_V" value="16"/>
+    <properties name="upper_limit_V" value="32"/>
+    <properties name="availabilityIndex" value="1"/>
+    <properties name="executionIndex" value="2"/>
+    <properties name="contextIndex" value="3"/>
+    <properties name="parameters_type" value="Sample based"/>
+    <properties name="startingup_time" value="0"/>
+    <properties name="housekeeping_time" value="0"/>
+    <properties name="shuttingdown_time" value="0"/>
+    <properties name="schedule_tasks" value="off"/>
+    <properties name="show_sched_tbl" value="off"/>
+    <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.0">
+      <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.1">
+      <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU"/>
+    </ports>
+    <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+    <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@ports.0">
+      <simulinkRef name="power_V" qualifier="complex_with_stateflow/CPU"/>
+      <properties name="LockScale" value="off" source="DIALOG"/>
+      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+      <properties name="OutMin" value="[]" source="DIALOG"/>
+      <properties name="Interpolate" value="on" source="DIALOG"/>
+      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+      <properties name="SamplingMode" value="auto" source="DIALOG"/>
+      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+      <properties name="PortDimensions" value="-1" source="DIALOG"/>
+      <properties name="Port" value="1" source="DIALOG"/>
+      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+      <properties name="SignalType" value="auto" source="DIALOG"/>
+      <properties name="OutMax" value="[]" source="DIALOG"/>
+      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+      <properties name="DataType" value="Inherit: auto"/>
+      <properties name="SampleTime" value="-1"/>
+      <ports xsi:type="simulink:OutPort">
+        <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/power_V"/>
+        <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@ports.1">
+          <simulinkRef name="from: power_V:outport.1 -- to: Platform:inport.1" qualifier="complex_with_stateflow/CPU/power_V/outport.1"/>
+        </connection>
+      </ports>
+      <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@ports.1">
+      <simulinkRef name="pdla" qualifier="complex_with_stateflow/CPU"/>
+      <properties name="LockScale" value="off" source="DIALOG"/>
+      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+      <properties name="OutMin" value="[]" source="DIALOG"/>
+      <properties name="Interpolate" value="on" source="DIALOG"/>
+      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+      <properties name="SamplingMode" value="auto" source="DIALOG"/>
+      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+      <properties name="PortDimensions" value="-1" source="DIALOG"/>
+      <properties name="Port" value="2" source="DIALOG"/>
+      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+      <properties name="SignalType" value="auto" source="DIALOG"/>
+      <properties name="OutMax" value="[]" source="DIALOG"/>
+      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+      <properties name="DataType" value="Inherit: auto"/>
+      <properties name="SampleTime" value="-1"/>
+      <ports xsi:type="simulink:OutPort">
+        <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/pdla"/>
+        <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@ports.2">
+          <simulinkRef name="from: pdla:outport.1 -- to: Platform:inport.2" qualifier="complex_with_stateflow/CPU/pdla/outport.1"/>
+        </connection>
+      </ports>
+      <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:From">
+      <simulinkRef name="From" qualifier="complex_with_stateflow/CPU"/>
+      <properties name="IconDisplay" value="Tag" source="DIALOG"/>
+      <properties name="GotoTag" value="trimming" source="DIALOG"/>
+      <ports xsi:type="simulink:OutPort">
+        <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/From"/>
+        <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@ports.4">
+          <simulinkRef name="from: From:outport.1 -- to: Platform:inport.4" qualifier="complex_with_stateflow/CPU/From/outport.1"/>
+        </connection>
+      </ports>
+      <sourceBlockRef name="From" qualifier="simulink/Signal Routing"/>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:Goto" tagVisibility="Scoped" gotoTag="RTOS_INFO">
+      <simulinkRef name="Goto" qualifier="complex_with_stateflow/CPU"/>
+      <properties name="TagVisibility" value="scoped" source="DIALOG"/>
+      <properties name="IconDisplay" value="Tag" source="DIALOG"/>
+      <properties name="GotoTag" value="RTOS_INFO" source="DIALOG"/>
+      <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@ports.0/@connection">
+        <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Goto"/>
+      </ports>
+      <sourceBlockRef name="Goto" qualifier="simulink/Signal Routing"/>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:GotoTagVisibility" gotoBlock="//@contains.0/@subBlocks.3">
+      <simulinkRef name="Goto Tag Visibility" qualifier="complex_with_stateflow/CPU"/>
+      <properties name="GotoTag" value="RTOS_INFO" source="DIALOG"/>
+      <sourceBlockRef name="Goto Tag Visibility" qualifier="simulink/Signal Routing"/>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:SubSystem" tag="">
+      <simulinkRef name="Platform" qualifier="complex_with_stateflow/CPU"/>
+      <properties name="custom_block_type" value="Platform"/>
+      <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.8">
+        <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform"/>
+        <connection xsi:type="simulink:SingleConnection" lineName="rtos_info" to="//@contains.0/@subBlocks.3/@ports.0">
+          <simulinkRef name="from: Platform:outport.1 -- to: Goto:inport.1" qualifier="complex_with_stateflow/CPU/Platform/outport.1"/>
+        </connection>
+      </ports>
+      <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.0" connection="//@contains.0/@subBlocks.0/@ports.0/@connection">
+        <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform"/>
+      </ports>
+      <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.1" connection="//@contains.0/@subBlocks.1/@ports.0/@connection">
+        <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform"/>
+      </ports>
+      <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.2" connection="//@contains.0/@subBlocks.6/@ports.0/@connection">
+        <simulinkRef name="inport.3" qualifier="complex_with_stateflow/CPU/Platform"/>
+      </ports>
+      <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.3" connection="//@contains.0/@subBlocks.2/@ports.0/@connection">
+        <simulinkRef name="inport.4" qualifier="complex_with_stateflow/CPU/Platform"/>
+      </ports>
+      <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+      <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@ports.1">
+        <simulinkRef name="power_V" qualifier="complex_with_stateflow/CPU/Platform"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="Interpolate" value="on" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="Port" value="1" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:OutPort">
+          <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/power_V"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@ports.1">
+            <simulinkRef name="from: power_V:outport.1 -- to: Power Validity:inport.1" qualifier="complex_with_stateflow/CPU/Platform/power_V/outport.1"/>
+          </connection>
+        </ports>
+        <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@ports.2">
+        <simulinkRef name="pdla" qualifier="complex_with_stateflow/CPU/Platform"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="Interpolate" value="on" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="Port" value="2" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:OutPort">
+          <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/pdla"/>
+          <connection xsi:type="simulink:MultiConnection" lineName="">
+            <simulinkRef name="from: pdla:outport.1 -- to: CPU Faults:inport.2 ; CPU States:inport.2" qualifier="complex_with_stateflow/CPU/Platform/pdla/outport.1"/>
+            <connections to="//@contains.0/@subBlocks.5/@subBlocks.4/@ports.4">
+              <simulinkRef name="from: pdla:outport.1 -- to: CPU Faults:inport.2" qualifier="complex_with_stateflow/CPU/Platform/pdla/outport.1"/>
+            </connections>
+            <connections to="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.3">
+              <simulinkRef name="from: pdla:outport.1 -- to: CPU States:inport.2" qualifier="complex_with_stateflow/CPU/Platform/pdla/outport.1"/>
+            </connections>
+          </connection>
+        </ports>
+        <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@ports.3">
+        <simulinkRef name="reset" qualifier="complex_with_stateflow/CPU/Platform"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="Interpolate" value="on" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="Port" value="3" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:OutPort">
+          <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/reset"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.4">
+            <simulinkRef name="from: reset:outport.1 -- to: CPU States:inport.3" qualifier="complex_with_stateflow/CPU/Platform/reset/outport.1"/>
+          </connection>
+        </ports>
+        <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@ports.4">
+        <simulinkRef name="trimming" qualifier="complex_with_stateflow/CPU/Platform"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="Interpolate" value="on" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="Port" value="4" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:OutPort">
+          <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/trimming"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.8">
+            <simulinkRef name="from: trimming:outport.1 -- to: CPU States:inport.7" qualifier="complex_with_stateflow/CPU/Platform/trimming/outport.1"/>
+          </connection>
+        </ports>
+        <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:SubSystem" tag="">
+        <simulinkRef name="CPU Faults" qualifier="complex_with_stateflow/CPU/Platform"/>
+        <properties name="custom_block_type" value="CpuFaults"/>
+        <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.17">
+          <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.5">
+            <simulinkRef name="from: CPU Faults:outport.1 -- to: CPU States:inport.4" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/outport.1"/>
+          </connection>
+        </ports>
+        <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.18">
+          <simulinkRef name="outport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.6">
+            <simulinkRef name="from: CPU Faults:outport.2 -- to: CPU States:inport.5" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/outport.2"/>
+          </connection>
+        </ports>
+        <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.19">
+          <simulinkRef name="outport.3" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.7">
+            <simulinkRef name="from: CPU Faults:outport.3 -- to: CPU States:inport.6" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/outport.3"/>
+          </connection>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.0" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@ports.0/@connection/@connections.0">
+          <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.1" connection="//@contains.0/@subBlocks.5/@subBlocks.1/@ports.0/@connection/@connections.0">
+          <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+        </ports>
+        <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.4/@ports.3">
+          <simulinkRef name="power_validity" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="1" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/power_validity"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.9/@ports.1">
+              <simulinkRef name="from: power_validity:outport.1 -- to: Logical Operator:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/power_validity/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.4/@ports.4">
+          <simulinkRef name="pdla" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="2" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/pdla"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.11/@ports.1">
+              <simulinkRef name="from: pdla:outport.1 -- to: Logical Operator2:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/pdla/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Constant1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="FramePeriod" value="inf" source="DIALOG"/>
+          <properties name="Value" value="0" source="DIALOG"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+          <properties name="SampleTime" value="inf" source="DIALOG"/>
+          <properties name="VectorParams1D" value="on" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Constant1"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.10/@ports.1">
+              <simulinkRef name="from: Constant1:outport.1 -- to: Logical Operator1:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Constant1/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="Constant" qualifier="simulink/Sources"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Data Type Conversion" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="SaturateOnIntegerOverflow" value="off" source="DIALOG"/>
+          <properties name="RndMeth" value="Floor" source="DIALOG"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="ConvertRealWorld" value="Real World Value (RWV)" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="double" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Data Type Conversion"/>
+            <connection xsi:type="simulink:SingleConnection" lineName="internal_reset" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.17/@ports.0">
+              <simulinkRef name="from: Data Type Conversion:outport.1 -- to: internal_reset:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Data Type Conversion/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.13/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Data Type Conversion"/>
+          </ports>
+          <sourceBlockRef name="Data Type Conversion" qualifier="simulink/Signal Attributes"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Data Type Conversion1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="SaturateOnIntegerOverflow" value="off" source="DIALOG"/>
+          <properties name="RndMeth" value="Floor" source="DIALOG"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="ConvertRealWorld" value="Real World Value (RWV)" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="double" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Data Type Conversion1"/>
+            <connection xsi:type="simulink:SingleConnection" lineName="internal_reset_saving_context" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.18/@ports.0">
+              <simulinkRef name="from: Data Type Conversion1:outport.1 -- to: internal_reset_saving_context:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Data Type Conversion1/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.16/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Data Type Conversion1"/>
+          </ports>
+          <sourceBlockRef name="Data Type Conversion" qualifier="simulink/Signal Attributes"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Data Type Conversion2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="SaturateOnIntegerOverflow" value="off" source="DIALOG"/>
+          <properties name="RndMeth" value="Floor" source="DIALOG"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="ConvertRealWorld" value="Real World Value (RWV)" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="double" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Data Type Conversion2"/>
+            <connection xsi:type="simulink:SingleConnection" lineName="shutdown" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.19/@ports.0">
+              <simulinkRef name="from: Data Type Conversion2:outport.1 -- to: shutdown:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Data Type Conversion2/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.12/@ports.0/@connection/@connections.1">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Data Type Conversion2"/>
+          </ports>
+          <sourceBlockRef name="Data Type Conversion" qualifier="simulink/Signal Attributes"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Fault Reset" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="FramePeriod" value="inf" source="DIALOG"/>
+          <properties name="Value" value="0" source="DIALOG"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+          <properties name="SampleTime" value="inf" source="DIALOG"/>
+          <properties name="VectorParams1D" value="on" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Fault Reset"/>
+            <connection xsi:type="simulink:SingleConnection" lineName="fault_reset" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.11/@ports.2">
+              <simulinkRef name="from: Fault Reset:outport.1 -- to: Logical Operator2:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Fault Reset/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="Constant" qualifier="simulink/Sources"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Fault Reset Saving Context" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="FramePeriod" value="inf" source="DIALOG"/>
+          <properties name="Value" value="0" source="DIALOG"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+          <properties name="SampleTime" value="inf" source="DIALOG"/>
+          <properties name="VectorParams1D" value="on" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Fault Reset Saving Context"/>
+            <connection xsi:type="simulink:SingleConnection" lineName="fault_reset_saving_context" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.10/@ports.2">
+              <simulinkRef name="from: Fault Reset Saving Context:outport.1 -- to: Logical Operator1:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Fault Reset Saving Context/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="Constant" qualifier="simulink/Sources"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Fault Shutdown" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="FramePeriod" value="inf" source="DIALOG"/>
+          <properties name="Value" value="0" source="DIALOG"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+          <properties name="SampleTime" value="inf" source="DIALOG"/>
+          <properties name="VectorParams1D" value="on" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Fault Shutdown"/>
+            <connection xsi:type="simulink:SingleConnection" lineName="fault_shutdown" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.12/@ports.2">
+              <simulinkRef name="from: Fault Shutdown:outport.1 -- to: Logical Operator3:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Fault Shutdown/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="Constant" qualifier="simulink/Sources"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="NOT" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator"/>
+            <connection xsi:type="simulink:SingleConnection" lineName="power_invalid" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.12/@ports.1">
+              <simulinkRef name="from: Logical Operator:outport.1 -- to: Logical Operator3:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.0/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="OR" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator1"/>
+            <connection xsi:type="simulink:MultiConnection" lineName="">
+              <simulinkRef name="from: Logical Operator1:outport.1 -- to: Logical Operator6:inport.1 ; Logical Operator7:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator1/outport.1"/>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.15/@ports.1">
+                <simulinkRef name="from: Logical Operator1:outport.1 -- to: Logical Operator6:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator1/outport.1"/>
+              </connections>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.16/@ports.2">
+                <simulinkRef name="from: Logical Operator1:outport.1 -- to: Logical Operator7:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator1/outport.1"/>
+              </connections>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.2/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator1"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.7/@ports.0/@connection">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator1"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="OR" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator2"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.13/@ports.3">
+              <simulinkRef name="from: Logical Operator2:outport.1 -- to: Logical Operator4:inport.3" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator2/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.1/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator2"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.6/@ports.0/@connection">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator2"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator3" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="OR" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator3"/>
+            <connection xsi:type="simulink:MultiConnection" lineName="">
+              <simulinkRef name="from: Logical Operator3:outport.1 -- to: Logical Operator5:inport.1 ; Data Type Conversion2:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator3/outport.1"/>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.14/@ports.1">
+                <simulinkRef name="from: Logical Operator3:outport.1 -- to: Logical Operator5:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator3/outport.1"/>
+              </connections>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.5/@ports.1">
+                <simulinkRef name="from: Logical Operator3:outport.1 -- to: Data Type Conversion2:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator3/outport.1"/>
+              </connections>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.9/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator3"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.8/@ports.0/@connection">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator3"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator4" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="AND" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="3" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator4"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.3/@ports.1">
+              <simulinkRef name="from: Logical Operator4:outport.1 -- to: Data Type Conversion:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator4/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.14/@ports.0/@connection/@connections.0">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator4"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.15/@ports.0/@connection">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator4"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.11/@ports.0/@connection">
+            <simulinkRef name="inport.3" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator4"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator5" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="NOT" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator5"/>
+            <connection xsi:type="simulink:MultiConnection" lineName="">
+              <simulinkRef name="from: Logical Operator5:outport.1 -- to: Logical Operator4:inport.1 ; Logical Operator7:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator5/outport.1"/>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.13/@ports.1">
+                <simulinkRef name="from: Logical Operator5:outport.1 -- to: Logical Operator4:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator5/outport.1"/>
+              </connections>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.16/@ports.1">
+                <simulinkRef name="from: Logical Operator5:outport.1 -- to: Logical Operator7:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator5/outport.1"/>
+              </connections>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.12/@ports.0/@connection/@connections.0">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator5"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator6" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="NOT" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator6"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.13/@ports.2">
+              <simulinkRef name="from: Logical Operator6:outport.1 -- to: Logical Operator4:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator6/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.10/@ports.0/@connection/@connections.0">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator6"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator7" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="AND" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator7"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.4/@ports.1">
+              <simulinkRef name="from: Logical Operator7:outport.1 -- to: Data Type Conversion1:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator7/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.14/@ports.0/@connection/@connections.1">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator7"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.10/@ports.0/@connection/@connections.1">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/Logical Operator7"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.4/@ports.0">
+          <simulinkRef name="internal_reset" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="InitialOutput" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+          <properties name="Port" value="1" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.3/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/internal_reset"/>
+          </ports>
+          <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.4/@ports.1">
+          <simulinkRef name="internal_reset_saving_context" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="InitialOutput" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+          <properties name="Port" value="2" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.4/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/internal_reset_saving_context"/>
+          </ports>
+          <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.4/@ports.2">
+          <simulinkRef name="shutdown" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="InitialOutput" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+          <properties name="Port" value="3" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@subBlocks.5/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU Faults/shutdown"/>
+          </ports>
+          <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:SubSystem" tag="">
+        <simulinkRef name="CPU States" qualifier="complex_with_stateflow/CPU/Platform"/>
+        <properties name="custom_block_type" value="CpuStates"/>
+        <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.13">
+          <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@ports.1">
+            <simulinkRef name="from: CPU States:outport.1 -- to: RTOS:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/outport.1"/>
+          </connection>
+        </ports>
+        <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.14">
+          <simulinkRef name="outport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@ports.2">
+            <simulinkRef name="from: CPU States:outport.2 -- to: RTOS:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/outport.2"/>
+          </connection>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.0" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@ports.0/@connection/@connections.1">
+          <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.1" connection="//@contains.0/@subBlocks.5/@subBlocks.1/@ports.0/@connection/@connections.1">
+          <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.2" connection="//@contains.0/@subBlocks.5/@subBlocks.2/@ports.0/@connection">
+          <simulinkRef name="inport.3" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.3" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@ports.0/@connection">
+          <simulinkRef name="inport.4" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.4" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@ports.1/@connection">
+          <simulinkRef name="inport.5" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.5" connection="//@contains.0/@subBlocks.5/@subBlocks.4/@ports.2/@connection">
+          <simulinkRef name="inport.6" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.6" connection="//@contains.0/@subBlocks.5/@subBlocks.3/@ports.0/@connection">
+          <simulinkRef name="inport.7" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+        </ports>
+        <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.2">
+          <simulinkRef name="power_validity" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="1" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/power_validity"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.2">
+              <simulinkRef name="from: power_validity:outport.1 -- to: CPU:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/power_validity/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.3">
+          <simulinkRef name="pdla" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="2" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/pdla"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.3">
+              <simulinkRef name="from: pdla:outport.1 -- to: CPU:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/pdla/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.4">
+          <simulinkRef name="external_reset" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="3" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/external_reset"/>
+            <connection xsi:type="simulink:MultiConnection" lineName="">
+              <simulinkRef name="from: external_reset:outport.1 -- to: Logical Operator1:inport.1 ; CPU:inport.3" qualifier="complex_with_stateflow/CPU/Platform/CPU States/external_reset/outport.1"/>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.9/@ports.1">
+                <simulinkRef name="from: external_reset:outport.1 -- to: Logical Operator1:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/external_reset/outport.1"/>
+              </connections>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.4">
+                <simulinkRef name="from: external_reset:outport.1 -- to: CPU:inport.3" qualifier="complex_with_stateflow/CPU/Platform/CPU States/external_reset/outport.1"/>
+              </connections>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.5">
+          <simulinkRef name="fault_action" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="4" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/fault_action"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.8/@ports.2">
+              <simulinkRef name="from: fault_action:outport.1 -- to: Logical Operator:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/fault_action/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.6">
+          <simulinkRef name="internal_reset_saving_context" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="5" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/internal_reset_saving_context"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.10/@ports.2">
+              <simulinkRef name="from: internal_reset_saving_context:outport.1 -- to: Logical Operator2:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/internal_reset_saving_context/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.7">
+          <simulinkRef name="shutdown" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="6" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/shutdown"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.11/@ports.2">
+              <simulinkRef name="from: shutdown:outport.1 -- to: Logical Operator3:inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/shutdown/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.8">
+          <simulinkRef name="trimming" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="7" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/trimming"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.8">
+              <simulinkRef name="from: trimming:outport.1 -- to: CPU:inport.7" qualifier="complex_with_stateflow/CPU/Platform/CPU States/trimming/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:SubSystem" tag="">
+          <simulinkRef name="CPU" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.11">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <connection xsi:type="simulink:SingleConnection" lineName="rtos_enable" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.13/@ports.0">
+              <simulinkRef name="from: CPU:outport.1 -- to: rtos_enable:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.12">
+            <simulinkRef name="outport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <connection xsi:type="simulink:SingleConnection" lineName="context" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.14/@ports.0">
+              <simulinkRef name="from: CPU:outport.2 -- to: context:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/outport.2"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.0" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.0/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.1" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.1/@ports.0/@connection">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.2" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.2/@ports.0/@connection/@connections.1">
+            <simulinkRef name="inport.3" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.3" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.8/@ports.0/@connection">
+            <simulinkRef name="inport.4" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.4" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.10/@ports.0/@connection">
+            <simulinkRef name="inport.5" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.5" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.11/@ports.0/@connection">
+            <simulinkRef name="inport.6" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.6" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.6/@ports.0/@connection">
+            <simulinkRef name="inport.7" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+          </ports>
+          <ports xsi:type="simulink:Trigger" portBlock="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.7" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.12/@ports.0/@connection">
+            <simulinkRef name="inport.8" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+          </ports>
+          <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+          <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.2">
+            <simulinkRef name="power_valid" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="Port" value="1" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/power_valid"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.3">
+                <simulinkRef name="from: power_valid:outport.1 -- to:  SFunction :inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/power_valid/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.3">
+            <simulinkRef name="PDLA" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="Port" value="2" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/PDLA"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.4">
+                <simulinkRef name="from: PDLA:outport.1 -- to:  SFunction :inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/PDLA/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.4">
+            <simulinkRef name="external_reset" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="Port" value="3" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/external_reset"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.5">
+                <simulinkRef name="from: external_reset:outport.1 -- to:  SFunction :inport.3" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/external_reset/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.5">
+            <simulinkRef name="internal_reset" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="Port" value="4" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/internal_reset"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.6">
+                <simulinkRef name="from: internal_reset:outport.1 -- to:  SFunction :inport.4" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/internal_reset/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.6">
+            <simulinkRef name="internal_reset_saving_context" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="Port" value="5" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/internal_reset_saving_context"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.7">
+                <simulinkRef name="from: internal_reset_saving_context:outport.1 -- to:  SFunction :inport.5" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/internal_reset_saving_context/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.7">
+            <simulinkRef name="shutdown" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="Port" value="6" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/shutdown"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.8">
+                <simulinkRef name="from: shutdown:outport.1 -- to:  SFunction :inport.6" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/shutdown/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.8">
+            <simulinkRef name="trimming" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="Port" value="7" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/trimming"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.9">
+                <simulinkRef name="from: trimming:outport.1 -- to:  SFunction :inport.7" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/trimming/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:TriggerBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.9">
+            <simulinkRef name="CLK" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="OutputDataType" value="auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="ShowOutputPort" value="on" source="DIALOG"/>
+            <properties name="SampleTimeType" value="triggered" source="DIALOG"/>
+            <properties name="StatesWhenEnabling" value="inherit" source="DIALOG"/>
+            <properties name="ZeroCross" value="on" source="DIALOG"/>
+            <properties name="PropagateVarSize" value="During execution" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="TriggerType" value="either" source="DIALOG"/>
+            <properties name="SampleTime" value="1" source="DIALOG"/>
+            <properties name="TriggerSignalSampleTime" value="-1" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/CLK"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.10">
+                <simulinkRef name="from: CLK:outport.1 -- to:  SFunction :inport.8" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/CLK/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="Trigger" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks>
+            <simulinkRef name=" Demux " qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="Outputs" value="1" source="DIALOG"/>
+            <properties name="BusSelectionMode" value="off" source="DIALOG"/>
+            <properties name="DisplayOption" value="none" source="DIALOG"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ Demux "/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.10/@ports.0">
+                <simulinkRef name="from:  Demux :outport.1 -- to:  Terminator :inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ Demux /outport.1"/>
+              </connection>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.0/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ Demux "/>
+            </ports>
+            <sourceBlockRef name="Demux" qualifier="simulink/Signal Routing"/>
+          </subBlocks>
+          <subBlocks>
+            <simulinkRef name=" SFunction " qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="Parameters" value="housekeeping_time,shuttingdown_time,startingup_time" source="DIALOG"/>
+            <properties name="FunctionName" value="sf_sfun" source="DIALOG"/>
+            <properties name="SFunctionModules" value="''" source="DIALOG"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.8/@ports.1">
+                <simulinkRef name="from:  SFunction :outport.1 -- to:  Demux :inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction /outport.1"/>
+              </connection>
+            </ports>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+              <connection xsi:type="simulink:SingleConnection" lineName="rtos_enable" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.11/@ports.0">
+                <simulinkRef name="from:  SFunction :outport.2 -- to: rtos_enable:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction /outport.2"/>
+              </connection>
+            </ports>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.3" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+              <connection xsi:type="simulink:SingleConnection" lineName="context" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.12/@ports.0">
+                <simulinkRef name="from:  SFunction :outport.3 -- to: context:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction /outport.3"/>
+              </connection>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.0/@ports.0/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.1/@ports.0/@connection">
+              <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.2/@ports.0/@connection">
+              <simulinkRef name="inport.3" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.3/@ports.0/@connection">
+              <simulinkRef name="inport.4" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.4/@ports.0/@connection">
+              <simulinkRef name="inport.5" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.5/@ports.0/@connection">
+              <simulinkRef name="inport.6" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.6/@ports.0/@connection">
+              <simulinkRef name="inport.7" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.7/@ports.0/@connection">
+              <simulinkRef name="inport.8" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ SFunction "/>
+            </ports>
+            <sourceBlockRef name="Tapped Delay" qualifier="simulink/Discrete"/>
+          </subBlocks>
+          <subBlocks>
+            <simulinkRef name=" Terminator " qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.8/@ports.0/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/ Terminator "/>
+            </ports>
+            <sourceBlockRef name="Terminator" qualifier="simulink/Sinks"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.0">
+            <simulinkRef name="rtos_enable" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="InitialOutput" value="[]" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+            <properties name="Port" value="1" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.1/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/rtos_enable"/>
+            </ports>
+            <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.1">
+            <simulinkRef name="context" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="InitialOutput" value="[]" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+            <properties name="Port" value="2" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@subBlocks.9/@ports.2/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/CPU/context"/>
+            </ports>
+            <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="AND" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.5">
+              <simulinkRef name="from: Logical Operator:outport.1 -- to: CPU:inport.4" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.9/@ports.0/@connection/@connections.0">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.3/@ports.0/@connection">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator1" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="NOT" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator1"/>
+            <connection xsi:type="simulink:MultiConnection" lineName="">
+              <simulinkRef name="from: Logical Operator1:outport.1 -- to: Logical Operator:inport.1 ; Logical Operator2:inport.1 ; Logical Operator3:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator1/outport.1"/>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.8/@ports.1">
+                <simulinkRef name="from: Logical Operator1:outport.1 -- to: Logical Operator:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator1/outport.1"/>
+              </connections>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.10/@ports.1">
+                <simulinkRef name="from: Logical Operator1:outport.1 -- to: Logical Operator2:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator1/outport.1"/>
+              </connections>
+              <connections to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.11/@ports.1">
+                <simulinkRef name="from: Logical Operator1:outport.1 -- to: Logical Operator3:inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator1/outport.1"/>
+              </connections>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.2/@ports.0/@connection/@connections.0">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator1"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator2" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="AND" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator2"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.6">
+              <simulinkRef name="from: Logical Operator2:outport.1 -- to: CPU:inport.5" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator2/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.9/@ports.0/@connection/@connections.1">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator2"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.4/@ports.0/@connection">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator2"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator3" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="AND" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator3"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.7">
+              <simulinkRef name="from: Logical Operator3:outport.1 -- to: CPU:inport.6" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator3/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.9/@ports.0/@connection/@connections.2">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator3"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.5/@ports.0/@connection">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Logical Operator3"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Pulse Generator" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="Period" value="2" source="DIALOG"/>
+          <properties name="TimeSource" value="Use simulation time" source="DIALOG"/>
+          <properties name="Amplitude" value="1" source="DIALOG"/>
+          <properties name="PulseType" value="Sample based" source="DIALOG"/>
+          <properties name="PulseWidth" value="1" source="DIALOG"/>
+          <properties name="SampleTime" value="Ts" source="DIALOG"/>
+          <properties name="VectorParams1D" value="on" source="DIALOG"/>
+          <properties name="PhaseDelay" value="0" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Pulse Generator"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.9">
+              <simulinkRef name="from: Pulse Generator:outport.1 -- to: CPU:inport.8" qualifier="complex_with_stateflow/CPU/Platform/CPU States/Pulse Generator/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="Pulse Generator" qualifier="simulink/Sources"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.0">
+          <simulinkRef name="rtos_enable" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="InitialOutput" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+          <properties name="Port" value="1" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/rtos_enable"/>
+          </ports>
+          <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.1">
+          <simulinkRef name="context" qualifier="complex_with_stateflow/CPU/Platform/CPU States"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="InitialOutput" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+          <properties name="Port" value="2" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@subBlocks.7/@ports.1/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/CPU States/context"/>
+          </ports>
+          <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:SubSystem" tag="">
+        <simulinkRef name="Power Validity" qualifier="complex_with_stateflow/CPU/Platform"/>
+        <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
+        <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
+        <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
+        <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
+        <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
+        <properties name="ErrorFcn" value="" source="DIALOG"/>
+        <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
+        <properties name="MemberBlocks" value="" source="DIALOG"/>
+        <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
+        <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
+        <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
+        <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
+        <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
+        <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
+        <properties name="ActiveVariant" value="" source="DIALOG"/>
+        <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
+        <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
+        <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
+        <properties name="RTWFcnName" value="" source="DIALOG"/>
+        <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
+        <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
+        <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
+        <properties name="BlockChoice" value="" source="DIALOG"/>
+        <properties name="RTWFileName" value="" source="DIALOG"/>
+        <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
+        <properties name="TemplateBlock" value="" source="DIALOG"/>
+        <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
+        <properties name="Variant" value="off" source="DIALOG"/>
+        <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.5">
+          <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity"/>
+          <connection xsi:type="simulink:MultiConnection" lineName="">
+            <simulinkRef name="from: Power Validity:outport.1 -- to: CPU Faults:inport.1 ; CPU States:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/outport.1"/>
+            <connections to="//@contains.0/@subBlocks.5/@subBlocks.4/@ports.3">
+              <simulinkRef name="from: Power Validity:outport.1 -- to: CPU Faults:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/outport.1"/>
+            </connections>
+            <connections to="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.2">
+              <simulinkRef name="from: Power Validity:outport.1 -- to: CPU States:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/outport.1"/>
+            </connections>
+          </connection>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.0" connection="//@contains.0/@subBlocks.5/@subBlocks.0/@ports.0/@connection">
+          <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity"/>
+        </ports>
+        <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.6/@ports.1">
+          <simulinkRef name="In" qualifier="complex_with_stateflow/CPU/Platform/Power Validity"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="1" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/In"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@ports.2">
+              <simulinkRef name="from: In:outport.1 -- to: Voltage Monitor:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/In/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Data Type Conversion" qualifier="complex_with_stateflow/CPU/Platform/Power Validity"/>
+          <properties name="SaturateOnIntegerOverflow" value="off" source="DIALOG"/>
+          <properties name="RndMeth" value="Floor" source="DIALOG"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="ConvertRealWorld" value="Real World Value (RWV)" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="double" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Data Type Conversion"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.5/@ports.0">
+              <simulinkRef name="from: Data Type Conversion:outport.1 -- to: Out:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Data Type Conversion/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.3/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Data Type Conversion"/>
+          </ports>
+          <sourceBlockRef name="Data Type Conversion" qualifier="simulink/Signal Attributes"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator" qualifier="complex_with_stateflow/CPU/Platform/Power Validity"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="OR" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Logical Operator"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.3/@ports.1">
+              <simulinkRef name="from: Logical Operator:outport.1 -- to: Logical Operator6:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Logical Operator/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Logical Operator"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@ports.1/@connection">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Logical Operator"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Logical Operator6" qualifier="complex_with_stateflow/CPU/Platform/Power Validity"/>
+          <properties name="AllPortsSameDT" value="off" source="DIALOG"/>
+          <properties name="Operator" value="NOT" source="DIALOG"/>
+          <properties name="IconShape" value="rectangular" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="Inputs" value="2" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Logical Operator6"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.1/@ports.1">
+              <simulinkRef name="from: Logical Operator6:outport.1 -- to: Data Type Conversion:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Logical Operator6/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.2/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Logical Operator6"/>
+          </ports>
+          <sourceBlockRef name="Logical Operator" qualifier="simulink/Logic and Bit Operations"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:SubSystem" tag="">
+          <simulinkRef name="Voltage Monitor" qualifier="complex_with_stateflow/CPU/Platform/Power Validity"/>
+          <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
+          <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
+          <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
+          <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
+          <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
+          <properties name="ErrorFcn" value="" source="DIALOG"/>
+          <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
+          <properties name="MemberBlocks" value="" source="DIALOG"/>
+          <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
+          <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
+          <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
+          <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
+          <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
+          <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
+          <properties name="ActiveVariant" value="" source="DIALOG"/>
+          <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
+          <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
+          <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
+          <properties name="RTWFcnName" value="" source="DIALOG"/>
+          <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
+          <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
+          <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
+          <properties name="BlockChoice" value="" source="DIALOG"/>
+          <properties name="RTWFileName" value="" source="DIALOG"/>
+          <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
+          <properties name="TemplateBlock" value="" source="DIALOG"/>
+          <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
+          <properties name="Variant" value="off" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.3">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.2/@ports.1">
+              <simulinkRef name="from: Voltage Monitor:outport.1 -- to: Logical Operator:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.4">
+            <simulinkRef name="outport.2" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.2/@ports.2">
+              <simulinkRef name="from: Voltage Monitor:outport.2 -- to: Logical Operator:inport.2" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/outport.2"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.0" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.0/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor"/>
+          </ports>
+          <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+          <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@ports.2">
+            <simulinkRef name="power_V" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="Port" value="1" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/power_V"/>
+              <connection xsi:type="simulink:MultiConnection" lineName="">
+                <simulinkRef name="from: power_V:outport.1 -- to: Compare To Constant:inport.1 ; Compare To Constant1:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/power_V/outport.1"/>
+                <connections to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@ports.1">
+                  <simulinkRef name="from: power_V:outport.1 -- to: Compare To Constant:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/power_V/outport.1"/>
+                </connections>
+                <connections to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@ports.1">
+                  <simulinkRef name="from: power_V:outport.1 -- to: Compare To Constant1:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/power_V/outport.1"/>
+                </connections>
+              </connection>
+            </ports>
+            <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:SubSystem" tag="">
+            <simulinkRef name="Compare To Constant" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor"/>
+            <properties name="relop" value=">"/>
+            <properties name="const" value="upper_limit_V"/>
+            <properties name="OutDataTypeStr" value="boolean"/>
+            <properties name="ZeroCross" value="off"/>
+            <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@subBlocks.3">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.3/@ports.0">
+                <simulinkRef name="from: Compare To Constant:outport.1 -- to: over_voltage:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant/outport.1"/>
+              </connection>
+            </ports>
+            <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@subBlocks.0" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.0/@ports.0/@connection/@connections.0">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant"/>
+            </ports>
+            <sourceBlockRef name="Compare To Constant" qualifier="simulink/Logic and Bit Operations"/>
+            <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@ports.1">
+              <simulinkRef name="u" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant"/>
+              <properties name="LockScale" value="off" source="DIALOG"/>
+              <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+              <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+              <properties name="OutMin" value="[]" source="DIALOG"/>
+              <properties name="Interpolate" value="on" source="DIALOG"/>
+              <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+              <properties name="SamplingMode" value="auto" source="DIALOG"/>
+              <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+              <properties name="PortDimensions" value="-1" source="DIALOG"/>
+              <properties name="Port" value="1" source="DIALOG"/>
+              <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+              <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+              <properties name="SignalType" value="auto" source="DIALOG"/>
+              <properties name="OutMax" value="[]" source="DIALOG"/>
+              <properties name="SampleTime" value="-1" source="DIALOG"/>
+              <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+              <properties name="DataType" value="Inherit: auto"/>
+              <properties name="SampleTime" value="-1"/>
+              <ports xsi:type="simulink:OutPort">
+                <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant/u"/>
+                <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@subBlocks.1/@ports.1">
+                  <simulinkRef name="from: u:outport.1 -- to: Compare:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant/u/outport.1"/>
+                </connection>
+              </ports>
+              <sourceBlockRef name="u" qualifier="simulink/Logic and Bit Operations/Compare To Constant"/>
+            </subBlocks>
+            <subBlocks>
+              <simulinkRef name="Compare" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant"/>
+              <properties name="ZeroCross" value="off" source="DIALOG"/>
+              <properties name="InputSameDT" value="on" source="DIALOG"/>
+              <properties name="Operator" value=">" source="DIALOG"/>
+              <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+              <properties name="SampleTime" value="-1" source="DIALOG"/>
+              <ports xsi:type="simulink:OutPort">
+                <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant/Compare"/>
+                <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@subBlocks.3/@ports.0">
+                  <simulinkRef name="from: Compare:outport.1 -- to: y:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant/Compare/outport.1"/>
+                </connection>
+              </ports>
+              <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@subBlocks.0/@ports.0/@connection">
+                <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant/Compare"/>
+              </ports>
+              <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@subBlocks.2/@ports.0/@connection">
+                <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant/Compare"/>
+              </ports>
+              <sourceBlockRef name="Compare" qualifier="simulink/Logic and Bit Operations/Compare To Constant"/>
+            </subBlocks>
+            <subBlocks>
+              <simulinkRef name="Constant" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant"/>
+              <properties name="FramePeriod" value="inf" source="DIALOG"/>
+              <properties name="Value" value="const" source="DIALOG"/>
+              <properties name="LockScale" value="off" source="DIALOG"/>
+              <properties name="OutMin" value="[]" source="DIALOG"/>
+              <properties name="OutMax" value="[]" source="DIALOG"/>
+              <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+              <properties name="OutDataTypeStr" value="Inherit: Inherit via back propagation" source="DIALOG"/>
+              <properties name="SampleTime" value="inf" source="DIALOG"/>
+              <properties name="VectorParams1D" value="on" source="DIALOG"/>
+              <ports xsi:type="simulink:OutPort">
+                <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant/Constant"/>
+                <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@subBlocks.1/@ports.2">
+                  <simulinkRef name="from: Constant:outport.1 -- to: Compare:inport.2" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant/Constant/outport.1"/>
+                </connection>
+              </ports>
+              <sourceBlockRef name="Constant" qualifier="simulink/Logic and Bit Operations/Compare To Constant"/>
+            </subBlocks>
+            <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@ports.0">
+              <simulinkRef name="y" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant"/>
+              <properties name="LockScale" value="off" source="DIALOG"/>
+              <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+              <properties name="OutMin" value="[]" source="DIALOG"/>
+              <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+              <properties name="InitialOutput" value="[]" source="DIALOG"/>
+              <properties name="SamplingMode" value="auto" source="DIALOG"/>
+              <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+              <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+              <properties name="PortDimensions" value="-1" source="DIALOG"/>
+              <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+              <properties name="Port" value="1" source="DIALOG"/>
+              <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+              <properties name="SignalType" value="auto" source="DIALOG"/>
+              <properties name="OutMax" value="[]" source="DIALOG"/>
+              <properties name="SampleTime" value="-1" source="DIALOG"/>
+              <properties name="DataType" value="Inherit: auto"/>
+              <properties name="SampleTime" value="-1"/>
+              <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@subBlocks.1/@ports.0/@connection">
+                <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant/y"/>
+              </ports>
+              <sourceBlockRef name="y" qualifier="simulink/Logic and Bit Operations/Compare To Constant"/>
+            </subBlocks>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:SubSystem" tag="">
+            <simulinkRef name="Compare To Constant1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor"/>
+            <properties name="relop" value="&lt;"/>
+            <properties name="const" value="lower_limit_V"/>
+            <properties name="OutDataTypeStr" value="boolean"/>
+            <properties name="ZeroCross" value="off"/>
+            <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@subBlocks.3">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.4/@ports.0">
+                <simulinkRef name="from: Compare To Constant1:outport.1 -- to: under_voltage:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1/outport.1"/>
+              </connection>
+            </ports>
+            <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@subBlocks.0" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.0/@ports.0/@connection/@connections.1">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1"/>
+            </ports>
+            <sourceBlockRef name="Compare To Constant" qualifier="simulink/Logic and Bit Operations"/>
+            <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@ports.1">
+              <simulinkRef name="u" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1"/>
+              <properties name="LockScale" value="off" source="DIALOG"/>
+              <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+              <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+              <properties name="OutMin" value="[]" source="DIALOG"/>
+              <properties name="Interpolate" value="on" source="DIALOG"/>
+              <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+              <properties name="SamplingMode" value="auto" source="DIALOG"/>
+              <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+              <properties name="PortDimensions" value="-1" source="DIALOG"/>
+              <properties name="Port" value="1" source="DIALOG"/>
+              <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+              <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+              <properties name="SignalType" value="auto" source="DIALOG"/>
+              <properties name="OutMax" value="[]" source="DIALOG"/>
+              <properties name="SampleTime" value="-1" source="DIALOG"/>
+              <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+              <properties name="DataType" value="Inherit: auto"/>
+              <properties name="SampleTime" value="-1"/>
+              <ports xsi:type="simulink:OutPort">
+                <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1/u"/>
+                <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@subBlocks.1/@ports.1">
+                  <simulinkRef name="from: u:outport.1 -- to: Compare:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1/u/outport.1"/>
+                </connection>
+              </ports>
+              <sourceBlockRef name="u" qualifier="simulink/Logic and Bit Operations/Compare To Constant"/>
+            </subBlocks>
+            <subBlocks>
+              <simulinkRef name="Compare" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1"/>
+              <properties name="ZeroCross" value="off" source="DIALOG"/>
+              <properties name="InputSameDT" value="on" source="DIALOG"/>
+              <properties name="Operator" value="&lt;" source="DIALOG"/>
+              <properties name="OutDataTypeStr" value="boolean" source="DIALOG"/>
+              <properties name="SampleTime" value="-1" source="DIALOG"/>
+              <ports xsi:type="simulink:OutPort">
+                <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1/Compare"/>
+                <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@subBlocks.3/@ports.0">
+                  <simulinkRef name="from: Compare:outport.1 -- to: y:inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1/Compare/outport.1"/>
+                </connection>
+              </ports>
+              <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@subBlocks.0/@ports.0/@connection">
+                <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1/Compare"/>
+              </ports>
+              <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@subBlocks.2/@ports.0/@connection">
+                <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1/Compare"/>
+              </ports>
+              <sourceBlockRef name="Compare" qualifier="simulink/Logic and Bit Operations/Compare To Constant"/>
+            </subBlocks>
+            <subBlocks>
+              <simulinkRef name="Constant" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1"/>
+              <properties name="FramePeriod" value="inf" source="DIALOG"/>
+              <properties name="Value" value="const" source="DIALOG"/>
+              <properties name="LockScale" value="off" source="DIALOG"/>
+              <properties name="OutMin" value="[]" source="DIALOG"/>
+              <properties name="OutMax" value="[]" source="DIALOG"/>
+              <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+              <properties name="OutDataTypeStr" value="Inherit: Inherit via back propagation" source="DIALOG"/>
+              <properties name="SampleTime" value="inf" source="DIALOG"/>
+              <properties name="VectorParams1D" value="on" source="DIALOG"/>
+              <ports xsi:type="simulink:OutPort">
+                <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1/Constant"/>
+                <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@subBlocks.1/@ports.2">
+                  <simulinkRef name="from: Constant:outport.1 -- to: Compare:inport.2" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1/Constant/outport.1"/>
+                </connection>
+              </ports>
+              <sourceBlockRef name="Constant" qualifier="simulink/Logic and Bit Operations/Compare To Constant"/>
+            </subBlocks>
+            <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@ports.0">
+              <simulinkRef name="y" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1"/>
+              <properties name="LockScale" value="off" source="DIALOG"/>
+              <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+              <properties name="OutMin" value="[]" source="DIALOG"/>
+              <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+              <properties name="InitialOutput" value="[]" source="DIALOG"/>
+              <properties name="SamplingMode" value="auto" source="DIALOG"/>
+              <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+              <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+              <properties name="PortDimensions" value="-1" source="DIALOG"/>
+              <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+              <properties name="Port" value="1" source="DIALOG"/>
+              <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+              <properties name="SignalType" value="auto" source="DIALOG"/>
+              <properties name="OutMax" value="[]" source="DIALOG"/>
+              <properties name="SampleTime" value="-1" source="DIALOG"/>
+              <properties name="DataType" value="Inherit: auto"/>
+              <properties name="SampleTime" value="-1"/>
+              <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@subBlocks.1/@ports.0/@connection">
+                <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/Compare To Constant1/y"/>
+              </ports>
+              <sourceBlockRef name="y" qualifier="simulink/Logic and Bit Operations/Compare To Constant"/>
+            </subBlocks>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@ports.0">
+            <simulinkRef name="over_voltage" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="InitialOutput" value="[]" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+            <properties name="Port" value="1" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.1/@ports.0/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/over_voltage"/>
+            </ports>
+            <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@ports.1">
+            <simulinkRef name="under_voltage" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="InitialOutput" value="[]" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+            <properties name="Port" value="2" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.4/@subBlocks.2/@ports.0/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Voltage Monitor/under_voltage"/>
+            </ports>
+            <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.6/@ports.0">
+          <simulinkRef name="Out" qualifier="complex_with_stateflow/CPU/Platform/Power Validity"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="InitialOutput" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+          <properties name="Port" value="1" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.6/@subBlocks.1/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/Power Validity/Out"/>
+          </ports>
+          <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:SubSystem" tag="">
+        <simulinkRef name="RTOS" qualifier="complex_with_stateflow/CPU/Platform"/>
+        <properties name="custom_block_type" value="Rtos"/>
+        <properties name="task_quantity" value=""/>
+        <properties name="minor_frame" value=""/>
+        <properties name="minor_frame_info" value=""/>
+        <properties name="minor_frame_quantity" value=""/>
+        <properties name="task_list" value=""/>
+        <properties name="wcetMF" value=""/>
+        <properties name="task_index" value=""/>
+        <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.4">
+          <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS"/>
+          <connection xsi:type="simulink:SingleConnection" lineName="rtos_info" to="//@contains.0/@subBlocks.5/@subBlocks.8/@ports.0">
+            <simulinkRef name="from: RTOS:outport.1 -- to: rtos_info:inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/outport.1"/>
+          </connection>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.0" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.0/@connection">
+          <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS"/>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.1" connection="//@contains.0/@subBlocks.5/@subBlocks.5/@ports.1/@connection">
+          <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/RTOS"/>
+        </ports>
+        <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.7/@ports.1">
+          <simulinkRef name="rtos_enable" qualifier="complex_with_stateflow/CPU/Platform/RTOS"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="1" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/rtos_enable"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@ports.1">
+              <simulinkRef name="from: rtos_enable:outport.1 -- to: RTOS:inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/rtos_enable/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.7/@ports.2">
+          <simulinkRef name="context" qualifier="complex_with_stateflow/CPU/Platform/RTOS"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="2" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/context"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@ports.2">
+              <simulinkRef name="from: context:outport.1 -- to: RTOS:inport.2" qualifier="complex_with_stateflow/CPU/Platform/RTOS/context/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks>
+          <simulinkRef name="Pulse Generator" qualifier="complex_with_stateflow/CPU/Platform/RTOS"/>
+          <properties name="Period" value="2" source="DIALOG"/>
+          <properties name="TimeSource" value="Use simulation time" source="DIALOG"/>
+          <properties name="Amplitude" value="1" source="DIALOG"/>
+          <properties name="PulseType" value="Sample based" source="DIALOG"/>
+          <properties name="PulseWidth" value="1" source="DIALOG"/>
+          <properties name="SampleTime" value="Ts" source="DIALOG"/>
+          <properties name="VectorParams1D" value="on" source="DIALOG"/>
+          <properties name="PhaseDelay" value="0" source="DIALOG"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/Pulse Generator"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@ports.3">
+              <simulinkRef name="from: Pulse Generator:outport.1 -- to: RTOS:inport.3" qualifier="complex_with_stateflow/CPU/Platform/RTOS/Pulse Generator/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="Pulse Generator" qualifier="simulink/Sources"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:SubSystem" tag="">
+          <simulinkRef name="RTOS" qualifier="complex_with_stateflow/CPU/Platform/RTOS"/>
+          <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.6">
+            <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.4/@ports.0">
+              <simulinkRef name="from: RTOS:outport.1 -- to: rtos_info:inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/outport.1"/>
+            </connection>
+          </ports>
+          <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.0" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.0/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+          </ports>
+          <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.1" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.1/@ports.0/@connection">
+            <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+          </ports>
+          <ports xsi:type="simulink:Trigger" portBlock="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.2" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.2/@ports.0/@connection">
+            <simulinkRef name="inport.3" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+          </ports>
+          <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+          <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@ports.1">
+            <simulinkRef name="rtos_enable" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="Port" value="1" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/rtos_enable"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.4/@ports.2">
+                <simulinkRef name="from: rtos_enable:outport.1 -- to:  SFunction :inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/rtos_enable/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@ports.2">
+            <simulinkRef name="context" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="Port" value="2" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/context"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.4/@ports.3">
+                <simulinkRef name="from: context:outport.1 -- to:  SFunction :inport.2" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/context/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:TriggerBlock" port="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@ports.3">
+            <simulinkRef name="CLK" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="Interpolate" value="on" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="OutputDataType" value="auto" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="ShowOutputPort" value="on" source="DIALOG"/>
+            <properties name="SampleTimeType" value="triggered" source="DIALOG"/>
+            <properties name="StatesWhenEnabling" value="inherit" source="DIALOG"/>
+            <properties name="ZeroCross" value="on" source="DIALOG"/>
+            <properties name="PropagateVarSize" value="During execution" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="TriggerType" value="either" source="DIALOG"/>
+            <properties name="SampleTime" value="1" source="DIALOG"/>
+            <properties name="TriggerSignalSampleTime" value="-1" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="1"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/CLK"/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.4/@ports.4">
+                <simulinkRef name="from: CLK:outport.1 -- to:  SFunction :inport.3" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/CLK/outport.1"/>
+              </connection>
+            </ports>
+            <sourceBlockRef name="Trigger" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+          <subBlocks>
+            <simulinkRef name=" Demux " qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+            <properties name="Outputs" value="1" source="DIALOG"/>
+            <properties name="BusSelectionMode" value="off" source="DIALOG"/>
+            <properties name="DisplayOption" value="none" source="DIALOG"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ Demux "/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.5/@ports.0">
+                <simulinkRef name="from:  Demux :outport.1 -- to:  Terminator :inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ Demux /outport.1"/>
+              </connection>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.4/@ports.0/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ Demux "/>
+            </ports>
+            <sourceBlockRef name="Demux" qualifier="simulink/Signal Routing"/>
+          </subBlocks>
+          <subBlocks>
+            <simulinkRef name=" SFunction " qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+            <properties name="Parameters" value="Ts,availabilityIndex,contextIndex,executionIndex,minor_frame,minor_frame_info,minor_frame_quantity,task_quantity" source="DIALOG"/>
+            <properties name="FunctionName" value="sf_sfun" source="DIALOG"/>
+            <properties name="SFunctionModules" value="''" source="DIALOG"/>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ SFunction "/>
+              <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.3/@ports.1">
+                <simulinkRef name="from:  SFunction :outport.1 -- to:  Demux :inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ SFunction /outport.1"/>
+              </connection>
+            </ports>
+            <ports xsi:type="simulink:OutPort">
+              <simulinkRef name="outport.2" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ SFunction "/>
+              <connection xsi:type="simulink:SingleConnection" lineName="rtos_info" to="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.6/@ports.0">
+                <simulinkRef name="from:  SFunction :outport.2 -- to: rtos_info:inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ SFunction /outport.2"/>
+              </connection>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.0/@ports.0/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ SFunction "/>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.1/@ports.0/@connection">
+              <simulinkRef name="inport.2" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ SFunction "/>
+            </ports>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.2/@ports.0/@connection">
+              <simulinkRef name="inport.3" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ SFunction "/>
+            </ports>
+            <sourceBlockRef name="Tapped Delay" qualifier="simulink/Discrete"/>
+          </subBlocks>
+          <subBlocks>
+            <simulinkRef name=" Terminator " qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.3/@ports.0/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/ Terminator "/>
+            </ports>
+            <sourceBlockRef name="Terminator" qualifier="simulink/Sinks"/>
+          </subBlocks>
+          <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@ports.0">
+            <simulinkRef name="rtos_info" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS"/>
+            <properties name="LockScale" value="off" source="DIALOG"/>
+            <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+            <properties name="OutMin" value="[]" source="DIALOG"/>
+            <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+            <properties name="InitialOutput" value="[]" source="DIALOG"/>
+            <properties name="SamplingMode" value="auto" source="DIALOG"/>
+            <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+            <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+            <properties name="PortDimensions" value="-1" source="DIALOG"/>
+            <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+            <properties name="Port" value="1" source="DIALOG"/>
+            <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+            <properties name="SignalType" value="auto" source="DIALOG"/>
+            <properties name="OutMax" value="[]" source="DIALOG"/>
+            <properties name="SampleTime" value="-1" source="DIALOG"/>
+            <properties name="DataType" value="Inherit: auto"/>
+            <properties name="SampleTime" value="-1"/>
+            <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@subBlocks.4/@ports.1/@connection">
+              <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/RTOS/rtos_info"/>
+            </ports>
+            <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+          </subBlocks>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@subBlocks.7/@ports.0">
+          <simulinkRef name="rtos_info" qualifier="complex_with_stateflow/CPU/Platform/RTOS"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="InitialOutput" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+          <properties name="Port" value="1" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@subBlocks.3/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/RTOS/rtos_info"/>
+          </ports>
+          <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.5/@ports.0">
+        <simulinkRef name="rtos_info" qualifier="complex_with_stateflow/CPU/Platform"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="InitialOutput" value="[]" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+        <properties name="Port" value="1" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@subBlocks.7/@ports.0/@connection">
+          <simulinkRef name="inport.1" qualifier="complex_with_stateflow/CPU/Platform/rtos_info"/>
+        </ports>
+        <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+    </subBlocks>
+    <subBlocks>
+      <simulinkRef name="external_reset_CPU" qualifier="complex_with_stateflow/CPU"/>
+      <properties name="FramePeriod" value="inf" source="DIALOG"/>
+      <properties name="Value" value="0" source="DIALOG"/>
+      <properties name="LockScale" value="off" source="DIALOG"/>
+      <properties name="OutMin" value="[]" source="DIALOG"/>
+      <properties name="OutMax" value="[]" source="DIALOG"/>
+      <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+      <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+      <properties name="SampleTime" value="inf" source="DIALOG"/>
+      <properties name="VectorParams1D" value="on" source="DIALOG"/>
+      <ports xsi:type="simulink:OutPort">
+        <simulinkRef name="outport.1" qualifier="complex_with_stateflow/CPU/external_reset_CPU"/>
+        <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@ports.3">
+          <simulinkRef name="from: external_reset_CPU:outport.1 -- to: Platform:inport.3" qualifier="complex_with_stateflow/CPU/external_reset_CPU/outport.1"/>
+        </connection>
+      </ports>
+      <sourceBlockRef name="Constant" qualifier="simulink/Sources"/>
+    </subBlocks>
+  </contains>
+</simulink:SimulinkModel>

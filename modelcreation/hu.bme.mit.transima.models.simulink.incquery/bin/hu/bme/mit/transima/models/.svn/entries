@@ -1,0 +1,35 @@
+10
+
+dir
+1654
+https://svn.inf.mit.bme.hu/projects/transima/trunk/plugins/metamodels/hu.bme.mit.transima.models.simulink.incquery/src/hu/bme/mit/transima/models
+https://svn.inf.mit.bme.hu/projects/transima
+delete
+
+
+2014-05-16T12:36:40.365422Z
+1636
+hegedusa
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+19e8bd08-46e8-4714-ae64-0bc6fb4029db
+
+simulink
+dir
+
+
+
+delete
+

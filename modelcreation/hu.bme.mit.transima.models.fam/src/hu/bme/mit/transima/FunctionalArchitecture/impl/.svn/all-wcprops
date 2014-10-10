@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/projects/transima/!svn/ver/1632/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl
+END
+FunctionalDataImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/projects/transima/!svn/ver/697/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FunctionalDataImpl.java
+END
+FAMSensorImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/projects/transima/!svn/ver/697/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FAMSensorImpl.java
+END
+FAMActuatorImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/projects/transima/!svn/ver/697/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FAMActuatorImpl.java
+END
+FAMTerminatorImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/projects/transima/!svn/ver/697/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FAMTerminatorImpl.java
+END
+FunctionalElementImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/projects/transima/!svn/ver/1632/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FunctionalElementImpl.java
+END
+FunctionImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/projects/transima/!svn/ver/1248/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FunctionImpl.java
+END
+FunctionalInputImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/projects/transima/!svn/ver/697/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FunctionalInputImpl.java
+END
+FunctionalArchitectureModelFactoryImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/projects/transima/!svn/ver/697/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FunctionalArchitectureModelFactoryImpl.java
+END
+FunctionalInterfaceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/projects/transima/!svn/ver/1248/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FunctionalInterfaceImpl.java
+END
+InformationLinkImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/projects/transima/!svn/ver/697/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/InformationLinkImpl.java
+END
+FunctionalOutputImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/projects/transima/!svn/ver/697/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FunctionalOutputImpl.java
+END
+FunctionalArchitectureModelPackageImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/projects/transima/!svn/ver/697/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FunctionalArchitectureModelPackageImpl.java
+END
+FunctionalArchitectureModelImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/projects/transima/!svn/ver/697/trunk/plugins/generated/hu.bme.mit.transima.models.fam/src/hu/bme/mit/transima/FunctionalArchitecture/impl/FunctionalArchitectureModelImpl.java
+END

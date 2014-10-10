@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/projects/transima/!svn/ver/1632/trunk/plugins/generated/hu.bme.mit.transima.models.fam
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/projects/transima/!svn/ver/473/trunk/plugins/generated/hu.bme.mit.transima.models.fam/build.properties
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/projects/transima/!svn/ver/473/trunk/plugins/generated/hu.bme.mit.transima.models.fam/pom.xml
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/projects/transima/!svn/ver/473/trunk/plugins/generated/hu.bme.mit.transima.models.fam/.project
+END
+plugin.xml
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/projects/transima/!svn/ver/1083/trunk/plugins/generated/hu.bme.mit.transima.models.fam/plugin.xml
+END
+plugin.properties
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/projects/transima/!svn/ver/473/trunk/plugins/generated/hu.bme.mit.transima.models.fam/plugin.properties
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/projects/transima/!svn/ver/473/trunk/plugins/generated/hu.bme.mit.transima.models.fam/.classpath
+END

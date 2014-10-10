@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/projects/transima/!svn/ver/1621/trunk/plugins/simulinkapi/hu.bme.mit.transima.simulink.importer.ui/src/hu/bme/mit/transima/simulink/importer/ui/handlers
+END
+AbstractSimulinkHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/projects/transima/!svn/ver/1615/trunk/plugins/simulinkapi/hu.bme.mit.transima.simulink.importer.ui/src/hu/bme/mit/transima/simulink/importer/ui/handlers/AbstractSimulinkHandler.java
+END
+ImportModelHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/projects/transima/!svn/ver/1616/trunk/plugins/simulinkapi/hu.bme.mit.transima.simulink.importer.ui/src/hu/bme/mit/transima/simulink/importer/ui/handlers/ImportModelHandler.java
+END
+ExportModelHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/projects/transima/!svn/ver/1621/trunk/plugins/simulinkapi/hu.bme.mit.transima.simulink.importer.ui/src/hu/bme/mit/transima/simulink/importer/ui/handlers/ExportModelHandler.java
+END

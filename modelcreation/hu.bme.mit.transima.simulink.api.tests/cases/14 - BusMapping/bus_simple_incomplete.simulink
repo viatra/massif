@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Tue Oct 01 11:37:39 2013" file="bus_simple_incomplete.mdl">
+  <simulinkRef name="bus_simple_incomplete"/>
+  <contains xsi:type="simulink:InPortBlock">
+    <simulinkRef name="In1" qualifier="bus_simple_incomplete"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="Interpolate" value="on" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="Port" value="1" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="bus_simple_incomplete/In1"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="bus" to="//@contains.1/@ports.2">
+        <simulinkRef name="from: bus_simple_incomplete/In1/outport:outport.1 -- to: bus_simple_incomplete/Bus Selector/inport:inport.1" qualifier="bus_simple_incomplete/In1/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="In1" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains xsi:type="simulink:BusSelector">
+    <simulinkRef name="Bus Selector" qualifier="bus_simple_incomplete"/>
+    <properties name="OutputAsBus" value="off" source="DIALOG"/>
+    <properties name="OutputSignals" value="s1,s2" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="bus_simple_incomplete/Bus Selector"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="&lt;s1>" to="//@contains.2/@ports.0">
+        <simulinkRef name="from: bus_simple_incomplete/Bus Selector/outport:outport.1 -- to: bus_simple_incomplete/Scope/inport:inport.1" qualifier="bus_simple_incomplete/Bus Selector/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.2" qualifier="bus_simple_incomplete/Bus Selector"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="&lt;s2>" to="//@contains.3/@ports.0">
+        <simulinkRef name="from: bus_simple_incomplete/Bus Selector/outport:outport.2 -- to: bus_simple_incomplete/Scope1/inport:inport.1" qualifier="bus_simple_incomplete/Bus Selector/outport.2"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.0/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="bus_simple_incomplete/Bus Selector"/>
+    </ports>
+    <sourceBlockRef name="Bus&#xA;Selector" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+    <mappings mappingTo="//@contains.1/@ports.0" mappingPath="s1"/>
+    <mappings mappingTo="//@contains.1/@ports.1" mappingPath="s2"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Scope" qualifier="bus_simple_incomplete"/>
+    <properties name="Open" value="off" source="DIALOG"/>
+    <properties name="DataFormat" value="StructureWithTime" source="DIALOG"/>
+    <properties name="MaxDataPoints" value="5000" source="DIALOG"/>
+    <properties name="SaveToWorkspace" value="off" source="DIALOG"/>
+    <properties name="TimeRange" value="auto" source="DIALOG"/>
+    <properties name="TickLabels" value="OneTimeTick" source="DIALOG"/>
+    <properties name="Decimation" value="1" source="DIALOG"/>
+    <properties name="SaveName" value="ScopeData" source="DIALOG"/>
+    <properties name="ZoomMode" value="on" source="DIALOG"/>
+    <properties name="Grid" value="on" source="DIALOG"/>
+    <properties name="NumInputPorts" value="1" source="DIALOG"/>
+    <properties name="YMin" value="-5" source="DIALOG"/>
+    <properties name="SampleInput" value="off" source="DIALOG"/>
+    <properties name="LimitDataPoints" value="on" source="DIALOG"/>
+    <properties name="SampleTime" value="0" source="DIALOG"/>
+    <properties name="YMax" value="5" source="DIALOG"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="bus_simple_incomplete/Scope"/>
+    </ports>
+    <sourceBlockRef name="Scope" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Scope1" qualifier="bus_simple_incomplete"/>
+    <properties name="Open" value="off" source="DIALOG"/>
+    <properties name="DataFormat" value="StructureWithTime" source="DIALOG"/>
+    <properties name="MaxDataPoints" value="5000" source="DIALOG"/>
+    <properties name="SaveToWorkspace" value="off" source="DIALOG"/>
+    <properties name="TimeRange" value="auto" source="DIALOG"/>
+    <properties name="TickLabels" value="OneTimeTick" source="DIALOG"/>
+    <properties name="Decimation" value="1" source="DIALOG"/>
+    <properties name="SaveName" value="ScopeData1" source="DIALOG"/>
+    <properties name="ZoomMode" value="on" source="DIALOG"/>
+    <properties name="Grid" value="on" source="DIALOG"/>
+    <properties name="NumInputPorts" value="1" source="DIALOG"/>
+    <properties name="YMin" value="-5" source="DIALOG"/>
+    <properties name="SampleInput" value="off" source="DIALOG"/>
+    <properties name="LimitDataPoints" value="on" source="DIALOG"/>
+    <properties name="SampleTime" value="0" source="DIALOG"/>
+    <properties name="YMax" value="5" source="DIALOG"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.1/@connection">
+      <simulinkRef name="inport.1" qualifier="bus_simple_incomplete/Scope1"/>
+    </ports>
+    <sourceBlockRef name="Scope" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+</simulink:SimulinkModel>

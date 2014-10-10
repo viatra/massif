@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Sat Mar 09 14:13:38 2013" file="simple_io_ports.mdl">
+  <simulinkRef name="simple_io_ports"/>
+  <contains xsi:type="simulink:InPortBlock">
+    <simulinkRef name="In1" qualifier="simple_io_ports"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="Interpolate" value="on" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="Port" value="1" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="simple_io_ports/In1"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@ports.0">
+        <simulinkRef name="from: In1:outport.1 -- to: Out1:inport.1" qualifier="simple_io_ports/In1/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+  </contains>
+  <contains xsi:type="simulink:OutPortBlock">
+    <simulinkRef name="Out1" qualifier="simple_io_ports"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="InitialOutput" value="[]" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+    <properties name="Port" value="1" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.0/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="simple_io_ports/Out1"/>
+    </ports>
+    <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+  </contains>
+</simulink:SimulinkModel>

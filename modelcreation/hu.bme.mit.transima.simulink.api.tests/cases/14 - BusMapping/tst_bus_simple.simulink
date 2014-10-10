@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Mon Sep 23 21:53:12 2013" file="tst_bus_simple.mdl">
+  <simulinkRef name="tst_bus_simple"/>
+  <contains xsi:type="simulink:BusCreator">
+    <simulinkRef name="Bus Creator" qualifier="tst_bus_simple"/>
+    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="DisplayOption" value="bar" source="DIALOG"/>
+    <properties name="Inputs" value="2" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_simple/Bus Creator"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="b" to="//@contains.1/@ports.2">
+        <simulinkRef name="from: tst_bus_simple/Bus Creator/outport:outport.1 -- to: tst_bus_simple/Bus Selector/inport:inport.1" qualifier="tst_bus_simple/Bus Creator/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.2/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_simple/Bus Creator"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.3/@ports.0/@connection">
+      <simulinkRef name="inport.2" qualifier="tst_bus_simple/Bus Creator"/>
+    </ports>
+    <sourceBlockRef name="Bus&#xA;Creator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains xsi:type="simulink:BusSelector">
+    <simulinkRef name="Bus Selector" qualifier="tst_bus_simple"/>
+    <properties name="OutputAsBus" value="off" source="DIALOG"/>
+    <properties name="OutputSignals" value="s1,s2" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_simple/Bus Selector"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="&lt;s1>" to="//@contains.4/@ports.0">
+        <simulinkRef name="from: tst_bus_simple/Bus Selector/outport:outport.1 -- to: tst_bus_simple/Terminator/inport:inport.1" qualifier="tst_bus_simple/Bus Selector/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.2" qualifier="tst_bus_simple/Bus Selector"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="&lt;s2>" to="//@contains.5/@ports.0">
+        <simulinkRef name="from: tst_bus_simple/Bus Selector/outport:outport.2 -- to: tst_bus_simple/Terminator1/inport:inport.1" qualifier="tst_bus_simple/Bus Selector/outport.2"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.0/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_simple/Bus Selector"/>
+    </ports>
+    <sourceBlockRef name="Bus&#xA;Selector" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+    <mappings mappingFrom="//@contains.2/@ports.0" mappingTo="//@contains.1/@ports.0" mappingPath="s1"/>
+    <mappings mappingFrom="//@contains.3/@ports.0" mappingTo="//@contains.1/@ports.1" mappingPath="s2"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Constant" qualifier="tst_bus_simple"/>
+    <properties name="FramePeriod" value="inf" source="DIALOG"/>
+    <properties name="Value" value="1" source="DIALOG"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+    <properties name="SampleTime" value="inf" source="DIALOG"/>
+    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_simple/Constant"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="s1" to="//@contains.0/@ports.1">
+        <simulinkRef name="from: tst_bus_simple/Constant/outport:outport.1 -- to: tst_bus_simple/Bus Creator/inport:inport.1" qualifier="tst_bus_simple/Constant/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Constant" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Constant1" qualifier="tst_bus_simple"/>
+    <properties name="FramePeriod" value="inf" source="DIALOG"/>
+    <properties name="Value" value="1" source="DIALOG"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+    <properties name="SampleTime" value="inf" source="DIALOG"/>
+    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_simple/Constant1"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="s2" to="//@contains.0/@ports.2">
+        <simulinkRef name="from: tst_bus_simple/Constant1/outport:outport.1 -- to: tst_bus_simple/Bus Creator/inport:inport.2" qualifier="tst_bus_simple/Constant1/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Constant" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Terminator" qualifier="tst_bus_simple"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_simple/Terminator"/>
+    </ports>
+    <sourceBlockRef name="Terminator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Terminator1" qualifier="tst_bus_simple"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.1/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_simple/Terminator1"/>
+    </ports>
+    <sourceBlockRef name="Terminator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+</simulink:SimulinkModel>

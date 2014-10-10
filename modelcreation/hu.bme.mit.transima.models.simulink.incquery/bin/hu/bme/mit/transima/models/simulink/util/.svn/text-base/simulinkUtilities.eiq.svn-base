@@ -1,0 +1,193 @@
+package hu.bme.mit.transima.models.simulink.util
+
+import "http://hu.bme.mit.transima/simulink/1.0"
+
+pattern blockToPort(block, port) {
+	Block.ports(block,port);
+}
+
+pattern portToPortBlock(port, portBlock) {
+	Port.portBlock(port, portBlock);
+}
+
+pattern portConnection(outP, inP, pc) {
+	find simpleConnection(outP, inP, pc);
+} or {
+	find multiConnection(outP, inP, pc);
+}
+
+pattern simpleConnection(outP, inP, pc) {
+	InPort.connection(inP, pc);
+	SingleConnection.from(pc, outP);
+}
+
+pattern multiConnection(outP, inP, pc) {
+	InPort.connection(inP, pc);
+	SingleConnection.parent.from(pc, outP);
+}
+
+pattern lineName(conn, name) {
+	Connection.lineName(conn, name);
+}
+
+pattern gotoConnectedPorts(gotoInPort : InPort, fromOutPort : OutPort) {
+	Goto(GT);
+	find blockToPort(GT, gotoInPort);
+	Goto.fromBlocks(GT, From);
+	find blockToPort(From, fromOutPort);
+}
+
+pattern portBlockInPortToOutPort(inPortOfPBl : InPort, outPort : OutPort) {
+	PortBlock.ports(pBl, inPortOfPBl);
+	find portToPortBlock(outPort, pBl);
+}
+
+pattern inPortToBlockPortOutPort(inPort : InPort, outPortOfPBl : OutPort) {
+	find portToPortBlock(inPort, pBl);
+	PortBlock.ports(pBl, outPortOfPBl);
+}
+
+pattern busSpecificationInPortToOutPort(inportOfBS : InPort, outPortOfBS : OutPort){
+	BusSpecification.ports(BS, inportOfBS);
+	BusSpecification.ports(BS, outPortOfBS);
+}
+
+pattern simpleInPortToInPortConnection(sourceInPort, targetInPort, connection) {
+	find gotoConnectedPorts(sourceInPort, fromOutPort);
+	find portConnection(fromOutPort, targetInPort, connection);
+} or {
+	find inPortToBlockPortOutPort(sourceInPort, plOut);
+	find portConnection(plOut, targetInPort, connection);
+} or {
+	find portBlockInPortToOutPort(sourceInPort, outerOutPort);
+	find portConnection(outerOutPort, targetInPort, connection);
+}
+
+pattern inPortToInPortConnection(sourceInPort, targetInPort) {
+	find simpleInPortToInPortConnection(sourceInPort, targetInPort, _pc);
+} or {
+	find busSpecificationInPortToOutPort(sourceInPort, outPortOfBS);
+	find portConnection(outPortOfBS, targetInPort, _pc);
+}
+pattern simpleOutPortToOutPortConnection(sourceOutPort, targetOutPort, connection) {
+	find portConnection(sourceOutPort, gotoInPort, connection);
+	find gotoConnectedPorts(gotoInPort, targetOutPort);
+} or {
+	find portConnection(sourceOutPort, pBlIn, connection);
+	find portBlockInPortToOutPort(pBlIn, targetOutPort);
+} or {
+	find portConnection(sourceOutPort, inPort, connection);
+	find inPortToBlockPortOutPort(inPort, targetOutPort);
+}
+
+pattern outPortToOutPortConnection(sourceOutPort, targetOutPort) {
+	find simpleOutPortToOutPortConnection(sourceOutPort, targetOutPort, _pc);
+} or {
+	find portConnection(sourceOutPort, busInPort, _pc);
+	find busSpecificationInPortToOutPort(busInPort, targetOutPort);
+}
+
+pattern connectedInPorts(sourceInPort, targetInPort) {
+	find inPortToInPortConnection+(sourceInPort, targetInPort);
+}
+
+pattern simpleConnectedInPort(sourceInPort, targetInPort) {
+	find simpleInPortToInPortConnection(sourceInPort, targetInPort, _pc);
+}
+
+pattern connectedOutPorts(sourceOutPort, targetOutPort) {
+	find outPortToOutPortConnection+(sourceOutPort, targetOutPort);
+}
+
+pattern simpleConnectedOutPort(sourceOutPort, targetOutPort) {
+	find simpleOutPortToOutPortConnection(sourceOutPort, targetOutPort, _pc);
+}
+
+pattern connectedPorts(outP, inP, firstPC) {
+	find portConnection(outP, inP, firstPC);
+} or {
+	find portConnection(outP, innerIP, firstPC);
+	find connectedInPorts(innerIP, inP);
+}
+
+pattern nextOutPortInPath(sourceOutPort, nextOutPort, targetOutPort) {
+	find outPortToOutPortConnection(sourceOutPort, nextOutPort);
+	find connectedOutPorts(nextOutPort, targetOutPort);
+} or {
+	find outPortToOutPortConnection(sourceOutPort, nextOutPort);
+	nextOutPort == targetOutPort;
+}
+
+pattern nextInPortInPath(sourceInPort, nextInPort, targetInPort) {
+	find inPortToInPortConnection(sourceInPort, nextInPort);
+	find connectedInPorts(nextInPort, targetInPort);
+} or {
+	find inPortToInPortConnection(sourceInPort, nextInPort);
+	nextInPort == targetInPort;
+}
+
+pattern busSelector(selector) {
+	BusSelector(selector);
+}
+
+pattern busMappingInSelector(selector, mapping, mappingFrom, mappingTo) {
+	BusSelector.mappings(selector, mapping);
+	BusSignalMapping.mappingFrom(mapping, mappingFrom);
+	BusSignalMapping.mappingTo(mapping, mappingTo);
+}
+
+pattern outportsReachedFromBusSpecification(
+	outPort: OutPort,
+	nextSpec: BusSpecification,
+	endPortBeforeNextSpec: OutPort
+) {
+	find simpleConnectedOutPort+(outPort, endPortBeforeNextSpec);
+	find portConnection(endPortBeforeNextSpec, inPort, _pc);
+	Block.ports(nextSpec, inPort);
+} or {
+	find portConnection(outPort, inPort, _pc);
+	Block.ports(nextSpec, inPort);
+	endPortBeforeNextSpec == outPort;
+}
+
+pattern firstOutPortFromBusSpecification(
+	outPort: OutPort,
+	nextSpec: BusSpecification,
+	endPortBeforeNextSpec: OutPort
+) {
+	find outportsReachedFromBusSpecification(outPort, nextSpec, endPortBeforeNextSpec);
+	neg find simpleConnectedOutPort(_prevOP, outPort);
+}
+
+pattern simulinkReference(SR: SimulinkReference, Name, Qual) = {
+	SimulinkReference.name(SR,Name);
+	SimulinkReference.qualifier(SR,Qual);
+}
+
+pattern referenceQualifier(SR: SimulinkReference, Qual) = {
+	SimulinkReference.qualifier(SR,Qual);
+}
+
+pattern referenceEqual(sourceRef : SimulinkReference, targetRef : SimulinkReference) {
+	find simulinkReference(sourceRef, Name, Qual);
+	find simulinkReference(targetRef, Name, Qual);
+} or {
+	SimulinkReference.name(sourceRef,Name);
+	SimulinkReference.name(targetRef,Name);
+	neg find referenceQualifier(sourceRef, _squal);
+	neg find referenceQualifier(targetRef, _tqual);
+}
+
+pattern childBlockNames(elem : SimulinkElement, child : SimulinkElement, name){
+	SimulinkModel.contains(elem, child);
+	SimulinkElement.name(child, name);
+} or {
+	SubSystem.subBlocks(elem, child);
+	SimulinkElement.name(child, name);
+} or {
+	Block.ports(elem, child);
+	SimulinkElement.name(child, name);
+} or {
+	MultiConnection.connections(child, elem);
+	SimulinkElement.name(child, name);
+}

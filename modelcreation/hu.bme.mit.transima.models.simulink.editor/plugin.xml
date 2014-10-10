@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      
+      <category
+            id="hu.bme.mit.transima.models.emf.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="hu.bme.mit.transima.Simulink.presentation.SimulinkModelWizardID"
+            name="%_UI_SimulinkModelWizard_label"
+            class="hu.bme.mit.transima.Simulink.presentation.SimulinkModelWizard"
+            category="hu.bme.mit.transima.models.emf.Wizard.category.ID"
+            icon="icons/full/obj16/SimulinkModelFile.gif">
+         <description>%_UI_SimulinkModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated simulink -->
+      <editor
+            id="hu.bme.mit.transima.Simulink.presentation.SimulinkEditorID"
+            name="%_UI_SimulinkEditor_label"
+            icon="icons/full/obj16/SimulinkModelFile.gif"
+            extensions="simulink"
+            class="hu.bme.mit.transima.Simulink.presentation.SimulinkEditor"
+            contributorClass="hu.bme.mit.transima.Simulink.presentation.SimulinkActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

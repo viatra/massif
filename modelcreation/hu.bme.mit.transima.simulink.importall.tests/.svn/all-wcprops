@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/projects/transima/!svn/ver/1632/trunk/tests/hu.bme.mit.transima.simulink.importall.tests
+END
+mdls.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/projects/transima/!svn/ver/1440/trunk/tests/hu.bme.mit.transima.simulink.importall.tests/mdls.txt
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/projects/transima/!svn/ver/1406/trunk/tests/hu.bme.mit.transima.simulink.importall.tests/build.properties
+END
+commandserver.properties
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/projects/transima/!svn/ver/1406/trunk/tests/hu.bme.mit.transima.simulink.importall.tests/commandserver.properties
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/projects/transima/!svn/ver/1440/trunk/tests/hu.bme.mit.transima.simulink.importall.tests/pom.xml
+END
+mdlrootdir.properties
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/projects/transima/!svn/ver/1406/trunk/tests/hu.bme.mit.transima.simulink.importall.tests/mdlrootdir.properties
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/projects/transima/!svn/ver/1406/trunk/tests/hu.bme.mit.transima.simulink.importall.tests/.project
+END
+simulinkapitest.properties
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/projects/transima/!svn/ver/1406/trunk/tests/hu.bme.mit.transima.simulink.importall.tests/simulinkapitest.properties
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/projects/transima/!svn/ver/1406/trunk/tests/hu.bme.mit.transima.simulink.importall.tests/.classpath
+END

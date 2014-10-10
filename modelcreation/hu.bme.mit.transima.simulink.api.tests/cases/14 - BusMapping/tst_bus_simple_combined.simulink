@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Mon Sep 23 21:58:08 2013" file="tst_bus_simple_combined.mdl">
+  <simulinkRef name="tst_bus_simple_combined"/>
+  <contains xsi:type="simulink:BusCreator">
+    <simulinkRef name="Bus Creator" qualifier="tst_bus_simple_combined"/>
+    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="DisplayOption" value="bar" source="DIALOG"/>
+    <properties name="Inputs" value="2" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_simple_combined/Bus Creator"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="b_before_goto" to="//@contains.3/@ports.0">
+        <simulinkRef name="from: tst_bus_simple_combined/Bus Creator/outport:outport.1 -- to: tst_bus_simple_combined/Goto/inport:inport.1" qualifier="tst_bus_simple_combined/Bus Creator/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_simple_combined/Bus Creator"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.2/@ports.0/@connection">
+      <simulinkRef name="inport.2" qualifier="tst_bus_simple_combined/Bus Creator"/>
+    </ports>
+    <sourceBlockRef name="Bus&#xA;Creator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Constant" qualifier="tst_bus_simple_combined"/>
+    <properties name="FramePeriod" value="inf" source="DIALOG"/>
+    <properties name="Value" value="1" source="DIALOG"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+    <properties name="SampleTime" value="inf" source="DIALOG"/>
+    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_simple_combined/Constant"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="s1" to="//@contains.0/@ports.1">
+        <simulinkRef name="from: tst_bus_simple_combined/Constant/outport:outport.1 -- to: tst_bus_simple_combined/Bus Creator/inport:inport.1" qualifier="tst_bus_simple_combined/Constant/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Constant" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Constant1" qualifier="tst_bus_simple_combined"/>
+    <properties name="FramePeriod" value="inf" source="DIALOG"/>
+    <properties name="Value" value="1" source="DIALOG"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+    <properties name="SampleTime" value="inf" source="DIALOG"/>
+    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_simple_combined/Constant1"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="s2" to="//@contains.0/@ports.2">
+        <simulinkRef name="from: tst_bus_simple_combined/Constant1/outport:outport.1 -- to: tst_bus_simple_combined/Bus Creator/inport:inport.2" qualifier="tst_bus_simple_combined/Constant1/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Constant" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains xsi:type="simulink:Goto" fromBlocks="//@contains.5/@subBlocks.1" tagVisibility="Scoped" gotoTag="BusGotoTag">
+    <simulinkRef name="Goto" qualifier="tst_bus_simple_combined"/>
+    <properties name="TagVisibility" value="scoped" source="DIALOG"/>
+    <properties name="IconDisplay" value="Tag" source="DIALOG"/>
+    <properties name="GotoTag" value="BusGotoTag" source="DIALOG"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.0/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_simple_combined/Goto"/>
+    </ports>
+    <sourceBlockRef name="Goto" qualifier="simulink/Signal&#xA;Routing"/>
+  </contains>
+  <contains xsi:type="simulink:GotoTagVisibility" gotoBlock="//@contains.3">
+    <simulinkRef name="Goto Tag Visibility" qualifier="tst_bus_simple_combined"/>
+    <properties name="GotoTag" value="BusGotoTag" source="DIALOG"/>
+    <sourceBlockRef name="Goto Tag&#xA;Visibility" qualifier="simulink/Signal&#xA;Routing"/>
+  </contains>
+  <contains xsi:type="simulink:SubSystem" tag="">
+    <simulinkRef name="Subsystem" qualifier="tst_bus_simple_combined"/>
+    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
+    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
+    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
+    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
+    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
+    <properties name="ErrorFcn" value="" source="DIALOG"/>
+    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
+    <properties name="MemberBlocks" value="" source="DIALOG"/>
+    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
+    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
+    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
+    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
+    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
+    <properties name="VariantObject" value="" source="DIALOG"/>
+    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
+    <properties name="ActiveVariant" value="" source="DIALOG"/>
+    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
+    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
+    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
+    <properties name="RTWFcnName" value="" source="DIALOG"/>
+    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
+    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
+    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
+    <properties name="BlockChoice" value="" source="DIALOG"/>
+    <properties name="RTWFileName" value="" source="DIALOG"/>
+    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
+    <properties name="TemplateBlock" value="" source="DIALOG"/>
+    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
+    <properties name="ActiveVariantBlock" value="" source="DIALOG"/>
+    <properties name="Variant" value="off" source="DIALOG"/>
+    <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems"/>
+    <subBlocks xsi:type="simulink:BusSelector">
+      <simulinkRef name="Bus Selector" qualifier="tst_bus_simple_combined/Subsystem"/>
+      <properties name="OutputAsBus" value="off" source="DIALOG"/>
+      <properties name="OutputSignals" value="s1,s2" source="DIALOG"/>
+      <ports xsi:type="simulink:OutPort">
+        <simulinkRef name="outport.1" qualifier="tst_bus_simple_combined/Subsystem/Bus Selector"/>
+        <connection xsi:type="simulink:SingleConnection" lineName="&lt;s1>" to="//@contains.5/@subBlocks.2/@ports.0">
+          <simulinkRef name="from: tst_bus_simple_combined/Subsystem/Bus Selector/outport:outport.1 -- to: tst_bus_simple_combined/Subsystem/Terminator/inport:inport.1" qualifier="tst_bus_simple_combined/Subsystem/Bus Selector/outport.1"/>
+        </connection>
+      </ports>
+      <ports xsi:type="simulink:OutPort">
+        <simulinkRef name="outport.2" qualifier="tst_bus_simple_combined/Subsystem/Bus Selector"/>
+        <connection xsi:type="simulink:SingleConnection" lineName="&lt;s2>" to="//@contains.5/@subBlocks.3/@ports.0">
+          <simulinkRef name="from: tst_bus_simple_combined/Subsystem/Bus Selector/outport:outport.2 -- to: tst_bus_simple_combined/Subsystem/Terminator1/inport:inport.1" qualifier="tst_bus_simple_combined/Subsystem/Bus Selector/outport.2"/>
+        </connection>
+      </ports>
+      <ports xsi:type="simulink:InPort" connection="//@contains.5/@subBlocks.1/@ports.0/@connection">
+        <simulinkRef name="inport.1" qualifier="tst_bus_simple_combined/Subsystem/Bus Selector"/>
+      </ports>
+      <sourceBlockRef name="Bus&#xA;Selector" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+      <mappings mappingFrom="//@contains.1/@ports.0" mappingTo="//@contains.5/@subBlocks.0/@ports.0" mappingPath="s1"/>
+      <mappings mappingFrom="//@contains.2/@ports.0" mappingTo="//@contains.5/@subBlocks.0/@ports.1" mappingPath="s2"/>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:From" gotoBlock="//@contains.3">
+      <simulinkRef name="From" qualifier="tst_bus_simple_combined/Subsystem"/>
+      <properties name="IconDisplay" value="Tag" source="DIALOG"/>
+      <properties name="GotoTag" value="BusGotoTag" source="DIALOG"/>
+      <ports xsi:type="simulink:OutPort">
+        <simulinkRef name="outport.1" qualifier="tst_bus_simple_combined/Subsystem/From"/>
+        <connection xsi:type="simulink:SingleConnection" lineName="b_after_from" to="//@contains.5/@subBlocks.0/@ports.2">
+          <simulinkRef name="from: tst_bus_simple_combined/Subsystem/From/outport:outport.1 -- to: tst_bus_simple_combined/Subsystem/Bus Selector/inport:inport.1" qualifier="tst_bus_simple_combined/Subsystem/From/outport.1"/>
+        </connection>
+      </ports>
+      <sourceBlockRef name="From" qualifier="simulink/Signal&#xA;Routing"/>
+    </subBlocks>
+    <subBlocks>
+      <simulinkRef name="Terminator" qualifier="tst_bus_simple_combined/Subsystem"/>
+      <ports xsi:type="simulink:InPort" connection="//@contains.5/@subBlocks.0/@ports.0/@connection">
+        <simulinkRef name="inport.1" qualifier="tst_bus_simple_combined/Subsystem/Terminator"/>
+      </ports>
+      <sourceBlockRef name="Terminator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+    </subBlocks>
+    <subBlocks>
+      <simulinkRef name="Terminator1" qualifier="tst_bus_simple_combined/Subsystem"/>
+      <ports xsi:type="simulink:InPort" connection="//@contains.5/@subBlocks.0/@ports.1/@connection">
+        <simulinkRef name="inport.1" qualifier="tst_bus_simple_combined/Subsystem/Terminator1"/>
+      </ports>
+      <sourceBlockRef name="Terminator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+    </subBlocks>
+  </contains>
+</simulink:SimulinkModel>

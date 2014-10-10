@@ -1,0 +1,23 @@
+package hu.bme.mit.transima.models.simulink.validation
+
+import "platform:/resource/hu.bme.mit.transima.metamodels/model/simulink/simulink.ecore"
+import hu.bme.mit.transima.models.simulink.util.childBlockNames
+
+@Constraint(severity = "error", location = id,
+	message = "Identifier $id$ must not contain '/'!",
+	targetEditorId = "hu.bme.mit.transima.simulink.ui.editor1"
+)
+pattern identifierNameContainsSlash(id : IdentifierReference) {
+	IdentifierReference.name(id, name);
+	check(name.contains('/'));
+}
+
+@Constraint(severity = "error", location = child,
+	message = "Child $child$ has a sibling in $parent$ with the same name!",
+	targetEditorId = "hu.bme.mit.transima.simulink.ui.editor1"
+)
+pattern clashingChildNames(parent : SimulinkElement, child : SimulinkElement) {
+	find childBlockNames(parent, child, name);
+	find childBlockNames(parent, child2, name);
+	child != child2;
+}

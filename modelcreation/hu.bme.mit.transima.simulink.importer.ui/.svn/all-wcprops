@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/projects/transima/!svn/ver/1635/trunk/plugins/simulinkapi/hu.bme.mit.transima.simulink.importer.ui
+END
+build.properties
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/projects/transima/!svn/ver/475/trunk/plugins/simulinkapi/hu.bme.mit.transima.simulink.importer.ui/build.properties
+END
+pom.xml
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/projects/transima/!svn/ver/475/trunk/plugins/simulinkapi/hu.bme.mit.transima.simulink.importer.ui/pom.xml
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/projects/transima/!svn/ver/1259/trunk/plugins/simulinkapi/hu.bme.mit.transima.simulink.importer.ui/.project
+END
+plugin.xml
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/projects/transima/!svn/ver/1613/trunk/plugins/simulinkapi/hu.bme.mit.transima.simulink.importer.ui/plugin.xml
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/projects/transima/!svn/ver/475/trunk/plugins/simulinkapi/hu.bme.mit.transima.simulink.importer.ui/.classpath
+END

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://hu.bme.mit.transima/simulink/1.0"
+            genModel="platform:/plugin/hu.bme.mit.transima.metamodels/model/simulink/simulink.genmodel"
+            class="hu.bme.mit.transima.Simulink.SimulinkPackage"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Fri Mar 22 15:37:32 2013" file="nested_subsystems.mdl">
+  <simulinkRef name="nested_subsystems"/>
+  <contains xsi:type="simulink:SubSystem" tag="">
+    <simulinkRef name="CPU" qualifier="nested_subsystems"/>
+    <properties name="custom_block_type" value="Cpu"/>
+    <properties name="slot_number" value="0"/>
+    <properties name="fixed_slot" value="off"/>
+    <properties name="lower_limit_V" value="16"/>
+    <properties name="upper_limit_V" value="32"/>
+    <properties name="availabilityIndex" value="1"/>
+    <properties name="executionIndex" value="2"/>
+    <properties name="contextIndex" value="3"/>
+    <properties name="parameters_type" value="Sample based"/>
+    <properties name="startingup_time" value="0"/>
+    <properties name="housekeeping_time" value="0"/>
+    <properties name="shuttingdown_time" value="0"/>
+    <properties name="schedule_tasks" value="off"/>
+    <properties name="show_sched_tbl" value="off"/>
+    <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.2">
+      <simulinkRef name="outport.1" qualifier="nested_subsystems/CPU"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.0">
+      <simulinkRef name="inport.1" qualifier="nested_subsystems/CPU"/>
+    </ports>
+    <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+    <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@ports.1">
+      <simulinkRef name="context" qualifier="nested_subsystems/CPU"/>
+      <properties name="LockScale" value="off" source="DIALOG"/>
+      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+      <properties name="OutMin" value="[]" source="DIALOG"/>
+      <properties name="Interpolate" value="on" source="DIALOG"/>
+      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+      <properties name="SamplingMode" value="auto" source="DIALOG"/>
+      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+      <properties name="PortDimensions" value="-1" source="DIALOG"/>
+      <properties name="Port" value="1" source="DIALOG"/>
+      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+      <properties name="SignalType" value="auto" source="DIALOG"/>
+      <properties name="OutMax" value="[]" source="DIALOG"/>
+      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+      <properties name="DataType" value="Inherit: auto"/>
+      <properties name="SampleTime" value="-1"/>
+      <ports xsi:type="simulink:OutPort">
+        <simulinkRef name="outport.1" qualifier="nested_subsystems/CPU/context"/>
+        <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.1/@ports.1">
+          <simulinkRef name="from: context:outport.1 -- to: Platform:inport.1" qualifier="nested_subsystems/CPU/context/outport.1"/>
+        </connection>
+      </ports>
+      <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:SubSystem" tag="">
+      <simulinkRef name="Platform" qualifier="nested_subsystems/CPU"/>
+      <properties name="custom_block_type" value="Platform"/>
+      <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.1/@subBlocks.2">
+        <simulinkRef name="outport.1" qualifier="nested_subsystems/CPU/Platform"/>
+        <connection xsi:type="simulink:SingleConnection" lineName="rtos_info" to="//@contains.0/@subBlocks.2/@ports.0">
+          <simulinkRef name="from: Platform:outport.1 -- to: rtos_info:inport.1" qualifier="nested_subsystems/CPU/Platform/outport.1"/>
+        </connection>
+      </ports>
+      <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.1/@subBlocks.0" connection="//@contains.0/@subBlocks.0/@ports.0/@connection">
+        <simulinkRef name="inport.1" qualifier="nested_subsystems/CPU/Platform"/>
+      </ports>
+      <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+      <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.1/@ports.1">
+        <simulinkRef name="trimming" qualifier="nested_subsystems/CPU/Platform"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="Interpolate" value="on" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="Port" value="1" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:OutPort">
+          <simulinkRef name="outport.1" qualifier="nested_subsystems/CPU/Platform/trimming"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.1/@subBlocks.1/@ports.1">
+            <simulinkRef name="from: trimming:outport.1 -- to: RTOS:inport.1" qualifier="nested_subsystems/CPU/Platform/trimming/outport.1"/>
+          </connection>
+        </ports>
+        <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:SubSystem" tag="">
+        <simulinkRef name="RTOS" qualifier="nested_subsystems/CPU/Platform"/>
+        <properties name="custom_block_type" value="Rtos"/>
+        <properties name="task_quantity" value=""/>
+        <properties name="minor_frame" value=""/>
+        <properties name="minor_frame_info" value=""/>
+        <properties name="minor_frame_quantity" value=""/>
+        <properties name="task_list" value=""/>
+        <properties name="wcetMF" value=""/>
+        <properties name="task_index" value=""/>
+        <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.1/@subBlocks.1/@subBlocks.1">
+          <simulinkRef name="outport.1" qualifier="nested_subsystems/CPU/Platform/RTOS"/>
+          <connection xsi:type="simulink:SingleConnection" lineName="rtos_info" to="//@contains.0/@subBlocks.1/@subBlocks.2/@ports.0">
+            <simulinkRef name="from: RTOS:outport.1 -- to: rtos_info:inport.1" qualifier="nested_subsystems/CPU/Platform/RTOS/outport.1"/>
+          </connection>
+        </ports>
+        <ports xsi:type="simulink:InPort" portBlock="//@contains.0/@subBlocks.1/@subBlocks.1/@subBlocks.0" connection="//@contains.0/@subBlocks.1/@subBlocks.0/@ports.0/@connection">
+          <simulinkRef name="inport.1" qualifier="nested_subsystems/CPU/Platform/RTOS"/>
+        </ports>
+        <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+        <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@subBlocks.1/@subBlocks.1/@ports.1">
+          <simulinkRef name="context" qualifier="nested_subsystems/CPU/Platform/RTOS"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="Interpolate" value="on" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="Port" value="1" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:OutPort">
+            <simulinkRef name="outport.1" qualifier="nested_subsystems/CPU/Platform/RTOS/context"/>
+            <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.1/@subBlocks.1/@subBlocks.1/@ports.0">
+              <simulinkRef name="from: context:outport.1 -- to: rtos_info:inport.1" qualifier="nested_subsystems/CPU/Platform/RTOS/context/outport.1"/>
+            </connection>
+          </ports>
+          <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+        <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.1/@subBlocks.1/@ports.0">
+          <simulinkRef name="rtos_info" qualifier="nested_subsystems/CPU/Platform/RTOS"/>
+          <properties name="LockScale" value="off" source="DIALOG"/>
+          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+          <properties name="OutMin" value="[]" source="DIALOG"/>
+          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+          <properties name="InitialOutput" value="[]" source="DIALOG"/>
+          <properties name="SamplingMode" value="auto" source="DIALOG"/>
+          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+          <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+          <properties name="PortDimensions" value="-1" source="DIALOG"/>
+          <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+          <properties name="Port" value="1" source="DIALOG"/>
+          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+          <properties name="SignalType" value="auto" source="DIALOG"/>
+          <properties name="OutMax" value="[]" source="DIALOG"/>
+          <properties name="SampleTime" value="-1" source="DIALOG"/>
+          <properties name="DataType" value="Inherit: auto"/>
+          <properties name="SampleTime" value="-1"/>
+          <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.1/@subBlocks.1/@subBlocks.0/@ports.0/@connection">
+            <simulinkRef name="inport.1" qualifier="nested_subsystems/CPU/Platform/RTOS/rtos_info"/>
+          </ports>
+          <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+        </subBlocks>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@subBlocks.1/@ports.0">
+        <simulinkRef name="rtos_info" qualifier="nested_subsystems/CPU/Platform"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="InitialOutput" value="[]" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+        <properties name="Port" value="1" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.1/@subBlocks.1/@ports.0/@connection">
+          <simulinkRef name="inport.1" qualifier="nested_subsystems/CPU/Platform/rtos_info"/>
+        </ports>
+        <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@ports.0">
+      <simulinkRef name="rtos_info" qualifier="nested_subsystems/CPU"/>
+      <properties name="LockScale" value="off" source="DIALOG"/>
+      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+      <properties name="OutMin" value="[]" source="DIALOG"/>
+      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+      <properties name="InitialOutput" value="[]" source="DIALOG"/>
+      <properties name="SamplingMode" value="auto" source="DIALOG"/>
+      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+      <properties name="PortDimensions" value="-1" source="DIALOG"/>
+      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+      <properties name="Port" value="1" source="DIALOG"/>
+      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+      <properties name="SignalType" value="auto" source="DIALOG"/>
+      <properties name="OutMax" value="[]" source="DIALOG"/>
+      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <properties name="DataType" value="Inherit: auto"/>
+      <properties name="SampleTime" value="-1"/>
+      <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.1/@ports.0/@connection">
+        <simulinkRef name="inport.1" qualifier="nested_subsystems/CPU/rtos_info"/>
+      </ports>
+      <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+    </subBlocks>
+  </contains>
+</simulink:SimulinkModel>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Fri May 10 04:12:11 2013" file="export_example.mdl">
+  <simulinkRef name="export_example"/>
+  <contains xsi:type="simulink:InPortBlock">
+    <simulinkRef name="In1" qualifier="export_example"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="export_example/In1"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.5/@ports.1">
+        <simulinkRef name="from: export_example/In1/outport:outport.1 -- to: export_example/Sum1/inport:inport.2" qualifier="export_example/In1/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="In1" qualifier="simulink/Ports &amp;&#xA;Subsystems"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Constant1" qualifier="export_example"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="export_example/Constant1"/>
+      <connection xsi:type="simulink:MultiConnection">
+        <simulinkRef name="from: export_example/Constant1/outport:outport.1 -- to: export_example/Linear Second-Order Actuator/inport:inport.1 ; export_example/Sum1/inport:inport.1" qualifier="export_example/Constant1/outport.1"/>
+        <connections to="//@contains.3/@ports.0">
+          <simulinkRef name="from: export_example/Constant1/outport:outport.1 -- to: export_example/Linear Second-Order Actuator/inport:inport.1" qualifier="export_example/Constant1/outport.1"/>
+        </connections>
+        <connections to="//@contains.5/@ports.0">
+          <simulinkRef name="from: export_example/Constant1/outport:outport.1 -- to: export_example/Sum1/inport:inport.1" qualifier="export_example/Constant1/outport.1"/>
+        </connections>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Constant" qualifier="simulink/Sources"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Integrator" qualifier="export_example"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.5/@ports.2/@connection">
+      <simulinkRef name="inport.1" qualifier="export_example/Integrator"/>
+    </ports>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="export_example/Integrator"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.4/@ports.0">
+        <simulinkRef name="from: export_example/Integrator/outport:outport.1 -- to: export_example/Saturation/inport:inport.1" qualifier="export_example/Integrator/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Integrator" qualifier="simulink/Continuous"/>
+  </contains>
+  <contains xsi:type="simulink:SubSystem" tag="">
+    <simulinkRef name="Linear Second-Order Actuator" qualifier="export_example"/>
+    <properties name="wn_fin" value="1"/>
+    <properties name="z_fin" value="0.3"/>
+    <properties name="fin_act_0" value="0"/>
+    <properties name="fin_act_vel" value="0"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.0/@connection/@connections.0">
+      <simulinkRef name="inport.1" qualifier="export_example/Linear Second-Order Actuator"/>
+    </ports>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="export_example/Linear Second-Order Actuator"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.6/@ports.0">
+        <simulinkRef name="from: export_example/Linear Second-Order Actuator/outport:outport.1 -- to: export_example/Terminator/inport:inport.1" qualifier="export_example/Linear Second-Order Actuator/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Linear Second-Order Actuator" qualifier="aerolibactuator"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Saturation" qualifier="export_example"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.2/@ports.1/@connection">
+      <simulinkRef name="inport.1" qualifier="export_example/Saturation"/>
+    </ports>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="export_example/Saturation"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@ports.0">
+        <simulinkRef name="from: export_example/Saturation/outport:outport.1 -- to: export_example/Out1/inport:inport.1" qualifier="export_example/Saturation/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Saturation" qualifier="simulink/Discontinuities"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Sum1" qualifier="export_example"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.0/@connection/@connections.1">
+      <simulinkRef name="inport.1" qualifier="export_example/Sum1"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.0/@ports.0/@connection">
+      <simulinkRef name="inport.2" qualifier="export_example/Sum1"/>
+    </ports>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="export_example/Sum1"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.2/@ports.0">
+        <simulinkRef name="from: export_example/Sum1/outport:outport.1 -- to: export_example/Integrator/inport:inport.1" qualifier="export_example/Sum1/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Add" qualifier="simulink/Math&#xA;Operations"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Terminator" qualifier="export_example"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.3/@ports.1/@connection">
+      <simulinkRef name="inport.1" qualifier="export_example/Terminator"/>
+    </ports>
+    <sourceBlockRef name="Terminator" qualifier="simulink/Sinks"/>
+  </contains>
+  <contains xsi:type="simulink:OutPortBlock">
+    <simulinkRef name="Out1" qualifier="export_example"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.4/@ports.1/@connection">
+      <simulinkRef name="inport.1" qualifier="export_example/Out1"/>
+    </ports>
+    <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp;&#xA;Subsystems"/>
+  </contains>
+</simulink:SimulinkModel>

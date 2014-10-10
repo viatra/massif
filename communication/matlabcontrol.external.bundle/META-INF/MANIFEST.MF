@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Matlab Control Bundle
+Bundle-SymbolicName: matlabcontrol.external.bundle
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: lib/matlabcontrol-4.0.0.jar,
+ .
+Export-Package: matlabcontrol,
+ matlabcontrol.extensions,
+ matlabcontrol.internal

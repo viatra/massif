@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Fri Mar 08 15:06:11 2013" file="model_multiconnection.mdl">
+  <simulinkRef name="model_multiconnection"/>
+  <contains xsi:type="simulink:InPortBlock">
+    <simulinkRef name="In1" qualifier="model_multiconnection"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="Interpolate" value="on" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="Port" value="1" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="model_multiconnection/In1"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@ports.1">
+        <simulinkRef name="from: In1:outport.1 -- to: FAM Element:inport.1" qualifier="model_multiconnection/In1/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+  </contains>
+  <contains xsi:type="simulink:SubSystem" tag="FAM_Element">
+    <simulinkRef name="FAM Element" qualifier="model_multiconnection"/>
+    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
+    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
+    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
+    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
+    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
+    <properties name="ErrorFcn" value="" source="DIALOG"/>
+    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
+    <properties name="MemberBlocks" value="" source="DIALOG"/>
+    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
+    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
+    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
+    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
+    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
+    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
+    <properties name="ActiveVariant" value="" source="DIALOG"/>
+    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
+    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
+    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
+    <properties name="RTWFcnName" value="" source="DIALOG"/>
+    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
+    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
+    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
+    <properties name="BlockChoice" value="" source="DIALOG"/>
+    <properties name="RTWFileName" value="" source="DIALOG"/>
+    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
+    <properties name="TemplateBlock" value="" source="DIALOG"/>
+    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
+    <properties name="Variant" value="off" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort" portBlock="//@contains.1/@subBlocks.2">
+      <simulinkRef name="outport.1" qualifier="model_multiconnection/FAM Element"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.2/@ports.2">
+        <simulinkRef name="from: FAM Element:outport.1 -- to: Subsystem:inport.1" qualifier="model_multiconnection/FAM Element/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" portBlock="//@contains.1/@subBlocks.0" connection="//@contains.0/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="model_multiconnection/FAM Element"/>
+    </ports>
+    <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+    <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.1/@ports.1">
+      <simulinkRef name="In1" qualifier="model_multiconnection/FAM Element"/>
+      <properties name="LockScale" value="off" source="DIALOG"/>
+      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+      <properties name="OutMin" value="[]" source="DIALOG"/>
+      <properties name="Interpolate" value="on" source="DIALOG"/>
+      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+      <properties name="SamplingMode" value="auto" source="DIALOG"/>
+      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+      <properties name="PortDimensions" value="-1" source="DIALOG"/>
+      <properties name="Port" value="1" source="DIALOG"/>
+      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+      <properties name="SignalType" value="auto" source="DIALOG"/>
+      <properties name="OutMax" value="[]" source="DIALOG"/>
+      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+      <properties name="DataType" value="Inherit: auto"/>
+      <properties name="SampleTime" value="-1"/>
+      <ports xsi:type="simulink:OutPort">
+        <simulinkRef name="outport.1" qualifier="model_multiconnection/FAM Element/In1"/>
+        <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@subBlocks.1/@ports.1">
+          <simulinkRef name="from: In1:outport.1 -- to: FAM Leaf:inport.1" qualifier="model_multiconnection/FAM Element/In1/outport.1"/>
+        </connection>
+      </ports>
+      <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:SubSystem" tag="FAM_Leaf">
+      <simulinkRef name="FAM Leaf" qualifier="model_multiconnection/FAM Element"/>
+      <properties name="reqId" value=""/>
+      <properties name="dal" value="A"/>
+      <properties name="mdf" value="0"/>
+      <properties name="functionType" value="0"/>
+      <ports xsi:type="simulink:OutPort" portBlock="//@contains.1/@subBlocks.1/@subBlocks.1">
+        <simulinkRef name="outport.1" qualifier="model_multiconnection/FAM Element/FAM Leaf"/>
+        <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@subBlocks.2/@ports.0">
+          <simulinkRef name="from: FAM Leaf:outport.1 -- to: Out1:inport.1" qualifier="model_multiconnection/FAM Element/FAM Leaf/outport.1"/>
+        </connection>
+      </ports>
+      <ports xsi:type="simulink:InPort" portBlock="//@contains.1/@subBlocks.1/@subBlocks.0" connection="//@contains.1/@subBlocks.0/@ports.0/@connection">
+        <simulinkRef name="inport.1" qualifier="model_multiconnection/FAM Element/FAM Leaf"/>
+      </ports>
+      <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+      <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.1/@subBlocks.1/@ports.1">
+        <simulinkRef name="In1" qualifier="model_multiconnection/FAM Element/FAM Leaf"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="Interpolate" value="on" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="Port" value="1" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:OutPort">
+          <simulinkRef name="outport.1" qualifier="model_multiconnection/FAM Element/FAM Leaf/In1"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@subBlocks.1/@subBlocks.1/@ports.0">
+            <simulinkRef name="from: In1:outport.1 -- to: Out1:inport.1" qualifier="model_multiconnection/FAM Element/FAM Leaf/In1/outport.1"/>
+          </connection>
+        </ports>
+        <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.1/@subBlocks.1/@ports.0">
+        <simulinkRef name="Out1" qualifier="model_multiconnection/FAM Element/FAM Leaf"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="InitialOutput" value="[]" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+        <properties name="Port" value="1" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:InPort" connection="//@contains.1/@subBlocks.1/@subBlocks.0/@ports.0/@connection">
+          <simulinkRef name="inport.1" qualifier="model_multiconnection/FAM Element/FAM Leaf/Out1"/>
+        </ports>
+        <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.1/@ports.0">
+      <simulinkRef name="Out1" qualifier="model_multiconnection/FAM Element"/>
+      <properties name="LockScale" value="off" source="DIALOG"/>
+      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+      <properties name="OutMin" value="[]" source="DIALOG"/>
+      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+      <properties name="InitialOutput" value="[]" source="DIALOG"/>
+      <properties name="SamplingMode" value="auto" source="DIALOG"/>
+      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+      <properties name="PortDimensions" value="-1" source="DIALOG"/>
+      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+      <properties name="Port" value="1" source="DIALOG"/>
+      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+      <properties name="SignalType" value="auto" source="DIALOG"/>
+      <properties name="OutMax" value="[]" source="DIALOG"/>
+      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <properties name="DataType" value="Inherit: auto"/>
+      <properties name="SampleTime" value="-1"/>
+      <ports xsi:type="simulink:InPort" connection="//@contains.1/@subBlocks.1/@ports.0/@connection">
+        <simulinkRef name="inport.1" qualifier="model_multiconnection/FAM Element/Out1"/>
+      </ports>
+      <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+    </subBlocks>
+  </contains>
+  <contains xsi:type="simulink:SubSystem" tag="">
+    <simulinkRef name="Subsystem" qualifier="model_multiconnection"/>
+    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
+    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
+    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
+    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
+    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
+    <properties name="ErrorFcn" value="" source="DIALOG"/>
+    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
+    <properties name="MemberBlocks" value="" source="DIALOG"/>
+    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
+    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
+    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
+    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
+    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
+    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
+    <properties name="ActiveVariant" value="" source="DIALOG"/>
+    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
+    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
+    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
+    <properties name="RTWFcnName" value="" source="DIALOG"/>
+    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
+    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
+    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
+    <properties name="BlockChoice" value="" source="DIALOG"/>
+    <properties name="RTWFileName" value="" source="DIALOG"/>
+    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
+    <properties name="TemplateBlock" value="" source="DIALOG"/>
+    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
+    <properties name="Variant" value="off" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort" portBlock="//@contains.2/@subBlocks.3">
+      <simulinkRef name="outport.1" qualifier="model_multiconnection/Subsystem"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.3/@ports.0">
+        <simulinkRef name="from: Subsystem:outport.1 -- to: Out4:inport.1" qualifier="model_multiconnection/Subsystem/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:OutPort" portBlock="//@contains.2/@subBlocks.4">
+      <simulinkRef name="outport.2" qualifier="model_multiconnection/Subsystem"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.4/@ports.0">
+        <simulinkRef name="from: Subsystem:outport.2 -- to: Out5:inport.1" qualifier="model_multiconnection/Subsystem/outport.2"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" portBlock="//@contains.2/@subBlocks.0" connection="//@contains.1/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="model_multiconnection/Subsystem"/>
+    </ports>
+    <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+    <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.2/@ports.2">
+      <simulinkRef name="In2" qualifier="model_multiconnection/Subsystem"/>
+      <properties name="LockScale" value="off" source="DIALOG"/>
+      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+      <properties name="OutMin" value="[]" source="DIALOG"/>
+      <properties name="Interpolate" value="on" source="DIALOG"/>
+      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+      <properties name="SamplingMode" value="auto" source="DIALOG"/>
+      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+      <properties name="PortDimensions" value="-1" source="DIALOG"/>
+      <properties name="Port" value="1" source="DIALOG"/>
+      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+      <properties name="SignalType" value="auto" source="DIALOG"/>
+      <properties name="OutMax" value="[]" source="DIALOG"/>
+      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+      <properties name="DataType" value="Inherit: auto"/>
+      <properties name="SampleTime" value="-1"/>
+      <ports xsi:type="simulink:OutPort">
+        <simulinkRef name="outport.1" qualifier="model_multiconnection/Subsystem/In2"/>
+        <connection xsi:type="simulink:MultiConnection" lineName="">
+          <simulinkRef name="from: In2:outport.1 -- to: Subsystem2:inport.1 ; Subsystem1:inport.1" qualifier="model_multiconnection/Subsystem/In2/outport.1"/>
+          <connections to="//@contains.2/@subBlocks.2/@ports.1">
+            <simulinkRef name="from: In2:outport.1 -- to: Subsystem2:inport.1" qualifier="model_multiconnection/Subsystem/In2/outport.1"/>
+          </connections>
+          <connections to="//@contains.2/@subBlocks.1/@ports.1">
+            <simulinkRef name="from: In2:outport.1 -- to: Subsystem1:inport.1" qualifier="model_multiconnection/Subsystem/In2/outport.1"/>
+          </connections>
+        </connection>
+      </ports>
+      <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:SubSystem" tag="">
+      <simulinkRef name="Subsystem1" qualifier="model_multiconnection/Subsystem"/>
+      <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
+      <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
+      <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
+      <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
+      <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
+      <properties name="ErrorFcn" value="" source="DIALOG"/>
+      <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
+      <properties name="MemberBlocks" value="" source="DIALOG"/>
+      <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
+      <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
+      <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
+      <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
+      <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
+      <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
+      <properties name="ActiveVariant" value="" source="DIALOG"/>
+      <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
+      <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
+      <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
+      <properties name="RTWFcnName" value="" source="DIALOG"/>
+      <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
+      <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
+      <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
+      <properties name="BlockChoice" value="" source="DIALOG"/>
+      <properties name="RTWFileName" value="" source="DIALOG"/>
+      <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
+      <properties name="TemplateBlock" value="" source="DIALOG"/>
+      <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
+      <properties name="Variant" value="off" source="DIALOG"/>
+      <ports xsi:type="simulink:OutPort" portBlock="//@contains.2/@subBlocks.1/@subBlocks.1">
+        <simulinkRef name="outport.1" qualifier="model_multiconnection/Subsystem/Subsystem1"/>
+        <connection xsi:type="simulink:SingleConnection" to="//@contains.2/@subBlocks.3/@ports.0">
+          <simulinkRef name="from: Subsystem1:outport.1 -- to: Out2:inport.1" qualifier="model_multiconnection/Subsystem/Subsystem1/outport.1"/>
+        </connection>
+      </ports>
+      <ports xsi:type="simulink:InPort" portBlock="//@contains.2/@subBlocks.1/@subBlocks.0" connection="//@contains.2/@subBlocks.0/@ports.0/@connection/@connections.1">
+        <simulinkRef name="inport.1" qualifier="model_multiconnection/Subsystem/Subsystem1"/>
+      </ports>
+      <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+      <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.2/@subBlocks.1/@ports.1">
+        <simulinkRef name="In3" qualifier="model_multiconnection/Subsystem/Subsystem1"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="Interpolate" value="on" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="Port" value="1" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:OutPort">
+          <simulinkRef name="outport.1" qualifier="model_multiconnection/Subsystem/Subsystem1/In3"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.2/@subBlocks.1/@subBlocks.1/@ports.0">
+            <simulinkRef name="from: In3:outport.1 -- to: Out3:inport.1" qualifier="model_multiconnection/Subsystem/Subsystem1/In3/outport.1"/>
+          </connection>
+        </ports>
+        <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.2/@subBlocks.1/@ports.0">
+        <simulinkRef name="Out3" qualifier="model_multiconnection/Subsystem/Subsystem1"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="InitialOutput" value="[]" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+        <properties name="Port" value="1" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:InPort" connection="//@contains.2/@subBlocks.1/@subBlocks.0/@ports.0/@connection">
+          <simulinkRef name="inport.1" qualifier="model_multiconnection/Subsystem/Subsystem1/Out3"/>
+        </ports>
+        <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:SubSystem" tag="">
+      <simulinkRef name="Subsystem2" qualifier="model_multiconnection/Subsystem"/>
+      <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
+      <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
+      <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
+      <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
+      <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
+      <properties name="ErrorFcn" value="" source="DIALOG"/>
+      <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
+      <properties name="MemberBlocks" value="" source="DIALOG"/>
+      <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
+      <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
+      <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
+      <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
+      <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
+      <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
+      <properties name="ActiveVariant" value="" source="DIALOG"/>
+      <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
+      <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
+      <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
+      <properties name="RTWFcnName" value="" source="DIALOG"/>
+      <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
+      <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
+      <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
+      <properties name="BlockChoice" value="" source="DIALOG"/>
+      <properties name="RTWFileName" value="" source="DIALOG"/>
+      <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
+      <properties name="TemplateBlock" value="" source="DIALOG"/>
+      <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
+      <properties name="Variant" value="off" source="DIALOG"/>
+      <ports xsi:type="simulink:OutPort" portBlock="//@contains.2/@subBlocks.2/@subBlocks.1">
+        <simulinkRef name="outport.1" qualifier="model_multiconnection/Subsystem/Subsystem2"/>
+        <connection xsi:type="simulink:SingleConnection" to="//@contains.2/@subBlocks.4/@ports.0">
+          <simulinkRef name="from: Subsystem2:outport.1 -- to: Out3:inport.1" qualifier="model_multiconnection/Subsystem/Subsystem2/outport.1"/>
+        </connection>
+      </ports>
+      <ports xsi:type="simulink:InPort" portBlock="//@contains.2/@subBlocks.2/@subBlocks.0" connection="//@contains.2/@subBlocks.0/@ports.0/@connection/@connections.0">
+        <simulinkRef name="inport.1" qualifier="model_multiconnection/Subsystem/Subsystem2"/>
+      </ports>
+      <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
+      <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.2/@subBlocks.2/@ports.1">
+        <simulinkRef name="In5" qualifier="model_multiconnection/Subsystem/Subsystem2"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="Interpolate" value="on" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="Port" value="1" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:OutPort">
+          <simulinkRef name="outport.1" qualifier="model_multiconnection/Subsystem/Subsystem2/In5"/>
+          <connection xsi:type="simulink:SingleConnection" to="//@contains.2/@subBlocks.2/@subBlocks.1/@ports.0">
+            <simulinkRef name="from: In5:outport.1 -- to: Out5:inport.1" qualifier="model_multiconnection/Subsystem/Subsystem2/In5/outport.1"/>
+          </connection>
+        </ports>
+        <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+      <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.2/@subBlocks.2/@ports.0">
+        <simulinkRef name="Out5" qualifier="model_multiconnection/Subsystem/Subsystem2"/>
+        <properties name="LockScale" value="off" source="DIALOG"/>
+        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+        <properties name="OutMin" value="[]" source="DIALOG"/>
+        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+        <properties name="InitialOutput" value="[]" source="DIALOG"/>
+        <properties name="SamplingMode" value="auto" source="DIALOG"/>
+        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+        <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+        <properties name="PortDimensions" value="-1" source="DIALOG"/>
+        <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+        <properties name="Port" value="1" source="DIALOG"/>
+        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+        <properties name="SignalType" value="auto" source="DIALOG"/>
+        <properties name="OutMax" value="[]" source="DIALOG"/>
+        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <properties name="DataType" value="Inherit: auto"/>
+        <properties name="SampleTime" value="-1"/>
+        <ports xsi:type="simulink:InPort" connection="//@contains.2/@subBlocks.2/@subBlocks.0/@ports.0/@connection">
+          <simulinkRef name="inport.1" qualifier="model_multiconnection/Subsystem/Subsystem2/Out5"/>
+        </ports>
+        <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+      </subBlocks>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.2/@ports.0">
+      <simulinkRef name="Out2" qualifier="model_multiconnection/Subsystem"/>
+      <properties name="LockScale" value="off" source="DIALOG"/>
+      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+      <properties name="OutMin" value="[]" source="DIALOG"/>
+      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+      <properties name="InitialOutput" value="[]" source="DIALOG"/>
+      <properties name="SamplingMode" value="auto" source="DIALOG"/>
+      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+      <properties name="PortDimensions" value="-1" source="DIALOG"/>
+      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+      <properties name="Port" value="1" source="DIALOG"/>
+      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+      <properties name="SignalType" value="auto" source="DIALOG"/>
+      <properties name="OutMax" value="[]" source="DIALOG"/>
+      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <properties name="DataType" value="Inherit: auto"/>
+      <properties name="SampleTime" value="-1"/>
+      <ports xsi:type="simulink:InPort" connection="//@contains.2/@subBlocks.1/@ports.0/@connection">
+        <simulinkRef name="inport.1" qualifier="model_multiconnection/Subsystem/Out2"/>
+      </ports>
+      <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+    </subBlocks>
+    <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.2/@ports.1">
+      <simulinkRef name="Out3" qualifier="model_multiconnection/Subsystem"/>
+      <properties name="LockScale" value="off" source="DIALOG"/>
+      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+      <properties name="OutMin" value="[]" source="DIALOG"/>
+      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+      <properties name="InitialOutput" value="[]" source="DIALOG"/>
+      <properties name="SamplingMode" value="auto" source="DIALOG"/>
+      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+      <properties name="PortDimensions" value="-1" source="DIALOG"/>
+      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+      <properties name="Port" value="2" source="DIALOG"/>
+      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+      <properties name="SignalType" value="auto" source="DIALOG"/>
+      <properties name="OutMax" value="[]" source="DIALOG"/>
+      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <properties name="DataType" value="Inherit: auto"/>
+      <properties name="SampleTime" value="-1"/>
+      <ports xsi:type="simulink:InPort" connection="//@contains.2/@subBlocks.2/@ports.0/@connection">
+        <simulinkRef name="inport.1" qualifier="model_multiconnection/Subsystem/Out3"/>
+      </ports>
+      <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+    </subBlocks>
+  </contains>
+  <contains xsi:type="simulink:OutPortBlock">
+    <simulinkRef name="Out4" qualifier="model_multiconnection"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="InitialOutput" value="[]" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+    <properties name="Port" value="1" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.2/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="model_multiconnection/Out4"/>
+    </ports>
+    <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+  </contains>
+  <contains xsi:type="simulink:OutPortBlock">
+    <simulinkRef name="Out5" qualifier="model_multiconnection"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="InitialOutput" value="[]" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+    <properties name="Port" value="2" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.2/@ports.1/@connection">
+      <simulinkRef name="inport.1" qualifier="model_multiconnection/Out5"/>
+    </ports>
+    <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+  </contains>
+</simulink:SimulinkModel>

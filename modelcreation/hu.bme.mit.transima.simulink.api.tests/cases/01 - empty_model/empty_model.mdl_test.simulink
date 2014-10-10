@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Sat Mar 09 10:51:12 2013" file="empty_model.mdl">
+  <simulinkRef name="empty_model"/>
+</simulink:SimulinkModel>

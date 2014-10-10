@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Sat Mar 09 10:58:19 2013" file="simple_integrator.mdl">
+  <simulinkRef name="simple_integrator"/>
+  <contains xsi:type="simulink:InPortBlock">
+    <simulinkRef name="In1" qualifier="simple_integrator"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="Interpolate" value="on" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="Port" value="1" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="simple_integrator/In1"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.9/@ports.1">
+        <simulinkRef name="from: In1:outport.1 -- to: Sum:inport.1" qualifier="simple_integrator/In1/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+  </contains>
+  <contains xsi:type="simulink:InPortBlock">
+    <simulinkRef name="In2" qualifier="simple_integrator"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="Interpolate" value="on" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="Port" value="2" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="simple_integrator/In2"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.9/@ports.2">
+        <simulinkRef name="from: In2:outport.1 -- to: Sum:inport.2" qualifier="simple_integrator/In2/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+  </contains>
+  <contains xsi:type="simulink:InPortBlock">
+    <simulinkRef name="In3" qualifier="simple_integrator"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="Interpolate" value="on" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="Port" value="3" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="simple_integrator/In3"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.9/@ports.4">
+        <simulinkRef name="from: In3:outport.1 -- to: Sum:inport.4" qualifier="simple_integrator/In3/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+  </contains>
+  <contains xsi:type="simulink:InPortBlock">
+    <simulinkRef name="In4" qualifier="simple_integrator"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="Interpolate" value="on" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="Port" value="4" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="simple_integrator/In4"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.9/@ports.5">
+        <simulinkRef name="from: In4:outport.1 -- to: Sum:inport.5" qualifier="simple_integrator/In4/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="In1" qualifier="simulink/Ports &amp; Subsystems"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Constant" qualifier="simple_integrator"/>
+    <properties name="FramePeriod" value="inf" source="DIALOG"/>
+    <properties name="Value" value="1" source="DIALOG"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+    <properties name="SampleTime" value="inf" source="DIALOG"/>
+    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="simple_integrator/Constant"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="constant" to="//@contains.9/@ports.3">
+        <simulinkRef name="from: Constant:outport.1 -- to: Sum:inport.3" qualifier="simple_integrator/Constant/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Constant" qualifier="simulink/Sources"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Discrete-Time Integrator" qualifier="simple_integrator"/>
+    <properties name="SaturateOnIntegerOverflow" value="off" source="DIALOG"/>
+    <properties name="ShowSaturationPort" value="off" source="DIALOG"/>
+    <properties name="gainval" value="1.0" source="DIALOG"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="LimitOutput" value="off" source="DIALOG"/>
+    <properties name="ShowStatePort" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="StateIdentifier" value="" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: Inherit via internal rule" source="DIALOG"/>
+    <properties name="StateMustResolveToSignalObject" value="off" source="DIALOG"/>
+    <properties name="IgnoreLimit" value="off" source="DIALOG"/>
+    <properties name="LowerSaturationLimit" value="-inf" source="DIALOG"/>
+    <properties name="RndMeth" value="Floor" source="DIALOG"/>
+    <properties name="UpperSaturationLimit" value="inf" source="DIALOG"/>
+    <properties name="InitialConditionMode" value="State and output" source="DIALOG"/>
+    <properties name="InitialCondition" value="0" source="DIALOG"/>
+    <properties name="InitialConditionSource" value="internal" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="0.1" source="DIALOG"/>
+    <properties name="RTWStateStorageClass" value="Auto" source="DIALOG"/>
+    <properties name="RTWStateStorageTypeQualifier" value="" source="DIALOG"/>
+    <properties name="IntegratorMethod" value="Integration: Forward Euler" source="DIALOG"/>
+    <properties name="ExternalReset" value="none" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="simple_integrator/Discrete-Time Integrator"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@ports.1">
+        <simulinkRef name="from: Discrete-Time Integrator:outport.1 -- to: Mux:inport.1" qualifier="simple_integrator/Discrete-Time Integrator/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.9/@ports.0/@connection/@connections.0">
+      <simulinkRef name="inport.1" qualifier="simple_integrator/Discrete-Time Integrator"/>
+    </ports>
+    <sourceBlockRef name="Discrete-Time Integrator" qualifier="simulink/Discrete"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Integrator" qualifier="simple_integrator"/>
+    <properties name="ShowSaturationPort" value="off" source="DIALOG"/>
+    <properties name="LowerSaturationLimit" value="-inf" source="DIALOG"/>
+    <properties name="ZeroCross" value="on" source="DIALOG"/>
+    <properties name="UpperSaturationLimit" value="inf" source="DIALOG"/>
+    <properties name="LimitOutput" value="off" source="DIALOG"/>
+    <properties name="InitialCondition" value="0" source="DIALOG"/>
+    <properties name="ShowStatePort" value="off" source="DIALOG"/>
+    <properties name="ContinuousStateAttributes" value="''" source="DIALOG"/>
+    <properties name="InitialConditionSource" value="internal" source="DIALOG"/>
+    <properties name="AbsoluteTolerance" value="auto" source="DIALOG"/>
+    <properties name="IgnoreLimit" value="off" source="DIALOG"/>
+    <properties name="ExternalReset" value="none" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="simple_integrator/Integrator"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@ports.2">
+        <simulinkRef name="from: Integrator:outport.1 -- to: Mux:inport.2" qualifier="simple_integrator/Integrator/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.9/@ports.0/@connection/@connections.1">
+      <simulinkRef name="inport.1" qualifier="simple_integrator/Integrator"/>
+    </ports>
+    <sourceBlockRef name="Integrator" qualifier="simulink/Continuous"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Mux" qualifier="simple_integrator"/>
+    <properties name="DisplayOption" value="bar" source="DIALOG"/>
+    <properties name="Inputs" value="2" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="simple_integrator/Mux"/>
+      <connection xsi:type="simulink:MultiConnection" lineName="">
+        <simulinkRef name="from: Mux:outport.1 -- to: Out1:inport.1 ; Scope:inport.1" qualifier="simple_integrator/Mux/outport.1"/>
+        <connections to="//@contains.10/@ports.0">
+          <simulinkRef name="from: Mux:outport.1 -- to: Out1:inport.1" qualifier="simple_integrator/Mux/outport.1"/>
+        </connections>
+        <connections to="//@contains.8/@ports.0">
+          <simulinkRef name="from: Mux:outport.1 -- to: Scope:inport.1" qualifier="simple_integrator/Mux/outport.1"/>
+        </connections>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.5/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="simple_integrator/Mux"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.6/@ports.0/@connection">
+      <simulinkRef name="inport.2" qualifier="simple_integrator/Mux"/>
+    </ports>
+    <sourceBlockRef name="Mux" qualifier="simulink/Signal Routing"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Scope" qualifier="simple_integrator"/>
+    <properties name="Open" value="off" source="DIALOG"/>
+    <properties name="DataFormat" value="StructureWithTime" source="DIALOG"/>
+    <properties name="MaxDataPoints" value="5000" source="DIALOG"/>
+    <properties name="SaveToWorkspace" value="off" source="DIALOG"/>
+    <properties name="TimeRange" value="auto" source="DIALOG"/>
+    <properties name="TickLabels" value="OneTimeTick" source="DIALOG"/>
+    <properties name="Decimation" value="1" source="DIALOG"/>
+    <properties name="SaveName" value="ScopeData" source="DIALOG"/>
+    <properties name="ZoomMode" value="yonly" source="DIALOG"/>
+    <properties name="Grid" value="on" source="DIALOG"/>
+    <properties name="NumInputPorts" value="1" source="DIALOG"/>
+    <properties name="YMin" value="-5" source="DIALOG"/>
+    <properties name="SampleInput" value="off" source="DIALOG"/>
+    <properties name="LimitDataPoints" value="off" source="DIALOG"/>
+    <properties name="SampleTime" value="0" source="DIALOG"/>
+    <properties name="YMax" value="5" source="DIALOG"/>
+    <properties name="floating" value="off"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.7/@ports.0/@connection/@connections.1">
+      <simulinkRef name="inport.1" qualifier="simple_integrator/Scope"/>
+    </ports>
+    <sourceBlockRef name="Floating Scope" qualifier="simulink/Sinks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Sum" qualifier="simple_integrator"/>
+    <properties name="CollapseDim" value="1" source="DIALOG"/>
+    <properties name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" source="DIALOG"/>
+    <properties name="SaturateOnIntegerOverflow" value="off" source="DIALOG"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="CollapseMode" value="All dimensions" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: Inherit via internal rule" source="DIALOG"/>
+    <properties name="Inputs" value="+++++" source="DIALOG"/>
+    <properties name="RndMeth" value="Floor" source="DIALOG"/>
+    <properties name="InputSameDT" value="off" source="DIALOG"/>
+    <properties name="IconShape" value="round" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="simple_integrator/Sum"/>
+      <connection xsi:type="simulink:MultiConnection" lineName="">
+        <simulinkRef name="from: Sum:outport.1 -- to: Discrete-Time Integrator:inport.1 ; Integrator:inport.1" qualifier="simple_integrator/Sum/outport.1"/>
+        <connections to="//@contains.5/@ports.1">
+          <simulinkRef name="from: Sum:outport.1 -- to: Discrete-Time Integrator:inport.1" qualifier="simple_integrator/Sum/outport.1"/>
+        </connections>
+        <connections to="//@contains.6/@ports.1">
+          <simulinkRef name="from: Sum:outport.1 -- to: Integrator:inport.1" qualifier="simple_integrator/Sum/outport.1"/>
+        </connections>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.0/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="simple_integrator/Sum"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.0/@connection">
+      <simulinkRef name="inport.2" qualifier="simple_integrator/Sum"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.4/@ports.0/@connection">
+      <simulinkRef name="inport.3" qualifier="simple_integrator/Sum"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.2/@ports.0/@connection">
+      <simulinkRef name="inport.4" qualifier="simple_integrator/Sum"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.3/@ports.0/@connection">
+      <simulinkRef name="inport.5" qualifier="simple_integrator/Sum"/>
+    </ports>
+    <sourceBlockRef name="Add" qualifier="simulink/Math Operations"/>
+  </contains>
+  <contains xsi:type="simulink:OutPortBlock">
+    <simulinkRef name="Out1" qualifier="simple_integrator"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="InitialOutput" value="[]" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
+    <properties name="Port" value="1" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.7/@ports.0/@connection/@connections.0">
+      <simulinkRef name="inport.1" qualifier="simple_integrator/Out1"/>
+    </ports>
+    <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
+  </contains>
+</simulink:SimulinkModel>

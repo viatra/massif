@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="ASCII"?>
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Tue Oct 01 11:40:12 2013" file="tst_bus_complex_incomplete.mdl">
+  <simulinkRef name="tst_bus_complex_incomplete"/>
+  <contains xsi:type="simulink:InPortBlock">
+    <simulinkRef name="In1" qualifier="tst_bus_complex_incomplete"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
+    <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="Interpolate" value="on" source="DIALOG"/>
+    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
+    <properties name="SamplingMode" value="auto" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="PortDimensions" value="-1" source="DIALOG"/>
+    <properties name="Port" value="1" source="DIALOG"/>
+    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
+    <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
+    <properties name="SignalType" value="auto" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
+    <properties name="DataType" value="Inherit: auto"/>
+    <properties name="SampleTime" value="-1"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_complex_incomplete/In1"/>
+      <connection xsi:type="simulink:SingleConnection" to="//@contains.2/@ports.1">
+        <simulinkRef name="from: tst_bus_complex_incomplete/In1/outport:outport.1 -- to: tst_bus_complex_incomplete/Bus Selector/inport:inport.1" qualifier="tst_bus_complex_incomplete/In1/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="In1" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains xsi:type="simulink:BusCreator">
+    <simulinkRef name="Bus Creator1" qualifier="tst_bus_complex_incomplete"/>
+    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
+    <properties name="DisplayOption" value="bar" source="DIALOG"/>
+    <properties name="Inputs" value="2" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_complex_incomplete/Bus Creator1"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="level3_1" to="//@contains.3/@ports.3">
+        <simulinkRef name="from: tst_bus_complex_incomplete/Bus Creator1/outport:outport.1 -- to: tst_bus_complex_incomplete/Bus Selector2/inport:inport.1" qualifier="tst_bus_complex_incomplete/Bus Creator1/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.2/@ports.0/@connection/@connections.1">
+      <simulinkRef name="inport.1" qualifier="tst_bus_complex_incomplete/Bus Creator1"/>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.5/@ports.0/@connection">
+      <simulinkRef name="inport.2" qualifier="tst_bus_complex_incomplete/Bus Creator1"/>
+    </ports>
+    <sourceBlockRef name="Bus&#xA;Creator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains xsi:type="simulink:BusSelector" outputAsBus="true">
+    <simulinkRef name="Bus Selector" qualifier="tst_bus_complex_incomplete"/>
+    <properties name="OutputAsBus" value="on" source="DIALOG"/>
+    <properties name="OutputSignals" value="level0_1,level0_2" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_complex_incomplete/Bus Selector"/>
+      <connection xsi:type="simulink:MultiConnection" lineName="level2_1">
+        <simulinkRef name="from: tst_bus_complex_incomplete/Bus Selector/outport:outport.1 -- to: tst_bus_complex_incomplete/Terminator/inport:inport.1 ; tst_bus_complex_incomplete/Bus Creator1/inport:inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector/outport.1"/>
+        <connections lineName="level2_1" to="//@contains.6/@ports.0">
+          <simulinkRef name="from: tst_bus_complex_incomplete/Bus Selector/outport:outport.1 -- to: tst_bus_complex_incomplete/Terminator/inport:inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector/outport.1"/>
+        </connections>
+        <connections lineName="level2_1" to="//@contains.1/@ports.1">
+          <simulinkRef name="from: tst_bus_complex_incomplete/Bus Selector/outport:outport.1 -- to: tst_bus_complex_incomplete/Bus Creator1/inport:inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector/outport.1"/>
+        </connections>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.0/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector"/>
+    </ports>
+    <sourceBlockRef name="Bus&#xA;Selector" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+    <mappings mappingTo="//@contains.2/@ports.0" mappingPath="level0_1"/>
+    <mappings mappingTo="//@contains.2/@ports.0" mappingPath="level0_2"/>
+  </contains>
+  <contains xsi:type="simulink:BusSelector">
+    <simulinkRef name="Bus Selector2" qualifier="tst_bus_complex_incomplete"/>
+    <properties name="OutputAsBus" value="off" source="DIALOG"/>
+    <properties name="OutputSignals" value="level2_1,level0_4,level2_1.level0_1" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_complex_incomplete/Bus Selector2"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="&lt;level2_1>" to="//@contains.4/@ports.3">
+        <simulinkRef name="from: tst_bus_complex_incomplete/Bus Selector2/outport:outport.1 -- to: tst_bus_complex_incomplete/Bus Selector3/inport:inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector2/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.2" qualifier="tst_bus_complex_incomplete/Bus Selector2"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="&lt;level0_4>" to="//@contains.10/@ports.0">
+        <simulinkRef name="from: tst_bus_complex_incomplete/Bus Selector2/outport:outport.2 -- to: tst_bus_complex_incomplete/Terminator6/inport:inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector2/outport.2"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.3" qualifier="tst_bus_complex_incomplete/Bus Selector2"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="&lt;level0_1>" to="//@contains.11/@ports.0">
+        <simulinkRef name="from: tst_bus_complex_incomplete/Bus Selector2/outport:outport.3 -- to: tst_bus_complex_incomplete/Terminator7/inport:inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector2/outport.3"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector2"/>
+    </ports>
+    <sourceBlockRef name="Bus&#xA;Selector" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+    <mappings mappingTo="//@contains.3/@ports.0" mappingPath="level2_1"/>
+    <mappings mappingTo="//@contains.3/@ports.1" mappingPath="level0_4"/>
+    <mappings mappingTo="//@contains.3/@ports.2" mappingPath="level2_1.level0_1"/>
+  </contains>
+  <contains xsi:type="simulink:BusSelector">
+    <simulinkRef name="Bus Selector3" qualifier="tst_bus_complex_incomplete"/>
+    <properties name="OutputAsBus" value="off" source="DIALOG"/>
+    <properties name="OutputSignals" value="signal1,signal2,signal1" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_complex_incomplete/Bus Selector3"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="&lt;signal1>" to="//@contains.7/@ports.0">
+        <simulinkRef name="from: tst_bus_complex_incomplete/Bus Selector3/outport:outport.1 -- to: tst_bus_complex_incomplete/Terminator3/inport:inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector3/outport.1"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.2" qualifier="tst_bus_complex_incomplete/Bus Selector3"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="&lt;signal2>" to="//@contains.8/@ports.0">
+        <simulinkRef name="from: tst_bus_complex_incomplete/Bus Selector3/outport:outport.2 -- to: tst_bus_complex_incomplete/Terminator4/inport:inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector3/outport.2"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.3" qualifier="tst_bus_complex_incomplete/Bus Selector3"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="&lt;signal1>" to="//@contains.9/@ports.0">
+        <simulinkRef name="from: tst_bus_complex_incomplete/Bus Selector3/outport:outport.3 -- to: tst_bus_complex_incomplete/Terminator5/inport:inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector3/outport.3"/>
+      </connection>
+    </ports>
+    <ports xsi:type="simulink:InPort" connection="//@contains.3/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_complex_incomplete/Bus Selector3"/>
+    </ports>
+    <sourceBlockRef name="Bus&#xA;Selector" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+    <mappings mappingTo="//@contains.4/@ports.0" mappingPath="signal1"/>
+    <mappings mappingTo="//@contains.4/@ports.1" mappingPath="signal2"/>
+    <mappings mappingTo="//@contains.4/@ports.2" mappingPath="signal1"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Constant3" qualifier="tst_bus_complex_incomplete"/>
+    <properties name="FramePeriod" value="inf" source="DIALOG"/>
+    <properties name="Value" value="3" source="DIALOG"/>
+    <properties name="LockScale" value="off" source="DIALOG"/>
+    <properties name="OutMin" value="[]" source="DIALOG"/>
+    <properties name="OutMax" value="[]" source="DIALOG"/>
+    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
+    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
+    <properties name="SampleTime" value="inf" source="DIALOG"/>
+    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <ports xsi:type="simulink:OutPort">
+      <simulinkRef name="outport.1" qualifier="tst_bus_complex_incomplete/Constant3"/>
+      <connection xsi:type="simulink:SingleConnection" lineName="level0_4" to="//@contains.1/@ports.2">
+        <simulinkRef name="from: tst_bus_complex_incomplete/Constant3/outport:outport.1 -- to: tst_bus_complex_incomplete/Bus Creator1/inport:inport.2" qualifier="tst_bus_complex_incomplete/Constant3/outport.1"/>
+      </connection>
+    </ports>
+    <sourceBlockRef name="Constant" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Terminator" qualifier="tst_bus_complex_incomplete"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.2/@ports.0/@connection/@connections.0">
+      <simulinkRef name="inport.1" qualifier="tst_bus_complex_incomplete/Terminator"/>
+    </ports>
+    <sourceBlockRef name="Terminator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Terminator3" qualifier="tst_bus_complex_incomplete"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.4/@ports.0/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_complex_incomplete/Terminator3"/>
+    </ports>
+    <sourceBlockRef name="Terminator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Terminator4" qualifier="tst_bus_complex_incomplete"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.4/@ports.1/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_complex_incomplete/Terminator4"/>
+    </ports>
+    <sourceBlockRef name="Terminator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Terminator5" qualifier="tst_bus_complex_incomplete"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.4/@ports.2/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_complex_incomplete/Terminator5"/>
+    </ports>
+    <sourceBlockRef name="Terminator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Terminator6" qualifier="tst_bus_complex_incomplete"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.3/@ports.1/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_complex_incomplete/Terminator6"/>
+    </ports>
+    <sourceBlockRef name="Terminator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+  <contains>
+    <simulinkRef name="Terminator7" qualifier="tst_bus_complex_incomplete"/>
+    <ports xsi:type="simulink:InPort" connection="//@contains.3/@ports.2/@connection">
+      <simulinkRef name="inport.1" qualifier="tst_bus_complex_incomplete/Terminator7"/>
+    </ports>
+    <sourceBlockRef name="Terminator" qualifier="simulink/Commonly&#xA;Used Blocks"/>
+  </contains>
+</simulink:SimulinkModel>

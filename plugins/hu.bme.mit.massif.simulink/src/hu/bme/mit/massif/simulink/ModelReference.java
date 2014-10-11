@@ -40,8 +40,7 @@ public interface ModelReference extends Block {
 	 * @return the value of the '<em>Referenced Model</em>' reference.
 	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getModelReference_ReferencedModel()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="org.eclipse.viatra2.emf.incquery.derived.feature patternFQN='hu.bme.mit.transima.models.simulink.derived.referencedModel'"
-	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.transima.models.simulink.derived.referencedModel'"
+	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.massif.models.simulink.derived.referencedModel'"
 	 * @generated
 	 */
 	SimulinkModel getReferencedModel();

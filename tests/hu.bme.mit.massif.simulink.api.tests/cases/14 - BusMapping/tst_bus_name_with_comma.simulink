@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Thu Sep 26 17:19:59 2013" file="tst_bus_name_with_comma.mdl">
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.massif/simulink/1.0" version="Thu Sep 26 17:19:59 2013" file="tst_bus_name_with_comma.mdl">
   <simulinkRef name="tst_bus_name_with_comma"/>
   <contains xsi:type="simulink:BusCreator">
     <simulinkRef name="Bus Creator" qualifier="tst_bus_name_with_comma"/>

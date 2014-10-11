@@ -11,7 +11,7 @@ import org.osgi.framework.BundleContext;
 public class MassifCommonPlugin extends Plugin {
 
     // The plug-in ID
-    public static final String PLUGIN_ID = "hu.bme.mit.transima.common"; //$NON-NLS-1$
+    public static final String PLUGIN_ID = "hu.bme.mit.massif.common"; //$NON-NLS-1$
 
     // The shared instance
     private static MassifCommonPlugin plugin;
@@ -34,7 +34,7 @@ public class MassifCommonPlugin extends Plugin {
         super.start(context);
         plugin = this;
         tracerManager = new MassifLog4JTracerManager(context);
-        // tracerManager = new TransIMAOSGITracerManager(context);
+        // tracerManager = new massifOSGITracerManager(context);
 
     }
 

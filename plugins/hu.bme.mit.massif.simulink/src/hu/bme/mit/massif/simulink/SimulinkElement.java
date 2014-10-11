@@ -62,8 +62,7 @@ public interface SimulinkElement extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getSimulinkElement_Name()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="org.eclipse.viatra2.emf.incquery.derived.feature patternFQN='hu.bme.mit.transima.models.simulink.derived.name'"
-	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.transima.models.simulink.derived.name'"
+	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.massif.models.simulink.derived.name'"
 	 * @generated
 	 */
 	String getName();

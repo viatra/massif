@@ -354,7 +354,7 @@ public class Importer {
         IExtensionPoint poi;
 
         if (reg != null) {
-            poi = reg.getExtensionPoint("hu.bme.mit.transima.simulink.api.import.filters");
+            poi = reg.getExtensionPoint("hu.bme.mit.massif.simulink.api.import.filters");
             if (poi != null) {
                 IExtension[] exts = poi.getExtensions();
 

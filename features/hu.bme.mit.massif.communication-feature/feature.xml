@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="hu.bme.mit.massif.matlab.communication"
+      id="hu.bme.mit.massif.communication"
       label="Massif Matlab Communication Feature"
       version="0.4.0.qualifier">
 

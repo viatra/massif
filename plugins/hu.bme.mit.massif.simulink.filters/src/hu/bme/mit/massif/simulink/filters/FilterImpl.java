@@ -8,8 +8,6 @@ import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
 import hu.bme.mit.massif.simulink.api.util.BasicSimulinkEMFOperationsAPI;
 
 import java.util.List;
-//import hu.bme.mit.transima.filtercontribution.internal.Activator;
-//import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 
 /**
  * An example filter class. It filters blocks with mask parameter named "Filter".

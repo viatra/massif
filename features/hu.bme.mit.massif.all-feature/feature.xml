@@ -21,10 +21,6 @@
          version="0.0.0"/>
 
    <includes
-         id="hu.bme.mit.massif.matlab.communication"
-         version="0.0.0"/>
-
-   <includes
          id="hu.bme.mit.massif.matlabcontrol"
          version="0.0.0"/>
 
@@ -38,6 +34,10 @@
 
    <includes
          id="hu.bme.mit.massif.simulink.ui"
+         version="0.0.0"/>
+
+   <includes
+         id="hu.bme.mit.massif.communication"
          version="0.0.0"/>
 
    <plugin

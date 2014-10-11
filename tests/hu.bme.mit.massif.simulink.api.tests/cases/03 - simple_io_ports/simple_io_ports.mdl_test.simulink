@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Sat Mar 09 14:13:38 2013" file="simple_io_ports.mdl">
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.massif/simulink/1.0" version="Sat Mar 09 14:13:38 2013" file="simple_io_ports.mdl">
   <simulinkRef name="simple_io_ports"/>
   <contains xsi:type="simulink:InPortBlock">
     <simulinkRef name="In1" qualifier="simple_io_ports"/>

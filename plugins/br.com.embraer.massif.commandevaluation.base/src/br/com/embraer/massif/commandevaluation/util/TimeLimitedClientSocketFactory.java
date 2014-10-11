@@ -10,7 +10,7 @@ import java.rmi.server.RMIClientSocketFactory;
  * Custom client socket factory that creates time limited sockets. If the given time limit is reached, an exception is
  * thrown indicating the timeout.
  * 
- * @author transima
+ * @author Marton Bur
  * 
  */
 public class TimeLimitedClientSocketFactory implements RMIClientSocketFactory, Serializable {

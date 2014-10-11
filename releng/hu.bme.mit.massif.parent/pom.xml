@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>hu.bme.mit.massif</groupId>
+	<artifactId>hu.bme.mit.massif.parent</artifactId>
+	<version>0.4.0-SNAPSHOT</version>
+	<name>Massif</name>
+	<url></url>
+	<packaging>pom</packaging>
+	<modules>
+		<!-- Target platform -->
+		<module>../../releng/hu.bme.mit.massif.releng</module>
+		
+		<!-- Simulink EMF -->
+		<module>../../plugins/hu.bme.mit.massif.simulink</module>
+		<module>../../plugins/hu.bme.mit.massif.simulink.edit</module>
+		<module>../../plugins/hu.bme.mit.massif.simulink.editor</module>
+		<module>../../plugins/hu.bme.mit.massif.simulink.incquery</module>
+		<module>../../plugins/hu.bme.mit.massif.simulink.incquery.validation</module>
+
+		<!-- Simulink API -->
+		<module>../../plugins/hu.bme.mit.massif.common</module>
+		<module>../../plugins/hu.bme.mit.massif.communication</module>
+		<module>../../plugins/hu.bme.mit.massif.simulink.api</module>
+		<module>../../plugins/hu.bme.mit.massif.simulink.filters</module>
+		<module>../../plugins/hu.bme.mit.massif.simulink.importer.ui</module>
+		
+		<!-- Command evaluation connector -->
+		<module>../../dependencies/matlab.access.external.bundle</module>
+		<module>../../plugins/br.com.embraer.massif.commandevaluation.base</module>
+		<module>../../plugins/br.com.embraer.massif.commandevaluation.server</module>
+		<module>../../plugins/br.com.embraer.massif.commandevaluation.client</module>
+		<module>../../plugins/hu.bme.mit.massif.communication.commandevaluation</module>
+		
+		<!-- MatlabControl connector -->
+		<module>../../dependencies/matlabcontrol.external.bundle</module>
+		<module>../../plugins/hu.bme.mit.massif.communication.matlabcontrol</module>
+		
+		<!-- Features -->
+		<module>../../features/hu.bme.mit.massif.simulink.emf-feature</module>
+		<module>../../features/hu.bme.mit.massif.simulink.api-feature</module>
+		<module>../../features/hu.bme.mit.massif.communication-feature</module>
+		<module>../../features/hu.bme.mit.massif.simulink.ui-feature</module>
+		<module>../../features/hu.bme.mit.massif.matlabcontrol-feature</module>
+		<module>../../features/hu.bme.mit.massif.commandevaluation-feature</module>
+
+		<!-- Update site -->
+		<module>../../releng/hu.bme.mit.massif.site</module>
+		
+		<!-- Maven projects -->
+		<module>../../maven/massif-communication-runtime</module>
+		<module>../../maven/massif-matlabcontrol-runtime</module>
+		<module>../../maven/massif-commandevaluation-runtime</module>
+
+	</modules>
+	<properties>
+		<tycho.version>0.20.0</tycho.version>
+		<xtend.compiler.version>2.6.1</xtend.compiler.version>
+		<incquery.compiler.version>0.8.1-SNAPSHOT</incquery.compiler.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sonar.skippedModules></sonar.skippedModules>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>hu.bme.mit.massif</groupId>
+							<artifactId>hu.bme.mit.massif.releng</artifactId>
+							<version>${project.version}</version>
+							<relativePath>../releng/hu.bme.mit.massif.releng/pom.xml</relativePath>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.xtend</groupId>
+					<artifactId>xtend-maven-plugin</artifactId>
+					<version>${xtend.compiler.version}</version>
+					<configuration>
+						<!-- need to prefix by basedir to generate to currently built module -->
+						<outputDirectory>${basedir}/xtend-gen</outputDirectory>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.5</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>incquery-snapshots</id>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<url>https://repo.eclipse.org/content/repositories/emf-incquery-snapshots/</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<scm>
+		<connection>scm:git:https://git.inf.mit.bme.hu/r/projects/polarsys/simulinkapi.git</connection>
+		<url>https://git.inf.mit.bme.hu/r/projects/polarsys/simulinkapi.git</url>
+	</scm>
+	<ciManagement>
+		<url>https://build.inf.mit.bme.hu/jenkins</url>
+		<system>Jenkins</system>
+	</ciManagement>
+	<!-- <issueManagement>
+		<url>http://trac.inf.mit.bme.hu/massif</url>
+		<system>Trac Issues</system>
+	</issueManagement> -->
+</project>

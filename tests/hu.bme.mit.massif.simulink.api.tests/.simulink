@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.transima/simulink/1.0" version="Wed Oct 09 16:29:50 2013" file="pdm_8_three_processing_units.mdl">
+<simulink:SimulinkModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simulink="http://hu.bme.mit.massif/simulink/1.0" version="Wed Oct 09 16:29:50 2013" file="pdm_8_three_processing_units.mdl">
   <simulinkRef name="pdm_8_three_processing_units"/>
   <contains xsi:type="simulink:InPortBlock">
     <simulinkRef name="In1" qualifier="pdm_8_three_processing_units"/>

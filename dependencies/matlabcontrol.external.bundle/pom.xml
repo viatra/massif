@@ -3,10 +3,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>hu.bme.mit.transima.parent</artifactId>
-    <groupId>hu.bme.mit.transima</groupId>
-    <version>1.0.0-SNAPSHOT</version>
-    <relativePath>../../../releng/hu.bme.mit.transima.parent/pom.xml</relativePath>
+    <artifactId>hu.bme.mit.massif.parent</artifactId>
+    <groupId>hu.bme.mit.massif</groupId>
+    <version>0.4.0-SNAPSHOT</version>
+    <relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
   </parent>
   <artifactId>matlabcontrol.external.bundle</artifactId>
   <packaging>eclipse-plugin</packaging>

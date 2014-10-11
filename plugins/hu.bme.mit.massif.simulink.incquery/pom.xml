@@ -4,12 +4,12 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>hu.bme.mit.transima.parent</artifactId>
-		<groupId>hu.bme.mit.transima</groupId>
+		<artifactId>hu.bme.mit.massif.parent</artifactId>
+		<groupId>hu.bme.mit.massif</groupId>
 		<version>0.4.0-SNAPSHOT</version>
-		<relativePath>../../../releng/hu.bme.mit.transima.parent/pom.xml</relativePath>
+		<relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
 	</parent>
-	<artifactId>hu.bme.mit.massif.models.simulink.incquery</artifactId>
+	<artifactId>hu.bme.mit.massif.simulink.incquery</artifactId>
 	<packaging>eclipse-plugin</packaging>
 	<build>
 		<plugins>
@@ -51,14 +51,14 @@
 					<outputDirectory>src-gen</outputDirectory>
 					<metamodels>
 						<metamodel>
-							<packageClass>hu.bme.mit.transima.Simulink.SimulinkPackage</packageClass>
-							<genmodelUri>../hu.bme.mit.transima.metamodels/model/simulink/simulink.genmodel</genmodelUri>
+							<packageClass>hu.bme.mit.massif.simulink.SimulinkPackage</packageClass>
+							<genmodelUri>../hu.bme.mit.masssif.simulink/model/simulink.genmodel</genmodelUri>
 						</metamodel>
 					</metamodels>
 				</configuration>
 				<dependencies>
 					<dependency>
-						<groupId>hu.bme.mit.transima</groupId>
+						<groupId>hu.bme.mit.massif</groupId>
 						<artifactId>hu.bme.mit.massif.models.simulink</artifactId>
 						<version>${project.version}</version>
 					</dependency>

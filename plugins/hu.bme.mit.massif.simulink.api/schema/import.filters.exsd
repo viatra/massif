@@ -55,7 +55,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":hu.bme.mit.transima.simulink.api.extension.ISimulinkImportFilter"/>
+                  <meta.attribute kind="java" basedOn=":hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter"/>
                </appinfo>
             </annotation>
          </attribute>

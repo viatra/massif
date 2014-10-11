@@ -25,7 +25,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
- * @author transima
+ * @author Abel Hegedus
  * 
  */
 public class ExportModelHandler extends AbstractSimulinkHandler {

@@ -18,9 +18,6 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The value is computed from the name feature of the #{simulink.SimulinkReference} stored in simulinkRef."/>
       </eAnnotations>
-      <eAnnotations source="org.eclipse.viatra2.emf.incquery.derived.feature">
-        <details key="patternFQN" value="hu.bme.mit.transima.models.simulink.derived.name"/>
-      </eAnnotations>
       <eAnnotations source="org.eclipse.incquery.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.name"/>
       </eAnnotations>
@@ -39,9 +36,6 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The values are computed by filtering Trigger ports from the values of the ports feature."/>
       </eAnnotations>
-      <eAnnotations source="org.eclipse.viatra2.emf.incquery.derived.feature">
-        <details key="patternFQN" value="hu.bme.mit.transima.models.simulink.derived.trigger"/>
-      </eAnnotations>
       <eAnnotations source="org.eclipse.incquery.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.trigger"/>
       </eAnnotations>
@@ -50,9 +44,6 @@
         changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The values are computed by filtering Enable ports from the values of the ports feature."/>
-      </eAnnotations>
-      <eAnnotations source="org.eclipse.viatra2.emf.incquery.derived.feature">
-        <details key="patternFQN" value="hu.bme.mit.transima.models.simulink.derived.enabler"/>
       </eAnnotations>
       <eAnnotations source="org.eclipse.incquery.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.enabler"/>
@@ -63,9 +54,6 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The values are computed by filtering Inports from the values of the ports feature."/>
       </eAnnotations>
-      <eAnnotations source="org.eclipse.viatra2.emf.incquery.derived.feature">
-        <details key="patternFQN" value="hu.bme.mit.transima.models.simulink.derived.inports"/>
-      </eAnnotations>
       <eAnnotations source="org.eclipse.incquery.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.inports"/>
       </eAnnotations>
@@ -74,9 +62,6 @@
         eType="#//OutPort" changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The values are computed by filtering Outports from the values of the ports feature."/>
-      </eAnnotations>
-      <eAnnotations source="org.eclipse.viatra2.emf.incquery.derived.feature">
-        <details key="patternFQN" value="hu.bme.mit.transima.models.simulink.derived.outports"/>
       </eAnnotations>
       <eAnnotations source="org.eclipse.incquery.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.outports"/>
@@ -88,9 +73,6 @@
         changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The value of the reference is computed by finding the element with the same name and qualifier as stored in the sourceBlockRef.&#xD;&#xA;&#xD;&#xA;b{Validation}&#xD;&#xA; * WARN: Cannot find block specified by source block reference."/>
-      </eAnnotations>
-      <eAnnotations source="org.eclipse.viatra2.emf.incquery.derived.feature">
-        <details key="patternFQN" value="hu.bme.mit.transima.models.simulink.derived.sourceBlock"/>
       </eAnnotations>
       <eAnnotations source="org.eclipse.incquery.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.sourceBlock"/>
@@ -315,9 +297,6 @@
         changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The value of the reference is computed by finding the model with the same name and qualifier as stored in the modelRef.&#xD;&#xA;&#xD;&#xA;b{Validation}&#xD;&#xA; * WARN: Cannot find model specified by model reference."/>
-      </eAnnotations>
-      <eAnnotations source="org.eclipse.viatra2.emf.incquery.derived.feature">
-        <details key="patternFQN" value="hu.bme.mit.transima.models.simulink.derived.referencedModel"/>
       </eAnnotations>
       <eAnnotations source="org.eclipse.incquery.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.referencedModel"/>

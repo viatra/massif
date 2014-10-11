@@ -21,7 +21,7 @@ import org.osgi.framework.BundleContext;
 public class SimulinkApiPlugin extends Plugin {
 
     // The plug-in ID
-    public static final String PLUGIN_ID = "hu.bme.mit.transima.simulink.api"; //$NON-NLS-1$
+    public static final String PLUGIN_ID = "hu.bme.mit.massif.simulink.api"; //$NON-NLS-1$
 
     // The shared instance
     private static SimulinkApiPlugin plugin;

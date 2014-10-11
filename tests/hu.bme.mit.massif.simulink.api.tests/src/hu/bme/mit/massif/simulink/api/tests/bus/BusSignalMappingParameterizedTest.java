@@ -13,7 +13,7 @@ import org.junit.runners.Parameterized.Parameters;
 @RunWith(value = Parameterized.class)
 public class BusSignalMappingParameterizedTest extends BusSignalMappingBaseTest {
 
-    private static final String BASEPATH = "platform:plugin/hu.bme.mit.transima.simulink.api.tests/cases/14 - BusMapping/";
+    private static final String BASEPATH = "platform:plugin/hu.bme.mit.massif.simulink.api.tests/cases/14 - BusMapping/";
     public BusSignalMappingParameterizedTest(String modelUri) {
         this.modelUri = modelUri;
     }

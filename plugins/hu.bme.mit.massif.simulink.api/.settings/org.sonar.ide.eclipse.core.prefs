@@ -2,6 +2,6 @@ analyseLocally=false
 eclipse.preferences.version=1
 extraProperties=
 lastAnalysisDate=1391139905000
-projectKey=hu.bme.mit.transima\:hu.bme.mit.transima.simulink.api
+projectKey=hu.bme.mit.massif\:hu.bme.mit.massif.simulink.api
 serverUrl=https\://build.inf.mit.bme.hu/sonar
 version=2

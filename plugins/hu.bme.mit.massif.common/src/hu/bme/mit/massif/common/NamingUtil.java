@@ -11,37 +11,37 @@ import com.google.common.base.Strings;
 
 public class NamingUtil {
 
-    public static String getShortNameOfNamedElement(EObject transimaElement) {
+    public static String getShortNameOfNamedElement(EObject massifElement) {
         String result = "";
         /* SIMULINK */
-        if (transimaElement instanceof SimulinkElement) {
-            result = ((SimulinkElement) transimaElement).getName();
-        } else if (transimaElement instanceof Property) {
-            result = ((Property) transimaElement).getName();
-        } else if (transimaElement instanceof BusSignalMapping) {
-            EObject parent = transimaElement.eContainer();
+        if (massifElement instanceof SimulinkElement) {
+            result = ((SimulinkElement) massifElement).getName();
+        } else if (massifElement instanceof Property) {
+            result = ((Property) massifElement).getName();
+        } else if (massifElement instanceof BusSignalMapping) {
+            EObject parent = massifElement.eContainer();
             if (parent instanceof BusSelector) {
                 BusSelector busSelector = (BusSelector) parent;
-                result = "BusSignalMapping " + busSelector.getMappings().indexOf(transimaElement);
+                result = "BusSignalMapping " + busSelector.getMappings().indexOf(massifElement);
             } else {
                 result = "BusSignalMapping";
             }
         } else {
-            result = transimaElement.toString();
+            result = massifElement.toString();
         }
         return Strings.nullToEmpty(result);
     }
 
-    public static String getLongNameOfNamedElement(EObject transimaElement) {
+    public static String getLongNameOfNamedElement(EObject massifElement) {
         String result = "";
-        EObject parent = transimaElement.eContainer();
+        EObject parent = massifElement.eContainer();
         if (!isModel(parent)) {
             result = getLongNameOfNamedElement(parent);
         }
         if ("".equals(result)) {
-            return result.concat(getShortNameOfNamedElement(transimaElement));
+            return result.concat(getShortNameOfNamedElement(massifElement));
         } else {
-            return result.concat("/" + getShortNameOfNamedElement(transimaElement));
+            return result.concat("/" + getShortNameOfNamedElement(massifElement));
         }
     }
 
@@ -50,16 +50,16 @@ public class NamingUtil {
         return isModel;
     }
 
-    public static String getGlobalNameOfNamedElement(EObject transimaElement) {
+    public static String getGlobalNameOfNamedElement(EObject massifElement) {
         String result = "";
-        EObject parent = transimaElement.eContainer();
+        EObject parent = massifElement.eContainer();
         if (parent != null) {
             result = getGlobalNameOfNamedElement(parent);
         }
         if ("".equals(result)) {
-            return result.concat(getShortNameOfNamedElement(transimaElement));
+            return result.concat(getShortNameOfNamedElement(massifElement));
         } else {
-            return result.concat("/" + getShortNameOfNamedElement(transimaElement));
+            return result.concat("/" + getShortNameOfNamedElement(massifElement));
         }
     }
 

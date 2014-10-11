@@ -9,7 +9,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends Plugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "hu.bme.mit.transima.commandevaluatorcontribution"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "hu.bme.mit.massif.communication.matlabcontrol"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;

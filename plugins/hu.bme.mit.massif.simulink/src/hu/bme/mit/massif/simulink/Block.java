@@ -82,8 +82,7 @@ public interface Block extends SimulinkElement {
 	 * @return the value of the '<em>Trigger</em>' reference.
 	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBlock_Trigger()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="org.eclipse.viatra2.emf.incquery.derived.feature patternFQN='hu.bme.mit.transima.models.simulink.derived.trigger'"
-	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.transima.models.simulink.derived.trigger'"
+	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.massif.models.simulink.derived.trigger'"
 	 * @generated
 	 */
 	Trigger getTrigger();
@@ -98,8 +97,7 @@ public interface Block extends SimulinkElement {
 	 * @return the value of the '<em>Enabler</em>' reference.
 	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBlock_Enabler()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="org.eclipse.viatra2.emf.incquery.derived.feature patternFQN='hu.bme.mit.transima.models.simulink.derived.enabler'"
-	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.transima.models.simulink.derived.enabler'"
+	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.massif.models.simulink.derived.enabler'"
 	 * @generated
 	 */
 	Enable getEnabler();
@@ -115,8 +113,7 @@ public interface Block extends SimulinkElement {
 	 * @return the value of the '<em>Inports</em>' reference list.
 	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBlock_Inports()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="org.eclipse.viatra2.emf.incquery.derived.feature patternFQN='hu.bme.mit.transima.models.simulink.derived.inports'"
-	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.transima.models.simulink.derived.inports'"
+	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.massif.models.simulink.derived.inports'"
 	 * @generated
 	 */
 	EList<InPort> getInports();
@@ -132,8 +129,7 @@ public interface Block extends SimulinkElement {
 	 * @return the value of the '<em>Outports</em>' reference list.
 	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBlock_Outports()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="org.eclipse.viatra2.emf.incquery.derived.feature patternFQN='hu.bme.mit.transima.models.simulink.derived.outports'"
-	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.transima.models.simulink.derived.outports'"
+	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.massif.models.simulink.derived.outports'"
 	 * @generated
 	 */
 	EList<OutPort> getOutports();
@@ -179,8 +175,7 @@ public interface Block extends SimulinkElement {
 	 * @return the value of the '<em>Source Block</em>' reference.
 	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBlock_SourceBlock()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="org.eclipse.viatra2.emf.incquery.derived.feature patternFQN='hu.bme.mit.transima.models.simulink.derived.sourceBlock'"
-	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.transima.models.simulink.derived.sourceBlock'"
+	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.massif.models.simulink.derived.sourceBlock'"
 	 * @generated
 	 */
 	Block getSourceBlock();

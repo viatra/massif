@@ -140,11 +140,6 @@ public class ImporterApiTest {
         runTest("simple_integrator", ImportMode.DEEP, new String[] {}, new String[] {});
     }
 
-    /**
-     * This tests <a href="https://trac.inf.mit.bme.hu/transima/ticket/19">ticket 19</a>
-     * 
-     * @throws Exception
-     */
     //@Ignore
     @Test
     public void simpleIOPortsTest() throws Exception {

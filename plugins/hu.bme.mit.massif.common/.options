@@ -1,5 +1,3 @@
-hu.bme.mit.transima.common/debug=true
-hu.bme.mit.transima.common/trace/simulinkapi=false
-hu.bme.mit.transima.common/trace/transformation=false
-hu.bme.mit.transima.common/trace/allocation=false
-hu.bme.mit.transima.common/trace/ui=false
+hu.bme.mit.massif.common/debug=true
+hu.bme.mit.massif.common/trace/simulinkapi=false
+hu.bme.mit.massif.common/trace/ui=false

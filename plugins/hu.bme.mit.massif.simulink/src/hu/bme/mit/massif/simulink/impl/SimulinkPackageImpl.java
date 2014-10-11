@@ -1505,10 +1505,8 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
-		// org.eclipse.viatra2.emf.incquery.derived.feature
-		createOrgAnnotations();
 		// org.eclipse.incquery.querybasedfeature
-		createOrg_1Annotations();
+		createOrgAnnotations();
 	}
 
 	/**
@@ -1528,106 +1526,54 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 	}
 
 	/**
-	 * Initializes the annotations for <b>org.eclipse.viatra2.emf.incquery.derived.feature</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createOrgAnnotations() {
-		String source = "org.eclipse.viatra2.emf.incquery.derived.feature";	
-		addAnnotation
-		  (getSimulinkElement_Name(), 
-		   source, 
-		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.name"
-		   });	
-		addAnnotation
-		  (getBlock_Trigger(), 
-		   source, 
-		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.trigger"
-		   });	
-		addAnnotation
-		  (getBlock_Enabler(), 
-		   source, 
-		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.enabler"
-		   });	
-		addAnnotation
-		  (getBlock_Inports(), 
-		   source, 
-		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.inports"
-		   });	
-		addAnnotation
-		  (getBlock_Outports(), 
-		   source, 
-		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.outports"
-		   });	
-		addAnnotation
-		  (getBlock_SourceBlock(), 
-		   source, 
-		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.sourceBlock"
-		   });	
-		addAnnotation
-		  (getModelReference_ReferencedModel(), 
-		   source, 
-		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.referencedModel"
-		   });
-	}
-
-	/**
 	 * Initializes the annotations for <b>org.eclipse.incquery.querybasedfeature</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createOrg_1Annotations() {
+	protected void createOrgAnnotations() {
 		String source = "org.eclipse.incquery.querybasedfeature";	
 		addAnnotation
 		  (getSimulinkElement_Name(), 
 		   source, 
 		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.name"
+			 "patternFQN", "hu.bme.mit.massif.models.simulink.derived.name"
 		   });	
 		addAnnotation
 		  (getBlock_Trigger(), 
 		   source, 
 		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.trigger"
+			 "patternFQN", "hu.bme.mit.massif.models.simulink.derived.trigger"
 		   });	
 		addAnnotation
 		  (getBlock_Enabler(), 
 		   source, 
 		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.enabler"
+			 "patternFQN", "hu.bme.mit.massif.models.simulink.derived.enabler"
 		   });	
 		addAnnotation
 		  (getBlock_Inports(), 
 		   source, 
 		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.inports"
+			 "patternFQN", "hu.bme.mit.massif.models.simulink.derived.inports"
 		   });	
 		addAnnotation
 		  (getBlock_Outports(), 
 		   source, 
 		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.outports"
+			 "patternFQN", "hu.bme.mit.massif.models.simulink.derived.outports"
 		   });	
 		addAnnotation
 		  (getBlock_SourceBlock(), 
 		   source, 
 		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.sourceBlock"
+			 "patternFQN", "hu.bme.mit.massif.models.simulink.derived.sourceBlock"
 		   });	
 		addAnnotation
 		  (getModelReference_ReferencedModel(), 
 		   source, 
 		   new String[] {
-			 "patternFQN", "hu.bme.mit.transima.models.simulink.derived.referencedModel"
+			 "patternFQN", "hu.bme.mit.massif.models.simulink.derived.referencedModel"
 		   });
 	}
 

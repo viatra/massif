@@ -16,19 +16,29 @@
       [Enter License Description here.]
    </license>
 
-   <plugin
-         id="br.com.embraer.massif.commandevaluation.base"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <includes
+         id="hu.bme.mit.massif.commandevaluation"
+         version="0.0.0"/>
 
-   <plugin
-         id="br.com.embraer.massif.commandevaluation.client"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <includes
+         id="hu.bme.mit.massif.matlab.communication"
+         version="0.0.0"/>
+
+   <includes
+         id="hu.bme.mit.massif.matlabcontrol"
+         version="0.0.0"/>
+
+   <includes
+         id="hu.bme.mit.massif.simulink.api"
+         version="0.0.0"/>
+
+   <includes
+         id="hu.bme.mit.massif.simulink.emf"
+         version="0.0.0"/>
+
+   <includes
+         id="hu.bme.mit.massif.simulink.ui"
+         version="0.0.0"/>
 
    <plugin
          id="br.com.embraer.massif.commandevaluation.server"
@@ -45,62 +55,6 @@
          unpack="false"/>
 
    <plugin
-         id="matlab.access.external.bundle"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="matlabcontrol.external.bundle"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.communication"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.communication.commandevaluation"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.communication.matlabcontrol"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.common"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.simulink"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.simulink.api"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="hu.bme.mit.massif.simulink.api.tests"
          download-size="0"
          install-size="0"
@@ -108,42 +62,7 @@
          unpack="false"/>
 
    <plugin
-         id="hu.bme.mit.massif.simulink.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.simulink.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="hu.bme.mit.massif.simulink.importall.tests"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.simulink.importer.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.simulink.incquery"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.simulink.incquery.validation"
          download-size="0"
          install-size="0"
          version="0.0.0"

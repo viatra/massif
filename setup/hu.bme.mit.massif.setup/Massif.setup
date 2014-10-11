@@ -103,8 +103,14 @@
           <operand
               xsi:type="predicates:NotPredicate">
             <operand
-                xsi:type="predicates:NamePredicate"
-                pattern=".*tests"/>
+                xsi:type="predicates:OrPredicate">
+              <operand
+                  xsi:type="predicates:NamePredicate"
+                  pattern=".*tests"/>
+              <operand
+                  xsi:type="predicates:NamePredicate"
+                  pattern=".*feature"/>
+            </operand>
           </operand>
           <operand
               xsi:type="predicates:OrPredicate">
@@ -124,8 +130,14 @@
           <operand
               xsi:type="predicates:NotPredicate">
             <operand
-                xsi:type="predicates:NamePredicate"
-                pattern=".*tests"/>
+                xsi:type="predicates:OrPredicate">
+              <operand
+                  xsi:type="predicates:NamePredicate"
+                  pattern=".*tests"/>
+              <operand
+                  xsi:type="predicates:NamePredicate"
+                  pattern=".*feature"/>
+            </operand>
           </operand>
           <operand
               xsi:type="predicates:LocationPredicate"
@@ -154,10 +166,10 @@
           name="Massif Release Engineering">
         <predicate
             xsi:type="predicates:LocationPredicate"
-            pattern=".*massif\.setup"/>
+            pattern=".*releng/.*massif.*"/>
         <predicate
             xsi:type="predicates:LocationPredicate"
-            pattern=".*massif\.releng"/>
+            pattern=".*setup/.*massif.*"/>
       </workingSet>
       <workingSet
           name="Massif External Bundles">

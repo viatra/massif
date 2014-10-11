@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/hu.bme.mit.massif.matlab.communication_0.4.0.qualifier.jar" id="hu.bme.mit.massif.matlab.communication" version="0.4.0.qualifier">
+      <category name="hu.bme.mit.massif.core.category"/>
+   </feature>
+   <feature url="features/hu.bme.mit.massif.simulink.api_0.4.0.qualifier.jar" id="hu.bme.mit.massif.simulink.api" version="0.4.0.qualifier">
+      <category name="hu.bme.mit.massif.core.category"/>
+   </feature>
+   <feature url="features/hu.bme.mit.massif.simulink.emf_0.4.0.qualifier.jar" id="hu.bme.mit.massif.simulink.emf" version="0.4.0.qualifier">
+      <category name="hu.bme.mit.massif.core.category"/>
+   </feature>
+   <feature url="features/hu.bme.mit.massif.simulink.ui_0.4.0.qualifier.jar" id="hu.bme.mit.massif.simulink.ui" version="0.4.0.qualifier">
+      <category name="hu.bme.mit.massif.core.category"/>
+   </feature>
+   <feature url="features/hu.bme.mit.massif.commandevaluation_0.4.0.qualifier.jar" id="hu.bme.mit.massif.commandevaluation" version="0.4.0.qualifier">
+      <category name="hu.bme.mit.massif.communication.category"/>
+   </feature>
+   <feature url="features/hu.bme.mit.massif.matlabcontrol_0.4.0.qualifier.jar" id="hu.bme.mit.massif.matlabcontrol" version="0.4.0.qualifier">
+      <category name="hu.bme.mit.massif.communication.category"/>
+   </feature>
+   <category-def name="hu.bme.mit.massif.core.category" label="Massif Core"/>
+   <category-def name="hu.bme.mit.massif.communication.category" label="Massif Matlab Communication Providers"/>
+</site>

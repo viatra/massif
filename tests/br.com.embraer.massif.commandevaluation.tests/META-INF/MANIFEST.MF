@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Trans-IMA Matlab connection Tests
+Bundle-SymbolicName: br.com.embraer.massif.commandevaluation.tests
+Bundle-Version: 0.4.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: br.com.embraer.massif.commandevaluation.client;bundle-version="0.4.0",
+ org.junit

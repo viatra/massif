@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Commandevaluatorcontribution
+Bundle-SymbolicName: hu.bme.mit.massif.communication.matlabcontrol;singleton:=true
+Bundle-Version: 0.4.0.qualifier
+Bundle-Activator: hu.bme.mit.massif.communication.matlabcontrol.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ hu.bme.mit.massif.simulink.api,
+ matlabcontrol.external.bundle;bundle-version="1.0.0",
+ hu.bme.mit.massif.communication;bundle-version="0.4.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: hu.bme.mit.massif.communication.matlabcontrol

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Massif Matlab Connector for Command Evaluation Client
+Bundle-SymbolicName: hu.bme.mit.massif.communication.commandevaluation;singleton:=true
+Bundle-Version: 0.4.0.qualifier
+Bundle-Activator: hu.bme.mit.massif.communication.commandevaluation.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ hu.bme.mit.massif.simulink.api,
+ br.com.embraer.massif.commandevaluation.client;bundle-version="0.4.0",
+ hu.bme.mit.massif.communication;bundle-version="0.4.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: hu.bme.mit.massif.communication.commandevaluation

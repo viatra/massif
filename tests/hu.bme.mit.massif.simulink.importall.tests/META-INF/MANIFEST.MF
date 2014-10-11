@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Import All Models Tests
+Bundle-SymbolicName: hu.bme.mit.massif.simulink.importall.tests
+Bundle-Version: 0.4.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit,
+ hu.bme.mit.massif.simulink.api;bundle-version="0.4.0",
+ hu.bme.mit.massif.communication.commandevaluation;bundle-version="0.4.0",
+ br.com.embraer.massif.commandevaluation.client,
+ hu.bme.mit.massif.communication;bundle-version="0.4.0"

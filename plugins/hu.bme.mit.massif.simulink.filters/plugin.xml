@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="hu.bme.mit.transima.simulink.api.import.filters">
+      <filter
+            filterId="library"
+            filterImplClass="hu.bme.mit.massif.simulink.filters.LibraryFilter">
+      </filter>
+      <filter
+            filterId="default"
+            filterImplClass="hu.bme.mit.massif.simulink.filters.FilterImpl">
+      </filter>
+      <filter
+            filterId="famfilter"
+            filterImplClass="hu.bme.mit.massif.simulink.filters.FAMLeafFilter">
+      </filter>
+   </extension>
+</plugin>

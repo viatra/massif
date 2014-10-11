@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Trans-IMA Matlab connection Client
+Bundle-SymbolicName: br.com.embraer.massif.commandevaluation.client
+Bundle-Version: 0.4.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: br.com.embraer.massif.commandevaluation.base;bundle-version="0.4.0";visibility:=reexport,
+ matlab.access.external.bundle;bundle-version="0.4.0"
+Export-Package: br.com.embraer.massif.commandevaluation.client,
+ br.com.embraer.massif.commandevaluation.client.util

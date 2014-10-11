@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Modelprovider
+Bundle-SymbolicName: br.com.embraer.massif.commandevaluation.server
+Bundle-Version: 0.4.0.qualifier
+Export-Package: br.com.embraer.massif.commandevaluation.command,
+ br.com.embraer.massif.commandevaluation.server
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: br.com.embraer.massif.commandevaluation.base;bundle-version="0.4.0"
+Bundle-ClassPath: lib/jmi.jar,
+ .
+

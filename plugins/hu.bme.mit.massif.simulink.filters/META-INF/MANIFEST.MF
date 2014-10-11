@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Filtercontribution
+Bundle-SymbolicName: hu.bme.mit.massif.simulink.filters;singleton:=true
+Bundle-Version: 0.4.0.qualifier
+Bundle-Activator: hu.bme.mit.massif.simulink.filters.internal.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ hu.bme.mit.massif.simulink.api,
+ hu.bme.mit.massif.simulink,
+ hu.bme.mit.massif.communication;bundle-version="0.4.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: hu.bme.mit.massif.simulink.filters

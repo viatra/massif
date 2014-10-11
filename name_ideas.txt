@@ -1,0 +1,26 @@
+Eclipse Massif = Matlab Simulink Integration Framework
+Site = Simulink Integration Toolkit for Eclipse
+
+
+Silk
+Silo
+Silicon
+Siege
+Side = Simulink Integration Driver for Eclipse
+Sint = Simulink Integration
+SIntEc
+
+
+
+Focus:
+Simulink Import/Export for EMF
+
+Translate:
+
+connect
+mediate
+	- miola (Icelandic)
+	- maegle (Danish)
+	- medla (Swedish)
+communicate
+command

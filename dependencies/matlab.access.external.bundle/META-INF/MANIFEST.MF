@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: External Libraries to access Matlab
 Bundle-SymbolicName: matlab.access.external.bundle
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.4.0.qualifier
 Bundle-ClassPath: lib/jna.jar,
  lib/platform.jar,
  .

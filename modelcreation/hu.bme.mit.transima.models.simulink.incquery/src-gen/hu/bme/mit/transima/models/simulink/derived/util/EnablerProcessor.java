@@ -21,6 +21,7 @@ public abstract class EnablerProcessor implements IMatchProcessor<EnablerMatch> 
    */
   public abstract void process(final Block pBlock, final Enable pEnabler);
   
+  @Override
   public void process(final EnablerMatch match) {
     process(match.getBlock(), match.getEnabler());
     

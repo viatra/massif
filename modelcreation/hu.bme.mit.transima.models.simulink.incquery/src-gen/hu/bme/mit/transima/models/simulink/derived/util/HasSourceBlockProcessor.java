@@ -19,6 +19,7 @@ public abstract class HasSourceBlockProcessor implements IMatchProcessor<HasSour
    */
   public abstract void process(final Block pBl);
   
+  @Override
   public void process(final HasSourceBlockMatch match) {
     process(match.getBl());
     

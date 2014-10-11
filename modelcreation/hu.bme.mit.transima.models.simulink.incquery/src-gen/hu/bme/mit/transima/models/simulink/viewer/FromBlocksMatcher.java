@@ -86,6 +86,7 @@ public class FromBlocksMatcher extends BaseMatcher<FromBlocksMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public FromBlocksMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -99,6 +100,7 @@ public class FromBlocksMatcher extends BaseMatcher<FromBlocksMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public FromBlocksMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -179,6 +181,7 @@ public class FromBlocksMatcher extends BaseMatcher<FromBlocksMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<FromBlocksMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final From pBl) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBl});
   }
@@ -216,6 +219,7 @@ public class FromBlocksMatcher extends BaseMatcher<FromBlocksMatch> {
     return rawAccumulateAllValuesOfbl(emptyArray());
   }
   
+  @Override
   protected FromBlocksMatch tupleToMatch(final Tuple t) {
     try {
       return FromBlocksMatch.newMatch((hu.bme.mit.transima.Simulink.From) t.get(POSITION_BL));
@@ -226,6 +230,7 @@ public class FromBlocksMatcher extends BaseMatcher<FromBlocksMatch> {
     
   }
   
+  @Override
   protected FromBlocksMatch arrayToMatch(final Object[] match) {
     try {
       return FromBlocksMatch.newMatch((hu.bme.mit.transima.Simulink.From) match[POSITION_BL]);
@@ -236,6 +241,7 @@ public class FromBlocksMatcher extends BaseMatcher<FromBlocksMatch> {
     
   }
   
+  @Override
   protected FromBlocksMatch arrayToMatchMutable(final Object[] match) {
     try {
       return FromBlocksMatch.newMutableMatch((hu.bme.mit.transima.Simulink.From) match[POSITION_BL]);

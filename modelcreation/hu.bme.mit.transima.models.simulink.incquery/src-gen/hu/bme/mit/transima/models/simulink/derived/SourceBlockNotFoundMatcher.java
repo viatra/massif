@@ -90,6 +90,7 @@ public class SourceBlockNotFoundMatcher extends BaseMatcher<SourceBlockNotFoundM
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public SourceBlockNotFoundMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -103,6 +104,7 @@ public class SourceBlockNotFoundMatcher extends BaseMatcher<SourceBlockNotFoundM
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public SourceBlockNotFoundMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -190,6 +192,7 @@ public class SourceBlockNotFoundMatcher extends BaseMatcher<SourceBlockNotFoundM
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<SourceBlockNotFoundMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pBlock, final LibraryLinkReference pBlRef) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBlock, pBlRef});
   }
@@ -284,6 +287,7 @@ public class SourceBlockNotFoundMatcher extends BaseMatcher<SourceBlockNotFoundM
     return rawAccumulateAllValuesOfBlRef(new Object[]{pBlock, null});
   }
   
+  @Override
   protected SourceBlockNotFoundMatch tupleToMatch(final Tuple t) {
     try {
       return SourceBlockNotFoundMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BLOCK), (hu.bme.mit.transima.Simulink.LibraryLinkReference) t.get(POSITION_BLREF));
@@ -294,6 +298,7 @@ public class SourceBlockNotFoundMatcher extends BaseMatcher<SourceBlockNotFoundM
     
   }
   
+  @Override
   protected SourceBlockNotFoundMatch arrayToMatch(final Object[] match) {
     try {
       return SourceBlockNotFoundMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.LibraryLinkReference) match[POSITION_BLREF]);
@@ -304,6 +309,7 @@ public class SourceBlockNotFoundMatcher extends BaseMatcher<SourceBlockNotFoundM
     
   }
   
+  @Override
   protected SourceBlockNotFoundMatch arrayToMatchMutable(final Object[] match) {
     try {
       return SourceBlockNotFoundMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.LibraryLinkReference) match[POSITION_BLREF]);

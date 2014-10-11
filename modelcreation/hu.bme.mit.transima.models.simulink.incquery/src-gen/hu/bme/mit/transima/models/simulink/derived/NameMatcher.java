@@ -87,6 +87,7 @@ public class NameMatcher extends BaseMatcher<NameMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public NameMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -100,6 +101,7 @@ public class NameMatcher extends BaseMatcher<NameMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public NameMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -187,6 +189,7 @@ public class NameMatcher extends BaseMatcher<NameMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<NameMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final SimulinkElement pSE, final String pName) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pSE, pName});
   }
@@ -281,6 +284,7 @@ public class NameMatcher extends BaseMatcher<NameMatch> {
     return rawAccumulateAllValuesOfName(new Object[]{pSE, null});
   }
   
+  @Override
   protected NameMatch tupleToMatch(final Tuple t) {
     try {
       return NameMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkElement) t.get(POSITION_SE), (java.lang.String) t.get(POSITION_NAME));
@@ -291,6 +295,7 @@ public class NameMatcher extends BaseMatcher<NameMatch> {
     
   }
   
+  @Override
   protected NameMatch arrayToMatch(final Object[] match) {
     try {
       return NameMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkElement) match[POSITION_SE], (java.lang.String) match[POSITION_NAME]);
@@ -301,6 +306,7 @@ public class NameMatcher extends BaseMatcher<NameMatch> {
     
   }
   
+  @Override
   protected NameMatch arrayToMatchMutable(final Object[] match) {
     try {
       return NameMatch.newMutableMatch((hu.bme.mit.transima.Simulink.SimulinkElement) match[POSITION_SE], (java.lang.String) match[POSITION_NAME]);

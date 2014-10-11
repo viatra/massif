@@ -93,6 +93,7 @@ public class BusMappingInSelectorMatcher extends BaseMatcher<BusMappingInSelecto
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public BusMappingInSelectorMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -106,6 +107,7 @@ public class BusMappingInSelectorMatcher extends BaseMatcher<BusMappingInSelecto
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public BusMappingInSelectorMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -207,6 +209,7 @@ public class BusMappingInSelectorMatcher extends BaseMatcher<BusMappingInSelecto
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<BusMappingInSelectorMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final BusSelector pSelector, final BusSignalMapping pMapping, final OutPort pMappingFrom, final OutPort pMappingTo) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pSelector, pMapping, pMappingFrom, pMappingTo});
   }
@@ -379,6 +382,7 @@ public class BusMappingInSelectorMatcher extends BaseMatcher<BusMappingInSelecto
     return rawAccumulateAllValuesOfmappingTo(new Object[]{pSelector, pMapping, pMappingFrom, null});
   }
   
+  @Override
   protected BusMappingInSelectorMatch tupleToMatch(final Tuple t) {
     try {
       return BusMappingInSelectorMatch.newMatch((hu.bme.mit.transima.Simulink.BusSelector) t.get(POSITION_SELECTOR), (hu.bme.mit.transima.Simulink.BusSignalMapping) t.get(POSITION_MAPPING), (hu.bme.mit.transima.Simulink.OutPort) t.get(POSITION_MAPPINGFROM), (hu.bme.mit.transima.Simulink.OutPort) t.get(POSITION_MAPPINGTO));
@@ -389,6 +393,7 @@ public class BusMappingInSelectorMatcher extends BaseMatcher<BusMappingInSelecto
     
   }
   
+  @Override
   protected BusMappingInSelectorMatch arrayToMatch(final Object[] match) {
     try {
       return BusMappingInSelectorMatch.newMatch((hu.bme.mit.transima.Simulink.BusSelector) match[POSITION_SELECTOR], (hu.bme.mit.transima.Simulink.BusSignalMapping) match[POSITION_MAPPING], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_MAPPINGFROM], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_MAPPINGTO]);
@@ -399,6 +404,7 @@ public class BusMappingInSelectorMatcher extends BaseMatcher<BusMappingInSelecto
     
   }
   
+  @Override
   protected BusMappingInSelectorMatch arrayToMatchMutable(final Object[] match) {
     try {
       return BusMappingInSelectorMatch.newMutableMatch((hu.bme.mit.transima.Simulink.BusSelector) match[POSITION_SELECTOR], (hu.bme.mit.transima.Simulink.BusSignalMapping) match[POSITION_MAPPING], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_MAPPINGFROM], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_MAPPINGTO]);

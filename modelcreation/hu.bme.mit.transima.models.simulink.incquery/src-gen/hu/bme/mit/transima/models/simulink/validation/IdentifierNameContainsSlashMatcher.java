@@ -29,8 +29,7 @@ import org.eclipse.incquery.runtime.util.IncQueryLoggingUtil;
  * <p>Original source:
  * <code><pre>
  * {@literal @}Constraint(severity = "error", location = id,
- * 	message = "Identifier $id$ must not contain '/'!",
- * 	targetEditorId = "hu.bme.mit.transima.simulink.ui.editor1"
+ * 	message = "Identifier $id$ must not contain '/'!"
  * )
  * pattern identifierNameContainsSlash(id : IdentifierReference) {
  * 	IdentifierReference.name(id, name);
@@ -88,6 +87,7 @@ public class IdentifierNameContainsSlashMatcher extends BaseMatcher<IdentifierNa
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public IdentifierNameContainsSlashMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -101,6 +101,7 @@ public class IdentifierNameContainsSlashMatcher extends BaseMatcher<IdentifierNa
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public IdentifierNameContainsSlashMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -181,6 +182,7 @@ public class IdentifierNameContainsSlashMatcher extends BaseMatcher<IdentifierNa
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<IdentifierNameContainsSlashMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final IdentifierReference pId) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pId});
   }
@@ -218,6 +220,7 @@ public class IdentifierNameContainsSlashMatcher extends BaseMatcher<IdentifierNa
     return rawAccumulateAllValuesOfid(emptyArray());
   }
   
+  @Override
   protected IdentifierNameContainsSlashMatch tupleToMatch(final Tuple t) {
     try {
       return IdentifierNameContainsSlashMatch.newMatch((hu.bme.mit.transima.Simulink.IdentifierReference) t.get(POSITION_ID));
@@ -228,6 +231,7 @@ public class IdentifierNameContainsSlashMatcher extends BaseMatcher<IdentifierNa
     
   }
   
+  @Override
   protected IdentifierNameContainsSlashMatch arrayToMatch(final Object[] match) {
     try {
       return IdentifierNameContainsSlashMatch.newMatch((hu.bme.mit.transima.Simulink.IdentifierReference) match[POSITION_ID]);
@@ -238,6 +242,7 @@ public class IdentifierNameContainsSlashMatcher extends BaseMatcher<IdentifierNa
     
   }
   
+  @Override
   protected IdentifierNameContainsSlashMatch arrayToMatchMutable(final Object[] match) {
     try {
       return IdentifierNameContainsSlashMatch.newMutableMatch((hu.bme.mit.transima.Simulink.IdentifierReference) match[POSITION_ID]);

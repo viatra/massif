@@ -1,11 +1,12 @@
 package hu.bme.mit.transima.simulink.importer.ui.handlers;
 
-import hu.bme.mit.transima.simulink.api.ImporterApi;
-import hu.bme.mit.transima.simulink.api.ModelApi;
+import hu.bme.mit.transima.simulink.api.Importer;
+import hu.bme.mit.transima.simulink.api.ModelObject;
 import hu.bme.mit.transima.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.transima.simulink.api.util.ICommandEvaluator;
 import hu.bme.mit.transima.simulink.api.util.ImportMode;
-import hu.bme.mit.transima.simulink.api.util.command.Addpath;
+import hu.bme.mit.transima.simulink.communication.ICommandEvaluator;
+import hu.bme.mit.transima.simulink.communication.command.MatlabCommand;
+import hu.bme.mit.transima.simulink.communication.command.MatlabCommandFactory;
 import hu.bme.mit.transima.simulink.importer.ui.Activator;
 import hu.bme.mit.transima.simulink.importer.ui.dialogs.ImportSettingsDialog;
 import hu.bme.mit.transima.simulink.importer.ui.preferences.PreferenceConstants;
@@ -130,7 +131,8 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
 
     private void importModel(String modelName, String modelPath, final String importedModelName,
         final String resultPath, final ImportSettings settings, boolean usingFAMFilter, boolean usingLibraryFilter) {
-        Addpath addpathModel = new Addpath(settings.commandEvaluator);
+        MatlabCommandFactory factory = new MatlabCommandFactory(settings.commandEvaluator);
+    	MatlabCommand addpathModel = factory.addPath();
         addpathModel.addParam(modelPath);
         addpathModel.execute();
 
@@ -139,7 +141,7 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
             PreferenceConstants.IMPORT_STARTUP_SCRIPTS);
 
         // Get the model by its name
-        final ModelApi testModel = new ModelApi(modelName, settings.commandEvaluator);
+        final ModelObject testModel = new ModelObject(modelName, settings.commandEvaluator);
         // Set model path (without model name)
         testModel.setLoadPath(modelPath);
 
@@ -155,7 +157,7 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
             @Override
             protected IStatus run(IProgressMonitor monitor) {
 
-                ImporterApi traverser = new ImporterApi(testModel);
+                Importer traverser = new Importer(testModel);
                 traverser.setDefaultSavePath(resultPath);
 
                 try {

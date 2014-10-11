@@ -39,31 +39,38 @@ public final class EmptySubSystemQuerySpecification extends BaseGeneratedQuerySp
     
   }
   
+  @Override
   protected EmptySubSystemMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return EmptySubSystemMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.emptySubSystem";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("subS");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("subS", "hu.bme.mit.transima.Simulink.SubSystem"));
   }
   
+  @Override
   public EmptySubSystemMatch newEmptyMatch() {
     return EmptySubSystemMatch.newEmptyMatch();
   }
   
+  @Override
   public EmptySubSystemMatch newMatch(final Object... parameters) {
     return EmptySubSystemMatch.newMatch((hu.bme.mit.transima.Simulink.SubSystem) parameters[0]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

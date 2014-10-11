@@ -38,6 +38,7 @@ public abstract class ChildBlockNamesMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("elem".equals(parameterName)) return this.fElem;
     if ("child".equals(parameterName)) return this.fChild;
@@ -61,6 +62,7 @@ public abstract class ChildBlockNamesMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("elem".equals(parameterName) ) {
@@ -97,26 +99,31 @@ public abstract class ChildBlockNamesMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.childBlockNames";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return ChildBlockNamesMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fElem, fChild, fName};
     
   }
   
+  @Override
   public ChildBlockNamesMatch toImmutable() {
     return isMutable() ? newMatch(fElem, fChild, fName) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"elem\"=" + prettyPrintValue(fElem) + ", ");
@@ -126,6 +133,7 @@ public abstract class ChildBlockNamesMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -136,6 +144,7 @@ public abstract class ChildBlockNamesMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -159,6 +168,7 @@ public abstract class ChildBlockNamesMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public ChildBlockNamesQuerySpecification specification() {
     try {
     	return ChildBlockNamesQuerySpecification.instance();
@@ -217,6 +227,7 @@ public abstract class ChildBlockNamesMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -228,6 +239,7 @@ public abstract class ChildBlockNamesMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

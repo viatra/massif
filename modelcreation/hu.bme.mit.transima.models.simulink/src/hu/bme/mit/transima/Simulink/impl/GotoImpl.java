@@ -39,253 +39,253 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class GotoImpl extends VirtualBlockImpl implements Goto {
     /**
-     * The cached value of the '{@link #getFromBlocks() <em>From Blocks</em>}' reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFromBlocks() <em>From Blocks</em>}' reference list.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getFromBlocks()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFromBlocks()
+	 * @generated
+	 * @ordered
+	 */
     protected EList<From> fromBlocks;
 
     /**
-     * The default value of the '{@link #getTagVisibility() <em>Tag Visibility</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getTagVisibility() <em>Tag Visibility</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getTagVisibility()
-     * @generated
-     * @ordered
-     */
+	 * @see #getTagVisibility()
+	 * @generated
+	 * @ordered
+	 */
     protected static final TagVisibility TAG_VISIBILITY_EDEFAULT = TagVisibility.LOCAL;
 
     /**
-     * The cached value of the '{@link #getTagVisibility() <em>Tag Visibility</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getTagVisibility() <em>Tag Visibility</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getTagVisibility()
-     * @generated
-     * @ordered
-     */
+	 * @see #getTagVisibility()
+	 * @generated
+	 * @ordered
+	 */
     protected TagVisibility tagVisibility = TAG_VISIBILITY_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getGotoTag() <em>Goto Tag</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getGotoTag() <em>Goto Tag</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getGotoTag()
-     * @generated
-     * @ordered
-     */
+	 * @see #getGotoTag()
+	 * @generated
+	 * @ordered
+	 */
     protected static final String GOTO_TAG_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getGotoTag() <em>Goto Tag</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getGotoTag() <em>Goto Tag</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getGotoTag()
-     * @generated
-     * @ordered
-     */
+	 * @see #getGotoTag()
+	 * @generated
+	 * @ordered
+	 */
     protected String gotoTag = GOTO_TAG_EDEFAULT;
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected GotoImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.GOTO;
-    }
+		return SimulinkPackage.Literals.GOTO;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public EList<From> getFromBlocks() {
-        if (fromBlocks == null) {
-            fromBlocks = new EObjectWithInverseResolvingEList<From>(From.class, this, SimulinkPackage.GOTO__FROM_BLOCKS, SimulinkPackage.FROM__GOTO_BLOCK);
-        }
-        return fromBlocks;
-    }
+		if (fromBlocks == null) {
+			fromBlocks = new EObjectWithInverseResolvingEList<From>(From.class, this, SimulinkPackage.GOTO__FROM_BLOCKS, SimulinkPackage.FROM__GOTO_BLOCK);
+		}
+		return fromBlocks;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public TagVisibility getTagVisibility() {
-        return tagVisibility;
-    }
+		return tagVisibility;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setTagVisibility(TagVisibility newTagVisibility) {
-        TagVisibility oldTagVisibility = tagVisibility;
-        tagVisibility = newTagVisibility == null ? TAG_VISIBILITY_EDEFAULT : newTagVisibility;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.GOTO__TAG_VISIBILITY, oldTagVisibility, tagVisibility));
-    }
+		TagVisibility oldTagVisibility = tagVisibility;
+		tagVisibility = newTagVisibility == null ? TAG_VISIBILITY_EDEFAULT : newTagVisibility;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.GOTO__TAG_VISIBILITY, oldTagVisibility, tagVisibility));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public String getGotoTag() {
-        return gotoTag;
-    }
+		return gotoTag;
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     public void setGotoTag(String newGotoTag) {
-        String oldGotoTag = gotoTag;
-        gotoTag = newGotoTag;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.GOTO__GOTO_TAG, oldGotoTag, gotoTag));
-    }
+		String oldGotoTag = gotoTag;
+		gotoTag = newGotoTag;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.GOTO__GOTO_TAG, oldGotoTag, gotoTag));
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case SimulinkPackage.GOTO__FROM_BLOCKS:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getFromBlocks()).basicAdd(otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case SimulinkPackage.GOTO__FROM_BLOCKS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFromBlocks()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case SimulinkPackage.GOTO__FROM_BLOCKS:
-                return ((InternalEList<?>)getFromBlocks()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case SimulinkPackage.GOTO__FROM_BLOCKS:
+				return ((InternalEList<?>)getFromBlocks()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case SimulinkPackage.GOTO__FROM_BLOCKS:
-                return getFromBlocks();
-            case SimulinkPackage.GOTO__TAG_VISIBILITY:
-                return getTagVisibility();
-            case SimulinkPackage.GOTO__GOTO_TAG:
-                return getGotoTag();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case SimulinkPackage.GOTO__FROM_BLOCKS:
+				return getFromBlocks();
+			case SimulinkPackage.GOTO__TAG_VISIBILITY:
+				return getTagVisibility();
+			case SimulinkPackage.GOTO__GOTO_TAG:
+				return getGotoTag();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case SimulinkPackage.GOTO__FROM_BLOCKS:
-                getFromBlocks().clear();
-                getFromBlocks().addAll((Collection<? extends From>)newValue);
-                return;
-            case SimulinkPackage.GOTO__TAG_VISIBILITY:
-                setTagVisibility((TagVisibility)newValue);
-                return;
-            case SimulinkPackage.GOTO__GOTO_TAG:
-                setGotoTag((String)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case SimulinkPackage.GOTO__FROM_BLOCKS:
+				getFromBlocks().clear();
+				getFromBlocks().addAll((Collection<? extends From>)newValue);
+				return;
+			case SimulinkPackage.GOTO__TAG_VISIBILITY:
+				setTagVisibility((TagVisibility)newValue);
+				return;
+			case SimulinkPackage.GOTO__GOTO_TAG:
+				setGotoTag((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public void eUnset(int featureID) {
-        switch (featureID) {
-            case SimulinkPackage.GOTO__FROM_BLOCKS:
-                getFromBlocks().clear();
-                return;
-            case SimulinkPackage.GOTO__TAG_VISIBILITY:
-                setTagVisibility(TAG_VISIBILITY_EDEFAULT);
-                return;
-            case SimulinkPackage.GOTO__GOTO_TAG:
-                setGotoTag(GOTO_TAG_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case SimulinkPackage.GOTO__FROM_BLOCKS:
+				getFromBlocks().clear();
+				return;
+			case SimulinkPackage.GOTO__TAG_VISIBILITY:
+				setTagVisibility(TAG_VISIBILITY_EDEFAULT);
+				return;
+			case SimulinkPackage.GOTO__GOTO_TAG:
+				setGotoTag(GOTO_TAG_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case SimulinkPackage.GOTO__FROM_BLOCKS:
-                return fromBlocks != null && !fromBlocks.isEmpty();
-            case SimulinkPackage.GOTO__TAG_VISIBILITY:
-                return tagVisibility != TAG_VISIBILITY_EDEFAULT;
-            case SimulinkPackage.GOTO__GOTO_TAG:
-                return GOTO_TAG_EDEFAULT == null ? gotoTag != null : !GOTO_TAG_EDEFAULT.equals(gotoTag);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case SimulinkPackage.GOTO__FROM_BLOCKS:
+				return fromBlocks != null && !fromBlocks.isEmpty();
+			case SimulinkPackage.GOTO__TAG_VISIBILITY:
+				return tagVisibility != TAG_VISIBILITY_EDEFAULT;
+			case SimulinkPackage.GOTO__GOTO_TAG:
+				return GOTO_TAG_EDEFAULT == null ? gotoTag != null : !GOTO_TAG_EDEFAULT.equals(gotoTag);
+		}
+		return super.eIsSet(featureID);
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (tagVisibility: ");
-        result.append(tagVisibility);
-        result.append(", gotoTag: ");
-        result.append(gotoTag);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (tagVisibility: ");
+		result.append(tagVisibility);
+		result.append(", gotoTag: ");
+		result.append(gotoTag);
+		result.append(')');
+		return result.toString();
+	}
 
 } //GotoImpl

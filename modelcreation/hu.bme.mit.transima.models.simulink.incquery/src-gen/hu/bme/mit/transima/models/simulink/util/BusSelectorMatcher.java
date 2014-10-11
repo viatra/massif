@@ -83,6 +83,7 @@ public class BusSelectorMatcher extends BaseMatcher<BusSelectorMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public BusSelectorMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -96,6 +97,7 @@ public class BusSelectorMatcher extends BaseMatcher<BusSelectorMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public BusSelectorMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -176,6 +178,7 @@ public class BusSelectorMatcher extends BaseMatcher<BusSelectorMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<BusSelectorMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final BusSelector pSelector) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pSelector});
   }
@@ -213,6 +216,7 @@ public class BusSelectorMatcher extends BaseMatcher<BusSelectorMatch> {
     return rawAccumulateAllValuesOfselector(emptyArray());
   }
   
+  @Override
   protected BusSelectorMatch tupleToMatch(final Tuple t) {
     try {
       return BusSelectorMatch.newMatch((hu.bme.mit.transima.Simulink.BusSelector) t.get(POSITION_SELECTOR));
@@ -223,6 +227,7 @@ public class BusSelectorMatcher extends BaseMatcher<BusSelectorMatch> {
     
   }
   
+  @Override
   protected BusSelectorMatch arrayToMatch(final Object[] match) {
     try {
       return BusSelectorMatch.newMatch((hu.bme.mit.transima.Simulink.BusSelector) match[POSITION_SELECTOR]);
@@ -233,6 +238,7 @@ public class BusSelectorMatcher extends BaseMatcher<BusSelectorMatch> {
     
   }
   
+  @Override
   protected BusSelectorMatch arrayToMatchMutable(final Object[] match) {
     try {
       return BusSelectorMatch.newMutableMatch((hu.bme.mit.transima.Simulink.BusSelector) match[POSITION_SELECTOR]);

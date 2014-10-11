@@ -86,6 +86,7 @@ public class GotoBlocksMatcher extends BaseMatcher<GotoBlocksMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public GotoBlocksMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -99,6 +100,7 @@ public class GotoBlocksMatcher extends BaseMatcher<GotoBlocksMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public GotoBlocksMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -179,6 +181,7 @@ public class GotoBlocksMatcher extends BaseMatcher<GotoBlocksMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<GotoBlocksMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Goto pBl) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBl});
   }
@@ -216,6 +219,7 @@ public class GotoBlocksMatcher extends BaseMatcher<GotoBlocksMatch> {
     return rawAccumulateAllValuesOfbl(emptyArray());
   }
   
+  @Override
   protected GotoBlocksMatch tupleToMatch(final Tuple t) {
     try {
       return GotoBlocksMatch.newMatch((hu.bme.mit.transima.Simulink.Goto) t.get(POSITION_BL));
@@ -226,6 +230,7 @@ public class GotoBlocksMatcher extends BaseMatcher<GotoBlocksMatch> {
     
   }
   
+  @Override
   protected GotoBlocksMatch arrayToMatch(final Object[] match) {
     try {
       return GotoBlocksMatch.newMatch((hu.bme.mit.transima.Simulink.Goto) match[POSITION_BL]);
@@ -236,6 +241,7 @@ public class GotoBlocksMatcher extends BaseMatcher<GotoBlocksMatch> {
     
   }
   
+  @Override
   protected GotoBlocksMatch arrayToMatchMutable(final Object[] match) {
     try {
       return GotoBlocksMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Goto) match[POSITION_BL]);

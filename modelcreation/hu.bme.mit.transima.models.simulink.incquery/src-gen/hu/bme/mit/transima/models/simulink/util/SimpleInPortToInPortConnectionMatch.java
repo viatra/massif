@@ -39,6 +39,7 @@ public abstract class SimpleInPortToInPortConnectionMatch extends BasePatternMat
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("sourceInPort".equals(parameterName)) return this.fSourceInPort;
     if ("targetInPort".equals(parameterName)) return this.fTargetInPort;
@@ -62,6 +63,7 @@ public abstract class SimpleInPortToInPortConnectionMatch extends BasePatternMat
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("sourceInPort".equals(parameterName) ) {
@@ -98,26 +100,31 @@ public abstract class SimpleInPortToInPortConnectionMatch extends BasePatternMat
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.simpleInPortToInPortConnection";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return SimpleInPortToInPortConnectionMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fSourceInPort, fTargetInPort, fConnection};
     
   }
   
+  @Override
   public SimpleInPortToInPortConnectionMatch toImmutable() {
     return isMutable() ? newMatch(fSourceInPort, fTargetInPort, fConnection) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"sourceInPort\"=" + prettyPrintValue(fSourceInPort) + ", ");
@@ -127,6 +134,7 @@ public abstract class SimpleInPortToInPortConnectionMatch extends BasePatternMat
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -137,6 +145,7 @@ public abstract class SimpleInPortToInPortConnectionMatch extends BasePatternMat
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -160,6 +169,7 @@ public abstract class SimpleInPortToInPortConnectionMatch extends BasePatternMat
     return true;
   }
   
+  @Override
   public SimpleInPortToInPortConnectionQuerySpecification specification() {
     try {
     	return SimpleInPortToInPortConnectionQuerySpecification.instance();
@@ -218,6 +228,7 @@ public abstract class SimpleInPortToInPortConnectionMatch extends BasePatternMat
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -229,6 +240,7 @@ public abstract class SimpleInPortToInPortConnectionMatch extends BasePatternMat
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

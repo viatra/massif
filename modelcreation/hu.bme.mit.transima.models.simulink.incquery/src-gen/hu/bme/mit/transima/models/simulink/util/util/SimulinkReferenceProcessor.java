@@ -21,6 +21,7 @@ public abstract class SimulinkReferenceProcessor implements IMatchProcessor<Simu
    */
   public abstract void process(final SimulinkReference pSR, final String pName, final String pQual);
   
+  @Override
   public void process(final SimulinkReferenceMatch match) {
     process(match.getSR(), match.getName(), match.getQual());
     

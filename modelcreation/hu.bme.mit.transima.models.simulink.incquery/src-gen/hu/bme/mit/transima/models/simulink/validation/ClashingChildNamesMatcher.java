@@ -29,8 +29,7 @@ import org.eclipse.incquery.runtime.util.IncQueryLoggingUtil;
  * <p>Original source:
  * <code><pre>
  * {@literal @}Constraint(severity = "error", location = child,
- * 	message = "Child $child$ has a sibling in $parent$ with the same name!",
- * 	targetEditorId = "hu.bme.mit.transima.simulink.ui.editor1"
+ * 	message = "Child $child$ has a sibling in $parent$ with the same name!"
  * )
  * pattern clashingChildNames(parent : SimulinkElement, child : SimulinkElement) {
  * 	find childBlockNames(parent, child, name);
@@ -91,6 +90,7 @@ public class ClashingChildNamesMatcher extends BaseMatcher<ClashingChildNamesMat
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public ClashingChildNamesMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -104,6 +104,7 @@ public class ClashingChildNamesMatcher extends BaseMatcher<ClashingChildNamesMat
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public ClashingChildNamesMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -191,6 +192,7 @@ public class ClashingChildNamesMatcher extends BaseMatcher<ClashingChildNamesMat
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<ClashingChildNamesMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final SimulinkElement pParent, final SimulinkElement pChild) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pParent, pChild});
   }
@@ -285,6 +287,7 @@ public class ClashingChildNamesMatcher extends BaseMatcher<ClashingChildNamesMat
     return rawAccumulateAllValuesOfchild(new Object[]{pParent, null});
   }
   
+  @Override
   protected ClashingChildNamesMatch tupleToMatch(final Tuple t) {
     try {
       return ClashingChildNamesMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkElement) t.get(POSITION_PARENT), (hu.bme.mit.transima.Simulink.SimulinkElement) t.get(POSITION_CHILD));
@@ -295,6 +298,7 @@ public class ClashingChildNamesMatcher extends BaseMatcher<ClashingChildNamesMat
     
   }
   
+  @Override
   protected ClashingChildNamesMatch arrayToMatch(final Object[] match) {
     try {
       return ClashingChildNamesMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkElement) match[POSITION_PARENT], (hu.bme.mit.transima.Simulink.SimulinkElement) match[POSITION_CHILD]);
@@ -305,6 +309,7 @@ public class ClashingChildNamesMatcher extends BaseMatcher<ClashingChildNamesMat
     
   }
   
+  @Override
   protected ClashingChildNamesMatch arrayToMatchMutable(final Object[] match) {
     try {
       return ClashingChildNamesMatch.newMutableMatch((hu.bme.mit.transima.Simulink.SimulinkElement) match[POSITION_PARENT], (hu.bme.mit.transima.Simulink.SimulinkElement) match[POSITION_CHILD]);

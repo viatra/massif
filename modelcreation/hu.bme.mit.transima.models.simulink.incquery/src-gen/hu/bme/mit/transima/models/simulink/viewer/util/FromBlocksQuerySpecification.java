@@ -36,31 +36,38 @@ public final class FromBlocksQuerySpecification extends BaseGeneratedQuerySpecif
     
   }
   
+  @Override
   protected FromBlocksMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return FromBlocksMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.fromBlocks";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("bl");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("bl", "hu.bme.mit.transima.Simulink.From"));
   }
   
+  @Override
   public FromBlocksMatch newEmptyMatch() {
     return FromBlocksMatch.newEmptyMatch();
   }
   
+  @Override
   public FromBlocksMatch newMatch(final Object... parameters) {
     return FromBlocksMatch.newMatch((hu.bme.mit.transima.Simulink.From) parameters[0]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

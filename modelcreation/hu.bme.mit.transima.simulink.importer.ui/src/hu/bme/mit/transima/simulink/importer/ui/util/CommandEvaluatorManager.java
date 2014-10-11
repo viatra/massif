@@ -2,7 +2,7 @@ package hu.bme.mit.transima.simulink.importer.ui.util;
 
 import hu.bme.mit.transima.commandevaluatorcontribution.Activator;
 import hu.bme.mit.transima.commandevaluatorcontribution.CommandEvaluatorImpl;
-import hu.bme.mit.transima.simulink.api.util.ICommandEvaluator;
+import hu.bme.mit.transima.simulink.communication.ICommandEvaluator;
 
 import java.util.Map;
 

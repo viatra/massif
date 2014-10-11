@@ -18,7 +18,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide;bundle-version="3.8.2",
  org.eclipse.emf.common,
  hu.bme.mit.transima.commandevaluatorcontribution;bundle-version="1.0.0",
- yworks.yfiles
+ simulink.communication.bundle;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: Budapest University of Technology and Economics

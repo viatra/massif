@@ -1,8 +1,9 @@
 package hu.bme.mit.transima.simulink.importer.ui.handlers;
 
-import hu.bme.mit.transima.simulink.api.util.ICommandEvaluator;
-import hu.bme.mit.transima.simulink.api.util.command.Addpath;
-import hu.bme.mit.transima.simulink.api.util.command.CustomCommand;
+import hu.bme.mit.transima.simulink.communication.ICommandEvaluator;
+import hu.bme.mit.transima.simulink.communication.command.CustomCommand;
+import hu.bme.mit.transima.simulink.communication.command.MatlabCommand;
+import hu.bme.mit.transima.simulink.communication.command.MatlabCommandFactory;
 import hu.bme.mit.transima.simulink.importer.ui.Activator;
 import hu.bme.mit.transima.simulink.importer.ui.preferences.PreferenceConstants;
 import hu.bme.mit.transima.simulink.importer.ui.util.CommandEvaluatorManager;
@@ -102,8 +103,9 @@ public abstract class AbstractSimulinkHandler extends AbstractHandler {
         String[] pathArray = getPreferenceStringValue(path, "").split(SEPARATOR_REGEXP);
         String[] scriptArray = getPreferenceStringValue(scripts, "").split(SEPARATOR_REGEXP);
         if(pathArray.length > 1 || pathArray[0].length() > 0){
+        	MatlabCommandFactory factory = new MatlabCommandFactory(evaluator);
             for (String s : pathArray) {
-                Addpath addpath = new Addpath(evaluator);
+                MatlabCommand addpath = factory.addPath();
                 addpath.addParam(s);
                 addpath.execute();
             }

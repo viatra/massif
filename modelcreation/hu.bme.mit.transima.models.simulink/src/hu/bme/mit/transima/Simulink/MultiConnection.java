@@ -27,21 +27,21 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MultiConnection extends Connection {
     /**
-     * Returns the value of the '<em><b>Connections</b></em>' containment reference list.
-     * The list contents are of type {@link hu.bme.mit.transima.Simulink.SingleConnection}.
-     * It is bidirectional and its opposite is '{@link hu.bme.mit.transima.Simulink.SingleConnection#getParent <em>Parent</em>}'.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Connections</b></em>' containment reference list.
+	 * The list contents are of type {@link hu.bme.mit.transima.Simulink.SingleConnection}.
+	 * It is bidirectional and its opposite is '{@link hu.bme.mit.transima.Simulink.SingleConnection#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Connections</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Connections</em>' containment reference list.
-     * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getMultiConnection_Connections()
-     * @see hu.bme.mit.transima.Simulink.SingleConnection#getParent
-     * @model opposite="parent" containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Connections</em>' containment reference list.
+	 * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getMultiConnection_Connections()
+	 * @see hu.bme.mit.transima.Simulink.SingleConnection#getParent
+	 * @model opposite="parent" containment="true"
+	 * @generated
+	 */
     EList<SingleConnection> getConnections();
 
 } // MultiConnection

@@ -36,6 +36,7 @@ public abstract class GotoConnectedPortsMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("gotoInPort".equals(parameterName)) return this.fGotoInPort;
     if ("fromOutPort".equals(parameterName)) return this.fFromOutPort;
@@ -53,6 +54,7 @@ public abstract class GotoConnectedPortsMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("gotoInPort".equals(parameterName) ) {
@@ -79,26 +81,31 @@ public abstract class GotoConnectedPortsMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.gotoConnectedPorts";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return GotoConnectedPortsMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fGotoInPort, fFromOutPort};
     
   }
   
+  @Override
   public GotoConnectedPortsMatch toImmutable() {
     return isMutable() ? newMatch(fGotoInPort, fFromOutPort) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"gotoInPort\"=" + prettyPrintValue(fGotoInPort) + ", ");
@@ -107,6 +114,7 @@ public abstract class GotoConnectedPortsMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -116,6 +124,7 @@ public abstract class GotoConnectedPortsMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -137,6 +146,7 @@ public abstract class GotoConnectedPortsMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public GotoConnectedPortsQuerySpecification specification() {
     try {
     	return GotoConnectedPortsQuerySpecification.instance();
@@ -193,6 +203,7 @@ public abstract class GotoConnectedPortsMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -204,6 +215,7 @@ public abstract class GotoConnectedPortsMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

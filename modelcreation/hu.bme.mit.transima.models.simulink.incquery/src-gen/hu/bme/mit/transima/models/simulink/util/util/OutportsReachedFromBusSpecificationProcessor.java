@@ -22,6 +22,7 @@ public abstract class OutportsReachedFromBusSpecificationProcessor implements IM
    */
   public abstract void process(final OutPort pOutPort, final BusSpecification pNextSpec, final OutPort pEndPortBeforeNextSpec);
   
+  @Override
   public void process(final OutportsReachedFromBusSpecificationMatch match) {
     process(match.getOutPort(), match.getNextSpec(), match.getEndPortBeforeNextSpec());
     

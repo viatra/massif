@@ -24,6 +24,7 @@ public abstract class BusMappingInSelectorProcessor implements IMatchProcessor<B
    */
   public abstract void process(final BusSelector pSelector, final BusSignalMapping pMapping, final OutPort pMappingFrom, final OutPort pMappingTo);
   
+  @Override
   public void process(final BusMappingInSelectorMatch match) {
     process(match.getSelector(), match.getMapping(), match.getMappingFrom(), match.getMappingTo());
     

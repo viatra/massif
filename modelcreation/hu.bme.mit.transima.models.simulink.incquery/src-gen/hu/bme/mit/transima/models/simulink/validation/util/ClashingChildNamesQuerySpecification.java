@@ -40,31 +40,38 @@ public final class ClashingChildNamesQuerySpecification extends BaseGeneratedQue
     
   }
   
+  @Override
   protected ClashingChildNamesMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return ClashingChildNamesMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.validation.clashingChildNames";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("parent","child");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("parent", "hu.bme.mit.transima.Simulink.SimulinkElement"),new PParameter("child", "hu.bme.mit.transima.Simulink.SimulinkElement"));
   }
   
+  @Override
   public ClashingChildNamesMatch newEmptyMatch() {
     return ClashingChildNamesMatch.newEmptyMatch();
   }
   
+  @Override
   public ClashingChildNamesMatch newMatch(final Object... parameters) {
     return ClashingChildNamesMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkElement) parameters[0], (hu.bme.mit.transima.Simulink.SimulinkElement) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {
@@ -89,7 +96,6 @@ public final class ClashingChildNamesQuerySpecification extends BaseGeneratedQue
     {
       PAnnotation annotation = new PAnnotation("Constraint");
       annotation.addAttribute("message","Child $child$ has a sibling in $parent$ with the same name!");
-      annotation.addAttribute("targetEditorId","hu.bme.mit.transima.simulink.ui.editor1");
       annotation.addAttribute("location",new ParameterReference("child"));
       annotation.addAttribute("severity","error");
       addAnnotation(annotation);

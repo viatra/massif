@@ -87,6 +87,7 @@ public class BusSpecificationInPortToOutPortMatcher extends BaseMatcher<BusSpeci
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public BusSpecificationInPortToOutPortMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -100,6 +101,7 @@ public class BusSpecificationInPortToOutPortMatcher extends BaseMatcher<BusSpeci
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public BusSpecificationInPortToOutPortMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -187,6 +189,7 @@ public class BusSpecificationInPortToOutPortMatcher extends BaseMatcher<BusSpeci
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<BusSpecificationInPortToOutPortMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final InPort pInportOfBS, final OutPort pOutPortOfBS) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pInportOfBS, pOutPortOfBS});
   }
@@ -281,6 +284,7 @@ public class BusSpecificationInPortToOutPortMatcher extends BaseMatcher<BusSpeci
     return rawAccumulateAllValuesOfoutPortOfBS(new Object[]{pInportOfBS, null});
   }
   
+  @Override
   protected BusSpecificationInPortToOutPortMatch tupleToMatch(final Tuple t) {
     try {
       return BusSpecificationInPortToOutPortMatch.newMatch((hu.bme.mit.transima.Simulink.InPort) t.get(POSITION_INPORTOFBS), (hu.bme.mit.transima.Simulink.OutPort) t.get(POSITION_OUTPORTOFBS));
@@ -291,6 +295,7 @@ public class BusSpecificationInPortToOutPortMatcher extends BaseMatcher<BusSpeci
     
   }
   
+  @Override
   protected BusSpecificationInPortToOutPortMatch arrayToMatch(final Object[] match) {
     try {
       return BusSpecificationInPortToOutPortMatch.newMatch((hu.bme.mit.transima.Simulink.InPort) match[POSITION_INPORTOFBS], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_OUTPORTOFBS]);
@@ -301,6 +306,7 @@ public class BusSpecificationInPortToOutPortMatcher extends BaseMatcher<BusSpeci
     
   }
   
+  @Override
   protected BusSpecificationInPortToOutPortMatch arrayToMatchMutable(final Object[] match) {
     try {
       return BusSpecificationInPortToOutPortMatch.newMutableMatch((hu.bme.mit.transima.Simulink.InPort) match[POSITION_INPORTOFBS], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_OUTPORTOFBS]);

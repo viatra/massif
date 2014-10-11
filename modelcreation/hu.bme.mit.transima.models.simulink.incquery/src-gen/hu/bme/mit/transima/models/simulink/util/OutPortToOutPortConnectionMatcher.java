@@ -88,6 +88,7 @@ public class OutPortToOutPortConnectionMatcher extends BaseMatcher<OutPortToOutP
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public OutPortToOutPortConnectionMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -101,6 +102,7 @@ public class OutPortToOutPortConnectionMatcher extends BaseMatcher<OutPortToOutP
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public OutPortToOutPortConnectionMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -188,6 +190,7 @@ public class OutPortToOutPortConnectionMatcher extends BaseMatcher<OutPortToOutP
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<OutPortToOutPortConnectionMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final OutPort pSourceOutPort, final OutPort pTargetOutPort) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pSourceOutPort, pTargetOutPort});
   }
@@ -282,6 +285,7 @@ public class OutPortToOutPortConnectionMatcher extends BaseMatcher<OutPortToOutP
     return rawAccumulateAllValuesOftargetOutPort(new Object[]{pSourceOutPort, null});
   }
   
+  @Override
   protected OutPortToOutPortConnectionMatch tupleToMatch(final Tuple t) {
     try {
       return OutPortToOutPortConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.OutPort) t.get(POSITION_SOURCEOUTPORT), (hu.bme.mit.transima.Simulink.OutPort) t.get(POSITION_TARGETOUTPORT));
@@ -292,6 +296,7 @@ public class OutPortToOutPortConnectionMatcher extends BaseMatcher<OutPortToOutP
     
   }
   
+  @Override
   protected OutPortToOutPortConnectionMatch arrayToMatch(final Object[] match) {
     try {
       return OutPortToOutPortConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.OutPort) match[POSITION_SOURCEOUTPORT], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_TARGETOUTPORT]);
@@ -302,6 +307,7 @@ public class OutPortToOutPortConnectionMatcher extends BaseMatcher<OutPortToOutP
     
   }
   
+  @Override
   protected OutPortToOutPortConnectionMatch arrayToMatchMutable(final Object[] match) {
     try {
       return OutPortToOutPortConnectionMatch.newMutableMatch((hu.bme.mit.transima.Simulink.OutPort) match[POSITION_SOURCEOUTPORT], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_TARGETOUTPORT]);

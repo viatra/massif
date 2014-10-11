@@ -95,6 +95,7 @@ public class NonNullLineNameMatcher extends BaseMatcher<NonNullLineNameMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public NonNullLineNameMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -108,6 +109,7 @@ public class NonNullLineNameMatcher extends BaseMatcher<NonNullLineNameMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public NonNullLineNameMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -195,6 +197,7 @@ public class NonNullLineNameMatcher extends BaseMatcher<NonNullLineNameMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<NonNullLineNameMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Connection pConn, final String pName) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pConn, pName});
   }
@@ -289,6 +292,7 @@ public class NonNullLineNameMatcher extends BaseMatcher<NonNullLineNameMatch> {
     return rawAccumulateAllValuesOfname(new Object[]{pConn, null});
   }
   
+  @Override
   protected NonNullLineNameMatch tupleToMatch(final Tuple t) {
     try {
       return NonNullLineNameMatch.newMatch((hu.bme.mit.transima.Simulink.Connection) t.get(POSITION_CONN), (java.lang.String) t.get(POSITION_NAME));
@@ -299,6 +303,7 @@ public class NonNullLineNameMatcher extends BaseMatcher<NonNullLineNameMatch> {
     
   }
   
+  @Override
   protected NonNullLineNameMatch arrayToMatch(final Object[] match) {
     try {
       return NonNullLineNameMatch.newMatch((hu.bme.mit.transima.Simulink.Connection) match[POSITION_CONN], (java.lang.String) match[POSITION_NAME]);
@@ -309,6 +314,7 @@ public class NonNullLineNameMatcher extends BaseMatcher<NonNullLineNameMatch> {
     
   }
   
+  @Override
   protected NonNullLineNameMatch arrayToMatchMutable(final Object[] match) {
     try {
       return NonNullLineNameMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Connection) match[POSITION_CONN], (java.lang.String) match[POSITION_NAME]);

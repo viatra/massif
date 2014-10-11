@@ -19,6 +19,7 @@ public abstract class BlockProcessor implements IMatchProcessor<BlockMatch> {
    */
   public abstract void process(final Block pBl);
   
+  @Override
   public void process(final BlockMatch match) {
     process(match.getBl());
     

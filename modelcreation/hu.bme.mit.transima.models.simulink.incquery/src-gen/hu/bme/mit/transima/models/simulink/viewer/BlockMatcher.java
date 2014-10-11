@@ -91,6 +91,7 @@ public class BlockMatcher extends BaseMatcher<BlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public BlockMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -104,6 +105,7 @@ public class BlockMatcher extends BaseMatcher<BlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public BlockMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -184,6 +186,7 @@ public class BlockMatcher extends BaseMatcher<BlockMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<BlockMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pBl) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBl});
   }
@@ -221,6 +224,7 @@ public class BlockMatcher extends BaseMatcher<BlockMatch> {
     return rawAccumulateAllValuesOfbl(emptyArray());
   }
   
+  @Override
   protected BlockMatch tupleToMatch(final Tuple t) {
     try {
       return BlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BL));
@@ -231,6 +235,7 @@ public class BlockMatcher extends BaseMatcher<BlockMatch> {
     
   }
   
+  @Override
   protected BlockMatch arrayToMatch(final Object[] match) {
     try {
       return BlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BL]);
@@ -241,6 +246,7 @@ public class BlockMatcher extends BaseMatcher<BlockMatch> {
     
   }
   
+  @Override
   protected BlockMatch arrayToMatchMutable(final Object[] match) {
     try {
       return BlockMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BL]);

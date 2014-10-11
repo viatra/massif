@@ -89,6 +89,7 @@ public class ReferencedModelMatcher extends BaseMatcher<ReferencedModelMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public ReferencedModelMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -102,6 +103,7 @@ public class ReferencedModelMatcher extends BaseMatcher<ReferencedModelMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public ReferencedModelMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -189,6 +191,7 @@ public class ReferencedModelMatcher extends BaseMatcher<ReferencedModelMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<ReferencedModelMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final ModelReference pThis, final SimulinkModel pTarget) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pThis, pTarget});
   }
@@ -283,6 +286,7 @@ public class ReferencedModelMatcher extends BaseMatcher<ReferencedModelMatch> {
     return rawAccumulateAllValuesOfTarget(new Object[]{pThis, null});
   }
   
+  @Override
   protected ReferencedModelMatch tupleToMatch(final Tuple t) {
     try {
       return ReferencedModelMatch.newMatch((hu.bme.mit.transima.Simulink.ModelReference) t.get(POSITION_THIS), (hu.bme.mit.transima.Simulink.SimulinkModel) t.get(POSITION_TARGET));
@@ -293,6 +297,7 @@ public class ReferencedModelMatcher extends BaseMatcher<ReferencedModelMatch> {
     
   }
   
+  @Override
   protected ReferencedModelMatch arrayToMatch(final Object[] match) {
     try {
       return ReferencedModelMatch.newMatch((hu.bme.mit.transima.Simulink.ModelReference) match[POSITION_THIS], (hu.bme.mit.transima.Simulink.SimulinkModel) match[POSITION_TARGET]);
@@ -303,6 +308,7 @@ public class ReferencedModelMatcher extends BaseMatcher<ReferencedModelMatch> {
     
   }
   
+  @Override
   protected ReferencedModelMatch arrayToMatchMutable(final Object[] match) {
     try {
       return ReferencedModelMatch.newMutableMatch((hu.bme.mit.transima.Simulink.ModelReference) match[POSITION_THIS], (hu.bme.mit.transima.Simulink.SimulinkModel) match[POSITION_TARGET]);

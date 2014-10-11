@@ -34,31 +34,38 @@ public final class BusMappingInSelectorQuerySpecification extends BaseGeneratedQ
     
   }
   
+  @Override
   protected BusMappingInSelectorMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return BusMappingInSelectorMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.util.busMappingInSelector";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("selector","mapping","mappingFrom","mappingTo");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("selector", "hu.bme.mit.transima.Simulink.BusSelector"),new PParameter("mapping", "hu.bme.mit.transima.Simulink.BusSignalMapping"),new PParameter("mappingFrom", "hu.bme.mit.transima.Simulink.OutPort"),new PParameter("mappingTo", "hu.bme.mit.transima.Simulink.OutPort"));
   }
   
+  @Override
   public BusMappingInSelectorMatch newEmptyMatch() {
     return BusMappingInSelectorMatch.newEmptyMatch();
   }
   
+  @Override
   public BusMappingInSelectorMatch newMatch(final Object... parameters) {
     return BusMappingInSelectorMatch.newMatch((hu.bme.mit.transima.Simulink.BusSelector) parameters[0], (hu.bme.mit.transima.Simulink.BusSignalMapping) parameters[1], (hu.bme.mit.transima.Simulink.OutPort) parameters[2], (hu.bme.mit.transima.Simulink.OutPort) parameters[3]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

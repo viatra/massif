@@ -1,7 +1,7 @@
 package hu.bme.mit.transima.models.simulink.util
 
 
-import "platform:/resource/hu.bme.mit.transima.metamodels/model/simulink/simulink.ecore"
+import "http://hu.bme.mit.transima/simulink/1.0"
 
 pattern blockToPort(block, port) {
 	Block.ports(block,port);

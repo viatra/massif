@@ -83,6 +83,7 @@ public class HasSourceBlockMatcher extends BaseMatcher<HasSourceBlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public HasSourceBlockMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -96,6 +97,7 @@ public class HasSourceBlockMatcher extends BaseMatcher<HasSourceBlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public HasSourceBlockMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -176,6 +178,7 @@ public class HasSourceBlockMatcher extends BaseMatcher<HasSourceBlockMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<HasSourceBlockMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pBl) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBl});
   }
@@ -213,6 +216,7 @@ public class HasSourceBlockMatcher extends BaseMatcher<HasSourceBlockMatch> {
     return rawAccumulateAllValuesOfBl(emptyArray());
   }
   
+  @Override
   protected HasSourceBlockMatch tupleToMatch(final Tuple t) {
     try {
       return HasSourceBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BL));
@@ -223,6 +227,7 @@ public class HasSourceBlockMatcher extends BaseMatcher<HasSourceBlockMatch> {
     
   }
   
+  @Override
   protected HasSourceBlockMatch arrayToMatch(final Object[] match) {
     try {
       return HasSourceBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BL]);
@@ -233,6 +238,7 @@ public class HasSourceBlockMatcher extends BaseMatcher<HasSourceBlockMatch> {
     
   }
   
+  @Override
   protected HasSourceBlockMatch arrayToMatchMutable(final Object[] match) {
     try {
       return HasSourceBlockMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BL]);

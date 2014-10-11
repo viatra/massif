@@ -21,6 +21,7 @@ public abstract class HierarchyConnectionEndProcessor implements IMatchProcessor
    */
   public abstract void process(final Port pPort, final Block pBlock);
   
+  @Override
   public void process(final HierarchyConnectionEndMatch match) {
     process(match.getPort(), match.getBlock());
     

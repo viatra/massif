@@ -28,29 +28,29 @@ package hu.bme.mit.transima.Simulink;
  */
 public interface GotoTagVisibility extends VirtualBlock {
     /**
-     * Returns the value of the '<em><b>Goto Block</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Goto Block</b></em>' reference.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Goto Block</em>' reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Goto Block</em>' reference.
-     * @see #setGotoBlock(Goto)
-     * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getGotoTagVisibility_GotoBlock()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Goto Block</em>' reference.
+	 * @see #setGotoBlock(Goto)
+	 * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getGotoTagVisibility_GotoBlock()
+	 * @model
+	 * @generated
+	 */
     Goto getGotoBlock();
 
     /**
-     * Sets the value of the '{@link hu.bme.mit.transima.Simulink.GotoTagVisibility#getGotoBlock <em>Goto Block</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link hu.bme.mit.transima.Simulink.GotoTagVisibility#getGotoBlock <em>Goto Block</em>}' reference.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Goto Block</em>' reference.
-     * @see #getGotoBlock()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Goto Block</em>' reference.
+	 * @see #getGotoBlock()
+	 * @generated
+	 */
     void setGotoBlock(Goto value);
 
 } // GotoTagVisibility

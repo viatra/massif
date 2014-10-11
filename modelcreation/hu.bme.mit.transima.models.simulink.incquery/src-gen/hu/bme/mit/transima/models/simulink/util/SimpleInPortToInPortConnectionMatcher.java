@@ -95,6 +95,7 @@ public class SimpleInPortToInPortConnectionMatcher extends BaseMatcher<SimpleInP
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public SimpleInPortToInPortConnectionMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -108,6 +109,7 @@ public class SimpleInPortToInPortConnectionMatcher extends BaseMatcher<SimpleInP
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public SimpleInPortToInPortConnectionMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -202,6 +204,7 @@ public class SimpleInPortToInPortConnectionMatcher extends BaseMatcher<SimpleInP
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<SimpleInPortToInPortConnectionMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final InPort pSourceInPort, final InPort pTargetInPort, final SingleConnection pConnection) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pSourceInPort, pTargetInPort, pConnection});
   }
@@ -335,6 +338,7 @@ public class SimpleInPortToInPortConnectionMatcher extends BaseMatcher<SimpleInP
     return rawAccumulateAllValuesOfconnection(new Object[]{pSourceInPort, pTargetInPort, null});
   }
   
+  @Override
   protected SimpleInPortToInPortConnectionMatch tupleToMatch(final Tuple t) {
     try {
       return SimpleInPortToInPortConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.InPort) t.get(POSITION_SOURCEINPORT), (hu.bme.mit.transima.Simulink.InPort) t.get(POSITION_TARGETINPORT), (hu.bme.mit.transima.Simulink.SingleConnection) t.get(POSITION_CONNECTION));
@@ -345,6 +349,7 @@ public class SimpleInPortToInPortConnectionMatcher extends BaseMatcher<SimpleInP
     
   }
   
+  @Override
   protected SimpleInPortToInPortConnectionMatch arrayToMatch(final Object[] match) {
     try {
       return SimpleInPortToInPortConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.InPort) match[POSITION_SOURCEINPORT], (hu.bme.mit.transima.Simulink.InPort) match[POSITION_TARGETINPORT], (hu.bme.mit.transima.Simulink.SingleConnection) match[POSITION_CONNECTION]);
@@ -355,6 +360,7 @@ public class SimpleInPortToInPortConnectionMatcher extends BaseMatcher<SimpleInP
     
   }
   
+  @Override
   protected SimpleInPortToInPortConnectionMatch arrayToMatchMutable(final Object[] match) {
     try {
       return SimpleInPortToInPortConnectionMatch.newMutableMatch((hu.bme.mit.transima.Simulink.InPort) match[POSITION_SOURCEINPORT], (hu.bme.mit.transima.Simulink.InPort) match[POSITION_TARGETINPORT], (hu.bme.mit.transima.Simulink.SingleConnection) match[POSITION_CONNECTION]);

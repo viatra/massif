@@ -34,31 +34,38 @@ public final class SimulinkReferenceQuerySpecification extends BaseGeneratedQuer
     
   }
   
+  @Override
   protected SimulinkReferenceMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return SimulinkReferenceMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.util.simulinkReference";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("SR","Name","Qual");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("SR", "hu.bme.mit.transima.Simulink.SimulinkReference"),new PParameter("Name", "java.lang.String"),new PParameter("Qual", "java.lang.String"));
   }
   
+  @Override
   public SimulinkReferenceMatch newEmptyMatch() {
     return SimulinkReferenceMatch.newEmptyMatch();
   }
   
+  @Override
   public SimulinkReferenceMatch newMatch(final Object... parameters) {
     return SimulinkReferenceMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkReference) parameters[0], (java.lang.String) parameters[1], (java.lang.String) parameters[2]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

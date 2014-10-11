@@ -37,31 +37,38 @@ public final class ConnectedPortsQuerySpecification extends BaseGeneratedQuerySp
     
   }
   
+  @Override
   protected ConnectedPortsMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return ConnectedPortsMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.util.connectedPorts";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("outP","inP","firstPC");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("outP", "hu.bme.mit.transima.Simulink.OutPort"),new PParameter("inP", "hu.bme.mit.transima.Simulink.InPort"),new PParameter("firstPC", "hu.bme.mit.transima.Simulink.SingleConnection"));
   }
   
+  @Override
   public ConnectedPortsMatch newEmptyMatch() {
     return ConnectedPortsMatch.newEmptyMatch();
   }
   
+  @Override
   public ConnectedPortsMatch newMatch(final Object... parameters) {
     return ConnectedPortsMatch.newMatch((hu.bme.mit.transima.Simulink.OutPort) parameters[0], (hu.bme.mit.transima.Simulink.InPort) parameters[1], (hu.bme.mit.transima.Simulink.SingleConnection) parameters[2]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

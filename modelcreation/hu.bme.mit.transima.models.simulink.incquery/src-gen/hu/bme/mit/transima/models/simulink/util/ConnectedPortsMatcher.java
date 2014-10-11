@@ -92,6 +92,7 @@ public class ConnectedPortsMatcher extends BaseMatcher<ConnectedPortsMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public ConnectedPortsMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -105,6 +106,7 @@ public class ConnectedPortsMatcher extends BaseMatcher<ConnectedPortsMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public ConnectedPortsMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -199,6 +201,7 @@ public class ConnectedPortsMatcher extends BaseMatcher<ConnectedPortsMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<ConnectedPortsMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final OutPort pOutP, final InPort pInP, final SingleConnection pFirstPC) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pOutP, pInP, pFirstPC});
   }
@@ -332,6 +335,7 @@ public class ConnectedPortsMatcher extends BaseMatcher<ConnectedPortsMatch> {
     return rawAccumulateAllValuesOffirstPC(new Object[]{pOutP, pInP, null});
   }
   
+  @Override
   protected ConnectedPortsMatch tupleToMatch(final Tuple t) {
     try {
       return ConnectedPortsMatch.newMatch((hu.bme.mit.transima.Simulink.OutPort) t.get(POSITION_OUTP), (hu.bme.mit.transima.Simulink.InPort) t.get(POSITION_INP), (hu.bme.mit.transima.Simulink.SingleConnection) t.get(POSITION_FIRSTPC));
@@ -342,6 +346,7 @@ public class ConnectedPortsMatcher extends BaseMatcher<ConnectedPortsMatch> {
     
   }
   
+  @Override
   protected ConnectedPortsMatch arrayToMatch(final Object[] match) {
     try {
       return ConnectedPortsMatch.newMatch((hu.bme.mit.transima.Simulink.OutPort) match[POSITION_OUTP], (hu.bme.mit.transima.Simulink.InPort) match[POSITION_INP], (hu.bme.mit.transima.Simulink.SingleConnection) match[POSITION_FIRSTPC]);
@@ -352,6 +357,7 @@ public class ConnectedPortsMatcher extends BaseMatcher<ConnectedPortsMatch> {
     
   }
   
+  @Override
   protected ConnectedPortsMatch arrayToMatchMutable(final Object[] match) {
     try {
       return ConnectedPortsMatch.newMutableMatch((hu.bme.mit.transima.Simulink.OutPort) match[POSITION_OUTP], (hu.bme.mit.transima.Simulink.InPort) match[POSITION_INP], (hu.bme.mit.transima.Simulink.SingleConnection) match[POSITION_FIRSTPC]);

@@ -86,6 +86,7 @@ public class PortBlockMatcher extends BaseMatcher<PortBlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public PortBlockMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -99,6 +100,7 @@ public class PortBlockMatcher extends BaseMatcher<PortBlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public PortBlockMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -179,6 +181,7 @@ public class PortBlockMatcher extends BaseMatcher<PortBlockMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<PortBlockMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final PortBlock pBl) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBl});
   }
@@ -216,6 +219,7 @@ public class PortBlockMatcher extends BaseMatcher<PortBlockMatch> {
     return rawAccumulateAllValuesOfbl(emptyArray());
   }
   
+  @Override
   protected PortBlockMatch tupleToMatch(final Tuple t) {
     try {
       return PortBlockMatch.newMatch((hu.bme.mit.transima.Simulink.PortBlock) t.get(POSITION_BL));
@@ -226,6 +230,7 @@ public class PortBlockMatcher extends BaseMatcher<PortBlockMatch> {
     
   }
   
+  @Override
   protected PortBlockMatch arrayToMatch(final Object[] match) {
     try {
       return PortBlockMatch.newMatch((hu.bme.mit.transima.Simulink.PortBlock) match[POSITION_BL]);
@@ -236,6 +241,7 @@ public class PortBlockMatcher extends BaseMatcher<PortBlockMatch> {
     
   }
   
+  @Override
   protected PortBlockMatch arrayToMatchMutable(final Object[] match) {
     try {
       return PortBlockMatch.newMutableMatch((hu.bme.mit.transima.Simulink.PortBlock) match[POSITION_BL]);

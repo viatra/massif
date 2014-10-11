@@ -21,6 +21,7 @@ public abstract class GotoConnectionProcessor implements IMatchProcessor<GotoCon
    */
   public abstract void process(final Goto pFrom, final From pTo);
   
+  @Override
   public void process(final GotoConnectionMatch match) {
     process(match.getFrom(), match.getTo());
     

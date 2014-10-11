@@ -21,6 +21,7 @@ public abstract class OutportsProcessor implements IMatchProcessor<OutportsMatch
    */
   public abstract void process(final Block pBlock, final OutPort pOutPort);
   
+  @Override
   public void process(final OutportsMatch match) {
     process(match.getBlock(), match.getOutPort());
     

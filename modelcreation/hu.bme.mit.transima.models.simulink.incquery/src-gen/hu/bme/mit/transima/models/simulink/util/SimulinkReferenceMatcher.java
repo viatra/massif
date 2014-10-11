@@ -88,6 +88,7 @@ public class SimulinkReferenceMatcher extends BaseMatcher<SimulinkReferenceMatch
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public SimulinkReferenceMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -101,6 +102,7 @@ public class SimulinkReferenceMatcher extends BaseMatcher<SimulinkReferenceMatch
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public SimulinkReferenceMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -195,6 +197,7 @@ public class SimulinkReferenceMatcher extends BaseMatcher<SimulinkReferenceMatch
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<SimulinkReferenceMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final SimulinkReference pSR, final String pName, final String pQual) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pSR, pName, pQual});
   }
@@ -328,6 +331,7 @@ public class SimulinkReferenceMatcher extends BaseMatcher<SimulinkReferenceMatch
     return rawAccumulateAllValuesOfQual(new Object[]{pSR, pName, null});
   }
   
+  @Override
   protected SimulinkReferenceMatch tupleToMatch(final Tuple t) {
     try {
       return SimulinkReferenceMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkReference) t.get(POSITION_SR), (java.lang.String) t.get(POSITION_NAME), (java.lang.String) t.get(POSITION_QUAL));
@@ -338,6 +342,7 @@ public class SimulinkReferenceMatcher extends BaseMatcher<SimulinkReferenceMatch
     
   }
   
+  @Override
   protected SimulinkReferenceMatch arrayToMatch(final Object[] match) {
     try {
       return SimulinkReferenceMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkReference) match[POSITION_SR], (java.lang.String) match[POSITION_NAME], (java.lang.String) match[POSITION_QUAL]);
@@ -348,6 +353,7 @@ public class SimulinkReferenceMatcher extends BaseMatcher<SimulinkReferenceMatch
     
   }
   
+  @Override
   protected SimulinkReferenceMatch arrayToMatchMutable(final Object[] match) {
     try {
       return SimulinkReferenceMatch.newMutableMatch((hu.bme.mit.transima.Simulink.SimulinkReference) match[POSITION_SR], (java.lang.String) match[POSITION_NAME], (java.lang.String) match[POSITION_QUAL]);

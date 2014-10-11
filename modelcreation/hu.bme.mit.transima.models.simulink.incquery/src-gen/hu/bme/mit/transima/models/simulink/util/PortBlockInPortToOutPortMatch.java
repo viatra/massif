@@ -36,6 +36,7 @@ public abstract class PortBlockInPortToOutPortMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("inPortOfPBl".equals(parameterName)) return this.fInPortOfPBl;
     if ("outPort".equals(parameterName)) return this.fOutPort;
@@ -53,6 +54,7 @@ public abstract class PortBlockInPortToOutPortMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("inPortOfPBl".equals(parameterName) ) {
@@ -79,26 +81,31 @@ public abstract class PortBlockInPortToOutPortMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.portBlockInPortToOutPort";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return PortBlockInPortToOutPortMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fInPortOfPBl, fOutPort};
     
   }
   
+  @Override
   public PortBlockInPortToOutPortMatch toImmutable() {
     return isMutable() ? newMatch(fInPortOfPBl, fOutPort) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"inPortOfPBl\"=" + prettyPrintValue(fInPortOfPBl) + ", ");
@@ -107,6 +114,7 @@ public abstract class PortBlockInPortToOutPortMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -116,6 +124,7 @@ public abstract class PortBlockInPortToOutPortMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -137,6 +146,7 @@ public abstract class PortBlockInPortToOutPortMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public PortBlockInPortToOutPortQuerySpecification specification() {
     try {
     	return PortBlockInPortToOutPortQuerySpecification.instance();
@@ -193,6 +203,7 @@ public abstract class PortBlockInPortToOutPortMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -204,6 +215,7 @@ public abstract class PortBlockInPortToOutPortMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

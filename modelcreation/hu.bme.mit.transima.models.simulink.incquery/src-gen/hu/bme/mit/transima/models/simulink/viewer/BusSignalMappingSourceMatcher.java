@@ -98,6 +98,7 @@ public class BusSignalMappingSourceMatcher extends BaseMatcher<BusSignalMappingS
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public BusSignalMappingSourceMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -111,6 +112,7 @@ public class BusSignalMappingSourceMatcher extends BaseMatcher<BusSignalMappingS
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public BusSignalMappingSourceMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -212,6 +214,7 @@ public class BusSignalMappingSourceMatcher extends BaseMatcher<BusSignalMappingS
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<BusSignalMappingSourceMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final BusSelector pBusSelector, final Block pFrom, final String pName, final String pToName) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBusSelector, pFrom, pName, pToName});
   }
@@ -384,6 +387,7 @@ public class BusSignalMappingSourceMatcher extends BaseMatcher<BusSignalMappingS
     return rawAccumulateAllValuesOftoName(new Object[]{pBusSelector, pFrom, pName, null});
   }
   
+  @Override
   protected BusSignalMappingSourceMatch tupleToMatch(final Tuple t) {
     try {
       return BusSignalMappingSourceMatch.newMatch((hu.bme.mit.transima.Simulink.BusSelector) t.get(POSITION_BUSSELECTOR), (hu.bme.mit.transima.Simulink.Block) t.get(POSITION_FROM), (java.lang.String) t.get(POSITION_NAME), (java.lang.String) t.get(POSITION_TONAME));
@@ -394,6 +398,7 @@ public class BusSignalMappingSourceMatcher extends BaseMatcher<BusSignalMappingS
     
   }
   
+  @Override
   protected BusSignalMappingSourceMatch arrayToMatch(final Object[] match) {
     try {
       return BusSignalMappingSourceMatch.newMatch((hu.bme.mit.transima.Simulink.BusSelector) match[POSITION_BUSSELECTOR], (hu.bme.mit.transima.Simulink.Block) match[POSITION_FROM], (java.lang.String) match[POSITION_NAME], (java.lang.String) match[POSITION_TONAME]);
@@ -404,6 +409,7 @@ public class BusSignalMappingSourceMatcher extends BaseMatcher<BusSignalMappingS
     
   }
   
+  @Override
   protected BusSignalMappingSourceMatch arrayToMatchMutable(final Object[] match) {
     try {
       return BusSignalMappingSourceMatch.newMutableMatch((hu.bme.mit.transima.Simulink.BusSelector) match[POSITION_BUSSELECTOR], (hu.bme.mit.transima.Simulink.Block) match[POSITION_FROM], (java.lang.String) match[POSITION_NAME], (java.lang.String) match[POSITION_TONAME]);

@@ -18,22 +18,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class InPortBlockImpl extends PortBlockImpl implements InPortBlock {
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected InPortBlockImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.IN_PORT_BLOCK;
-    }
+		return SimulinkPackage.Literals.IN_PORT_BLOCK;
+	}
 
 } //InPortBlockImpl

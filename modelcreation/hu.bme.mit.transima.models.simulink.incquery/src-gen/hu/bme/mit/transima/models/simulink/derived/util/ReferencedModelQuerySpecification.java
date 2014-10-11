@@ -39,31 +39,38 @@ public final class ReferencedModelQuerySpecification extends BaseGeneratedQueryS
     
   }
   
+  @Override
   protected ReferencedModelMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return ReferencedModelMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.derived.referencedModel";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("This","Target");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("This", "hu.bme.mit.transima.Simulink.ModelReference"),new PParameter("Target", "hu.bme.mit.transima.Simulink.SimulinkModel"));
   }
   
+  @Override
   public ReferencedModelMatch newEmptyMatch() {
     return ReferencedModelMatch.newEmptyMatch();
   }
   
+  @Override
   public ReferencedModelMatch newMatch(final Object... parameters) {
     return ReferencedModelMatch.newMatch((hu.bme.mit.transima.Simulink.ModelReference) parameters[0], (hu.bme.mit.transima.Simulink.SimulinkModel) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {
@@ -78,8 +85,8 @@ public final class ReferencedModelQuerySpecification extends BaseGeneratedQueryS
       ));
       
       
-      new TypeBinary(body, CONTEXT, var_This, var_ModelRef, getFeatureLiteral("http://hu.bme.mit.transima/simulink/1.0", "ModelReference", "modelRef"), "http://hu.bme.mit.transima/simulink/1.0/ModelReference.modelRef");
       new TypeUnary(body, var_Target, getClassifierLiteral("http://hu.bme.mit.transima/simulink/1.0", "SimulinkModel"), "http://hu.bme.mit.transima/simulink/1.0/SimulinkModel");
+      new TypeBinary(body, CONTEXT, var_This, var_ModelRef, getFeatureLiteral("http://hu.bme.mit.transima/simulink/1.0", "ModelReference", "modelRef"), "http://hu.bme.mit.transima/simulink/1.0/ModelReference.modelRef");
       new TypeBinary(body, CONTEXT, var_Target, var_SR, getFeatureLiteral("http://hu.bme.mit.transima/simulink/1.0", "SimulinkElement", "simulinkRef"), "http://hu.bme.mit.transima/simulink/1.0/SimulinkElement.simulinkRef");
       new PositivePatternCall(body, new FlatTuple(var_ModelRef, var_SR), ReferenceEqualQuerySpecification.instance());
       bodies.add(body);

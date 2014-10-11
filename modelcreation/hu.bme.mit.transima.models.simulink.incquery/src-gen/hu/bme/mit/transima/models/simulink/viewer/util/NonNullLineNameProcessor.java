@@ -20,6 +20,7 @@ public abstract class NonNullLineNameProcessor implements IMatchProcessor<NonNul
    */
   public abstract void process(final Connection pConn, final String pName);
   
+  @Override
   public void process(final NonNullLineNameMatch match) {
     process(match.getConn(), match.getName());
     

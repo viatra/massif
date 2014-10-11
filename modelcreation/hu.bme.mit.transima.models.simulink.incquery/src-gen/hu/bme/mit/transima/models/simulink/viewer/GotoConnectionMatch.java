@@ -36,6 +36,7 @@ public abstract class GotoConnectionMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("from".equals(parameterName)) return this.fFrom;
     if ("to".equals(parameterName)) return this.fTo;
@@ -53,6 +54,7 @@ public abstract class GotoConnectionMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("from".equals(parameterName) ) {
@@ -79,26 +81,31 @@ public abstract class GotoConnectionMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.viewer.gotoConnection";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return GotoConnectionMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fFrom, fTo};
     
   }
   
+  @Override
   public GotoConnectionMatch toImmutable() {
     return isMutable() ? newMatch(fFrom, fTo) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"from\"=" + prettyPrintValue(fFrom) + ", ");
@@ -107,6 +114,7 @@ public abstract class GotoConnectionMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -116,6 +124,7 @@ public abstract class GotoConnectionMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -137,6 +146,7 @@ public abstract class GotoConnectionMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public GotoConnectionQuerySpecification specification() {
     try {
     	return GotoConnectionQuerySpecification.instance();
@@ -193,6 +203,7 @@ public abstract class GotoConnectionMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -204,6 +215,7 @@ public abstract class GotoConnectionMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

@@ -19,6 +19,7 @@ public abstract class FromBlocksProcessor implements IMatchProcessor<FromBlocksM
    */
   public abstract void process(final From pBl);
   
+  @Override
   public void process(final FromBlocksMatch match) {
     process(match.getBl());
     

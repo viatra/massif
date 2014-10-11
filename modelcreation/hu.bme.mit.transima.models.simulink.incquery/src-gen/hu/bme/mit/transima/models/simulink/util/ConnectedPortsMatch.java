@@ -40,6 +40,7 @@ public abstract class ConnectedPortsMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("outP".equals(parameterName)) return this.fOutP;
     if ("inP".equals(parameterName)) return this.fInP;
@@ -63,6 +64,7 @@ public abstract class ConnectedPortsMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("outP".equals(parameterName) ) {
@@ -99,26 +101,31 @@ public abstract class ConnectedPortsMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.connectedPorts";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return ConnectedPortsMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fOutP, fInP, fFirstPC};
     
   }
   
+  @Override
   public ConnectedPortsMatch toImmutable() {
     return isMutable() ? newMatch(fOutP, fInP, fFirstPC) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"outP\"=" + prettyPrintValue(fOutP) + ", ");
@@ -128,6 +135,7 @@ public abstract class ConnectedPortsMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -138,6 +146,7 @@ public abstract class ConnectedPortsMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -161,6 +170,7 @@ public abstract class ConnectedPortsMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public ConnectedPortsQuerySpecification specification() {
     try {
     	return ConnectedPortsQuerySpecification.instance();
@@ -219,6 +229,7 @@ public abstract class ConnectedPortsMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -230,6 +241,7 @@ public abstract class ConnectedPortsMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

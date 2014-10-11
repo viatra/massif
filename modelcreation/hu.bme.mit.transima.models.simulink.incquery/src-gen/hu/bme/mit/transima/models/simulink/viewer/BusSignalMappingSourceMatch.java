@@ -42,6 +42,7 @@ public abstract class BusSignalMappingSourceMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("busSelector".equals(parameterName)) return this.fBusSelector;
     if ("from".equals(parameterName)) return this.fFrom;
@@ -71,6 +72,7 @@ public abstract class BusSignalMappingSourceMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("busSelector".equals(parameterName) ) {
@@ -117,26 +119,31 @@ public abstract class BusSignalMappingSourceMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.viewer.busSignalMappingSource";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return BusSignalMappingSourceMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fBusSelector, fFrom, fName, fToName};
     
   }
   
+  @Override
   public BusSignalMappingSourceMatch toImmutable() {
     return isMutable() ? newMatch(fBusSelector, fFrom, fName, fToName) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"busSelector\"=" + prettyPrintValue(fBusSelector) + ", ");
@@ -147,6 +154,7 @@ public abstract class BusSignalMappingSourceMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -158,6 +166,7 @@ public abstract class BusSignalMappingSourceMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -183,6 +192,7 @@ public abstract class BusSignalMappingSourceMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public BusSignalMappingSourceQuerySpecification specification() {
     try {
     	return BusSignalMappingSourceQuerySpecification.instance();
@@ -243,6 +253,7 @@ public abstract class BusSignalMappingSourceMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -254,6 +265,7 @@ public abstract class BusSignalMappingSourceMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

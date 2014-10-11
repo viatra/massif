@@ -27,31 +27,31 @@ package hu.bme.mit.transima.Simulink;
  */
 public interface OutPort extends Port {
     /**
-     * Returns the value of the '<em><b>Connection</b></em>' containment reference.
-     * It is bidirectional and its opposite is '{@link hu.bme.mit.transima.Simulink.Connection#getFrom <em>From</em>}'.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Connection</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link hu.bme.mit.transima.Simulink.Connection#getFrom <em>From</em>}'.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Connection</em>' containment reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Connection</em>' containment reference.
-     * @see #setConnection(Connection)
-     * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getOutPort_Connection()
-     * @see hu.bme.mit.transima.Simulink.Connection#getFrom
-     * @model opposite="from" containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Connection</em>' containment reference.
+	 * @see #setConnection(Connection)
+	 * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getOutPort_Connection()
+	 * @see hu.bme.mit.transima.Simulink.Connection#getFrom
+	 * @model opposite="from" containment="true"
+	 * @generated
+	 */
     Connection getConnection();
 
     /**
-     * Sets the value of the '{@link hu.bme.mit.transima.Simulink.OutPort#getConnection <em>Connection</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link hu.bme.mit.transima.Simulink.OutPort#getConnection <em>Connection</em>}' containment reference.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Connection</em>' containment reference.
-     * @see #getConnection()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Connection</em>' containment reference.
+	 * @see #getConnection()
+	 * @generated
+	 */
     void setConnection(Connection value);
 
 } // OutPort

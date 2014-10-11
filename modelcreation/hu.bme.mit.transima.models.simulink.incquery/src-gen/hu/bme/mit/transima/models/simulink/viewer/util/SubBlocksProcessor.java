@@ -21,6 +21,7 @@ public abstract class SubBlocksProcessor implements IMatchProcessor<SubBlocksMat
    */
   public abstract void process(final SubSystem pSubSys, final Block pBl);
   
+  @Override
   public void process(final SubBlocksMatch match) {
     process(match.getSubSys(), match.getBl());
     

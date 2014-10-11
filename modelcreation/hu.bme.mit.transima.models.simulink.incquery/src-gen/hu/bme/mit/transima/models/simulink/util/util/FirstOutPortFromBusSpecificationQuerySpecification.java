@@ -39,31 +39,38 @@ public final class FirstOutPortFromBusSpecificationQuerySpecification extends Ba
     
   }
   
+  @Override
   protected FirstOutPortFromBusSpecificationMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return FirstOutPortFromBusSpecificationMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.util.firstOutPortFromBusSpecification";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("outPort","nextSpec","endPortBeforeNextSpec");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("outPort", "hu.bme.mit.transima.Simulink.OutPort"),new PParameter("nextSpec", "hu.bme.mit.transima.Simulink.BusSpecification"),new PParameter("endPortBeforeNextSpec", "hu.bme.mit.transima.Simulink.OutPort"));
   }
   
+  @Override
   public FirstOutPortFromBusSpecificationMatch newEmptyMatch() {
     return FirstOutPortFromBusSpecificationMatch.newEmptyMatch();
   }
   
+  @Override
   public FirstOutPortFromBusSpecificationMatch newMatch(final Object... parameters) {
     return FirstOutPortFromBusSpecificationMatch.newMatch((hu.bme.mit.transima.Simulink.OutPort) parameters[0], (hu.bme.mit.transima.Simulink.BusSpecification) parameters[1], (hu.bme.mit.transima.Simulink.OutPort) parameters[2]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

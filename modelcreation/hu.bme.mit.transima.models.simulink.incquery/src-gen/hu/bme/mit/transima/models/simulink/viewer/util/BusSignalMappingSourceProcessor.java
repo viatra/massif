@@ -23,6 +23,7 @@ public abstract class BusSignalMappingSourceProcessor implements IMatchProcessor
    */
   public abstract void process(final BusSelector pBusSelector, final Block pFrom, final String pName, final String pToName);
   
+  @Override
   public void process(final BusSignalMappingSourceMatch match) {
     process(match.getBusSelector(), match.getFrom(), match.getName(), match.getToName());
     

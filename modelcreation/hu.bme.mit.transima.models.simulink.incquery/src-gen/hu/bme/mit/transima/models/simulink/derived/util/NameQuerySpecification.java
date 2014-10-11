@@ -35,31 +35,38 @@ public final class NameQuerySpecification extends BaseGeneratedQuerySpecificatio
     
   }
   
+  @Override
   protected NameMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return NameMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.derived.name";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("SE","Name");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("SE", "hu.bme.mit.transima.Simulink.SimulinkElement"),new PParameter("Name", "java.lang.String"));
   }
   
+  @Override
   public NameMatch newEmptyMatch() {
     return NameMatch.newEmptyMatch();
   }
   
+  @Override
   public NameMatch newMatch(final Object... parameters) {
     return NameMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkElement) parameters[0], (java.lang.String) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

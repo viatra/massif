@@ -2,14 +2,13 @@ package hu.bme.mit.transima.simulink.importall.tests;
 
 
 import hu.bme.mit.transima.commandevaluatorcontribution.CommandEvaluatorImpl;
-import hu.bme.mit.transima.simulink.api.ImporterApi;
-import hu.bme.mit.transima.simulink.api.ModelApi;
+import hu.bme.mit.transima.simulink.api.Importer;
+import hu.bme.mit.transima.simulink.api.ModelObject;
 import hu.bme.mit.transima.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.transima.simulink.api.util.ICommandEvaluator;
 import hu.bme.mit.transima.simulink.api.util.ImportMode;
-import hu.bme.mit.transima.simulink.api.util.command.Addpath;
-import hu.bme.mit.transima.simulink.api.util.command.CloseSystem;
-import hu.bme.mit.transima.simulink.api.util.command.Run;
+import hu.bme.mit.transima.simulink.communication.ICommandEvaluator;
+import hu.bme.mit.transima.simulink.communication.command.MatlabCommand;
+import hu.bme.mit.transima.simulink.communication.command.MatlabCommandFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -110,7 +109,8 @@ public class ImportAllModels {
     @Test
     public void importAllModels() throws IOException, MatlabRMIException, SimulinkApiException {
         ICommandEvaluator commandEvaluator = createCommandEvaluator();
-
+        MatlabCommandFactory factory = new MatlabCommandFactory(commandEvaluator);
+        
         List<String> modelLocations = getAllModelLocations();
         for (String mdlFileName : modelLocations) {
 
@@ -120,7 +120,7 @@ public class ImportAllModels {
 
             System.out.println("Importing model: " + modelPath+modelName);
             
-            Addpath addModelPath = new Addpath(commandEvaluator);
+            MatlabCommand addModelPath = factory.addPath();
             addModelPath.addParam(modelPath);
             addModelPath.execute();
 
@@ -150,23 +150,23 @@ public class ImportAllModels {
             for (File file : modelRoot.listFiles()) {
                 if (file.getName().endsWith(".m")) {
                     // scriptList.add(file.getAbsolutePath());
-                    Run script = new Run(commandEvaluator);
+                    MatlabCommand script = factory.run();
                     script.addParam(file.getAbsolutePath());
                     script.execute();
                 }
             }
 
-            ModelApi testModel = new ModelApi(modelName, commandEvaluator);
+            ModelObject testModel = new ModelObject(modelName, commandEvaluator);
             testModel.setLoadPath(modelPath);
 
             // Import each model using the FAM Leaf filter
             testModel.registerApplicableFilters("famfilter");
 
-            ImporterApi traverser = new ImporterApi(testModel);
+            Importer traverser = new Importer(testModel);
             traverser.traverseAndCreateEMFModel(traverseMode);
             traverser.saveEMFModel(importedModelName);
 
-            CloseSystem closeSystem = new CloseSystem(commandEvaluator);
+            MatlabCommand closeSystem = factory.closeSystem();
             closeSystem.addParam(modelName);
             closeSystem.execute();
         }

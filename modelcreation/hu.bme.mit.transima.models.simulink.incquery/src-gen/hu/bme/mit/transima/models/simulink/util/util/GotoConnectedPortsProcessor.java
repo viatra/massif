@@ -21,6 +21,7 @@ public abstract class GotoConnectedPortsProcessor implements IMatchProcessor<Got
    */
   public abstract void process(final InPort pGotoInPort, final OutPort pFromOutPort);
   
+  @Override
   public void process(final GotoConnectedPortsMatch match) {
     process(match.getGotoInPort(), match.getFromOutPort());
     

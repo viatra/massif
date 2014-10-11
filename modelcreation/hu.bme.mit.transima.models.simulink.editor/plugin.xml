@@ -7,15 +7,15 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
-      
+      <!-- @generated simulink -->
       <category
-            id="hu.bme.mit.transima.models.emf.Wizard.category.ID"
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
             id="hu.bme.mit.transima.Simulink.presentation.SimulinkModelWizardID"
             name="%_UI_SimulinkModelWizard_label"
             class="hu.bme.mit.transima.Simulink.presentation.SimulinkModelWizard"
-            category="hu.bme.mit.transima.models.emf.Wizard.category.ID"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/SimulinkModelFile.gif">
          <description>%_UI_SimulinkModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>

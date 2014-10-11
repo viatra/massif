@@ -93,6 +93,7 @@ public class PortToPortConnectionMatcher extends BaseMatcher<PortToPortConnectio
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public PortToPortConnectionMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -106,6 +107,7 @@ public class PortToPortConnectionMatcher extends BaseMatcher<PortToPortConnectio
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public PortToPortConnectionMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -200,6 +202,7 @@ public class PortToPortConnectionMatcher extends BaseMatcher<PortToPortConnectio
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<PortToPortConnectionMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pFrom, final Block pTo, final String pName) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pFrom, pTo, pName});
   }
@@ -333,6 +336,7 @@ public class PortToPortConnectionMatcher extends BaseMatcher<PortToPortConnectio
     return rawAccumulateAllValuesOfname(new Object[]{pFrom, pTo, null});
   }
   
+  @Override
   protected PortToPortConnectionMatch tupleToMatch(final Tuple t) {
     try {
       return PortToPortConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_FROM), (hu.bme.mit.transima.Simulink.Block) t.get(POSITION_TO), (java.lang.String) t.get(POSITION_NAME));
@@ -343,6 +347,7 @@ public class PortToPortConnectionMatcher extends BaseMatcher<PortToPortConnectio
     
   }
   
+  @Override
   protected PortToPortConnectionMatch arrayToMatch(final Object[] match) {
     try {
       return PortToPortConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_FROM], (hu.bme.mit.transima.Simulink.Block) match[POSITION_TO], (java.lang.String) match[POSITION_NAME]);
@@ -353,6 +358,7 @@ public class PortToPortConnectionMatcher extends BaseMatcher<PortToPortConnectio
     
   }
   
+  @Override
   protected PortToPortConnectionMatch arrayToMatchMutable(final Object[] match) {
     try {
       return PortToPortConnectionMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_FROM], (hu.bme.mit.transima.Simulink.Block) match[POSITION_TO], (java.lang.String) match[POSITION_NAME]);

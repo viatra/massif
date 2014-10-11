@@ -19,6 +19,7 @@ public abstract class BusSelectorProcessor implements IMatchProcessor<BusSelecto
    */
   public abstract void process(final BusSelector pSelector);
   
+  @Override
   public void process(final BusSelectorMatch match) {
     process(match.getSelector());
     

@@ -20,6 +20,7 @@ public abstract class OutPortToOutPortConnectionProcessor implements IMatchProce
    */
   public abstract void process(final OutPort pSourceOutPort, final OutPort pTargetOutPort);
   
+  @Override
   public void process(final OutPortToOutPortConnectionMatch match) {
     process(match.getSourceOutPort(), match.getTargetOutPort());
     

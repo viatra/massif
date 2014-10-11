@@ -29,47 +29,47 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface SubSystem extends Block {
     /**
-     * Returns the value of the '<em><b>Sub Blocks</b></em>' containment reference list.
-     * The list contents are of type {@link hu.bme.mit.transima.Simulink.Block}.
-     * It is bidirectional and its opposite is '{@link hu.bme.mit.transima.Simulink.Block#getParent <em>Parent</em>}'.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Sub Blocks</b></em>' containment reference list.
+	 * The list contents are of type {@link hu.bme.mit.transima.Simulink.Block}.
+	 * It is bidirectional and its opposite is '{@link hu.bme.mit.transima.Simulink.Block#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Sub Blocks</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Sub Blocks</em>' containment reference list.
-     * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getSubSystem_SubBlocks()
-     * @see hu.bme.mit.transima.Simulink.Block#getParent
-     * @model opposite="parent" containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Sub Blocks</em>' containment reference list.
+	 * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getSubSystem_SubBlocks()
+	 * @see hu.bme.mit.transima.Simulink.Block#getParent
+	 * @model opposite="parent" containment="true"
+	 * @generated
+	 */
     EList<Block> getSubBlocks();
 
     /**
-     * Returns the value of the '<em><b>Tag</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Tag</b></em>' attribute.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Tag</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Tag</em>' attribute.
-     * @see #setTag(String)
-     * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getSubSystem_Tag()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Tag</em>' attribute.
+	 * @see #setTag(String)
+	 * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getSubSystem_Tag()
+	 * @model
+	 * @generated
+	 */
     String getTag();
 
     /**
-     * Sets the value of the '{@link hu.bme.mit.transima.Simulink.SubSystem#getTag <em>Tag</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link hu.bme.mit.transima.Simulink.SubSystem#getTag <em>Tag</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Tag</em>' attribute.
-     * @see #getTag()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Tag</em>' attribute.
+	 * @see #getTag()
+	 * @generated
+	 */
     void setTag(String value);
 
 } // SubSystem

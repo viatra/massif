@@ -22,6 +22,7 @@ public abstract class SimpleInPortToInPortConnectionProcessor implements IMatchP
    */
   public abstract void process(final InPort pSourceInPort, final InPort pTargetInPort, final SingleConnection pConnection);
   
+  @Override
   public void process(final SimpleInPortToInPortConnectionMatch match) {
     process(match.getSourceInPort(), match.getTargetInPort(), match.getConnection());
     

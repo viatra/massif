@@ -38,6 +38,7 @@ public abstract class SimulinkReferenceMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("SR".equals(parameterName)) return this.fSR;
     if ("Name".equals(parameterName)) return this.fName;
@@ -61,6 +62,7 @@ public abstract class SimulinkReferenceMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("SR".equals(parameterName) ) {
@@ -97,26 +99,31 @@ public abstract class SimulinkReferenceMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.simulinkReference";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return SimulinkReferenceMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fSR, fName, fQual};
     
   }
   
+  @Override
   public SimulinkReferenceMatch toImmutable() {
     return isMutable() ? newMatch(fSR, fName, fQual) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"SR\"=" + prettyPrintValue(fSR) + ", ");
@@ -126,6 +133,7 @@ public abstract class SimulinkReferenceMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -136,6 +144,7 @@ public abstract class SimulinkReferenceMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -159,6 +168,7 @@ public abstract class SimulinkReferenceMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public SimulinkReferenceQuerySpecification specification() {
     try {
     	return SimulinkReferenceQuerySpecification.instance();
@@ -217,6 +227,7 @@ public abstract class SimulinkReferenceMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -228,6 +239,7 @@ public abstract class SimulinkReferenceMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

@@ -21,6 +21,7 @@ public abstract class InPortToBlockPortOutPortProcessor implements IMatchProcess
    */
   public abstract void process(final InPort pInPort, final OutPort pOutPortOfPBl);
   
+  @Override
   public void process(final InPortToBlockPortOutPortMatch match) {
     process(match.getInPort(), match.getOutPortOfPBl());
     

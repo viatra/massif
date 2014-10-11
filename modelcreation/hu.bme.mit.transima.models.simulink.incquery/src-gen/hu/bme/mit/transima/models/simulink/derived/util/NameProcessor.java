@@ -20,6 +20,7 @@ public abstract class NameProcessor implements IMatchProcessor<NameMatch> {
    */
   public abstract void process(final SimulinkElement pSE, final String pName);
   
+  @Override
   public void process(final NameMatch match) {
     process(match.getSE(), match.getName());
     

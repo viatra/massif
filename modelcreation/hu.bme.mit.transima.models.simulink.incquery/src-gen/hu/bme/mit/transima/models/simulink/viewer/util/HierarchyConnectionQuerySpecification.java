@@ -42,31 +42,38 @@ public final class HierarchyConnectionQuerySpecification extends BaseGeneratedQu
     
   }
   
+  @Override
   protected HierarchyConnectionMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return HierarchyConnectionMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.hierarchyConnection";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("from","to","name");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("from", "hu.bme.mit.transima.Simulink.Block"),new PParameter("to", "hu.bme.mit.transima.Simulink.Block"),new PParameter("name", "java.lang.String"));
   }
   
+  @Override
   public HierarchyConnectionMatch newEmptyMatch() {
     return HierarchyConnectionMatch.newEmptyMatch();
   }
   
+  @Override
   public HierarchyConnectionMatch newMatch(final Object... parameters) {
     return HierarchyConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.Block) parameters[0], (hu.bme.mit.transima.Simulink.Block) parameters[1], (java.lang.String) parameters[2]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

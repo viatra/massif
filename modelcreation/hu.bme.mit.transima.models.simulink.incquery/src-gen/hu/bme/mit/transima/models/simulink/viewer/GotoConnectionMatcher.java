@@ -89,6 +89,7 @@ public class GotoConnectionMatcher extends BaseMatcher<GotoConnectionMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public GotoConnectionMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -102,6 +103,7 @@ public class GotoConnectionMatcher extends BaseMatcher<GotoConnectionMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public GotoConnectionMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -189,6 +191,7 @@ public class GotoConnectionMatcher extends BaseMatcher<GotoConnectionMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<GotoConnectionMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Goto pFrom, final From pTo) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pFrom, pTo});
   }
@@ -283,6 +286,7 @@ public class GotoConnectionMatcher extends BaseMatcher<GotoConnectionMatch> {
     return rawAccumulateAllValuesOfto(new Object[]{pFrom, null});
   }
   
+  @Override
   protected GotoConnectionMatch tupleToMatch(final Tuple t) {
     try {
       return GotoConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.Goto) t.get(POSITION_FROM), (hu.bme.mit.transima.Simulink.From) t.get(POSITION_TO));
@@ -293,6 +297,7 @@ public class GotoConnectionMatcher extends BaseMatcher<GotoConnectionMatch> {
     
   }
   
+  @Override
   protected GotoConnectionMatch arrayToMatch(final Object[] match) {
     try {
       return GotoConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.Goto) match[POSITION_FROM], (hu.bme.mit.transima.Simulink.From) match[POSITION_TO]);
@@ -303,6 +308,7 @@ public class GotoConnectionMatcher extends BaseMatcher<GotoConnectionMatch> {
     
   }
   
+  @Override
   protected GotoConnectionMatch arrayToMatchMutable(final Object[] match) {
     try {
       return GotoConnectionMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Goto) match[POSITION_FROM], (hu.bme.mit.transima.Simulink.From) match[POSITION_TO]);

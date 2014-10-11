@@ -21,6 +21,7 @@ public abstract class ReferencedModelProcessor implements IMatchProcessor<Refere
    */
   public abstract void process(final ModelReference pThis, final SimulinkModel pTarget);
   
+  @Override
   public void process(final ReferencedModelMatch match) {
     process(match.getThis(), match.getTarget());
     

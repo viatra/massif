@@ -36,6 +36,7 @@ public abstract class SubBlocksMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("subSys".equals(parameterName)) return this.fSubSys;
     if ("bl".equals(parameterName)) return this.fBl;
@@ -53,6 +54,7 @@ public abstract class SubBlocksMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("subSys".equals(parameterName) ) {
@@ -79,26 +81,31 @@ public abstract class SubBlocksMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.viewer.subBlocks";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return SubBlocksMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fSubSys, fBl};
     
   }
   
+  @Override
   public SubBlocksMatch toImmutable() {
     return isMutable() ? newMatch(fSubSys, fBl) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"subSys\"=" + prettyPrintValue(fSubSys) + ", ");
@@ -107,6 +114,7 @@ public abstract class SubBlocksMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -116,6 +124,7 @@ public abstract class SubBlocksMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -137,6 +146,7 @@ public abstract class SubBlocksMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public SubBlocksQuerySpecification specification() {
     try {
     	return SubBlocksQuerySpecification.instance();
@@ -193,6 +203,7 @@ public abstract class SubBlocksMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -204,6 +215,7 @@ public abstract class SubBlocksMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

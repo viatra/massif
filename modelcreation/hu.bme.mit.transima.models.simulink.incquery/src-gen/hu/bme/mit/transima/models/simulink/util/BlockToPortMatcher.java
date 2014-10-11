@@ -86,6 +86,7 @@ public class BlockToPortMatcher extends BaseMatcher<BlockToPortMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public BlockToPortMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -99,6 +100,7 @@ public class BlockToPortMatcher extends BaseMatcher<BlockToPortMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public BlockToPortMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -186,6 +188,7 @@ public class BlockToPortMatcher extends BaseMatcher<BlockToPortMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<BlockToPortMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pBlock, final Port pPort) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBlock, pPort});
   }
@@ -280,6 +283,7 @@ public class BlockToPortMatcher extends BaseMatcher<BlockToPortMatch> {
     return rawAccumulateAllValuesOfport(new Object[]{pBlock, null});
   }
   
+  @Override
   protected BlockToPortMatch tupleToMatch(final Tuple t) {
     try {
       return BlockToPortMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BLOCK), (hu.bme.mit.transima.Simulink.Port) t.get(POSITION_PORT));
@@ -290,6 +294,7 @@ public class BlockToPortMatcher extends BaseMatcher<BlockToPortMatch> {
     
   }
   
+  @Override
   protected BlockToPortMatch arrayToMatch(final Object[] match) {
     try {
       return BlockToPortMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.Port) match[POSITION_PORT]);
@@ -300,6 +305,7 @@ public class BlockToPortMatcher extends BaseMatcher<BlockToPortMatch> {
     
   }
   
+  @Override
   protected BlockToPortMatch arrayToMatchMutable(final Object[] match) {
     try {
       return BlockToPortMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.Port) match[POSITION_PORT]);

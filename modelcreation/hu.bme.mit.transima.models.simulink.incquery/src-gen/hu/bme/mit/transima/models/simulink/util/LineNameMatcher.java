@@ -85,6 +85,7 @@ public class LineNameMatcher extends BaseMatcher<LineNameMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public LineNameMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -98,6 +99,7 @@ public class LineNameMatcher extends BaseMatcher<LineNameMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public LineNameMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -185,6 +187,7 @@ public class LineNameMatcher extends BaseMatcher<LineNameMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<LineNameMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Connection pConn, final String pName) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pConn, pName});
   }
@@ -279,6 +282,7 @@ public class LineNameMatcher extends BaseMatcher<LineNameMatch> {
     return rawAccumulateAllValuesOfname(new Object[]{pConn, null});
   }
   
+  @Override
   protected LineNameMatch tupleToMatch(final Tuple t) {
     try {
       return LineNameMatch.newMatch((hu.bme.mit.transima.Simulink.Connection) t.get(POSITION_CONN), (java.lang.String) t.get(POSITION_NAME));
@@ -289,6 +293,7 @@ public class LineNameMatcher extends BaseMatcher<LineNameMatch> {
     
   }
   
+  @Override
   protected LineNameMatch arrayToMatch(final Object[] match) {
     try {
       return LineNameMatch.newMatch((hu.bme.mit.transima.Simulink.Connection) match[POSITION_CONN], (java.lang.String) match[POSITION_NAME]);
@@ -299,6 +304,7 @@ public class LineNameMatcher extends BaseMatcher<LineNameMatch> {
     
   }
   
+  @Override
   protected LineNameMatch arrayToMatchMutable(final Object[] match) {
     try {
       return LineNameMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Connection) match[POSITION_CONN], (java.lang.String) match[POSITION_NAME]);

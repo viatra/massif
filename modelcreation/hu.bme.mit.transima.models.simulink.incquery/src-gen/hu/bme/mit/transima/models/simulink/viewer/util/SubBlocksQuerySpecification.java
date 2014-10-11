@@ -36,31 +36,38 @@ public final class SubBlocksQuerySpecification extends BaseGeneratedQuerySpecifi
     
   }
   
+  @Override
   protected SubBlocksMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return SubBlocksMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.subBlocks";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("subSys","bl");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("subSys", "hu.bme.mit.transima.Simulink.SubSystem"),new PParameter("bl", "hu.bme.mit.transima.Simulink.Block"));
   }
   
+  @Override
   public SubBlocksMatch newEmptyMatch() {
     return SubBlocksMatch.newEmptyMatch();
   }
   
+  @Override
   public SubBlocksMatch newMatch(final Object... parameters) {
     return SubBlocksMatch.newMatch((hu.bme.mit.transima.Simulink.SubSystem) parameters[0], (hu.bme.mit.transima.Simulink.Block) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

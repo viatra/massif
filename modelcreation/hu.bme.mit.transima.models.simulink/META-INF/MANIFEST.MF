@@ -12,7 +12,7 @@ Export-Package: hu.bme.mit.transima.Simulink,
 Require-Bundle: org.eclipse.incquery.runtime,
  org.eclipse.incquery.querybasedfeatures.runtime,
  org.eclipse.core.runtime,
- org.eclipse.emf.ecore
+ org.eclipse.emf.ecore;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Eclipse-LazyStart: true

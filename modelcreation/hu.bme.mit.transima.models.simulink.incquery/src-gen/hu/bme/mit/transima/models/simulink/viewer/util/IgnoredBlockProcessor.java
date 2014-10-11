@@ -19,6 +19,7 @@ public abstract class IgnoredBlockProcessor implements IMatchProcessor<IgnoredBl
    */
   public abstract void process(final Block pBl);
   
+  @Override
   public void process(final IgnoredBlockMatch match) {
     process(match.getBl());
     

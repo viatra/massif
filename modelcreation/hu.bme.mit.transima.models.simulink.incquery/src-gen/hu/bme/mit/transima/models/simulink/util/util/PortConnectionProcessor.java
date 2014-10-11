@@ -23,6 +23,7 @@ public abstract class PortConnectionProcessor implements IMatchProcessor<PortCon
    */
   public abstract void process(final OutPort pOutP, final InPort pInP, final SingleConnection pPc);
   
+  @Override
   public void process(final PortConnectionMatch match) {
     process(match.getOutP(), match.getInP(), match.getPc());
     

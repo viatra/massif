@@ -19,6 +19,7 @@ public abstract class IdentifierNameContainsSlashProcessor implements IMatchProc
    */
   public abstract void process(final IdentifierReference pId);
   
+  @Override
   public void process(final IdentifierNameContainsSlashMatch match) {
     process(match.getId());
     

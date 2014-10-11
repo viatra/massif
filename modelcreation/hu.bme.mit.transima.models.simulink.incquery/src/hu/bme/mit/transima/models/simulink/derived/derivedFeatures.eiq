@@ -1,6 +1,6 @@
 package hu.bme.mit.transima.models.simulink.derived
 
-import "platform:/resource/hu.bme.mit.transima.metamodels/model/simulink/simulink.ecore"
+import "http://hu.bme.mit.transima/simulink/1.0"
 import hu.bme.mit.transima.models.simulink.util.referenceEqual
   
 @QueryBasedFeature//(feature = "inports", kind = "many", source = Block, target = InPort)

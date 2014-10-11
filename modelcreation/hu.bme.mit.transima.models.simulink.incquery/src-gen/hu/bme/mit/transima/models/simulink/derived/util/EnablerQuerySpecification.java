@@ -36,31 +36,38 @@ public final class EnablerQuerySpecification extends BaseGeneratedQuerySpecifica
     
   }
   
+  @Override
   protected EnablerMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return EnablerMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.derived.enabler";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("Block","Enabler");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("Block", "hu.bme.mit.transima.Simulink.Block"),new PParameter("Enabler", "hu.bme.mit.transima.Simulink.Enable"));
   }
   
+  @Override
   public EnablerMatch newEmptyMatch() {
     return EnablerMatch.newEmptyMatch();
   }
   
+  @Override
   public EnablerMatch newMatch(final Object... parameters) {
     return EnablerMatch.newMatch((hu.bme.mit.transima.Simulink.Block) parameters[0], (hu.bme.mit.transima.Simulink.Enable) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

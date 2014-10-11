@@ -35,6 +35,7 @@ public abstract class NameMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("SE".equals(parameterName)) return this.fSE;
     if ("Name".equals(parameterName)) return this.fName;
@@ -52,6 +53,7 @@ public abstract class NameMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("SE".equals(parameterName) ) {
@@ -78,26 +80,31 @@ public abstract class NameMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.derived.name";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return NameMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fSE, fName};
     
   }
   
+  @Override
   public NameMatch toImmutable() {
     return isMutable() ? newMatch(fSE, fName) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"SE\"=" + prettyPrintValue(fSE) + ", ");
@@ -106,6 +113,7 @@ public abstract class NameMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -115,6 +123,7 @@ public abstract class NameMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -136,6 +145,7 @@ public abstract class NameMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public NameQuerySpecification specification() {
     try {
     	return NameQuerySpecification.instance();
@@ -192,6 +202,7 @@ public abstract class NameMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -203,6 +214,7 @@ public abstract class NameMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

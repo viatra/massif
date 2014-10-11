@@ -20,6 +20,7 @@ public abstract class InPortToInPortConnectionProcessor implements IMatchProcess
    */
   public abstract void process(final InPort pSourceInPort, final InPort pTargetInPort);
   
+  @Override
   public void process(final InPortToInPortConnectionMatch match) {
     process(match.getSourceInPort(), match.getTargetInPort());
     

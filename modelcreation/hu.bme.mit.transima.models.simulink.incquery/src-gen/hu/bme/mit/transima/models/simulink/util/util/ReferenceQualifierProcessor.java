@@ -20,6 +20,7 @@ public abstract class ReferenceQualifierProcessor implements IMatchProcessor<Ref
    */
   public abstract void process(final SimulinkReference pSR, final String pQual);
   
+  @Override
   public void process(final ReferenceQualifierMatch match) {
     process(match.getSR(), match.getQual());
     

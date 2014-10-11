@@ -1,12 +1,12 @@
 package hu.bme.mit.transima.simulink.importer.ui.handlers;
 
 import hu.bme.mit.transima.Simulink.SimulinkModel;
-import hu.bme.mit.transima.simulink.api.ExporterApi;
+import hu.bme.mit.transima.simulink.api.Exporter;
 import hu.bme.mit.transima.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.transima.simulink.api.util.ICommandEvaluator;
+import hu.bme.mit.transima.simulink.communication.ICommandEvaluator;
+import hu.bme.mit.transima.simulink.communication.command.MatlabCommandFactory;
 import hu.bme.mit.transima.simulink.importer.ui.Activator;
 import hu.bme.mit.transima.simulink.importer.ui.dialogs.ExportSettingsDialog;
-import hu.bme.mit.transima.simulink.importer.ui.layout.YFilesLayoutProvider;
 import hu.bme.mit.transima.simulink.importer.ui.preferences.PreferenceConstants;
 
 import java.io.File;
@@ -111,9 +111,7 @@ public class ExportModelHandler extends AbstractSimulinkHandler {
         // In the current state of the development
         // the exporter needs to be instantiated
         // This may change later
-        final ExporterApi exporter = new ExporterApi();
-
-        exporter.setLayoutProvider(new YFilesLayoutProvider());
+        final Exporter exporter = new Exporter();
 
         final SimulinkModel loadedModel = exporter.loadSimulinkModel("file:/" + modelPath
                 + File.separator + modelName);
@@ -123,7 +121,8 @@ public class ExportModelHandler extends AbstractSimulinkHandler {
             protected IStatus run(IProgressMonitor monitor) {
 
                 try {
-                    exporter.export(loadedModel, evaluator);
+                	MatlabCommandFactory factory = new MatlabCommandFactory(evaluator);
+                    exporter.export(loadedModel, factory);
                 } catch (SimulinkApiException e) {
                     Status status = new Status(Status.ERROR, Activator.PLUGIN_ID, EXCEPTION_WHILE_EXPORTING, e);
                     Activator.getDefault().getLog().log(status);

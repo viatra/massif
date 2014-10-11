@@ -40,31 +40,38 @@ public final class IdentifierNameContainsSlashQuerySpecification extends BaseGen
     
   }
   
+  @Override
   protected IdentifierNameContainsSlashMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return IdentifierNameContainsSlashMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.validation.identifierNameContainsSlash";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("id");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("id", "hu.bme.mit.transima.Simulink.IdentifierReference"));
   }
   
+  @Override
   public IdentifierNameContainsSlashMatch newEmptyMatch() {
     return IdentifierNameContainsSlashMatch.newEmptyMatch();
   }
   
+  @Override
   public IdentifierNameContainsSlashMatch newMatch(final Object... parameters) {
     return IdentifierNameContainsSlashMatch.newMatch((hu.bme.mit.transima.Simulink.IdentifierReference) parameters[0]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {
@@ -100,7 +107,6 @@ public final class IdentifierNameContainsSlashQuerySpecification extends BaseGen
     {
       PAnnotation annotation = new PAnnotation("Constraint");
       annotation.addAttribute("message","Identifier $id$ must not contain '/'!");
-      annotation.addAttribute("targetEditorId","hu.bme.mit.transima.simulink.ui.editor1");
       annotation.addAttribute("location",new ParameterReference("id"));
       annotation.addAttribute("severity","error");
       addAnnotation(annotation);

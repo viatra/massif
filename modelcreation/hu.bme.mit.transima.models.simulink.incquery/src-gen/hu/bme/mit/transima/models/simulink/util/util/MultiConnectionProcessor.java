@@ -23,6 +23,7 @@ public abstract class MultiConnectionProcessor implements IMatchProcessor<MultiC
    */
   public abstract void process(final OutPort pOutP, final InPort pInP, final SingleConnection pPc);
   
+  @Override
   public void process(final MultiConnectionMatch match) {
     process(match.getOutP(), match.getInP(), match.getPc());
     

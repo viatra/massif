@@ -21,6 +21,7 @@ public abstract class NextInPortInPathProcessor implements IMatchProcessor<NextI
    */
   public abstract void process(final InPort pSourceInPort, final InPort pNextInPort, final InPort pTargetInPort);
   
+  @Override
   public void process(final NextInPortInPathMatch match) {
     process(match.getSourceInPort(), match.getNextInPort(), match.getTargetInPort());
     

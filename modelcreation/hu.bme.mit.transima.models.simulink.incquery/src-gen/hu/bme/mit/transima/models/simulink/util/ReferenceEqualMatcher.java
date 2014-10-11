@@ -91,6 +91,7 @@ public class ReferenceEqualMatcher extends BaseMatcher<ReferenceEqualMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public ReferenceEqualMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -104,6 +105,7 @@ public class ReferenceEqualMatcher extends BaseMatcher<ReferenceEqualMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public ReferenceEqualMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -191,6 +193,7 @@ public class ReferenceEqualMatcher extends BaseMatcher<ReferenceEqualMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<ReferenceEqualMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final SimulinkReference pSourceRef, final SimulinkReference pTargetRef) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pSourceRef, pTargetRef});
   }
@@ -285,6 +288,7 @@ public class ReferenceEqualMatcher extends BaseMatcher<ReferenceEqualMatch> {
     return rawAccumulateAllValuesOftargetRef(new Object[]{pSourceRef, null});
   }
   
+  @Override
   protected ReferenceEqualMatch tupleToMatch(final Tuple t) {
     try {
       return ReferenceEqualMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkReference) t.get(POSITION_SOURCEREF), (hu.bme.mit.transima.Simulink.SimulinkReference) t.get(POSITION_TARGETREF));
@@ -295,6 +299,7 @@ public class ReferenceEqualMatcher extends BaseMatcher<ReferenceEqualMatch> {
     
   }
   
+  @Override
   protected ReferenceEqualMatch arrayToMatch(final Object[] match) {
     try {
       return ReferenceEqualMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkReference) match[POSITION_SOURCEREF], (hu.bme.mit.transima.Simulink.SimulinkReference) match[POSITION_TARGETREF]);
@@ -305,6 +310,7 @@ public class ReferenceEqualMatcher extends BaseMatcher<ReferenceEqualMatch> {
     
   }
   
+  @Override
   protected ReferenceEqualMatch arrayToMatchMutable(final Object[] match) {
     try {
       return ReferenceEqualMatch.newMutableMatch((hu.bme.mit.transima.Simulink.SimulinkReference) match[POSITION_SOURCEREF], (hu.bme.mit.transima.Simulink.SimulinkReference) match[POSITION_TARGETREF]);

@@ -94,6 +94,7 @@ public class HierarchyConnectionMatcher extends BaseMatcher<HierarchyConnectionM
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public HierarchyConnectionMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -107,6 +108,7 @@ public class HierarchyConnectionMatcher extends BaseMatcher<HierarchyConnectionM
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public HierarchyConnectionMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -201,6 +203,7 @@ public class HierarchyConnectionMatcher extends BaseMatcher<HierarchyConnectionM
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<HierarchyConnectionMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pFrom, final Block pTo, final String pName) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pFrom, pTo, pName});
   }
@@ -334,6 +337,7 @@ public class HierarchyConnectionMatcher extends BaseMatcher<HierarchyConnectionM
     return rawAccumulateAllValuesOfname(new Object[]{pFrom, pTo, null});
   }
   
+  @Override
   protected HierarchyConnectionMatch tupleToMatch(final Tuple t) {
     try {
       return HierarchyConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_FROM), (hu.bme.mit.transima.Simulink.Block) t.get(POSITION_TO), (java.lang.String) t.get(POSITION_NAME));
@@ -344,6 +348,7 @@ public class HierarchyConnectionMatcher extends BaseMatcher<HierarchyConnectionM
     
   }
   
+  @Override
   protected HierarchyConnectionMatch arrayToMatch(final Object[] match) {
     try {
       return HierarchyConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_FROM], (hu.bme.mit.transima.Simulink.Block) match[POSITION_TO], (java.lang.String) match[POSITION_NAME]);
@@ -354,6 +359,7 @@ public class HierarchyConnectionMatcher extends BaseMatcher<HierarchyConnectionM
     
   }
   
+  @Override
   protected HierarchyConnectionMatch arrayToMatchMutable(final Object[] match) {
     try {
       return HierarchyConnectionMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_FROM], (hu.bme.mit.transima.Simulink.Block) match[POSITION_TO], (java.lang.String) match[POSITION_NAME]);

@@ -20,6 +20,7 @@ public abstract class SourceBlockProcessor implements IMatchProcessor<SourceBloc
    */
   public abstract void process(final Block pThis, final Block pSource);
   
+  @Override
   public void process(final SourceBlockMatch match) {
     process(match.getThis(), match.getSource());
     

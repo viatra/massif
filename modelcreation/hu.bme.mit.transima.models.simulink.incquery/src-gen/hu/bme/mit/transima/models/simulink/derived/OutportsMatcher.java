@@ -87,6 +87,7 @@ public class OutportsMatcher extends BaseMatcher<OutportsMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public OutportsMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -100,6 +101,7 @@ public class OutportsMatcher extends BaseMatcher<OutportsMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public OutportsMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -187,6 +189,7 @@ public class OutportsMatcher extends BaseMatcher<OutportsMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<OutportsMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pBlock, final OutPort pOutPort) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBlock, pOutPort});
   }
@@ -281,6 +284,7 @@ public class OutportsMatcher extends BaseMatcher<OutportsMatch> {
     return rawAccumulateAllValuesOfOutPort(new Object[]{pBlock, null});
   }
   
+  @Override
   protected OutportsMatch tupleToMatch(final Tuple t) {
     try {
       return OutportsMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BLOCK), (hu.bme.mit.transima.Simulink.OutPort) t.get(POSITION_OUTPORT));
@@ -291,6 +295,7 @@ public class OutportsMatcher extends BaseMatcher<OutportsMatch> {
     
   }
   
+  @Override
   protected OutportsMatch arrayToMatch(final Object[] match) {
     try {
       return OutportsMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_OUTPORT]);
@@ -301,6 +306,7 @@ public class OutportsMatcher extends BaseMatcher<OutportsMatch> {
     
   }
   
+  @Override
   protected OutportsMatch arrayToMatchMutable(final Object[] match) {
     try {
       return OutportsMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_OUTPORT]);

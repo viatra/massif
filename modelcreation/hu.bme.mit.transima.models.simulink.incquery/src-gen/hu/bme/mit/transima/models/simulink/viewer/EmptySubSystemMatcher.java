@@ -87,6 +87,7 @@ public class EmptySubSystemMatcher extends BaseMatcher<EmptySubSystemMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public EmptySubSystemMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -100,6 +101,7 @@ public class EmptySubSystemMatcher extends BaseMatcher<EmptySubSystemMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public EmptySubSystemMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -180,6 +182,7 @@ public class EmptySubSystemMatcher extends BaseMatcher<EmptySubSystemMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<EmptySubSystemMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final SubSystem pSubS) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pSubS});
   }
@@ -217,6 +220,7 @@ public class EmptySubSystemMatcher extends BaseMatcher<EmptySubSystemMatch> {
     return rawAccumulateAllValuesOfsubS(emptyArray());
   }
   
+  @Override
   protected EmptySubSystemMatch tupleToMatch(final Tuple t) {
     try {
       return EmptySubSystemMatch.newMatch((hu.bme.mit.transima.Simulink.SubSystem) t.get(POSITION_SUBS));
@@ -227,6 +231,7 @@ public class EmptySubSystemMatcher extends BaseMatcher<EmptySubSystemMatch> {
     
   }
   
+  @Override
   protected EmptySubSystemMatch arrayToMatch(final Object[] match) {
     try {
       return EmptySubSystemMatch.newMatch((hu.bme.mit.transima.Simulink.SubSystem) match[POSITION_SUBS]);
@@ -237,6 +242,7 @@ public class EmptySubSystemMatcher extends BaseMatcher<EmptySubSystemMatch> {
     
   }
   
+  @Override
   protected EmptySubSystemMatch arrayToMatchMutable(final Object[] match) {
     try {
       return EmptySubSystemMatch.newMutableMatch((hu.bme.mit.transima.Simulink.SubSystem) match[POSITION_SUBS]);

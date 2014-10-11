@@ -34,31 +34,38 @@ public final class BusSelectorQuerySpecification extends BaseGeneratedQuerySpeci
     
   }
   
+  @Override
   protected BusSelectorMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return BusSelectorMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.util.busSelector";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("selector");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("selector", "hu.bme.mit.transima.Simulink.BusSelector"));
   }
   
+  @Override
   public BusSelectorMatch newEmptyMatch() {
     return BusSelectorMatch.newEmptyMatch();
   }
   
+  @Override
   public BusSelectorMatch newMatch(final Object... parameters) {
     return BusSelectorMatch.newMatch((hu.bme.mit.transima.Simulink.BusSelector) parameters[0]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

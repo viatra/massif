@@ -35,6 +35,7 @@ public abstract class ReferenceEqualMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("sourceRef".equals(parameterName)) return this.fSourceRef;
     if ("targetRef".equals(parameterName)) return this.fTargetRef;
@@ -52,6 +53,7 @@ public abstract class ReferenceEqualMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("sourceRef".equals(parameterName) ) {
@@ -78,26 +80,31 @@ public abstract class ReferenceEqualMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.referenceEqual";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return ReferenceEqualMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fSourceRef, fTargetRef};
     
   }
   
+  @Override
   public ReferenceEqualMatch toImmutable() {
     return isMutable() ? newMatch(fSourceRef, fTargetRef) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"sourceRef\"=" + prettyPrintValue(fSourceRef) + ", ");
@@ -106,6 +113,7 @@ public abstract class ReferenceEqualMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -115,6 +123,7 @@ public abstract class ReferenceEqualMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -136,6 +145,7 @@ public abstract class ReferenceEqualMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public ReferenceEqualQuerySpecification specification() {
     try {
     	return ReferenceEqualQuerySpecification.instance();
@@ -192,6 +202,7 @@ public abstract class ReferenceEqualMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -203,6 +214,7 @@ public abstract class ReferenceEqualMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

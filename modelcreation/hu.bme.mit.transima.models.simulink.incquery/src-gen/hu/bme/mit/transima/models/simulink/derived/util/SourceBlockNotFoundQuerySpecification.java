@@ -37,31 +37,38 @@ public final class SourceBlockNotFoundQuerySpecification extends BaseGeneratedQu
     
   }
   
+  @Override
   protected SourceBlockNotFoundMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return SourceBlockNotFoundMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.derived.sourceBlockNotFound";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("Block","BlRef");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("Block", "hu.bme.mit.transima.Simulink.Block"),new PParameter("BlRef", "hu.bme.mit.transima.Simulink.LibraryLinkReference"));
   }
   
+  @Override
   public SourceBlockNotFoundMatch newEmptyMatch() {
     return SourceBlockNotFoundMatch.newEmptyMatch();
   }
   
+  @Override
   public SourceBlockNotFoundMatch newMatch(final Object... parameters) {
     return SourceBlockNotFoundMatch.newMatch((hu.bme.mit.transima.Simulink.Block) parameters[0], (hu.bme.mit.transima.Simulink.LibraryLinkReference) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

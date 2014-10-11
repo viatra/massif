@@ -89,6 +89,7 @@ public class SourceBlockMatcher extends BaseMatcher<SourceBlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public SourceBlockMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -102,6 +103,7 @@ public class SourceBlockMatcher extends BaseMatcher<SourceBlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public SourceBlockMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -189,6 +191,7 @@ public class SourceBlockMatcher extends BaseMatcher<SourceBlockMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<SourceBlockMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pThis, final Block pSource) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pThis, pSource});
   }
@@ -283,6 +286,7 @@ public class SourceBlockMatcher extends BaseMatcher<SourceBlockMatch> {
     return rawAccumulateAllValuesOfSource(new Object[]{pThis, null});
   }
   
+  @Override
   protected SourceBlockMatch tupleToMatch(final Tuple t) {
     try {
       return SourceBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_THIS), (hu.bme.mit.transima.Simulink.Block) t.get(POSITION_SOURCE));
@@ -293,6 +297,7 @@ public class SourceBlockMatcher extends BaseMatcher<SourceBlockMatch> {
     
   }
   
+  @Override
   protected SourceBlockMatch arrayToMatch(final Object[] match) {
     try {
       return SourceBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_THIS], (hu.bme.mit.transima.Simulink.Block) match[POSITION_SOURCE]);
@@ -303,6 +308,7 @@ public class SourceBlockMatcher extends BaseMatcher<SourceBlockMatch> {
     
   }
   
+  @Override
   protected SourceBlockMatch arrayToMatchMutable(final Object[] match) {
     try {
       return SourceBlockMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_THIS], (hu.bme.mit.transima.Simulink.Block) match[POSITION_SOURCE]);

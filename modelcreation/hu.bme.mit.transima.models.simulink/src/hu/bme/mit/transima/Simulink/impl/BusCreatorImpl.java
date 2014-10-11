@@ -25,22 +25,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class BusCreatorImpl extends BusSpecificationImpl implements BusCreator {
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected BusCreatorImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.BUS_CREATOR;
-    }
+		return SimulinkPackage.Literals.BUS_CREATOR;
+	}
 
 } //BusCreatorImpl

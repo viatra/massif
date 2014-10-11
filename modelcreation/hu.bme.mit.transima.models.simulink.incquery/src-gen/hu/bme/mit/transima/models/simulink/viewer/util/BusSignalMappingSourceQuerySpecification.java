@@ -41,31 +41,38 @@ public final class BusSignalMappingSourceQuerySpecification extends BaseGenerate
     
   }
   
+  @Override
   protected BusSignalMappingSourceMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return BusSignalMappingSourceMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.busSignalMappingSource";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("busSelector","from","name","toName");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("busSelector", "hu.bme.mit.transima.Simulink.BusSelector"),new PParameter("from", "hu.bme.mit.transima.Simulink.Block"),new PParameter("name", "java.lang.String"),new PParameter("toName", "java.lang.String"));
   }
   
+  @Override
   public BusSignalMappingSourceMatch newEmptyMatch() {
     return BusSignalMappingSourceMatch.newEmptyMatch();
   }
   
+  @Override
   public BusSignalMappingSourceMatch newMatch(final Object... parameters) {
     return BusSignalMappingSourceMatch.newMatch((hu.bme.mit.transima.Simulink.BusSelector) parameters[0], (hu.bme.mit.transima.Simulink.Block) parameters[1], (java.lang.String) parameters[2], (java.lang.String) parameters[3]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

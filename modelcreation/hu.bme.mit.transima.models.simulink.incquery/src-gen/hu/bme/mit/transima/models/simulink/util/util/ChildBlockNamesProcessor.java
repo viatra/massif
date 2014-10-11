@@ -21,6 +21,7 @@ public abstract class ChildBlockNamesProcessor implements IMatchProcessor<ChildB
    */
   public abstract void process(final SimulinkElement pElem, final SimulinkElement pChild, final String pName);
   
+  @Override
   public void process(final ChildBlockNamesMatch match) {
     process(match.getElem(), match.getChild(), match.getName());
     

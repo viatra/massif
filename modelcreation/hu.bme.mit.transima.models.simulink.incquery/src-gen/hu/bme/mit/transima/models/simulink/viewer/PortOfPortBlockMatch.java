@@ -36,6 +36,7 @@ public abstract class PortOfPortBlockMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("port".equals(parameterName)) return this.fPort;
     if ("portBlock".equals(parameterName)) return this.fPortBlock;
@@ -53,6 +54,7 @@ public abstract class PortOfPortBlockMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("port".equals(parameterName) ) {
@@ -79,26 +81,31 @@ public abstract class PortOfPortBlockMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.viewer.portOfPortBlock";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return PortOfPortBlockMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fPort, fPortBlock};
     
   }
   
+  @Override
   public PortOfPortBlockMatch toImmutable() {
     return isMutable() ? newMatch(fPort, fPortBlock) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"port\"=" + prettyPrintValue(fPort) + ", ");
@@ -107,6 +114,7 @@ public abstract class PortOfPortBlockMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -116,6 +124,7 @@ public abstract class PortOfPortBlockMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -137,6 +146,7 @@ public abstract class PortOfPortBlockMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public PortOfPortBlockQuerySpecification specification() {
     try {
     	return PortOfPortBlockQuerySpecification.instance();
@@ -193,6 +203,7 @@ public abstract class PortOfPortBlockMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -204,6 +215,7 @@ public abstract class PortOfPortBlockMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

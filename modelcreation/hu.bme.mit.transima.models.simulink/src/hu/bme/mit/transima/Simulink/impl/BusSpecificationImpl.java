@@ -18,22 +18,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public abstract class BusSpecificationImpl extends BlockImpl implements BusSpecification {
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected BusSpecificationImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.BUS_SPECIFICATION;
-    }
+		return SimulinkPackage.Literals.BUS_SPECIFICATION;
+	}
 
 } //BusSpecificationImpl

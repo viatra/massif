@@ -36,6 +36,7 @@ public abstract class BusSpecificationInPortToOutPortMatch extends BasePatternMa
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("inportOfBS".equals(parameterName)) return this.fInportOfBS;
     if ("outPortOfBS".equals(parameterName)) return this.fOutPortOfBS;
@@ -53,6 +54,7 @@ public abstract class BusSpecificationInPortToOutPortMatch extends BasePatternMa
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("inportOfBS".equals(parameterName) ) {
@@ -79,26 +81,31 @@ public abstract class BusSpecificationInPortToOutPortMatch extends BasePatternMa
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.busSpecificationInPortToOutPort";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return BusSpecificationInPortToOutPortMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fInportOfBS, fOutPortOfBS};
     
   }
   
+  @Override
   public BusSpecificationInPortToOutPortMatch toImmutable() {
     return isMutable() ? newMatch(fInportOfBS, fOutPortOfBS) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"inportOfBS\"=" + prettyPrintValue(fInportOfBS) + ", ");
@@ -107,6 +114,7 @@ public abstract class BusSpecificationInPortToOutPortMatch extends BasePatternMa
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -116,6 +124,7 @@ public abstract class BusSpecificationInPortToOutPortMatch extends BasePatternMa
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -137,6 +146,7 @@ public abstract class BusSpecificationInPortToOutPortMatch extends BasePatternMa
     return true;
   }
   
+  @Override
   public BusSpecificationInPortToOutPortQuerySpecification specification() {
     try {
     	return BusSpecificationInPortToOutPortQuerySpecification.instance();
@@ -193,6 +203,7 @@ public abstract class BusSpecificationInPortToOutPortMatch extends BasePatternMa
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -204,6 +215,7 @@ public abstract class BusSpecificationInPortToOutPortMatch extends BasePatternMa
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

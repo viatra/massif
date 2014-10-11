@@ -19,6 +19,7 @@ public abstract class EmptySubSystemProcessor implements IMatchProcessor<EmptySu
    */
   public abstract void process(final SubSystem pSubS);
   
+  @Override
   public void process(final EmptySubSystemMatch match) {
     process(match.getSubS());
     

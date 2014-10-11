@@ -38,31 +38,38 @@ public final class OutPortToOutPortConnectionQuerySpecification extends BaseGene
     
   }
   
+  @Override
   protected OutPortToOutPortConnectionMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return OutPortToOutPortConnectionMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.util.outPortToOutPortConnection";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("sourceOutPort","targetOutPort");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("sourceOutPort", "hu.bme.mit.transima.Simulink.OutPort"),new PParameter("targetOutPort", "hu.bme.mit.transima.Simulink.OutPort"));
   }
   
+  @Override
   public OutPortToOutPortConnectionMatch newEmptyMatch() {
     return OutPortToOutPortConnectionMatch.newEmptyMatch();
   }
   
+  @Override
   public OutPortToOutPortConnectionMatch newMatch(final Object... parameters) {
     return OutPortToOutPortConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.OutPort) parameters[0], (hu.bme.mit.transima.Simulink.OutPort) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

@@ -87,6 +87,7 @@ public class InPortToBlockPortOutPortMatcher extends BaseMatcher<InPortToBlockPo
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public InPortToBlockPortOutPortMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -100,6 +101,7 @@ public class InPortToBlockPortOutPortMatcher extends BaseMatcher<InPortToBlockPo
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public InPortToBlockPortOutPortMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -187,6 +189,7 @@ public class InPortToBlockPortOutPortMatcher extends BaseMatcher<InPortToBlockPo
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<InPortToBlockPortOutPortMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final InPort pInPort, final OutPort pOutPortOfPBl) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pInPort, pOutPortOfPBl});
   }
@@ -281,6 +284,7 @@ public class InPortToBlockPortOutPortMatcher extends BaseMatcher<InPortToBlockPo
     return rawAccumulateAllValuesOfoutPortOfPBl(new Object[]{pInPort, null});
   }
   
+  @Override
   protected InPortToBlockPortOutPortMatch tupleToMatch(final Tuple t) {
     try {
       return InPortToBlockPortOutPortMatch.newMatch((hu.bme.mit.transima.Simulink.InPort) t.get(POSITION_INPORT), (hu.bme.mit.transima.Simulink.OutPort) t.get(POSITION_OUTPORTOFPBL));
@@ -291,6 +295,7 @@ public class InPortToBlockPortOutPortMatcher extends BaseMatcher<InPortToBlockPo
     
   }
   
+  @Override
   protected InPortToBlockPortOutPortMatch arrayToMatch(final Object[] match) {
     try {
       return InPortToBlockPortOutPortMatch.newMatch((hu.bme.mit.transima.Simulink.InPort) match[POSITION_INPORT], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_OUTPORTOFPBL]);
@@ -301,6 +306,7 @@ public class InPortToBlockPortOutPortMatcher extends BaseMatcher<InPortToBlockPo
     
   }
   
+  @Override
   protected InPortToBlockPortOutPortMatch arrayToMatchMutable(final Object[] match) {
     try {
       return InPortToBlockPortOutPortMatch.newMutableMatch((hu.bme.mit.transima.Simulink.InPort) match[POSITION_INPORT], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_OUTPORTOFPBL]);

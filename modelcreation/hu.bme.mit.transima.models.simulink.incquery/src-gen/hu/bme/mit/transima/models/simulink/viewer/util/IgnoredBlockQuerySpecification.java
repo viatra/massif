@@ -34,31 +34,38 @@ public final class IgnoredBlockQuerySpecification extends BaseGeneratedQuerySpec
     
   }
   
+  @Override
   protected IgnoredBlockMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return IgnoredBlockMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.ignoredBlock";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("bl");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("bl", "hu.bme.mit.transima.Simulink.Block"));
   }
   
+  @Override
   public IgnoredBlockMatch newEmptyMatch() {
     return IgnoredBlockMatch.newEmptyMatch();
   }
   
+  @Override
   public IgnoredBlockMatch newMatch(final Object... parameters) {
     return IgnoredBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) parameters[0]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

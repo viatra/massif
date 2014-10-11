@@ -89,6 +89,7 @@ public class SubBlocksMatcher extends BaseMatcher<SubBlocksMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public SubBlocksMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -102,6 +103,7 @@ public class SubBlocksMatcher extends BaseMatcher<SubBlocksMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public SubBlocksMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -189,6 +191,7 @@ public class SubBlocksMatcher extends BaseMatcher<SubBlocksMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<SubBlocksMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final SubSystem pSubSys, final Block pBl) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pSubSys, pBl});
   }
@@ -283,6 +286,7 @@ public class SubBlocksMatcher extends BaseMatcher<SubBlocksMatch> {
     return rawAccumulateAllValuesOfbl(new Object[]{pSubSys, null});
   }
   
+  @Override
   protected SubBlocksMatch tupleToMatch(final Tuple t) {
     try {
       return SubBlocksMatch.newMatch((hu.bme.mit.transima.Simulink.SubSystem) t.get(POSITION_SUBSYS), (hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BL));
@@ -293,6 +297,7 @@ public class SubBlocksMatcher extends BaseMatcher<SubBlocksMatch> {
     
   }
   
+  @Override
   protected SubBlocksMatch arrayToMatch(final Object[] match) {
     try {
       return SubBlocksMatch.newMatch((hu.bme.mit.transima.Simulink.SubSystem) match[POSITION_SUBSYS], (hu.bme.mit.transima.Simulink.Block) match[POSITION_BL]);
@@ -303,6 +308,7 @@ public class SubBlocksMatcher extends BaseMatcher<SubBlocksMatch> {
     
   }
   
+  @Override
   protected SubBlocksMatch arrayToMatchMutable(final Object[] match) {
     try {
       return SubBlocksMatch.newMutableMatch((hu.bme.mit.transima.Simulink.SubSystem) match[POSITION_SUBSYS], (hu.bme.mit.transima.Simulink.Block) match[POSITION_BL]);

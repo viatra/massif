@@ -97,6 +97,7 @@ public class ChildBlockNamesMatcher extends BaseMatcher<ChildBlockNamesMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public ChildBlockNamesMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -110,6 +111,7 @@ public class ChildBlockNamesMatcher extends BaseMatcher<ChildBlockNamesMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public ChildBlockNamesMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -204,6 +206,7 @@ public class ChildBlockNamesMatcher extends BaseMatcher<ChildBlockNamesMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<ChildBlockNamesMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final SimulinkElement pElem, final SimulinkElement pChild, final String pName) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pElem, pChild, pName});
   }
@@ -337,6 +340,7 @@ public class ChildBlockNamesMatcher extends BaseMatcher<ChildBlockNamesMatch> {
     return rawAccumulateAllValuesOfname(new Object[]{pElem, pChild, null});
   }
   
+  @Override
   protected ChildBlockNamesMatch tupleToMatch(final Tuple t) {
     try {
       return ChildBlockNamesMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkElement) t.get(POSITION_ELEM), (hu.bme.mit.transima.Simulink.SimulinkElement) t.get(POSITION_CHILD), (java.lang.String) t.get(POSITION_NAME));
@@ -347,6 +351,7 @@ public class ChildBlockNamesMatcher extends BaseMatcher<ChildBlockNamesMatch> {
     
   }
   
+  @Override
   protected ChildBlockNamesMatch arrayToMatch(final Object[] match) {
     try {
       return ChildBlockNamesMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkElement) match[POSITION_ELEM], (hu.bme.mit.transima.Simulink.SimulinkElement) match[POSITION_CHILD], (java.lang.String) match[POSITION_NAME]);
@@ -357,6 +362,7 @@ public class ChildBlockNamesMatcher extends BaseMatcher<ChildBlockNamesMatch> {
     
   }
   
+  @Override
   protected ChildBlockNamesMatch arrayToMatchMutable(final Object[] match) {
     try {
       return ChildBlockNamesMatch.newMutableMatch((hu.bme.mit.transima.Simulink.SimulinkElement) match[POSITION_ELEM], (hu.bme.mit.transima.Simulink.SimulinkElement) match[POSITION_CHILD], (java.lang.String) match[POSITION_NAME]);

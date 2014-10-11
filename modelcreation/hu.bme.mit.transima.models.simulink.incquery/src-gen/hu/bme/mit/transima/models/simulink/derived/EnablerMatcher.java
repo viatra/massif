@@ -87,6 +87,7 @@ public class EnablerMatcher extends BaseMatcher<EnablerMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public EnablerMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -100,6 +101,7 @@ public class EnablerMatcher extends BaseMatcher<EnablerMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public EnablerMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -187,6 +189,7 @@ public class EnablerMatcher extends BaseMatcher<EnablerMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<EnablerMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pBlock, final Enable pEnabler) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBlock, pEnabler});
   }
@@ -281,6 +284,7 @@ public class EnablerMatcher extends BaseMatcher<EnablerMatch> {
     return rawAccumulateAllValuesOfEnabler(new Object[]{pBlock, null});
   }
   
+  @Override
   protected EnablerMatch tupleToMatch(final Tuple t) {
     try {
       return EnablerMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BLOCK), (hu.bme.mit.transima.Simulink.Enable) t.get(POSITION_ENABLER));
@@ -291,6 +295,7 @@ public class EnablerMatcher extends BaseMatcher<EnablerMatch> {
     
   }
   
+  @Override
   protected EnablerMatch arrayToMatch(final Object[] match) {
     try {
       return EnablerMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.Enable) match[POSITION_ENABLER]);
@@ -301,6 +306,7 @@ public class EnablerMatcher extends BaseMatcher<EnablerMatch> {
     
   }
   
+  @Override
   protected EnablerMatch arrayToMatchMutable(final Object[] match) {
     try {
       return EnablerMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.Enable) match[POSITION_ENABLER]);

@@ -36,31 +36,38 @@ public final class GotoBlocksQuerySpecification extends BaseGeneratedQuerySpecif
     
   }
   
+  @Override
   protected GotoBlocksMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return GotoBlocksMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.gotoBlocks";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("bl");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("bl", "hu.bme.mit.transima.Simulink.Goto"));
   }
   
+  @Override
   public GotoBlocksMatch newEmptyMatch() {
     return GotoBlocksMatch.newEmptyMatch();
   }
   
+  @Override
   public GotoBlocksMatch newMatch(final Object... parameters) {
     return GotoBlocksMatch.newMatch((hu.bme.mit.transima.Simulink.Goto) parameters[0]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

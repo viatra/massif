@@ -1,0 +1,6 @@
+plugin.xml_gen
+bin
+target
+MANIFEST.MF_gen
+.DS_Store*
+rebel.xml

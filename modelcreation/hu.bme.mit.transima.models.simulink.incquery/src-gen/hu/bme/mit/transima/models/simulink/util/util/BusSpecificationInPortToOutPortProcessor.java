@@ -21,6 +21,7 @@ public abstract class BusSpecificationInPortToOutPortProcessor implements IMatch
    */
   public abstract void process(final InPort pInportOfBS, final OutPort pOutPortOfBS);
   
+  @Override
   public void process(final BusSpecificationInPortToOutPortMatch match) {
     process(match.getInportOfBS(), match.getOutPortOfBS());
     

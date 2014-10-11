@@ -39,6 +39,7 @@ public abstract class FirstOutPortFromBusSpecificationMatch extends BasePatternM
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("outPort".equals(parameterName)) return this.fOutPort;
     if ("nextSpec".equals(parameterName)) return this.fNextSpec;
@@ -62,6 +63,7 @@ public abstract class FirstOutPortFromBusSpecificationMatch extends BasePatternM
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("outPort".equals(parameterName) ) {
@@ -98,26 +100,31 @@ public abstract class FirstOutPortFromBusSpecificationMatch extends BasePatternM
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.firstOutPortFromBusSpecification";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return FirstOutPortFromBusSpecificationMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fOutPort, fNextSpec, fEndPortBeforeNextSpec};
     
   }
   
+  @Override
   public FirstOutPortFromBusSpecificationMatch toImmutable() {
     return isMutable() ? newMatch(fOutPort, fNextSpec, fEndPortBeforeNextSpec) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"outPort\"=" + prettyPrintValue(fOutPort) + ", ");
@@ -127,6 +134,7 @@ public abstract class FirstOutPortFromBusSpecificationMatch extends BasePatternM
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -137,6 +145,7 @@ public abstract class FirstOutPortFromBusSpecificationMatch extends BasePatternM
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -160,6 +169,7 @@ public abstract class FirstOutPortFromBusSpecificationMatch extends BasePatternM
     return true;
   }
   
+  @Override
   public FirstOutPortFromBusSpecificationQuerySpecification specification() {
     try {
     	return FirstOutPortFromBusSpecificationQuerySpecification.instance();
@@ -218,6 +228,7 @@ public abstract class FirstOutPortFromBusSpecificationMatch extends BasePatternM
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -229,6 +240,7 @@ public abstract class FirstOutPortFromBusSpecificationMatch extends BasePatternM
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

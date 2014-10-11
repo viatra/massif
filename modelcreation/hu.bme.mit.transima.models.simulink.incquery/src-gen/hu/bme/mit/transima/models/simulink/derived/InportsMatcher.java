@@ -87,6 +87,7 @@ public class InportsMatcher extends BaseMatcher<InportsMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public InportsMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -100,6 +101,7 @@ public class InportsMatcher extends BaseMatcher<InportsMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public InportsMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -187,6 +189,7 @@ public class InportsMatcher extends BaseMatcher<InportsMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<InportsMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pBlock, final InPort pInPort) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBlock, pInPort});
   }
@@ -281,6 +284,7 @@ public class InportsMatcher extends BaseMatcher<InportsMatch> {
     return rawAccumulateAllValuesOfInPort(new Object[]{pBlock, null});
   }
   
+  @Override
   protected InportsMatch tupleToMatch(final Tuple t) {
     try {
       return InportsMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BLOCK), (hu.bme.mit.transima.Simulink.InPort) t.get(POSITION_INPORT));
@@ -291,6 +295,7 @@ public class InportsMatcher extends BaseMatcher<InportsMatch> {
     
   }
   
+  @Override
   protected InportsMatch arrayToMatch(final Object[] match) {
     try {
       return InportsMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.InPort) match[POSITION_INPORT]);
@@ -301,6 +306,7 @@ public class InportsMatcher extends BaseMatcher<InportsMatch> {
     
   }
   
+  @Override
   protected InportsMatch arrayToMatchMutable(final Object[] match) {
     try {
       return InportsMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.InPort) match[POSITION_INPORT]);

@@ -88,6 +88,7 @@ public class HierarchyConnectionEndMatcher extends BaseMatcher<HierarchyConnecti
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public HierarchyConnectionEndMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -101,6 +102,7 @@ public class HierarchyConnectionEndMatcher extends BaseMatcher<HierarchyConnecti
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public HierarchyConnectionEndMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -188,6 +190,7 @@ public class HierarchyConnectionEndMatcher extends BaseMatcher<HierarchyConnecti
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<HierarchyConnectionEndMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Port pPort, final Block pBlock) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pPort, pBlock});
   }
@@ -282,6 +285,7 @@ public class HierarchyConnectionEndMatcher extends BaseMatcher<HierarchyConnecti
     return rawAccumulateAllValuesOfblock(new Object[]{pPort, null});
   }
   
+  @Override
   protected HierarchyConnectionEndMatch tupleToMatch(final Tuple t) {
     try {
       return HierarchyConnectionEndMatch.newMatch((hu.bme.mit.transima.Simulink.Port) t.get(POSITION_PORT), (hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BLOCK));
@@ -292,6 +296,7 @@ public class HierarchyConnectionEndMatcher extends BaseMatcher<HierarchyConnecti
     
   }
   
+  @Override
   protected HierarchyConnectionEndMatch arrayToMatch(final Object[] match) {
     try {
       return HierarchyConnectionEndMatch.newMatch((hu.bme.mit.transima.Simulink.Port) match[POSITION_PORT], (hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK]);
@@ -302,6 +307,7 @@ public class HierarchyConnectionEndMatcher extends BaseMatcher<HierarchyConnecti
     
   }
   
+  @Override
   protected HierarchyConnectionEndMatch arrayToMatchMutable(final Object[] match) {
     try {
       return HierarchyConnectionEndMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Port) match[POSITION_PORT], (hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK]);

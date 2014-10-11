@@ -37,31 +37,38 @@ public final class NextOutPortInPathQuerySpecification extends BaseGeneratedQuer
     
   }
   
+  @Override
   protected NextOutPortInPathMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return NextOutPortInPathMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.util.nextOutPortInPath";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("sourceOutPort","nextOutPort","targetOutPort");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("sourceOutPort", "hu.bme.mit.transima.Simulink.OutPort"),new PParameter("nextOutPort", "hu.bme.mit.transima.Simulink.OutPort"),new PParameter("targetOutPort", "hu.bme.mit.transima.Simulink.OutPort"));
   }
   
+  @Override
   public NextOutPortInPathMatch newEmptyMatch() {
     return NextOutPortInPathMatch.newEmptyMatch();
   }
   
+  @Override
   public NextOutPortInPathMatch newMatch(final Object... parameters) {
     return NextOutPortInPathMatch.newMatch((hu.bme.mit.transima.Simulink.OutPort) parameters[0], (hu.bme.mit.transima.Simulink.OutPort) parameters[1], (hu.bme.mit.transima.Simulink.OutPort) parameters[2]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

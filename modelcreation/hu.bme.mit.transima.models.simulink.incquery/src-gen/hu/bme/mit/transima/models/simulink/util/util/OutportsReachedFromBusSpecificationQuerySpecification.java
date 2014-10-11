@@ -40,31 +40,38 @@ public final class OutportsReachedFromBusSpecificationQuerySpecification extends
     
   }
   
+  @Override
   protected OutportsReachedFromBusSpecificationMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return OutportsReachedFromBusSpecificationMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.util.outportsReachedFromBusSpecification";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("outPort","nextSpec","endPortBeforeNextSpec");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("outPort", "hu.bme.mit.transima.Simulink.OutPort"),new PParameter("nextSpec", "hu.bme.mit.transima.Simulink.BusSpecification"),new PParameter("endPortBeforeNextSpec", "hu.bme.mit.transima.Simulink.OutPort"));
   }
   
+  @Override
   public OutportsReachedFromBusSpecificationMatch newEmptyMatch() {
     return OutportsReachedFromBusSpecificationMatch.newEmptyMatch();
   }
   
+  @Override
   public OutportsReachedFromBusSpecificationMatch newMatch(final Object... parameters) {
     return OutportsReachedFromBusSpecificationMatch.newMatch((hu.bme.mit.transima.Simulink.OutPort) parameters[0], (hu.bme.mit.transima.Simulink.BusSpecification) parameters[1], (hu.bme.mit.transima.Simulink.OutPort) parameters[2]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

@@ -89,6 +89,7 @@ public class IgnoredBlockMatcher extends BaseMatcher<IgnoredBlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public IgnoredBlockMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -102,6 +103,7 @@ public class IgnoredBlockMatcher extends BaseMatcher<IgnoredBlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public IgnoredBlockMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -182,6 +184,7 @@ public class IgnoredBlockMatcher extends BaseMatcher<IgnoredBlockMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<IgnoredBlockMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pBl) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBl});
   }
@@ -219,6 +222,7 @@ public class IgnoredBlockMatcher extends BaseMatcher<IgnoredBlockMatch> {
     return rawAccumulateAllValuesOfbl(emptyArray());
   }
   
+  @Override
   protected IgnoredBlockMatch tupleToMatch(final Tuple t) {
     try {
       return IgnoredBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BL));
@@ -229,6 +233,7 @@ public class IgnoredBlockMatcher extends BaseMatcher<IgnoredBlockMatch> {
     
   }
   
+  @Override
   protected IgnoredBlockMatch arrayToMatch(final Object[] match) {
     try {
       return IgnoredBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BL]);
@@ -239,6 +244,7 @@ public class IgnoredBlockMatcher extends BaseMatcher<IgnoredBlockMatch> {
     
   }
   
+  @Override
   protected IgnoredBlockMatch arrayToMatchMutable(final Object[] match) {
     try {
       return IgnoredBlockMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BL]);

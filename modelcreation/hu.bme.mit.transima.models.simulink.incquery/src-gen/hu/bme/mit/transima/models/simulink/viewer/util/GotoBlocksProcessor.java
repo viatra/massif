@@ -19,6 +19,7 @@ public abstract class GotoBlocksProcessor implements IMatchProcessor<GotoBlocksM
    */
   public abstract void process(final Goto pBl);
   
+  @Override
   public void process(final GotoBlocksMatch match) {
     process(match.getBl());
     

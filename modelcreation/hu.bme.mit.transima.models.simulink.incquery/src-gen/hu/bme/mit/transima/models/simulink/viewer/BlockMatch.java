@@ -32,6 +32,7 @@ public abstract class BlockMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("bl".equals(parameterName)) return this.fBl;
     return null;
@@ -43,6 +44,7 @@ public abstract class BlockMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("bl".equals(parameterName) ) {
@@ -59,26 +61,31 @@ public abstract class BlockMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.viewer.block";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return BlockMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fBl};
     
   }
   
+  @Override
   public BlockMatch toImmutable() {
     return isMutable() ? newMatch(fBl) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"bl\"=" + prettyPrintValue(fBl));
@@ -86,6 +93,7 @@ public abstract class BlockMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -94,6 +102,7 @@ public abstract class BlockMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -113,6 +122,7 @@ public abstract class BlockMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public BlockQuerySpecification specification() {
     try {
     	return BlockQuerySpecification.instance();
@@ -167,6 +177,7 @@ public abstract class BlockMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -178,6 +189,7 @@ public abstract class BlockMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

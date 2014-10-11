@@ -21,6 +21,7 @@ public abstract class PortOfPortBlockProcessor implements IMatchProcessor<PortOf
    */
   public abstract void process(final Port pPort, final PortBlock pPortBlock);
   
+  @Override
   public void process(final PortOfPortBlockMatch match) {
     process(match.getPort(), match.getPortBlock());
     

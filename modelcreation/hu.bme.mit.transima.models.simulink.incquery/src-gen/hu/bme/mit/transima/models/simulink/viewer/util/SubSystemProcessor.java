@@ -19,6 +19,7 @@ public abstract class SubSystemProcessor implements IMatchProcessor<SubSystemMat
    */
   public abstract void process(final SubSystem pSubS);
   
+  @Override
   public void process(final SubSystemMatch match) {
     process(match.getSubS());
     

@@ -22,6 +22,7 @@ public abstract class FirstOutPortFromBusSpecificationProcessor implements IMatc
    */
   public abstract void process(final OutPort pOutPort, final BusSpecification pNextSpec, final OutPort pEndPortBeforeNextSpec);
   
+  @Override
   public void process(final FirstOutPortFromBusSpecificationMatch match) {
     process(match.getOutPort(), match.getNextSpec(), match.getEndPortBeforeNextSpec());
     

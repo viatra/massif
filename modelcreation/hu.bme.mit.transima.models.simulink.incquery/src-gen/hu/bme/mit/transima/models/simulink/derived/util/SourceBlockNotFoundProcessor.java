@@ -21,6 +21,7 @@ public abstract class SourceBlockNotFoundProcessor implements IMatchProcessor<So
    */
   public abstract void process(final Block pBlock, final LibraryLinkReference pBlRef);
   
+  @Override
   public void process(final SourceBlockNotFoundMatch match) {
     process(match.getBlock(), match.getBlRef());
     

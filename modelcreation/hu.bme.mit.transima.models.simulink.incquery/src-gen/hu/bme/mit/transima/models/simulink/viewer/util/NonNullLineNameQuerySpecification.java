@@ -39,31 +39,38 @@ public final class NonNullLineNameQuerySpecification extends BaseGeneratedQueryS
     
   }
   
+  @Override
   protected NonNullLineNameMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return NonNullLineNameMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.nonNullLineName";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("conn","name");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("conn", "hu.bme.mit.transima.Simulink.Connection"),new PParameter("name", "java.lang.String"));
   }
   
+  @Override
   public NonNullLineNameMatch newEmptyMatch() {
     return NonNullLineNameMatch.newEmptyMatch();
   }
   
+  @Override
   public NonNullLineNameMatch newMatch(final Object... parameters) {
     return NonNullLineNameMatch.newMatch((hu.bme.mit.transima.Simulink.Connection) parameters[0], (java.lang.String) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

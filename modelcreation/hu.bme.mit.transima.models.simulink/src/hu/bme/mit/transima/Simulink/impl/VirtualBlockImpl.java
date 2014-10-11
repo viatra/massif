@@ -18,22 +18,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public abstract class VirtualBlockImpl extends BlockImpl implements VirtualBlock {
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     protected VirtualBlockImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
     @Override
     protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.VIRTUAL_BLOCK;
-    }
+		return SimulinkPackage.Literals.VIRTUAL_BLOCK;
+	}
 
 } //VirtualBlockImpl

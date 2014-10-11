@@ -38,6 +38,7 @@ public abstract class NextOutPortInPathMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("sourceOutPort".equals(parameterName)) return this.fSourceOutPort;
     if ("nextOutPort".equals(parameterName)) return this.fNextOutPort;
@@ -61,6 +62,7 @@ public abstract class NextOutPortInPathMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("sourceOutPort".equals(parameterName) ) {
@@ -97,26 +99,31 @@ public abstract class NextOutPortInPathMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.nextOutPortInPath";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return NextOutPortInPathMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fSourceOutPort, fNextOutPort, fTargetOutPort};
     
   }
   
+  @Override
   public NextOutPortInPathMatch toImmutable() {
     return isMutable() ? newMatch(fSourceOutPort, fNextOutPort, fTargetOutPort) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"sourceOutPort\"=" + prettyPrintValue(fSourceOutPort) + ", ");
@@ -126,6 +133,7 @@ public abstract class NextOutPortInPathMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -136,6 +144,7 @@ public abstract class NextOutPortInPathMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -159,6 +168,7 @@ public abstract class NextOutPortInPathMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public NextOutPortInPathQuerySpecification specification() {
     try {
     	return NextOutPortInPathQuerySpecification.instance();
@@ -217,6 +227,7 @@ public abstract class NextOutPortInPathMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -228,6 +239,7 @@ public abstract class NextOutPortInPathMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

@@ -20,6 +20,7 @@ public abstract class LineNameProcessor implements IMatchProcessor<LineNameMatch
    */
   public abstract void process(final Connection pConn, final String pName);
   
+  @Override
   public void process(final LineNameMatch match) {
     process(match.getConn(), match.getName());
     

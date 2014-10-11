@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
+    xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
+    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
+    xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    name="simulink.eclipse.integration"
+    label="Simulink Eclipse Integration">
+  <stream name="master">
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        id="git.clone.simulinkapi"
+        remoteURI="git@git.inf.mit.bme.hu:/projects/polarsys/simulinkapi.git"
+        pushURI="git@git.inf.mit.bme.hu:/projects/polarsys/simulinkapi.git">
+      <description>Internal Git Repository</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.targlets:TargletTask">
+      <targlet
+          name="Simulink API Targlet Platform">
+        <annotation
+            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
+          <detail
+              key="location">
+            <value>${git.clone.simulinkapi.location/releng/hu.bme.mit.simulinkapi.releng/hu.bme.mit.simulinkapi.releng.target}</value>
+          </detail>
+          <detail
+              key="includeAllPlatforms">
+            <value>false</value>
+          </detail>
+          <detail
+              key="includeSource">
+            <value>false</value>
+          </detail>
+        </annotation>
+        <requirement
+            name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
+        <requirement
+            name="org.eclipse.incquery.testing.sdk.feature.feature.group"/>
+        <requirement
+            name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
+        <requirement
+            name="org.eclipse.equinox.sdk.feature.group"/>
+        <requirement
+            name="org.eclipse.sdk.feature.group"/>
+        <requirement
+            name="org.eclipse.xtext.sdk.feature.group"
+            versionRange="[2.6.0,2.7.0)"/>
+        <requirement
+            name="org.eclipse.emf.sdk.feature.group"
+            versionRange="[2.9.0,3.0.0)"/>
+        <repositoryList
+            name="Dependencies">
+          <repository
+              url="http://download.eclipse.org/incquery/updates-extra/release/"/>
+          <repository
+              url="http://download.eclipse.org/releases/luna"/>
+        </repositoryList>
+      </targlet>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
+      <requirement
+          name="org.eclipse.incquery.testing.sdk.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.xtext.sdk.feature.group"
+          versionRange="[2.6.0,2.7.0)"/>
+      <repository
+          url="http://download.eclipse.org/incquery/updates-extra/release/"/>
+      <repository
+          url="http://download.eclipse.org/releases/luna"/>
+    </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask">
+      <sourceLocator
+          rootFolder="${git.clone.simulinkapi.location}"
+          locateNestedProjects="true"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.workingsets:WorkingSetTask">
+      <workingSet
+          name="Simulink API Matlab Communication">
+        <predicate
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*/br\.com\.embraer.*"/>
+      </workingSet>
+      <workingSet
+          name="Simulink API External Bundles">
+        <predicate
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*/.*bundle"/>
+      </workingSet>
+      <workingSet
+          name="Simulink API Models">
+        <predicate
+            xsi:type="predicates:AndPredicate">
+          <operand
+              xsi:type="predicates:NotPredicate">
+            <operand
+                xsi:type="predicates:NamePredicate"
+                pattern=".*tests"/>
+          </operand>
+          <operand
+              xsi:type="predicates:OrPredicate">
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*models.*"/>
+            <operand
+                xsi:type="predicates:LocationPredicate"
+                pattern=".*metamodels"/>
+          </operand>
+        </predicate>
+      </workingSet>
+      <workingSet
+          name="Simulink API User Interface">
+        <predicate
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*ui"/>
+      </workingSet>
+      <workingSet
+          name="Simulink API Features">
+        <predicate
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*feature"/>
+      </workingSet>
+      <workingSet
+          name="Simulink API Core">
+        <predicate
+            xsi:type="predicates:AndPredicate">
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*simulink\.api.*"/>
+          <operand
+              xsi:type="predicates:NotPredicate">
+            <operand
+                xsi:type="predicates:NamePredicate"
+                pattern=".*tests"/>
+          </operand>
+        </predicate>
+      </workingSet>
+      <workingSet
+          name="Simulink API Tests">
+        <predicate
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*tests"/>
+      </workingSet>
+    </setupTask>
+  </stream>
+  <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
+  <description>Simulink Eclipse Integration provides an API for importing Simulink models to EMF and exporting such models to Simulink.</description>
+</setup:Project>

@@ -43,6 +43,7 @@ public abstract class BusMappingInSelectorMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("selector".equals(parameterName)) return this.fSelector;
     if ("mapping".equals(parameterName)) return this.fMapping;
@@ -72,6 +73,7 @@ public abstract class BusMappingInSelectorMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("selector".equals(parameterName) ) {
@@ -118,26 +120,31 @@ public abstract class BusMappingInSelectorMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.busMappingInSelector";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return BusMappingInSelectorMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fSelector, fMapping, fMappingFrom, fMappingTo};
     
   }
   
+  @Override
   public BusMappingInSelectorMatch toImmutable() {
     return isMutable() ? newMatch(fSelector, fMapping, fMappingFrom, fMappingTo) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"selector\"=" + prettyPrintValue(fSelector) + ", ");
@@ -148,6 +155,7 @@ public abstract class BusMappingInSelectorMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -159,6 +167,7 @@ public abstract class BusMappingInSelectorMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -184,6 +193,7 @@ public abstract class BusMappingInSelectorMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public BusMappingInSelectorQuerySpecification specification() {
     try {
     	return BusMappingInSelectorQuerySpecification.instance();
@@ -244,6 +254,7 @@ public abstract class BusMappingInSelectorMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -255,6 +266,7 @@ public abstract class BusMappingInSelectorMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

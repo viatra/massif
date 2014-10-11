@@ -32,6 +32,7 @@ public abstract class SubSystemMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("subS".equals(parameterName)) return this.fSubS;
     return null;
@@ -43,6 +44,7 @@ public abstract class SubSystemMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("subS".equals(parameterName) ) {
@@ -59,26 +61,31 @@ public abstract class SubSystemMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.viewer.subSystem";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return SubSystemMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fSubS};
     
   }
   
+  @Override
   public SubSystemMatch toImmutable() {
     return isMutable() ? newMatch(fSubS) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"subS\"=" + prettyPrintValue(fSubS));
@@ -86,6 +93,7 @@ public abstract class SubSystemMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -94,6 +102,7 @@ public abstract class SubSystemMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -113,6 +122,7 @@ public abstract class SubSystemMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public SubSystemQuerySpecification specification() {
     try {
     	return SubSystemQuerySpecification.instance();
@@ -167,6 +177,7 @@ public abstract class SubSystemMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -178,6 +189,7 @@ public abstract class SubSystemMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

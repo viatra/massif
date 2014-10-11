@@ -34,31 +34,38 @@ public final class ChildBlockNamesQuerySpecification extends BaseGeneratedQueryS
     
   }
   
+  @Override
   protected ChildBlockNamesMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return ChildBlockNamesMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.util.childBlockNames";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("elem","child","name");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("elem", "hu.bme.mit.transima.Simulink.SimulinkElement"),new PParameter("child", "hu.bme.mit.transima.Simulink.SimulinkElement"),new PParameter("name", "java.lang.String"));
   }
   
+  @Override
   public ChildBlockNamesMatch newEmptyMatch() {
     return ChildBlockNamesMatch.newEmptyMatch();
   }
   
+  @Override
   public ChildBlockNamesMatch newMatch(final Object... parameters) {
     return ChildBlockNamesMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkElement) parameters[0], (hu.bme.mit.transima.Simulink.SimulinkElement) parameters[1], (java.lang.String) parameters[2]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

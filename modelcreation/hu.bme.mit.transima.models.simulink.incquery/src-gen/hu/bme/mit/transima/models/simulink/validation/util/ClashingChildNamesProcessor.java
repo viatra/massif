@@ -20,6 +20,7 @@ public abstract class ClashingChildNamesProcessor implements IMatchProcessor<Cla
    */
   public abstract void process(final SimulinkElement pParent, final SimulinkElement pChild);
   
+  @Override
   public void process(final ClashingChildNamesMatch match) {
     process(match.getParent(), match.getChild());
     

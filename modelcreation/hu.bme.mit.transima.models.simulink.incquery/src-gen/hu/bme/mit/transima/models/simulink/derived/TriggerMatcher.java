@@ -87,6 +87,7 @@ public class TriggerMatcher extends BaseMatcher<TriggerMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public TriggerMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -100,6 +101,7 @@ public class TriggerMatcher extends BaseMatcher<TriggerMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public TriggerMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -187,6 +189,7 @@ public class TriggerMatcher extends BaseMatcher<TriggerMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<TriggerMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Block pBlock, final Trigger pTrigger) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pBlock, pTrigger});
   }
@@ -281,6 +284,7 @@ public class TriggerMatcher extends BaseMatcher<TriggerMatch> {
     return rawAccumulateAllValuesOfTrigger(new Object[]{pBlock, null});
   }
   
+  @Override
   protected TriggerMatch tupleToMatch(final Tuple t) {
     try {
       return TriggerMatch.newMatch((hu.bme.mit.transima.Simulink.Block) t.get(POSITION_BLOCK), (hu.bme.mit.transima.Simulink.Trigger) t.get(POSITION_TRIGGER));
@@ -291,6 +295,7 @@ public class TriggerMatcher extends BaseMatcher<TriggerMatch> {
     
   }
   
+  @Override
   protected TriggerMatch arrayToMatch(final Object[] match) {
     try {
       return TriggerMatch.newMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.Trigger) match[POSITION_TRIGGER]);
@@ -301,6 +306,7 @@ public class TriggerMatcher extends BaseMatcher<TriggerMatch> {
     
   }
   
+  @Override
   protected TriggerMatch arrayToMatchMutable(final Object[] match) {
     try {
       return TriggerMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Block) match[POSITION_BLOCK], (hu.bme.mit.transima.Simulink.Trigger) match[POSITION_TRIGGER]);

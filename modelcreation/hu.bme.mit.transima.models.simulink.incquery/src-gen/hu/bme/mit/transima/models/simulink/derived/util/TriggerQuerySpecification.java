@@ -36,31 +36,38 @@ public final class TriggerQuerySpecification extends BaseGeneratedQuerySpecifica
     
   }
   
+  @Override
   protected TriggerMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return TriggerMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.derived.trigger";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("Block","Trigger");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("Block", "hu.bme.mit.transima.Simulink.Block"),new PParameter("Trigger", "hu.bme.mit.transima.Simulink.Trigger"));
   }
   
+  @Override
   public TriggerMatch newEmptyMatch() {
     return TriggerMatch.newEmptyMatch();
   }
   
+  @Override
   public TriggerMatch newMatch(final Object... parameters) {
     return TriggerMatch.newMatch((hu.bme.mit.transima.Simulink.Block) parameters[0], (hu.bme.mit.transima.Simulink.Trigger) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

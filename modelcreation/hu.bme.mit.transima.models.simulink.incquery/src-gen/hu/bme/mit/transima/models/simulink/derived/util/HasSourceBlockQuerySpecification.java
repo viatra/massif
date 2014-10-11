@@ -34,31 +34,38 @@ public final class HasSourceBlockQuerySpecification extends BaseGeneratedQuerySp
     
   }
   
+  @Override
   protected HasSourceBlockMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return HasSourceBlockMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.derived.hasSourceBlock";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("Bl");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("Bl", "hu.bme.mit.transima.Simulink.Block"));
   }
   
+  @Override
   public HasSourceBlockMatch newEmptyMatch() {
     return HasSourceBlockMatch.newEmptyMatch();
   }
   
+  @Override
   public HasSourceBlockMatch newMatch(final Object... parameters) {
     return HasSourceBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) parameters[0]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

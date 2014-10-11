@@ -89,6 +89,7 @@ public class GotoConnectedPortsMatcher extends BaseMatcher<GotoConnectedPortsMat
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public GotoConnectedPortsMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -102,6 +103,7 @@ public class GotoConnectedPortsMatcher extends BaseMatcher<GotoConnectedPortsMat
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public GotoConnectedPortsMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -189,6 +191,7 @@ public class GotoConnectedPortsMatcher extends BaseMatcher<GotoConnectedPortsMat
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<GotoConnectedPortsMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final InPort pGotoInPort, final OutPort pFromOutPort) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pGotoInPort, pFromOutPort});
   }
@@ -283,6 +286,7 @@ public class GotoConnectedPortsMatcher extends BaseMatcher<GotoConnectedPortsMat
     return rawAccumulateAllValuesOffromOutPort(new Object[]{pGotoInPort, null});
   }
   
+  @Override
   protected GotoConnectedPortsMatch tupleToMatch(final Tuple t) {
     try {
       return GotoConnectedPortsMatch.newMatch((hu.bme.mit.transima.Simulink.InPort) t.get(POSITION_GOTOINPORT), (hu.bme.mit.transima.Simulink.OutPort) t.get(POSITION_FROMOUTPORT));
@@ -293,6 +297,7 @@ public class GotoConnectedPortsMatcher extends BaseMatcher<GotoConnectedPortsMat
     
   }
   
+  @Override
   protected GotoConnectedPortsMatch arrayToMatch(final Object[] match) {
     try {
       return GotoConnectedPortsMatch.newMatch((hu.bme.mit.transima.Simulink.InPort) match[POSITION_GOTOINPORT], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_FROMOUTPORT]);
@@ -303,6 +308,7 @@ public class GotoConnectedPortsMatcher extends BaseMatcher<GotoConnectedPortsMat
     
   }
   
+  @Override
   protected GotoConnectedPortsMatch arrayToMatchMutable(final Object[] match) {
     try {
       return GotoConnectedPortsMatch.newMutableMatch((hu.bme.mit.transima.Simulink.InPort) match[POSITION_GOTOINPORT], (hu.bme.mit.transima.Simulink.OutPort) match[POSITION_FROMOUTPORT]);

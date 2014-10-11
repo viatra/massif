@@ -21,6 +21,7 @@ public abstract class HierarchyConnectionProcessor implements IMatchProcessor<Hi
    */
   public abstract void process(final Block pFrom, final Block pTo, final String pName);
   
+  @Override
   public void process(final HierarchyConnectionMatch match) {
     process(match.getFrom(), match.getTo(), match.getName());
     

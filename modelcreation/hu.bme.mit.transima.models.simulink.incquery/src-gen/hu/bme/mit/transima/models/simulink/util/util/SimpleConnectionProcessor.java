@@ -23,6 +23,7 @@ public abstract class SimpleConnectionProcessor implements IMatchProcessor<Simpl
    */
   public abstract void process(final OutPort pOutP, final InPort pInP, final SingleConnection pPc);
   
+  @Override
   public void process(final SimpleConnectionMatch match) {
     process(match.getOutP(), match.getInP(), match.getPc());
     

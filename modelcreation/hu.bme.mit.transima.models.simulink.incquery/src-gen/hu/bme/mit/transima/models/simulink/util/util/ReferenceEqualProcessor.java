@@ -20,6 +20,7 @@ public abstract class ReferenceEqualProcessor implements IMatchProcessor<Referen
    */
   public abstract void process(final SimulinkReference pSourceRef, final SimulinkReference pTargetRef);
   
+  @Override
   public void process(final ReferenceEqualMatch match) {
     process(match.getSourceRef(), match.getTargetRef());
     

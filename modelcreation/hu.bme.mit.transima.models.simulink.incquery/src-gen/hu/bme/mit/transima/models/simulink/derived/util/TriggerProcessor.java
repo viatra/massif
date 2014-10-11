@@ -21,6 +21,7 @@ public abstract class TriggerProcessor implements IMatchProcessor<TriggerMatch> 
    */
   public abstract void process(final Block pBlock, final Trigger pTrigger);
   
+  @Override
   public void process(final TriggerMatch match) {
     process(match.getBlock(), match.getTrigger());
     

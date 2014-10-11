@@ -39,31 +39,38 @@ public final class BlockQuerySpecification extends BaseGeneratedQuerySpecificati
     
   }
   
+  @Override
   protected BlockMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return BlockMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.block";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("bl");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("bl", "hu.bme.mit.transima.Simulink.Block"));
   }
   
+  @Override
   public BlockMatch newEmptyMatch() {
     return BlockMatch.newEmptyMatch();
   }
   
+  @Override
   public BlockMatch newMatch(final Object... parameters) {
     return BlockMatch.newMatch((hu.bme.mit.transima.Simulink.Block) parameters[0]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

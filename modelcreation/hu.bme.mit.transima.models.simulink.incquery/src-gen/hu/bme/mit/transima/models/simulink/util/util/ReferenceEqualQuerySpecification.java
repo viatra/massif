@@ -40,31 +40,38 @@ public final class ReferenceEqualQuerySpecification extends BaseGeneratedQuerySp
     
   }
   
+  @Override
   protected ReferenceEqualMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return ReferenceEqualMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.util.referenceEqual";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("sourceRef","targetRef");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("sourceRef", "hu.bme.mit.transima.Simulink.SimulinkReference"),new PParameter("targetRef", "hu.bme.mit.transima.Simulink.SimulinkReference"));
   }
   
+  @Override
   public ReferenceEqualMatch newEmptyMatch() {
     return ReferenceEqualMatch.newEmptyMatch();
   }
   
+  @Override
   public ReferenceEqualMatch newMatch(final Object... parameters) {
     return ReferenceEqualMatch.newMatch((hu.bme.mit.transima.Simulink.SimulinkReference) parameters[0], (hu.bme.mit.transima.Simulink.SimulinkReference) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

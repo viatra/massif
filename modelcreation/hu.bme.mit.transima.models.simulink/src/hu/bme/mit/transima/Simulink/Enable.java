@@ -27,32 +27,32 @@ package hu.bme.mit.transima.Simulink;
  */
 public interface Enable extends InPort {
     /**
-     * Returns the value of the '<em><b>States When Enabling</b></em>' attribute.
-     * The literals are from the enumeration {@link hu.bme.mit.transima.Simulink.EnableStates}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>States When Enabling</b></em>' attribute.
+	 * The literals are from the enumeration {@link hu.bme.mit.transima.Simulink.EnableStates}.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>States When Enabling</em>' attribute isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>States When Enabling</em>' attribute.
-     * @see hu.bme.mit.transima.Simulink.EnableStates
-     * @see #setStatesWhenEnabling(EnableStates)
-     * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getEnable_StatesWhenEnabling()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>States When Enabling</em>' attribute.
+	 * @see hu.bme.mit.transima.Simulink.EnableStates
+	 * @see #setStatesWhenEnabling(EnableStates)
+	 * @see hu.bme.mit.transima.Simulink.SimulinkPackage#getEnable_StatesWhenEnabling()
+	 * @model
+	 * @generated
+	 */
     EnableStates getStatesWhenEnabling();
 
     /**
-     * Sets the value of the '{@link hu.bme.mit.transima.Simulink.Enable#getStatesWhenEnabling <em>States When Enabling</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link hu.bme.mit.transima.Simulink.Enable#getStatesWhenEnabling <em>States When Enabling</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>States When Enabling</em>' attribute.
-     * @see hu.bme.mit.transima.Simulink.EnableStates
-     * @see #getStatesWhenEnabling()
-     * @generated
-     */
+	 * @param value the new value of the '<em>States When Enabling</em>' attribute.
+	 * @see hu.bme.mit.transima.Simulink.EnableStates
+	 * @see #getStatesWhenEnabling()
+	 * @generated
+	 */
     void setStatesWhenEnabling(EnableStates value);
 
 } // Enable

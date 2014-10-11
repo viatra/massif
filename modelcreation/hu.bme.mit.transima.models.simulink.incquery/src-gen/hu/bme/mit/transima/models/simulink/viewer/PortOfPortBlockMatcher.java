@@ -86,6 +86,7 @@ public class PortOfPortBlockMatcher extends BaseMatcher<PortOfPortBlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead, e.g. in conjunction with {@link IncQueryEngine#on(Notifier)}
    * 
    */
+  @Deprecated
   public PortOfPortBlockMatcher(final Notifier emfRoot) throws IncQueryException {
     this(IncQueryEngine.on(emfRoot));
   }
@@ -99,6 +100,7 @@ public class PortOfPortBlockMatcher extends BaseMatcher<PortOfPortBlockMatch> {
    * @deprecated use {@link #on(IncQueryEngine)} instead
    * 
    */
+  @Deprecated
   public PortOfPortBlockMatcher(final IncQueryEngine engine) throws IncQueryException {
     super(engine, querySpecification());
   }
@@ -186,6 +188,7 @@ public class PortOfPortBlockMatcher extends BaseMatcher<PortOfPortBlockMatch> {
    * @deprecated use the IncQuery Databinding API (IncQueryObservables) instead.
    * 
    */
+  @Deprecated
   public DeltaMonitor<PortOfPortBlockMatch> newFilteredDeltaMonitor(final boolean fillAtStart, final Port pPort, final PortBlock pPortBlock) {
     return rawNewFilteredDeltaMonitor(fillAtStart, new Object[]{pPort, pPortBlock});
   }
@@ -280,6 +283,7 @@ public class PortOfPortBlockMatcher extends BaseMatcher<PortOfPortBlockMatch> {
     return rawAccumulateAllValuesOfportBlock(new Object[]{pPort, null});
   }
   
+  @Override
   protected PortOfPortBlockMatch tupleToMatch(final Tuple t) {
     try {
       return PortOfPortBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Port) t.get(POSITION_PORT), (hu.bme.mit.transima.Simulink.PortBlock) t.get(POSITION_PORTBLOCK));
@@ -290,6 +294,7 @@ public class PortOfPortBlockMatcher extends BaseMatcher<PortOfPortBlockMatch> {
     
   }
   
+  @Override
   protected PortOfPortBlockMatch arrayToMatch(final Object[] match) {
     try {
       return PortOfPortBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Port) match[POSITION_PORT], (hu.bme.mit.transima.Simulink.PortBlock) match[POSITION_PORTBLOCK]);
@@ -300,6 +305,7 @@ public class PortOfPortBlockMatcher extends BaseMatcher<PortOfPortBlockMatch> {
     
   }
   
+  @Override
   protected PortOfPortBlockMatch arrayToMatchMutable(final Object[] match) {
     try {
       return PortOfPortBlockMatch.newMutableMatch((hu.bme.mit.transima.Simulink.Port) match[POSITION_PORT], (hu.bme.mit.transima.Simulink.PortBlock) match[POSITION_PORTBLOCK]);

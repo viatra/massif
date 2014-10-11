@@ -4,7 +4,7 @@ dir
 1654
 https://svn.inf.mit.bme.hu/projects/transima/trunk/plugins/metamodels/hu.bme.mit.transima.models.simulink.incquery/src/hu/bme/mit/transima/models/simulink
 https://svn.inf.mit.bme.hu/projects/transima
-delete
+
 
 
 2014-05-16T12:36:40.365422Z
@@ -28,29 +28,13 @@ svn:special svn:externals svn:needs-lock
 
 derived
 dir
-
-
-
-delete
 
 util
 dir
-
-
-
-delete
 
 validation
 dir
-
-
-
-delete
 
 viewer
 dir
-
-
-
-delete
 

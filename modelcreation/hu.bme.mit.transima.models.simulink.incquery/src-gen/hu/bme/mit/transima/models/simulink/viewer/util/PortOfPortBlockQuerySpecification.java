@@ -34,31 +34,38 @@ public final class PortOfPortBlockQuerySpecification extends BaseGeneratedQueryS
     
   }
   
+  @Override
   protected PortOfPortBlockMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return PortOfPortBlockMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.portOfPortBlock";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("port","portBlock");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("port", "hu.bme.mit.transima.Simulink.Port"),new PParameter("portBlock", "hu.bme.mit.transima.Simulink.PortBlock"));
   }
   
+  @Override
   public PortOfPortBlockMatch newEmptyMatch() {
     return PortOfPortBlockMatch.newEmptyMatch();
   }
   
+  @Override
   public PortOfPortBlockMatch newMatch(final Object... parameters) {
     return PortOfPortBlockMatch.newMatch((hu.bme.mit.transima.Simulink.Port) parameters[0], (hu.bme.mit.transima.Simulink.PortBlock) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

@@ -35,6 +35,7 @@ public abstract class OutPortToOutPortConnectionMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public Object get(final String parameterName) {
     if ("sourceOutPort".equals(parameterName)) return this.fSourceOutPort;
     if ("targetOutPort".equals(parameterName)) return this.fTargetOutPort;
@@ -52,6 +53,7 @@ public abstract class OutPortToOutPortConnectionMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean set(final String parameterName, final Object newValue) {
     if (!isMutable()) throw new java.lang.UnsupportedOperationException();
     if ("sourceOutPort".equals(parameterName) ) {
@@ -78,26 +80,31 @@ public abstract class OutPortToOutPortConnectionMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public String patternName() {
     return "hu.bme.mit.transima.models.simulink.util.outPortToOutPortConnection";
     
   }
   
+  @Override
   public List<String> parameterNames() {
     return OutPortToOutPortConnectionMatch.parameterNames;
     
   }
   
+  @Override
   public Object[] toArray() {
     return new Object[]{fSourceOutPort, fTargetOutPort};
     
   }
   
+  @Override
   public OutPortToOutPortConnectionMatch toImmutable() {
     return isMutable() ? newMatch(fSourceOutPort, fTargetOutPort) : this;
     
   }
   
+  @Override
   public String prettyPrint() {
     StringBuilder result = new StringBuilder();
     result.append("\"sourceOutPort\"=" + prettyPrintValue(fSourceOutPort) + ", ");
@@ -106,6 +113,7 @@ public abstract class OutPortToOutPortConnectionMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
@@ -115,6 +123,7 @@ public abstract class OutPortToOutPortConnectionMatch extends BasePatternMatch {
     
   }
   
+  @Override
   public boolean equals(final Object obj) {
     if (this == obj)
     	return true;
@@ -136,6 +145,7 @@ public abstract class OutPortToOutPortConnectionMatch extends BasePatternMatch {
     return true;
   }
   
+  @Override
   public OutPortToOutPortConnectionQuerySpecification specification() {
     try {
     	return OutPortToOutPortConnectionQuerySpecification.instance();
@@ -192,6 +202,7 @@ public abstract class OutPortToOutPortConnectionMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return true;
     }
@@ -203,6 +214,7 @@ public abstract class OutPortToOutPortConnectionMatch extends BasePatternMatch {
       
     }
     
+    @Override
     public boolean isMutable() {
       return false;
     }

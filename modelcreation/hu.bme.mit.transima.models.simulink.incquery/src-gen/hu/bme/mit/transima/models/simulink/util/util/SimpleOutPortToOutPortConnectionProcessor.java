@@ -22,6 +22,7 @@ public abstract class SimpleOutPortToOutPortConnectionProcessor implements IMatc
    */
   public abstract void process(final OutPort pSourceOutPort, final OutPort pTargetOutPort, final SingleConnection pConnection);
   
+  @Override
   public void process(final SimpleOutPortToOutPortConnectionMatch match) {
     process(match.getSourceOutPort(), match.getTargetOutPort(), match.getConnection());
     

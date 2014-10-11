@@ -36,31 +36,38 @@ public final class GotoConnectionQuerySpecification extends BaseGeneratedQuerySp
     
   }
   
+  @Override
   protected GotoConnectionMatcher instantiate(final IncQueryEngine engine) throws IncQueryException {
     return GotoConnectionMatcher.on(engine);
   }
   
+  @Override
   public String getFullyQualifiedName() {
     return "hu.bme.mit.transima.models.simulink.viewer.gotoConnection";
     
   }
   
+  @Override
   public List<String> getParameterNames() {
     return Arrays.asList("from","to");
   }
   
+  @Override
   public List<PParameter> getParameters() {
     return Arrays.asList(new PParameter("from", "hu.bme.mit.transima.Simulink.Goto"),new PParameter("to", "hu.bme.mit.transima.Simulink.From"));
   }
   
+  @Override
   public GotoConnectionMatch newEmptyMatch() {
     return GotoConnectionMatch.newEmptyMatch();
   }
   
+  @Override
   public GotoConnectionMatch newMatch(final Object... parameters) {
     return GotoConnectionMatch.newMatch((hu.bme.mit.transima.Simulink.Goto) parameters[0], (hu.bme.mit.transima.Simulink.From) parameters[1]);
   }
   
+  @Override
   public Set<PBody> doGetContainedBodies() throws IncQueryException {
     Set<PBody> bodies = Sets.newLinkedHashSet();
     {

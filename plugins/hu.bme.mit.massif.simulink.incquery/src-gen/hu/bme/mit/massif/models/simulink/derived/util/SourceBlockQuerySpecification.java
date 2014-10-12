@@ -85,8 +85,8 @@ public final class SourceBlockQuerySpecification extends BaseGeneratedQuerySpeci
       ));
       
       
-      new TypeUnary(body, var_Source, getClassifierLiteral("http://hu.bme.mit.massif/simulink/1.0", "Block"), "http://hu.bme.mit.massif/simulink/1.0/Block");
       new TypeBinary(body, CONTEXT, var_This, var_SrcRef, getFeatureLiteral("http://hu.bme.mit.massif/simulink/1.0", "Block", "sourceBlockRef"), "http://hu.bme.mit.massif/simulink/1.0/Block.sourceBlockRef");
+      new TypeUnary(body, var_Source, getClassifierLiteral("http://hu.bme.mit.massif/simulink/1.0", "Block"), "http://hu.bme.mit.massif/simulink/1.0/Block");
       new TypeBinary(body, CONTEXT, var_Source, var_SR, getFeatureLiteral("http://hu.bme.mit.massif/simulink/1.0", "SimulinkElement", "simulinkRef"), "http://hu.bme.mit.massif/simulink/1.0/SimulinkElement.simulinkRef");
       new PositivePatternCall(body, new FlatTuple(var_SrcRef, var_SR), ReferenceEqualQuerySpecification.instance());
       bodies.add(body);

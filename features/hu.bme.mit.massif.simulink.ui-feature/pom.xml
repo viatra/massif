@@ -5,9 +5,10 @@
   <parent>
     <artifactId>hu.bme.mit.massif.parent</artifactId>
     <groupId>hu.bme.mit.massif</groupId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.4.0-SNAPSHOT</version>
     <relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
   </parent>
-  <artifactId>hu.bme.mit.massif.simulink.ui-feature</artifactId>
+  <groupId>hu.bme.mit.massif.features</groupId>
+  <artifactId>hu.bme.mit.massif.simulink.ui</artifactId>
   <packaging>eclipse-feature</packaging>
 </project>

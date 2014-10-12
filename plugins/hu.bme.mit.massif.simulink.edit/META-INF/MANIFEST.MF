@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: hu.bme.mit.massif.simulink.edit;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.4.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: hu.bme.mit.massif.simulink.provider.SimulinkEditPlugin$Implementation
 Bundle-Vendor: %providerName

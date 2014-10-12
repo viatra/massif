@@ -82,8 +82,8 @@ public final class BusSpecificationInPortToOutPortQuerySpecification extends Bas
       new TypeUnary(body, var_inportOfBS, getClassifierLiteral("http://hu.bme.mit.massif/simulink/1.0", "InPort"), "http://hu.bme.mit.massif/simulink/1.0/InPort");
       
       new TypeUnary(body, var_outPortOfBS, getClassifierLiteral("http://hu.bme.mit.massif/simulink/1.0", "OutPort"), "http://hu.bme.mit.massif/simulink/1.0/OutPort");
-      new TypeBinary(body, CONTEXT, var_BS, var_inportOfBS, getFeatureLiteral("http://hu.bme.mit.massif/simulink/1.0", "Block", "ports"), "http://hu.bme.mit.massif/simulink/1.0/Block.ports");
       new TypeUnary(body, var_BS, getClassifierLiteral("http://hu.bme.mit.massif/simulink/1.0", "BusSpecification"), "http://hu.bme.mit.massif/simulink/1.0/BusSpecification");
+      new TypeBinary(body, CONTEXT, var_BS, var_inportOfBS, getFeatureLiteral("http://hu.bme.mit.massif/simulink/1.0", "Block", "ports"), "http://hu.bme.mit.massif/simulink/1.0/Block.ports");
       new TypeBinary(body, CONTEXT, var_BS, var_outPortOfBS, getFeatureLiteral("http://hu.bme.mit.massif/simulink/1.0", "Block", "ports"), "http://hu.bme.mit.massif/simulink/1.0/Block.ports");
       bodies.add(body);
     }

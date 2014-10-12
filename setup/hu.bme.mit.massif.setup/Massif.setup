@@ -39,6 +39,10 @@
               key="includeSource">
             <value>false</value>
           </detail>
+          <detail
+              key="generateVersions">
+            <value>true</value>
+          </detail>
         </annotation>
         <requirement
             name="org.eclipse.incquery.sdk.feature.source.feature.group"/>

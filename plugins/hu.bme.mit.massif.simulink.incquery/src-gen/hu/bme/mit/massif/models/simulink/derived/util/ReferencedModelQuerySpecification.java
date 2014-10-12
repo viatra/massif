@@ -85,8 +85,8 @@ public final class ReferencedModelQuerySpecification extends BaseGeneratedQueryS
       ));
       
       
-      new TypeUnary(body, var_Target, getClassifierLiteral("http://hu.bme.mit.massif/simulink/1.0", "SimulinkModel"), "http://hu.bme.mit.massif/simulink/1.0/SimulinkModel");
       new TypeBinary(body, CONTEXT, var_This, var_ModelRef, getFeatureLiteral("http://hu.bme.mit.massif/simulink/1.0", "ModelReference", "modelRef"), "http://hu.bme.mit.massif/simulink/1.0/ModelReference.modelRef");
+      new TypeUnary(body, var_Target, getClassifierLiteral("http://hu.bme.mit.massif/simulink/1.0", "SimulinkModel"), "http://hu.bme.mit.massif/simulink/1.0/SimulinkModel");
       new TypeBinary(body, CONTEXT, var_Target, var_SR, getFeatureLiteral("http://hu.bme.mit.massif/simulink/1.0", "SimulinkElement", "simulinkRef"), "http://hu.bme.mit.massif/simulink/1.0/SimulinkElement.simulinkRef");
       new PositivePatternCall(body, new FlatTuple(var_ModelRef, var_SR), ReferenceEqualQuerySpecification.instance());
       bodies.add(body);

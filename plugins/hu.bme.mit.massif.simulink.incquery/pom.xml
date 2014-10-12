@@ -59,7 +59,7 @@
 				<dependencies>
 					<dependency>
 						<groupId>hu.bme.mit.massif</groupId>
-						<artifactId>hu.bme.mit.massif.models.simulink</artifactId>
+						<artifactId>hu.bme.mit.massif.simulink</artifactId>
 						<version>${project.version}</version>
 					</dependency>
 				</dependencies>

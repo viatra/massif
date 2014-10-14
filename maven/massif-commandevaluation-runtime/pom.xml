@@ -16,7 +16,12 @@
   	</dependency>
 	<dependency>
   		<groupId>hu.bme.mit.massif</groupId>
-  		<artifactId>hu.bme.mit.massif.communication.commandevaluation</artifactId>
+  		<artifactId>hu.bme.mit.massif.communication.commandevaluation.base</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+	<dependency>
+  		<groupId>hu.bme.mit.massif</groupId>
+  		<artifactId>hu.bme.mit.massif.communication.commandevaluation.client</artifactId>
   		<version>${project.version}</version>
   	</dependency>
 	<dependency>

@@ -1215,7 +1215,10 @@ public class ResourceFactory {
                 final List<IVisitableMatlabData> srcBlocks = getData(correctPortStruct.getData("SrcBlock"));
                 final List<IVisitableMatlabData> srcPorts = getData(correctPortStruct.getData("SrcPort"));
 
+                
                 if (portType.equals("EnablePort") || portType.equals("TriggerPort") || portType.equals("Inport")) {
+                    processConnections(resource, commandFactory, srcBlocks, srcPorts, "(outport)",
+                            systemId);
                 } else {
                     processConnections(resource, commandFactory, dstBlocks, dstPorts, "(inport|enable|trigger)",
                             systemId);

@@ -26,7 +26,7 @@
   	</dependency>
 	<dependency>
   		<groupId>hu.bme.mit.massif</groupId>
-  		<artifactId>br.com.embraer.massif.communication.commandevaluation</artifactId>
+  		<artifactId>hu.bme.mit.massif.communication.commandevaluation</artifactId>
   		<version>${project.version}</version>
   	</dependency>
 	<dependency>

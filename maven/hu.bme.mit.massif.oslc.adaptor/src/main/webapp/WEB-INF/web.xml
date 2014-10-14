@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+    <display-name>SimulinkAdaptor</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+    <context-param>
+        <description>Scheme used for URI when registering ServiceProvider. Can be overridden by System property of the
+            same name.
+        </description>
+        <param-name>hu.bme.mit.massif.oslc.adaptor.servlet.scheme</param-name>
+        <param-value>http</param-value>
+    </context-param>
+    <context-param>
+        <description>Port used for URI when registering ServiceProvider. Can be overridden by System property of the
+            same name.
+        </description>
+        <param-name>hu.bme.mit.massif.oslc.adaptor.servlet.port</param-name>
+        <param-value>8080</param-value>
+    </context-param>
+    <listener>
+        <description>Listener for ServletContext lifecycle changes</description>
+        <listener-class>hu.bme.mit.massif.oslc.adaptor.servlet.ServletListener</listener-class>
+    </listener>
+    <servlet>
+        <description>JAX-RS Tools Generated - Do not modify</description>
+        <servlet-name>JAX-RS Servlet</servlet-name>
+        <servlet-class>org.apache.wink.server.internal.servlet.RestServlet</servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>hu.bme.mit.massif.oslc.adaptor.servlet.Application</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JAX-RS Servlet</servlet-name>
+        <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+</web-app>

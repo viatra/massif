@@ -1,1 +1,0 @@
-This folder is the target for creating a zipped Matlab Command Evaluator Server

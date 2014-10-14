@@ -1,4 +1,4 @@
-TARGETDIR=$WORKSPACE/releng/hu.bme.mit.massif.commandevaluation.server
+TARGETDIR=$WORKSPACE/releng/massif.commandevaluation.server-package/target
 MATLABDIRPARENT=$TARGETDIR
 PLUGINSDIR=$WORKSPACE/plugins
 

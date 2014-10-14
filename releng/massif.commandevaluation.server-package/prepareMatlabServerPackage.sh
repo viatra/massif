@@ -1,4 +1,4 @@
-TARGETDIR=$WORKSPACE/releng/massif.commandevaluation.server-package/target
+TARGETDIR=$WORKSPACE/releng/massif.commandevaluation.server-package
 MATLABDIRPARENT=$TARGETDIR
 PLUGINSDIR=$WORKSPACE/plugins
 
@@ -10,4 +10,4 @@ cp $PLUGINSDIR/br.com.embraer.massif.commandevaluation.server/setup_remote.m $MA
 cp $PLUGINSDIR/hu.bme.mit.massif.simulink.api/scripts/library_collector.m $MATLABDIRPARENT/matlab
 cp $PLUGINSDIR/br.com.embraer.massif.commandevaluation.tests/testconfig/matlabserverconfig.properties $MATLABDIRPARENT/matlab
 cd $MATLABDIRPARENT
-zip -r matlab.commandevaluation.zip ./matlab
+zip -r massif.commandevaluation.server.zip ./matlab

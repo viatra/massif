@@ -54,6 +54,7 @@
 		<module>../../maven/massif-matlabcontrol-runtime</module>
 		<module>../../maven/massif-commandevaluation-runtime</module>
 
+		<module>../../maven/hu.bme.mit.massif.oslc.adaptor</module>
 	</modules>
 	<properties>
 		<tycho.version>0.20.0</tycho.version>

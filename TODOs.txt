@@ -1,0 +1,12 @@
+1. Generate copyright headers
+ - Prepare copyright header template (authors, licence)
+2. Unit testing (without Matlab)
+ - Communication
+ - Connectors (CE - command evaluation, MC - matlabcontrol)
+ - SimulinkApi import/export
+3. Review comments for public APIs
+4. Evaluate Windows dependent code (CE server and CE connector)
+5. Try if SimulinkApi works with a remote Matlab server (CE)
+6. Documentation, wiki site
+7. Review Simulink metamodel
+8. Speeding up import

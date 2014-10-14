@@ -1,8 +1,8 @@
 package hu.bme.mit.massif.simulink.importer.ui.util;
 
 import hu.bme.mit.massif.communication.ICommandEvaluator;
-import hu.bme.mit.massif.communication.commandevaluation.Activator;
 import hu.bme.mit.massif.communication.commandevaluation.CommandEvaluatorImpl;
+import hu.bme.mit.massif.simulink.importer.ui.Activator;
 
 import java.util.Map;
 

@@ -10,8 +10,6 @@ import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.core.runtime.Status;
-
 import br.com.embraer.massif.commandevaluation.client.MatlabClient;
 import br.com.embraer.massif.commandevaluation.exception.MatlabException;
 import br.com.embraer.massif.commandevaluation.exception.MatlabOutputException;
@@ -78,9 +76,7 @@ public class CommandEvaluatorImpl implements ICommandEvaluator {
             }
 
         } catch (MatlabException e) {
-            Status status = new Status(Status.ERROR, Activator.PLUGIN_ID,
-                    "Exception occurred while evaluating command!", e);
-            Activator.getDefault().getLog().log(status);
+        	throw new RuntimeException("Exception occurred while evaluating command!", e);
         }
         return result;
     }

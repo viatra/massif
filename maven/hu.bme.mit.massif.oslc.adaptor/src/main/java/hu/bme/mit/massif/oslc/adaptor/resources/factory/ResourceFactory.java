@@ -201,7 +201,7 @@ public class ResourceFactory {
                 t -> {
                     try {
                         typeToResourceMap.put(t, (Class<? extends AbstractResource>) Class
-                                .forName("hu.bme.mit.simulink.oslc.adaptor.resources." + t.name() + "Resource"));
+                                .forName("hu.bme.mit.massif.oslc.adaptor.resources." + t.name() + "Resource"));
                     } catch (final Exception e) {
                         e.printStackTrace();
                     }

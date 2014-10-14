@@ -1,5 +1,6 @@
 Eclipse Massif = Matlab Simulink Integration Framework
 Site = Simulink Integration Toolkit for Eclipse
+Masine = Matlab Simulink Integration for Eclipse
 
 
 Silk

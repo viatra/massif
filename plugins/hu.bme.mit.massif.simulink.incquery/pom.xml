@@ -52,7 +52,7 @@
 					<metamodels>
 						<metamodel>
 							<packageClass>hu.bme.mit.massif.simulink.SimulinkPackage</packageClass>
-							<genmodelUri>../hu.bme.mit.masssif.simulink/model/simulink.genmodel</genmodelUri>
+							<genmodelUri>../hu.bme.mit.massif.simulink/model/simulink.genmodel</genmodelUri>
 						</metamodel>
 					</metamodels>
 				</configuration>

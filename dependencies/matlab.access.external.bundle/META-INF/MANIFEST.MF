@@ -16,3 +16,4 @@ Export-Package: com.sun.jna,
  com.sun.jna.ptr,
  com.sun.jna.win32
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

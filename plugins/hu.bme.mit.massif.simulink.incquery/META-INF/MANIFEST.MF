@@ -18,3 +18,4 @@ Require-Bundle: org.eclipse.emf.ecore,
  hu.bme.mit.massif.simulink
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.log4j
+Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

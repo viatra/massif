@@ -8,3 +8,4 @@ Require-Bundle: br.com.embraer.massif.commandevaluation.base;bundle-version="0.4
  matlab.access.external.bundle;bundle-version="0.4.0"
 Export-Package: br.com.embraer.massif.commandevaluation.client,
  br.com.embraer.massif.commandevaluation.client.util
+Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

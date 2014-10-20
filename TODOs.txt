@@ -21,3 +21,7 @@
 9. Review Simulink metamodel
 
 10. Speeding up import
+
+- evaluate need for matlabaccess bundle (what is it used for, is there Eclipse/Orbit capability?)
+
+- 

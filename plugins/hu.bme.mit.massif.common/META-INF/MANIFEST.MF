@@ -15,3 +15,4 @@ Export-Package: hu.bme.mit.massif.common,
  hu.bme.mit.massif.common.tracer
 Bundle-Activator: hu.bme.mit.massif.common.MassifCommonPlugin
 Bundle-ActivationPolicy: lazy
+Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

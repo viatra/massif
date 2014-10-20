@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
 Class-Path: 
 
+\nBundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

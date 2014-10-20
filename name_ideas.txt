@@ -1,6 +1,11 @@
 Eclipse Massif = Matlab Simulink Integration Framework
+	- Massif (clothing, heap analyzer)
 Site = Simulink Integration Toolkit for Eclipse
 Masine = Matlab Simulink Integration for Eclipse
+
+Malaco - MAtLAb COnnector
+	- music group, Swedish confectionary
+Masico - MAtlab SImulink COnnector
 
 
 Silk

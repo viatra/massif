@@ -1,13 +1,9 @@
 /*******************************************************************************
- * Copyright (c) 2012 IBM Corporation and others.
- *
+ * Copyright (c) 2012, 2014 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
- * and Eclipse Distribution License v. 1.0 which accompanies this distribution.
- *
- * The Eclipse Public License is available at http://www.eclipse.org/legal/epl-v10.html
- * and the Eclipse Distribution License is available at
- * http://www.eclipse.org/org/documents/edl-v10.php.
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
  *
  * Contributors:
  *
@@ -50,21 +46,6 @@ import org.eclipse.lyo.oslc4j.core.model.ServiceProviderCatalog;
 // Start of user code imports
 // End of user code
 
-/**
- * This is the OSLC service provider catalog for the Bugzilla adapter. Service
- * providers are not registered with the catalog until a request comes in to
- * access either the catalog or a specific service provider. This request could
- * be from an external consumer or an internal request triggered by a consumer
- * accessing a change request.
- * <p>
- * The service providers are created and registered in the
- * initServiceProvidersFromProducts() method. A list of accessible products is
- * retrieved from Bugzilla and a ServiceProvider is created and registered for
- * each using the Bugzilla productId as the identifier.
- * <p>
- * The registered service providers are refreshed on each catalog or service
- * provider collection request.
- */
 public class ServiceProviderCatalogSingleton {
     private static final ServiceProviderCatalog             serviceProviderCatalog;
     private static final SortedMap<String, ServiceProvider> serviceProviders = new TreeMap<String, ServiceProvider>();

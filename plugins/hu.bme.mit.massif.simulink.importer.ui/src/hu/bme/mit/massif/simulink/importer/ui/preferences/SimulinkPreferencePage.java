@@ -12,9 +12,11 @@ package hu.bme.mit.massif.simulink.importer.ui.preferences;
 
 import hu.bme.mit.massif.simulink.importer.ui.Activator;
 
+import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.IntegerFieldEditor;
+import org.eclipse.jface.preference.RadioGroupFieldEditor;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
@@ -48,6 +50,10 @@ public class SimulinkPreferencePage extends FieldEditorPreferencePage implements
         addField(new StringFieldEditor(PreferenceConstants.HOST_ADDRESS, "Host IPv4 address:", getFieldEditorParent()));
         addField(new IntegerFieldEditor(PreferenceConstants.HOST_PORT, "Host port number:", getFieldEditorParent()));
         addField(new StringFieldEditor(PreferenceConstants.SERVICE_NAME, "Service name:", getFieldEditorParent()));
+        addField(new RadioGroupFieldEditor(PreferenceConstants.MATLAB_CONNECTOR, "Matlab Connector", 1, new String[][]{
+        		new String[]{"Command Evaluation Server", PreferenceConstants.COMMAND_EVALUATION_SERVER_ID},
+        		new String[]{"MatlabControl", PreferenceConstants.MATLAB_CONTROL_ID}
+        }, getFieldEditorParent(),true));
     }
 
     /*

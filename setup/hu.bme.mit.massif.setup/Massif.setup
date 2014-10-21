@@ -145,6 +145,9 @@
               <operand
                   xsi:type="predicates:NamePredicate"
                   pattern=".*feature"/>
+              <operand
+                  xsi:type="predicates:NamePredicate"
+                  pattern=".*ui"/>
             </operand>
           </operand>
           <operand

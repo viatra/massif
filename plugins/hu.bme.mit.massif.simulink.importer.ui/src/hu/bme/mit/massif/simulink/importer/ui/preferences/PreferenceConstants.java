@@ -20,6 +20,7 @@ public class PreferenceConstants {
 	public static final String HOST_ADDRESS = "hostAddress";
 	public static final String HOST_PORT = "hostPort";
 	public static final String SERVICE_NAME = "serviceName";
+	public static final String MATLAB_CONNECTOR = "matlab_connector";
 	
 	// Import
 	public static final String IMPORT_TRAVERSE_MODE = "traverseMode";
@@ -35,5 +36,7 @@ public class PreferenceConstants {
 	public static final String EXPORT_RESULT_MODEL_PATH = "exportResultModelPath";
 	public static final String EXPORT_SCRIPT_NAMES = "exportScriptNames";
 	public static final String EXPORT_ADDITIONAL_MATLAB_PATH = "exportAdditionalMatlabPath";
+	public static final String MATLAB_CONTROL_ID = "matlab.control";
+	public static final String COMMAND_EVALUATION_SERVER_ID = "command.evaluation.server";
 	
 }

@@ -2,6 +2,7 @@ package hu.bme.mit.massif.models.simulink.util
 
 
 import "http://hu.bme.mit.massif/simulink/1.0"
+import hu.bme.mit.massif.models.simulink.derived.name
 
 pattern blockToPort(block, port) {
 	Block.ports(block,port);
@@ -181,14 +182,14 @@ pattern referenceEqual(sourceRef : SimulinkReference, targetRef : SimulinkRefere
 
 pattern childBlockNames(elem : SimulinkElement, child : SimulinkElement, name){
 	SimulinkModel.contains(elem, child);
-	SimulinkElement.name(child, name);
+	find name(child, name);
 } or {
 	SubSystem.subBlocks(elem, child);
-	SimulinkElement.name(child, name);
+	find name(child, name);
 } or {
 	Block.ports(elem, child);
-	SimulinkElement.name(child, name);
+	find name(child, name);
 } or {
 	MultiConnection.connections(child, elem);
-	SimulinkElement.name(child, name);
+	find name(child, name);
 }

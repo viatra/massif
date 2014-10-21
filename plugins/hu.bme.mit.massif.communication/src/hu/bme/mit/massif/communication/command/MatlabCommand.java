@@ -10,6 +10,7 @@
  *******************************************************************************/
 package hu.bme.mit.massif.communication.command;
 
+import hu.bme.mit.massif.communication.CommandEvaluationException;
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
@@ -93,6 +94,7 @@ public abstract class MatlabCommand {
      * Execute the represented command
      * 
      * @return the IVisistalbeMatlabData object containing the returned data
+     * @throws CommandEvaluationException 
      */
     public final IVisitableMatlabData execute() {
 

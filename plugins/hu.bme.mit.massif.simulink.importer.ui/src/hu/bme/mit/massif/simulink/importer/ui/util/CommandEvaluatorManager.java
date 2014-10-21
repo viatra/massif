@@ -12,6 +12,7 @@ package hu.bme.mit.massif.simulink.importer.ui.util;
 
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.commandevaluation.CommandEvaluatorImpl;
+import hu.bme.mit.massif.communication.matlabcontrol.CommandEvaluatorMCImpl;
 import hu.bme.mit.massif.simulink.importer.ui.Activator;
 
 import java.util.Map;
@@ -61,6 +62,7 @@ public class CommandEvaluatorManager {
 
         case MATLABCONTROL:
             // TODO implement it for the matlabcontrol solution
+        	result = new CommandEvaluatorMCImpl();
             break;
 
         default:

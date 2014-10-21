@@ -52,7 +52,8 @@ public abstract class AbstractSimulinkHandler extends AbstractHandler {
         return traverseModeString;
     }
 
-    protected ICommandEvaluator prepareCommandEvaluator(String serviceName) {
+    protected ICommandEvaluator prepareCommandEvaluator() {
+    	String serviceName = getPreferenceStringValue(PreferenceConstants.SERVICE_NAME, "");
         String hostAddress = getPreferenceStringValue(PreferenceConstants.HOST_ADDRESS, "127.0.0.1");
         String hostPortString = getPreferenceStringValue(PreferenceConstants.HOST_PORT, "0");
         int hostPort = Integer.parseInt(hostPortString);
@@ -62,10 +63,44 @@ public abstract class AbstractSimulinkHandler extends AbstractHandler {
         evaluatorParameters.put(PreferenceConstants.HOST_PORT, hostPort);
         evaluatorParameters.put(PreferenceConstants.SERVICE_NAME, serviceName);
 
-        ICommandEvaluator commandEvaluator = CommandEvaluatorManager.getCommandEvaluator(
-                MatlabProvider.COMMAND_EVALUATION_SERVER, evaluatorParameters);
-        return commandEvaluator;
+        MatlabProvider matlabConnector = getMatlabConnector();
+    	ICommandEvaluator commandEvaluator = CommandEvaluatorManager.getCommandEvaluator(
+    			matlabConnector, evaluatorParameters);
+    	return commandEvaluator;
     }
+
+	private MatlabProvider getMatlabConnector() {
+		MatlabProvider connector = null;
+        String connectorId = getPreferenceStringValue(PreferenceConstants.MATLAB_CONNECTOR, null);
+        if(connectorId != null){
+        	if(PreferenceConstants.COMMAND_EVALUATION_SERVER_ID.equals(connectorId)){
+        		connector = MatlabProvider.COMMAND_EVALUATION_SERVER;
+        		
+        		// Reading MATLAB connection parameters from the preferences
+                String serviceName = getPreferenceStringValue(PreferenceConstants.SERVICE_NAME, "");
+                boolean existingSession = checkExistingMatlabSession(serviceName);
+
+                if (!existingSession) {
+                    String errorMsg = MATLAB_NOT_FOUND_WITH_GIVEN_PARAMETERS;
+                    Status status = new Status(Status.ERROR, Activator.PLUGIN_ID, errorMsg);
+                    Activator.getDefault().getLog().log(status);
+
+                    Display.getDefault().syncExec(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            MessageDialog.openError(Display.getDefault().getActiveShell(),
+                                    MATLAB_SERVER_NOT_FOUND_MESSAGE_TITLE, MATLAB_NOT_FOUND_WITH_GIVEN_PARAMETERS);
+                        }
+                    });
+
+                }
+        	} else if(PreferenceConstants.MATLAB_CONTROL_ID.equals(connectorId)) {
+        		connector = MatlabProvider.MATLABCONTROL;
+        	}
+        }
+		return connector;
+	}
 
     protected boolean checkExistingMatlabSession(String serviceName) {
         List<MatlabProcessInformation> matlabs = new ArrayList<MatlabProcessInformation>();
@@ -84,28 +119,7 @@ public abstract class AbstractSimulinkHandler extends AbstractHandler {
     }
 
     protected ICommandEvaluator getCommandEvaluator() {
-        // Reading MATLAB connection parameters from the preferences
-        String serviceName = getPreferenceStringValue(PreferenceConstants.SERVICE_NAME, "");
-        boolean existingSession = checkExistingMatlabSession(serviceName);
-
-        ICommandEvaluator commandEvaluator = null;
-        if (!existingSession) {
-            String errorMsg = MATLAB_NOT_FOUND_WITH_GIVEN_PARAMETERS;
-            Status status = new Status(Status.ERROR, Activator.PLUGIN_ID, errorMsg);
-            Activator.getDefault().getLog().log(status);
-
-            Display.getDefault().syncExec(new Runnable() {
-
-                @Override
-                public void run() {
-                    MessageDialog.openError(Display.getDefault().getActiveShell(),
-                            MATLAB_SERVER_NOT_FOUND_MESSAGE_TITLE, MATLAB_NOT_FOUND_WITH_GIVEN_PARAMETERS);
-                }
-            });
-
-        } else {
-            commandEvaluator = prepareCommandEvaluator(serviceName);
-        }
+    	ICommandEvaluator commandEvaluator = prepareCommandEvaluator();
         return commandEvaluator;
     }
 

@@ -12,7 +12,6 @@ package hu.bme.mit.massif.simulink.importer.ui.preferences;
 
 import hu.bme.mit.massif.simulink.importer.ui.Activator;
 
-import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.IntegerFieldEditor;
@@ -42,7 +41,8 @@ public class SimulinkPreferencePage extends FieldEditorPreferencePage implements
      * Creates the field editors. Field editors are abstractions of the common GUI blocks needed to manipulate various
      * types of preferences. Each field editor knows how to save and restore itself.
      */
-    public void createFieldEditors() {
+    @Override
+	public void createFieldEditors() {
 
         // Matlab session's PID is not necessary for now
         // addField(new StringFieldEditor(PreferenceConstants.PREFERRED_MATLAB_PID, "Preferred Matlab PID:",
@@ -51,8 +51,8 @@ public class SimulinkPreferencePage extends FieldEditorPreferencePage implements
         addField(new IntegerFieldEditor(PreferenceConstants.HOST_PORT, "Host port number:", getFieldEditorParent()));
         addField(new StringFieldEditor(PreferenceConstants.SERVICE_NAME, "Service name:", getFieldEditorParent()));
         addField(new RadioGroupFieldEditor(PreferenceConstants.MATLAB_CONNECTOR, "Matlab Connector", 1, new String[][]{
-        		new String[]{"Command Evaluation Server", PreferenceConstants.COMMAND_EVALUATION_SERVER_ID},
-        		new String[]{"MatlabControl", PreferenceConstants.MATLAB_CONTROL_ID}
+        		new String[]{"MatlabControl", PreferenceConstants.MATLAB_CONTROL_ID},
+        		new String[]{"Command Evaluation Server", PreferenceConstants.COMMAND_EVALUATION_SERVER_ID}
         }, getFieldEditorParent(),true));
     }
 
@@ -61,7 +61,8 @@ public class SimulinkPreferencePage extends FieldEditorPreferencePage implements
      * 
      * @see org.eclipse.ui.IWorkbenchPreferencePage#init(org.eclipse.ui.IWorkbench)
      */
-    public void init(IWorkbench workbench) {
+    @Override
+	public void init(IWorkbench workbench) {
     }
 
 }

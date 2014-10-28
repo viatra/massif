@@ -32,7 +32,7 @@ public class MatlabCommandFactory {
     private static final String LOAD_SYSTEM_COMMAND_NAME = "load_system";
     private static final String FIND_SYSTEM_COMMAND_NAME = "find_system";
     private static final String NEW_SYSTEM_COMMAND_NAME = "new_system";
-    private static final String ADD_PATH_COMMAND_NAME = "add_path";
+    private static final String ADD_PATH_COMMAND_NAME = "addpath";
     private static final String DELETE_LINE_COMMAND_NAME = "delete_line";
     private static final String ADD_LINE_COMMAND_NAME = "add_line";
     private static final String DELETE_BLOCK_COMMAND_NAME = "delete_block";

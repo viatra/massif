@@ -17,6 +17,10 @@
       [Enter License Description here.]
    </license>
 
+   <includes
+         id="hu.bme.mit.massif.simulink.api"
+         version="0.0.0"/>
+
    <plugin
          id="hu.bme.mit.massif.simulink.editor"
          download-size="0"

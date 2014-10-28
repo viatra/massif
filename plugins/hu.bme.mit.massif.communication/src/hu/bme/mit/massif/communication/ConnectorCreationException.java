@@ -10,16 +10,12 @@
  *******************************************************************************/
 package hu.bme.mit.massif.communication;
 
+public class ConnectorCreationException extends Exception {
 
-public class CommandEvaluationException extends RuntimeException {
-
-	public CommandEvaluationException(String message, Throwable exception) {
-		super(message, exception);
+	public ConnectorCreationException(String message, Throwable cause) {
+		super(message, cause);
 	}
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
+	
 }

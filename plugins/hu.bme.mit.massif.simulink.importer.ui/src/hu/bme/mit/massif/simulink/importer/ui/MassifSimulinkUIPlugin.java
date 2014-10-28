@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010, 2014, Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Abel Hegedus - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.importer.ui;
 
@@ -16,18 +16,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class MassifSimulinkUIPlugin extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "hu.bme.mit.massif.simulink.importer.ui"; //$NON-NLS-1$
 
 	// The shared instance
-	private static Activator plugin;
+	private static MassifSimulinkUIPlugin plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public Activator() {
+	public MassifSimulinkUIPlugin() {
 	}
 
 	/*
@@ -53,7 +53,7 @@ public class Activator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static MassifSimulinkUIPlugin getDefault() {
 		return plugin;
 	}
 

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Simulink Importer Ui
 Bundle-SymbolicName: hu.bme.mit.massif.simulink.importer.ui;singleton:=true
 Bundle-Version: 0.4.0.qualifier
-Bundle-Activator: hu.bme.mit.massif.simulink.importer.ui.Activator
+Bundle-Activator: hu.bme.mit.massif.simulink.importer.ui.MassifSimulinkUIPlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.expressions;bundle-version="3.4.300",
@@ -18,10 +18,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide;bundle-version="3.8.2",
  org.eclipse.emf.common,
  hu.bme.mit.massif.communication;bundle-version="0.4.0",
- hu.bme.mit.massif.communication.matlabcontrol;bundle-version="0.4.0",
  hu.bme.mit.massif.communication.commandevaluation,
- br.com.embraer.massif.commandevaluation.client
+ hu.bme.mit.massif.communication.manager;bundle-version="0.4.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-Vendor: Budapest University of Technology and Economics
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

@@ -23,6 +23,7 @@
 		<!-- Simulink API -->
 		<module>../../plugins/hu.bme.mit.massif.common</module>
 		<module>../../plugins/hu.bme.mit.massif.communication</module>
+		<module>../../plugins/hu.bme.mit.massif.communication.manager</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.api</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.filters</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.importer.ui</module>

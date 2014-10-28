@@ -17,6 +17,10 @@
       [Enter License Description here.]
    </license>
 
+   <includes
+         id="hu.bme.mit.massif.communication"
+         version="0.0.0"/>
+
    <plugin
          id="br.com.embraer.massif.commandevaluation.base"
          download-size="0"

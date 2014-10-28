@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010, 2014, Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Abel Hegedus - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.importer.ui.handlers;
 
@@ -15,7 +15,7 @@ import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.api.Exporter;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.massif.simulink.importer.ui.Activator;
+import hu.bme.mit.massif.simulink.importer.ui.MassifSimulinkUIPlugin;
 import hu.bme.mit.massif.simulink.importer.ui.dialogs.ExportSettingsDialog;
 import hu.bme.mit.massif.simulink.importer.ui.preferences.PreferenceConstants;
 
@@ -101,8 +101,8 @@ public class ExportModelHandler extends AbstractSimulinkHandler {
 
             // TODO proper exception handling
         } catch (SimulinkApiException e) {
-            Status status = new Status(Status.ERROR, Activator.PLUGIN_ID, EXCEPTION_WHILE_EXPORTING, e);
-            Activator.getDefault().getLog().log(status);
+            Status status = new Status(Status.ERROR, MassifSimulinkUIPlugin.PLUGIN_ID, EXCEPTION_WHILE_EXPORTING, e);
+            MassifSimulinkUIPlugin.getDefault().getLog().log(status);
         }
 
         // try {
@@ -134,8 +134,8 @@ public class ExportModelHandler extends AbstractSimulinkHandler {
                 	MatlabCommandFactory factory = new MatlabCommandFactory(evaluator);
                     exporter.export(loadedModel, factory);
                 } catch (SimulinkApiException e) {
-                    Status status = new Status(Status.ERROR, Activator.PLUGIN_ID, EXCEPTION_WHILE_EXPORTING, e);
-                    Activator.getDefault().getLog().log(status);
+                    Status status = new Status(Status.ERROR, MassifSimulinkUIPlugin.PLUGIN_ID, EXCEPTION_WHILE_EXPORTING, e);
+                    MassifSimulinkUIPlugin.getDefault().getLog().log(status);
                 }
 
                 String newModelName = loadedModel.getSimulinkRef().getFQN();
@@ -146,8 +146,8 @@ public class ExportModelHandler extends AbstractSimulinkHandler {
                 try {
                     exporter.saveSimulinkModel(exportedModelName);
                 } catch (SimulinkApiException e) {
-                    Status status = new Status(Status.ERROR, Activator.PLUGIN_ID, EXCEPTION_WHILE_SAVING, e);
-                    Activator.getDefault().getLog().log(status);
+                    Status status = new Status(Status.ERROR, MassifSimulinkUIPlugin.PLUGIN_ID, EXCEPTION_WHILE_SAVING, e);
+                    MassifSimulinkUIPlugin.getDefault().getLog().log(status);
                 }
 
                 return Status.OK_STATUS;

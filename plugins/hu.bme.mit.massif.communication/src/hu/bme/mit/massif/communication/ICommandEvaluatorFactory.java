@@ -10,16 +10,18 @@
  *******************************************************************************/
 package hu.bme.mit.massif.communication;
 
+import java.util.Map;
 
-public class CommandEvaluationException extends RuntimeException {
-
-	public CommandEvaluationException(String message, Throwable exception) {
-		super(message, exception);
-	}
+public interface ICommandEvaluatorFactory {
 
 	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+     * Create the command evaluator object.
+     * 
+     * @param parameters a map containing the required parameters for the connection to the MATLAB session
+     * @return the object with the ICommandEvaluator interface
+     */
+	public ICommandEvaluator createCommandEvaluator(Map<String, Object> parameters) throws ConnectorCreationException;
+	
+	public String getConnectorName();
+	
 }

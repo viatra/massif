@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010, 2014, Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Abel Hegedus - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.importer.ui.preferences;
 
@@ -36,7 +36,7 @@ public class PreferenceConstants {
 	public static final String EXPORT_RESULT_MODEL_PATH = "exportResultModelPath";
 	public static final String EXPORT_SCRIPT_NAMES = "exportScriptNames";
 	public static final String EXPORT_ADDITIONAL_MATLAB_PATH = "exportAdditionalMatlabPath";
-	public static final String MATLAB_CONTROL_ID = "matlab.control";
-	public static final String COMMAND_EVALUATION_SERVER_ID = "command.evaluation.server";
+	public static final String MATLAB_CONTROL_ID = "massif.connectors.matlab.control";
+	public static final String COMMAND_EVALUATION_SERVER_ID = "massif.connectors.command.evaluation.server";
 	
 }

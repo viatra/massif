@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010, 2014, Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Abel Hegedus - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.importer.ui.handlers;
 
@@ -17,7 +17,7 @@ import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
-import hu.bme.mit.massif.simulink.importer.ui.Activator;
+import hu.bme.mit.massif.simulink.importer.ui.MassifSimulinkUIPlugin;
 import hu.bme.mit.massif.simulink.importer.ui.dialogs.ImportSettingsDialog;
 import hu.bme.mit.massif.simulink.importer.ui.preferences.PreferenceConstants;
 
@@ -104,7 +104,7 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
 
             ImportSettingsDialog dialog = new ImportSettingsDialog(Display.getCurrent().getActiveShell(), modelName,
                     new File(modelPath));
-            IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+            IPreferenceStore store = MassifSimulinkUIPlugin.getDefault().getPreferenceStore();
             dialog.setPreferenceStore(store);
             dialog.open();
 
@@ -174,8 +174,8 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
                     saveModel = true;
                     traverser.traverseAndCreateEMFModel(ImportMode.valueOf(settings.traverseMode));
                 } catch (Exception e) {
-                    Status status = new Status(Status.ERROR, Activator.PLUGIN_ID, EXCEPTION_WHILE_IMPORTING, e);
-                    Activator.getDefault().getLog().log(status);
+                    Status status = new Status(Status.ERROR, MassifSimulinkUIPlugin.PLUGIN_ID, EXCEPTION_WHILE_IMPORTING, e);
+                    MassifSimulinkUIPlugin.getDefault().getLog().log(status);
                     Display.getDefault().syncExec(new Runnable() {
                         @Override
                         public void run() {
@@ -189,9 +189,9 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
                         try {
                             traverser.saveEMFModel(resultPath + File.separator + importedModelName);
                         } catch (SimulinkApiException e) {
-                            Status status = new Status(Status.ERROR, Activator.PLUGIN_ID, EXCEPTION_WHILE_SAVING_MODEL,
+                            Status status = new Status(Status.ERROR, MassifSimulinkUIPlugin.PLUGIN_ID, EXCEPTION_WHILE_SAVING_MODEL,
                                     e);
-                            Activator.getDefault().getLog().log(status);
+                            MassifSimulinkUIPlugin.getDefault().getLog().log(status);
                         }
                     }
                 }

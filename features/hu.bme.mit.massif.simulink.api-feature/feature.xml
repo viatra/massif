@@ -17,6 +17,14 @@
       [Enter License Description here.]
    </license>
 
+   <includes
+         id="hu.bme.mit.massif.simulink.emf"
+         version="0.0.0"/>
+
+   <includes
+         id="hu.bme.mit.massif.communication"
+         version="0.0.0"/>
+
    <plugin
          id="hu.bme.mit.massif.simulink.api"
          download-size="0"

@@ -1,39 +1,41 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010, 2014, Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Marton Bur, Abel Hegedus - initial API and implementation 
  *******************************************************************************/
-package hu.bme.mit.massif.simulink.filters.internal;
+package hu.bme.mit.massif.communication;
 
-import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
+
 
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class MassifCommunicationManagerPlugin extends Plugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "hu.bme.mit.massif.simulink.filters"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "hu.bme.mit.massif.communicvation.manager"; //$NON-NLS-1$
 
 	// The shared instance
-	private static Activator plugin;
+	private static MassifCommunicationManagerPlugin plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public Activator() {
+	public MassifCommunicationManagerPlugin() {
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
+	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
@@ -43,6 +45,7 @@ public class Activator extends AbstractUIPlugin {
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
 	 */
+	@Override
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);
@@ -53,7 +56,7 @@ public class Activator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static MassifCommunicationManagerPlugin getDefault() {
 		return plugin;
 	}
 

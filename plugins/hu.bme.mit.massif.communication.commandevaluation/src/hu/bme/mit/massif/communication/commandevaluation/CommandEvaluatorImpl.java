@@ -10,6 +10,7 @@
  *******************************************************************************/
 package hu.bme.mit.massif.communication.commandevaluation;
 
+import hu.bme.mit.massif.communication.CommandEvaluationException;
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
@@ -86,7 +87,7 @@ public class CommandEvaluatorImpl implements ICommandEvaluator {
             }
 
         } catch (MatlabException e) {
-        	throw new RuntimeException("Exception occurred while evaluating command!", e);
+        	throw new CommandEvaluationException("Exception occurred while evaluating command!", e);
         }
         return result;
     }

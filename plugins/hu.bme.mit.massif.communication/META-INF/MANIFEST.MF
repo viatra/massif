@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Massif Matlab Communication Layer
-Bundle-SymbolicName: hu.bme.mit.massif.communication
+Bundle-SymbolicName: hu.bme.mit.massif.communication;singleton:=true
 Bundle-Version: 0.4.0.qualifier
 Export-Package: hu.bme.mit.massif.communication,
  hu.bme.mit.massif.communication.command,

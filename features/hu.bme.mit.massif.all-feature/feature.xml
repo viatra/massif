@@ -26,19 +26,7 @@
          version="0.0.0"/>
 
    <includes
-         id="hu.bme.mit.massif.simulink.api"
-         version="0.0.0"/>
-
-   <includes
-         id="hu.bme.mit.massif.simulink.emf"
-         version="0.0.0"/>
-
-   <includes
          id="hu.bme.mit.massif.simulink.ui"
-         version="0.0.0"/>
-
-   <includes
-         id="hu.bme.mit.massif.communication"
          version="0.0.0"/>
 
    <plugin

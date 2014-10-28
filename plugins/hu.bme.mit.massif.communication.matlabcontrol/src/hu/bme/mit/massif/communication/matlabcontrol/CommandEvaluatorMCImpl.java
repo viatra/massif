@@ -1,15 +1,16 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010, 2014, Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Abel Hegedus - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.communication.matlabcontrol;
 
+import hu.bme.mit.massif.communication.CommandEvaluationException;
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
@@ -24,9 +25,6 @@ import matlabcontrol.MatlabConnectionException;
 import matlabcontrol.MatlabInvocationException;
 import matlabcontrol.MatlabProxy;
 import matlabcontrol.MatlabProxyFactory;
-
-import org.eclipse.core.runtime.Status;
-
 
 /**
  * Class responsible for the low level operations with MATLAB
@@ -72,9 +70,7 @@ public class CommandEvaluatorMCImpl implements ICommandEvaluator {
             }
 
         } catch (MatlabInvocationException e) {
-            Status status = new Status(Status.ERROR, Activator.PLUGIN_ID,
-                    "Exception occurred while evaluating command!", e);
-            Activator.getDefault().getLog().log(status);
+        	throw new CommandEvaluationException("Exception occurred while evaluating command!", e);
 		}
         return result;
     }

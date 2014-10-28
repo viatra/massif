@@ -60,7 +60,7 @@ public abstract class AbstractSimulinkHandler extends AbstractHandler {
 					matlabConnectorId, evaluatorParameters);
 		} catch (ConnectorCreationException e) {
 			final String errorMsg = e.getLocalizedMessage();
-            Status status = new Status(Status.ERROR, MassifSimulinkUIPlugin.PLUGIN_ID, errorMsg);
+            Status status = new Status(Status.ERROR, MassifSimulinkUIPlugin.PLUGIN_ID, "Exception occured when creating Massif Matlab connector", e);
             MassifSimulinkUIPlugin.getDefault().getLog().log(status);
 
             Display.getDefault().syncExec(new Runnable() {

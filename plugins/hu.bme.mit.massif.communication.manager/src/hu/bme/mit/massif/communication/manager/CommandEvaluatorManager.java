@@ -110,7 +110,7 @@ public enum CommandEvaluatorManager {
 										.getLog()
 										.log(new Status(IStatus.ERROR,
 												MassifCommunicationManagerPlugin.PLUGIN_ID,
-												"Could not initialize connector!"));
+												"Could not initialize connector!", e));
 							}
                         }
                     }

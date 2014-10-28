@@ -14,7 +14,6 @@ import hu.bme.mit.massif.communication.ConnectorCreationException;
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.ICommandEvaluatorFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -61,16 +60,15 @@ public class CEServerCommandEvaluatorFactory implements ICommandEvaluatorFactory
 	}
 
     protected boolean checkExistingMatlabSession(String serviceName) throws ConnectorCreationException {
-        List<MatlabProcessInformation> matlabs = new ArrayList<MatlabProcessInformation>();
         try {
-            matlabs = MatlabRunningManager.getRunningMatlabs();
+        	List<MatlabProcessInformation> matlabs = MatlabRunningManager.getRunningMatlabs();
+            for (MatlabProcessInformation matlabProcessInformation : matlabs) {
+            	if (serviceName.replace(MatlabProviderProperties.MATLAB_SERVER_DEFAULT_SERVICE_NAME, "").equalsIgnoreCase(
+            			matlabProcessInformation.release + matlabProcessInformation.pid))
+            		return true;
+            }
         } catch (MatlabRegistryException e) {
             throw new ConnectorCreationException(MATLAB_RUNNING_CHECK_ERROR, e);
-        }
-        for (MatlabProcessInformation matlabProcessInformation : matlabs) {
-            if (serviceName.replace(MatlabProviderProperties.MATLAB_SERVER_DEFAULT_SERVICE_NAME, "").equalsIgnoreCase(
-                    matlabProcessInformation.release + matlabProcessInformation.pid))
-                return true;
         }
         return false;
     }

@@ -3,7 +3,9 @@ massif
 
 Massif is a Matlab Simulink Integration Framework for Eclipse
 
-Update site: https://build.inf.mit.bme.hu/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/
+Update site:
+------------
+https://build.inf.mit.bme.hu/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/
 
 I. Installation:
 ---------------------------

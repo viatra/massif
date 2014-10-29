@@ -27,7 +27,7 @@ B) Command Evaluation Server: In order to carry out import/export with , a runni
 https://build.inf.mit.bme.hu/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/
 Extract it to a folder, add the contained folder named 'matlab' to the MATLAB path (e.g. use the MATLAB addpath command, or navigate to this folder within MATLAB), then run the setup script named 'setup_remote.m'. Further configuration settings can be set in 'matlabserverconfig.properties' in the same folder (modify this prior running the setup script). If everything works well, you should get an output similat to the followings:
 
->> setup_remote
+> setup_remote
 Configuration path not provided, considering the following path: PATH\matlabserverconfig.properties
 Host address = 127.0.0.1
 Host port: 1098

@@ -51,10 +51,10 @@ Matlab RMI Server Started!
 ---------------------------
 Under Window/Preferences/SimulinkPreferences choose the desired connector with the radio button. For Command Evaluation Server set the other properties on the same page as well. Advanced import and export settings are located under SimulinkPreferences/Model Import Preferences and SimulinkPreferences/Model Export Preferences.
 
-Under Model Import Preferences the user can customize which model elements are imported. This can be done with import filters. By default there are 4 types of filters provided, which affect the handling of model reference blocks and library likns:
+Under the Model Import Preferences the user can customize which model elements are imported. This can be done with import filters. By default there are 4 types of filters provided, which affect the handling of model reference blocks and library links:
  * Shallow: for each model reference block a model reference block is placed in the created EMF model, but the referenced model is not processed.
  * Deep: for each model reference block a new EMF model is created for the referenced model. The referenced models are saved under the same directory using the name of the referenced Simulink model.
  * Flattening: imports model reference blocks as though they were subsystems. This means, that the model reference is imported as a subsystem block, and the referenced model components are placed (copied) into the subsystem.
- * Referencing: each block with active library link is handled in the following way: if the library, in wich its source block (in MATLAB terminology Reference block) is located not imported yet, imports it. If the library of the source block is already imported, creates a model element with a link to the specified library block.
+ * Referencing: each block with active library link is handled in the following way: if the library, in wihch its source block (in MATLAB terminology Reference block) is located is not yet imported, then the importer imports the corresponding library. If the library of the source block is already imported, creates a model element with a link to the specified library block.
 
 After setting the mentioned configurations, the context menu commands of .mdl and .simulink files (right click on the files in Eclipse package explorer) called Import Simulink Model and Export Simulink Model can be used.

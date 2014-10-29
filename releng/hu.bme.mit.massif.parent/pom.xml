@@ -139,15 +139,15 @@
 		</pluginRepository>
 	</pluginRepositories>
 	<scm>
-		<connection>scm:git:https://git.inf.mit.bme.hu/r/projects/polarsys/simulinkapi.git</connection>
-		<url>https://git.inf.mit.bme.hu/r/projects/polarsys/simulinkapi.git</url>
+		<connection>scm:git:https://github.com/FTSRG/massif.git</connection>
+		<url>https://github.com/FTSRG/massif.git</url>
 	</scm>
 	<ciManagement>
-		<url>https://build.inf.mit.bme.hu/jenkins</url>
+		<url>https://build.inf.mit.bme.hu/jenkins/job/Massif</url>
 		<system>Jenkins</system>
 	</ciManagement>
-	<!-- <issueManagement>
-		<url>http://trac.inf.mit.bme.hu/massif</url>
-		<system>Trac Issues</system>
-	</issueManagement> -->
+	<issueManagement>
+		<url>https://github.com/FTSRG/massif/issues</url>
+		<system>Github</system>
+	</issueManagement>
 </project>

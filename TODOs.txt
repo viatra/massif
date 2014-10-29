@@ -9,9 +9,23 @@
 - Evaluate Windows dependent code (CE server and CE connector)
 - Try if SimulinkApi works with a remote Matlab server (CE)
 - Documentation, wiki site
+- Developers guide
+- Oomph setup: code formatter, copyright, encoding, Mylyn queries, Mylyn Builds
 - Review Simulink metamodel
 - Speeding up import
 - evaluate need for matlabaccess bundle (what is it used for, is there Eclipse/Orbit capability?)
+
+Github migration:
+- create repository: FTSRG/massif
+- add members: Ákos, Robi, Marci
+- push content
+- add readme.md (including license)
+- change parent pom (scm, issue tracking, etc.)
+- change build job
+- create issues for todos
+- create Basecamp project
+
+
 
 DONE
 

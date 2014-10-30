@@ -1,7 +1,9 @@
-massif
+Massif: Matlab Simulink Integration Framework for Eclipse
 ======
 
-Massif is a Matlab Simulink Integration Framework for Eclipse
+Massif is a new feature to support the easy import/export of Matlab Simulink models as EMF models. The imported models follow the structure of their Matlab representatio and also provides the same library linking capabilities as defined in Matlab Simulink. As one of its unique feature it supports and easier bus creator and selector handling by using direct model referencing in the EMF representation that is automatically translated into the required fqn format as used within Matlab Simulink. 
+
+Please note as importing and exporting is done using the command line interface of Matlab (and not by directly parsing the mdl or slx files) for using the bridge you must have an installed Matlab Simulink on your computer.
 
 Update site:
 ------------
@@ -47,7 +49,7 @@ serviceName = MatlabModelProviderr2012a480
 Matlab RMI Server Started!
 ```
 
-2. Configuraions in Eclipse
+2. Configurations in Eclipse
 ---------------------------
 Under Window/Preferences/SimulinkPreferences choose the desired connector with the radio button. For Command Evaluation Server set the other properties on the same page as well. Advanced import and export settings are located under SimulinkPreferences/Model Import Preferences and SimulinkPreferences/Model Export Preferences.
 

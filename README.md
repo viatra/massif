@@ -7,7 +7,7 @@ Just to highglight some of its unique features Massif: (i) uses a general matlab
 
 Please note as importing and exporting is done using the command line interface of Matlab (and not by directly parsing the mdl or slx files) for using the bridge you must have an installed Matlab Simulink (with the appropriate licence) on your computer. The system was tested with Simulink 2012b, however, it should work with the newer versions.
 
-Massif was developed in a cooperation betweenEmbraer and the Budapest University of Technology and Economics, through the TRANS-IMA (TRANSformation ethods applied to the design of Integrated Modular Avionics systems) project funded by Embraer S.A.
+Massif was developed in a cooperation between Embraer and the Budapest University of Technology and Economics, through the TRANS-IMA (TRANSformation ethods applied to the design of Integrated Modular Avionics systems) project funded by Embraer S.A.
 
 Update site:
 ------------

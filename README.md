@@ -5,9 +5,9 @@ Massif is a new Eclipse feature to support the easy handling of Matlab Simulink 
 
 Just to highglight some of its unique features Massif: (i) uses a general matlab EMF metamodel that was designed to store all infomration for each matlab block and provide the type information as defined in Matlab using library links , (ii)  provides automated library reference processing when importing libraries and systems based on those libraries and (iii) supports easier bus creator and selector handling by using direct model referencing in the EMF representation that is automatically translated into the required fqn format as used within Matlab Simulink. 
 
-Please note as importing and exporting is done using the command line interface of Matlab (and not by directly parsing the mdl or slx files) for using the bridge you must have an installed Matlab Simulink (with the appropriate licence) on your computer. The system was tested with Simulink 2012b, however, it should work with the newer versions.
+Please note as importing and exporting is done using the command line interface of Matlab (and not by directly parsing the mdl or slx files) for using the bridge you must have an installed Matlab Simulink (with the appropriate licence) on your computer. The system was tested with Simulink R2012b, however, it should work with the newer versions.
 
-Massif was developed in a cooperation between Embraer and the Budapest University of Technology and Economics, through the TRANS-IMA (TRANSformation ethods applied to the design of Integrated Modular Avionics systems) project funded by Embraer S.A.
+Massif was developed in a cooperation between Embraer and the Budapest University of Technology and Economics, through the TRANS-IMA (TRANSformation methods applied to the design of Integrated Modular Avionics systems) project funded by Embraer S.A.
 
 Update site:
 ------------

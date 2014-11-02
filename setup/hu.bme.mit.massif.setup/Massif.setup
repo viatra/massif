@@ -83,6 +83,26 @@
           key="/instance/org.eclipse.mylyn.team.ui/org.eclipse.mylyn.team.commit.template"
           value="#$${task.key}: $${task.description} "/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.ui.ide">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
+          value="Massif"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.sonar.ide.eclipse.core">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.sonar.ide.eclipse.core/servers/https:\2f\2fbuild.inf.mit.bme.hu\2fsonar/auth"
+          value="false"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.sonar.ide.eclipse.core/servers/initialized"
+          value="true"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="projects:ProjectsImportTask">
@@ -192,7 +212,7 @@
       label="GitHub password for Issues/Pull requests"/>
   <setupTask
       xsi:type="setup:CompoundTask"
-      name="Mylyn">
+      name="Mylyn and Sonar">
     <setupTask
         xsi:type="setup:VariableTask"
         name="massif.milestone"/>
@@ -283,8 +303,12 @@
           name="org.eclipse.mylyn.hudson.feature.group"/>
       <requirement
           name="org.eclipse.egit.mylyn.feature.group"/>
+      <requirement
+          name="org.sonar.ide.eclipse.jdt.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/luna"/>
+      <repository
+          url="http://dist.sonar-ide.codehaus.org/eclipse/"/>
     </setupTask>
   </setupTask>
   <setupTask

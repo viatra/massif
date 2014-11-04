@@ -17,6 +17,7 @@ import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
+import hu.bme.mit.massif.oslc.adaptor.SimulinkAdaptorManager;
 import hu.bme.mit.massif.oslc.adaptor.resources.BlockResource;
 import hu.bme.mit.massif.oslc.adaptor.resources.BusCreatorResource;
 import hu.bme.mit.massif.oslc.adaptor.resources.BusSelectorResource;
@@ -37,9 +38,11 @@ import hu.bme.mit.massif.oslc.adaptor.resources.SubSystemResource;
 import hu.bme.mit.massif.oslc.adaptor.resources.TriggerBlockResource;
 import hu.bme.mit.massif.oslc.adaptor.resources.TriggerResource;
 import hu.bme.mit.massif.oslc.adaptor.resources.VirtualBlockResource;
+import hu.bme.mit.massif.oslc.adaptor.util.FormatLogger;
 import hu.bme.mit.massif.oslc.adaptor.util.IDHelper;
 import hu.bme.mit.massif.oslc.adaptor.util.ParallelIterator;
 import hu.bme.mit.massif.oslc.adaptor.util.Reference;
+import hu.bme.mit.massif.oslc.adaptor.util.Timer;
 import hu.bme.mit.massif.oslc.adaptor.util.Utils;
 
 import java.lang.reflect.Constructor;
@@ -61,27 +64,33 @@ import org.eclipse.lyo.oslc4j.core.model.Link;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
+/**
+ * This class helps in creating resources or collecting every resource representing a specific type.
+ * 
+ * @author Dóczi Róbert
+ *
+ */
 @SuppressWarnings({ "unused", "unchecked", "serial" })
 public class ResourceFactory {
 
-    private static Map<Class<? extends AbstractResource>, AbstractResourceBuilder> builders;
-    private static Map<Type, Class<? extends AbstractResource>>                    typeToResourceMap;
-    private static Map<String, Type>                                               simuTypeToResType;
-    private static BiMap<String, String>                                           portNameToPortBlockMap;
+    private static FormatLogger LOGGER = FormatLogger.getLogger(ResourceFactory.class.getName());
 
-    private static AbstractResourceBuilder getBuilder(final MatlabCommandFactory commandFactory,
-            final IVisitableMatlabData id) {
-        final String typeString = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                .addParam("Type").execute());
+    private static Map<Class<? extends AbstractResource>, AbstractResourceBuilder> builders;    // maps abstract resource builders to their resource type.
+    private static Map<Type, Class<? extends AbstractResource>> typeToResourceMap; // maps the type enum to te actual resource classes
+    private static Map<String, Type> simuTypeToResType; // maps the simulink name of types to the oslc resource name of types
+    private static BiMap<String, String> portNameToPortBlockMap; // maps the name of ports to port blocks (line inport = InPort)
+
+    private static AbstractResourceBuilder getBuilder(final MatlabCommandFactory commandFactory, final IVisitableMatlabData id) {
+        final String typeString = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("Type").execute());
         Type type = simuTypeToResType.get(typeString);
         if (type == Type.Block) {
-            final String blockTypeString = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("BlockType").execute());
+            final String blockTypeString = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("BlockType")
+                    .execute());
             if (simuTypeToResType.containsKey(blockTypeString))
                 type = simuTypeToResType.get(blockTypeString);
         } else if (type == Type.Port) {
-            final String portTypeString = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("PortType").execute());
+            final String portTypeString = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("PortType")
+                    .execute());
             if (simuTypeToResType.containsKey(portTypeString))
                 type = simuTypeToResType.get(portTypeString);
         }
@@ -92,14 +101,40 @@ public class ResourceFactory {
         return (Class<T>) typeToResourceMap.get(type);
     }
 
-    public static <T extends AbstractResource> T build(final MatlabCommandFactory commandFactory, final String id,
-            final String systemId, final Type type) {
+    /**
+     * Gets an OSLC resource class representing the specified type of specified id from specified system.
+     * 
+     * @param commandFactory
+     *            The matlab command factory to use.
+     * @param id
+     *            The id of the simulink element.
+     * @param systemId
+     *            The id of the simulink system.
+     * @param type
+     *            The type of the simulink element.
+     * @return The OSLC resource representing the specified type.
+     */
+    public static <T extends AbstractResource> T build(final MatlabCommandFactory commandFactory, final String id, final String systemId,
+            final Type type) {
+        final String rid = IDHelper.revertId(id);
+        LOGGER.info("Searching for %s with id %s in %s", type.name(), rid, systemId);
+        Timer timer = Timer.startNew();
+        
+        LOGGER.debug("Searching for builder for type %s.", type.name());
         final AbstractResourceBuilder builder = getBuilder(type);
         if (builder == null)
+        {
+            LOGGER.error("Builder for type %s not found.", type.name());
             return null;
-        final Class<T> resourceClass = getResourceClass(type);
-        final String rid = IDHelper.revertId(id);
-        return resourceClass.cast(builder.build(commandFactory, rid, systemId));
+        }
+        LOGGER.debug("Builder found.");
+        
+        final Class<T> resourceClass = getResourceClass(type);                
+        AbstractResource res = builder.build(commandFactory, rid, systemId);
+        
+        LOGGER.info("%s found in %s", type.name(), timer);
+        
+        return resourceClass.cast(res);
     }
 
     private static AbstractResourceBuilder getBuilder(final Type type) {
@@ -108,12 +143,10 @@ public class ResourceFactory {
 
     private static String handleToId(final MatlabCommandFactory commandFactory, final Double handle) {
         final StringBuilder sb = new StringBuilder();
-        final String portType = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(handle)
-                .addParam("PortType").execute());
+        final String portType = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(handle).addParam("PortType").execute());
         sb.append(portType);
         if (portType.equals("inport") || portType.equals("outport")) {
-            final Double portNumber = Handle.getHandleData(commandFactory.getParam().addParam(handle)
-                    .addParam("PortNumber").execute());
+            final Double portNumber = Handle.getHandleData(commandFactory.getParam().addParam(handle).addParam("PortNumber").execute());
             sb.append('.').append(portNumber.intValue());
         }
 
@@ -126,8 +159,7 @@ public class ResourceFactory {
         final String portType = getPortType(id);
         final int portNumber = getPortNumber(id);
 
-        final IVisitableMatlabData portHandles = commandFactory.getParam().addParam(container).addParam("PortHandles")
-                .execute();
+        final IVisitableMatlabData portHandles = commandFactory.getParam().addParam(container).addParam("PortHandles").execute();
 
         final Map<String, IVisitableMatlabData> portHandleData = StructMatlabData.getStructMatlabDataData(portHandles);
 
@@ -159,15 +191,40 @@ public class ResourceFactory {
         return Integer.parseInt(split[1]);
     }
 
-    public static <T extends AbstractResource> List<T> collect(final MatlabCommandFactory commandFactory,
-            final String systemId, final Type type, final int page, final int limit) {
+    /**
+     * Gets a list of OSLC resources representing simulink model elements of specified type in the specified system.
+     * Allows breaking the results into pages (mostly used for performance reasons).
+     * 
+     * @param commandFactory The matlab command factory to use.
+     * @param systemId The id of the simulink system.
+     * @param type The type of the simulink element.
+     * @param page The page number.
+     * @param limit The number of elements on a single page.
+     * @return
+     */
+    public static <T extends AbstractResource> List<T> collect(final MatlabCommandFactory commandFactory, final String systemId,
+            final Type type, final int page, final int limit) {
+
+        LOGGER.info("Collecting %s in %s.", type.name(), systemId);
+        Timer timer = Timer.startNew();
+
+        LOGGER.debug("Searching for builder for type %s.", type.name());
         final AbstractResourceBuilder builder = getBuilder(type);
-        if (builder == null)
+
+        if (builder == null) {
+            LOGGER.error("Builder for type %s not found.", type.name());
             return null;
+        }
+
+        LOGGER.debug("Builder found.");
         String systemName = systemId;
         if (!systemId.isEmpty())
             systemName = IDHelper.revertId(systemId.substring(0, systemId.length() - 2));
-        return (List<T>) builder.collect(commandFactory, systemName, page, limit);
+        List<T> collect = (List<T>) builder.collect(commandFactory, systemName, page, limit);
+
+        LOGGER.info("%s collected in %s.", type.name(), timer);
+
+        return collect;
     }
 
     public static enum Type {
@@ -207,28 +264,31 @@ public class ResourceFactory {
         portNameToPortBlockMap.put("trigger", "TriggerPort");
 
         typeToResourceMap = new HashMap<>();
+        // Find the resource class for each type
         Arrays.stream(Type.values()).forEach(
                 t -> {
                     try {
-                        typeToResourceMap.put(t, (Class<? extends AbstractResource>) Class
-                                .forName("hu.bme.mit.massif.oslc.adaptor.resources." + t.name() + "Resource"));
+                        typeToResourceMap.put(
+                                t,
+                                (Class<? extends AbstractResource>) Class.forName("hu.bme.mit.massif.oslc.adaptor.resources." + t.name()
+                                        + "Resource"));
                     } catch (final Exception e) {
                         e.printStackTrace();
                     }
                 });
 
         builders = new HashMap<>();
-        Arrays.stream(ResourceFactory.class.getDeclaredClasses())
-                .filter(AbstractResourceBuilder.class::isAssignableFrom).forEach(c -> {
-                    try {
-                        final Class<?>[] empty = {};
-                        final Constructor<?> ctr = c.getConstructor(empty);
-                        final AbstractResourceBuilder b = (AbstractResourceBuilder) ctr.newInstance();
-                        builders.put(b.getForClazz(), b);
-                    } catch (final Exception e) {
-                        e.printStackTrace();
-                    }
-                });
+        Arrays.stream(ResourceFactory.class.getDeclaredClasses()).filter(AbstractResourceBuilder.class::isAssignableFrom).forEach(c -> {
+            try {
+                final Class<?>[] empty = {};
+                final Constructor<?> ctr = c.getConstructor(empty);
+                final AbstractResourceBuilder b = (AbstractResourceBuilder) ctr.newInstance();
+                LOGGER.debug("Registering %s for class %s.", b.getClass().getCanonicalName(), b.getForClazz().getCanonicalName());
+                builders.put(b.getForClazz(), b);
+            } catch (final Exception e) {
+                e.printStackTrace();
+            }
+        });
         // set up the hierarchy
         builders.values().forEach(b -> {
             final Class<?> superclass = b.getForClazz().getSuperclass();
@@ -239,7 +299,7 @@ public class ResourceFactory {
     }
 
     private static class Port {
-        private final Type   type;
+        private final Type type;
         private final double handle;
 
         public Port(final Type type, final double handle) {
@@ -258,41 +318,37 @@ public class ResourceFactory {
         public void buildResource(final MatlabCommandFactory commandFactory, final String id, final String systemId,
                 final AbstractResource ar) {
             final SimulinkModelResource resource = (SimulinkModelResource) ar;
-            final String name = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("name").execute());
-            final String parent = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("parent").execute());
+            final String name = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("name").execute());
+            final String parent = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("parent").execute());
             resource.setName(parent + "/" + name);
 
-            final IVisitableMatlabData result0 = commandFactory.findSystem().addParam(id).addParam("SearchDepth")
-                    .addParam(0.0).addParam("LookUnderMasks").addParam("all").addParam("FollowLinks").addParam("on")
-                    .addParam("type").addParam("block").execute();
-            final IVisitableMatlabData result1 = commandFactory.findSystem().addParam(id).addParam("SearchDepth")
-                    .addParam(1.0).addParam("LookUnderMasks").addParam("all").addParam("FollowLinks").addParam("on")
-                    .addParam("type").addParam("block").execute();
+            final IVisitableMatlabData result0 = commandFactory.findSystem().addParam(id).addParam("SearchDepth").addParam(0.0)
+                    .addParam("LookUnderMasks").addParam("all").addParam("FollowLinks").addParam("on").addParam("type").addParam("block")
+                    .execute();
+            final IVisitableMatlabData result1 = commandFactory.findSystem().addParam(id).addParam("SearchDepth").addParam(1.0)
+                    .addParam("LookUnderMasks").addParam("all").addParam("FollowLinks").addParam("on").addParam("type").addParam("block")
+                    .execute();
             CellMatlabData
                     .getCellMatlabDataData(result1)
                     .stream()
                     .map(MatlabString::getMatlabStringData)
-                    .filter(subSystem -> !CellMatlabData.getCellMatlabDataData(result0).stream()
-                            .anyMatch(topLevelSystems -> {
-                                final String tlsName = MatlabString.getMatlabStringData(topLevelSystems);
-                                return subSystem.equals(tlsName);
-                            }))
+                    .filter(subSystem -> !CellMatlabData.getCellMatlabDataData(result0).stream().anyMatch(topLevelSystems -> {
+                        final String tlsName = MatlabString.getMatlabStringData(topLevelSystems);
+                        return subSystem.equals(tlsName);
+                    }))
                     .forEach(
                             block -> {
-                                final String type = MatlabString.getMatlabStringData(commandFactory.getParam()
-                                        .addParam(block).addParam("BlockType").execute());
-                                resource.addContains(new Link(getBuilder(commandFactory, new MatlabString(block))
-                                        .getAbout(IDHelper.refactorId(block), id)));
+                                final String type = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(block)
+                                        .addParam("BlockType").execute());
+                                resource.addContains(new Link(getBuilder(commandFactory, new MatlabString(block)).getAbout(
+                                        IDHelper.refactorId(block), id)));
                             });
 
-            final String version = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("lastModifieddate").execute());
+            final String version = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("lastModifieddate")
+                    .execute());
             resource.setVersion(version);
 
-            final String file = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("fileName").execute());
+            final String file = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("fileName").execute());
             resource.setFile(file);
 
             final String blockDiagramType = MatlabString.getMatlabStringData(
@@ -306,14 +362,14 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam("searchdepth").addParam(0.0)
-                    .addParam("followlinks").addParam("on").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam("searchdepth").addParam(0.0).addParam("followlinks")
+                    .addParam("on").execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(sysId -> ret.add(build(commandFactory, sysId, "")));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(sysId -> ret.add(build(commandFactory, sysId, "")));
             return ret;
         }
 
@@ -343,26 +399,23 @@ public class ResourceFactory {
 
             } else {
                 String name = "";
-                final IVisitableMatlabData matlabName = commandFactory.getParam().addParam(id).addParam("name")
-                        .execute();
+                final IVisitableMatlabData matlabName = commandFactory.getParam().addParam(id).addParam("name").execute();
                 if (matlabName instanceof MatlabString)
                     name = MatlabString.getMatlabStringData(matlabName);
                 resource.setName(name);
-                final String parentId = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                        .addParam("parent").execute());
+                final String parentId = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("parent")
+                        .execute());
                 resource.setName(name);
                 resource.setSimulinkRef(parentId + "/" + name);
             }
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final List<PortResource> ports = ResourceFactory.collect(commandFactory, systemId + "Id", Type.Port, page,
-                    limit);
-            final List<PortResource> blocks = ResourceFactory.collect(commandFactory, systemId + "Id", Type.Block,
-                    page, limit);
+            final List<PortResource> ports = ResourceFactory.collect(commandFactory, systemId + "Id", Type.Port, page, limit);
+            final List<PortResource> blocks = ResourceFactory.collect(commandFactory, systemId + "Id", Type.Block, page, limit);
             ret.addAll(ports);
             ret.addAll(blocks);
             return ret;
@@ -390,29 +443,25 @@ public class ResourceFactory {
         public void buildResource(final MatlabCommandFactory commandFactory, final String id, final String systemId,
                 final AbstractResource ar) {
             final BlockResource resource = (BlockResource) ar;
-            final String parentId = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("parent").execute());
-            resource.setParent(new Link(getBuilder(commandFactory, new MatlabString(parentId)).getAbout(
-                    IDHelper.refactorId(parentId), systemId)));
-            final IVisitableMatlabData data = commandFactory.getParam().addParam(id).addParam("DialogParameters")
-                    .execute();
+            final String parentId = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("parent").execute());
+            resource.setParent(new Link(getBuilder(commandFactory, new MatlabString(parentId)).getAbout(IDHelper.refactorId(parentId),
+                    systemId)));
+            final IVisitableMatlabData data = commandFactory.getParam().addParam(id).addParam("DialogParameters").execute();
 
             if (data instanceof StructMatlabData) {
 
-                final Map<String, IVisitableMatlabData> dialogParamsStruct = StructMatlabData
-                        .getStructMatlabDataData(data);
+                final Map<String, IVisitableMatlabData> dialogParamsStruct = StructMatlabData.getStructMatlabDataData(data);
 
                 final Set<String> dialogParameterNames = dialogParamsStruct.keySet();
-                dialogParameterNames.forEach(paramName -> resource.addProperty(getParamData(commandFactory, id, data,
-                        paramName)));
+                dialogParameterNames.forEach(paramName -> resource.addProperty(getParamData(commandFactory, id, data, paramName)));
             } else if (data instanceof MatlabString) {
                 final String paramName = MatlabString.getMatlabStringData(data);
 
                 resource.addProperty(getParamData(commandFactory, id, data, paramName));
             }
 
-            final String sourceBlock = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("ReferenceBlock").execute());
+            final String sourceBlock = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("ReferenceBlock")
+                    .execute());
             if (!sourceBlock.isEmpty() && sourceBlock.contains("/")) {
                 final String sourceLibrary = sourceBlock.substring(0, sourceBlock.indexOf('/')) + "Id";
                 resource.setSourceBlock(new Link(getBuilder(commandFactory, new MatlabString(sourceBlock)).getAbout(
@@ -421,11 +470,9 @@ public class ResourceFactory {
                 resource.setSourceBlock(new Link());
             }
 
-            final List<Port> portData = getPortData(commandFactory.getParam().addParam(id).addParam("PortHandles")
-                    .execute());
+            final List<Port> portData = getPortData(commandFactory.getParam().addParam(id).addParam("PortHandles").execute());
             portData.forEach(p -> {
-                final Link link = new Link(getBuilder(p.type).getAbout(
-                        id + "$p$" + handleToId(commandFactory, p.handle), systemId));
+                final Link link = new Link(getBuilder(p.type).getAbout(id + "$p$" + handleToId(commandFactory, p.handle), systemId));
                 switch (p.type) {
                 case InPort:
                     resource.addInports(link);
@@ -443,8 +490,8 @@ public class ResourceFactory {
             });
         }
 
-        private String getParamData(final MatlabCommandFactory commandFactory, final String id,
-                final IVisitableMatlabData data, final String paramName) {
+        private String getParamData(final MatlabCommandFactory commandFactory, final String id, final IVisitableMatlabData data,
+                final String paramName) {
             final IVisitableMatlabData valueData = commandFactory.getParam().addParam(id).addParam(paramName).execute();
 
             if (valueData instanceof MatlabString) {
@@ -490,21 +537,14 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type")
-                    .addParam("Block").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("type").addParam("Block").execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData
-                    .stream()
-                    .limit((page + 1) * limit + 1)
-                    .skip(page * limit)
-                    .map(MatlabString::getMatlabStringData)
-                    .forEach(
-                            id -> ret.add(getBuilder(commandFactory, new MatlabString(id)).build(commandFactory, id,
-                                    systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(getBuilder(commandFactory, new MatlabString(id)).build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -530,30 +570,29 @@ public class ResourceFactory {
                 final AbstractResource ar) {
             final SubSystemResource resource = (SubSystemResource) ar;
 
-            final IVisitableMatlabData subBlocks = commandFactory.findSystem().addParam(id).addParam("lookundermasks")
-                    .addParam("all").addParam("SearchDepth").addParam(1.0).addParam("FollowLinks").addParam("On")
-                    .addParam("Type").addParam("Block").execute();
+            final IVisitableMatlabData subBlocks = commandFactory.findSystem().addParam(id).addParam("lookundermasks").addParam("all")
+                    .addParam("SearchDepth").addParam(1.0).addParam("FollowLinks").addParam("On").addParam("Type").addParam("Block")
+                    .execute();
             CellMatlabData.getCellMatlabDataData(subBlocks).stream().map(MatlabString::getMatlabStringData)
                     .filter(block -> !block.equals(id)).forEach(sb -> {
                         final AbstractResourceBuilder builder = getBuilder(commandFactory, new MatlabString(sb));
                         final Link subBlock = new Link(builder.getAbout(sb, systemId));
                         resource.addSubBlocks(subBlock);
                     });
-            final String tag = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("tag")
-                    .execute());
+            final String tag = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("tag").execute());
             resource.setTag(tag);
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type")
-                    .addParam("Block").addParam("BlockType").addParam("SubSystem").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("type").addParam("Block").addParam("BlockType").addParam("SubSystem")
+                    .execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> ret.add(build(commandFactory, id, systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -580,16 +619,15 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on")
-                    .addParam("Regexp").addParam("on").addParam("type").addParam("Block").addParam("BlockType")
-                    .addParam("(BusSelector|BusCreator)").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("Regexp").addParam("on").addParam("type").addParam("Block")
+                    .addParam("BlockType").addParam("(BusSelector|BusCreator)").execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> ret.add(build(commandFactory, id, systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -616,15 +654,15 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type")
-                    .addParam("Block").addParam("BlockType").addParam("BusSelector").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("type").addParam("Block").addParam("BlockType")
+                    .addParam("BusSelector").execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> ret.add(build(commandFactory, id, systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -651,15 +689,15 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type")
-                    .addParam("Block").addParam("BlockType").addParam("BusCreator").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("type").addParam("Block").addParam("BlockType").addParam("BusCreator")
+                    .execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> ret.add(build(commandFactory, id, systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -687,14 +725,14 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("searchdepth")
-                    .addParam(0.0).execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("searchdepth").addParam(0.0)
+                    .execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> ret.add(build(commandFactory, id, systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -719,17 +757,17 @@ public class ResourceFactory {
         public void buildResource(final MatlabCommandFactory commandFactory, final String id, final String systemId,
                 final AbstractResource ar) {
             final PortBlockResource resource = (PortBlockResource) ar;
-            final String portType = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("blocktype").execute());
+            final String portType = MatlabString
+                    .getMatlabStringData(commandFactory.getParam().addParam(id).addParam("blocktype").execute());
             final IVisitableMatlabData parent = commandFactory.getParam().addParam(id).addParam("parent").execute();
 
-            final MatlabCommand command = commandFactory.findSystem().addParam(parent).addParam("findall")
-                    .addParam("on").addParam("searchdepth").addParam("0").addParam("type").addParam("port")
-                    .addParam("porttype").addParam(portNameToPortBlockMap.inverse().get(portType));
+            final MatlabCommand command = commandFactory.findSystem().addParam(parent).addParam("findall").addParam("on")
+                    .addParam("searchdepth").addParam("0").addParam("type").addParam("port").addParam("porttype")
+                    .addParam(portNameToPortBlockMap.inverse().get(portType));
 
             if (portType.equals("inport") || portType.equals("outport")) {
-                final double portNumber = Double.parseDouble(MatlabString.getMatlabStringData(commandFactory.getParam()
-                        .addParam(id).addParam("port").execute()));
+                final double portNumber = Double.parseDouble(MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
+                        .addParam("port").execute()));
                 command.addParam("PortNumber").addParam(portNumber);
             }
 
@@ -737,31 +775,28 @@ public class ResourceFactory {
             Double handleData;
             if (data instanceof Handle) {
                 handleData = Handle.getHandleData(data);
-                final Port port = new Port(Type.valueOf(simuTypeToResType.get(portType).name().split("Block")[0]),
-                        handleData);
+                final Port port = new Port(Type.valueOf(simuTypeToResType.get(portType).name().split("Block")[0]), handleData);
 
                 resource.setPort(new Link(getBuilder(port.type).getAbout(
-                        MatlabString.getMatlabStringData(parent) + "$p$" + handleToId(commandFactory, port.handle),
-                        systemId)));
+                        MatlabString.getMatlabStringData(parent) + "$p$" + handleToId(commandFactory, port.handle), systemId)));
             }
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("Regexp")
-                    .addParam("On").addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on")
-                    .addParam("type").addParam("block").addParam("blocktype")
-                    .addParam("(Inport|Outport|EnablePort|TriggerPort)").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("Regexp").addParam("On")
+                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type").addParam("block")
+                    .addParam("blocktype").addParam("(Inport|Outport|EnablePort|TriggerPort)").execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
             cellMatlabDataData
                     .stream()
                     .limit((page + 1) * limit + 1)
                     .skip(page * limit)
                     .forEach(
-                            id -> ret.add(getBuilder(commandFactory, id).build(commandFactory,
-                                    MatlabString.getMatlabStringData(id), systemId)));
+                            id -> ret.add(getBuilder(commandFactory, id).build(commandFactory, MatlabString.getMatlabStringData(id),
+                                    systemId)));
             return ret;
         }
 
@@ -790,15 +825,15 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type")
-                    .addParam("block").addParam("blocktype").addParam("Outport").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("type").addParam("block").addParam("blocktype").addParam("Outport")
+                    .execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> ret.add(build(commandFactory, id, systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -827,15 +862,15 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type")
-                    .addParam("block").addParam("blocktype").addParam("Inport").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("type").addParam("block").addParam("blocktype").addParam("Inport")
+                    .execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> ret.add(build(commandFactory, id, systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -864,15 +899,15 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type")
-                    .addParam("block").addParam("blocktype").addParam("EnablePort").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("type").addParam("block").addParam("blocktype").addParam("EnablePort")
+                    .execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> ret.add(build(commandFactory, id, systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -901,15 +936,15 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<AbstractResource>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type")
-                    .addParam("block").addParam("blocktype").addParam("TriggerPort").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("type").addParam("block").addParam("blocktype")
+                    .addParam("TriggerPort").execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> ret.add(build(commandFactory, id, systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -935,36 +970,34 @@ public class ResourceFactory {
                 final AbstractResource ar) {
             final GotoResource resource = (GotoResource) ar;
 
-            final String tagVisibility = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("TagVisibility").execute());
+            final String tagVisibility = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("TagVisibility")
+                    .execute());
             resource.setTagVisibility(tagVisibility);
 
-            final String gotoTag = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id)
-                    .addParam("GotoTag").execute());
+            final String gotoTag = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(id).addParam("GotoTag").execute());
             resource.setGotoTag(gotoTag);
 
             final IVisitableMatlabData handle = commandFactory.getParam().addParam(id).addParam("Handle").execute();
-            final List<IVisitableMatlabData> fromNamesAndHandles = CellMatlabData.getCellMatlabDataData(commandFactory
-                    .get().addParam(handle).addParam("FromBlock").execute());
+            final List<IVisitableMatlabData> fromNamesAndHandles = CellMatlabData.getCellMatlabDataData(commandFactory.get()
+                    .addParam(handle).addParam("FromBlock").execute());
             fromNamesAndHandles.forEach(fnah -> {
                 if (fnah == null)
                     return;
-                final String name = MatlabString.getMatlabStringData(StructMatlabData.getStructMatlabDataData(fnah)
-                        .get("name"));
+                final String name = MatlabString.getMatlabStringData(StructMatlabData.getStructMatlabDataData(fnah).get("name"));
                 resource.addFromBlocks(new Link(getBuilder(Type.From).getAbout(name, systemId)));
             });
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type")
-                    .addParam("block").addParam("blocktype").addParam("Goto").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("type").addParam("block").addParam("blocktype").addParam("Goto")
+                    .execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> ret.add(build(commandFactory, id, systemId)));
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> ret.add(build(commandFactory, id, systemId)));
             return ret;
         }
 
@@ -991,8 +1024,8 @@ public class ResourceFactory {
             final FromResource resource = (FromResource) ar;
 
             final IVisitableMatlabData handle = commandFactory.getParam().addParam(id).addParam("Handle").execute();
-            final Map<String, IVisitableMatlabData> gotoNamesAndHandles = StructMatlabData
-                    .getStructMatlabDataData(commandFactory.get().addParam(handle).addParam("GotoBlock").execute());
+            final Map<String, IVisitableMatlabData> gotoNamesAndHandles = StructMatlabData.getStructMatlabDataData(commandFactory.get()
+                    .addParam(handle).addParam("GotoBlock").execute());
 
             final String name = MatlabString.getMatlabStringData(gotoNamesAndHandles.get("name"));
             resource.setGotoBlock(new Link(getBuilder(Type.Goto).getAbout(name, systemId)));
@@ -1000,15 +1033,15 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<AbstractResource>();
-            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId)
-                    .addParam("lookundermasks").addParam("all").addParam("followlinks").addParam("on").addParam("type")
-                    .addParam("block").addParam("blocktype").addParam("From").execute();
+            final IVisitableMatlabData result = commandFactory.findSystem().addParam(systemId).addParam("lookundermasks").addParam("all")
+                    .addParam("followlinks").addParam("on").addParam("type").addParam("block").addParam("blocktype").addParam("From")
+                    .execute();
             final List<IVisitableMatlabData> cellMatlabDataData = CellMatlabData.getCellMatlabDataData(result);
-            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit)
-                    .map(MatlabString::getMatlabStringData).forEach(id -> {
+            cellMatlabDataData.stream().limit((page + 1) * limit + 1).skip(page * limit).map(MatlabString::getMatlabStringData)
+                    .forEach(id -> {
                         ret.add(build(commandFactory, id, systemId));
                     });
             return ret;
@@ -1032,33 +1065,27 @@ public class ResourceFactory {
         }
 
         private static void processConnections(final PortResource resource, final MatlabCommandFactory commandFactory,
-                final List<IVisitableMatlabData> blocks, final List<IVisitableMatlabData> ports, final String filter,
-                final String systemId) {
-            final ParallelIterator<IVisitableMatlabData, IVisitableMatlabData> iterator = ParallelIterator.of(blocks,
-                    ports);
+                final List<IVisitableMatlabData> blocks, final List<IVisitableMatlabData> ports, final String filter, final String systemId) {
+            final ParallelIterator<IVisitableMatlabData, IVisitableMatlabData> iterator = ParallelIterator.of(blocks, ports);
 
             iterator.forEachRemaining(portData -> {
-                final Handle blockHandle = Handle.asHandle(portData.getV1());
-                final Double targetPortNumber = Handle.getHandleData(portData.getV2()) + 1;
+                final Handle blockHandle = Handle.asHandle(portData.getFirst());
+                final Double targetPortNumber = Handle.getHandleData(portData.getSecond()) + 1;
 
-                final IVisitableMatlabData foundPorts = commandFactory.findSystem().addParam(blockHandle)
-                        .addParam("findall").addParam("on").addParam("searchdepth").addParam("0").addParam("RegExp")
-                        .addParam("on").addParam("PortType").addParam(filter).execute();
+                final IVisitableMatlabData foundPorts = commandFactory.findSystem().addParam(blockHandle).addParam("findall")
+                        .addParam("on").addParam("searchdepth").addParam("0").addParam("RegExp").addParam("on").addParam("PortType")
+                        .addParam(filter).execute();
 
                 final List<IVisitableMatlabData> portList = getData(foundPorts);
-                final Optional<Handle> destPort = portList
-                        .stream()
-                        .filter(p -> {
-                            final Double n = Handle.getHandleData(commandFactory.getParam().addParam(p)
-                                    .addParam("PortNumber").execute());
-                            return targetPortNumber.equals(n);
-                        }).map(Handle::asHandle).findAny();
+                final Optional<Handle> destPort = portList.stream().filter(p -> {
+                    final Double n = Handle.getHandleData(commandFactory.getParam().addParam(p).addParam("PortNumber").execute());
+                    return targetPortNumber.equals(n);
+                }).map(Handle::asHandle).findAny();
 
                 destPort.ifPresent(p -> {
-                    final String blockName = MatlabString.getMatlabStringData(commandFactory.getFullName()
-                            .addParam(blockHandle).execute());
-                    final String type = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(p)
-                            .addParam("PortType").execute());
+                    final String blockName = MatlabString.getMatlabStringData(commandFactory.getFullName().addParam(blockHandle).execute());
+                    final String type = MatlabString.getMatlabStringData(commandFactory.getParam().addParam(p).addParam("PortType")
+                            .execute());
                     Type ty = null;
                     if (type.equals("inport"))
                         ty = Type.InPort;
@@ -1068,8 +1095,8 @@ public class ResourceFactory {
                         ty = Type.Trigger;
                     if (type.equals("outport"))
                         ty = Type.OutPort;
-                    resource.addConnections(new Link(getBuilder(ty).getAbout(
-                            blockName + "$p$" + handleToId(commandFactory, p.getData()), systemId)));
+                    resource.addConnections(new Link(getBuilder(ty).getAbout(blockName + "$p$" + handleToId(commandFactory, p.getData()),
+                            systemId)));
                 });
             });
         }
@@ -1107,8 +1134,7 @@ public class ResourceFactory {
         }
 
         private static void processStructs(final List<StructMatlabData> data, final List<StructMatlabData> inports,
-                final List<StructMatlabData> outports, final Reference<StructMatlabData> enable,
-                final Reference<StructMatlabData> trigger) {
+                final List<StructMatlabData> outports, final Reference<StructMatlabData> enable, final Reference<StructMatlabData> trigger) {
             List<StructMatlabData> listToWrite = inports;
             final Iterator<StructMatlabData> dataIterator = data.iterator();
             StructMatlabData s;
@@ -1158,8 +1184,8 @@ public class ResourceFactory {
 
             String portBlockId;
 
-            final MatlabCommand command = commandFactory.findSystem().addParam(containerId).addParam("searchdepth")
-                    .addParam("1").addParam("lookundermasks").addParam("all").addParam("BlockType").addParam(portType);
+            final MatlabCommand command = commandFactory.findSystem().addParam(containerId).addParam("searchdepth").addParam("1")
+                    .addParam("lookundermasks").addParam("all").addParam("BlockType").addParam(portType);
 
             if (portType.equals("Inport") || portType.equals("Outport"))
                 command.addParam("Port").addParam(portNumber + "");
@@ -1169,16 +1195,14 @@ public class ResourceFactory {
 
                 portBlockId = MatlabString.getMatlabStringData(portBlockList.get(0));
 
-                final Link portBlockLink = new Link(getBuilder(commandFactory, new MatlabString(portBlockId)).getAbout(
-                        portBlockId, systemId));
+                final Link portBlockLink = new Link(getBuilder(commandFactory, new MatlabString(portBlockId)).getAbout(portBlockId,
+                        systemId));
                 resource.setPortBlock(portBlockLink);
             }
 
-            resource.setContainer(new Link(getBuilder(commandFactory, new MatlabString(containerId)).getAbout(
-                    containerId, systemId)));
+            resource.setContainer(new Link(getBuilder(commandFactory, new MatlabString(containerId)).getAbout(containerId, systemId)));
 
-            final IVisitableMatlabData execute = commandFactory.getParam().addParam(containerId)
-                    .addParam("PortConnectivity").execute();
+            final IVisitableMatlabData execute = commandFactory.getParam().addParam(containerId).addParam("PortConnectivity").execute();
 
             final List<StructMatlabData> inports = new ArrayList<>();
             final List<StructMatlabData> outports = new ArrayList<>();
@@ -1225,40 +1249,36 @@ public class ResourceFactory {
                 final List<IVisitableMatlabData> srcBlocks = getData(correctPortStruct.getData("SrcBlock"));
                 final List<IVisitableMatlabData> srcPorts = getData(correctPortStruct.getData("SrcPort"));
 
-                
                 if (portType.equals("EnablePort") || portType.equals("TriggerPort") || portType.equals("Inport")) {
-                    processConnections(resource, commandFactory, srcBlocks, srcPorts, "(outport)",
-                            systemId);
+                    processConnections(resource, commandFactory, srcBlocks, srcPorts, "(outport)", systemId);
                 } else {
-                    processConnections(resource, commandFactory, dstBlocks, dstPorts, "(inport|enable|trigger)",
-                            systemId);
+                    processConnections(resource, commandFactory, dstBlocks, dstPorts, "(inport|enable|trigger)", systemId);
                 }
 
             }
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final CellMatlabData resultHandles = CellMatlabData.asCellMatlabData(commandFactory.findSystem()
-                    .addParam(systemId).addParam("findall").addParam("on").addParam("followlinks").addParam("on")
-                    .addParam("lookundermasks").addParam("all").addParam("type").addParam("port").execute());
-            resultHandles.setDatas(CellMatlabData.getCellMatlabDataData(resultHandles).stream()
-                    .limit((page + 1) * limit + 1).skip(page * limit).collect(Collectors.toList()));
+            final CellMatlabData resultHandles = CellMatlabData.asCellMatlabData(commandFactory.findSystem().addParam(systemId)
+                    .addParam("findall").addParam("on").addParam("followlinks").addParam("on").addParam("lookundermasks").addParam("all")
+                    .addParam("type").addParam("port").execute());
+            resultHandles.setDatas(CellMatlabData.getCellMatlabDataData(resultHandles).stream().limit((page + 1) * limit + 1)
+                    .skip(page * limit).collect(Collectors.toList()));
 
-            final IVisitableMatlabData portContainers = commandFactory.getParam().addParam(resultHandles)
-                    .addParam("Parent").execute();
-            final List<Double> handleList = CellMatlabData.getCellMatlabDataData(resultHandles).stream()
-                    .map(Handle::getHandleData).collect(Collectors.toList());
+            final IVisitableMatlabData portContainers = commandFactory.getParam().addParam(resultHandles).addParam("Parent").execute();
+            final List<Double> handleList = CellMatlabData.getCellMatlabDataData(resultHandles).stream().map(Handle::getHandleData)
+                    .collect(Collectors.toList());
             final List<String> contList = CellMatlabData.getCellMatlabDataData(portContainers).stream()
                     .map(MatlabString::getMatlabStringData).collect(Collectors.toList());
 
             final ParallelIterator<String, Double> i = ParallelIterator.of(contList, handleList);
 
             i.forEachRemaining(p -> {
-                final String cont = p.getV1();
-                final Double handle = p.getV2();
+                final String cont = p.getFirst();
+                final Double handle = p.getSecond();
                 ret.add(getBuilder(commandFactory, new Handle(handle)).build(commandFactory,
                         cont + "$p$" + handleToId(commandFactory, handle), systemId));
             });
@@ -1291,25 +1311,23 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData resultHandles = commandFactory.findSystem().addParam(systemId)
-                    .addParam("findall").addParam("on").addParam("followlinks").addParam("on")
-                    .addParam("lookundermasks").addParam("all").addParam("type").addParam("port").addParam("porttype")
-                    .addParam("inport").execute();
-            final IVisitableMatlabData portContainers = commandFactory.getParam().addParam(resultHandles)
-                    .addParam("Parent").execute();
-            final List<Double> handleList = CellMatlabData.getCellMatlabDataData(resultHandles).stream()
-                    .map(Handle::getHandleData).collect(Collectors.toList());
+            final IVisitableMatlabData resultHandles = commandFactory.findSystem().addParam(systemId).addParam("findall").addParam("on")
+                    .addParam("followlinks").addParam("on").addParam("lookundermasks").addParam("all").addParam("type").addParam("port")
+                    .addParam("porttype").addParam("inport").execute();
+            final IVisitableMatlabData portContainers = commandFactory.getParam().addParam(resultHandles).addParam("Parent").execute();
+            final List<Double> handleList = CellMatlabData.getCellMatlabDataData(resultHandles).stream().map(Handle::getHandleData)
+                    .collect(Collectors.toList());
             final List<String> contList = CellMatlabData.getCellMatlabDataData(portContainers).stream()
                     .map(MatlabString::getMatlabStringData).collect(Collectors.toList());
 
             final ParallelIterator<String, Double> i = ParallelIterator.of(contList, handleList);
 
             i.forEachRemaining(p -> {
-                final String cont = p.getV1();
-                final Double handle = p.getV2();
+                final String cont = p.getFirst();
+                final Double handle = p.getSecond();
                 ret.add(build(commandFactory, cont + "$p$" + handleToId(commandFactory, handle), systemId));
             });
 
@@ -1341,25 +1359,23 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData resultHandles = commandFactory.findSystem().addParam(systemId)
-                    .addParam("findall").addParam("on").addParam("followlinks").addParam("on")
-                    .addParam("lookundermasks").addParam("all").addParam("type").addParam("port").addParam("porttype")
-                    .addParam("outport").execute();
-            final IVisitableMatlabData portContainers = commandFactory.getParam().addParam(resultHandles)
-                    .addParam("Parent").execute();
-            final List<Double> handleList = CellMatlabData.getCellMatlabDataData(resultHandles).stream()
-                    .map(Handle::getHandleData).collect(Collectors.toList());
+            final IVisitableMatlabData resultHandles = commandFactory.findSystem().addParam(systemId).addParam("findall").addParam("on")
+                    .addParam("followlinks").addParam("on").addParam("lookundermasks").addParam("all").addParam("type").addParam("port")
+                    .addParam("porttype").addParam("outport").execute();
+            final IVisitableMatlabData portContainers = commandFactory.getParam().addParam(resultHandles).addParam("Parent").execute();
+            final List<Double> handleList = CellMatlabData.getCellMatlabDataData(resultHandles).stream().map(Handle::getHandleData)
+                    .collect(Collectors.toList());
             final List<String> contList = CellMatlabData.getCellMatlabDataData(portContainers).stream()
                     .map(MatlabString::getMatlabStringData).collect(Collectors.toList());
 
             final ParallelIterator<String, Double> i = ParallelIterator.of(contList, handleList);
 
             i.forEachRemaining(p -> {
-                final String cont = p.getV1();
-                final Double handle = p.getV2();
+                final String cont = p.getFirst();
+                final Double handle = p.getSecond();
                 ret.add(build(commandFactory, cont + "$p$" + handleToId(commandFactory, handle), systemId));
             });
 
@@ -1391,25 +1407,23 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData resultHandles = commandFactory.findSystem().addParam(systemId)
-                    .addParam("findall").addParam("on").addParam("followlinks").addParam("on")
-                    .addParam("lookundermasks").addParam("all").addParam("type").addParam("port").addParam("porttype")
-                    .addParam("enable").execute();
-            final IVisitableMatlabData portContainers = commandFactory.getParam().addParam(resultHandles)
-                    .addParam("Parent").execute();
-            final List<Double> handleList = CellMatlabData.getCellMatlabDataData(resultHandles).stream()
-                    .map(Handle::getHandleData).collect(Collectors.toList());
+            final IVisitableMatlabData resultHandles = commandFactory.findSystem().addParam(systemId).addParam("findall").addParam("on")
+                    .addParam("followlinks").addParam("on").addParam("lookundermasks").addParam("all").addParam("type").addParam("port")
+                    .addParam("porttype").addParam("enable").execute();
+            final IVisitableMatlabData portContainers = commandFactory.getParam().addParam(resultHandles).addParam("Parent").execute();
+            final List<Double> handleList = CellMatlabData.getCellMatlabDataData(resultHandles).stream().map(Handle::getHandleData)
+                    .collect(Collectors.toList());
             final List<String> contList = CellMatlabData.getCellMatlabDataData(portContainers).stream()
                     .map(MatlabString::getMatlabStringData).collect(Collectors.toList());
 
             final ParallelIterator<String, Double> i = ParallelIterator.of(contList, handleList);
 
             i.forEachRemaining(p -> {
-                final String cont = p.getV1();
-                final Double handle = p.getV2();
+                final String cont = p.getFirst();
+                final Double handle = p.getSecond();
                 ret.add(build(commandFactory, cont + "$p$" + handleToId(commandFactory, handle), systemId));
             });
 
@@ -1440,25 +1454,23 @@ public class ResourceFactory {
         }
 
         @Override
-        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId,
-                final int page, final int limit) {
+        public List<AbstractResource> collect(final MatlabCommandFactory commandFactory, final String systemId, final int page,
+                final int limit) {
             final List<AbstractResource> ret = new ArrayList<>();
-            final IVisitableMatlabData resultHandles = commandFactory.findSystem().addParam(systemId)
-                    .addParam("findall").addParam("on").addParam("followlinks").addParam("on")
-                    .addParam("lookundermasks").addParam("all").addParam("type").addParam("port").addParam("porttype")
-                    .addParam("trigger").execute();
-            final IVisitableMatlabData portContainers = commandFactory.getParam().addParam(resultHandles)
-                    .addParam("Parent").execute();
-            final List<Double> handleList = CellMatlabData.getCellMatlabDataData(resultHandles).stream()
-                    .map(Handle::getHandleData).collect(Collectors.toList());
+            final IVisitableMatlabData resultHandles = commandFactory.findSystem().addParam(systemId).addParam("findall").addParam("on")
+                    .addParam("followlinks").addParam("on").addParam("lookundermasks").addParam("all").addParam("type").addParam("port")
+                    .addParam("porttype").addParam("trigger").execute();
+            final IVisitableMatlabData portContainers = commandFactory.getParam().addParam(resultHandles).addParam("Parent").execute();
+            final List<Double> handleList = CellMatlabData.getCellMatlabDataData(resultHandles).stream().map(Handle::getHandleData)
+                    .collect(Collectors.toList());
             final List<String> contList = CellMatlabData.getCellMatlabDataData(portContainers).stream()
                     .map(MatlabString::getMatlabStringData).collect(Collectors.toList());
 
             final ParallelIterator<String, Double> i = ParallelIterator.of(contList, handleList);
 
             i.forEachRemaining(p -> {
-                final String cont = p.getV1();
-                final Double handle = p.getV2();
+                final String cont = p.getFirst();
+                final Double handle = p.getSecond();
                 ret.add(build(commandFactory, cont + "$p$" + handleToId(commandFactory, handle), systemId));
             });
 

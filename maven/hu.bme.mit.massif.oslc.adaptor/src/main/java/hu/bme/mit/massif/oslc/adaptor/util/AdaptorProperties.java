@@ -17,12 +17,18 @@ import java.util.Properties;
 
 import org.apache.log4j.Level;
 
+/**
+ * This class helps retrieve information from the configuration properties file.
+ * @author Dóczi Róbert
+ *
+ */
 public class AdaptorProperties {
 
     private static final String CONFIG_FOLDER =  "SimulinkAdaptorConfig";
     private static final String CONFIG_NAME =  "client.properties";
     private static final String LOG_NAME =  "log.txt";
     
+    private static final String MATLAB_SERVER_IP_KEY = "server.address";
     private static final String MATLAB_SERVICE_NAME_KEY = "service.name";
     private static final String MATLAB_SERVICE_PORT_KEY = "service.port";
     private static final String LOG_LEVEL_KEY = "log.level";
@@ -30,8 +36,20 @@ public class AdaptorProperties {
     public static String logLocation = "";
     public static Level logLevel;
     
-    public static String matlabServiceName = "";
+    /**
+     * The address where the matlab server is located.
+     */
+    public static String matlabServerIp = "";
+    
+    /**
+     * The port of the matlab server.
+     */
     public static int matlabServicePort = 0;
+    
+    /**
+     * The name of the matlab server service.
+     */
+    public static String matlabServiceName = "";    
     
     static {
         String userDir = System.getProperty("user.home");
@@ -42,6 +60,7 @@ public class AdaptorProperties {
             Properties prop = new Properties();
             prop.load(propertiesFile);
             
+            matlabServerIp = (String) prop.get(MATLAB_SERVER_IP_KEY);
             matlabServiceName = (String) prop.get(MATLAB_SERVICE_NAME_KEY);
             matlabServicePort = Integer.parseInt((String) prop.get(MATLAB_SERVICE_PORT_KEY));
             logLevel = Level.toLevel((String) prop.get(LOG_LEVEL_KEY));

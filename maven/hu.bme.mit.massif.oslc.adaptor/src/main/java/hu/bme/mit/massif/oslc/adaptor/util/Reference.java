@@ -10,6 +10,14 @@
  *******************************************************************************/
 package hu.bme.mit.massif.oslc.adaptor.util;
 
+/**
+ * This utility class is a basic container for any non primitive data. It is used to imitate
+ * C++ like pass by reference and C# like ref parameter.
+ * 
+ * @author Dóczi Róbert
+ *
+ * @param <T> The type of the non primitive data contained.
+ */
 public class Reference<T> {
     T value;
 

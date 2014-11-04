@@ -13,10 +13,21 @@ package hu.bme.mit.massif.oslc.adaptor.util;
 import java.text.NumberFormat;
 import java.text.ParsePosition;
 
+/**
+ * Contains generic utility methods.
+ * 
+ * @author Dóczi Róbert
+ *
+ */
 public class Utils {
 
+    /**
+     * Checks whether the provided string is a number.
+     * @param str The string.
+     * @return True if the provided string is a number, false otherwise.
+     */
     public static boolean isNumber(final String str) {
-        if (str.isEmpty())
+        if (isNullOrEmpty(str))  // empty string and null is not a number
             return false;
         final NumberFormat formatter = NumberFormat.getInstance();
         final ParsePosition pos = new ParsePosition(0);
@@ -24,6 +35,11 @@ public class Utils {
         return str.length() == pos.getIndex();
     }
 
+    /**
+     * Checks whether the provided string is null or empty.
+     * @param s The string.
+     * @return True if the string is null or empty, false otherwise.
+     */
     public static boolean isNullOrEmpty(final String s) {
         return s == null || s.isEmpty();
     }

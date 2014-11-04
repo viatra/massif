@@ -18,6 +18,14 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
+/**
+ * Optimized logger interface allowing the use of string formatter syntax. This is
+ * a better solution than passing the already formatted string to the logger, since 
+ * the toString()-s will only be evaluated if it is necessary (specified log level is enabled).
+ * 
+ * @author Dóczi Róbert
+ *
+ */
 public class FormatLogger {
 
     public static FormatLogger getLogger(Class<?> clazz) {

@@ -10,12 +10,17 @@
  *******************************************************************************/
 package hu.bme.mit.massif.oslc.adaptor.util;
 
+/**
+ * High resolution timer for measuring performance.
+ * 
+ * @author Dóczi Róbert
+ *
+ */
 public class Timer {
 
     private static Resolution defaultResolution = Resolution.MILISECONDS;
 
     private Resolution        resolution;
-    private double            denum;
 
     private long              startTime;
     private long              delta;
@@ -25,18 +30,63 @@ public class Timer {
         Timer.defaultResolution = defaultResolution;
     }
     
+    /**
+     * Creates a new timer with the default resolution (Miliseconds).
+     * @return The timer instance.
+     */
+    public static Timer create() {
+        Timer t = new Timer();
+        return t;
+    }
+
+    /**
+     * Creates a new timer with the specified resolution.
+     * @param res The resolution of the timer.
+     * @return The timer instance.
+     */
+    public static Timer create(Resolution res) {
+        Timer t = new Timer(res, true);
+        return t;
+    }
+
+    /**
+     * Creates a new timer with the specified resolution.
+     * @param res The resolution of the timer.
+     * @param resetOnToString Whether to reset the timer if toString is called on it.
+     * @returnThe timer instance.
+     */
+    public static Timer create(Resolution res, boolean resetOnToString) {
+        Timer t = new Timer(res, resetOnToString);
+        return t;
+    }
+    
+    /**
+     * Creates a new timer with the default resolution (Miliseconds) and starts it.
+     * @return The timer instance.
+     */
     public static Timer startNew() {
         Timer t = new Timer();
         t.start();
         return t;
     }
 
+    /**
+     * Creates a new timer with the specified resolution and starts it.
+     * @param res The resolution of the timer.
+     * @return The timer instance.
+     */
     public static Timer startNew(Resolution res) {
         Timer t = new Timer(res, true);
         t.start();
         return t;
     }
 
+    /**
+     * Creates a new timer with the specified resolution and starts it.
+     * @param res The resolution of the timer.
+     * @param resetOnToString Whether to reset the timer if toString is called on it.
+     * @returnThe timer instance.
+     */
     public static Timer startNew(Resolution res, boolean resetOnToString) {
         Timer t = new Timer(res, resetOnToString);
         t.start();
@@ -52,26 +102,20 @@ public class Timer {
         startTime = -1;
 
         this.resolution = res;
-
-        switch (res) {
-        case SECONDS:
-            denum = 10e9;
-            break;
-        case MILISECONDS:
-            denum = 10e6;
-            break;
-        case NANOSECONDS:
-            denum = 1;
-            break;
-        }
     }
 
+    /**
+     * Starts the timer.
+     */
     public void start() {
         if (startTime != -1)
             reset();
         startTime = System.nanoTime();
     }
 
+    /**
+     * Stops the timer.
+     */
     public void stop() {
         if (startTime == -1)
             return;
@@ -79,17 +123,33 @@ public class Timer {
         startTime = -1;
     }
 
+    /**
+     * Resets the timer.
+     */
     public void reset() {
         delta = 0;
         startTime = -1;
     }
 
+    /**
+     * Gets the passed time since the last start of the timer.
+     * @return The passed time.
+     */
     public double get() {
-        return delta / denum;
+        double ret;
+        if(startTime == -1) // if the timer is stopped
+            ret = delta;
+        else // if the timer is still running
+            ret = System.nanoTime() - startTime;
+        return ret / resolution.denum;
     }
 
+    /**
+     * Gets the passed time since the last start of the timer and resets it.
+     * @return The passed time.
+     */
     public double getAndReset() {
-        double ret = delta / denum;
+        double ret = get();
         reset();
         return ret;
     }
@@ -104,12 +164,18 @@ public class Timer {
         return time + " " + resolution;
     }
     
+    /**
+     * This enum represents the supported timer resolutions.
+     * @author Dóczi Róbert
+     *
+     */
     public static enum Resolution {
-        SECONDS("s"), MILISECONDS("ms"), NANOSECONDS("ns");
+        SECONDS("s", 1e9), MILISECONDS("ms", 1e6), MICROSECONDS("µs", 1e3), NANOSECONDS("ns", 1);
 
         private String sh;
+        private double denum;
 
-        Resolution(String sh) {
+        Resolution(String sh, double denum) {
             this.sh = sh;
         }
 

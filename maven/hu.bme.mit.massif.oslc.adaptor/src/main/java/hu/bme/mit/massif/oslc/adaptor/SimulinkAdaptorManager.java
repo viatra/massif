@@ -82,11 +82,12 @@ public class SimulinkAdaptorManager {
         LOGGER.debug("Initializing context");
         MatlabClient matlabClient = null;
         try {            
+            String serverIp = AdaptorProperties.matlabServerIp;
             int port = AdaptorProperties.matlabServicePort;
             String serviceName = AdaptorProperties.matlabServiceName;
             
-            LOGGER.info("Trying to connect to matlab server at %s:%s", serviceName, port);
-            matlabClient = new MatlabClient("127.0.0.1", port, serviceName);
+            LOGGER.info("Trying to connect to matlab server at %s:%s using service name: %s.", serverIp, port, serviceName);
+            matlabClient = new MatlabClient(serverIp, port, serviceName);
             LOGGER.info("Connection successful");
         } catch (final MatlabRMIException e) {
             LOGGER.error("Error connecting to matlab server.", e);
@@ -107,7 +108,7 @@ public class SimulinkAdaptorManager {
     public static ServiceProviderInfo[] getServiceProviderInfos(final HttpServletRequest httpServletRequest) {
         ServiceProviderInfo[] serviceProviderInfos = {};
         // Start of user code (MUST_FILL_IN) getServiceProviderInfos userCode
-        LOGGER.debug("Collecting service provider infos");
+        LOGGER.info("Collecting service provider infos");
         Timer timer = Timer.startNew();
 
         final List<ServiceProviderInfo> infos = new ArrayList<>();
@@ -122,7 +123,7 @@ public class SimulinkAdaptorManager {
 
         serviceProviderInfos = infos.toArray(new ServiceProviderInfo[infos.size()]);
 
-        LOGGER.debug("Collected service provider infos in: %s", timer);
+        LOGGER.info("Collected service provider infos in: %s", timer);
         // End of user code
         return serviceProviderInfos;
     }
@@ -131,12 +132,9 @@ public class SimulinkAdaptorManager {
             final String serviceProviderId, final String blockRes) {
         BlockResource aBlockResource = null;
         // Start of user code (MUST_FILL_IN) getBlockResource userCode
-        LOGGER.debug("Searching for block with id %s in %s", blockRes, serviceProviderId);
-        Timer timer = Timer.startNew();
         
         aBlockResource = ResourceFactory.build(commandFactory, blockRes, serviceProviderId, Type.Block);
         
-        LOGGER.debug("Block found in: %s", timer);
         // End of user code
         return aBlockResource;
     }
@@ -145,12 +143,9 @@ public class SimulinkAdaptorManager {
             final String serviceProviderId, final int page, final int limit) {
         List<BlockResource> blockResources = null;
         // Start of user code (MUST_FILL_IN) getBlockResources userCode
-        LOGGER.debug("Collecting blocks in %s", serviceProviderId);
-        Timer timer = Timer.startNew();
         
         blockResources = ResourceFactory.collect(commandFactory, serviceProviderId, Type.Block, page, limit);
         
-        LOGGER.debug("Collected block in: %s", timer);
         // End of user code
         return blockResources;
     }
@@ -194,7 +189,9 @@ public class SimulinkAdaptorManager {
             final String serviceProviderId, final String busCreatorId) {
         BusCreatorResource aBusCreatorResource = null;
         // Start of user code (MUST_FILL_IN) getBusCreatorResource userCode
+        
         aBusCreatorResource = ResourceFactory.build(commandFactory, busCreatorId, serviceProviderId, Type.BusCreator);
+        
         // End of user code
         return aBusCreatorResource;
     }
@@ -249,8 +246,10 @@ public class SimulinkAdaptorManager {
             final String serviceProviderId, final String busSelectorId) {
         BusSelectorResource aBusSelectorResource = null;
         // Start of user code (MUST_FILL_IN) getBusSelectorResource userCode
+        
         aBusSelectorResource = ResourceFactory
                 .build(commandFactory, busSelectorId, serviceProviderId, Type.BusSelector);
+        
         // End of user code
         return aBusSelectorResource;
     }
@@ -307,8 +306,10 @@ public class SimulinkAdaptorManager {
         BusSpecificationResource aBusSpecificationResource = null;
         // Start of user code (MUST_FILL_IN) getBusSpecificationResource
         // userCode
+        
         aBusSpecificationResource = ResourceFactory.build(commandFactory, busSpecId, serviceProviderId,
                 Type.BusSpecification);
+        
         // End of user code
         return aBusSpecificationResource;
     }
@@ -367,7 +368,9 @@ public class SimulinkAdaptorManager {
             final String serviceProviderId, final String enableBlock) {
         EnableBlockResource aEnableBlockResource = null;
         // Start of user code (MUST_FILL_IN) getEnableBlockResource userCode
+        
         aEnableBlockResource = ResourceFactory.build(commandFactory, enableBlock, serviceProviderId, Type.EnableBlock);
+        
         // End of user code
         return aEnableBlockResource;
     }
@@ -423,7 +426,9 @@ public class SimulinkAdaptorManager {
             final String serviceProviderId, final String enable) {
         EnableResource aEnableResource = null;
         // Start of user code (MUST_FILL_IN) getEnableResource userCode
+
         aEnableResource = ResourceFactory.build(commandFactory, enable, serviceProviderId, Type.Enable);
+
         // End of user code
         return aEnableResource;
     }
@@ -477,7 +482,9 @@ public class SimulinkAdaptorManager {
             final String serviceProviderId, final String from) {
         FromResource aFromResource = null;
         // Start of user code (MUST_FILL_IN) getFromResource userCode
+
         aFromResource = ResourceFactory.build(commandFactory, from, serviceProviderId, Type.From);
+
         // End of user code
         return aFromResource;
     }
@@ -530,7 +537,9 @@ public class SimulinkAdaptorManager {
             final String serviceProviderId, final String gotoRes) {
         GotoResource aGotoResource = null;
         // Start of user code (MUST_FILL_IN) getGotoResource userCode
+
         aGotoResource = ResourceFactory.build(commandFactory, gotoRes, serviceProviderId, Type.Goto);
+
         // End of user code
         return aGotoResource;
     }

@@ -56,27 +56,27 @@ public class ParallelIterator<T1, T2> implements Iterator<Pair<T1, T2>> {
      *            The type of the 2nd data.
      */
     public static class Pair<TT1, TT2> {
-        private final TT1 v1;
-        private final TT2 v2;
+        private final TT1 first;
+        private final TT2 second;
 
-        public Pair(final TT1 v1, final TT2 v2) {
-            this.v1 = v1;
-            this.v2 = v2;
+        public Pair(final TT1 first, final TT2 second) {
+            this.first = first;
+            this.second = second;
         }
 
         /**
          * @return the 1st data
          */
-        public TT1 getV1() {
-            return v1;
+        public TT1 getFirst() {
+            return first;
         }
 
         /**
          * 
          * @return the 2nd data
          */
-        public TT2 getV2() {
-            return v2;
+        public TT2 getSecond() {
+            return second;
         }
     }
 

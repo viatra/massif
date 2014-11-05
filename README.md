@@ -64,3 +64,8 @@ Under the Model Import Preferences the user can customize which model elements a
  * Referencing: each block with active library link is handled in the following way: if the library, in wihch its source block (in MATLAB terminology Reference block) is located is not yet imported, then the importer imports the corresponding library. If the library of the source block is already imported, creates a model element with a link to the specified library block.
 
 After setting the mentioned configurations, the context menu commands of .mdl and .simulink files (right click on the files in Eclipse package explorer) called Import Simulink Model and Export Simulink Model can be used.
+
+3. Contributing
+---------------
+
+We welcome contributors, read the [[DeveloperGuide]] for getting set up!

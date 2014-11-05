@@ -68,4 +68,4 @@ After setting the mentioned configurations, the context menu commands of .mdl an
 3. Contributing
 ---------------
 
-We welcome contributors, read the [[DeveloperGuide]] for getting set up!
+We welcome contributors, read the [DeveloperGuide](https://github.com/FTSRG/massif/wiki/DevelopersGuide) for setting up shop!

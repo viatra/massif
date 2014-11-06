@@ -75,7 +75,8 @@ public class ResourceFactory {
 
     private static FormatLogger LOGGER = FormatLogger.getLogger(ResourceFactory.class.getName());
 
-    private static Map<Class<? extends AbstractResource>, AbstractResourceBuilder> builders;    // maps abstract resource builders to their resource type.
+    private static Map<Class<? extends AbstractResource>, AbstractResourceBuilder> builders; // maps abstract resource builders to their
+                                                                                             // resource type.
     private static Map<Type, Class<? extends AbstractResource>> typeToResourceMap; // maps the type enum to te actual resource classes
     private static Map<String, Type> simuTypeToResType; // maps the simulink name of types to the oslc resource name of types
     private static BiMap<String, String> portNameToPortBlockMap; // maps the name of ports to port blocks (line inport = InPort)
@@ -119,22 +120,45 @@ public class ResourceFactory {
         final String rid = IDHelper.revertId(id);
         LOGGER.info("Searching for %s with id %s in %s", type.name(), rid, systemId);
         Timer timer = Timer.startNew();
-        
+
         LOGGER.debug("Searching for builder for type %s.", type.name());
         final AbstractResourceBuilder builder = getBuilder(type);
-        if (builder == null)
-        {
+        if (builder == null) {
             LOGGER.error("Builder for type %s not found.", type.name());
             return null;
         }
         LOGGER.debug("Builder found.");
-        
-        final Class<T> resourceClass = getResourceClass(type);                
-        AbstractResource res = builder.build(commandFactory, rid, systemId);
-        
+
+        if (!resourceExists(commandFactory, rid))
+            return null;
+
+        final Class<T> resourceClass = getResourceClass(type);
+        AbstractResource res = null;
+        try {
+            res = builder.build(commandFactory, rid, systemId);
+        } catch (RuntimeException e) {
+            LOGGER.error("Exception while retrieving resources.", e);
+            throw e;
+        }
+
         LOGGER.info("%s found in %s", type.name(), timer);
-        
+
         return resourceClass.cast(res);
+    }
+
+    private static boolean resourceExists(final MatlabCommandFactory commandFactory, final String id) {
+        commandFactory.clearLastErrorMessage().execute();
+
+        if (!id.contains("$p$")) {
+            IVisitableMatlabData execute = commandFactory.findSystem().addParam(id).execute();
+            String lastError = MatlabString.getMatlabStringData(commandFactory.getLastErrorMessage().execute());
+
+            if (!Utils.isNullOrEmpty(lastError)) {
+                LOGGER.debug("Resource does not exist.");
+                return false;
+            }
+        }
+        return true;
     }
 
     private static AbstractResourceBuilder getBuilder(final Type type) {
@@ -192,14 +216,19 @@ public class ResourceFactory {
     }
 
     /**
-     * Gets a list of OSLC resources representing simulink model elements of specified type in the specified system.
-     * Allows breaking the results into pages (mostly used for performance reasons).
+     * Gets a list of OSLC resources representing simulink model elements of specified type in the specified system. Allows breaking the
+     * results into pages (mostly used for performance reasons).
      * 
-     * @param commandFactory The matlab command factory to use.
-     * @param systemId The id of the simulink system.
-     * @param type The type of the simulink element.
-     * @param page The page number.
-     * @param limit The number of elements on a single page.
+     * @param commandFactory
+     *            The matlab command factory to use.
+     * @param systemId
+     *            The id of the simulink system.
+     * @param type
+     *            The type of the simulink element.
+     * @param page
+     *            The page number.
+     * @param limit
+     *            The number of elements on a single page.
      * @return
      */
     public static <T extends AbstractResource> List<T> collect(final MatlabCommandFactory commandFactory, final String systemId,
@@ -392,7 +421,6 @@ public class ResourceFactory {
 
             if (id.contains("$p$")) {
                 final String name = id.substring(id.lastIndexOf("$p$") + 3);
-                final Handle h = new Handle();
 
                 resource.setName(name);
                 resource.setSimulinkRef(id.replace("$p$", "/"));

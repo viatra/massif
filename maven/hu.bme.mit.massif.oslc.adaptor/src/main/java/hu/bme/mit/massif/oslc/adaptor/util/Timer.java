@@ -141,7 +141,7 @@ public class Timer {
             ret = delta;
         else // if the timer is still running
             ret = System.nanoTime() - startTime;
-        return ret / resolution.denum;
+        return ret / resolution.getDenum();
     }
 
     /**
@@ -178,6 +178,13 @@ public class Timer {
         Resolution(String sh, double denum) {
             this.sh = sh;
             this.denum = denum;
+        }
+
+        /**
+         * @return the denum
+         */
+        public double getDenum() {
+            return denum;
         }
 
         @Override

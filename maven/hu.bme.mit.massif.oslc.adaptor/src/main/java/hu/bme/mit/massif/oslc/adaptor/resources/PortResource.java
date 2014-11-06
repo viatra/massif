@@ -90,6 +90,9 @@ public class PortResource extends SimulinkElementResource
     public String toString() {
         String result = "";
         // Start of user code toString_init
+        if (getAbout() == null) {
+            return result;
+        }
         // End of user code
 
         result = getAbout().toString();

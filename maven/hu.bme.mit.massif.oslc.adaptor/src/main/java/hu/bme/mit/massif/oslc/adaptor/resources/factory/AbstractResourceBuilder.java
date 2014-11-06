@@ -21,7 +21,7 @@ import org.eclipse.lyo.oslc4j.core.model.AbstractResource;
 /**
  * Abstract builder class for building OSLC resources.
  * 
- * @author Dóczi Róbert
+ * @author Robert Doczi
  *
  */
 abstract class AbstractResourceBuilder {

@@ -23,6 +23,8 @@ import java.util.function.Consumer;
  *            The type of the 1st iterable.
  * @param <T2>
  *            The type of the 2nd iterable.
+ *            
+ * @author Robert Doczi
  */
 public class ParallelIterator<T1, T2> implements Iterator<Pair<T1, T2>> {
 

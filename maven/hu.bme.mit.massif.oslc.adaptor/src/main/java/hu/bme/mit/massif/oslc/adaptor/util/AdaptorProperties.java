@@ -23,7 +23,7 @@ import org.apache.log4j.Level;
 /**
  * This class helps retrieve information from the configuration properties file.
  * 
- * @author Dóczi Róbert
+ * @author Robert Doczi
  *
  */
 public class AdaptorProperties {

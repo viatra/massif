@@ -13,7 +13,7 @@ package hu.bme.mit.massif.oslc.adaptor.util;
 /**
  * High resolution timer for measuring performance.
  * 
- * @author Dóczi Róbert
+ * @author Robert Doczi
  *
  */
 public class Timer {
@@ -166,7 +166,7 @@ public class Timer {
     
     /**
      * This enum represents the supported timer resolutions.
-     * @author Dóczi Róbert
+     * @author Robert Doczi
      *
      */
     public static enum Resolution {

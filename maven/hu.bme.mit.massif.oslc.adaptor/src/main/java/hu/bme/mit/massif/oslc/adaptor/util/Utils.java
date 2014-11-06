@@ -16,7 +16,7 @@ import java.text.ParsePosition;
 /**
  * Contains generic utility methods.
  * 
- * @author Dóczi Róbert
+ * @author Robert Doczi
  *
  */
 public class Utils {

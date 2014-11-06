@@ -67,7 +67,7 @@ import com.google.common.collect.HashBiMap;
 /**
  * This class helps in creating resources or collecting every resource representing a specific type.
  * 
- * @author Dóczi Róbert
+ * @author Robert Doczi
  *
  */
 @SuppressWarnings({ "unused", "unchecked", "serial" })

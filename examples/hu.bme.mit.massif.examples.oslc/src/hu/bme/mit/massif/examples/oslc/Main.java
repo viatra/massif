@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Dóczi Róbert - initial API and implementation 
+ *     Robert Doczi - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.examples.oslc;
 
@@ -27,7 +27,7 @@ import org.eclipse.lyo.client.oslc.OslcClient;
  * This is a basic example on creating an OSLC client for the Matlab Simulink OSLC Adaptor. This example assumes a Matlab Server running
  * at localhost with the service context of OSLCSimulinkAdaptor, while the simulink model is open in the matlab.
  * 
- * @author Dóczi Róbert
+ * @author Robert Doczi
  *
  */
 public class Main {

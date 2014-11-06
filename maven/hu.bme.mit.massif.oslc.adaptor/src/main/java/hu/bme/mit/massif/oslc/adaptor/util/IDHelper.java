@@ -12,6 +12,8 @@ package hu.bme.mit.massif.oslc.adaptor.util;
 
 /**
  * Static utility class to help refactoring and reverting id-s.
+ * 
+ * @author Robert Doczi
  */
 public class IDHelper {
 

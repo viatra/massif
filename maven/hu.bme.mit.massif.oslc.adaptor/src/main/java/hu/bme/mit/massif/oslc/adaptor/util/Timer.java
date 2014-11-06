@@ -177,6 +177,7 @@ public class Timer {
 
         Resolution(String sh, double denum) {
             this.sh = sh;
+            this.denum = denum;
         }
 
         @Override

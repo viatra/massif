@@ -16,6 +16,8 @@ import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
+import hu.bme.mit.massif.simulink.api.provider.filter.IFilterProvider;
+import hu.bme.mit.massif.simulink.api.provider.filter.impl.FilterProviderImpl;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 import hu.bme.mit.massif.simulink.importer.ui.MassifSimulinkUIPlugin;
 import hu.bme.mit.massif.simulink.importer.ui.dialogs.ImportSettingsDialog;
@@ -166,8 +168,10 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
         Job job = new Job("Importing model " + modelName + "...") {
             @Override
             protected IStatus run(IProgressMonitor monitor) {
-
-                Importer traverser = new Importer(testModel);
+               
+            	IFilterProvider filterProvider = new FilterProviderImpl();
+                
+                Importer traverser = new Importer(testModel, filterProvider);
                 traverser.setDefaultSavePath(resultPath);
 
                 try {

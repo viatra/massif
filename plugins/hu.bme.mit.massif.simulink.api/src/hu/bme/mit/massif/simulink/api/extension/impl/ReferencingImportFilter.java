@@ -8,7 +8,7 @@
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-package hu.bme.mit.massif.simulink.api.filter;
+package hu.bme.mit.massif.simulink.api.extension.impl;
 
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;

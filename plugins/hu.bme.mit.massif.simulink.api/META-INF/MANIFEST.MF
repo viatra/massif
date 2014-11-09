@@ -8,6 +8,8 @@ Export-Package: hu.bme.mit.massif.simulink.api,
  hu.bme.mit.massif.simulink.api.exception,
  hu.bme.mit.massif.simulink.api.extension,
  hu.bme.mit.massif.simulink.api.layout,
+ hu.bme.mit.massif.simulink.api.provider.filter,
+ hu.bme.mit.massif.simulink.api.provider.filter.impl,
  hu.bme.mit.massif.simulink.api.util,
  hu.bme.mit.massif.simulink.api.util.bus
 Require-Bundle: org.eclipse.core.runtime,

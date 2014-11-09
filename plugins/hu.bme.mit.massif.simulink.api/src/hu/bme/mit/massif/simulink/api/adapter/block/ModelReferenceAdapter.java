@@ -23,10 +23,13 @@ import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
+import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.api.provider.filter.IFilterProvider;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 import hu.bme.mit.massif.simulink.api.util.SimulinkUtil;
 
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -112,7 +115,7 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
 
     }
 
-    private SimulinkModel traverseReferencedModel(Importer traverser, String modelReferenceFQN,
+    private SimulinkModel traverseReferencedModel(final Importer traverser, String modelReferenceFQN,
             MatlabCommandFactory commandFactory, ImportMode importMode) throws SimulinkApiException {
         String referencedModelName;
         ModelObject referencedModel;
@@ -130,7 +133,13 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
         }
 
         referencedModel = new ModelObject(referencedModelName, commandFactory.getCommandEvaluator());
-        referencedModelTraverser = new Importer(referencedModel);
+        
+        referencedModelTraverser = new Importer(referencedModel, new IFilterProvider() {
+			@Override
+			public Set<ISimulinkImportFilter> getRegisteredFilters(ModelObject model) {
+				return traverser.getFilters();
+			}
+		});
 
         // Add all already referenced and imported models to the new traverser registry
         referencedModelTraverser.getReferencedModels().putAll(modelRegistry);

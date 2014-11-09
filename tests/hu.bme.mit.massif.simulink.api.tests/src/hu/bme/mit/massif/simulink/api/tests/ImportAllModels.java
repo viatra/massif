@@ -16,6 +16,8 @@ import hu.bme.mit.massif.communication.commandevaluation.CommandEvaluatorImpl;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
+import hu.bme.mit.massif.simulink.api.provider.filter.IFilterProvider;
+import hu.bme.mit.massif.simulink.api.provider.filter.impl.FilterProviderImpl;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 import java.io.BufferedReader;
@@ -156,7 +158,9 @@ public class ImportAllModels {
             // Import each model using the FAM Leaf filter
             testModel.registerApplicableFilters("famfilter");
 
-            Importer traverser = new Importer(testModel);
+            IFilterProvider filterProvider = new FilterProviderImpl();
+            
+            Importer traverser = new Importer(testModel, filterProvider);
             traverser.traverseAndCreateEMFModel(traverseMode);
             traverser.saveEMFModel(importedModelName);
 

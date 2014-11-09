@@ -44,10 +44,11 @@ import hu.bme.mit.massif.simulink.api.adapter.block.IBlockAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.IPortAdapter;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
-import hu.bme.mit.massif.simulink.api.filter.ReferencingImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.impl.ReferencingImportFilter;
 import hu.bme.mit.massif.simulink.api.internal.PluginSimulinkAPILogger;
 import hu.bme.mit.massif.simulink.api.internal.SimulinkApiPlugin;
 import hu.bme.mit.massif.simulink.api.provider.block.BlockProvider;
+import hu.bme.mit.massif.simulink.api.provider.filter.IFilterProvider;
 import hu.bme.mit.massif.simulink.api.provider.port.PortProvider;
 import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
@@ -67,13 +68,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtension;
-import org.eclipse.core.runtime.IExtensionPoint;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -273,10 +269,6 @@ public class Importer {
     public Set<ISimulinkImportFilter> getFilters() {
         return filters;
     }
-// TODO
-//    public ICommandEvaluator getCommandEvaluator() {
-//        return commandEvaluator;
-//    }
 
     public MatlabCommandFactory getCommandFactory(){
     	return commandFactory;
@@ -292,8 +284,6 @@ public class Importer {
     private ISimulinkAPILogger logger;
     /**
      * The chosen way to import the model
-     * 
-     * TODO turn it into Enum
      */
     private ImportMode importMode;
     /**
@@ -348,6 +338,10 @@ public class Importer {
             blocks = new HashMap<String, Block>();
         }
     }
+    
+    public Map<String, InPortBlock> getInportBlocksByName() {
+        return inportBlocksByName;
+    }
 
     /**
      * Constructor for the traverser.
@@ -355,54 +349,8 @@ public class Importer {
      * @param model
      *            the model assigned to the traverser
      */
-    public Importer(ModelObject model) {
+    public Importer(ModelObject model, IFilterProvider filterProvider) {
 
-        initialization(model);
-
-        // Initialization of filters from extensions via the extension point for filters
-        IExtensionRegistry reg = Platform.getExtensionRegistry();
-        IExtensionPoint poi;
-
-        if (reg != null) {
-            poi = reg.getExtensionPoint("hu.bme.mit.massif.simulink.api.import.filters");
-            if (poi != null) {
-                IExtension[] exts = poi.getExtensions();
-
-                for (IExtension ext : exts) {
-                    IConfigurationElement[] els = ext.getConfigurationElements();
-                    for (IConfigurationElement el : els) {
-                        if (el.getName().equals("filter")) {
-                            try {
-                                ISimulinkImportFilter filter = (ISimulinkImportFilter) el
-                                        .createExecutableExtension("filterImplClass");
-                                String identifier = el.getAttribute("filterId");
-                                if (identifier != null && !"".equals(identifier) && filter != null) {
-                                    for (String applicableFilterId : model.getApplicableFilters()) {
-                                        if (applicableFilterId.equals(identifier)) {
-                                            filters.add(filter);
-                                            break;
-                                        }
-                                    }
-                                }
-                            } catch (Exception e) {
-                                SimulinkApiPlugin
-                                        .getDefault()
-                                        .getLog()
-                                        .log(new Status(IStatus.ERROR, SimulinkApiPlugin.PLUGIN_ID,
-                                                "Could not initialize filter!"));
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public Map<String, InPortBlock> getInportBlocksByName() {
-        return inportBlocksByName;
-    }
-
-    private void initialization(ModelObject model) {
         // Initialization of fields
         blocks = new HashMap<String, Block>();
         inportBlocksByName = new HashMap<String, InPortBlock>();
@@ -426,8 +374,13 @@ public class Importer {
 
         // Assign the model to the traverser
         this.model = model;
-        this.commandFactory = model.getCommandFactory();
+        commandFactory = model.getCommandFactory();
+        
+        filters = filterProvider.getRegisteredFilters(model);
+        
     }
+
+
 
     /**
      * Registers an import filter for the traverser

@@ -91,12 +91,11 @@ public class ImporterPreferencePage extends FieldEditorPreferencePage implements
 
         
         Map<String, ISimulinkImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getFiltersById();
-        Map<String, String> filterNamesById = ImportFilterRegistry.INSTANCE.getFilterNamesById();
-        Map<String, String> filterTooltipsById = ImportFilterRegistry.INSTANCE.getFilterTooltipsById();
         for (String filterId : filtersById.keySet()) {
+        	ISimulinkImportFilter filter = filtersById.get(filterId);
         	Composite filterCheckboxParent = getFieldEditorParent();
-        	BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId,filterNamesById.get(filterId), filterCheckboxParent);
-        	filterCheckbox.getDescriptionControl(filterCheckboxParent).setToolTipText(filterTooltipsById.get(filterId));
+        	BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId,filter.getName(), filterCheckboxParent);
+        	filterCheckbox.getDescriptionControl(filterCheckboxParent).setToolTipText(filter.getDescription());
         	addField(filterCheckbox);			
 		}
         

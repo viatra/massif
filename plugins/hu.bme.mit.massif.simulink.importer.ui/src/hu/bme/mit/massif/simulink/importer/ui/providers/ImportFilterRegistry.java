@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
 public enum ImportFilterRegistry {
@@ -20,32 +21,20 @@ public enum ImportFilterRegistry {
 	INSTANCE;
 	
 	private Map<String,ISimulinkImportFilter> filtersById;
-	private Map<String,String> filterNamesById;
-	private Map<String,String> filterTooltipsById;
-
 	
-	public Map<String, ISimulinkImportFilter> getFiltersById() {
-		return filtersById;
+	public synchronized Map<String, ISimulinkImportFilter> getFiltersById() {
+		if(filtersById == null){
+			readExtensionRegistry();
+		}
+		return ImmutableMap.copyOf(filtersById);
 	}
 
-
-	public Map<String, String> getFilterNamesById() {
-		return filterNamesById;
-	}
-	
-	public Map<String, String> getFilterTooltipsById() {
-		return filterTooltipsById;
-	}
-
-
-	private ImportFilterRegistry(){
+	private void readExtensionRegistry(){
 		filtersById = Maps.newHashMap();
-		filterNamesById = Maps.newHashMap();
-		filterTooltipsById = Maps.newHashMap();
 		
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
 		IExtensionPoint poi;
-
+		
 		if (reg != null) {
 			poi = reg.getExtensionPoint("hu.bme.mit.massif.simulink.api.import.filters");
 			if (poi != null) {
@@ -60,8 +49,6 @@ public enum ImportFilterRegistry {
 								String filterId = el.getAttribute("filterId");
 								if (filterId != null && !"".equals(filterId) && filter != null) {
 									filtersById.put(filterId,filter);
-									filterNamesById.put(filterId,el.getAttribute("filterName"));
-									filterTooltipsById.put(filterId,el.getAttribute("filterTooltip"));
 								}
 							} catch (Exception e) {
 								MassifSimulinkUIPlugin.getDefault().getLog().log(

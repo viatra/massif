@@ -44,6 +44,16 @@ import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
  */
 public class LibraryFilter implements ISimulinkImportFilter {
 
+	@Override
+	public String getName() {
+		return "Library filter";
+	}
+
+	@Override
+	public String getDescription() {
+		return "This filter allows to skip traversal of atomic library blocks inside a library model. Such blocks are not represented graphically by the tree view of the Simulink Library Browser in Matlab.";
+	}
+	
     @Override
     public boolean filter(MatlabCommandFactory commandFactory, String blockFQN) {
         // Check case (a)
@@ -100,4 +110,6 @@ public class LibraryFilter implements ISimulinkImportFilter {
         // Case (b/iv)
         return false;
     }
+
+	
 }

@@ -17,11 +17,24 @@ import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
 
 public class ReferencingImportFilter implements ISimulinkImportFilter {
 
-    @Override
+	@Override
+	public String getName() {
+		return "Referencing import filter";
+	}
+	
+	@Override
+	public String getDescription() {
+		return "A special filter that checks for active library links. "
+				+ "If a block in a model is actively connected to a library block, "
+				+ "it is filtered (the filter() method will return true).";
+	}
+
+	@Override
     public boolean filter(MatlabCommandFactory commandFactory , String blockFQN) {
         MatlabCommand getLinkStatus = commandFactory.getParam().addParam(blockFQN).addParam("LinkStatus");
         String linkStatus = MatlabString.getMatlabStringData(getLinkStatus.execute());
         return "resolved".equals(linkStatus) || "implicit".equals(linkStatus);
     }
+
 
 }

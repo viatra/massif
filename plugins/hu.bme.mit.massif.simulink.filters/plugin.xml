@@ -5,21 +5,11 @@
          point="hu.bme.mit.massif.simulink.api.import.filters">
       <filter
             filterId="library"
-            filterImplClass="hu.bme.mit.massif.simulink.filters.LibraryFilter"
-            filterName="Library filter"
-            filterTooltip="This filter allows to skip traversal of atomic library blocks inside a library model. Such blocks are not represented graphically by the tree view of the Simulink Library Browser in Matlab.">
-      </filter>
-      <filter
-            filterId="default"
-            filterImplClass="hu.bme.mit.massif.simulink.filters.FilterImpl"
-            filterName="Test filter name"
-            filterTooltip="Test tooltip">
+            filterImplClass="hu.bme.mit.massif.simulink.filters.LibraryFilter">
       </filter> 
       <filter
             filterId="famfilter"
-            filterImplClass="hu.bme.mit.massif.simulink.filters.FAMLeafFilter"
-            filterName="FAM filter"
-            filterTooltip="This filters all internal blocks of subsystems with &apos;Tag&apos; parameter value of &apos;FAM_Leaf&apos;">
+            filterImplClass="hu.bme.mit.massif.simulink.filters.FAMLeafFilter">
       </filter>
    </extension>
 </plugin>

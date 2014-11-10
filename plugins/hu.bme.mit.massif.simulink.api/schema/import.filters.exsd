@@ -66,20 +66,6 @@
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="filterName" type="string">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="filterTooltip" type="string">
-            <annotation>
-               <documentation>
-                  
-               </documentation>
-            </annotation>
-         </attribute>
       </complexType>
    </element>
 

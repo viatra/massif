@@ -17,6 +17,17 @@ import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
  */
 public interface ISimulinkImportFilter {
 
+	
+	/**
+	 * @return the name of the filter
+	 */
+	String getName();
+	
+	/** 
+	 * @return a short description for the filter implementation, and it is used as the tooltip text on the preference page
+	 */
+	String getDescription();
+	
     /**
      * Determines if the internal content of a Simulink block should also be imported.
      * 

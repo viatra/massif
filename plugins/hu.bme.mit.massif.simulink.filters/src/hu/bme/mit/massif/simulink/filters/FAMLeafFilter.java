@@ -20,7 +20,17 @@ import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
  */
 public class FAMLeafFilter implements ISimulinkImportFilter {
 
-    @Override
+	@Override
+	public String getName() {
+		return "FAM filter";
+	}
+	
+	@Override
+	public String getDescription() {
+		return "This filters all internal blocks of subsystems with 'Tag' parameter value of 'FAM_Leaf'";
+	}
+
+	@Override
     public boolean filter(MatlabCommandFactory commandFactory, String blockFQN) {
 
     	MatlabCommand getTagValue = commandFactory.getParam().addParam(blockFQN).addParam("Tag");
@@ -28,5 +38,6 @@ public class FAMLeafFilter implements ISimulinkImportFilter {
 
         return tagValue.startsWith("FAM_Leaf");
     }
+
 
 }

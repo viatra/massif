@@ -40,7 +40,7 @@ public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 	public Map<String, Boolean> getSelectedFiltersById() {
 		return filterSelections;
 	}
-	
+
 	private StringFieldEditor importedModelNameEditor;
 	private IPreferenceStore store;
 
@@ -52,7 +52,7 @@ public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 	@Override
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
-		int filterCount = ImportFilterRegistry.INSTANCE.getFilterNamesById().keySet().size();
+		int filterCount = ImportFilterRegistry.INSTANCE.getFiltersById().keySet().size();
 		newShell.setSize(500, 180 + 20 * filterCount);
 	}
 
@@ -81,15 +81,13 @@ public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 		List<FieldEditor> fes = new LinkedList<FieldEditor>();
 
 		Map<String, ISimulinkImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getFiltersById();
-		Map<String, String> filterNamesById = ImportFilterRegistry.INSTANCE.getFilterNamesById();
-		Map<String, String> filterToolTipsById = ImportFilterRegistry.INSTANCE.getFilterTooltipsById();
 		for (String filterId : filtersById.keySet()) {
-			BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId, filterNamesById.get(filterId),
-					fieldEditorParent);
+			ISimulinkImportFilter filter = filtersById.get(filterId);
+			BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId, filter.getName(), fieldEditorParent);
 			filterCheckbox.setPreferenceStore(store);
 			filterCheckbox.setPreferenceName(filterId);
 			filterCheckbox.load();
-			filterCheckbox.getDescriptionControl(fieldEditorParent).setToolTipText(filterToolTipsById.get(filterId));
+			filterCheckbox.getDescriptionControl(fieldEditorParent).setToolTipText(filter.getDescription());
 			fes.add(filterCheckbox);
 			filterSelectors.put(filterId, filterCheckbox);
 		}

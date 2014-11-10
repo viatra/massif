@@ -16,14 +16,14 @@ import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.massif.simulink.api.provider.filter.IFilterProvider;
-import hu.bme.mit.massif.simulink.api.provider.filter.impl.FilterProviderImpl;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 import hu.bme.mit.massif.simulink.importer.ui.MassifSimulinkUIPlugin;
 import hu.bme.mit.massif.simulink.importer.ui.dialogs.ImportSettingsDialog;
 import hu.bme.mit.massif.simulink.importer.ui.preferences.PreferenceConstants;
 
 import java.io.File;
+import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -39,6 +39,8 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.handlers.HandlerUtil;
+
+import com.google.common.collect.Maps;
 
 /**
  * Class to handle the import context menu command
@@ -98,8 +100,7 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
         String resultPath = getPreferenceStringValue(PreferenceConstants.IMPORT_RESULT_MODEL_PATH, "");
         String newModelName = modelName;
 
-        boolean usingFAMFilter = false;
-        boolean usingLibraryFilter = false;
+        Map<String, Boolean> selectedFilters = Maps.newHashMap();
         
         // If the corresponding preferences are not set, the user is prompted to select location and name
         if (resultPath == null || resultPath.equals("")) {
@@ -116,11 +117,10 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
             }
             resultPath = dialog.getTargetDirectory().toString();
             newModelName = dialog.getImportedModelName();
-            usingFAMFilter = dialog.isUsingFAMLeafFilter();
-            usingLibraryFilter = dialog.isUsingLibraryFilter();
+            selectedFilters = dialog.getSelectedFiltersById();
         }
         
-        importModel(modelName, modelPath, newModelName, resultPath, settings,usingFAMFilter,usingLibraryFilter);
+        importModel(modelName, modelPath, newModelName, resultPath, settings,selectedFilters);
 
         // TODO instead, refresh on save path
         // try {
@@ -142,7 +142,7 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
     }
 
     private void importModel(String modelName, String modelPath, final String importedModelName,
-        final String resultPath, final ImportSettings settings, boolean usingFAMFilter, boolean usingLibraryFilter) {
+        final String resultPath, final ImportSettings settings, Map<String, Boolean> selectedFilters) {
         MatlabCommandFactory factory = new MatlabCommandFactory(settings.commandEvaluator);
     	MatlabCommand addpathModel = factory.addPath();
         addpathModel.addParam(modelPath);
@@ -153,25 +153,22 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
             PreferenceConstants.IMPORT_STARTUP_SCRIPTS);
 
         // Get the model by its name
-        final ModelObject testModel = new ModelObject(modelName, settings.commandEvaluator);
+        final ModelObject model = new ModelObject(modelName, settings.commandEvaluator);
         // Set model path (without model name)
-        testModel.setLoadPath(modelPath);
+        model.setLoadPath(modelPath);
 
         // Add specified filters
-        // We only have specific filters
-        if(usingFAMFilter){
-            testModel.registerApplicableFilters("famfilter");
-        }
-        if(usingLibraryFilter){
-            testModel.registerApplicableFilters("library");
-        }
+        Set<String> selectedFilterIds = selectedFilters.keySet();
+        for (String filterId : selectedFilterIds) {
+        	if(selectedFilters.get(filterId)){
+        		model.registerApplicableFilters(filterId);        		
+        	}
+		}
+        
         Job job = new Job("Importing model " + modelName + "...") {
             @Override
             protected IStatus run(IProgressMonitor monitor) {
-               
-            	IFilterProvider filterProvider = new FilterProviderImpl();
-                
-                Importer traverser = new Importer(testModel, filterProvider);
+                Importer traverser = new Importer(model);
                 traverser.setDefaultSavePath(resultPath);
 
                 try {

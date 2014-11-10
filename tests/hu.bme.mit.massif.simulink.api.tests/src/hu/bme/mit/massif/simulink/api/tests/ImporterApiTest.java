@@ -17,8 +17,6 @@ import hu.bme.mit.massif.communication.commandevaluation.CommandEvaluatorImpl;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.massif.simulink.api.provider.filter.IFilterProvider;
-import hu.bme.mit.massif.simulink.api.provider.filter.impl.FilterProviderImpl;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 import java.io.File;
@@ -320,9 +318,7 @@ public class ImporterApiTest {
             testModel.registerApplicableFilters(s);
 
         try {
-            IFilterProvider filterProvider = new FilterProviderImpl();
-            
-            Importer importer = new Importer(testModel, filterProvider);
+            Importer importer = new Importer(testModel);
             importer.traverseAndCreateEMFModel(importMode);
             importer.saveEMFModel(importedModelName);
 

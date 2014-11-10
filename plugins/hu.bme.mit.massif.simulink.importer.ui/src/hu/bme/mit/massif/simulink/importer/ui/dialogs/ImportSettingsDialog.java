@@ -10,12 +10,14 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.importer.ui.dialogs;
 
-import hu.bme.mit.massif.simulink.importer.ui.preferences.ImporterPreferencePage;
-import hu.bme.mit.massif.simulink.importer.ui.preferences.PreferenceConstants;
+import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.importer.ui.providers.ImportFilterRegistry;
 
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.preference.BooleanFieldEditor;
@@ -27,83 +29,80 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+import com.google.common.collect.Maps;
+
 public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 
-    private String importedModelName;
-    private boolean usingFAMLeafFilter;
-    private boolean usingLibraryFilter;
+	private String importedModelName;
+	private Map<String, BooleanFieldEditor> filterSelectors = Maps.newHashMap();
+	private Map<String, Boolean> filterSelections = Maps.newHashMap();
 
-    public boolean isUsingFAMLeafFilter() {
-        return usingFAMLeafFilter;
-    }
+	public Map<String, Boolean> getSelectedFiltersById() {
+		return filterSelections;
+	}
+	
+	private StringFieldEditor importedModelNameEditor;
+	private IPreferenceStore store;
 
-    public boolean isUsingLibraryFilter() {
-        return usingLibraryFilter;
-    }
+	public ImportSettingsDialog(Shell parentShell, String exporterArgs, File targetDirectory) {
+		super(parentShell, " Import Parameters", targetDirectory);
+		this.importedModelName = exporterArgs;
+	}
 
-    private StringFieldEditor importedModelNameEditor;
-    private IPreferenceStore store;
-    private BooleanFieldEditor famLeafFilterBooleanField;
-    private BooleanFieldEditor libraryFilterBooleanField;
+	@Override
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		int filterCount = ImportFilterRegistry.INSTANCE.getFilterNamesById().keySet().size();
+		newShell.setSize(500, 180 + 20 * filterCount);
+	}
 
-    public ImportSettingsDialog(Shell parentShell, String exporterArgs, File targetDirectory) {
-        super(parentShell, " Import Parameters", targetDirectory);
-        this.importedModelName = exporterArgs;
-    }
+	@Override
+	protected void buttonPressed(int buttonId) {
+		if (buttonId == IDialogConstants.OK_ID) {
+			importedModelName = importedModelNameEditor.getStringValue();
+			Set<String> filterIds = filterSelections.keySet();
+			for (String filterId : filterIds) {
+				BooleanFieldEditor fieldEditor = filterSelectors.get(filterId);
+				filterSelections.put(filterId, fieldEditor.getBooleanValue());
+			}
+		}
+		super.buttonPressed(buttonId);
+	}
 
-    @Override
-    protected void configureShell(Shell newShell) {
-        super.configureShell(newShell);
-        newShell.setSize(500, 220);
-    }
+	public String getImportedModelName() {
+		return importedModelName;
+	}
 
-    @Override
-    protected void buttonPressed(int buttonId) {
-        if (buttonId == IDialogConstants.OK_ID) {
-            importedModelName = importedModelNameEditor.getStringValue();
-            usingFAMLeafFilter = famLeafFilterBooleanField.getBooleanValue();
-            usingLibraryFilter = libraryFilterBooleanField.getBooleanValue();
-        }
-        super.buttonPressed(buttonId);
-    }
+	@Override
+	protected List<FieldEditor> additionalFields(Composite fieldEditorParent) {
+		Label filters = new Label(fieldEditorParent, SWT.NONE);
+		filters.setText("Import filters to use:");
 
-    public String getImportedModelName() {
-        return importedModelName;
-    }
+		List<FieldEditor> fes = new LinkedList<FieldEditor>();
 
-    @Override
-    protected List<FieldEditor> additionalFields(Composite fieldEditorParent) {
-        Label filters = new Label(fieldEditorParent, SWT.NONE);
-        filters.setText("Import filters to use:");
+		Map<String, ISimulinkImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getFiltersById();
+		Map<String, String> filterNamesById = ImportFilterRegistry.INSTANCE.getFilterNamesById();
+		Map<String, String> filterToolTipsById = ImportFilterRegistry.INSTANCE.getFilterTooltipsById();
+		for (String filterId : filtersById.keySet()) {
+			BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId, filterNamesById.get(filterId),
+					fieldEditorParent);
+			filterCheckbox.setPreferenceStore(store);
+			filterCheckbox.setPreferenceName(filterId);
+			filterCheckbox.load();
+			filterCheckbox.getDescriptionControl(fieldEditorParent).setToolTipText(filterToolTipsById.get(filterId));
+			fes.add(filterCheckbox);
+			filterSelectors.put(filterId, filterCheckbox);
+		}
 
-        List<FieldEditor> fes = new LinkedList<FieldEditor>();
+		importedModelNameEditor = new StringFieldEditor("", "Result Model Name:", fieldEditorParent);
+		importedModelNameEditor.setEmptyStringAllowed(false);
+		importedModelNameEditor.setStringValue(importedModelName);
+		fes.add(importedModelNameEditor);
 
-        famLeafFilterBooleanField = new BooleanFieldEditor("PanelFAMFilterField", "FAM Leaf filter", fieldEditorParent);
-        famLeafFilterBooleanField.getDescriptionControl(fieldEditorParent).setToolTipText(
-                ImporterPreferencePage.FAM_FILTER_EDITOR_TOOLTIP);
-        famLeafFilterBooleanField.setPreferenceStore(store);
-        famLeafFilterBooleanField.setPreferenceName(PreferenceConstants.FAM_LEAF_FILTER);
-        famLeafFilterBooleanField.load();
-        fes.add(famLeafFilterBooleanField);
+		return fes;
+	}
 
-        libraryFilterBooleanField = new BooleanFieldEditor("PanelLibraryFilterField", "Library filter",
-                fieldEditorParent);
-        libraryFilterBooleanField.getDescriptionControl(fieldEditorParent).setToolTipText(
-                ImporterPreferencePage.LIBRARY_FILTER_EDITOR_TOOLTIP);
-        libraryFilterBooleanField.setPreferenceStore(store);
-        libraryFilterBooleanField.setPreferenceName(PreferenceConstants.LIBRARY_FILTER);
-        libraryFilterBooleanField.load();
-        fes.add(libraryFilterBooleanField);
-
-        importedModelNameEditor = new StringFieldEditor("", "Result Model Name:", fieldEditorParent);
-        importedModelNameEditor.setEmptyStringAllowed(false);
-        importedModelNameEditor.setStringValue(importedModelName);
-        fes.add(importedModelNameEditor);
-
-        return fes;
-    }
-
-    public void setPreferenceStore(IPreferenceStore store) {
-        this.store = store;
-    }
+	public void setPreferenceStore(IPreferenceStore store) {
+		this.store = store;
+	}
 }

@@ -41,8 +41,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
         // Import
         store.setDefault(PreferenceConstants.IMPORT_TRAVERSE_MODE, ImportMode.SHALLOW.toString());
         store.setDefault(PreferenceConstants.IMPORT_RESULT_MODEL_PATH, "");
-        store.setDefault(PreferenceConstants.FAM_LEAF_FILTER, true);
-        store.setDefault(PreferenceConstants.LIBRARY_FILTER, false);
 
         // Export
         store.setDefault(PreferenceConstants.EXPORT_RESULT_MODEL_PATH, "");

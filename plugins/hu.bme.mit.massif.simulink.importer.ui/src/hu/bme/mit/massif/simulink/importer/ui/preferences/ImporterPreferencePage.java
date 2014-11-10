@@ -10,9 +10,13 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.importer.ui.preferences;
 
+import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 import hu.bme.mit.massif.simulink.importer.ui.MassifSimulinkUIPlugin;
 import hu.bme.mit.massif.simulink.importer.ui.dialogs.ContainerFieldEditor;
+import hu.bme.mit.massif.simulink.importer.ui.providers.ImportFilterRegistry;
+
+import java.util.Map;
 
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
@@ -30,12 +34,6 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
  * Preference page class for the Simulink importer setting customization
  */
 public class ImporterPreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
-
-    private static final String LIBRARY_FILTER_LABEL = "Library filter";
-    private static final String FAM_FILTER_LABEL = "FAM Leaf filter";
-    public static final String FAM_FILTER_EDITOR_TOOLTIP = "This filters all internal blocks of subsystems with 'Tag' parameter value of 'FAM_Leaf'";
-    public static final String LIBRARY_FILTER_EDITOR_TOOLTIP = "This filter allows to skip traversal of atomic library blocks inside a library model. "
-            + "Such blocks are not represented graphically by the tree view of the Simulink Library Browser in Matlab.";
 
     @Override
     public void init(IWorkbench workbench) {
@@ -91,21 +89,20 @@ public class ImporterPreferencePage extends FieldEditorPreferencePage implements
         filterInformation.setBounds(new Rectangle(0, 0, 300, 15));
         filterInformation.setText("Import filters to use by default:");
 
-        Composite famFilterCheckboxParent = getFieldEditorParent();
-        BooleanFieldEditor famFilterCheckbox = new BooleanFieldEditor(PreferenceConstants.FAM_LEAF_FILTER,
-                FAM_FILTER_LABEL, famFilterCheckboxParent);
-        famFilterCheckbox.getDescriptionControl(famFilterCheckboxParent).setToolTipText(FAM_FILTER_EDITOR_TOOLTIP);
-        addField(famFilterCheckbox);
+        
+        Map<String, ISimulinkImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getFiltersById();
+        Map<String, String> filterNamesById = ImportFilterRegistry.INSTANCE.getFilterNamesById();
+        Map<String, String> filterTooltipsById = ImportFilterRegistry.INSTANCE.getFilterTooltipsById();
+        for (String filterId : filtersById.keySet()) {
+        	Composite filterCheckboxParent = getFieldEditorParent();
+        	BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId,filterNamesById.get(filterId), filterCheckboxParent);
+        	filterCheckbox.getDescriptionControl(filterCheckboxParent).setToolTipText(filterTooltipsById.get(filterId));
+        	addField(filterCheckbox);			
+		}
+        
 
-        Composite libraryFilterCheckboxParent = getFieldEditorParent();
-        BooleanFieldEditor libraryFilterCheckbox = new BooleanFieldEditor(PreferenceConstants.LIBRARY_FILTER,
-                LIBRARY_FILTER_LABEL, libraryFilterCheckboxParent);
-        libraryFilterCheckbox.getDescriptionControl(libraryFilterCheckboxParent).setToolTipText(
-                LIBRARY_FILTER_EDITOR_TOOLTIP);
-        addField(libraryFilterCheckbox);
-
-        // TODO set this, makes the setting more user friendly
-        // resultModelPathEditor.setFilterPath(path);
+		// TODO set this, makes the setting more user friendly
+		// resultModelPathEditor.setFilterPath(path);
 
         addField(resultModelPathEditor);
 

@@ -48,7 +48,6 @@ import hu.bme.mit.massif.simulink.api.extension.impl.ReferencingImportFilter;
 import hu.bme.mit.massif.simulink.api.internal.PluginSimulinkAPILogger;
 import hu.bme.mit.massif.simulink.api.internal.SimulinkApiPlugin;
 import hu.bme.mit.massif.simulink.api.provider.block.BlockProvider;
-import hu.bme.mit.massif.simulink.api.provider.filter.IFilterProvider;
 import hu.bme.mit.massif.simulink.api.provider.port.PortProvider;
 import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
@@ -349,7 +348,7 @@ public class Importer {
      * @param model
      *            the model assigned to the traverser
      */
-    public Importer(ModelObject model, IFilterProvider filterProvider) {
+    public Importer(ModelObject model) {
 
         // Initialization of fields
         blocks = new HashMap<String, Block>();
@@ -375,12 +374,11 @@ public class Importer {
         // Assign the model to the traverser
         this.model = model;
         commandFactory = model.getCommandFactory();
-        
-        filters = filterProvider.getRegisteredFilters(model);
-        
     }
 
-
+    public void addFilters(Collection<ISimulinkImportFilter> filters){
+    	this.filters.addAll(filters);
+    }
 
     /**
      * Registers an import filter for the traverser

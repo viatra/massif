@@ -12,7 +12,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.common,
  hu.bme.mit.massif.simulink.api;bundle-version="0.1.0",
  hu.bme.mit.massif.communication;bundle-version="0.4.0",
- hu.bme.mit.massif.communication.manager;bundle-version="0.4.0"
+ hu.bme.mit.massif.communication.manager;bundle-version="0.4.0",
+ com.google.guava
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

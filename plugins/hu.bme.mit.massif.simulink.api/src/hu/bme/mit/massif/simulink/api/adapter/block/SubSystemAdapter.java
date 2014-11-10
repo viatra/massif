@@ -21,9 +21,7 @@ import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
 import hu.bme.mit.massif.simulink.api.extension.impl.ReferencingImportFilter;
-import hu.bme.mit.massif.simulink.api.provider.filter.IFilterProvider;
 import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
@@ -96,13 +94,8 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
         }
 
         ModelObject referencedLibrary = new ModelObject(libraryName, commandFactory.getCommandEvaluator());
-        Importer referencedLibraryTraverser = new Importer(referencedLibrary, new IFilterProvider() {
-			
-			@Override
-			public Set<ISimulinkImportFilter> getRegisteredFilters(ModelObject model) {
-				return traverser.getFilters();
-			}
-		});
+        Importer referencedLibraryTraverser = new Importer(referencedLibrary);
+        referencedLibraryTraverser.addFilters(traverser.getFilters());
 
         referencedLibraryTraverser.getReferencedLibraries().putAll(libraryRegistry);
 

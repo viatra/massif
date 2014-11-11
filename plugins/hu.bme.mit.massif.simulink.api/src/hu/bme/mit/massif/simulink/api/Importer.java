@@ -1020,7 +1020,15 @@ public class Importer {
                 Handle outportHandle = Handle.asHandle(iVisitableMatlabData);
                 createAndAddPort(parentBlock, portProvider, outportHandle, "Outport");
             }
-
+            
+            // Process state ports
+            List<IVisitableMatlabData> stateHandles = CellMatlabData.getCellMatlabDataData(portHandles
+                    .getData("State"));
+            for (IVisitableMatlabData iVisitableMatlabData : stateHandles) {
+                Handle outportHandle = Handle.asHandle(iVisitableMatlabData);
+                createAndAddPort(parentBlock, portProvider, outportHandle, "Outport");
+            }
+            
             // Process inports
             List<IVisitableMatlabData> inportHandles = CellMatlabData.getCellMatlabDataData(portHandles
                     .getData("Inport"));
@@ -1067,7 +1075,8 @@ public class Importer {
         MatlabCommand getPortNumber = commandFactory.getParam().addParam(portHandle).addParam("PortNumber");
         Integer portNumber = Handle.getHandleData(getPortNumber.execute()).intValue();
         Port port = null;
-        if (portType.equalsIgnoreCase("outport")) {
+        // TODO for now handle state ports the same way as we would handle outports
+        if (portType.equalsIgnoreCase("outport") || portType.equalsIgnoreCase("state")) {
             port = portAdapter.createPort(parent, portHandle, outPorts);
             createAndSetSimulinkRef("outport." + portNumber.toString(), parent.getSimulinkRef(), port);
             cachedOutPortHandles.put((OutPort) port, Handle.getHandleData(portHandle));

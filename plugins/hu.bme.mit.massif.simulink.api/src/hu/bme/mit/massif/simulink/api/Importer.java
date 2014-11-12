@@ -1026,6 +1026,7 @@ public class Importer {
                     .getData("State"));
             for (IVisitableMatlabData iVisitableMatlabData : stateHandles) {
                 Handle outportHandle = Handle.asHandle(iVisitableMatlabData);
+                // TODO the type is state here
                 createAndAddPort(parentBlock, portProvider, outportHandle, "Outport");
             }
             

@@ -720,6 +720,9 @@ public class Exporter {
      *            the outport from which the line goes out
      * @throws SimulinkApiException
      */
+    
+    private double prevdata;
+    
     private void createConnectionFromSingleConnection(SingleConnection singleConnection, OutPort outPort) {
         // FIXME sc.getFrom() didn't work!!!
         String fromBlockName = outPort.getContainer().getName();
@@ -742,6 +745,9 @@ public class Exporter {
         }
 
         int fromPortNumber = indexOfOutportInMatlab;
+        
+        
+        
         String srcPort = fromBlockName + "/" + fromPortNumber;
         String toBlockName = singleConnection.getTo().getContainer().getName();
 
@@ -768,11 +774,20 @@ public class Exporter {
             toPortNumber = "Trigger";
         String dstPort = toBlockName + "/" + toPortNumber;
 
+        
         // get the FQN of the current level / subsystem
         String system = outPort.getContainer().getSimulinkRef().getQualifier();
 
         MatlabCommand addLine = commandFactory.addLine().addParam(system).addParam(srcPort).addParam(dstPort).addParam("AutoRouting").addParam("on");
         IVisitableMatlabData addedLineHandle = addLine.execute();
+        
+		if(Handle.asHandle(addedLineHandle).getData().equals(prevdata)){
+			// FIXME this is only a hotfix for State (out)ports
+			addLine = commandFactory.addLine().addParam(system).addParam(fromBlockName+"/State").addParam(dstPort).addParam("AutoRouting").addParam("on");
+			addedLineHandle = addLine.execute();
+        }
+        prevdata = Handle.asHandle(addedLineHandle).getData(); 
+        
         // IF the line name is not artificially created while importing, the exporter sets the name
         if (addedLineHandle != null && singleConnection.getLineName() != null) {
             MatlabCommand setLineName = commandFactory.setParam().addParam(addedLineHandle).addParam("Name").addParam(singleConnection.getLineName());

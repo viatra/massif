@@ -23,7 +23,7 @@ It is required to have the following tools:
  * Eclipse modeling with EMF-IncQuery and Massif installed
  * MATLAB (recommended r2012a or later)
 
-Details on the [wiki](https://github.com/FTSRG/massif/wiki/UserGuide#installation)
+Details on the [wiki](../../wiki/UserGuide#installation)
 
 ## II. Usage:
 
@@ -37,8 +37,16 @@ To use these features, choose a MATLAB provider. At this point you can choose be
 
 The functions are available in the context menu commands of `.mdl`, `.slx` and `.simulink` files (right click on the files in `Package Explorer`) called `Import Simulink Model` and `Export Simulink Model`.
 
-A detailed [user guide](https://github.com/FTSRG/massif/wiki/UserGuide#model-importing-and-exporting) is available in the wiki.
+A detailed [user guide](../../wiki/UserGuide#model-importing-and-exporting) is available in the wiki.
+
+### Get help
+
+If you run into any problems or have questions, do the following:
+  1. Read the [wiki](../../wiki/Home)
+  1. Look at the open and closed [issues](../../issues)
+
+If you need more help, open a [new issue](../../issues/new) describing your problem.
 
 ## III. Contributing
 
-We welcome contributors, read the [DeveloperGuide](https://github.com/FTSRG/massif/wiki/DevelopersGuide) for setting up shop!
+We welcome contributors, read the [DeveloperGuide](../../wiki/DevelopersGuide) for setting up shop!

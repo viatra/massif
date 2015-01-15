@@ -12,6 +12,7 @@ package hu.bme.mit.massif.communication.datavisitor;
 
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
+import hu.bme.mit.massif.communication.datatype.Logical;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 
@@ -66,5 +67,12 @@ public class ParameterVisitor implements IMatlabDataVisitor {
     public void visit(StructMatlabData structMatlabData) {
         // TODO Unsupported operation? A struct should be created again using the given datas?
     }
+
+	@Override
+	public void visit(Logical logical) {
+        for (int i = 0; i < commandStrings.length; i++) {
+            commandStrings[i] = commandStrings[i] + logical + ",";
+        }
+	}
 
 }

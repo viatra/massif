@@ -12,6 +12,7 @@ package hu.bme.mit.massif.communication.datavisitor;
 
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
+import hu.bme.mit.massif.communication.datatype.Logical;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 
@@ -26,4 +27,6 @@ public interface IMatlabDataVisitor {
     public void visit(MatlabString matlabString);
 
     public void visit(StructMatlabData structMatlabData);
+
+	public void visit(Logical logical);
 }

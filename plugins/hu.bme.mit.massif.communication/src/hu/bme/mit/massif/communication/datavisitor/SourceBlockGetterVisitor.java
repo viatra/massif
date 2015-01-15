@@ -13,6 +13,7 @@ package hu.bme.mit.massif.communication.datavisitor;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
+import hu.bme.mit.massif.communication.datatype.Logical;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 
@@ -56,4 +57,11 @@ public class SourceBlockGetterVisitor implements IMatlabDataVisitor {
         // TODO Unsupported operation?
         throw new UnsupportedOperationException("Not yet implemented!");
     }
+    
+	@Override
+	public void visit(Logical logical) {
+        // TODO Unsupported operation?
+        throw new UnsupportedOperationException("Not implemented!");
+	}
+    
 }

@@ -14,6 +14,7 @@ import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
+import hu.bme.mit.massif.communication.datatype.Logical;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import hu.bme.mit.massif.simulink.Block;
@@ -147,6 +148,12 @@ public final class BasicSimulinkEMFOperationsAPI {
         MatlabCommand getObjectParamters = commandFactory.customCommand("ops = get_param(" + currentBlockHandle + ",'ObjectParameters');", 0);
         getObjectParamters.execute();
 
+        MatlabCommand isFieldExist = commandFactory.customCommand("isfield(ops,'" + maskVarParam + "')" , 1);
+        boolean doesExist = Logical.getLogicalData(isFieldExist.execute());
+        if(!doesExist) {
+        	return;
+        }
+        
         MatlabCommand getObjectParamterTypes  = commandFactory.customCommand("ops." + maskVarParam + ".Type", 1);
         type = MatlabString.getMatlabStringData(getObjectParamterTypes.execute());
 

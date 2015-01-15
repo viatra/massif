@@ -59,13 +59,28 @@ public class InportAdapter implements IPortAdapter {
     /**
      * Extracted function for better code readability
      * 
+     * TODO might cause indexing errors in case of extra block types
+     * 
      * @param portBlock
      * @return
      * @throws SimulinkApiException
      */
     private int getPortBlockPortCount(PortBlock portBlock, MatlabCommandFactory commandFactory) {
-        MatlabCommand getPortCount = commandFactory.getParam().addParam(portBlock.getSimulinkRef().getFQN()).addParam("Port");
-        return Integer.parseInt(MatlabString.getMatlabStringData(getPortCount.execute()));
+    	if(portBlock instanceof TriggerBlock){
+    		// Trigger is the last in the list
+    		return portBlock.getParent().getPorts().size();
+    	}
+    	else if(portBlock instanceof EnableBlock ){
+    		// Calculate the position
+    		// Enable is the port before the Trigger, if exists, otherwise the last
+    		if(portBlock.getParent().getTrigger() != null){
+    			return portBlock.getParent().getPorts().size() - 1;
+    		}
+    		return portBlock.getParent().getPorts().size();
+    	} else {
+	        MatlabCommand getPortCount = commandFactory.getParam().addParam(portBlock.getSimulinkRef().getFQN()).addParam("Port");
+	        return Integer.parseInt(MatlabString.getMatlabStringData(getPortCount.execute()));
+    	}
     }
 
 }

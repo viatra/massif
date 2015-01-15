@@ -15,6 +15,7 @@ import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
+import hu.bme.mit.massif.communication.datatype.Logical;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 
@@ -208,7 +209,15 @@ public class CommandEvaluatorImpl implements ICommandEvaluator {
                     }
                 }
                 result = compositeData;
-            }
+            }            
+        } else if (type.equals("logical")) {
+        	if (data instanceof boolean[]) {
+                if (((boolean[]) data).length == 1) {
+                    Logical logical = new Logical();
+                    logical.setData((((boolean[]) data)[0]));
+                    result = logical;
+                }
+        	}
         } else if (type.equals("char")) {
             // TODO handle char arrays
             MatlabString string = new MatlabString();

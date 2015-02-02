@@ -16,6 +16,23 @@
     name="massif"
     label="Massif">
   <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-Doomph.redirection.massif.setup"
+      value="=https://raw.githubusercontent.com/FTSRG/massif/master/setup/hu.bme.mit.massif.setup/Massif.setup->${git.clone.massif.location|uri}/setup/hu.bme.mit.massif.setup/Massif.setup"
+      vm="true"/>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-Xmx"
+      value="2G"
+      vm="true">
+    <description>Set the heap space needed to work with the projects of ${scope.project.label}</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-XX:MaxPermSize="
+      value="256M"
+      vm="true"/>
+  <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.massif"
       remoteURI="FTSRG/massif">

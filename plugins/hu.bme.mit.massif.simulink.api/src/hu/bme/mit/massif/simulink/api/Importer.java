@@ -376,7 +376,7 @@ public class Importer {
         commandFactory = model.getCommandFactory();
     }
 
-    public void addFilters(Collection<ISimulinkImportFilter> filters){
+    public void registerFilters(Collection<ISimulinkImportFilter> filters){
     	this.filters.addAll(filters);
     }
 

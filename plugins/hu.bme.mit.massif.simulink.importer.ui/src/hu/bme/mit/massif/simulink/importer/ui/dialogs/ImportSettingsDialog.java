@@ -60,7 +60,7 @@ public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 	protected void buttonPressed(int buttonId) {
 		if (buttonId == IDialogConstants.OK_ID) {
 			importedModelName = importedModelNameEditor.getStringValue();
-			Set<String> filterIds = filterSelections.keySet();
+			Set<String> filterIds = filterSelectors.keySet();
 			for (String filterId : filterIds) {
 				BooleanFieldEditor fieldEditor = filterSelectors.get(filterId);
 				filterSelections.put(filterId, fieldEditor.getBooleanValue());

@@ -20,6 +20,7 @@ import hu.bme.mit.massif.simulink.api.util.ImportMode;
 import hu.bme.mit.massif.simulink.importer.ui.MassifSimulinkUIPlugin;
 import hu.bme.mit.massif.simulink.importer.ui.dialogs.ImportSettingsDialog;
 import hu.bme.mit.massif.simulink.importer.ui.preferences.PreferenceConstants;
+import hu.bme.mit.massif.simulink.importer.ui.providers.ImportFilterRegistry;
 
 import java.io.File;
 import java.util.Map;
@@ -173,6 +174,12 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
 
                 try {
                     saveModel = true;
+                    
+                    // Register applicable filters for the traverser
+                    for (String filterId : model.getApplicableFilters()) {						
+                    	traverser.registerFilter(ImportFilterRegistry.INSTANCE.getFiltersById().get(filterId));
+					}
+                    
                     traverser.traverseAndCreateEMFModel(ImportMode.valueOf(settings.traverseMode));
                 } catch (Exception e) {
                     Status status = new Status(Status.ERROR, MassifSimulinkUIPlugin.PLUGIN_ID, EXCEPTION_WHILE_IMPORTING, e);

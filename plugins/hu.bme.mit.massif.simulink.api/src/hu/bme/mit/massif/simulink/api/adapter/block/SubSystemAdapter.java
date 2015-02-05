@@ -95,7 +95,7 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
 
         ModelObject referencedLibrary = new ModelObject(libraryName, commandFactory.getCommandEvaluator());
         Importer referencedLibraryTraverser = new Importer(referencedLibrary);
-        referencedLibraryTraverser.addFilters(traverser.getFilters());
+        referencedLibraryTraverser.registerFilters(traverser.getFilters());
 
         referencedLibraryTraverser.getReferencedLibraries().putAll(libraryRegistry);
 

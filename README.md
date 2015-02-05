@@ -15,7 +15,8 @@ Massif was developed in a cooperation between Embraer and the Budapest Universit
 
 We only provide a [CI update site](https://build.inf.mit.bme.hu/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/) at the moment, more stable versions will be published on a dedicated page.
 
-[CI Build](https://build.inf.mit.bme.hu/jenkins/job/Massif/) on Jenkins.
+[CI Build](https://build.inf.mit.bme.hu/jenkins/job/Massif/) on Jenkins: 
+[![Build Status](https://build.inf.mit.bme.hu/jenkins/buildStatus/icon?job=Massif&build=71)](https://build.inf.mit.bme.hu/jenkins/job/Massif/71/)
 
 ## I. Installation:
 

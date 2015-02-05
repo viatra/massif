@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.incquery.runtime.api.AdvancedIncQueryEngine;
 import org.eclipse.incquery.runtime.api.GenericPatternGroup;
 import org.eclipse.incquery.runtime.api.IQueryGroup;
+import org.eclipse.incquery.runtime.emf.EMFScope;
 import org.eclipse.incquery.runtime.exception.IncQueryException;
 
 /**
@@ -52,7 +53,7 @@ public class BusSignalMapper {
     public BusSignalMapper(ResourceSet busMappingResourceSet) {
         checkArgument(busMappingResourceSet != null, "Resource set for bus mapping path finder cannot be null!");
         try {
-            iqe = AdvancedIncQueryEngine.createUnmanagedEngine(busMappingResourceSet);
+            iqe = AdvancedIncQueryEngine.createUnmanagedEngine(new EMFScope(busMappingResourceSet));
             IQueryGroup group = GenericPatternGroup.of(NextOutPortInPathMatcher.querySpecification(),
                     FirstOutPortFromBusSpecificationMatcher.querySpecification());
             group.prepare(iqe);

@@ -267,7 +267,7 @@ public class MatlabRunningManager {
         }
 
         MatlabProcessInformation info = new MatlabProcessInformation();
-        if (processPath.startsWith(folderEndedWithSeparator) && matlabVersions.containsKey(version)) {
+        if (processPath.toUpperCase().startsWith(folderEndedWithSeparator.toUpperCase()) && matlabVersions.containsKey(version)) {
             String release = matlabVersions.get(version);
             info.path = processPath;
             info.pid = processPID;

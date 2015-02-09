@@ -10,21 +10,53 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.importer.ui.dialogs;
 
+import hu.bme.mit.massif.simulink.importer.ui.preferences.PreferenceConstants;
+
 import java.io.File;
-import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.jface.preference.FieldEditor;
+import org.eclipse.jface.preference.RadioGroupFieldEditor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 
+import com.google.common.collect.Lists;
+
 public class ExportSettingsDialog extends AbstractSimulinkSettingsDialog {
+    private RadioGroupFieldEditor modelExtensionSelector;
+
+
     public ExportSettingsDialog(Shell parentShell, File targetDirectory) {
         super(parentShell, "Export Parameters", targetDirectory);
 	}
 
     @Override
-    protected List<FieldEditor> additionalFields(Composite fieldEditorParent) {
-        return Collections.emptyList();
+    protected void configureShell(Shell newShell) {
+        super.configureShell(newShell);
+        newShell.setSize(500, 192);
+    }
+
+    
+    @Override
+    protected List<? extends FieldEditor> additionalFields(Composite fieldEditorParent) {
+        modelExtensionSelector = new RadioGroupFieldEditor(
+                PreferenceConstants.EXPORT_RESULT_MODEL_EXTENSION, 
+                "Simulink model file extension: ", 
+                1,
+                new String[][] {
+                    {"MDL", "mdl"},
+                    {"SLX", "slx"}
+                },
+                fieldEditorParent);  
+        //@formatter:on
+        modelExtensionSelector.setPreferenceStore(store);
+        modelExtensionSelector.load();
+        
+        return Lists.newArrayList(modelExtensionSelector);
+    }
+    
+    public void storeSelectedFileExtension() {
+        modelExtensionSelector.setPreferenceStore(store);
+        modelExtensionSelector.store();
     }
 }

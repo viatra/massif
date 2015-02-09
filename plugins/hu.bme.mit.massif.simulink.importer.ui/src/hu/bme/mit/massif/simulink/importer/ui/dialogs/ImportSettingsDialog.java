@@ -22,7 +22,6 @@ import java.util.Set;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditor;
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -42,7 +41,7 @@ public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 	}
 
 	private StringFieldEditor importedModelNameEditor;
-	private IPreferenceStore store;
+
 
 	public ImportSettingsDialog(Shell parentShell, String exporterArgs, File targetDirectory) {
 		super(parentShell, " Import Parameters", targetDirectory);
@@ -100,7 +99,4 @@ public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 		return fes;
 	}
 
-	public void setPreferenceStore(IPreferenceStore store) {
-		this.store = store;
-	}
 }

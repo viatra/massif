@@ -29,6 +29,8 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Display;
@@ -83,6 +85,8 @@ public class ExportModelHandler extends AbstractSimulinkHandler {
 
             ExportSettingsDialog dialog = new ExportSettingsDialog(Display.getCurrent().getActiveShell(),
                     new File(modelPath));
+            IPreferenceStore store = MassifSimulinkUIPlugin.getDefault().getPreferenceStore();
+            dialog.setPreferenceStore(store);
             dialog.open();
 
             // If the operation was cancelled, then return
@@ -90,6 +94,8 @@ public class ExportModelHandler extends AbstractSimulinkHandler {
                 return;
             }
 
+            dialog.storeSelectedFileExtension();
+            
             resultPath = dialog.getTargetDirectory().toString();
         }
         // TODO is final needed? If the model is moved, finalResultPath stays unchanged
@@ -144,7 +150,9 @@ public class ExportModelHandler extends AbstractSimulinkHandler {
                 String exportedModelName = finalResultPath + File.separator + newModelName;
 
                 try {
-                    exporter.saveSimulinkModel(exportedModelName);
+                    IPreferenceStore store = MassifSimulinkUIPlugin.getDefault().getPreferenceStore();
+                    String extension = store.getString(PreferenceConstants.EXPORT_RESULT_MODEL_EXTENSION);
+                    exporter.saveSimulinkModel(exportedModelName, extension);
                 } catch (SimulinkApiException e) {
                     Status status = new Status(Status.ERROR, MassifSimulinkUIPlugin.PLUGIN_ID, EXCEPTION_WHILE_SAVING, e);
                     MassifSimulinkUIPlugin.getDefault().getLog().log(status);

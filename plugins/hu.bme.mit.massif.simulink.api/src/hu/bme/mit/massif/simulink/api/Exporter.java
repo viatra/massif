@@ -166,7 +166,7 @@ public class Exporter {
      *            the exported model's save path
      * @throws SimulinkApiException
      */
-    public void saveSimulinkModel(String modelNameWithPath) throws SimulinkApiException {
+    public void saveSimulinkModel(String modelNameWithPath, String fileExtension) throws SimulinkApiException {
 
         // If no command evaluator object is assigned yet, indicate it
         if (commandFactory == null) {
@@ -193,7 +193,7 @@ public class Exporter {
         }
 
         // Save the model
-        MatlabCommand saveSystem = commandFactory.saveSystem().addParam(modelName).addParam(modelName + ".mdl");
+        MatlabCommand saveSystem = commandFactory.saveSystem().addParam(modelName).addParam(modelName + "." + fileExtension);
         saveSystem.execute();
 
         // Navigate back to the original working directory

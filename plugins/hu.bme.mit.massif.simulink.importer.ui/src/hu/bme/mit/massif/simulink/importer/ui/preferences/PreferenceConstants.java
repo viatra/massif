@@ -34,6 +34,7 @@ public class PreferenceConstants {
 
 	// Export
 	public static final String EXPORT_RESULT_MODEL_PATH = "exportResultModelPath";
+	public static final String EXPORT_RESULT_MODEL_EXTENSION = "exportResultModelExtension";
 	public static final String EXPORT_SCRIPT_NAMES = "exportScriptNames";
 	public static final String EXPORT_ADDITIONAL_MATLAB_PATH = "exportAdditionalMatlabPath";
 	public static final String MATLAB_CONTROL_ID = "massif.connectors.matlab.control";

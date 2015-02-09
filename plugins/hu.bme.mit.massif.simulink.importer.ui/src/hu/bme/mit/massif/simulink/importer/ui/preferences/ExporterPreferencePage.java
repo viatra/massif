@@ -15,6 +15,7 @@ import hu.bme.mit.massif.simulink.importer.ui.dialogs.ContainerFieldEditor;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.preference.RadioGroupFieldEditor;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Rectangle;
@@ -52,6 +53,20 @@ public class ExporterPreferencePage extends FieldEditorPreferencePage implements
         ContainerFieldEditor resultModelPathEditor = new ContainerFieldEditor(
                 PreferenceConstants.EXPORT_RESULT_MODEL_PATH, "Default result model location:", getFieldEditorParent());
         addField(resultModelPathEditor);
+
+        // Result model extension
+        //@formatter:off
+        RadioGroupFieldEditor modelExtensionSelector= new RadioGroupFieldEditor(
+                PreferenceConstants.EXPORT_RESULT_MODEL_EXTENSION, 
+                "Simulink model file extension: ", 
+                1,
+                new String[][] {
+                    {"MDL", "mdl"},
+                    {"SLX", "slx"}
+                },
+              getFieldEditorParent());  
+        //@formatter:on
+        addField(modelExtensionSelector);
 
         // A horizontal separator on the page
         SeparatorFieldEditor separator = new SeparatorFieldEditor(getFieldEditorParent());

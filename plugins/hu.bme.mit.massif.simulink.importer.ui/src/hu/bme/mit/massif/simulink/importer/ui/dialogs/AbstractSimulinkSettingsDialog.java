@@ -17,6 +17,7 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.preference.FieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
@@ -31,6 +32,8 @@ public abstract class AbstractSimulinkSettingsDialog extends Dialog {
     private ContainerFieldEditor targetDirectoryEditor;
     private String dialogTitle;
 
+    protected IPreferenceStore store;
+    
     public AbstractSimulinkSettingsDialog(Shell parentShell, String dialogTitle, File targetDirectory) {
         super(parentShell);
         this.dialogTitle = dialogTitle;
@@ -64,7 +67,7 @@ public abstract class AbstractSimulinkSettingsDialog extends Dialog {
                 targetDirectoryEditor.setStringValue(targetDirectory.getPath());
                 addField(targetDirectoryEditor);
 
-                List<FieldEditor> additionalFields = additionalFields(fieldEditorParent);
+                List<? extends FieldEditor> additionalFields = additionalFields(fieldEditorParent);
                 for (FieldEditor fieldEditor : additionalFields) {
                     addField(fieldEditor);
                 }
@@ -83,7 +86,7 @@ public abstract class AbstractSimulinkSettingsDialog extends Dialog {
         return pageControl;
     }
 
-    protected abstract List<FieldEditor> additionalFields(Composite fieldEditorParent);
+    protected abstract List<? extends FieldEditor> additionalFields(Composite fieldEditorParent);
 
     @Override
     protected void createButtonsForButtonBar(Composite parent) {
@@ -108,6 +111,10 @@ public abstract class AbstractSimulinkSettingsDialog extends Dialog {
 
     public File getTargetDirectory() {
         return targetDirectory;
+    }
+
+    public void setPreferenceStore(IPreferenceStore store) {
+        this.store = store;
     }
 
 }

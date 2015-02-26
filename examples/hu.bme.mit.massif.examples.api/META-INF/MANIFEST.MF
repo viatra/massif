@@ -2,10 +2,10 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Massif API Examples
 Bundle-SymbolicName: hu.bme.mit.massif.examples.api
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.junit,
  br.com.embraer.massif.commandevaluation.client,
- hu.bme.mit.massif.simulink.api;bundle-version="0.4.0",
- hu.bme.mit.massif.communication;bundle-version="0.4.0",
- hu.bme.mit.massif.communication.commandevaluation;bundle-version="0.4.0"
+ hu.bme.mit.massif.simulink.api,
+ hu.bme.mit.massif.communication,
+ hu.bme.mit.massif.communication.commandevaluation

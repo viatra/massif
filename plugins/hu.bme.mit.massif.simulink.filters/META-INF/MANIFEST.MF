@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Massif Built-in Filter Contributions
 Bundle-SymbolicName: hu.bme.mit.massif.simulink.filters;singleton:=true
-Bundle-Version: 0.4.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  hu.bme.mit.massif.simulink.api,
  hu.bme.mit.massif.simulink,
- hu.bme.mit.massif.communication;bundle-version="0.4.0"
+ hu.bme.mit.massif.communication
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: hu.bme.mit.massif.simulink.filters
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

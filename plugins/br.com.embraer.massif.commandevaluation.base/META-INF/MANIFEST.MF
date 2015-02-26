@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Trans-IMA Matlab connection Base
 Bundle-SymbolicName: br.com.embraer.massif.commandevaluation.base
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.
-Bundle-Version: 0.4.0.qualifier
+Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: br.com.embraer.massif.commandevaluation.base,
  br.com.embraer.massif.commandevaluation.exception,

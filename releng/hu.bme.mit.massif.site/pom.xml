@@ -63,8 +63,8 @@
 			<activation>
 				<activeByDefault>false</activeByDefault>
 				<property>
-					<name>BUILD_TYPE</name>
-					<value>integration</value>
+					<name>mirror-integration</name>
+					<value>true</value>
 				</property>
 			</activation>
 			<build>

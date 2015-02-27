@@ -66,6 +66,7 @@
 		<mirror-site-url>http://incquery.net/update/massif/integration/site</mirror-site-url>
 		<mirror-integration-site-url>${mirror-site-url}/integration</mirror-integration-site-url>
 		<mirror-release-site-url>${mirror-site-url}/release</mirror-release-site-url>
+		<mirror-integration>false</mirror-integration>
 	</properties>
 	<build>
 		<plugins>

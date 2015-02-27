@@ -16,10 +16,19 @@ The development of Massif was supported by multiple projects and partners, most 
 
 ## Update site:
 
-We only provide a [CI update site](https://build.inf.mit.bme.hu/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/) at the moment, more stable versions will be published on a dedicated page.
+***Latest release: 0.4.0***
+
+Releases: http://incquery.net/update/massif/release/site/
+  * Command evaluation server archive [download](http://incquery.net/update/massif/release/) 
+
+Integration builds: http://incquery.net/update/massif/integration/site/
+  * Command evaluation server archive [download](http://incquery.net/update/massif/integration/)
+  * These are created each week and old versions are discarded after a new release.
+
+We also provide a [CI update site](https://build.inf.mit.bme.hu/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
 
 [CI Build](https://build.inf.mit.bme.hu/jenkins/job/Massif/) on Jenkins: 
-[![Build Status](https://build.inf.mit.bme.hu/jenkins/buildStatus/icon?job=Massif&build=71)](https://build.inf.mit.bme.hu/jenkins/job/Massif/71/)
+[![Build Status](https://build.inf.mit.bme.hu/jenkins/buildStatus/icon?job=Massif)](https://build.inf.mit.bme.hu/jenkins/job/Massif/)
 
 ## I. Installation:
 

@@ -24,13 +24,9 @@
   </build>
   <profiles>
 		<profile>
-			<id>mirror-site</id>
+			<id>mirror-release-site</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
-				<property>
-					<name>BUILD_TYPE</name>
-					<value>integration</value>
-				</property>
 				<property>
 					<name>BUILD_TYPE</name>
 					<value>release</value>
@@ -53,7 +49,42 @@
 						<configuration>
 							<source>
 								<repository>
-									<url>${mirror-site-url}</url>
+									<url>${mirror-release-site-url}</url>
+									<layout>p2</layout>
+								</repository>
+							</source>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>mirror-integration-site</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>BUILD_TYPE</name>
+					<value>integration</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-p2-extras-plugin</artifactId>
+						<version>${tycho.version}</version>
+						<executions>
+							<execution>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>mirror</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<source>
+								<repository>
+									<url>${mirror-integration-site-url}</url>
 									<layout>p2</layout>
 								</repository>
 							</source>

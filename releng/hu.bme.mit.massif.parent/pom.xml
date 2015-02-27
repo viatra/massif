@@ -63,7 +63,9 @@
 		<incquery.compiler.version>0.8.1-SNAPSHOT</incquery.compiler.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.skippedModules></sonar.skippedModules>
-		<mirror-site-url>http://incquery.net/update/massif/integration/site/${BUILD_TYPE}</mirror-site-url>
+		<mirror-site-url>http://incquery.net/update/massif/integration/site</mirror-site-url>
+		<mirror-integration-site-url>${mirror-site-url}/integration</mirror-integration-site-url>
+		<mirror-release-site-url>${mirror-site-url}/release</mirror-release-site-url>
 	</properties>
 	<build>
 		<plugins>

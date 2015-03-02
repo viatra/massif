@@ -10,11 +10,22 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.util;
 
+import java.util.Iterator;
+
+import hu.bme.mit.massif.simulink.Block;
+import hu.bme.mit.massif.simulink.Connection;
 import hu.bme.mit.massif.simulink.IdentifierReference;
 import hu.bme.mit.massif.simulink.LibraryLinkReference;
+import hu.bme.mit.massif.simulink.MultiConnection;
+import hu.bme.mit.massif.simulink.OutPort;
+import hu.bme.mit.massif.simulink.Port;
 import hu.bme.mit.massif.simulink.SimulinkElement;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
+import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.SimulinkReference;
+import hu.bme.mit.massif.simulink.SingleConnection;
+import hu.bme.mit.massif.simulink.SubSystem;
+import hu.bme.mit.massif.simulink.util.SimulinkSwitch;
 
 public class SimulinkUtil {
 
@@ -76,4 +87,40 @@ public class SimulinkUtil {
         toRef.setQualifier(qualifier);
     }
 
+    /**
+     * Changes the qualifier of the element to the supplied FQN and also propagates this change on the qualifier tree.
+     * 
+     */
+    public static void changeRootQualifier(SimulinkElement elem, String parentFQN) {
+        elem.getSimulinkRef().setQualifier(parentFQN);
+        String fqnOfRoot = elem.getSimulinkRef().getFQN();
+        
+        if(elem instanceof Block){
+            for (Port port : ((Block) elem).getPorts()) {
+                changeRootQualifier(port, fqnOfRoot);
+            }
+            if (elem instanceof SubSystem) {
+                for(Block subBl : ((SubSystem)elem).getSubBlocks()){
+                    changeRootQualifier(subBl, fqnOfRoot);
+                }
+            }
+        } else if(elem instanceof SimulinkModel) {
+            for (Block child : ((SimulinkModel) elem).getContains()) {
+                changeRootQualifier(child, fqnOfRoot);
+            }
+        } else if (elem instanceof Port) {
+            if(elem instanceof OutPort){
+                Connection conn = ((OutPort) elem).getConnection();
+                changeRootQualifier(conn, fqnOfRoot);
+            }
+        } else if (elem instanceof Connection) {
+           if(elem instanceof MultiConnection){
+               for (SingleConnection conn : ((MultiConnection) elem).getConnections()) {
+                   changeRootQualifier(conn, fqnOfRoot);
+               }
+           }
+        } else {
+            throw new IllegalArgumentException("Cannot change root qualifier for element " + elem.getSimulinkRef().getFQN());
+        }
+    }
 }

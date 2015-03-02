@@ -33,4 +33,45 @@
             contributorClass="hu.bme.mit.massif.simulink.presentation.SimulinkActionBarContributor">
       </editor>
    </extension>
+   
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="hu.bme.mit.massif.simulink.presentation.handlers.ResetQualifierHandler"
+            id="hu.bme.mit.massif.simulink.editor.resetqualifier"
+            name="Reset qualifier on children">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:hu.bme.mit.massif.simulink.presentation.SimulinkEditorID?before=additions">
+         <command
+               commandId="hu.bme.mit.massif.simulink.editor.resetqualifier"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="hu.bme.mit.massif.simulink.elementdef">
+               </reference>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="hu.bme.mit.massif.simulink.elementdef">
+         <with
+               variable="selection">
+            <iterate
+                  ifEmpty="false">
+               <instanceof
+                     value="hu.bme.mit.massif.simulink.SimulinkElement">
+               </instanceof>
+            </iterate>
+         </with>
+      </definition>
+   </extension>
 </plugin>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="Generated from Massif Targlet Platform" sequenceNumber="49">
+<target name="Generated from Massif Targlet Platform" sequenceNumber="50">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
-      <unit id="org.eclipse.incquery.sdk.feature.source.feature.group" version="0.8.1.201410011502"/>
-      <unit id="org.eclipse.incquery.testing.sdk.feature.feature.group" version="0.8.1.201410011502"/>
+      <unit id="org.eclipse.incquery.sdk.feature.source.feature.group" version="0.9.1.201502241438"/>
+      <unit id="org.eclipse.incquery.testing.sdk.feature.feature.group" version="0.9.1.201502241438"/>
       <repository location="http://download.eclipse.org/incquery/updates-extra/release/"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
-      <unit id="org.eclipse.emf.sdk.feature.group" version="2.10.1.v20140901-1055"/>
-      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.10.0.v20140909-1633"/>
-      <unit id="org.eclipse.sdk.feature.group" version="4.4.0.v20140925-0400"/>
-      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.6.0.v201405210727"/>
+      <unit id="org.eclipse.emf.sdk.feature.group" version="2.10.2.v20150123-0452"/>
+      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.10.2.v20150204-1316"/>
+      <unit id="org.eclipse.sdk.feature.group" version="4.4.2.v20150204-1700"/>
+      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.7.3.v201411190455"/>
       <repository location="http://download.eclipse.org/releases/luna"/>
     </location>
   </locations>

@@ -10,8 +10,6 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.util;
 
-import java.util.Iterator;
-
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.Connection;
 import hu.bme.mit.massif.simulink.IdentifierReference;
@@ -25,7 +23,6 @@ import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.SingleConnection;
 import hu.bme.mit.massif.simulink.SubSystem;
-import hu.bme.mit.massif.simulink.util.SimulinkSwitch;
 
 public class SimulinkUtil {
 

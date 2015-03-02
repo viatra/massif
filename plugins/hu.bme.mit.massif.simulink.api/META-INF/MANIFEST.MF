@@ -12,7 +12,7 @@ Export-Package: hu.bme.mit.massif.simulink.api,
  hu.bme.mit.massif.simulink.api.util.bus
 Require-Bundle: org.eclipse.core.runtime,
  hu.bme.mit.massif.simulink;visibility:=reexport,
- org.eclipse.incquery.runtime;bundle-version="[0.9.1,1.0.0)",
+ org.eclipse.incquery.runtime;bundle-version="[1.0.0,2.0.0)",
  org.eclipse.core.resources,
  hu.bme.mit.massif.simulink.incquery,
  hu.bme.mit.massif.common,

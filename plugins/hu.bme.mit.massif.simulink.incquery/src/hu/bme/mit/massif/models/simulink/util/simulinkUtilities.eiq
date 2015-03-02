@@ -2,33 +2,32 @@ package hu.bme.mit.massif.models.simulink.util
 
 
 import "http://hu.bme.mit.massif/simulink/1.0"
-import hu.bme.mit.massif.models.simulink.derived.name
 
-pattern blockToPort(block, port) {
+pattern blockToPort(block : Block, port : Port) {
 	Block.ports(block,port);
 }
 
-pattern portToPortBlock(port, portBlock) {
+pattern portToPortBlock(port : Port, portBlock : PortBlock) {
 	Port.portBlock(port, portBlock);
 }
 
-pattern portConnection(outP, inP, pc) {
+pattern portConnection(outP : OutPort, inP : InPort, pc : SingleConnection) {
 	find simpleConnection(outP, inP, pc);
 } or {
 	find multiConnection(outP, inP, pc);
 }
 
-pattern simpleConnection(outP, inP, pc) {
+pattern simpleConnection(outP : OutPort, inP : InPort, pc : SingleConnection) {
 	InPort.connection(inP, pc);
 	SingleConnection.from(pc, outP);
 }
 
-pattern multiConnection(outP, inP, pc) {
+pattern multiConnection(outP : OutPort, inP : InPort, pc : SingleConnection) {
 	InPort.connection(inP, pc);
 	SingleConnection.parent.from(pc, outP);
 }
 
-pattern lineName(conn, name) {
+pattern lineName(conn : Connection, name) {
 	Connection.lineName(conn, name);
 }
 
@@ -54,7 +53,7 @@ pattern busSpecificationInPortToOutPort(inportOfBS : InPort, outPortOfBS : OutPo
 	BusSpecification.ports(BS, outPortOfBS);
 }
 
-pattern simpleInPortToInPortConnection(sourceInPort, targetInPort, connection) {
+pattern simpleInPortToInPortConnection(sourceInPort : InPort, targetInPort : InPort, connection : SingleConnection) {
 	find gotoConnectedPorts(sourceInPort, fromOutPort);
 	find portConnection(fromOutPort, targetInPort, connection);
 } or {
@@ -65,13 +64,13 @@ pattern simpleInPortToInPortConnection(sourceInPort, targetInPort, connection) {
 	find portConnection(outerOutPort, targetInPort, connection);
 }
 
-pattern inPortToInPortConnection(sourceInPort, targetInPort) {
+pattern inPortToInPortConnection(sourceInPort : InPort, targetInPort : InPort) {
 	find simpleInPortToInPortConnection(sourceInPort, targetInPort, _pc);
 } or {
 	find busSpecificationInPortToOutPort(sourceInPort, outPortOfBS);
 	find portConnection(outPortOfBS, targetInPort, _pc);
 }
-pattern simpleOutPortToOutPortConnection(sourceOutPort, targetOutPort, connection) {
+pattern simpleOutPortToOutPortConnection(sourceOutPort : OutPort, targetOutPort : OutPort, connection : SingleConnection) {
 	find portConnection(sourceOutPort, gotoInPort, connection);
 	find gotoConnectedPorts(gotoInPort, targetOutPort);
 } or {
@@ -82,37 +81,37 @@ pattern simpleOutPortToOutPortConnection(sourceOutPort, targetOutPort, connectio
 	find inPortToBlockPortOutPort(inPort, targetOutPort);
 }
 
-pattern outPortToOutPortConnection(sourceOutPort, targetOutPort) {
+pattern outPortToOutPortConnection(sourceOutPort : OutPort, targetOutPort : OutPort) {
 	find simpleOutPortToOutPortConnection(sourceOutPort, targetOutPort, _pc);
 } or {
 	find portConnection(sourceOutPort, busInPort, _pc);
 	find busSpecificationInPortToOutPort(busInPort, targetOutPort);
 }
 
-pattern connectedInPorts(sourceInPort, targetInPort) {
+pattern connectedInPorts(sourceInPort : InPort, targetInPort : InPort) {
 	find inPortToInPortConnection+(sourceInPort, targetInPort);
 }
 
-pattern simpleConnectedInPort(sourceInPort, targetInPort) {
+pattern simpleConnectedInPort(sourceInPort : InPort, targetInPort : InPort) {
 	find simpleInPortToInPortConnection(sourceInPort, targetInPort, _pc);
 }
 
-pattern connectedOutPorts(sourceOutPort, targetOutPort) {
+pattern connectedOutPorts(sourceOutPort : OutPort, targetOutPort : OutPort) {
 	find outPortToOutPortConnection+(sourceOutPort, targetOutPort);
 }
 
-pattern simpleConnectedOutPort(sourceOutPort, targetOutPort) {
+pattern simpleConnectedOutPort(sourceOutPort : OutPort, targetOutPort : OutPort) {
 	find simpleOutPortToOutPortConnection(sourceOutPort, targetOutPort, _pc);
 }
 
-pattern connectedPorts(outP, inP, firstPC) {
+pattern connectedPorts(outP : OutPort, inP : InPort, firstPC : SingleConnection) {
 	find portConnection(outP, inP, firstPC);
 } or {
 	find portConnection(outP, innerIP, firstPC);
 	find connectedInPorts(innerIP, inP);
 }
 
-pattern nextOutPortInPath(sourceOutPort, nextOutPort, targetOutPort) {
+pattern nextOutPortInPath(sourceOutPort : OutPort, nextOutPort : OutPort, targetOutPort : OutPort) {
 	find outPortToOutPortConnection(sourceOutPort, nextOutPort);
 	find connectedOutPorts(nextOutPort, targetOutPort);
 } or {
@@ -120,7 +119,7 @@ pattern nextOutPortInPath(sourceOutPort, nextOutPort, targetOutPort) {
 	nextOutPort == targetOutPort;
 }
 
-pattern nextInPortInPath(sourceInPort, nextInPort, targetInPort) {
+pattern nextInPortInPath(sourceInPort : InPort, nextInPort : InPort, targetInPort : InPort) {
 	find inPortToInPortConnection(sourceInPort, nextInPort);
 	find connectedInPorts(nextInPort, targetInPort);
 } or {
@@ -128,11 +127,11 @@ pattern nextInPortInPath(sourceInPort, nextInPort, targetInPort) {
 	nextInPort == targetInPort;
 }
 
-pattern busSelector(selector) {
+pattern busSelector(selector : BusSelector) {
 	BusSelector(selector);
 }
 
-pattern busMappingInSelector(selector, mapping, mappingFrom, mappingTo) {
+pattern busMappingInSelector(selector : BusSelector, mapping : BusSignalMapping, mappingFrom : OutPort, mappingTo : OutPort) {
 	BusSelector.mappings(selector, mapping);
 	BusSignalMapping.mappingFrom(mapping, mappingFrom);
 	BusSignalMapping.mappingTo(mapping, mappingTo);
@@ -182,14 +181,19 @@ pattern referenceEqual(sourceRef : SimulinkReference, targetRef : SimulinkRefere
 
 pattern childBlockNames(elem : SimulinkElement, child : SimulinkElement, name){
 	SimulinkModel.contains(elem, child);
-	find name(child, name);
+	find elementName(child, name);
 } or {
 	SubSystem.subBlocks(elem, child);
-	find name(child, name);
+	find elementName(child, name);
 } or {
 	Block.ports(elem, child);
-	find name(child, name);
+	find elementName(child, name);
 } or {
 	MultiConnection.connections(child, elem);
-	find name(child, name);
+	find elementName(child, name);
+}
+
+pattern elementName(SE : SimulinkElement, Name) = {
+	SimulinkElement.simulinkRef(SE,SR);
+	SimulinkReference.name(SR,Name);
 }

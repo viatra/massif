@@ -37,14 +37,14 @@ pattern sourceBlock(This : Block, Source : Block) = {
 	find referenceEqual(SrcRef, SR);
 }
 
-pattern hasSourceBlock(Bl) {
+pattern hasSourceBlock(Bl : Block) {
 	Block.sourceBlock(Bl, _Src);
 }
 
 //@Constraint(severity = "warning", location = Block,
 //  message = "Source block $BlRef$ not found for $Block$"
 //)
-pattern sourceBlockNotFound(Block, BlRef) {
+pattern sourceBlockNotFound(Block : Block, BlRef : LibraryLinkReference) {
 	Block.sourceBlockRef(Block, BlRef);
 	neg find hasSourceBlock(Block);
 }

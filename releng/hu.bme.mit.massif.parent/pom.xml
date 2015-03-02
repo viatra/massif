@@ -60,7 +60,7 @@
 	<properties>
 		<tycho.version>0.20.0</tycho.version>
 		<xtend.compiler.version>2.6.1</xtend.compiler.version>
-		<incquery.compiler.version>0.8.1-SNAPSHOT</incquery.compiler.version>
+		<incquery.compiler.version>0.9.1</incquery.compiler.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.skippedModules></sonar.skippedModules>
 		<mirror-site-url>http://incquery.net/update/massif/integration/site</mirror-site-url>
@@ -135,11 +135,11 @@
 	</build>
 	<pluginRepositories>
 		<pluginRepository>
-			<id>incquery-snapshots</id>
+			<id>incquery-releases</id>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-			<url>https://repo.eclipse.org/content/repositories/emf-incquery-snapshots/</url>
+			<url>https://repo.eclipse.org/content/repositories/emf-incquery-releases/</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<scm>

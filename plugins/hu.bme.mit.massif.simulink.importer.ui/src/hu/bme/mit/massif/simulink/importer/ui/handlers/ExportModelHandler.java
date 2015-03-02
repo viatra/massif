@@ -30,11 +30,12 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.handlers.HandlerUtil;
+
+import com.google.common.base.Strings;
 
 /**
  * @author Abel Hegedus
@@ -81,7 +82,7 @@ public class ExportModelHandler extends AbstractSimulinkHandler {
         String resultPath = getPreferenceStringValue(PreferenceConstants.EXPORT_RESULT_MODEL_PATH, "");
 
         // If the corresponding preferences are not set, the user is prompted to select location and name
-        if (resultPath == null || resultPath == "") {
+        if (Strings.isNullOrEmpty(resultPath)) {
 
             ExportSettingsDialog dialog = new ExportSettingsDialog(Display.getCurrent().getActiveShell(),
                     new File(modelPath));

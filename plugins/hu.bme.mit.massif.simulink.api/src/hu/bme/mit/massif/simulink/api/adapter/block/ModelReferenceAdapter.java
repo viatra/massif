@@ -54,7 +54,10 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
         MatlabCommandFactory commandFactory = traverser.getCommandFactory();
         String referencedModelName = null;
         SimulinkModel actualReferredModel = null;
-        ModelReference modelReference = (ModelReference) blockToProcess;
+        ModelReference modelReference = null;
+        if(ImportMode.FLATTENING != traverser.getImportMode()){
+        	modelReference = (ModelReference) blockToProcess;	
+        }
         
         switch (importMode) {
         case SHALLOW:

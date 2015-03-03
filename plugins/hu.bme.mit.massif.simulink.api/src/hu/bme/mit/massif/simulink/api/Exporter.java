@@ -47,13 +47,16 @@ import hu.bme.mit.massif.simulink.api.util.Point;
 import hu.bme.mit.massif.simulink.api.util.bus.BusSignalMapper;
 import hu.bme.mit.massif.simulink.api.util.bus.BusSignalMappingPathFinder;
 
+import java.awt.color.CMMException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -230,17 +233,24 @@ public class Exporter {
         
         // Create the model in Simulink
         
-        MatlabCommand newSystem = commandFactory.newSytem();
-
         String modelFQN = getFQN(model);
-        newSystem.addParam(modelFQN);
-        if (model.isLibrary()) {
-            newSystem.addParam("Library");
-        }
+
+        // TODO do not close, open the model if able instead
         // Before the new system creation, close the possibly open model
-        MatlabCommand closeSystem = commandFactory.closeSystem().addParam(modelFQN);
-        closeSystem.execute();
-        newSystem.execute();
+//        MatlabCommand closeSystem = commandFactory.closeSystem().addParam(modelFQN);
+//        closeSystem.execute();
+        boolean modelAlreadyExists = Handle.getHandleData(commandFactory.exist().addParam(modelFQN).execute()) > 0.5;
+        if(modelAlreadyExists){
+        	MatlabCommand openSystem = commandFactory.openSytem();
+        	openSystem.addParam(modelFQN).execute();
+        } else {
+        	MatlabCommand newSystem = commandFactory.newSytem();
+        	newSystem.addParam(modelFQN);
+        	if (model.isLibrary()) {
+        		newSystem.addParam("Library");
+        	}
+        	newSystem.execute();
+        }
 
         BusSignalMapper mapper = new BusSignalMapper(model.eResource().getResourceSet());
         mapper.setLogger(logger);
@@ -469,6 +479,39 @@ public class Exporter {
 
         }
 
+        // When there is at least one block on the same level, check that only blocks are there on the same level will be present in the exported model
+        String containerFQN = null;
+        if(sameLevelBlocks.size() > 0 ){
+        	Block aBlock = sameLevelBlocks.get(0);
+        	EObject container = aBlock.eContainer();
+        	if(container instanceof SimulinkModel){
+				containerFQN = ((SimulinkModel) container).getSimulinkRef().getFQN();
+        	} else if (container instanceof SubSystem){
+        		containerFQN = ((SubSystem) container).getSimulinkRef().getFQN();
+        	} else {
+        		logger.error("Unknown parent encountered for: " + aBlock.getName());
+        	}
+        }
+
+        MatlabCommand findExistingBlocks = commandFactory.findSystem().addParam(containerFQN).addParam("SearchDepth").addParam(1.0).addParam("type").addParam("block");
+        List<IVisitableMatlabData> fqnsInTheModel = CellMatlabData.getCellMatlabDataData(findExistingBlocks.execute());
+        
+        for (IVisitableMatlabData iVisitableMatlabData : fqnsInTheModel) {
+			String fqn = MatlabString.getMatlabStringData(iVisitableMatlabData);
+			boolean found = false;
+			inner:
+			for (Block block : sameLevelBlocks) {
+				if(block.getSimulinkRef().getFQN().equals(fqn)){
+					found = true;
+					break inner;
+				}
+			}
+			if(!found){
+				commandFactory.deleteBlock().addParam(fqn).execute();
+			}
+		}
+        
+        
         // layout the complete level
         layoutBlocks(blocksOriginalSize);
         
@@ -749,6 +792,11 @@ public class Exporter {
         
         
         String srcPort = fromBlockName + "/" + fromPortNumber;
+        
+        if(singleConnection.getTo() == null){
+        	// If the connection is unconnected to a port
+        	return;
+        }
         String toBlockName = singleConnection.getTo().getContainer().getName();
 
         // Get index of the port in the list of inPorts, and increment it by 1, because Matlab indices start with 1
@@ -780,7 +828,11 @@ public class Exporter {
 
         MatlabCommand addLine = commandFactory.addLine().addParam(system).addParam(srcPort).addParam(dstPort).addParam("AutoRouting").addParam("on");
         IVisitableMatlabData addedLineHandle = addLine.execute();
-        
+        if(!(addedLineHandle  instanceof Handle)) {
+        	// There was an error message in the returned variable instead of the desired handle
+        	// TODO the existing line handle might be queried instead to be able to rename the line when necessary
+			return;
+		}
 		if(Handle.asHandle(addedLineHandle).getData().equals(prevdata)){
 			// FIXME this is only a hotfix for State (out)ports
 			addLine = commandFactory.addLine().addParam(system).addParam(fromBlockName+"/State").addParam(dstPort).addParam("AutoRouting").addParam("on");

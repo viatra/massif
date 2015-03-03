@@ -143,11 +143,11 @@
     </repositories>
 	<pluginRepositories>
 		<pluginRepository>
-			<id>incquery-snapshots</id>
+			<id>incquery-releases</id>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-			<url>https://repo.eclipse.org/content/repositories/emf-incquery-snapshots/</url>
+			<url>https://repo.eclipse.org/content/repositories/emf-incquery-releases/</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<scm>

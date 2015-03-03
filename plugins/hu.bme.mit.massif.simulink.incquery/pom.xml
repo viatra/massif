@@ -11,6 +11,7 @@
 	</parent>
 	<artifactId>hu.bme.mit.massif.simulink.incquery</artifactId>
 	<packaging>eclipse-plugin</packaging>
+	<!-- 
 	<build>
 		<plugins>
 			<plugin>
@@ -66,4 +67,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	-->
 </project>

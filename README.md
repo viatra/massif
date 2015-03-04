@@ -13,6 +13,7 @@ The development of Massif was supported by multiple projects and partners, most 
  1. As the main developer the Budapest University of Technology and Economics
  1. Embraer through the Trans-IMA (TRANSformation methods applied to the design of Integrated Modular Avionics systems) project funded by Embraer S.A. 
  1. [CONCERTO](http://www.concerto-project.org/) Artemis EU project
+ 1. [IncQuery labs](http://incquerylabs.com/) 
 
 ## Update site:
 

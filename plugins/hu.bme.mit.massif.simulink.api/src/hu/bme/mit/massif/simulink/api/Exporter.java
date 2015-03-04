@@ -890,9 +890,13 @@ public class Exporter {
         // get the FQN of the current level / subsystem
         String system = outPort.getContainer().getSimulinkRef().getQualifier();
 
+        
+        commandFactory.clearLastErrorMessage().execute();
         MatlabCommand addLine = commandFactory.addLine().addParam(system).addParam(srcPort).addParam(dstPort).addParam("AutoRouting").addParam("on");
         IVisitableMatlabData addedLineHandle = addLine.execute();
-        if(!(addedLineHandle  instanceof Handle)) {
+        String lastErrorMsg = MatlabString.getMatlabStringData(commandFactory.getLastErrorMessage().execute());
+        
+        if(!lastErrorMsg.equals("")) {
         	// There was an error message in the returned variable instead of the desired handle
 
         	// This also happens when there is already a connection between the selected elements, so try to get the line
@@ -900,10 +904,12 @@ public class Exporter {
         	IVisitableMatlabData execute = getPortHandles.execute();
 			IVisitableMatlabData inportData = StructMatlabData.getStructMatlabDataData(execute).get("Inport");
         	if(inportData instanceof Handle){
-        		addedLineHandle = inportData;
+        		IVisitableMatlabData portHandle = inportData;
+        		addedLineHandle = commandFactory.getParam().addParam(portHandle).addParam("line").execute();
         	}
         	else if(inportData instanceof CellMatlabData){
-        		addedLineHandle = ((CellMatlabData) inportData).getData(indexOfInportInMatlab-1);
+        		IVisitableMatlabData portHandle = ((CellMatlabData) inportData).getData(indexOfInportInMatlab-1);
+        		addedLineHandle = commandFactory.getParam().addParam(portHandle).addParam("line").execute();
         	}
         	// TODO might be needed to check for null
         	//return null;

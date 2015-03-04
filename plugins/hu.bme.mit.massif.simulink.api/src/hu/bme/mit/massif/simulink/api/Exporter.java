@@ -49,11 +49,13 @@ import hu.bme.mit.massif.simulink.api.util.bus.BusSignalMappingPathFinder;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -64,6 +66,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import com.google.common.base.Strings;
+import com.google.common.collect.Sets;
 
 /**
  * This class provides functions to export and save Simulink models represented by EMF models
@@ -230,17 +233,24 @@ public class Exporter {
         
         // Create the model in Simulink
         
-        MatlabCommand newSystem = commandFactory.newSytem();
-
         String modelFQN = getFQN(model);
-        newSystem.addParam(modelFQN);
-        if (model.isLibrary()) {
-            newSystem.addParam("Library");
-        }
+
+        // TODO do not close, open the model if able instead
         // Before the new system creation, close the possibly open model
-        MatlabCommand closeSystem = commandFactory.closeSystem().addParam(modelFQN);
-        closeSystem.execute();
-        newSystem.execute();
+//        MatlabCommand closeSystem = commandFactory.closeSystem().addParam(modelFQN);
+//        closeSystem.execute();
+        boolean modelAlreadyExists = Handle.getHandleData(commandFactory.exist().addParam(modelFQN).execute()) > 0.5;
+        if(modelAlreadyExists){
+        	MatlabCommand loadSystem = commandFactory.loadSytem();
+        	loadSystem.addParam(modelFQN).execute();
+        } else {
+        	MatlabCommand newSystem = commandFactory.newSytem();
+        	newSystem.addParam(modelFQN);
+        	if (model.isLibrary()) {
+        		newSystem.addParam("Library");
+        	}
+        	newSystem.execute();
+        }
 
         BusSignalMapper mapper = new BusSignalMapper(model.eResource().getResourceSet());
         mapper.setLogger(logger);
@@ -469,12 +479,50 @@ public class Exporter {
 
         }
 
+        // When there is at least one block on the same level, check that only blocks are there on the same level will be present in the exported model
+        String containerFQN = getContainerFQN(sameLevelBlocks);
+
+        MatlabCommand findExistingBlocks = commandFactory.findSystem().addParam(containerFQN).addParam("SearchDepth").addParam(1.0).addParam("type").addParam("block");
+        List<IVisitableMatlabData> fqnsInTheModel = CellMatlabData.getCellMatlabDataData(findExistingBlocks.execute());
+        
+        for (IVisitableMatlabData iVisitableMatlabData : fqnsInTheModel) {
+			String fqn = MatlabString.getMatlabStringData(iVisitableMatlabData);
+			boolean found = false;
+			inner:
+			for (Block block : sameLevelBlocks) {
+				if(block.getSimulinkRef().getFQN().equals(fqn)){
+					found = true;
+					break inner;
+				}
+			}
+			if(!found){
+				commandFactory.deleteBlock().addParam(fqn).execute();
+			}
+		}
+        
+        
         // layout the complete level
         layoutBlocks(blocksOriginalSize);
         
         // create connections between the exported blocks
         exportLines(sameLevelBlocks);
     }
+
+	private String getContainerFQN(EList<Block> sameLevelBlocks) {
+		String containerFQN = null;
+        if(sameLevelBlocks.size() > 0 ){
+        	Block aBlock = sameLevelBlocks.get(0);
+        	EObject container = aBlock.eContainer();
+        	if(container instanceof SimulinkModel){
+				containerFQN = ((SimulinkModel) container).getSimulinkRef().getFQN();
+        	} else if (container instanceof SubSystem){
+        		containerFQN = ((SubSystem) container).getSimulinkRef().getFQN();
+        	} else {
+        		logger.error("Unknown parent encountered for: " + aBlock.getName());
+        	}
+        }
+		return containerFQN;
+	}
 
     private void layoutBlocks(Map<Block, BlockLayoutSpecification> blocksOriginalSize) {
 
@@ -685,12 +733,15 @@ public class Exporter {
             }
 
         }
+   
+        // Store the created line handles in order to be able to delete the rest in Simulink
+        Set<Double> addedLineHandles = Sets.newHashSet();
         
         for (Block block : sameLevelBlocks) {
-            // TODO query connections
 
             for (OutPort outPort : block.getOutports()) {
 
+            	Double addedLineHandle = null;
                 Connection conn = outPort.getConnection();
                 if (conn == null)
                     continue;
@@ -698,17 +749,60 @@ public class Exporter {
 
                     SingleConnection sc = (SingleConnection) conn;
 
-                    createConnectionFromSingleConnection(sc, outPort);
+					addedLineHandle = createConnectionFromSingleConnection(sc, outPort);
 
                 } else { // It is a multi connection (or null pointer)
                     MultiConnection mc = (MultiConnection) conn;
                     for (SingleConnection sc : mc.getConnections()) {
-                        createConnectionFromSingleConnection(sc, outPort);
+                    	addedLineHandle = createConnectionFromSingleConnection(sc, outPort);
                     }
                 }
+                
+                if(addedLineHandle != null){
+                	addedLineHandles.add(addedLineHandle);
+                }
+                
             }
 
         }
+        
+        // Synchronize existing lines in the EMF model and in the exported Simulink model
+        String containerFQN = getContainerFQN(sameLevelBlocks);
+        MatlabCommand findLineHandles = commandFactory.findSystem().addParam(containerFQN).addParam("findall").addParam("on").addParam("SearchDepth").addParam(1.0).addParam("type").addParam("line");
+		IVisitableMatlabData allQueriedLineHandles = findLineHandles.execute();
+        
+        Set<Handle> linesToDelete = Sets.newHashSet();
+        
+        if(allQueriedLineHandles instanceof CellMatlabData){
+        	List<IVisitableMatlabData> lineHandles = ((CellMatlabData) allQueriedLineHandles).getDatas();
+        	for (IVisitableMatlabData iVisitableMatlabData : lineHandles) {
+        		// If the ImporterTmpResult doesn't contain the result of the previous command
+        		if(!(iVisitableMatlabData instanceof Handle)){
+        			break;
+        		}
+				double currentLineHandle = Handle.getHandleData(iVisitableMatlabData);
+				boolean isContained = false;
+				for (Double lh : addedLineHandles) {
+					System.out.println("Comparing " + lh.doubleValue() + " to " + currentLineHandle + " : " + (lh.doubleValue() == currentLineHandle));
+					if(lh.doubleValue() == currentLineHandle){
+						isContained = true;
+						break;
+					}
+				}
+				if(!isContained){
+					linesToDelete.add((Handle) iVisitableMatlabData);
+				}
+			}
+        } else if (allQueriedLineHandles instanceof Handle){
+        	if(!addedLineHandles.contains(allQueriedLineHandles)){
+        		linesToDelete.add((Handle) allQueriedLineHandles);
+        	}
+        }
+        for (Handle handle : linesToDelete) {
+			MatlabCommand deleteLine = commandFactory.deleteLine().addParam(handle);
+			deleteLine.execute();
+		}
+        
     }
 
     /**
@@ -723,7 +817,7 @@ public class Exporter {
     
     private double prevdata;
     
-    private void createConnectionFromSingleConnection(SingleConnection singleConnection, OutPort outPort) {
+    private Double createConnectionFromSingleConnection(SingleConnection singleConnection, OutPort outPort) {
         // FIXME sc.getFrom() didn't work!!!
         String fromBlockName = outPort.getContainer().getName();
 
@@ -749,6 +843,11 @@ public class Exporter {
         
         
         String srcPort = fromBlockName + "/" + fromPortNumber;
+        
+        if(singleConnection.getTo() == null){
+        	// If the connection is unconnected to a port, it won't be added to the Simulink model
+        	return null;
+        }
         String toBlockName = singleConnection.getTo().getContainer().getName();
 
         // Get index of the port in the list of inPorts, and increment it by 1, because Matlab indices start with 1
@@ -780,7 +879,11 @@ public class Exporter {
 
         MatlabCommand addLine = commandFactory.addLine().addParam(system).addParam(srcPort).addParam(dstPort).addParam("AutoRouting").addParam("on");
         IVisitableMatlabData addedLineHandle = addLine.execute();
-        
+        if(!(addedLineHandle  instanceof Handle)) {
+        	// There was an error message in the returned variable instead of the desired handle
+        	// TODO the existing line handle might be queried instead to be able to rename the line when necessary
+			return null;
+		}
 		if(Handle.asHandle(addedLineHandle).getData().equals(prevdata)){
 			// FIXME this is only a hotfix for State (out)ports
 			addLine = commandFactory.addLine().addParam(system).addParam(fromBlockName+"/State").addParam(dstPort).addParam("AutoRouting").addParam("on");
@@ -793,5 +896,7 @@ public class Exporter {
             MatlabCommand setLineName = commandFactory.setParam().addParam(addedLineHandle).addParam("Name").addParam(singleConnection.getLineName());
             setLineName.execute();
         }
+        
+        return addedLineHandle == null ? null : Handle.getHandleData(addedLineHandle);
     }
 }

@@ -61,7 +61,7 @@
 		<tycho.version>0.20.0</tycho.version>
 		<xtend.compiler.version>2.7.3</xtend.compiler.version>
 		<incquery.compiler.version>1.0.0-SNAPSHOT</incquery.compiler.version>
-		<incquery.update>http://download.eclipse.org/incquery/updates-extra/integration</incquery.update>
+		<incquery.repository.url>http://download.eclipse.org/incquery/updates-extra/integration</incquery.repository.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.skippedModules></sonar.skippedModules>
 		<mirror-site-url>http://incquery.net/update/massif/integration/site</mirror-site-url>

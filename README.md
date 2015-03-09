@@ -3,9 +3,9 @@
 Massif is a new Eclipse feature to support the easy handling of MATLAB Simulink models by providing import and export capabilities to/from EMF. 
 
 Just to highlight some of its unique features, Massif: 
- 1. Uses a general MATLAB EMF metamodel that was designed to store all infomration for each MATLAB block and provide the type information as defined in MATLAB using library links
- 1. Provides automated library reference processing when importing libraries and systems based on those libraries
- 1. Supports easier bus creator and selector handling by using direct model referencing in the EMF representation that is automatically translated into the required fqn format as used within MATLAB Simulink. 
+ 1. Uses a general MATLAB EMF metamodel that was designed to store all information for each MATLAB block and provide the type information as defined in MATLAB using library links
+ 1. Provides automated library reference processing when importing libraries and systems
+ 1. Supports easier bus creator and selector handling by using direct model referencing in the EMF representation that can be automatically translated into the required fqn format as used within MATLAB Simulink. 
 
 Please note that importing and exporting is done using the command line interface of MATLAB (and not by directly parsing the mdl or slx files), which is the API recommended by MathWorks for accessing Simulink model information. As a consequence, for using the bridge you must have an installed MATLAB Simulink instance (with the appropriate licence) on your computer. The system was tested with Simulink R2012b, however, it should work with the newer versions (and some earlier ones as well).
 
@@ -13,6 +13,7 @@ The development of Massif was supported by multiple projects and partners, most 
  1. As the main developer the Budapest University of Technology and Economics
  1. Embraer through the Trans-IMA (TRANSformation methods applied to the design of Integrated Modular Avionics systems) project funded by Embraer S.A. 
  1. [CONCERTO](http://www.concerto-project.org/) Artemis EU project
+ 1. [IncQuery labs](http://incquerylabs.com/) 
 
 ## Update site:
 

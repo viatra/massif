@@ -16,6 +16,7 @@ import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
+import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusCreator;
 import hu.bme.mit.massif.simulink.BusSelector;
@@ -495,7 +496,7 @@ public class Exporter {
 					break inner;
 				}
 			}
-			if(!found){
+			if(!found && !fqn.equals(containerFQN)){
 				commandFactory.deleteBlock().addParam(fqn).execute();
 			}
 		}
@@ -750,17 +751,20 @@ public class Exporter {
                     SingleConnection sc = (SingleConnection) conn;
 
 					addedLineHandle = createConnectionFromSingleConnection(sc, outPort);
+					if(addedLineHandle != null){
+						addedLineHandles.add(addedLineHandle);
+					}
 
                 } else { // It is a multi connection (or null pointer)
                     MultiConnection mc = (MultiConnection) conn;
                     for (SingleConnection sc : mc.getConnections()) {
                     	addedLineHandle = createConnectionFromSingleConnection(sc, outPort);
+                    	if(addedLineHandle != null){
+                    		addedLineHandles.add(addedLineHandle);
+                    	}
                     }
                 }
                 
-                if(addedLineHandle != null){
-                	addedLineHandles.add(addedLineHandle);
-                }
                 
             }
 
@@ -783,14 +787,23 @@ public class Exporter {
 				double currentLineHandle = Handle.getHandleData(iVisitableMatlabData);
 				boolean isContained = false;
 				for (Double lh : addedLineHandles) {
-					System.out.println("Comparing " + lh.doubleValue() + " to " + currentLineHandle + " : " + (lh.doubleValue() == currentLineHandle));
 					if(lh.doubleValue() == currentLineHandle){
 						isContained = true;
 						break;
 					}
 				}
 				if(!isContained){
-					linesToDelete.add((Handle) iVisitableMatlabData);
+					// Add to delete list only when the children of the line is empty.
+					// This extra constraint is needed, because we are exporting only 'single connections', so ignore the automatically created multi connections
+					
+					Handle lineToCheck = (Handle) iVisitableMatlabData;
+					MatlabCommand getLineChildren = commandFactory.getParam().addParam(lineToCheck).addParam("LineChildren");
+					IVisitableMatlabData children = getLineChildren.execute();
+					// It exists in the model, has no children, but we did not exported it
+					if (children instanceof CellMatlabData && ((CellMatlabData)children).getDatas().size() == 0){
+						linesToDelete.add(lineToCheck);
+					}
+					
 				}
 			}
         } else if (allQueriedLineHandles instanceof Handle){
@@ -877,12 +890,29 @@ public class Exporter {
         // get the FQN of the current level / subsystem
         String system = outPort.getContainer().getSimulinkRef().getQualifier();
 
+        
+        commandFactory.clearLastErrorMessage().execute();
         MatlabCommand addLine = commandFactory.addLine().addParam(system).addParam(srcPort).addParam(dstPort).addParam("AutoRouting").addParam("on");
         IVisitableMatlabData addedLineHandle = addLine.execute();
-        if(!(addedLineHandle  instanceof Handle)) {
+        String lastErrorMsg = MatlabString.getMatlabStringData(commandFactory.getLastErrorMessage().execute());
+        
+        if(!lastErrorMsg.equals("")) {
         	// There was an error message in the returned variable instead of the desired handle
-        	// TODO the existing line handle might be queried instead to be able to rename the line when necessary
-			return null;
+
+        	// This also happens when there is already a connection between the selected elements, so try to get the line
+        	MatlabCommand getPortHandles = commandFactory.getParam().addParam(system + "/" + toBlockName).addParam("PortHandles");
+        	IVisitableMatlabData execute = getPortHandles.execute();
+			IVisitableMatlabData inportData = StructMatlabData.getStructMatlabDataData(execute).get("Inport");
+        	if(inportData instanceof Handle){
+        		IVisitableMatlabData portHandle = inportData;
+        		addedLineHandle = commandFactory.getParam().addParam(portHandle).addParam("line").execute();
+        	}
+        	else if(inportData instanceof CellMatlabData){
+        		IVisitableMatlabData portHandle = ((CellMatlabData) inportData).getData(indexOfInportInMatlab-1);
+        		addedLineHandle = commandFactory.getParam().addParam(portHandle).addParam("line").execute();
+        	}
+        	// TODO might be needed to check for null
+        	//return null;
 		}
 		if(Handle.asHandle(addedLineHandle).getData().equals(prevdata)){
 			// FIXME this is only a hotfix for State (out)ports

@@ -4,6 +4,7 @@
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.sdk.feature.group" version="2.10.2.v20150123-0452"/>
+      <unit id="org.eclipse.emf.transaction.sdk.feature.group" version="1.8.0.201405281451"/>
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.10.2.v20150204-1316"/>
       <unit id="org.eclipse.sdk.feature.group" version="4.4.2.v20150204-1700"/>
       <unit id="org.eclipse.xtext.sdk.feature.group" version="2.7.3.v201411190455"/>

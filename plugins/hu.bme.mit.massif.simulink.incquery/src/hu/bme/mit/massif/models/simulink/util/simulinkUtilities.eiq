@@ -179,6 +179,11 @@ pattern referenceEqual(sourceRef : SimulinkReference, targetRef : SimulinkRefere
 	neg find referenceQualifier(targetRef, _tqual);
 }
 
+pattern elementName(SE : SimulinkElement, Name) = {
+	SimulinkElement.simulinkRef(SE,SR);
+	SimulinkReference.name(SR,Name);
+}
+
 pattern childBlockNames(elem : SimulinkElement, child : SimulinkElement, name){
 	SimulinkModel.contains(elem, child);
 	find elementName(child, name);
@@ -191,9 +196,4 @@ pattern childBlockNames(elem : SimulinkElement, child : SimulinkElement, name){
 } or {
 	MultiConnection.connections(child, elem);
 	find elementName(child, name);
-}
-
-pattern elementName(SE : SimulinkElement, Name) = {
-	SimulinkElement.simulinkRef(SE,SR);
-	SimulinkReference.name(SR,Name);
 }

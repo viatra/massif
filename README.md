@@ -53,6 +53,8 @@ The functions are available in the context menu commands of `.mdl`, `.slx` and `
 
 A detailed [user guide](../../wiki/UserGuide#model-importing-and-exporting) is available in the wiki.
 
+The EclipseCon 2015 demo is available from [here](../../wiki/EclipseCon2015)
+
 ### Get help
 
 If you run into any problems or have questions, do the following:

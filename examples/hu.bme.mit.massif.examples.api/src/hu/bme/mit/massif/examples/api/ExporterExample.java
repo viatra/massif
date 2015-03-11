@@ -57,7 +57,7 @@ public class ExporterExample {
 		
 		exporter.export(loadedModel, commandFactory);
 		String fqn = loadedModel.getSimulinkRef().getFQN();
-		exporter.saveSimulinkModel(fqn.substring(0,fqn.lastIndexOf('.')),"slx");
+		exporter.saveSimulinkModel(fqn,"slx");
 	}
 
 }

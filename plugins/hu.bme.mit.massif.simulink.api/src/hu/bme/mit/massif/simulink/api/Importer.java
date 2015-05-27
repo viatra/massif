@@ -165,58 +165,100 @@ public class Importer {
 
     /* Cache getters */
 
+	/**
+	 * @return the referenced libraries cache
+	 */
     public Map<String, SimulinkModel> getReferencedLibraries() {
         return referencedLibraries;
     }
     
+	/**
+	 * @return the block cache, maps a block FQN to the block object
+	 */
     public Map<String, Block> getBlocks() {
         return blocks;
     }
 
+	/**
+	 * @return inport block cache, maps the block FQNs to set of inports
+	 */
     public Map<String, LinkedHashSet<InPortBlock>> getInPortBlocks() {
         return inPortBlocks;
     }
 
+	/**
+	 * @return outport block cache, maps the block FQNs to set of inports
+	 */
     public Map<String, LinkedHashSet<OutPortBlock>> getOutPortBlocks() {
         return outPortBlocks;
     }
 
+	/**
+	 * @return the cache that contains blocks that have children blocks
+	 */
     public Set<Block> getParents() {
         return parents;
     }
 
+	/**
+	 * @return cache containing the goto - froms assignments
+	 */
     public Map<Goto, List<String>> getGotos() {
         return gotos;
     }
 
+	/**
+	 * @return a cache that contains block FQN - from block mappings
+	 */
     public Map<String, From> getFroms() {
         return froms;
     }
 
+	/**
+	 * @return the mapping for 
+	 */
     public Map<String, List<GotoTagVisibility>> getGotoTagVisibilities() {
         return gotoTagVisibilities;
     }
 
+	/**
+	 * @return the cache that contains the model name - referenced model mappings
+	 */
     public Map<String, SimulinkModel> getReferencedModels() {
         return referencedModels;
     }
 
+	/**
+	 * @return cache that contains bus selector - destination port mappings
+	 */
     public Map<BusSelector, List<Handle>> getBusSelectorToDestinationPorts() {
         return busSelectorToDestinationPorts;
     }
 
+	/**
+	 * @return cache that contains handle - inport block mappings
+	 */
     public Map<Double, InPort> getInPorts() {
         return inPorts;
     }
 
+	/**
+	 * @return cache that contains handle - outport block mappings
+	 */
     public Map<Double, OutPort> getOutPorts() {
         return outPorts;
     }
 
+	/**
+	 * @return cache that contains outport - handle mappings
+	 */
     public Map<OutPort, Double> getCachedOutPortHandles() {
         return cachedOutPortHandles;
     }
 
+	/**
+	 * @return a cache that contains the shadow inport block - original inport block name mappings
+	 */
     public Map<InPortBlock, MatlabString> getShadowInports() {
         return shadowInports;
     }

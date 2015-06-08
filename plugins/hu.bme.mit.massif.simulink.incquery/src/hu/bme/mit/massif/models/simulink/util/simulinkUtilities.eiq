@@ -186,22 +186,22 @@ pattern elementName(SE : SimulinkElement, Name) = {
 
 pattern childBlockNames(elem : SimulinkElement, child : SimulinkElement, name){
 	SimulinkModel.contains(elem, child);
-	SimulinkElement.simulinkRef(child,SR);
-	SimulinkReference.name(SR,name);
-//	find elementName(child, name);
+//	SimulinkElement.simulinkRef(child,SR);
+//	SimulinkReference.name(SR,name);
+	find elementName(child, name);
 } or {
 	SubSystem.subBlocks(elem, child);
-	SimulinkElement.simulinkRef(child,SR);
-	SimulinkReference.name(SR,name);
-//	find elementName(child, name);
+//	SimulinkElement.simulinkRef(child,SR);
+//	SimulinkReference.name(SR,name);
+	find elementName(child, name);
 } or {
 	Block.ports(elem, child);
-	SimulinkElement.simulinkRef(child,SR);
-	SimulinkReference.name(SR,name);
-//	find elementName(child, name);
+//	SimulinkElement.simulinkRef(child,SR);
+//	SimulinkReference.name(SR,name);
+	find elementName(child, name);
 } or {
 	MultiConnection.connections(child, elem);
-	SimulinkElement.simulinkRef(child,SR);
-	SimulinkReference.name(SR,name);
-//	find elementName(child, name);
+//	SimulinkElement.simulinkRef(child,SR);
+//	SimulinkReference.name(SR,name);
+	find elementName(child, name);
 }

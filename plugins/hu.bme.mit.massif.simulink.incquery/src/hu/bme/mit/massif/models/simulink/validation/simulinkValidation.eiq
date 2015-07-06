@@ -3,7 +3,7 @@ package hu.bme.mit.massif.models.simulink.validation
 import "http://hu.bme.mit.massif/simulink/1.0"
 import hu.bme.mit.massif.models.simulink.util.childBlockNames
 
-@Constraint(severity = "error", location = id,
+@Constraint(severity = "error", key = {"id"},
 	message = "Identifier $id$ must not contain '/'!"
 )
 pattern identifierNameContainsSlash(id : IdentifierReference) {
@@ -11,7 +11,7 @@ pattern identifierNameContainsSlash(id : IdentifierReference) {
 	check(name.contains('/'));
 }
 
-@Constraint(severity = "error", location = child,
+@Constraint(severity = "error", key = {"child"},
 	message = "Child $child$ has a sibling in $parent$ with the same name!"
 )
 pattern clashingChildNames(parent : SimulinkElement, child : SimulinkElement) {

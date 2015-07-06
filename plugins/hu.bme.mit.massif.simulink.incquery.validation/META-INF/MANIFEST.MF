@@ -5,7 +5,9 @@ Bundle-SymbolicName: hu.bme.mit.massif.simulink.incquery.validation;singleton:=t
 Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Budapest University of Technology and Economics
 Require-Bundle: hu.bme.mit.massif.simulink.incquery,
- hu.bme.mit.massif.simulink,
+ com.google.guava,
  org.eclipse.incquery.runtime,
+ org.eclipse.incquery.validation.core,
+ hu.bme.mit.massif.simulink,
  org.eclipse.incquery.validation.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

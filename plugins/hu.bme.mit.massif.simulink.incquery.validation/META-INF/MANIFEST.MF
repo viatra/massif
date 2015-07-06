@@ -9,5 +9,6 @@ Require-Bundle: hu.bme.mit.massif.simulink.incquery,
  org.eclipse.incquery.runtime,
  org.eclipse.incquery.validation.core,
  hu.bme.mit.massif.simulink,
+ org.eclipse.incquery.validation.core,
  org.eclipse.incquery.validation.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

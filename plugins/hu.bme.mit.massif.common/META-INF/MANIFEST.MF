@@ -4,8 +4,8 @@ Bundle-Name: Trans-IMA Core Utility Classes
 Bundle-SymbolicName: hu.bme.mit.massif.common;singleton:=true
 Bundle-Version: 0.5.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: org.eclipse.incquery.runtime.evm;bundle-version="[1.0.0,2.0.0)",
- org.eclipse.incquery.runtime;bundle-version="[1.0.0,2.0.0)",
+Require-Bundle: org.eclipse.incquery.runtime.evm;bundle-version="[1.1.0,1.2.0)",
+ org.eclipse.incquery.runtime;bundle-version="[1.1.0,1.2.0)",
  hu.bme.mit.massif.simulink,
  org.eclipse.core.runtime;bundle-version="3.9.0",
  org.eclipse.emf.edit,

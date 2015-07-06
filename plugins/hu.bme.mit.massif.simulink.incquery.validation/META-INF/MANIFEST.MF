@@ -6,9 +6,9 @@ Bundle-Version: 0.5.0.qualifier
 Bundle-Vendor: Budapest University of Technology and Economics
 Require-Bundle: hu.bme.mit.massif.simulink.incquery,
  com.google.guava,
- org.eclipse.incquery.runtime,
- org.eclipse.incquery.validation.core,
+ org.eclipse.incquery.runtime;bundle-version="[1.1.0,1.2.0)",
+ org.eclipse.incquery.validation.core;bundle-version="[1.1.0,1.2.0)",
  hu.bme.mit.massif.simulink,
- org.eclipse.incquery.validation.core,
- org.eclipse.incquery.validation.runtime
+ org.eclipse.incquery.validation.core;bundle-version="[1.1.0,1.2.0)",
+ org.eclipse.incquery.validation.runtime;bundle-version="[1.1.0,1.2.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

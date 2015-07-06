@@ -118,31 +118,11 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
-        name="org.eclipse.mylyn.team.ui">
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.eclipse.mylyn.team.ui/org.eclipse.mylyn.team.commit.template"
-          value="#$${task.key}: $${task.description} "/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
         name="org.eclipse.ui.ide">
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
           value="Massif"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="org.sonar.ide.eclipse.core">
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.sonar.ide.eclipse.core/servers/https:\2f\2fbuild.inf.mit.bme.hu\2fsonar/auth"
-          value="false"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.sonar.ide.eclipse.core/servers/initialized"
-          value="true"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -337,8 +317,19 @@
       name="github.user.password"
       label="GitHub password for Issues/Pull requests"/>
   <setupTask
-      xsi:type="setup:CompoundTask"
-      name="Mylyn and Sonar">
+      xsi:type="jdt:JRETask"
+      version="JavaSE-1.6"
+      location="${jre.location-1.6}">
+    <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
+  </setupTask>
+  <setupTask
+      xsi:type="jdt:JRETask"
+      version="JavaSE-1.8"
+      location="${jre.location-1.8}">
+    <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
+  </setupTask>
+  <project name="mylyn-sonar"
+      label="Mylyn and Sonar">
     <setupTask
         xsi:type="setup:VariableTask"
         name="massif.milestone"/>
@@ -352,7 +343,7 @@
         userID="${github.user.id}"
         password="${github.user.password}">
       <query
-          summary="${scope.project.label} bugs in ${massif.milestone}">
+          summary="Massif bugs in ${massif.milestone}">
         <attribute
             key="milestone"
             value="${massif.milestone.id}"/>
@@ -364,7 +355,7 @@
             value="bug::"/>
       </query>
       <query
-          summary="${scope.project.label} features in ${massif.milestone}">
+          summary="Massif features in ${massif.milestone}">
         <attribute
             key="milestone"
             value="${massif.milestone.id}"/>
@@ -376,7 +367,7 @@
             value="enhancement::"/>
       </query>
       <query
-          summary="${scope.project.label} resolved in ${massif.milestone}">
+          summary="Massif resolved in ${massif.milestone}">
         <attribute
             key="milestone"
             value="${massif.milestone.id}"/>
@@ -392,7 +383,7 @@
         userID="${github.user.id}"
         password="${github.user.password}">
       <query
-          summary="${scope.project.label} pull requests"
+          summary="Massif pull requests"
           url="">
         <attribute
             key="state"
@@ -434,21 +425,66 @@
       <repository
           url="http://download.eclipse.org/releases/luna"/>
       <repository
-          url="http://dist.sonar-ide.codehaus.org/eclipse/"/>
+          url="http://downloads.sonarsource.com/eclipse/eclipse/"/>
     </setupTask>
-  </setupTask>
-  <setupTask
-      xsi:type="jdt:JRETask"
-      version="JavaSE-1.6"
-      location="${jre.location-1.6}">
-    <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
-  </setupTask>
-  <setupTask
-      xsi:type="jdt:JRETask"
-      version="JavaSE-1.8"
-      location="${jre.location-1.8}">
-    <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
-  </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Preferences">
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="org.sonar.ide.eclipse.core">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.sonar.ide.eclipse.core/servers/https:\2f\2fbuild.inf.mit.bme.hu\2fsonar/auth"
+            value="false"/>
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.sonar.ide.eclipse.core/servers/initialized"
+            value="true"/>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:CompoundTask"
+          name="org.eclipse.mylyn.team.ui">
+        <setupTask
+            xsi:type="setup:PreferenceTask"
+            key="/instance/org.eclipse.mylyn.team.ui/org.eclipse.mylyn.team.commit.template"
+            value="#$${task.key}: $${task.description} "/>
+      </setupTask>
+    </setupTask>
+    <stream
+        name="master">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="massif.milestone"
+          value="0.5.0"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="massif.milestone.id"
+          value="2"/>
+    </stream>
+    <stream
+        name="incquery-1.0.0">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="massif.milestone"
+          value="0.5.0"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="massif.milestone.id"
+          value="2"/>
+    </stream>
+    <stream
+        name="0.4-maintenance">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="massif.milestone"
+          value="0.4.0"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="massif.milestone.id"
+          value="1"/>
+    </stream>
+  </project>
   <stream name="master">
     <setupTask
         xsi:type="setup.targlets:TargletTask">
@@ -520,14 +556,6 @@
       <repository
           url="http://download.eclipse.org/releases/luna"/>
     </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="massif.milestone"
-        value="0.5.0"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="massif.milestone.id"
-        value="2"/>
   </stream>
   <stream name="incquery-1.0.0">
     <setupTask
@@ -581,14 +609,6 @@
       <repository
           url="http://download.eclipse.org/releases/luna"/>
     </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="massif.milestone"
-        value="0.5.0"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="massif.milestone.id"
-        value="2"/>
   </stream>
   <stream name="0.4-maintenance">
     <setupTask
@@ -661,14 +681,6 @@
       <repository
           url="http://download.eclipse.org/releases/luna"/>
     </setupTask>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="massif.milestone"
-        value="0.4.0"/>
-    <setupTask
-        xsi:type="setup:VariableTask"
-        name="massif.milestone.id"
-        value="1"/>
   </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"

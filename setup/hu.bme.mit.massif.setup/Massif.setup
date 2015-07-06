@@ -610,6 +610,67 @@
           url="http://download.eclipse.org/releases/luna"/>
     </setupTask>
   </stream>
+  <stream name="incquery-1.0.0">
+    <setupTask
+        xsi:type="setup.targlets:TargletTask">
+      <targlet
+          name="Massif Targlet Platform">
+        <requirement
+            name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
+        <requirement
+            name="org.eclipse.incquery.testing.sdk.feature.feature.group"/>
+        <requirement
+            name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
+        <requirement
+            name="org.eclipse.equinox.sdk.feature.group"/>
+        <requirement
+            name="org.eclipse.sdk.feature.group"/>
+        <requirement
+            name="org.eclipse.xtext.sdk.feature.group"
+            versionRange="[2.7.0,2.8.0)"/>
+        <requirement
+            name="org.eclipse.emf.sdk.feature.group"
+            versionRange="[2.9.0,3.0.0)"/>
+        <repositoryList
+            name="Dependencies">
+          <repository
+              url="http://download.eclipse.org/incquery/updates-extra/integration/"/>
+          <repository
+              url="http://download.eclipse.org/releases/luna"/>
+        </repositoryList>
+      </targlet>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
+      <requirement
+          name="org.eclipse.incquery.testing.sdk.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.xtext.sdk.feature.group"
+          versionRange="[2.7.0,2.8.0)"/>
+      <requirement
+          name="org.eclipse.m2e.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.m2e.logback.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/incquery/updates-extra/integration/"/>
+      <repository
+          url="http://download.eclipse.org/releases/luna"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="massif.milestone"
+        value="0.5.0"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="massif.milestone.id"
+        value="2"/>
+  </stream>
   <stream name="0.4-maintenance">
     <setupTask
         xsi:type="setup.targlets:TargletTask">

@@ -3,11 +3,6 @@
 <target name="Generated from Massif Targlet Platform" sequenceNumber="50">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
-      <unit id="org.eclipse.incquery.sdk.feature.source.feature.group" version="0.9.1.201502241438"/>
-      <unit id="org.eclipse.incquery.testing.sdk.feature.feature.group" version="0.9.1.201502241438"/>
-      <repository location="http://download.eclipse.org/incquery/updates-extra/release/"/>
-    </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.sdk.feature.group" version="2.10.2.v20150123-0452"/>
       <unit id="org.eclipse.equinox.sdk.feature.group" version="3.10.2.v20150204-1316"/>
       <unit id="org.eclipse.sdk.feature.group" version="4.4.2.v20150204-1700"/>

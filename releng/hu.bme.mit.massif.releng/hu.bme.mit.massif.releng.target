@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="Generated from Massif Targlet Platform" sequenceNumber="50">
+<target name="Generated from Massif Targlet Platform" sequenceNumber="52">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
-      <unit id="org.eclipse.emf.transaction.sdk.feature.group" version="1.8.0.201405281451"/>
-      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.10.2.v20150204-1316"/>
-      <unit id="org.eclipse.sdk.feature.group" version="4.4.2.v20150204-1700"/>
-      <repository location="http://download.eclipse.org/releases/luna"/>
+      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.0.v20150602-1417"/>
+      <unit id="org.eclipse.sdk.feature.group" version="4.5.0.v20150603-2358"/>
+      <repository location="http://download.eclipse.org/releases/mars"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+      <unit id="org.eclipse.emf.sdk.feature.group" version="2.11.0.v20150601-0402"/>
+      <unit id="org.eclipse.emf.transaction" version="1.9.0.201506010221"/>
       <unit id="org.eclipse.emf.sdk.feature.group" version="2.10.2.v20150123-0452"/>
       <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.10.x/"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.8.1.v201503230617"/>
+      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.8.3.v201506010551"/>
       <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
     </location>
   </locations>

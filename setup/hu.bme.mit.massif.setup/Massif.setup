@@ -172,14 +172,32 @@
     <workingSet
         name="Massif Common">
       <predicate
-          xsi:type="predicates:LocationPredicate"
-          pattern=".*massif\.common"/>
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*massif\.common"/>
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="hu.bme.mit.massif.parent"/>
+      </predicate>
     </workingSet>
     <workingSet
         name="Massif Matlab Communication"
         id="">
       <predicate
           xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*massif\.communication.*"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*massif\.commandevaluation.*"/>
+        </operand>
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="hu.bme.mit.massif.parent"/>
         <operand
             xsi:type="predicates:NotPredicate">
           <operand
@@ -192,21 +210,18 @@
                 pattern=".*feature"/>
           </operand>
         </operand>
-        <operand
-            xsi:type="predicates:OrPredicate">
-          <operand
-              xsi:type="predicates:LocationPredicate"
-              pattern=".*massif\.communication.*"/>
-          <operand
-              xsi:type="predicates:LocationPredicate"
-              pattern=".*massif\.commandevaluation.*"/>
-        </operand>
       </predicate>
     </workingSet>
     <workingSet
         name="Massif Simulink">
       <predicate
           xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*massif\.simulink.*"/>
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="hu.bme.mit.massif.parent"/>
         <operand
             xsi:type="predicates:NotPredicate">
           <operand
@@ -222,43 +237,97 @@
                 pattern=".*ui"/>
           </operand>
         </operand>
-        <operand
-            xsi:type="predicates:LocationPredicate"
-            pattern=".*massif.simulink.*"/>
       </predicate>
     </workingSet>
     <workingSet
         name="Massif User Interface">
       <predicate
-          xsi:type="predicates:LocationPredicate"
-          pattern=".*ui"/>
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*massif.*ui"/>
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="hu.bme.mit.massif.parent"/>
+      </predicate>
     </workingSet>
     <workingSet
         name="Massif Tests">
       <predicate
-          xsi:type="predicates:LocationPredicate"
-          pattern=".*tests"/>
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*massif.*tests"/>
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="hu.bme.mit.massif.parent"/>
+      </predicate>
     </workingSet>
     <workingSet
         name="Massif Features">
       <predicate
-          xsi:type="predicates:LocationPredicate"
-          pattern=".*feature"/>
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*massif.*feature"/>
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="hu.bme.mit.massif.parent"/>
+      </predicate>
     </workingSet>
     <workingSet
         name="Massif Release Engineering">
       <predicate
-          xsi:type="predicates:LocationPredicate"
-          pattern=".*releng/.*massif.*"/>
-      <predicate
-          xsi:type="predicates:LocationPredicate"
-          pattern=".*setup/.*massif.*"/>
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:OrPredicate">
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*releng/.*massif.*"/>
+          <operand
+              xsi:type="predicates:LocationPredicate"
+              pattern=".*setup/.*massif.*"/>
+        </operand>
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="hu.bme.mit.massif.parent"/>
+      </predicate>
     </workingSet>
     <workingSet
         name="Massif External Bundles">
       <predicate
-          xsi:type="predicates:LocationPredicate"
-          pattern=".*/.*bundle"/>
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*matlab.*bundle"/>
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="hu.bme.mit.massif.parent"/>
+      </predicate>
+    </workingSet>
+    <workingSet
+        name="Massif Maven Plugins">
+      <predicate
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*maven.*massif.*"/>
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="hu.bme.mit.massif.parent"/>
+      </predicate>
+    </workingSet>
+    <workingSet
+        name="Massif Examples">
+      <predicate
+          xsi:type="predicates:AndPredicate">
+        <operand
+            xsi:type="predicates:LocationPredicate"
+            pattern=".*examples.*massif.*"/>
+        <operand
+            xsi:type="predicates:RepositoryPredicate"
+            project="hu.bme.mit.massif.parent"/>
+      </predicate>
     </workingSet>
   </setupTask>
   <setupTask

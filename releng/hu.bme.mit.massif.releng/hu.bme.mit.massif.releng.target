@@ -13,8 +13,8 @@
       <repository location="http://download.eclipse.org/modeling/emf/emf/updates/2.10.x/"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.8.1.v201503230617"/>
-      <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+  		<unit id="org.eclipse.xtext.sdk.feature.group" version="2.9.0.v201507170721"/>
+	  	<repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/milestones"/>
     </location>
   </locations>
 </target>

@@ -61,6 +61,12 @@
 						<groupId>hu.bme.mit.massif</groupId>
 						<artifactId>hu.bme.mit.massif.simulink</artifactId>
 						<version>${project.version}</version>
+				                <exclusions>
+                        				<exclusion>
+                            				<groupId>*</groupId>
+                            				<artifactId>*</artifactId>
+                            				</exclusion>
+                        			</exclusions>
 					</dependency>
 				</dependencies>
 			</plugin>

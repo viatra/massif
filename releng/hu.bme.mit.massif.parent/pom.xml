@@ -140,10 +140,6 @@
             <layout>p2</layout>
             <url>${incquery.repository.url}</url>
         </repository>
-        <repository>
-            <id>incquery.maven</id>
-            <url>http://static.incquerylabs.com/projects/incquery/maven2/</url>
-        </repository>
     </repositories>
 	<pluginRepositories>
 		<pluginRepository>
@@ -153,6 +149,13 @@
 			</snapshots>
 			<url>https://repo.eclipse.org/content/repositories/emf-incquery-releases/</url>
 		</pluginRepository>
+    <pluginRepository>
+        <id>incquery-unreleased</id>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+        <url>http://static.incquerylabs.com/projects/incquery/maven2/</url>
+    </pluginRepository>
 	</pluginRepositories>
 	<scm>
 		<connection>scm:git:https://github.com/FTSRG/massif.git</connection>

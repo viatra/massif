@@ -17,8 +17,8 @@ The development of Massif was supported by multiple projects and partners, most 
 
 ## Known Users
 
- * INTECS
- * University of Padoa
+ * [INTECS](http://www.intecs.it/)
+ * [University of Padua](http://www.math.unipd.it/it/)
 
 ## Update site:
 

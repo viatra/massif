@@ -144,9 +144,6 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>incquery-releases</id>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
 			<url>https://repo.eclipse.org/content/repositories/emf-incquery-releases/</url>
 		</pluginRepository>
     <pluginRepository>

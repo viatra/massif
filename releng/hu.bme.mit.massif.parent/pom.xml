@@ -12,7 +12,7 @@
 	<modules>
 		<!-- Target platform -->
 		<module>../../releng/hu.bme.mit.massif.releng</module>
-		
+
 		<!-- Simulink EMF -->
 		<module>../../plugins/hu.bme.mit.massif.simulink</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.edit</module>
@@ -27,18 +27,18 @@
 		<module>../../plugins/hu.bme.mit.massif.simulink.api</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.filters</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.importer.ui</module>
-		
+
 		<!-- Command evaluation connector -->
 		<module>../../dependencies/matlab.access.external.bundle</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.base</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.server</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.client</module>
 		<module>../../plugins/hu.bme.mit.massif.communication.commandevaluation</module>
-		
+
 		<!-- MatlabControl connector -->
 		<module>../../dependencies/matlabcontrol.external.bundle</module>
 		<module>../../plugins/hu.bme.mit.massif.communication.matlabcontrol</module>
-		
+
 		<!-- Features -->
 		<module>../../features/hu.bme.mit.massif.simulink.emf-feature</module>
 		<module>../../features/hu.bme.mit.massif.simulink.api-feature</module>
@@ -49,13 +49,13 @@
 
 		<!-- Update site -->
 		<module>../../releng/hu.bme.mit.massif.site</module>
-		
+
 		<!-- Maven projects -->
 		<module>../../maven/massif-communication-runtime</module>
 		<module>../../maven/massif-matlabcontrol-runtime</module>
 		<module>../../maven/massif-commandevaluation-runtime</module>
 
-		
+
 	</modules>
 	<properties>
 		<tycho.version>0.20.0</tycho.version>
@@ -153,6 +153,7 @@
         <id>incquery-unreleased</id>
         <snapshots>
           <enabled>true</enabled>
+          <updatePolicy>always</updatePolicy>
         </snapshots>
         <url>http://static.incquerylabs.com/projects/incquery/maven2/</url>
     </pluginRepository>

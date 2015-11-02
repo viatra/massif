@@ -521,7 +521,7 @@
             name="org.eclipse.sdk.feature.group"/>
         <requirement
             name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.7.0,2.8.0)"/>
+            versionRange="[2.8.0,2.9.0)"/>
         <requirement
             name="org.eclipse.emf.sdk.feature.group"
             versionRange="[2.9.0,3.0.0)"/>
@@ -530,7 +530,7 @@
           <repository
               url="http://download.eclipse.org/incquery/updates-extra/release/"/>
           <repository
-              url="http://download.eclipse.org/releases/luna"/>
+              url="http://download.eclipse.org/releases/mars"/>
         </repositoryList>
       </targlet>
     </setupTask>
@@ -574,7 +574,7 @@
             name="org.eclipse.sdk.feature.group"/>
         <requirement
             name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.8.0,2.9.0)"/>
+            versionRange="[2.9.0,2.10.0)"/>
         <requirement
             name="org.eclipse.emf.sdk.feature.group"
             versionRange="[2.9.0,3.0.0)"/>
@@ -584,6 +584,8 @@
               url="http://download.eclipse.org/incquery/updates-extra/integration/"/>
           <repository
               url="http://download.eclipse.org/releases/mars"/>
+          <repository
+              url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/milestones/"/>
         </repositoryList>
       </targlet>
     </setupTask>
@@ -597,7 +599,7 @@
           name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
       <requirement
           name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.8.0,2.9.0)"/>
+          versionRange="[2.9.0,2.10.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
@@ -608,6 +610,8 @@
           url="http://download.eclipse.org/incquery/updates-extra/integration/"/>
       <repository
           url="http://download.eclipse.org/releases/mars"/>
+      <repository
+          url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/milestones/"/>
     </setupTask>
   </stream>
   <stream name="0.4-maintenance">

@@ -24,7 +24,11 @@ public class MatlabControlCommandEvaluatorFactory implements ICommandEvaluatorFa
 	@Override
 	public ICommandEvaluator createCommandEvaluator(
 			Map<String, Object> parameters) {
-		ICommandEvaluator result = new CommandEvaluatorMCImpl();
+		// Get the parameters
+		String matlabPath = (String) parameters.get("matlabPath");
+		
+		ICommandEvaluator result = new CommandEvaluatorMCImpl(matlabPath);
+		
         return result;
 	}
 

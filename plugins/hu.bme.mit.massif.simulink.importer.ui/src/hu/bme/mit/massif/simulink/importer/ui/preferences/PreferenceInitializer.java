@@ -37,6 +37,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
         // Global
         store.setDefault(PreferenceConstants.HOST_ADDRESS, "127.0.0.1");
         store.setDefault(PreferenceConstants.HOST_PORT, 1098);
+        store.setDefault(PreferenceConstants.MATLAB_PATH, "");
 
         // Import
         store.setDefault(PreferenceConstants.IMPORT_TRAVERSE_MODE, ImportMode.SHALLOW.toString());

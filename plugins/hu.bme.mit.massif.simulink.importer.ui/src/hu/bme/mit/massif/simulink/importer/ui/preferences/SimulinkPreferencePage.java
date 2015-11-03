@@ -51,7 +51,7 @@ public class SimulinkPreferencePage extends FieldEditorPreferencePage implements
         addField(new StringFieldEditor(PreferenceConstants.HOST_ADDRESS, "Host IPv4 address:", getFieldEditorParent()));
         addField(new IntegerFieldEditor(PreferenceConstants.HOST_PORT, "Host port number:", getFieldEditorParent()));
         addField(new StringFieldEditor(PreferenceConstants.SERVICE_NAME, "Service name:", getFieldEditorParent()));
-        addField(new StringFieldEditor(PreferenceConstants.MATLAB_PATH, "Path to Matlab executable", getFieldEditorParent()));
+        addField(new StringFieldEditor(PreferenceConstants.MATLAB_PATH, "(optional - MatlabControl only) Path to Matlab executable", getFieldEditorParent()));
         
         String[][] connectors = processAvailableConnectors();
         addField(new ComboFieldEditor(PreferenceConstants.MATLAB_CONNECTOR, "Matlab Connector", connectors, getFieldEditorParent()));

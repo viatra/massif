@@ -44,14 +44,15 @@ public class CommandEvaluatorMCImpl implements ICommandEvaluator {
 	
     public CommandEvaluatorMCImpl(String matlabPath) {
     	
+        if (matlabPath != "") {
     	optionsBuilder = optionsBuilder.setMatlabLocation(matlabPath);
+        }
     	options = optionsBuilder.build();
     	factory = new MatlabProxyFactory(options);
     	
         try {
 			proxy = factory.getProxy();
 		} catch (MatlabConnectionException e) {
-			e.printStackTrace();
 		}
     }
 

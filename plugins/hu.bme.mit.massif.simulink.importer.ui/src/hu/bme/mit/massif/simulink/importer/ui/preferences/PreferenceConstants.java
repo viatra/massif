@@ -21,6 +21,7 @@ public class PreferenceConstants {
 	public static final String HOST_PORT = "hostPort";
 	public static final String SERVICE_NAME = "serviceName";
 	public static final String MATLAB_CONNECTOR = "matlab_connector";
+	public static final String MATLAB_PATH = "matlabPath";
 	
 	// Import
 	public static final String IMPORT_TRAVERSE_MODE = "traverseMode";

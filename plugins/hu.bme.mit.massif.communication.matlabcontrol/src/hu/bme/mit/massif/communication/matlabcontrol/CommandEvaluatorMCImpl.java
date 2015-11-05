@@ -26,6 +26,8 @@ import matlabcontrol.MatlabConnectionException;
 import matlabcontrol.MatlabInvocationException;
 import matlabcontrol.MatlabProxy;
 import matlabcontrol.MatlabProxyFactory;
+import matlabcontrol.MatlabProxyFactoryOptions;
+import matlabcontrol.MatlabProxyFactoryOptions.Builder;
 
 /**
  * Class responsible for the low level operations with MATLAB
@@ -33,15 +35,24 @@ import matlabcontrol.MatlabProxyFactory;
  * (The successor class of BasicOperationsApi utility class)
  */
 public class CommandEvaluatorMCImpl implements ICommandEvaluator {
-
-	private static MatlabProxyFactory factory = new MatlabProxyFactory();
+	
+	private static MatlabProxyFactory factory = null;
 	private static MatlabProxy proxy = null;
-	    
-    public CommandEvaluatorMCImpl() {
+	
+	private Builder optionsBuilder = new MatlabProxyFactoryOptions.Builder();
+	private MatlabProxyFactoryOptions options = null;
+	
+    public CommandEvaluatorMCImpl(String matlabPath) {
+    	
+        if (matlabPath != "") {
+    	optionsBuilder = optionsBuilder.setMatlabLocation(matlabPath);
+        }
+    	options = optionsBuilder.build();
+    	factory = new MatlabProxyFactory(options);
+    	
         try {
 			proxy = factory.getProxy();
 		} catch (MatlabConnectionException e) {
-			
 		}
     }
 

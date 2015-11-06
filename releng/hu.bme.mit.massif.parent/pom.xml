@@ -64,7 +64,7 @@
 		<incquery.repository.url>http://download.eclipse.org/incquery/updates-extra/release/</incquery.repository.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.skippedModules></sonar.skippedModules>
-		<mirror-site-url>http://incquery.net/update/massif/integration/site</mirror-site-url>
+		<mirror-site-url>http://viatra.inf.mit.bme.hu/update/massif/integration/site</mirror-site-url>
 		<mirror-integration-site-url>${mirror-site-url}/integration</mirror-integration-site-url>
 		<mirror-release-site-url>${mirror-site-url}/release</mirror-release-site-url>
 		<mirror-integration>false</mirror-integration>

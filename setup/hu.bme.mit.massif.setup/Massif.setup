@@ -421,11 +421,13 @@
       <requirement
           name="org.eclipse.egit.mylyn.feature.group"/>
       <requirement
-          name="org.sonar.ide.eclipse.jdt.feature.feature.group"/>
+          name="org.sonarlint.eclipse.feature.feature.group"/>
+      <requirement
+          name="org.sonarlint.eclipse.jdt.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/releases/mars"/>
       <repository
-          url="http://downloads.sonarsource.com/eclipse/eclipse/"/>
+          url="http://eclipse.sonarlint.org/"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -581,7 +583,7 @@
         <repositoryList
             name="Dependencies">
           <repository
-              url="http://download.eclipse.org/incquery/updates-extra/integration/"/>
+              url="https://hudson.eclipse.org/incquery/job/incquery-master/lastSuccessfulBuild/artifact/update-site/"/>
           <repository
               url="http://download.eclipse.org/releases/mars"/>
           <repository

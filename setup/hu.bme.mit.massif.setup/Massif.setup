@@ -465,7 +465,7 @@
           value="2"/>
     </stream>
     <stream
-        name="incquery-master">
+        name="viatra-master">
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone"
@@ -559,46 +559,41 @@
           url="http://download.eclipse.org/releases/mars"/>
     </setupTask>
   </stream>
-  <stream name="incquery-master">
+  <stream name="viatra-master">
     <setupTask
         xsi:type="setup.targlets:TargletTask">
       <targlet
           name="Massif Targlet Platform">
         <requirement
-            name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
-        <requirement
-            name="org.eclipse.incquery.testing.sdk.feature.feature.group"/>
-        <requirement
-            name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
+            name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
         <requirement
             name="org.eclipse.equinox.sdk.feature.group"/>
         <requirement
             name="org.eclipse.sdk.feature.group"/>
         <requirement
-            name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.9.0,2.10.0)"/>
-        <requirement
             name="org.eclipse.emf.sdk.feature.group"
             versionRange="[2.9.0,3.0.0)"/>
+        <requirement
+            name="org.eclipse.xtext.sdk.feature.group"
+            versionRange="[2.9.0,2.10.0)"/>
         <repositoryList
             name="Dependencies">
           <repository
-              url="https://hudson.eclipse.org/incquery/job/incquery-master/lastSuccessfulBuild/artifact/update-site/"/>
+              url="https://hudson.eclipse.org/viatra/job/viatra-master/lastSuccessfulBuild/artifact/update-site/"/>
           <repository
               url="http://download.eclipse.org/releases/mars"/>
           <repository
-              url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/milestones/"/>
+              url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
         </repositoryList>
       </targlet>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task">
       <requirement
-          name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
+          name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
       <requirement
-          name="org.eclipse.incquery.testing.sdk.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
+          name="org.eclipse.emf.sdk.feature.group"
+          versionRange="[2.9.0,3.0.0)"/>
       <requirement
           name="org.eclipse.xtext.sdk.feature.group"
           versionRange="[2.9.0,2.10.0)"/>
@@ -609,11 +604,11 @@
       <requirement
           name="org.eclipse.egit.feature.group"/>
       <repository
-          url="http://download.eclipse.org/incquery/updates-extra/integration/"/>
+          url="http://download.eclipse.org/viatra/updates/integration/"/>
       <repository
           url="http://download.eclipse.org/releases/mars"/>
       <repository
-          url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/milestones/"/>
+          url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
     </setupTask>
   </stream>
   <stream name="0.4-maintenance">

@@ -13,7 +13,6 @@ Export-Package: hu.bme.mit.massif.models.simulink.derived,
  hu.bme.mit.massif.models.simulink.viewer,
  hu.bme.mit.massif.models.simulink.viewer.util
 Require-Bundle: org.eclipse.emf.ecore,
- org.eclipse.emf.transaction,
  org.eclipse.xtext.xbase.lib,
  hu.bme.mit.massif.simulink,
  org.eclipse.viatra.addon.querybasedfeatures.runtime,

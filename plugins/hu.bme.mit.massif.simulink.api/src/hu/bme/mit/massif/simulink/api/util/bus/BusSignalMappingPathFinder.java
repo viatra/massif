@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.eclipse.incquery.runtime.api.IncQueryEngine;
+import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine;
 
 import com.google.common.collect.Maps;
 
@@ -100,7 +100,7 @@ public class BusSignalMappingPathFinder {
         return results.get(0);
     }
 
-    private void checkMappingArgument(BusSignalMapping mapping, IncQueryEngine engine) {
+    private void checkMappingArgument(BusSignalMapping mapping, ViatraQueryEngine engine) {
         checkArgument(mapping != null, "Mapping cannot be null!");
         checkArgument(mapping.eResource().getResourceSet() == engine.getScope(),
                 "Mapping is not part of correct resource set!");

@@ -12,11 +12,11 @@ Export-Package: hu.bme.mit.massif.models.simulink.derived,
  hu.bme.mit.massif.models.simulink.validation.util,
  hu.bme.mit.massif.models.simulink.viewer,
  hu.bme.mit.massif.models.simulink.viewer.util
-Require-Bundle: org.eclipse.incquery.querybasedfeatures.runtime,
- org.eclipse.emf.ecore,
+Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.emf.transaction,
- org.eclipse.incquery.runtime,
  org.eclipse.xtext.xbase.lib,
- hu.bme.mit.massif.simulink
+ hu.bme.mit.massif.simulink,
+ org.eclipse.viatra.addon.querybasedfeatures.runtime,
+ org.eclipse.viatra.query.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.log4j

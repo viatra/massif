@@ -34,244 +34,250 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum TriggerType implements Enumerator {
 	/**
-	 * The '<em><b>Rising</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Rising</b></em>' literal object.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #RISING_VALUE
-	 * @generated
-	 * @ordered
-	 */
+     * @see #RISING_VALUE
+     * @generated
+     * @ordered
+     */
 	RISING(0, "Rising", "Rising"),
 
 	/**
-	 * The '<em><b>Falling</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Falling</b></em>' literal object.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FALLING_VALUE
-	 * @generated
-	 * @ordered
-	 */
+     * @see #FALLING_VALUE
+     * @generated
+     * @ordered
+     */
 	FALLING(1, "Falling", "Falling"),
 
 	/**
-	 * The '<em><b>Either</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Either</b></em>' literal object.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EITHER_VALUE
-	 * @generated
-	 * @ordered
-	 */
+     * @see #EITHER_VALUE
+     * @generated
+     * @ordered
+     */
 	EITHER(2, "Either", "Either"),
 
 	/**
-	 * The '<em><b>Function Call</b></em>' literal object.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Function Call</b></em>' literal object.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FUNCTION_CALL_VALUE
-	 * @generated
-	 * @ordered
-	 */
+     * @see #FUNCTION_CALL_VALUE
+     * @generated
+     * @ordered
+     */
 	FUNCTION_CALL(3, "FunctionCall", "FunctionCall");
 
 	/**
-	 * The '<em><b>Rising</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Rising</b></em>' literal value.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Rising</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #RISING
-	 * @model name="Rising"
-	 * @generated
-	 * @ordered
-	 */
+     * @see #RISING
+     * @model name="Rising"
+     * @generated
+     * @ordered
+     */
 	public static final int RISING_VALUE = 0;
 
 	/**
-	 * The '<em><b>Falling</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Falling</b></em>' literal value.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Falling</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #FALLING
-	 * @model name="Falling"
-	 * @generated
-	 * @ordered
-	 */
+     * @see #FALLING
+     * @model name="Falling"
+     * @generated
+     * @ordered
+     */
 	public static final int FALLING_VALUE = 1;
 
 	/**
-	 * The '<em><b>Either</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Either</b></em>' literal value.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Either</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #EITHER
-	 * @model name="Either"
-	 * @generated
-	 * @ordered
-	 */
+     * @see #EITHER
+     * @model name="Either"
+     * @generated
+     * @ordered
+     */
 	public static final int EITHER_VALUE = 2;
 
 	/**
-	 * The '<em><b>Function Call</b></em>' literal value.
-	 * <!-- begin-user-doc -->
+     * The '<em><b>Function Call</b></em>' literal value.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>Function Call</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #FUNCTION_CALL
-	 * @model name="FunctionCall"
-	 * @generated
-	 * @ordered
-	 */
+     * @see #FUNCTION_CALL
+     * @model name="FunctionCall"
+     * @generated
+     * @ordered
+     */
 	public static final int FUNCTION_CALL_VALUE = 3;
 
 	/**
-	 * An array of all the '<em><b>Trigger Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+     * An array of all the '<em><b>Trigger Type</b></em>' enumerators.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	private static final TriggerType[] VALUES_ARRAY =
 		new TriggerType[] {
-			RISING,
-			FALLING,
-			EITHER,
-			FUNCTION_CALL,
-		};
+            RISING,
+            FALLING,
+            EITHER,
+            FUNCTION_CALL,
+        };
 
 	/**
-	 * A public read-only list of all the '<em><b>Trigger Type</b></em>' enumerators.
-	 * <!-- begin-user-doc -->
+     * A public read-only list of all the '<em><b>Trigger Type</b></em>' enumerators.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public static final List<TriggerType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Trigger Type</b></em>' literal with the specified literal value.
-	 * <!-- begin-user-doc -->
+     * Returns the '<em><b>Trigger Type</b></em>' literal with the specified literal value.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @param literal the literal.
+     * @return the matching enumerator or <code>null</code>.
+     * @generated
+     */
 	public static TriggerType get(String literal) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TriggerType result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal)) {
-				return result;
-			}
-		}
-		return null;
-	}
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+            TriggerType result = VALUES_ARRAY[i];
+            if (result.toString().equals(literal)) {
+                return result;
+            }
+        }
+        return null;
+    }
 
 	/**
-	 * Returns the '<em><b>Trigger Type</b></em>' literal with the specified name.
-	 * <!-- begin-user-doc -->
+     * Returns the '<em><b>Trigger Type</b></em>' literal with the specified name.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @param name the name.
+     * @return the matching enumerator or <code>null</code>.
+     * @generated
+     */
 	public static TriggerType getByName(String name) {
-		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			TriggerType result = VALUES_ARRAY[i];
-			if (result.getName().equals(name)) {
-				return result;
-			}
-		}
-		return null;
-	}
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+            TriggerType result = VALUES_ARRAY[i];
+            if (result.getName().equals(name)) {
+                return result;
+            }
+        }
+        return null;
+    }
 
 	/**
-	 * Returns the '<em><b>Trigger Type</b></em>' literal with the specified integer value.
-	 * <!-- begin-user-doc -->
+     * Returns the '<em><b>Trigger Type</b></em>' literal with the specified integer value.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @param value the integer value.
+     * @return the matching enumerator or <code>null</code>.
+     * @generated
+     */
 	public static TriggerType get(int value) {
-		switch (value) {
-			case RISING_VALUE: return RISING;
-			case FALLING_VALUE: return FALLING;
-			case EITHER_VALUE: return EITHER;
-			case FUNCTION_CALL_VALUE: return FUNCTION_CALL;
-		}
-		return null;
-	}
+        switch (value) {
+            case RISING_VALUE: return RISING;
+            case FALLING_VALUE: return FALLING;
+            case EITHER_VALUE: return EITHER;
+            case FUNCTION_CALL_VALUE: return FUNCTION_CALL;
+        }
+        return null;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	private final int value;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	private final String name;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	private final String literal;
 
 	/**
-	 * Only this class can construct instances.
-	 * <!-- begin-user-doc -->
+     * Only this class can construct instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	private TriggerType(int value, String name, String literal) {
-		this.value = value;
-		this.name = name;
-		this.literal = literal;
-	}
+        this.value = value;
+        this.name = name;
+        this.literal = literal;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public int getValue() {
-	  return value;
-	}
+      return value;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getName() {
-	  return name;
-	}
+      return name;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getLiteral() {
-	  return literal;
-	}
+      return literal;
+    }
 
 	/**
-	 * Returns the literal value of the enumerator, which is its string representation.
-	 * <!-- begin-user-doc -->
+     * Returns the literal value of the enumerator, which is its string representation.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		return literal;
-	}
+        return literal;
+    }
 	
 } //TriggerType

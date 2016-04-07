@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="Generated from Massif Targlet Platform" sequenceNumber="52">
+<target name="Massif Target Platform (partially generated from Targlet)" sequenceNumber="52">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
-      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.0.v20150602-1417"/>
-      <unit id="org.eclipse.sdk.feature.group" version="4.5.0.v20150603-2358"/>
-      <unit id="org.eclipse.emf.transaction" version="1.9.0.201506010221"/>
-      <unit id="org.eclipse.emf.sdk.feature.group" version="2.11.0.v20150601-0402"/>
+      <unit id="org.eclipse.draw2d" version="3.10.1.201508170204"/>
+      <unit id="org.eclipse.emf.mwe2.language.ui" version="2.8.3.v201512160634"/>
+      <unit id="org.eclipse.emf.mwe2.launch.ui" version="2.8.3.v201512160634"/>
+      <unit id="org.eclipse.emf.sdk.feature.group" version="2.11.2.v20160208-0841"/>
+      <unit id="org.eclipse.equinox.sdk.feature.group" version="3.11.2.v20160202-2102"/>
+      <unit id="org.eclipse.sdk.feature.group" version="4.5.2.v20160212-1500"/>
       <repository location="http://download.eclipse.org/releases/mars"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.8.3.v201506010551"/>
+    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
+      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.9.2.v201603040440"/>
       <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
     </location>
   </locations>

@@ -496,7 +496,7 @@
             source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
           <detail
               key="location">
-            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/hu.bme.mit.massif.releng.target}</value>
+            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/oomphgen.target}</value>
           </detail>
           <detail
               key="includeAllPlatforms">
@@ -563,7 +563,27 @@
     <setupTask
         xsi:type="setup.targlets:TargletTask">
       <targlet
-          name="Massif Targlet Platform">
+          name="Massif Targlet Platform"
+          includeSources="false">
+        <annotation
+            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
+          <detail
+              key="location">
+            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/oomphgen.target}</value>
+          </detail>
+          <detail
+              key="includeAllPlatforms">
+            <value>false</value>
+          </detail>
+          <detail
+              key="includeSource">
+            <value>false</value>
+          </detail>
+          <detail
+              key="generateVersions">
+            <value>true</value>
+          </detail>
+        </annotation>
         <requirement
             name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
         <requirement

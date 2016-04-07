@@ -37,9 +37,9 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.eclipse.incquery</groupId>
-				<artifactId>incquery-maven-plugin</artifactId>
-				<version>${incquery.compiler.version}</version>
+				<groupId>org.eclipse.viatra</groupId>
+				<artifactId>viatra-maven-plugin</artifactId>
+				<version>${viatra.compiler.version}</version>
 				<executions>
 					<execution>
 						<goals>

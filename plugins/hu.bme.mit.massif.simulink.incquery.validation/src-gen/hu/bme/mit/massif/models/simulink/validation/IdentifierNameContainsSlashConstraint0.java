@@ -7,12 +7,12 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 
-import org.eclipse.incquery.validation.core.api.Severity;
-import org.eclipse.incquery.validation.core.api.IConstraintSpecification;
-import org.eclipse.incquery.runtime.api.IPatternMatch;
-import org.eclipse.incquery.runtime.api.IQuerySpecification;
-import org.eclipse.incquery.runtime.api.IncQueryMatcher;
-import org.eclipse.incquery.runtime.exception.IncQueryException;
+import org.eclipse.viatra.addon.validation.core.api.Severity;
+import org.eclipse.viatra.addon.validation.core.api.IConstraintSpecification;
+import org.eclipse.viatra.query.runtime.api.IPatternMatch;
+import org.eclipse.viatra.query.runtime.api.IQuerySpecification;
+import org.eclipse.viatra.query.runtime.api.ViatraQueryMatcher;
+import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
 import hu.bme.mit.massif.models.simulink.validation.util.IdentifierNameContainsSlashQuerySpecification;
 
@@ -20,7 +20,7 @@ public class IdentifierNameContainsSlashConstraint0 implements IConstraintSpecif
 
     private IdentifierNameContainsSlashQuerySpecification querySpecification;
 
-    public IdentifierNameContainsSlashConstraint0() throws IncQueryException {
+    public IdentifierNameContainsSlashConstraint0() throws ViatraQueryException {
         querySpecification = IdentifierNameContainsSlashQuerySpecification.instance();
     }
 
@@ -73,7 +73,7 @@ public class IdentifierNameContainsSlashConstraint0 implements IConstraintSpecif
     }
 
     @Override
-    public IQuerySpecification<? extends IncQueryMatcher<? extends IPatternMatch>> getQuerySpecification() {
+    public IQuerySpecification<? extends ViatraQueryMatcher<? extends IPatternMatch>> getQuerySpecification() {
         return querySpecification;
     }
 

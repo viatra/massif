@@ -13,10 +13,10 @@ package hu.bme.mit.massif.simulink.api.util;
 import java.util.List;
 import java.util.Set;
 
-import org.eclipse.incquery.runtime.api.IPatternMatch;
-import org.eclipse.incquery.runtime.api.IncQueryMatcher;
-import org.eclipse.incquery.runtime.base.itc.igraph.IBiDirectionalGraphDataSource;
-import org.eclipse.incquery.runtime.base.itc.igraph.IGraphObserver;
+import org.eclipse.viatra.query.runtime.api.IPatternMatch;
+import org.eclipse.viatra.query.runtime.api.ViatraQueryMatcher;
+import org.eclipse.viatra.query.runtime.base.itc.igraph.IBiDirectionalGraphDataSource;
+import org.eclipse.viatra.query.runtime.base.itc.igraph.IGraphObserver;
 
 import com.google.common.collect.ImmutableList;
 
@@ -26,12 +26,12 @@ public class PathMatcherGraphDataSource<Match extends IPatternMatch> implements 
 	 * 
 	 */
 	private static final long serialVersionUID = -6674505895210661953L;
-	private IncQueryMatcher<Match> matcher;
+	private ViatraQueryMatcher<Match> matcher;
 	private String first;
 	private String second;
 	private Object targetObject;
 
-	public PathMatcherGraphDataSource(IncQueryMatcher<Match> matcher) {
+	public PathMatcherGraphDataSource(ViatraQueryMatcher<Match> matcher) {
 		this.matcher = matcher;
 		first = matcher.getParameterNames().get(0);
 		second = matcher.getParameterNames().get(1);

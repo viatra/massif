@@ -28,10 +28,10 @@ package hu.bme.mit.massif.simulink;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link hu.bme.mit.massif.simulink.From#getGotoBlock <em>Goto Block</em>}</li>
  * </ul>
- * </p>
  *
  * @see hu.bme.mit.massif.simulink.SimulinkPackage#getFrom()
  * @model
@@ -39,31 +39,31 @@ package hu.bme.mit.massif.simulink;
  */
 public interface From extends VirtualBlock {
 	/**
-	 * Returns the value of the '<em><b>Goto Block</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.Goto#getFromBlocks <em>From Blocks</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Goto Block</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.Goto#getFromBlocks <em>From Blocks</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Goto Block</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Goto Block</em>' reference.
-	 * @see #setGotoBlock(Goto)
-	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getFrom_GotoBlock()
-	 * @see hu.bme.mit.massif.simulink.Goto#getFromBlocks
-	 * @model opposite="fromBlocks"
-	 * @generated
-	 */
+     * @return the value of the '<em>Goto Block</em>' reference.
+     * @see #setGotoBlock(Goto)
+     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getFrom_GotoBlock()
+     * @see hu.bme.mit.massif.simulink.Goto#getFromBlocks
+     * @model opposite="fromBlocks"
+     * @generated
+     */
 	Goto getGotoBlock();
 
 	/**
-	 * Sets the value of the '{@link hu.bme.mit.massif.simulink.From#getGotoBlock <em>Goto Block</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link hu.bme.mit.massif.simulink.From#getGotoBlock <em>Goto Block</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Goto Block</em>' reference.
-	 * @see #getGotoBlock()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Goto Block</em>' reference.
+     * @see #getGotoBlock()
+     * @generated
+     */
 	void setGotoBlock(Goto value);
 
 } // From

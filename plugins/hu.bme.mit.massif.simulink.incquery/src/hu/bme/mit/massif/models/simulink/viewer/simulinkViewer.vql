@@ -11,7 +11,6 @@ pattern portOfPortBlock(port, portBlock) {
 
 @Item(item = bl, label = "$bl$")
 @Format(color = "#191970", textColor = "#FFFFFF")
-@QueryExplorer(display=true)
 pattern portBlock(bl){
 	PortBlock(bl);
 }
@@ -41,7 +40,6 @@ pattern ignoredBlock(bl) {
 
 @Item(item = bl, label = "$bl$")
 @Format(color = "#F5F5F5", textColor = "#191970")
-@QueryExplorer(display=true)
 pattern block(bl) {
 	Block(bl);
 	neg find ignoredBlock(bl);
@@ -49,21 +47,18 @@ pattern block(bl) {
 
 @Item(item = bl, label = "From")
 @Format(color = "#F5F5F5", textColor = "#191970")
-@QueryExplorer(display=true)
 pattern fromBlocks(bl) {
 	From(bl);
 }
 
 @Item(item = bl, label = "Goto")
 @Format(color = "#F5F5F5", textColor = "#191970")
-@QueryExplorer(display=true)
 pattern gotoBlocks(bl) {
 	Goto(bl);
 }
 
 @Item(item = subS, label = "$subS.tag$ $subS$")
 @Format(color = "#F0FFFF", textColor = "#FFFFFF")
-@QueryExplorer(display=true)
 pattern subSystem(subS) {
 	SubSystem(subS);
 	find subBlocks(subS, _bl);
@@ -71,14 +66,12 @@ pattern subSystem(subS) {
 
 @Item(item = subS, label = "$subS.tag$ $subS$")
 @Format(color = "#F0FFFF", textColor = "#000000")
-@QueryExplorer(display=true)
 pattern emptySubSystem(subS) {
 	SubSystem(subS);
 	neg find subBlocks(subS, _bl);
 }
 
 @ContainsItem(container = subSys, item = bl)
-@QueryExplorer(display=true)
 pattern subBlocks(subSys, bl){
 	SubSystem.subBlocks(subSys, bl);
 	//neg find portBlock(bl);
@@ -101,7 +94,6 @@ pattern nonNullLineName(conn, name) {
 
 @Edge(source = from, target = to, label = "$name$")
 @Format(lineColor = "#000080")
-@QueryExplorer(display=true)
 pattern portToPortConnection(from, to, name) {
 	find portOfSimpleBlock(outP,from);
 	find portConnection(outP, inP, firstPC);
@@ -111,14 +103,12 @@ pattern portToPortConnection(from, to, name) {
 
 @Edge(source = from, target = to, label = "goto")
 @Format(lineColor = "#228B22", lineStyle = "dashed")
-@QueryExplorer(display=true)
 pattern gotoConnection(from, to) {
 	Goto.fromBlocks(from, to);
 }
 
 @Edge(source = from, target = to, label = "$name$")
 @Format(lineColor = "#D93F3F")
-@QueryExplorer(display=true)
 pattern hierarchyConnection(from, to, name) {
 	find hierarchyConnectionEnd(outP,from);
 	find portConnection(outP, inP, firstPC);
@@ -135,7 +125,6 @@ pattern hierarchyConnectionEnd(port, block){
 
 @Edge(source = busSelector, target = from, label = "[$name$ -> $toName$]")
 @Format(lineColor = "#228B22", lineStyle = "dotted")
-@QueryExplorer(display=true)
 pattern busSignalMappingSource(busSelector, from, name, toName) {
 	find busMappingInSelector(busSelector, _mapping, fromOP, to);
 	find hierarchyConnectionEnd(fromOP,from);

@@ -24,11 +24,11 @@ import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.incquery.runtime.api.AdvancedIncQueryEngine;
-import org.eclipse.incquery.runtime.api.GenericPatternGroup;
-import org.eclipse.incquery.runtime.api.IQueryGroup;
-import org.eclipse.incquery.runtime.emf.EMFScope;
-import org.eclipse.incquery.runtime.exception.IncQueryException;
+import org.eclipse.viatra.query.runtime.api.AdvancedViatraQueryEngine;
+import org.eclipse.viatra.query.runtime.api.GenericQueryGroup;
+import org.eclipse.viatra.query.runtime.api.IQueryGroup;
+import org.eclipse.viatra.query.runtime.emf.EMFScope;
+import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
 /**
  * TODO: use logger!
@@ -38,7 +38,7 @@ import org.eclipse.incquery.runtime.exception.IncQueryException;
  * 
  */
 public class BusSignalMapper {
-    protected AdvancedIncQueryEngine iqe;
+    protected AdvancedViatraQueryEngine iqe;
     protected NextOutPortInPathMatcher nextOutPortInPathMatcher;
     private FirstOutPortFromBusSpecificationMatcher firstOutPortFromBusSpecificationMatcher;
     private ISimulinkAPILogger logger;
@@ -53,19 +53,19 @@ public class BusSignalMapper {
     public BusSignalMapper(ResourceSet busMappingResourceSet) {
         checkArgument(busMappingResourceSet != null, "Resource set for bus mapping path finder cannot be null!");
         try {
-            iqe = AdvancedIncQueryEngine.createUnmanagedEngine(new EMFScope(busMappingResourceSet));
-            IQueryGroup group = GenericPatternGroup.of(NextOutPortInPathMatcher.querySpecification(),
+            iqe = AdvancedViatraQueryEngine.createUnmanagedEngine(new EMFScope(busMappingResourceSet));
+            IQueryGroup group = GenericQueryGroup.of(NextOutPortInPathMatcher.querySpecification(),
                     FirstOutPortFromBusSpecificationMatcher.querySpecification());
             group.prepare(iqe);
 
             nextOutPortInPathMatcher = NextOutPortInPathMatcher.on(iqe);
             firstOutPortFromBusSpecificationMatcher = FirstOutPortFromBusSpecificationMatcher.on(iqe);
-        } catch (IncQueryException e) {
+        } catch (ViatraQueryException e) {
             throw new IllegalStateException("Could not initialize matcher for bus mapping path finder!", e);
         }
     }
 
-    public AdvancedIncQueryEngine getEngine() {
+    public AdvancedViatraQueryEngine getEngine() {
         return iqe;
     }
 

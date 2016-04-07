@@ -579,7 +579,7 @@
         <repositoryList
             name="Dependencies">
           <repository
-              url="https://hudson.eclipse.org/viatra/job/viatra-master/lastSuccessfulBuild/artifact/update-site/"/>
+              url="https://hudson.eclipse.org/viatra/job/viatra-master/lastSuccessfulBuild/artifact/releng/org.eclipse.viatra.update/target/repository/"/>
           <repository
               url="http://download.eclipse.org/releases/mars"/>
           <repository

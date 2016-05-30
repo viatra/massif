@@ -84,6 +84,9 @@ public class MatlabRunningManager {
         matlabVersions.put("8.2", "R2013b");
         matlabVersions.put("8.3", "R2014a");
         matlabVersions.put("8.4", "R2014b");
+        matlabVersions.put("8.5", "R2015a");
+        matlabVersions.put("8.6", "R2015b");
+        matlabVersions.put("9.0", "R2016a");
     }
 
     /**

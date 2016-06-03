@@ -13,7 +13,7 @@ The development of Massif was supported by multiple projects and partners, most 
  1. As the developer of the first verions the Budapest University of Technology and Economics
  1. Embraer through the Trans-IMA (TRANSformation methods applied to the design of Integrated Modular Avionics systems) project funded by Embraer S.A. 
  1. [CONCERTO](http://www.concerto-project.org/) Artemis EU project
- 1. [IncQuery Labs ltd](http://incquerylabs.com/) that provides professional support for Massif
+ 1. [IncQuery Labs Ltd](http://incquerylabs.com/) that provides professional support for Massif
 
 ## Known Users
 
@@ -24,17 +24,17 @@ The development of Massif was supported by multiple projects and partners, most 
 
 ***Latest release: 0.5.0***
 
-Releases: http://incquery.net/update/massif/release/site/
-  * Command evaluation server archive [download](http://incquery.net/update/massif/release/) 
+Releases: http://static.incquerylabs.com/projects/massif/release/site/
+  * Command evaluation server archive [download](http://static.incquerylabs.com/projects/massif/release/) 
 
-Integration builds: http://incquery.net/update/massif/integration/site/
-  * Command evaluation server archive [download](http://incquery.net/update/massif/integration/)
+Integration builds: http://static.incquerylabs.com/projects/massif/integration/site/
+  * Command evaluation server archive [download](http://static.incquerylabs.com/projects/massif/integration/)
   * These are created each week and old versions are discarded after a new release.
 
-We also provide a [CI update site](https://build.inf.mit.bme.hu/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
+We also provide a [CI update site](https://build.incquerylabs.com/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
 
-[CI Build](https://build.inf.mit.bme.hu/jenkins/job/Massif/) on Jenkins: 
-[![Build Status](https://build.inf.mit.bme.hu/jenkins/buildStatus/icon?job=Massif)](https://build.inf.mit.bme.hu/jenkins/job/Massif/)
+[CI Build](https://build.incquerylabs.com/jenkins/job/Massif/) on Jenkins: 
+[![Build Status](https://build.incquerylabs.com/jenkins/buildStatus/icon?job=Massif)](https://build.incquerylabs.com/jenkins/job/Massif/)
 
 ## I. Installation:
 

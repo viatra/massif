@@ -60,7 +60,9 @@
 	<properties>
 		<tycho.version>0.20.0</tycho.version>
 		<xtend.compiler.version>2.9.2</xtend.compiler.version>
-		<viatra.compiler.version>1.2.1</viatra.compiler.version>
+		<viatra.compiler.version>1.3.0</viatra.compiler.version>
+		<viatra.repository.url>http://download.eclipse.org/viatra/updates/integration/</viatra.repository.url>
+		<viatra.maven.repository.url>https://repo.eclipse.org/content/repositories/viatra-snapshots/</viatra.maven.repository.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.skippedModules></sonar.skippedModules>
 		<mirror-site-url>http://static.incquerylabs.com/projects/massif/integration/site</mirror-site-url>

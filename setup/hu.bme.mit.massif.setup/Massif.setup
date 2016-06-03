@@ -17,11 +17,6 @@
     label="Massif">
   <setupTask
       xsi:type="setup:EclipseIniTask"
-      option="-Doomph.redirection.massif.setup"
-      value="=https://raw.githubusercontent.com/FTSRG/massif/master/setup/hu.bme.mit.massif.setup/Massif.setup->${git.clone.massif.location|uri}/setup/hu.bme.mit.massif.setup/Massif.setup"
-      vm="true"/>
-  <setupTask
-      xsi:type="setup:EclipseIniTask"
       option="-Xmx"
       value="2G"
       vm="true">
@@ -32,6 +27,12 @@
       option="-XX:MaxPermSize="
       value="256M"
       vm="true"/>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      name="massif.copyright.holder"
+      label="Additional copyright owners (Massif)">
+    <description>Copyright owner to be inserted in copyright comment on new files after user name (e.g. employer)</description>
+  </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.massif"
@@ -70,15 +71,11 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.releng.tools/org.eclipse.releng.tools.copyrightTemplate"
-          value="Copyright (c) $${date}, Embraer S.A., Budapest University of Technology and Economics&#xA;All rights reserved. This program and the accompanying materials &#xA;are made available under the terms of the Eclipse Public License v1.0 &#xA;which accompanies this distribution, and is available at &#xA;http://www.eclipse.org/legal/epl-v10.html &#xA;&#xA;Contributors: &#xA;    Abel Hegedus - initial API and implementation "/>
+          value="Copyright (c) $${date}, $${user}, ${massif.copyright.holder}&#xA;All rights reserved. This program and the accompanying materials &#xA;are made available under the terms of the Eclipse Public License v1.0 &#xA;which accompanies this distribution, and is available at &#xA;http://www.eclipse.org/legal/epl-v10.html &#xA;&#xA;Contributors: &#xA;    Abel Hegedus - initial API and implementation "/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.releng.tools/org.eclipse.releng.tools.creationYear"
           value="2010"/>
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.eclipse.releng.tools/org.eclipse.releng.tools.replaceAllExisting"
-          value="true"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -94,7 +91,7 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.text.custom_code_templates"
-          value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&lt;templates>&lt;template autoinsert=&quot;true&quot; context=&quot;filecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created Java files&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.filecomment&quot; name=&quot;filecomment&quot;>/*******************************************************************************&#xD;&#xA; * Copyright (c) 2010-$${year}, Embraer S.A., Budapest University of Technology and Economics&#xD;&#xA; * All rights reserved. This program and the accompanying materials &#xD;&#xA; * are made available under the terms of the Eclipse Public License v1.0 &#xD;&#xA; * which accompanies this distribution, and is available at &#xD;&#xA; * http://www.eclipse.org/legal/epl-v10.html &#xD;&#xA; *&#xD;&#xA; * Contributors: &#xD;&#xA; *     ${github.author.name} - initial API and implementation &#xD;&#xA; *******************************************************************************/&lt;/template>&lt;template autoinsert=&quot;false&quot; context=&quot;typecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created types&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.typecomment&quot; name=&quot;typecomment&quot;>/**&#xD;&#xA; * @author ${github.author.name}&#xD;&#xA; *&#xD;&#xA; * $${tags}&#xD;&#xA; */&lt;/template>&lt;/templates>"/>
+          value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&lt;templates>&lt;template autoinsert=&quot;true&quot; context=&quot;filecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created Java files&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.filecomment&quot; name=&quot;filecomment&quot;>/*******************************************************************************&#xA; * Copyright (c) 2010-$${year}, $${user}, ${massif.copyright.holder}&#xA; * All rights reserved. This program and the accompanying materials &#xA; * are made available under the terms of the Eclipse Public License v1.0 &#xA; * which accompanies this distribution, and is available at &#xA; * http://www.eclipse.org/legal/epl-v10.html &#xA; *&#xA; * Contributors: &#xA; *     ${github.author.name} - initial API and implementation &#xA; *******************************************************************************/&lt;/template>&lt;template autoinsert=&quot;false&quot; context=&quot;typecomment_context&quot; deleted=&quot;false&quot; description=&quot;Comment for created types&quot; enabled=&quot;true&quot; id=&quot;org.eclipse.jdt.ui.text.codetemplates.typecomment&quot; name=&quot;typecomment&quot;>/**&#xA; * @author ${github.author.name}&#xA; *&#xA; * $${tags}&#xA; */&lt;/template>&lt;/templates>"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.ui/org.eclipse.jdt.ui.formatterprofiles"
@@ -115,14 +112,6 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.formatter.lineSplit"
           value="140"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup:CompoundTask"
-        name="org.eclipse.ui.ide">
-      <setupTask
-          xsi:type="setup:PreferenceTask"
-          key="/instance/org.eclipse.ui.ide/WORKSPACE_NAME"
-          value="Massif"/>
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
@@ -311,12 +300,6 @@
     </workingSet>
   </setupTask>
   <setupTask
-      xsi:type="setup:VariableTask"
-      id=""
-      type="PASSWORD"
-      name="github.user.password"
-      label="GitHub password for Issues/Pull requests"/>
-  <setupTask
       xsi:type="jdt:JRETask"
       version="JavaSE-1.6"
       location="${jre.location-1.6}">
@@ -336,6 +319,11 @@
     <setupTask
         xsi:type="setup:VariableTask"
         name="massif.milestone.id"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="PASSWORD"
+        name="github.user.password"
+        label="GitHub password for Issues/Pull requests"/>
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="github"
@@ -392,7 +380,7 @@
     </setupTask>
     <setupTask
         xsi:type="mylyn:MylynBuildsTask"
-        serverURL="https://build.inf.mit.bme.hu/jenkins"
+        serverURL="https://build.incquerylabs.com/jenkins"
         userID=""
         password="">
       <buildPlan
@@ -425,7 +413,7 @@
       <requirement
           name="org.sonarlint.eclipse.jdt.feature.feature.group"/>
       <repository
-          url="http://download.eclipse.org/releases/mars"/>
+          url="http://download.eclipse.org/mylyn/releases/latest"/>
       <repository
           url="http://eclipse.sonarlint.org/"/>
     </setupTask>
@@ -437,7 +425,7 @@
           name="org.sonar.ide.eclipse.core">
         <setupTask
             xsi:type="setup:PreferenceTask"
-            key="/instance/org.sonar.ide.eclipse.core/servers/https:\2f\2fbuild.inf.mit.bme.hu\2fsonar/auth"
+            key="/instance/org.sonar.ide.eclipse.core/servers/https:\2f\2fbuild.incquerylabs.com\2fsonar/auth"
             value="false"/>
         <setupTask
             xsi:type="setup:PreferenceTask"
@@ -458,22 +446,22 @@
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone"
-          value="0.5.0"/>
+          value="0.6.0"/>
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone.id"
-          value="2"/>
+          value="3"/>
     </stream>
     <stream
         name="viatra-master">
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone"
-          value="0.5.0"/>
+          value="0.6.0"/>
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone.id"
-          value="2"/>
+          value="3"/>
     </stream>
     <stream
         name="0.4-maintenance">
@@ -486,8 +474,24 @@
           name="massif.milestone.id"
           value="1"/>
     </stream>
+    <stream
+        name="0.5-maintenance">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="massif.milestone"
+          value="0.5.0"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="massif.milestone.id"
+          value="2"/>
+    </stream>
   </project>
   <stream name="master">
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-Doomph.redirection.massif.setup"
+        value="=https://raw.githubusercontent.com/IncQueryLabs/massif/master/setup/hu.bme.mit.massif.setup/Massif.setup->${git.clone.massif.location|uri}/setup/hu.bme.mit.massif.setup/Massif.setup"
+        vm="true"/>
     <setupTask
         xsi:type="setup.targlets:TargletTask">
       <targlet
@@ -496,7 +500,7 @@
             source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
           <detail
               key="location">
-            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/oomphgen.target}</value>
+            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/massif_oomphgen.target}</value>
           </detail>
           <detail
               key="includeAllPlatforms">
@@ -512,41 +516,38 @@
           </detail>
         </annotation>
         <requirement
-            name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
-        <requirement
-            name="org.eclipse.incquery.testing.sdk.feature.feature.group"/>
-        <requirement
-            name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
+            name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
         <requirement
             name="org.eclipse.equinox.sdk.feature.group"/>
         <requirement
             name="org.eclipse.sdk.feature.group"/>
         <requirement
-            name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.8.0,2.9.0)"/>
-        <requirement
             name="org.eclipse.emf.sdk.feature.group"
             versionRange="[2.9.0,3.0.0)"/>
+        <requirement
+            name="org.eclipse.xtext.sdk.feature.group"
+            versionRange="[2.9.0,2.10.0)"/>
         <repositoryList
             name="Dependencies">
           <repository
-              url="http://download.eclipse.org/incquery/updates-extra/release/"/>
+              url="http://download.eclipse.org/viatra/updates/release/"/>
           <repository
               url="http://download.eclipse.org/releases/mars"/>
+          <repository
+              url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
         </repositoryList>
       </targlet>
     </setupTask>
     <setupTask
         xsi:type="setup.p2:P2Task">
       <requirement
-          name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
+          name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
       <requirement
-          name="org.eclipse.incquery.testing.sdk.feature.feature.group"/>
-      <requirement
-          name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
+          name="org.eclipse.emf.sdk.feature.group"
+          versionRange="[2.9.0,3.0.0)"/>
       <requirement
           name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.8.0,2.9.0)"/>
+          versionRange="[2.9.0,2.10.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
@@ -554,9 +555,11 @@
       <requirement
           name="org.eclipse.egit.feature.group"/>
       <repository
-          url="http://download.eclipse.org/incquery/updates-extra/release/"/>
+          url="http://download.eclipse.org/viatra/updates/release/"/>
       <repository
           url="http://download.eclipse.org/releases/mars"/>
+      <repository
+          url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
     </setupTask>
   </stream>
   <stream name="viatra-master">
@@ -595,7 +598,7 @@
             versionRange="[2.9.0,3.0.0)"/>
         <requirement
             name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.9.0,2.10.0)"/>
+            versionRange="[2.10.0,2.11.0)"/>
         <repositoryList
             name="Dependencies">
           <repository
@@ -616,7 +619,7 @@
           versionRange="[2.9.0,3.0.0)"/>
       <requirement
           name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.9.0,2.10.0)"/>
+          versionRange="[2.10.0,2.11.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
@@ -640,7 +643,7 @@
             source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
           <detail
               key="location">
-            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/hu.bme.mit.massif.releng.target}</value>
+            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/massif_oomphgen.target}</value>
           </detail>
           <detail
               key="includeAllPlatforms">
@@ -701,6 +704,78 @@
           url="http://download.eclipse.org/incquery/updates-extra/release/"/>
       <repository
           url="http://download.eclipse.org/releases/luna"/>
+    </setupTask>
+  </stream>
+  <stream name="0.5-maintenance">
+    <setupTask
+        xsi:type="setup.targlets:TargletTask">
+      <targlet
+          name="Massif Targlet Platform">
+        <annotation
+            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
+          <detail
+              key="location">
+            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/massif_oomphgen.target}</value>
+          </detail>
+          <detail
+              key="includeAllPlatforms">
+            <value>false</value>
+          </detail>
+          <detail
+              key="includeSource">
+            <value>false</value>
+          </detail>
+          <detail
+              key="generateVersions">
+            <value>true</value>
+          </detail>
+        </annotation>
+        <requirement
+            name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
+        <requirement
+            name="org.eclipse.incquery.testing.sdk.feature.feature.group"/>
+        <requirement
+            name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
+        <requirement
+            name="org.eclipse.equinox.sdk.feature.group"/>
+        <requirement
+            name="org.eclipse.sdk.feature.group"/>
+        <requirement
+            name="org.eclipse.xtext.sdk.feature.group"
+            versionRange="[2.8.0,2.9.0)"/>
+        <requirement
+            name="org.eclipse.emf.sdk.feature.group"
+            versionRange="[2.9.0,3.0.0)"/>
+        <repositoryList
+            name="Dependencies">
+          <repository
+              url="http://download.eclipse.org/incquery/updates-extra/release/"/>
+          <repository
+              url="http://download.eclipse.org/releases/mars"/>
+        </repositoryList>
+      </targlet>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.p2:P2Task">
+      <requirement
+          name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
+      <requirement
+          name="org.eclipse.incquery.testing.sdk.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.incquery.viewers.tooling.ui.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.xtext.sdk.feature.group"
+          versionRange="[2.8.0,2.9.0)"/>
+      <requirement
+          name="org.eclipse.m2e.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.m2e.logback.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.egit.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/incquery/updates-extra/release/"/>
+      <repository
+          url="http://download.eclipse.org/releases/mars"/>
     </setupTask>
   </stream>
   <logicalProjectContainer

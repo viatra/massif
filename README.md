@@ -22,7 +22,7 @@ The development of Massif was supported by multiple projects and partners, most 
 
 ## Update site:
 
-***Latest release: 0.4.0***
+***Latest release: 0.5.0***
 
 Releases: http://incquery.net/update/massif/release/site/
   * Command evaluation server archive [download](http://incquery.net/update/massif/release/) 

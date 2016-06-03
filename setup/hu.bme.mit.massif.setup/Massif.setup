@@ -327,7 +327,7 @@
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="github"
-        repositoryURL="https://github.com/FTSRG/massif"
+        repositoryURL="https://github.com/IncQueryLabs/massif"
         userID="${github.user.id}"
         password="${github.user.password}">
       <query
@@ -367,7 +367,7 @@
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="githubPullRequests"
-        repositoryURL="http://github.com/FTSRG/massif/pulls"
+        repositoryURL="http://github.com/IncQueryLabs/massif/pulls"
         userID="${github.user.id}"
         password="${github.user.password}">
       <query

@@ -22,14 +22,23 @@ The development of Massif was supported by multiple projects and partners, most 
 
 ## Update site:
 
-***Latest release: 0.5.0***
+### Latest release: 0.5.0
 
-Releases: http://static.incquerylabs.com/projects/massif/release/site/
-  * Command evaluation server archive [download](http://static.incquerylabs.com/projects/massif/release/) 
+Releases: http://static.incquerylabs.com/projects/massif/release/0.4.0-0.5.0/repository
+  * Command evaluation server archive [download](http://static.incquerylabs.com/projects/massif/release/0.4.0-0.5.0) 
+
+### All releases
+
+Release composite site: http://static.incquerylabs.com/projects/massif/release
+  * Command evaluation server archive in folder of specific releases [download](http://static.incquerylabs.com/projects/massif/release/)
+
+### Integration builds
 
 Integration builds: http://static.incquerylabs.com/projects/massif/integration/site/
   * Command evaluation server archive [download](http://static.incquerylabs.com/projects/massif/integration/)
-  * These are created each week and old versions are discarded after a new release.
+  * These are created regularly and old versions are discarded after a new release.
+
+### CI update site
 
 We also provide a [CI update site](https://build.incquerylabs.com/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
 

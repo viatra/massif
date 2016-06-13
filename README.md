@@ -34,13 +34,14 @@ Release composite site: http://static.incquerylabs.com/projects/massif/release
 
 ### Integration builds
 
-Integration builds: http://static.incquerylabs.com/projects/massif/integration/site/
-  * Command evaluation server archive [download](http://static.incquerylabs.com/projects/massif/integration/)
+Integration builds: http://static.incquerylabs.com/projects/massif/integration/
+  * Command evaluation server archive in folder of specific releases [download](http://static.incquerylabs.com/projects/massif/integration/)
   * These are created regularly and old versions are discarded after a new release.
 
 ### CI update site
 
 We also provide a [CI update site](https://build.incquerylabs.com/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
+  * Command evaluation server archive [download](https://build.incquerylabs.com/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/) 
 
 [CI Build](https://build.incquerylabs.com/jenkins/job/Massif/) on Jenkins: 
 [![Build Status](https://build.incquerylabs.com/jenkins/buildStatus/icon?job=Massif)](https://build.incquerylabs.com/jenkins/job/Massif/)

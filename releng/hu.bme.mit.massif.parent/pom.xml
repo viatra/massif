@@ -65,10 +65,6 @@
 		<viatra.maven.repository.url>https://repo.eclipse.org/content/repositories/viatra-releases/</viatra.maven.repository.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.skippedModules></sonar.skippedModules>
-		<mirror-site-url>http://static.incquerylabs.com/projects/massif/integration/site</mirror-site-url>
-		<mirror-integration-site-url>${mirror-site-url}/integration</mirror-integration-site-url>
-		<mirror-release-site-url>${mirror-site-url}/release</mirror-release-site-url>
-		<mirror-integration>false</mirror-integration>
 	</properties>
 	<build>
 		<plugins>

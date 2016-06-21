@@ -31,11 +31,6 @@ Integration builds: http://incquery.net/update/massif/integration/site/
   * Command evaluation server archive [download](http://incquery.net/update/massif/integration/)
   * These are created each week and old versions are discarded after a new release.
 
-We also provide a [CI update site](https://build.inf.mit.bme.hu/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
-
-[CI Build](https://build.inf.mit.bme.hu/jenkins/job/Massif/) on Jenkins: 
-[![Build Status](https://build.inf.mit.bme.hu/jenkins/buildStatus/icon?job=Massif)](https://build.inf.mit.bme.hu/jenkins/job/Massif/)
-
 ## I. Installation:
 
 It is required to have the following tools:

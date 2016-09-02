@@ -55,7 +55,7 @@ public abstract class PortAdapter extends DefaultBlockAdapter {
             BusSignal busSignal = processBusObject(busObjectName,commandFactory);
 
             // The busObjectStructCell stores the raw and busSignal the processed BusObject
-            // TODO write model modification code here
+            // write model modification code here
             Property busObject = SimulinkFactory.eINSTANCE.createProperty();
             busObject.setName("BusObject");
             busObject.setSource(PropertySource.DIALOG);

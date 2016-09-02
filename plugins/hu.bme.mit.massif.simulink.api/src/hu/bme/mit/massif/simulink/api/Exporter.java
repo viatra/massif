@@ -30,6 +30,7 @@ import hu.bme.mit.massif.simulink.InPort;
 import hu.bme.mit.massif.simulink.MultiConnection;
 import hu.bme.mit.massif.simulink.OutPort;
 import hu.bme.mit.massif.simulink.Port;
+import hu.bme.mit.massif.simulink.PortBlock;
 import hu.bme.mit.massif.simulink.Property;
 import hu.bme.mit.massif.simulink.SimulinkElement;
 import hu.bme.mit.massif.simulink.SimulinkModel;
@@ -475,7 +476,12 @@ public class Exporter {
             // Set block dialog/mask parameters
             EList<Property> properties = block.getProperties();
             for (Property property : properties) {
-            	commandFactory.setParam().addParam(getFQN(block)).addParam(property.getName()).addParam(property.getValue()).execute();
+                String propertyName = property.getName();
+                if(block instanceof PortBlock && "DataType".equals(propertyName)){
+                    // XXX fix problem with deprecated setter
+                    propertyName = "OutDataTypeStr";
+                }
+                commandFactory.setParam().addParam(getFQN(block)).addParam(propertyName).addParam(property.getValue()).execute();
             }
 
         }

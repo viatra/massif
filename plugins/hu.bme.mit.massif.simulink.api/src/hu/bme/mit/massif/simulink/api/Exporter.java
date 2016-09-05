@@ -10,45 +10,6 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api;
 
-import hu.bme.mit.massif.communication.command.MatlabCommand;
-import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
-import hu.bme.mit.massif.communication.datatype.CellMatlabData;
-import hu.bme.mit.massif.communication.datatype.Handle;
-import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
-import hu.bme.mit.massif.communication.datatype.MatlabString;
-import hu.bme.mit.massif.communication.datatype.StructMatlabData;
-import hu.bme.mit.massif.simulink.Block;
-import hu.bme.mit.massif.simulink.BusCreator;
-import hu.bme.mit.massif.simulink.BusSelector;
-import hu.bme.mit.massif.simulink.BusSignalMapping;
-import hu.bme.mit.massif.simulink.Connection;
-import hu.bme.mit.massif.simulink.Enable;
-import hu.bme.mit.massif.simulink.From;
-import hu.bme.mit.massif.simulink.Goto;
-import hu.bme.mit.massif.simulink.GotoTagVisibility;
-import hu.bme.mit.massif.simulink.InPort;
-import hu.bme.mit.massif.simulink.MultiConnection;
-import hu.bme.mit.massif.simulink.OutPort;
-import hu.bme.mit.massif.simulink.Port;
-import hu.bme.mit.massif.simulink.PortBlock;
-import hu.bme.mit.massif.simulink.Property;
-import hu.bme.mit.massif.simulink.SimulinkElement;
-import hu.bme.mit.massif.simulink.SimulinkModel;
-import hu.bme.mit.massif.simulink.SimulinkReference;
-import hu.bme.mit.massif.simulink.SingleConnection;
-import hu.bme.mit.massif.simulink.SubSystem;
-import hu.bme.mit.massif.simulink.Trigger;
-import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.massif.simulink.api.internal.PluginSimulinkAPILogger;
-import hu.bme.mit.massif.simulink.api.layout.BlockLayoutSpecification;
-import hu.bme.mit.massif.simulink.api.layout.DummyExporterLayoutProvider;
-import hu.bme.mit.massif.simulink.api.layout.IExporterLayoutProvider;
-import hu.bme.mit.massif.simulink.api.provider.block.SourceBlockProvider;
-import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
-import hu.bme.mit.massif.simulink.api.util.Point;
-import hu.bme.mit.massif.simulink.api.util.bus.BusSignalMapper;
-import hu.bme.mit.massif.simulink.api.util.bus.BusSignalMappingPathFinder;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -69,6 +30,44 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
+
+import hu.bme.mit.massif.communication.command.MatlabCommand;
+import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
+import hu.bme.mit.massif.communication.datatype.CellMatlabData;
+import hu.bme.mit.massif.communication.datatype.Handle;
+import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
+import hu.bme.mit.massif.communication.datatype.MatlabString;
+import hu.bme.mit.massif.communication.datatype.StructMatlabData;
+import hu.bme.mit.massif.simulink.Block;
+import hu.bme.mit.massif.simulink.BusCreator;
+import hu.bme.mit.massif.simulink.BusSelector;
+import hu.bme.mit.massif.simulink.BusSignalMapping;
+import hu.bme.mit.massif.simulink.Connection;
+import hu.bme.mit.massif.simulink.Enable;
+import hu.bme.mit.massif.simulink.From;
+import hu.bme.mit.massif.simulink.Goto;
+import hu.bme.mit.massif.simulink.GotoTagVisibility;
+import hu.bme.mit.massif.simulink.InPort;
+import hu.bme.mit.massif.simulink.MultiConnection;
+import hu.bme.mit.massif.simulink.OutPort;
+import hu.bme.mit.massif.simulink.Port;
+import hu.bme.mit.massif.simulink.Property;
+import hu.bme.mit.massif.simulink.SimulinkElement;
+import hu.bme.mit.massif.simulink.SimulinkModel;
+import hu.bme.mit.massif.simulink.SimulinkReference;
+import hu.bme.mit.massif.simulink.SingleConnection;
+import hu.bme.mit.massif.simulink.SubSystem;
+import hu.bme.mit.massif.simulink.Trigger;
+import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
+import hu.bme.mit.massif.simulink.api.internal.PluginSimulinkAPILogger;
+import hu.bme.mit.massif.simulink.api.layout.BlockLayoutSpecification;
+import hu.bme.mit.massif.simulink.api.layout.DummyExporterLayoutProvider;
+import hu.bme.mit.massif.simulink.api.layout.IExporterLayoutProvider;
+import hu.bme.mit.massif.simulink.api.provider.block.SourceBlockProvider;
+import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
+import hu.bme.mit.massif.simulink.api.util.Point;
+import hu.bme.mit.massif.simulink.api.util.bus.BusSignalMapper;
+import hu.bme.mit.massif.simulink.api.util.bus.BusSignalMappingPathFinder;
 
 /**
  * This class provides functions to export and save Simulink models represented by EMF models
@@ -477,10 +476,6 @@ public class Exporter {
             EList<Property> properties = block.getProperties();
             for (Property property : properties) {
                 String propertyName = property.getName();
-                if(block instanceof PortBlock && "DataType".equals(propertyName)){
-                    // XXX fix problem with deprecated setter
-                    propertyName = "OutDataTypeStr";
-                }
                 commandFactory.setParam().addParam(getFQN(block)).addParam(propertyName).addParam(property.getValue()).execute();
             }
 

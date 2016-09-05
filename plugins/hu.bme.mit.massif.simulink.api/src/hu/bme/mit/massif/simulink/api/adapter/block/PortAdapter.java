@@ -65,21 +65,6 @@ public abstract class PortAdapter extends DefaultBlockAdapter {
             traverser.getLogger().debug(String.format("BusObject in %s was processed to %s", portBlockName, busSignal));
         }
 
-        MatlabCommand getSampleTimeString = commandFactory.getParam().addParam(portBlockName).addParam("SampleTime");
-        String sampleTimeString = MatlabString.getMatlabStringData(getSampleTimeString.execute());
-
-        // Create the corresponding properties
-        Property dataType = SimulinkFactory.eINSTANCE.createProperty();
-        dataType.setName("DataType");
-        dataType.setValue(dataTypeString);
-
-        Property sampleTime = SimulinkFactory.eINSTANCE.createProperty();
-        sampleTime.setName("SampleTime");
-        sampleTime.setValue(sampleTimeString);
-
-        portBlock.getProperties().add(dataType);
-        portBlock.getProperties().add(sampleTime);
-
     }
 
     private BusSignal processBusObject(String workspaceVariableName, MatlabCommandFactory commandFactory) {
@@ -106,7 +91,7 @@ public abstract class PortAdapter extends DefaultBlockAdapter {
         }
 
         CellMatlabData signalCell = null;
-        String signalName = null;
+        String signalName;
         
         if(isBus){
         	MatlabCommand getBusObjectStruct = commandFactory.customCommand("Simulink.Bus.objectToCell({'" + workspaceVariableName + "'})", 1);

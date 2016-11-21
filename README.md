@@ -20,8 +20,8 @@ The development of Massif was supported by multiple projects and partners, most 
  * [INTECS](http://www.intecs.it/)
  * [University of Padua](http://www.math.unipd.it/it/)
  * [CEA LIST](http://www-list.cea.fr/en/)
- 
- Please let us know if you use Massif (e.g. open an [issue](https://github.com/IncQueryLabs/massif/issues/new) or create a pull request with an edit on this file)!
+
+Please let us know if you use Massif (e.g. open an [issue](https://github.com/IncQueryLabs/massif/issues/new) or create a pull request with an edit on this file)!
 
 ## Update site:
 

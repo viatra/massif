@@ -1,3 +1,6 @@
+/**
+Generated from platform:/resource/hu.bme.mit.massif.simulink.incquery/src/hu/bme/mit/massif/models/simulink/validation/simulinkValidation.vql
+*/
 package hu.bme.mit.massif.models.simulink.validation;
 
 import java.util.List;
@@ -7,12 +10,12 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 
-import org.eclipse.incquery.validation.core.api.Severity;
-import org.eclipse.incquery.validation.core.api.IConstraintSpecification;
-import org.eclipse.incquery.runtime.api.IPatternMatch;
-import org.eclipse.incquery.runtime.api.IQuerySpecification;
-import org.eclipse.incquery.runtime.api.IncQueryMatcher;
-import org.eclipse.incquery.runtime.exception.IncQueryException;
+import org.eclipse.viatra.addon.validation.core.api.Severity;
+import org.eclipse.viatra.addon.validation.core.api.IConstraintSpecification;
+import org.eclipse.viatra.query.runtime.api.IPatternMatch;
+import org.eclipse.viatra.query.runtime.api.IQuerySpecification;
+import org.eclipse.viatra.query.runtime.api.ViatraQueryMatcher;
+import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
 import hu.bme.mit.massif.models.simulink.validation.util.ClashingChildNamesQuerySpecification;
 
@@ -20,7 +23,7 @@ public class ClashingChildNamesConstraint0 implements IConstraintSpecification {
 
     private ClashingChildNamesQuerySpecification querySpecification;
 
-    public ClashingChildNamesConstraint0() throws IncQueryException {
+    public ClashingChildNamesConstraint0() throws ViatraQueryException {
         querySpecification = ClashingChildNamesQuerySpecification.instance();
     }
 
@@ -74,7 +77,7 @@ public class ClashingChildNamesConstraint0 implements IConstraintSpecification {
     }
 
     @Override
-    public IQuerySpecification<? extends IncQueryMatcher<? extends IPatternMatch>> getQuerySpecification() {
+    public IQuerySpecification<? extends ViatraQueryMatcher<? extends IPatternMatch>> getQuerySpecification() {
         return querySpecification;
     }
 

@@ -29,7 +29,7 @@ import hu.bme.mit.massif.simulink.api.util.bus.BusSignalMappingPathFinder;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.incquery.runtime.exception.IncQueryException;
+import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
 import com.google.common.collect.Maps;
 
@@ -49,7 +49,7 @@ public class BusSignalMappingBaseTest {
         return mapper;
     }
 
-    protected void checkPathFinder(final BusSignalMapper mapper) throws IncQueryException {
+    protected void checkPathFinder(final BusSignalMapper mapper) throws ViatraQueryException {
         BusMappingInSelectorMatcher selectorMatcher = BusMappingInSelectorMatcher.on(mapper.getEngine());
         selectorMatcher.forEachMatch(new BusMappingInSelectorProcessor() {
 
@@ -66,7 +66,7 @@ public class BusSignalMappingBaseTest {
         });
     }
 
-    protected void executeMappingCreator(final BusSignalMapper mapper, final boolean includesIncomplete) throws IncQueryException {
+    protected void executeMappingCreator(final BusSignalMapper mapper, final boolean includesIncomplete) throws ViatraQueryException {
         BusSelectorMatcher selectorMatcher = BusSelectorMatcher.on(mapper.getEngine());
         final Map<BusSignalMapping, OutPort> mappings = Maps.newHashMap();
         selectorMatcher.forEachMatch(new BusSelectorProcessor() {

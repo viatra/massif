@@ -1,35 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin>
-  <extension id="hu.bme.mit.massif.models.simulink.util.SimulinkUtilities" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.massif.models.simulink.util.SimulinkUtilities" id="hu.bme.mit.massif.models.simulink.util.SimulinkUtilities"/>
-  </extension>
-  <extension id="hu.bme.mit.massif.models.simulink.derived.DerivedFeatures" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.massif.models.simulink.derived.DerivedFeatures" id="hu.bme.mit.massif.models.simulink.derived.DerivedFeatures"/>
-  </extension>
-  <extension id="hu.bme.mit.massif.models.simulink.viewer.SimulinkViewer" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.massif.models.simulink.viewer.SimulinkViewer" id="hu.bme.mit.massif.models.simulink.viewer.SimulinkViewer"/>
-  </extension>
-  <extension id="hu.bme.mit.massif.models.simulink.validation.SimulinkValidation" point="org.eclipse.incquery.runtime.queryspecification">
-    <group group="org.eclipse.incquery.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.massif.models.simulink.validation.SimulinkValidation" id="hu.bme.mit.massif.models.simulink.validation.SimulinkValidation"/>
-  </extension>
-  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.trigger" point="org.eclipse.incquery.runtime.base.wellbehaving.derived.features">
-    <wellbehaving-derived-feature classifier-name="Block" feature-name="trigger" package-nsUri="http://hu.bme.mit.massif/simulink/1.0"/>
-  </extension>
-  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.sourceBlock" point="org.eclipse.incquery.runtime.base.wellbehaving.derived.features">
-    <wellbehaving-derived-feature classifier-name="Block" feature-name="sourceBlock" package-nsUri="http://hu.bme.mit.massif/simulink/1.0"/>
-  </extension>
-  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.referencedModel" point="org.eclipse.incquery.runtime.base.wellbehaving.derived.features">
-    <wellbehaving-derived-feature classifier-name="ModelReference" feature-name="referencedModel" package-nsUri="http://hu.bme.mit.massif/simulink/1.0"/>
-  </extension>
-  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.enabler" point="org.eclipse.incquery.runtime.base.wellbehaving.derived.features">
+  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.enabler" point="org.eclipse.viatra.query.runtime.base.wellbehaving.derived.features">
     <wellbehaving-derived-feature classifier-name="Block" feature-name="enabler" package-nsUri="http://hu.bme.mit.massif/simulink/1.0"/>
   </extension>
-  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.inports" point="org.eclipse.incquery.runtime.base.wellbehaving.derived.features">
+  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.inports" point="org.eclipse.viatra.query.runtime.base.wellbehaving.derived.features">
     <wellbehaving-derived-feature classifier-name="Block" feature-name="inports" package-nsUri="http://hu.bme.mit.massif/simulink/1.0"/>
   </extension>
-  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.name" point="org.eclipse.incquery.runtime.base.wellbehaving.derived.features">
+  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.name" point="org.eclipse.viatra.query.runtime.base.wellbehaving.derived.features">
     <wellbehaving-derived-feature classifier-name="SimulinkElement" feature-name="name" package-nsUri="http://hu.bme.mit.massif/simulink/1.0"/>
   </extension>
-  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.outports" point="org.eclipse.incquery.runtime.base.wellbehaving.derived.features">
+  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.outports" point="org.eclipse.viatra.query.runtime.base.wellbehaving.derived.features">
     <wellbehaving-derived-feature classifier-name="Block" feature-name="outports" package-nsUri="http://hu.bme.mit.massif/simulink/1.0"/>
+  </extension>
+  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.referencedModel" point="org.eclipse.viatra.query.runtime.base.wellbehaving.derived.features">
+    <wellbehaving-derived-feature classifier-name="ModelReference" feature-name="referencedModel" package-nsUri="http://hu.bme.mit.massif/simulink/1.0"/>
+  </extension>
+  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.sourceBlock" point="org.eclipse.viatra.query.runtime.base.wellbehaving.derived.features">
+    <wellbehaving-derived-feature classifier-name="Block" feature-name="sourceBlock" package-nsUri="http://hu.bme.mit.massif/simulink/1.0"/>
+  </extension>
+  <extension id="extension.derived.hu.bme.mit.massif.models.simulink.derived.trigger" point="org.eclipse.viatra.query.runtime.base.wellbehaving.derived.features">
+    <wellbehaving-derived-feature classifier-name="Block" feature-name="trigger" package-nsUri="http://hu.bme.mit.massif/simulink/1.0"/>
+  </extension>
+  <extension id="hu.bme.mit.massif.models.simulink.derived.DerivedFeatures" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.massif.models.simulink.derived.DerivedFeatures" id="hu.bme.mit.massif.models.simulink.derived.DerivedFeatures">
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.derived.inports"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.derived.outports"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.derived.trigger"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.derived.enabler"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.derived.name"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.derived.sourceBlock"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.derived.hasSourceBlock"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.derived.sourceBlockNotFound"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.derived.referencedModel"/>
+    </group>
+  </extension>
+  <extension id="hu.bme.mit.massif.models.simulink.util.SimulinkUtilities" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.massif.models.simulink.util.SimulinkUtilities" id="hu.bme.mit.massif.models.simulink.util.SimulinkUtilities">
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.blockToPort"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.portToPortBlock"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.portConnection"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.simpleConnection"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.multiConnection"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.lineName"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.gotoConnectedPorts"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.portBlockInPortToOutPort"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.inPortToBlockPortOutPort"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.busSpecificationInPortToOutPort"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.simpleInPortToInPortConnection"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.inPortToInPortConnection"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.simpleOutPortToOutPortConnection"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.outPortToOutPortConnection"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.connectedInPorts"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.simpleConnectedInPort"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.connectedOutPorts"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.simpleConnectedOutPort"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.connectedPorts"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.nextOutPortInPath"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.nextInPortInPath"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.busSelector"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.busMappingInSelector"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.outportsReachedFromBusSpecification"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.firstOutPortFromBusSpecification"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.simulinkReference"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.referenceQualifier"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.referenceEqual"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.elementName"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.util.childBlockNames"/>
+    </group>
+  </extension>
+  <extension id="hu.bme.mit.massif.models.simulink.validation.SimulinkValidation" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.massif.models.simulink.validation.SimulinkValidation" id="hu.bme.mit.massif.models.simulink.validation.SimulinkValidation">
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.validation.identifierNameContainsSlash"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.validation.clashingChildNames"/>
+    </group>
+  </extension>
+  <extension id="hu.bme.mit.massif.models.simulink.viewer.SimulinkViewer" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.massif.models.simulink.viewer.SimulinkViewer" id="hu.bme.mit.massif.models.simulink.viewer.SimulinkViewer">
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.portOfPortBlock"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.portBlock"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.blockPorts"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.portOfSimpleBlock"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.ignoredBlock"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.block"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.fromBlocks"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.gotoBlocks"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.subSystem"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.emptySubSystem"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.subBlocks"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.nonNullLineName"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.portToPortConnection"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.gotoConnection"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.hierarchyConnection"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.hierarchyConnectionEnd"/>
+      <query-specification fqn="hu.bme.mit.massif.models.simulink.viewer.busSignalMappingSource"/>
+    </group>
   </extension>
 </plugin>

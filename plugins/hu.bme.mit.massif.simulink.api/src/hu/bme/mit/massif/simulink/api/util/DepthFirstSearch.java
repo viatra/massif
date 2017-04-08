@@ -15,7 +15,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.incquery.runtime.base.itc.igraph.IGraphDataSource;
+import org.eclipse.viatra.query.runtime.base.itc.igraph.IGraphDataSource;
 
 
 public class DepthFirstSearch {

@@ -5,7 +5,7 @@
     <details key="documentation" value="The Simulink EPackage represents the core concepts of Matlab Simulink models with a strong focus on the structure&#xD;&#xA; and less focus on the behavior, simulation and layout specific details.&#xD;&#xA;&#xD;&#xA;The five main concepts (easily recognised by #{simulink.SimulinkElement} and its subtypes) are the following:&#xD;&#xA; * Elements on a Simulink model that can be identified and named are subtypes of #{simulink.SimulinkElement},&#xD;&#xA; which stores the identifier as a #{simulink.SimulinkReference} element.&#xD;&#xA; * The root element, #{simulink.SimulinkModel}, stores the file path and version for the original Simulink system it represents&#xD;&#xA; to help in handling changes in the represented system.&#xD;&#xA; * The Simulink model contains a hierarchy of #{simulink.Block} elements that may have properties and specify a source&#xD;&#xA; block from a Simulink library. The source block is set if the internal structure and behavior of the block is defined by a library block.&#xD;&#xA; * The communication between blocks is done through #{simulink.Port} elements, that can be either output or input. &#xD;&#xA; Each port is represented by a #{simulink.PortBlock}  inside the block.&#xD;&#xA; * The output ports are connected to input ports using #{simulink.Connection} elements that can be one-to-one single connections or one-to-many multiconnections."/>
   </eAnnotations>
   <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-    <details key="settingDelegates" value="org.eclipse.incquery.querybasedfeature"/>
+    <details key="settingDelegates" value="org.eclipse.viatra.query.querybasedfeature"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="SimulinkElement" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -18,7 +18,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The value is computed from the name feature of the #{simulink.SimulinkReference} stored in simulinkRef."/>
       </eAnnotations>
-      <eAnnotations source="org.eclipse.incquery.querybasedfeature">
+      <eAnnotations source="org.eclipse.viatra.query.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.name"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -36,7 +36,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The values are computed by filtering Trigger ports from the values of the ports feature."/>
       </eAnnotations>
-      <eAnnotations source="org.eclipse.incquery.querybasedfeature">
+      <eAnnotations source="org.eclipse.viatra.query.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.trigger"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -45,7 +45,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The values are computed by filtering Enable ports from the values of the ports feature."/>
       </eAnnotations>
-      <eAnnotations source="org.eclipse.incquery.querybasedfeature">
+      <eAnnotations source="org.eclipse.viatra.query.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.enabler"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -54,7 +54,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The values are computed by filtering Inports from the values of the ports feature."/>
       </eAnnotations>
-      <eAnnotations source="org.eclipse.incquery.querybasedfeature">
+      <eAnnotations source="org.eclipse.viatra.query.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.inports"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -63,7 +63,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The values are computed by filtering Outports from the values of the ports feature."/>
       </eAnnotations>
-      <eAnnotations source="org.eclipse.incquery.querybasedfeature">
+      <eAnnotations source="org.eclipse.viatra.query.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.outports"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -74,7 +74,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The value of the reference is computed by finding the element with the same name and qualifier as stored in the sourceBlockRef.&#xD;&#xA;&#xD;&#xA;b{Validation}&#xD;&#xA; * WARN: Cannot find block specified by source block reference."/>
       </eAnnotations>
-      <eAnnotations source="org.eclipse.incquery.querybasedfeature">
+      <eAnnotations source="org.eclipse.viatra.query.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.sourceBlock"/>
       </eAnnotations>
     </eStructuralFeatures>
@@ -298,7 +298,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The value of the reference is computed by finding the model with the same name and qualifier as stored in the modelRef.&#xD;&#xA;&#xD;&#xA;b{Validation}&#xD;&#xA; * WARN: Cannot find model specified by model reference."/>
       </eAnnotations>
-      <eAnnotations source="org.eclipse.incquery.querybasedfeature">
+      <eAnnotations source="org.eclipse.viatra.query.querybasedfeature">
         <details key="patternFQN" value="hu.bme.mit.massif.models.simulink.derived.referencedModel"/>
       </eAnnotations>
     </eStructuralFeatures>

@@ -29,8 +29,8 @@ Please let us know if you use Massif (e.g. open an [issue](https://github.com/In
 
  * Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
  * Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
- * Integration 0.6.0: VIATRA Query runtime (http://download.eclipse.org/viatra/updates/release/
- * CI:  VIATRA Query runtime (http://download.eclipse.org/viatra/updates/release/
+ * Integration 0.6.0: VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/
+ * CI:  VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/
 
 ### Latest release: 0.5.0
 

@@ -25,12 +25,17 @@ Please let us know if you use Massif (e.g. open an [issue](https://github.com/In
 
 ## Update site:
 
+### Prerequisites
+
+ * Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
+ * Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
+ * Integration 0.6.0: VIATRA Query runtime (http://download.eclipse.org/viatra/updates/release/
+ * CI:  VIATRA Query runtime (http://download.eclipse.org/viatra/updates/release/
+
 ### Latest release: 0.5.0
 
 Releases: http://static.incquerylabs.com/projects/massif/release/0.4.0-0.5.0/repository
-  * Prerequisites (http://download.eclipse.org/incquery/updates/release/):
-    * Release 0.4.0: EMF-IncQuery 0.8
-    * Release 0.5.0: EMF-IncQuery 1.0
+  
   * Command evaluation server archive [download](http://static.incquerylabs.com/projects/massif/release/0.4.0-0.5.0) 
 
 ### All releases
@@ -41,14 +46,12 @@ Release composite site: http://static.incquerylabs.com/projects/massif/release
 ### Integration builds
 
 Integration builds: http://static.incquerylabs.com/projects/massif/integration/
-  * Prerequisites: VIATRA Query runtime (http://download.eclipse.org/viatra/updates/release/):
   * Command evaluation server archive in folder of specific releases [download](http://static.incquerylabs.com/projects/massif/integration/)
   * These are created regularly and old versions are discarded after a new release.
 
 ### CI update site
 
 We also provide a [CI update site](https://build.incquerylabs.com/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
-  * Prerequisites: VIATRA Query runtime (http://download.eclipse.org/viatra/updates/release/):
   * Command evaluation server archive [download](https://build.incquerylabs.com/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/) 
 
 [CI Build](https://build.incquerylabs.com/jenkins/job/Massif/) on Jenkins: 

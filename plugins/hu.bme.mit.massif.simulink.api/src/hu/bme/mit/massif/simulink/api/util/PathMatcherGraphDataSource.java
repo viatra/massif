@@ -10,7 +10,6 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.util;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,9 +19,6 @@ import org.eclipse.viatra.query.runtime.base.itc.igraph.IBiDirectionalGraphDataS
 import org.eclipse.viatra.query.runtime.base.itc.igraph.IGraphObserver;
 
 import com.google.common.base.Functions;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.Maps;
 
 public class PathMatcherGraphDataSource<Match extends IPatternMatch> implements IBiDirectionalGraphDataSource<Object> {

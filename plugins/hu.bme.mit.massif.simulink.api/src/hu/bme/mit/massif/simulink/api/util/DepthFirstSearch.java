@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.viatra.query.runtime.base.itc.igraph.IGraphDataSource;
 
@@ -37,7 +38,7 @@ public class DepthFirstSearch {
 	
     protected List<Deque<Object>> depthFirstSearch(IGraphDataSource<Object> graph, Deque<Object> visited,
         List<Object> endNodes) {
-        List<Object> nodes = graph.getTargetNodes(visited.getLast());
+        Set<Object> nodes = graph.getTargetNodes(visited.getLast()).keySet();
         // examine adjacent nodes
         for (Object node : nodes) {
             if (visited.contains(node)) {

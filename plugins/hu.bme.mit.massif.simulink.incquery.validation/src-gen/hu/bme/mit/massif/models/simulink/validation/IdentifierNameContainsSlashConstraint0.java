@@ -1,3 +1,6 @@
+/**
+Generated from platform:/resource/hu.bme.mit.massif.simulink.incquery/src/hu/bme/mit/massif/models/simulink/validation/simulinkValidation.vql
+*/
 package hu.bme.mit.massif.models.simulink.validation;
 
 import java.util.List;

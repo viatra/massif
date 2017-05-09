@@ -11,6 +11,7 @@
 package hu.bme.mit.massif.simulink.api.util;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.viatra.query.runtime.api.IPatternMatch;
@@ -18,7 +19,11 @@ import org.eclipse.viatra.query.runtime.api.ViatraQueryMatcher;
 import org.eclipse.viatra.query.runtime.base.itc.igraph.IBiDirectionalGraphDataSource;
 import org.eclipse.viatra.query.runtime.base.itc.igraph.IGraphObserver;
 
+import com.google.common.base.Functions;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMap.Builder;
+import com.google.common.collect.Maps;
 
 public class PathMatcherGraphDataSource<Match extends IPatternMatch> implements IBiDirectionalGraphDataSource<Object> {
 
@@ -60,15 +65,20 @@ public class PathMatcherGraphDataSource<Match extends IPatternMatch> implements 
 	}
 
 	@Override
-	public List<Object> getTargetNodes(Object source) {
-		Match match = matcher.newMatch(source, null, targetObject);
-		return ImmutableList.copyOf(matcher.getAllValues(second, match));
+	public Map<Object, Integer> getTargetNodes(Object source) {
+	    Match match = matcher.newMatch(source, null, targetObject);
+	    return Maps.toMap(matcher.getAllValues(second, match), Functions.constant(1));
+	}
+	
+	@Override
+	public Map<Object, Integer> getSourceNodes(Object target) {
+	    Match match = matcher.newMatch(null, target, targetObject);
+	    return Maps.toMap(matcher.getAllValues(first, match), Functions.constant(1));
 	}
 
-	@Override
-	public List<Object> getSourceNodes(Object target) {
-		Match match = matcher.newMatch(null, target, targetObject);
-		return ImmutableList.copyOf(matcher.getAllValues(first, match));
-	}
+    @Override
+    public void attachAsFirstObserver(IGraphObserver<Object> observer) {
+        throw new UnsupportedOperationException();
+    }
 
 }

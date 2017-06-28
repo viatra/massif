@@ -15,16 +15,6 @@ package hu.bme.mit.massif.simulink.api.util.bus;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkState;
-import hu.bme.mit.massif.models.simulink.util.NextOutPortInPathMatch;
-import hu.bme.mit.massif.simulink.Block;
-import hu.bme.mit.massif.simulink.BusCreator;
-import hu.bme.mit.massif.simulink.BusSelector;
-import hu.bme.mit.massif.simulink.BusSignalMapping;
-import hu.bme.mit.massif.simulink.BusSpecification;
-import hu.bme.mit.massif.simulink.InPort;
-import hu.bme.mit.massif.simulink.OutPort;
-import hu.bme.mit.massif.simulink.api.util.DepthFirstSearch;
-import hu.bme.mit.massif.simulink.api.util.PathMatcherGraphDataSource;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -37,6 +27,17 @@ import java.util.Map.Entry;
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine;
 
 import com.google.common.collect.Maps;
+
+import hu.bme.mit.massif.models.simulink.util.NextOutPortInPathMatch;
+import hu.bme.mit.massif.simulink.Block;
+import hu.bme.mit.massif.simulink.BusCreator;
+import hu.bme.mit.massif.simulink.BusSelector;
+import hu.bme.mit.massif.simulink.BusSignalMapping;
+import hu.bme.mit.massif.simulink.BusSpecification;
+import hu.bme.mit.massif.simulink.InPort;
+import hu.bme.mit.massif.simulink.OutPort;
+import hu.bme.mit.massif.simulink.api.util.DepthFirstSearch;
+import hu.bme.mit.massif.simulink.api.util.PathMatcherGraphDataSource;
 
 /**
  * Utility class for computing the mapping path for output signals in a Bus Selector. Given a bus signal mapping, the

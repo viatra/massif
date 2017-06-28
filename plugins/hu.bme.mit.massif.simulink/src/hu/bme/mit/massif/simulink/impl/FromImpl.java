@@ -28,190 +28,190 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.FromImpl#getGotoBlock <em>Goto Block</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class FromImpl extends VirtualBlockImpl implements From {
 	/**
-	 * The cached value of the '{@link #getGotoBlock() <em>Goto Block</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getGotoBlock() <em>Goto Block</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGotoBlock()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getGotoBlock()
+     * @generated
+     * @ordered
+     */
 	protected Goto gotoBlock;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected FromImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SimulinkPackage.Literals.FROM;
-	}
+        return SimulinkPackage.Literals.FROM;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Goto getGotoBlock() {
-		if (gotoBlock != null && gotoBlock.eIsProxy()) {
-			InternalEObject oldGotoBlock = (InternalEObject)gotoBlock;
-			gotoBlock = (Goto)eResolveProxy(oldGotoBlock);
-			if (gotoBlock != oldGotoBlock) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulinkPackage.FROM__GOTO_BLOCK, oldGotoBlock, gotoBlock));
-			}
-		}
-		return gotoBlock;
-	}
+        if (gotoBlock != null && gotoBlock.eIsProxy()) {
+            InternalEObject oldGotoBlock = (InternalEObject)gotoBlock;
+            gotoBlock = (Goto)eResolveProxy(oldGotoBlock);
+            if (gotoBlock != oldGotoBlock) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulinkPackage.FROM__GOTO_BLOCK, oldGotoBlock, gotoBlock));
+            }
+        }
+        return gotoBlock;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Goto basicGetGotoBlock() {
-		return gotoBlock;
-	}
+        return gotoBlock;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NotificationChain basicSetGotoBlock(Goto newGotoBlock, NotificationChain msgs) {
-		Goto oldGotoBlock = gotoBlock;
-		gotoBlock = newGotoBlock;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimulinkPackage.FROM__GOTO_BLOCK, oldGotoBlock, newGotoBlock);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
+        Goto oldGotoBlock = gotoBlock;
+        gotoBlock = newGotoBlock;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimulinkPackage.FROM__GOTO_BLOCK, oldGotoBlock, newGotoBlock);
+            if (msgs == null) msgs = notification; else msgs.add(notification);
+        }
+        return msgs;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setGotoBlock(Goto newGotoBlock) {
-		if (newGotoBlock != gotoBlock) {
-			NotificationChain msgs = null;
-			if (gotoBlock != null)
-				msgs = ((InternalEObject)gotoBlock).eInverseRemove(this, SimulinkPackage.GOTO__FROM_BLOCKS, Goto.class, msgs);
-			if (newGotoBlock != null)
-				msgs = ((InternalEObject)newGotoBlock).eInverseAdd(this, SimulinkPackage.GOTO__FROM_BLOCKS, Goto.class, msgs);
-			msgs = basicSetGotoBlock(newGotoBlock, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.FROM__GOTO_BLOCK, newGotoBlock, newGotoBlock));
-	}
+        if (newGotoBlock != gotoBlock) {
+            NotificationChain msgs = null;
+            if (gotoBlock != null)
+                msgs = ((InternalEObject)gotoBlock).eInverseRemove(this, SimulinkPackage.GOTO__FROM_BLOCKS, Goto.class, msgs);
+            if (newGotoBlock != null)
+                msgs = ((InternalEObject)newGotoBlock).eInverseAdd(this, SimulinkPackage.GOTO__FROM_BLOCKS, Goto.class, msgs);
+            msgs = basicSetGotoBlock(newGotoBlock, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.FROM__GOTO_BLOCK, newGotoBlock, newGotoBlock));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SimulinkPackage.FROM__GOTO_BLOCK:
-				if (gotoBlock != null)
-					msgs = ((InternalEObject)gotoBlock).eInverseRemove(this, SimulinkPackage.GOTO__FROM_BLOCKS, Goto.class, msgs);
-				return basicSetGotoBlock((Goto)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case SimulinkPackage.FROM__GOTO_BLOCK:
+                if (gotoBlock != null)
+                    msgs = ((InternalEObject)gotoBlock).eInverseRemove(this, SimulinkPackage.GOTO__FROM_BLOCKS, Goto.class, msgs);
+                return basicSetGotoBlock((Goto)otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SimulinkPackage.FROM__GOTO_BLOCK:
-				return basicSetGotoBlock(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case SimulinkPackage.FROM__GOTO_BLOCK:
+                return basicSetGotoBlock(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SimulinkPackage.FROM__GOTO_BLOCK:
-				if (resolve) return getGotoBlock();
-				return basicGetGotoBlock();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case SimulinkPackage.FROM__GOTO_BLOCK:
+                if (resolve) return getGotoBlock();
+                return basicGetGotoBlock();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SimulinkPackage.FROM__GOTO_BLOCK:
-				setGotoBlock((Goto)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case SimulinkPackage.FROM__GOTO_BLOCK:
+                setGotoBlock((Goto)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SimulinkPackage.FROM__GOTO_BLOCK:
-				setGotoBlock((Goto)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case SimulinkPackage.FROM__GOTO_BLOCK:
+                setGotoBlock((Goto)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SimulinkPackage.FROM__GOTO_BLOCK:
-				return gotoBlock != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case SimulinkPackage.FROM__GOTO_BLOCK:
+                return gotoBlock != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //FromImpl

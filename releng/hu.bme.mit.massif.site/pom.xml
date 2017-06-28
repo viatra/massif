@@ -5,7 +5,7 @@
   <parent>
     <artifactId>hu.bme.mit.massif.parent</artifactId>
     <groupId>hu.bme.mit.massif</groupId>
-    <version>0.5.0-SNAPSHOT</version>
+    <version>0.6.0-SNAPSHOT</version>
     <relativePath>../hu.bme.mit.massif.parent/pom.xml</relativePath>
   </parent>
   <artifactId>hu.bme.mit.massif.site</artifactId>
@@ -22,76 +22,4 @@
 			</plugin>
 		</plugins>
   </build>
-  <profiles>
-		<profile>
-			<id>mirror-release-site</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-				<property>
-					<name>BUILD_TYPE</name>
-					<value>release</value>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho.extras</groupId>
-						<artifactId>tycho-p2-extras-plugin</artifactId>
-						<version>${tycho.version}</version>
-						<executions>
-							<execution>
-								<phase>prepare-package</phase>
-								<goals>
-									<goal>mirror</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<source>
-								<repository>
-									<url>${mirror-release-site-url}</url>
-									<layout>p2</layout>
-								</repository>
-							</source>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>mirror-integration-site</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-				<property>
-					<name>mirror-integration</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.eclipse.tycho.extras</groupId>
-						<artifactId>tycho-p2-extras-plugin</artifactId>
-						<version>${tycho.version}</version>
-						<executions>
-							<execution>
-								<phase>prepare-package</phase>
-								<goals>
-									<goal>mirror</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<source>
-								<repository>
-									<url>${mirror-integration-site-url}</url>
-									<layout>p2</layout>
-								</repository>
-							</source>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 </project>

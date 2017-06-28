@@ -26,10 +26,10 @@ package hu.bme.mit.massif.simulink;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link hu.bme.mit.massif.simulink.InPort#getConnection <em>Connection</em>}</li>
  * </ul>
- * </p>
  *
  * @see hu.bme.mit.massif.simulink.SimulinkPackage#getInPort()
  * @model
@@ -37,31 +37,31 @@ package hu.bme.mit.massif.simulink;
  */
 public interface InPort extends Port {
 	/**
-	 * Returns the value of the '<em><b>Connection</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.SingleConnection#getTo <em>To</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Connection</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.SingleConnection#getTo <em>To</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Connection</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connection</em>' reference.
-	 * @see #setConnection(SingleConnection)
-	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getInPort_Connection()
-	 * @see hu.bme.mit.massif.simulink.SingleConnection#getTo
-	 * @model opposite="to"
-	 * @generated
-	 */
+     * @return the value of the '<em>Connection</em>' reference.
+     * @see #setConnection(SingleConnection)
+     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getInPort_Connection()
+     * @see hu.bme.mit.massif.simulink.SingleConnection#getTo
+     * @model opposite="to"
+     * @generated
+     */
 	SingleConnection getConnection();
 
 	/**
-	 * Sets the value of the '{@link hu.bme.mit.massif.simulink.InPort#getConnection <em>Connection</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link hu.bme.mit.massif.simulink.InPort#getConnection <em>Connection</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Connection</em>' reference.
-	 * @see #getConnection()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Connection</em>' reference.
+     * @see #getConnection()
+     * @generated
+     */
 	void setConnection(SingleConnection value);
 
 } // InPort

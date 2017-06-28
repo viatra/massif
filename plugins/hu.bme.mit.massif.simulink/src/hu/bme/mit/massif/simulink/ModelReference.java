@@ -26,11 +26,11 @@ package hu.bme.mit.massif.simulink;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link hu.bme.mit.massif.simulink.ModelReference#getReferencedModel <em>Referenced Model</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.ModelReference#getModelRef <em>Model Ref</em>}</li>
  * </ul>
- * </p>
  *
  * @see hu.bme.mit.massif.simulink.SimulinkPackage#getModelReference()
  * @model
@@ -38,47 +38,47 @@ package hu.bme.mit.massif.simulink;
  */
 public interface ModelReference extends Block {
 	/**
-	 * Returns the value of the '<em><b>Referenced Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Referenced Model</b></em>' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The value of the reference is computed by finding the model with the same name and qualifier as stored in the modelRef.
-	 * 
-	 * b{Validation}
-	 *  * WARN: Cannot find model specified by model reference.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Referenced Model</em>' reference.
-	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getModelReference_ReferencedModel()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="org.eclipse.incquery.querybasedfeature patternFQN='hu.bme.mit.massif.models.simulink.derived.referencedModel'"
-	 * @generated
-	 */
+     * <!-- begin-model-doc -->
+     * The value of the reference is computed by finding the model with the same name and qualifier as stored in the modelRef.
+     * 
+     * b{Validation}
+     *  * WARN: Cannot find model specified by model reference.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Referenced Model</em>' reference.
+     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getModelReference_ReferencedModel()
+     * @model transient="true" changeable="false" volatile="true" derived="true"
+     *        annotation="org.eclipse.viatra.query.querybasedfeature patternFQN='hu.bme.mit.massif.models.simulink.derived.referencedModel'"
+     * @generated
+     */
 	SimulinkModel getReferencedModel();
 
 	/**
-	 * Returns the value of the '<em><b>Model Ref</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Model Ref</b></em>' containment reference.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Model Ref</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model Ref</em>' containment reference.
-	 * @see #setModelRef(IdentifierReference)
-	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getModelReference_ModelRef()
-	 * @model containment="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Model Ref</em>' containment reference.
+     * @see #setModelRef(IdentifierReference)
+     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getModelReference_ModelRef()
+     * @model containment="true"
+     * @generated
+     */
 	IdentifierReference getModelRef();
 
 	/**
-	 * Sets the value of the '{@link hu.bme.mit.massif.simulink.ModelReference#getModelRef <em>Model Ref</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link hu.bme.mit.massif.simulink.ModelReference#getModelRef <em>Model Ref</em>}' containment reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model Ref</em>' containment reference.
-	 * @see #getModelRef()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Model Ref</em>' containment reference.
+     * @see #getModelRef()
+     * @generated
+     */
 	void setModelRef(IdentifierReference value);
 
 } // ModelReference

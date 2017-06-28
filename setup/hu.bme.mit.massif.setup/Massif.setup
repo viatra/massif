@@ -573,10 +573,14 @@
           name="org.eclipse.m2e.logback.feature.feature.group"/>
       <requirement
           name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="fr.obeo.releng.targetplatform-feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/viatra/updates/release/"/>
       <repository
           url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+      <repository
+          url="http://mbarbero.github.io/fr.obeo.releng.targetplatform/p2/"/>
     </setupTask>
   </stream>
   <stream name="viatra-master">
@@ -661,10 +665,14 @@
           name="org.eclipse.m2e.logback.feature.feature.group"/>
       <requirement
           name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="fr.obeo.releng.targetplatform-feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/viatra/updates/integration/"/>
       <repository
           url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+      <repository
+          url="http://mbarbero.github.io/fr.obeo.releng.targetplatform/p2/"/>
     </setupTask>
   </stream>
   <stream name="0.4-maintenance">

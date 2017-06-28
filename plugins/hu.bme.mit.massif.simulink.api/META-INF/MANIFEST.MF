@@ -17,10 +17,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  hu.bme.mit.massif.simulink.incquery,
  hu.bme.mit.massif.common,
- com.google.guava;bundle-version="10.0.1",
  org.eclipse.emf.ecore.xmi,
  hu.bme.mit.massif.communication,
  org.eclipse.viatra.query.runtime;bundle-version="[1.2.0,2.0.0)",
  org.eclipse.viatra.query.runtime.base.itc;bundle-version="[1.2.0,2.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
+Import-Package: com.google.common.base;version="10.0.0",
+ com.google.common.collect;version="10.0.0"

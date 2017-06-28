@@ -10,6 +10,27 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.ExtendedMetaData;
+import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+import com.google.common.base.Strings;
+import com.google.common.collect.Sets;
+
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
@@ -47,27 +68,6 @@ import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
 import hu.bme.mit.massif.simulink.api.util.Point;
 import hu.bme.mit.massif.simulink.api.util.bus.BusSignalMapper;
 import hu.bme.mit.massif.simulink.api.util.bus.BusSignalMappingPathFinder;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.BasicExtendedMetaData;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.ExtendedMetaData;
-import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
-import com.google.common.base.Strings;
-import com.google.common.collect.Sets;
 
 /**
  * This class provides functions to export and save Simulink models represented by EMF models
@@ -475,7 +475,8 @@ public class Exporter {
             // Set block dialog/mask parameters
             EList<Property> properties = block.getProperties();
             for (Property property : properties) {
-            	commandFactory.setParam().addParam(getFQN(block)).addParam(property.getName()).addParam(property.getValue()).execute();
+                String propertyName = property.getName();
+                commandFactory.setParam().addParam(getFQN(block)).addParam(propertyName).addParam(property.getValue()).execute();
             }
 
         }

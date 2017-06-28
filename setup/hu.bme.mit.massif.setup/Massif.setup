@@ -36,7 +36,7 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.massif"
-      remoteURI="FTSRG/massif">
+      remoteURI="viatra/massif">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
@@ -327,7 +327,7 @@
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="github"
-        repositoryURL="https://github.com/IncQueryLabs/massif"
+        repositoryURL="https://github.com/viatra/massif"
         userID="${github.user.id}"
         password="${github.user.password}">
       <query
@@ -367,7 +367,7 @@
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"
         connectorKind="githubPullRequests"
-        repositoryURL="http://github.com/IncQueryLabs/massif/pulls"
+        repositoryURL="http://github.com/viatra/massif/pulls"
         userID="${github.user.id}"
         password="${github.user.password}">
       <query
@@ -490,12 +490,13 @@
     <setupTask
         xsi:type="setup:EclipseIniTask"
         option="-Doomph.redirection.massif.setup"
-        value="=https://raw.githubusercontent.com/IncQueryLabs/massif/master/setup/hu.bme.mit.massif.setup/Massif.setup->${git.clone.massif.location|uri}/setup/hu.bme.mit.massif.setup/Massif.setup"
+        value="=https://raw.githubusercontent.com/viatra/massif/master/setup/hu.bme.mit.massif.setup/Massif.setup->${git.clone.massif.location|uri}/setup/hu.bme.mit.massif.setup/Massif.setup"
         vm="true"/>
     <setupTask
         xsi:type="setup.targlets:TargletTask">
       <targlet
-          name="Massif Targlet Platform">
+          name="Massif Targlet Platform"
+          activeRepositoryList="${eclipse.target.platform}">
         <annotation
             source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
           <detail
@@ -526,13 +527,31 @@
             versionRange="[2.9.0,3.0.0)"/>
         <requirement
             name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.9.0,2.10.0)"/>
+            versionRange="[2.9.0,2.13.0)"/>
         <repositoryList
-            name="Dependencies">
+            name="Mars">
           <repository
               url="http://download.eclipse.org/viatra/updates/release/"/>
           <repository
               url="http://download.eclipse.org/releases/mars"/>
+          <repository
+              url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+        </repositoryList>
+        <repositoryList
+            name="Neon">
+          <repository
+              url="http://download.eclipse.org/viatra/updates/release/"/>
+          <repository
+              url="http://download.eclipse.org/releases/neon"/>
+          <repository
+              url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+        </repositoryList>
+        <repositoryList
+            name="Oxygen">
+          <repository
+              url="http://download.eclipse.org/viatra/updates/release/"/>
+          <repository
+              url="http://download.eclipse.org/releases/oxygen"/>
           <repository
               url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
         </repositoryList>
@@ -547,7 +566,7 @@
           versionRange="[2.9.0,3.0.0)"/>
       <requirement
           name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.9.0,2.10.0)"/>
+          versionRange="[2.9.0,2.13.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
@@ -557,8 +576,6 @@
       <repository
           url="http://download.eclipse.org/viatra/updates/release/"/>
       <repository
-          url="http://download.eclipse.org/releases/mars"/>
-      <repository
           url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
     </setupTask>
   </stream>
@@ -567,12 +584,12 @@
         xsi:type="setup.targlets:TargletTask">
       <targlet
           name="Massif Targlet Platform"
-          includeSources="false">
+          activeRepositoryList="${eclipse.target.platform}">
         <annotation
             source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
           <detail
               key="location">
-            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/oomphgen.target}</value>
+            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/massif_oomphgen.target}</value>
           </detail>
           <detail
               key="includeAllPlatforms">
@@ -598,13 +615,31 @@
             versionRange="[2.9.0,3.0.0)"/>
         <requirement
             name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.10.0,2.11.0)"/>
+            versionRange="[2.9.0,2.13.0)"/>
         <repositoryList
-            name="Dependencies">
+            name="Mars">
           <repository
-              url="https://hudson.eclipse.org/viatra/job/viatra-master/lastSuccessfulBuild/artifact/releng/org.eclipse.viatra.update/target/repository/"/>
+              url="http://download.eclipse.org/viatra/updates/release/"/>
           <repository
               url="http://download.eclipse.org/releases/mars"/>
+          <repository
+              url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+        </repositoryList>
+        <repositoryList
+            name="Neon">
+          <repository
+              url="http://download.eclipse.org/viatra/updates/release/"/>
+          <repository
+              url="http://download.eclipse.org/releases/neon"/>
+          <repository
+              url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+        </repositoryList>
+        <repositoryList
+            name="Oxygen">
+          <repository
+              url="http://download.eclipse.org/viatra/updates/release/"/>
+          <repository
+              url="http://download.eclipse.org/releases/oxygen"/>
           <repository
               url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
         </repositoryList>
@@ -619,7 +654,7 @@
           versionRange="[2.9.0,3.0.0)"/>
       <requirement
           name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.10.0,2.11.0)"/>
+          versionRange="[2.10.0,2.13.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
@@ -628,8 +663,6 @@
           name="org.eclipse.egit.feature.group"/>
       <repository
           url="http://download.eclipse.org/viatra/updates/integration/"/>
-      <repository
-          url="http://download.eclipse.org/releases/mars"/>
       <repository
           url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
     </setupTask>

@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>hu.bme.mit.massif</groupId>
 	<artifactId>hu.bme.mit.massif.parent</artifactId>
-	<version>0.5.0-SNAPSHOT</version>
+	<version>0.6.0-SNAPSHOT</version>
 	<name>Massif</name>
-	<url></url>
+	<url>https://github.com/IncQueryLabs/massif</url>
 	<packaging>pom</packaging>
 	<modules>
 		<!-- Target platform -->
@@ -59,15 +59,12 @@
 	</modules>
 	<properties>
 		<tycho.version>0.20.0</tycho.version>
-		<xtend.compiler.version>2.8.3</xtend.compiler.version>
-		<incquery.compiler.version>1.0.0</incquery.compiler.version>
-		<incquery.repository.url>http://download.eclipse.org/incquery/updates-extra/release/</incquery.repository.url>
+		<xtend.compiler.version>2.9.2</xtend.compiler.version>
+		<viatra.compiler.version>1.2.1</viatra.compiler.version>
+		<viatra.repository.url>http://download.eclipse.org/viatra/updates/release/</viatra.repository.url>
+		<viatra.maven.repository.url>https://repo.eclipse.org/content/repositories/viatra-releases/</viatra.maven.repository.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.skippedModules></sonar.skippedModules>
-		<mirror-site-url>http://viatra.inf.mit.bme.hu/update/massif/integration/site</mirror-site-url>
-		<mirror-integration-site-url>${mirror-site-url}/integration</mirror-integration-site-url>
-		<mirror-release-site-url>${mirror-site-url}/release</mirror-release-site-url>
-		<mirror-integration>false</mirror-integration>
 	</properties>
 	<build>
 		<plugins>
@@ -136,30 +133,30 @@
 	</build>
 	<repositories>
         <repository>
-            <id>incquery.update</id>
+            <id>viatra.update</id>
             <layout>p2</layout>
-            <url>${incquery.repository.url}</url>
+            <url>${viatra.repository.url}</url>
         </repository>
     </repositories>
 	<pluginRepositories>
 		<pluginRepository>
-			<id>incquery-releases</id>
+			<id>viatra-maven</id>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
-			<url>https://repo.eclipse.org/content/repositories/emf-incquery-releases/</url>
+			<url>${viatra.maven.repository.url}</url>
 		</pluginRepository>
 	</pluginRepositories>
 	<scm>
-		<connection>scm:git:https://github.com/FTSRG/massif.git</connection>
-		<url>https://github.com/FTSRG/massif.git</url>
+		<connection>scm:git:https://github.com/IncQueryLabs/massif.git</connection>
+		<url>https://github.com/IncQueryLabs/massif.git</url>
 	</scm>
 	<ciManagement>
-		<url>https://build.inf.mit.bme.hu/jenkins/job/Massif</url>
+		<url>https://build.incquerylabs.com/jenkins/job/Massif</url>
 		<system>Jenkins</system>
 	</ciManagement>
 	<issueManagement>
-		<url>https://github.com/FTSRG/massif/issues</url>
+		<url>https://github.com/IncQueryLabs/massif/issues</url>
 		<system>Github</system>
 	</issueManagement>
 </project>

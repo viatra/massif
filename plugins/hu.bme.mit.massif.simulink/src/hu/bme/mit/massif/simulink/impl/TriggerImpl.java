@@ -27,200 +27,200 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.TriggerImpl#getTriggerType <em>Trigger Type</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.TriggerImpl#getStatesWhenEnabling <em>States When Enabling</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class TriggerImpl extends InPortImpl implements Trigger {
 	/**
-	 * The default value of the '{@link #getTriggerType() <em>Trigger Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getTriggerType() <em>Trigger Type</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTriggerType()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getTriggerType()
+     * @generated
+     * @ordered
+     */
 	protected static final TriggerType TRIGGER_TYPE_EDEFAULT = TriggerType.RISING;
 
 	/**
-	 * The cached value of the '{@link #getTriggerType() <em>Trigger Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getTriggerType() <em>Trigger Type</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTriggerType()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getTriggerType()
+     * @generated
+     * @ordered
+     */
 	protected TriggerType triggerType = TRIGGER_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getStatesWhenEnabling() <em>States When Enabling</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getStatesWhenEnabling() <em>States When Enabling</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStatesWhenEnabling()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getStatesWhenEnabling()
+     * @generated
+     * @ordered
+     */
 	protected static final EnableStates STATES_WHEN_ENABLING_EDEFAULT = EnableStates.HELD;
 
 	/**
-	 * The cached value of the '{@link #getStatesWhenEnabling() <em>States When Enabling</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getStatesWhenEnabling() <em>States When Enabling</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStatesWhenEnabling()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getStatesWhenEnabling()
+     * @generated
+     * @ordered
+     */
 	protected EnableStates statesWhenEnabling = STATES_WHEN_ENABLING_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected TriggerImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SimulinkPackage.Literals.TRIGGER;
-	}
+        return SimulinkPackage.Literals.TRIGGER;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public TriggerType getTriggerType() {
-		return triggerType;
-	}
+        return triggerType;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setTriggerType(TriggerType newTriggerType) {
-		TriggerType oldTriggerType = triggerType;
-		triggerType = newTriggerType == null ? TRIGGER_TYPE_EDEFAULT : newTriggerType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.TRIGGER__TRIGGER_TYPE, oldTriggerType, triggerType));
-	}
+        TriggerType oldTriggerType = triggerType;
+        triggerType = newTriggerType == null ? TRIGGER_TYPE_EDEFAULT : newTriggerType;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.TRIGGER__TRIGGER_TYPE, oldTriggerType, triggerType));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EnableStates getStatesWhenEnabling() {
-		return statesWhenEnabling;
-	}
+        return statesWhenEnabling;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setStatesWhenEnabling(EnableStates newStatesWhenEnabling) {
-		EnableStates oldStatesWhenEnabling = statesWhenEnabling;
-		statesWhenEnabling = newStatesWhenEnabling == null ? STATES_WHEN_ENABLING_EDEFAULT : newStatesWhenEnabling;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.TRIGGER__STATES_WHEN_ENABLING, oldStatesWhenEnabling, statesWhenEnabling));
-	}
+        EnableStates oldStatesWhenEnabling = statesWhenEnabling;
+        statesWhenEnabling = newStatesWhenEnabling == null ? STATES_WHEN_ENABLING_EDEFAULT : newStatesWhenEnabling;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.TRIGGER__STATES_WHEN_ENABLING, oldStatesWhenEnabling, statesWhenEnabling));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SimulinkPackage.TRIGGER__TRIGGER_TYPE:
-				return getTriggerType();
-			case SimulinkPackage.TRIGGER__STATES_WHEN_ENABLING:
-				return getStatesWhenEnabling();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case SimulinkPackage.TRIGGER__TRIGGER_TYPE:
+                return getTriggerType();
+            case SimulinkPackage.TRIGGER__STATES_WHEN_ENABLING:
+                return getStatesWhenEnabling();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SimulinkPackage.TRIGGER__TRIGGER_TYPE:
-				setTriggerType((TriggerType)newValue);
-				return;
-			case SimulinkPackage.TRIGGER__STATES_WHEN_ENABLING:
-				setStatesWhenEnabling((EnableStates)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case SimulinkPackage.TRIGGER__TRIGGER_TYPE:
+                setTriggerType((TriggerType)newValue);
+                return;
+            case SimulinkPackage.TRIGGER__STATES_WHEN_ENABLING:
+                setStatesWhenEnabling((EnableStates)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SimulinkPackage.TRIGGER__TRIGGER_TYPE:
-				setTriggerType(TRIGGER_TYPE_EDEFAULT);
-				return;
-			case SimulinkPackage.TRIGGER__STATES_WHEN_ENABLING:
-				setStatesWhenEnabling(STATES_WHEN_ENABLING_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case SimulinkPackage.TRIGGER__TRIGGER_TYPE:
+                setTriggerType(TRIGGER_TYPE_EDEFAULT);
+                return;
+            case SimulinkPackage.TRIGGER__STATES_WHEN_ENABLING:
+                setStatesWhenEnabling(STATES_WHEN_ENABLING_EDEFAULT);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SimulinkPackage.TRIGGER__TRIGGER_TYPE:
-				return triggerType != TRIGGER_TYPE_EDEFAULT;
-			case SimulinkPackage.TRIGGER__STATES_WHEN_ENABLING:
-				return statesWhenEnabling != STATES_WHEN_ENABLING_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case SimulinkPackage.TRIGGER__TRIGGER_TYPE:
+                return triggerType != TRIGGER_TYPE_EDEFAULT;
+            case SimulinkPackage.TRIGGER__STATES_WHEN_ENABLING:
+                return statesWhenEnabling != STATES_WHEN_ENABLING_EDEFAULT;
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (triggerType: ");
-		result.append(triggerType);
-		result.append(", statesWhenEnabling: ");
-		result.append(statesWhenEnabling);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (triggerType: ");
+        result.append(triggerType);
+        result.append(", statesWhenEnabling: ");
+        result.append(statesWhenEnabling);
+        result.append(')');
+        return result.toString();
+    }
 
 } //TriggerImpl

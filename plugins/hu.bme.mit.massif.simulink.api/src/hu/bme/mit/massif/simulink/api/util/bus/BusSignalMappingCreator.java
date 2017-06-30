@@ -84,10 +84,12 @@ public class BusSignalMappingCreator {
 
     private void findCreatorAndCreateBusMapping(BusSelector selector) {
         SpecifiableOriginatingOutPort origin = findBusCreatorOfIncomigBus(selector);
-        if (origin.specification == null) {
-            handleIncompleteMappings(origin.outPort, selector.getMappings());
-        } else {
-            createBusMappingUsingCreator(selector, origin.specification);
+        if (origin != null) {
+            if (origin.specification == null) {
+                handleIncompleteMappings(origin.outPort, selector.getMappings());
+            } else {
+                createBusMappingUsingCreator(selector, origin.specification);
+            }
         }
         mapper.logDebug("Created bus mapping for %s", mapper.getFQNOrEmpty(selector));
     }

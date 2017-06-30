@@ -64,7 +64,6 @@ public class LibraryFilter implements ISimulinkImportFilter {
             return true;
 
         // Check case (b/i)
-        // LinkedList<Double> ports = new LinkedList<Double>();
         MatlabCommand getPortHandles = commandFactory.getParam().addParam(blockFQN).addParam("PortHandles");
         int portCounter = CellMatlabData.getCellMatlabDataData(getPortHandles.execute()).size();
 

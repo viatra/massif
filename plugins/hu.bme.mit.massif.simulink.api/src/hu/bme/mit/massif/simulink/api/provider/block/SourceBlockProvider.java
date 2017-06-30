@@ -24,21 +24,21 @@ public enum SourceBlockProvider {
 
     INSTANCE;
 
-    private final String PORTS_AND_SUBSYSTEMS = "simulink/Ports & Subsystems";
-    private final String SIGNAL_ROUTING = "simulink/Signal Routing";
+    private static final String PORTS_AND_SUBSYSTEMS = "simulink/Ports & Subsystems";
+    private static final String SIGNAL_ROUTING = "simulink/Signal Routing";
 
-    private final String OUTPORT = "Out1";
-    private final String INPORT = "In1";
-    private final String ENABLE = "Enable";
-    private final String TRIGGER = "Trigger";
-    private final String MODEL_REFERENCE = "Model";
-    private final String SUBSYSTEM = "Subsystem";
+    private static final String OUTPORT = "Out1";
+    private static final String INPORT = "In1";
+    private static final String ENABLE = "Enable";
+    private static final String TRIGGER = "Trigger";
+    private static final String MODEL_REFERENCE = "Model";
+    private static final String SUBSYSTEM = "Subsystem";
 
-    private final String GOTO = "Goto";
-    private final String FROM = "From";
-    private final String GOTO_TAG = "Goto Tag Visibility";
-    private final String BUS_CREATOR = "Bus Creator";
-    private final String BUS_SELECTOR = "Bus Selector";
+    private static final String GOTO = "Goto";
+    private static final String FROM = "From";
+    private static final String GOTO_TAG = "Goto Tag Visibility";
+    private static final String BUS_CREATOR = "Bus Creator";
+    private static final String BUS_SELECTOR = "Bus Selector";
 
     private Map<EClass, String> sourceBlockQualifiers;
     private Map<EClass, String> sourceBlockNames;

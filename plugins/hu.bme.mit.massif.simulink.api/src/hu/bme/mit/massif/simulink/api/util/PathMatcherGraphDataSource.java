@@ -23,9 +23,6 @@ import com.google.common.collect.Maps;
 
 public class PathMatcherGraphDataSource<Match extends IPatternMatch> implements IBiDirectionalGraphDataSource<Object> {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -6674505895210661953L;
 	private ViatraQueryMatcher<Match> matcher;
 	private String first;

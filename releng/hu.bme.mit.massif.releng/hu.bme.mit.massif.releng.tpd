@@ -1,0 +1,16 @@
+target "Massif"
+environment JavaSE-1.7
+with requirements
+
+location "http://download.eclipse.org/releases/mars" {
+	org.eclipse.draw2d
+	org.eclipse.emf.mwe2.language.ui
+	org.eclipse.emf.mwe2.launch.ui
+	org.eclipse.emf.sdk.feature.group
+	org.eclipse.equinox.sdk.feature.group
+	org.eclipse.sdk.feature.group
+}
+
+location "http://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.9.2" {
+	org.eclipse.xtext.sdk.feature.group
+}

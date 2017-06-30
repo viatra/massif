@@ -65,6 +65,7 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IStatus;
@@ -332,10 +333,8 @@ public class Importer {
      */
     private Set<ISimulinkImportFilter> filters = new HashSet<ISimulinkImportFilter>();
     /**
-     * The current command evaluator connected to the currentMatlabClient
+     * The current command factory connected to the currentMatlabClient
      */
-//    private ICommandEvaluator commandEvaluator;
-    // TODO maybe better to use a factory
     private MatlabCommandFactory commandFactory;
 
     private SimulinkModel simulinkModel;
@@ -473,7 +472,7 @@ public class Importer {
                 saveReferences(referencedLibraries.values(),savePath, rs, referencesFolder);
             }
             // Now save the model with the added content.
-            saveResource.save(Collections.EMPTY_MAP);
+            saveResource.save(Collections.emptyMap());
         } catch (IOException e) {
             throw new SimulinkApiException("Exception occurred while saving imported models!", e);
         }
@@ -485,7 +484,7 @@ public class Importer {
             String fileName = sm.getSimulinkRef().getName() + ".simulink";
             Resource sr = rs.createResource(URI.createFileURI(savePath + referencesFolder + fileName));
             sr.getContents().add(sm);
-            sr.save(Collections.EMPTY_MAP);
+            sr.save(Collections.emptyMap());
         }
     }
 
@@ -581,7 +580,7 @@ public class Importer {
         createMappings();
 
         // Connect goto, from and goto tag visibility blocks
-        connectFromsToGotos(simulinkModel);
+        connectFromsToGotos();
 
         // Postprocess step: get rid of the shadow inports
         removeShadowInports();
@@ -638,10 +637,11 @@ public class Importer {
     private void removeShadowInports() {
 
         // For each shadow inport do the cleanup
-        for (InPortBlock shadowInportBlock : shadowInports.keySet()) {
+        for (Entry<InPortBlock, MatlabString> shadowInportBlockEntry : shadowInports.entrySet()) {
             // Get the corresponding inport block and the outports
-            MatlabString inportBlockName = shadowInports.get(shadowInportBlock);
+            MatlabString inportBlockName = shadowInportBlockEntry.getValue();
             InPortBlock inportBlock = inportBlocksByName.get(inportBlockName.getData());
+            InPortBlock shadowInportBlock = shadowInportBlockEntry.getKey();
             OutPort shadowOutPort = shadowInportBlock.getOutports().get(0);
             OutPort outPort = inportBlock.getOutports().get(0);
 
@@ -652,7 +652,7 @@ public class Importer {
 
             // Get the connections of the original inport block
             Connection originalConnection = outPort.getConnection();
-            MultiConnection multiConn = null;
+            MultiConnection multiConn;
 
             // Redirect the connections of the shadow inport block
             // Need to branch according to the existing line connections to cover all possible cases
@@ -689,18 +689,16 @@ public class Importer {
 
     /**
      * For each goto block find the corresponding from block
-     * 
-     * @param simulinkModel
-     *            the EMF model to create from the Simulink model
      */
-    private void connectFromsToGotos(SimulinkModel simulinkModel) {
+    private void connectFromsToGotos() {
 
         // TODO visibility: local - no tags searched
 
         // scoped - a goto tag visibility block should be added
-        for (Goto gotoBlock : gotos.keySet()) {
+        for (Entry<Goto, List<String>> gotoBlockEntry : gotos.entrySet()) {
+            Goto gotoBlock = gotoBlockEntry.getKey();
             // Get the FQNs of the connected from blocks
-            List<String> fromNames = gotos.get(gotoBlock);
+            List<String> fromNames = gotoBlockEntry.getValue();
 
             // For each name get the from block and set the goto block
             for (String fromName : fromNames) {
@@ -903,19 +901,19 @@ public class Importer {
 
             // In case of a bad link (e.g. a library is missing) use the 'SourceType' property value as the block type
             // if it contains usable information
-            if (blockType.equals("Reference")) {
+            if ("Reference".equals(blockType)) {
                 // Get the reference's source type and source block
             	MatlabCommand getSourceType = commandFactory.getParam().addParam(createdBlock.getSimulinkRef().getFQN()).addParam("SourceType");
                 String sourceType = MatlabString.getMatlabStringData(getSourceType.execute());
 
                 MatlabCommand getSourceBlock = commandFactory.getParam().addParam(createdBlock.getSimulinkRef().getFQN()).addParam("SourceBlock");
                 sourceBlockFQN = MatlabString.getMatlabStringData(getSourceBlock.execute());
-                if (!sourceType.equals("") && !sourceType.equals("Unknown")) {
+                if (!"".equals(sourceType) && !"Unknown".equals(sourceType)) {
                     // If set, set it as the type of the block
                     // TODO blockType is not used after this assignment!
                     blockType = sourceType;
                 }
-            } else if (blockType.equals("SubSystem")) {
+            } else if ("SubSystem".equals(blockType)) {
                 // In this special case, we know which block is the source block
                 // There is too much block with type SubSystem anyway...
                 sourceBlockFQN = "simulink/Ports & Subsystems/Subsystem";
@@ -946,7 +944,7 @@ public class Importer {
                 // libraries
                 if (sourceBlockNameGetter.getSourceBlockFQN() == null) {
 
-                    IVisitableMatlabData libnames = null;
+                    IVisitableMatlabData libnames;
                     // TODO embed script code to source here
                     MatlabCommand libraryCollector = commandFactory.customCommand("library_collector", 1);
                     libnames = libraryCollector.execute();
@@ -978,7 +976,7 @@ public class Importer {
 
         }
 
-        if (sourceBlockFQN == null || sourceBlockFQN.equals("")) {
+        if (sourceBlockFQN == null || "".equals(sourceBlockFQN)) {
             logger.warning("The reference block could not be determined for block: "
                     + createdBlock.getSimulinkRef().getFQN());
         } else {
@@ -1117,9 +1115,9 @@ public class Importer {
         // Setting the name of the port according to its port number
         MatlabCommand getPortNumber = commandFactory.getParam().addParam(portHandle).addParam("PortNumber");
         Integer portNumber = Handle.getHandleData(getPortNumber.execute()).intValue();
-        Port port = null;
+        Port port;
         // TODO for now handle state ports the same way as we would handle outports
-        if (portType.equalsIgnoreCase("outport") || portType.equalsIgnoreCase("state")) {
+        if ("outport".equalsIgnoreCase(portType) || "state".equalsIgnoreCase(portType)) {
             port = portAdapter.createPort(parent, portHandle, outPorts);
             createAndSetSimulinkRef("outport." + portNumber.toString(), parent.getSimulinkRef(), port);
             cachedOutPortHandles.put((OutPort) port, Handle.getHandleData(portHandle));
@@ -1209,7 +1207,7 @@ public class Importer {
                     createAndSetSimulinkRef(lineFQN, outp.getSimulinkRef(), line);
 
                     // Set line name attribute
-                    String lineName = "";
+                    String lineName;
 
                     // Obtain the name from Simulink
                     MatlabCommand getLineName = commandFactory.getParam().addParam(lineHandle).addParam("Name");
@@ -1218,7 +1216,7 @@ public class Importer {
                     line.setLineName(Strings.emptyToNull(lineName));
 
                     if (outp.getConnection() != null) {
-                        MultiConnection mc = null;
+                        MultiConnection mc;
                         if (outp.getConnection() instanceof SingleConnection) {
                             // Add the existing and the newly created SingleConnection to the newly created
                             // MultiConnection
@@ -1254,27 +1252,25 @@ public class Importer {
      */
     private void createMappings() {
         logger.debug("Processing bus selectors...");
-        for (BusSelector busSelector : busSelectorToDestinationPorts.keySet()) {
+        for (Entry<BusSelector, List<Handle>> busSelectorEntry : busSelectorToDestinationPorts.entrySet()) {
 
-            // List<Handle> srcPortHandleList = busSelectorToSourcePorts.get(busSelector);
-            List<Handle> dstPortHandleList = busSelectorToDestinationPorts.get(busSelector);
-
-            // List<OutPort> srcOutPortList = new LinkedList<OutPort>();
+            BusSelector busSelector = busSelectorEntry.getKey();
+            List<Handle> dstPortHandleList = busSelectorEntry.getValue();
             List<OutPort> dstOutPortList = new LinkedList<OutPort>();
 
             for (int i = 0; i < dstPortHandleList.size(); i++) {
                 dstOutPortList.add(outPorts.get(Handle.getHandleData(dstPortHandleList.get(i))));
             }
 
-            Property outputSignals = null;
+            String outputSignalsValue = "";
             EList<Property> properties = busSelector.getProperties();
             for (Property property : properties) {
                 if ("OutputSignals".equalsIgnoreCase(property.getName())) {
-                    outputSignals = property;
+                    outputSignalsValue = property.getValue();
                 }
             }
 
-            String[] outputSignalsString = outputSignals.getValue().split(",");
+            String[] outputSignalsString = outputSignalsValue.split(",");
 
             for (int i = 0; i < outputSignalsString.length; i++) {
 

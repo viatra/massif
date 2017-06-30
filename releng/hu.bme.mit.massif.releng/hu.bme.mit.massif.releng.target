@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?>
-<target name="Massif Target Platform (partially generated from Targlet)" sequenceNumber="52">
+<?pde?>
+<!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
+<target name="Massif" sequenceNumber="1498664750">
   <locations>
-    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.draw2d" version="3.10.1.201508170204"/>
       <unit id="org.eclipse.emf.mwe2.language.ui" version="2.8.3.v201512160634"/>
       <unit id="org.eclipse.emf.mwe2.launch.ui" version="2.8.3.v201512160634"/>
@@ -11,9 +12,10 @@
       <unit id="org.eclipse.sdk.feature.group" version="4.5.2.v20160212-1500"/>
       <repository location="http://download.eclipse.org/releases/mars"/>
     </location>
-    <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.xtext.sdk.feature.group" version="2.9.2.v201603040440"/>
       <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.9.2"/>
     </location>
   </locations>
+  <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 </target>

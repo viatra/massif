@@ -497,25 +497,6 @@
       <targlet
           name="Massif Targlet Platform"
           activeRepositoryList="${eclipse.target.platform}">
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
-          <detail
-              key="location">
-            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/massif_oomphgen.target}</value>
-          </detail>
-          <detail
-              key="includeAllPlatforms">
-            <value>false</value>
-          </detail>
-          <detail
-              key="includeSource">
-            <value>false</value>
-          </detail>
-          <detail
-              key="generateVersions">
-            <value>true</value>
-          </detail>
-        </annotation>
         <requirement
             name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
         <requirement
@@ -573,10 +554,14 @@
           name="org.eclipse.m2e.logback.feature.feature.group"/>
       <requirement
           name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="fr.obeo.releng.targetplatform-feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/viatra/updates/release/"/>
       <repository
           url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+      <repository
+          url="http://mbarbero.github.io/fr.obeo.releng.targetplatform/p2/"/>
     </setupTask>
   </stream>
   <stream name="viatra-master">
@@ -585,25 +570,6 @@
       <targlet
           name="Massif Targlet Platform"
           activeRepositoryList="${eclipse.target.platform}">
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
-          <detail
-              key="location">
-            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/massif_oomphgen.target}</value>
-          </detail>
-          <detail
-              key="includeAllPlatforms">
-            <value>false</value>
-          </detail>
-          <detail
-              key="includeSource">
-            <value>false</value>
-          </detail>
-          <detail
-              key="generateVersions">
-            <value>true</value>
-          </detail>
-        </annotation>
         <requirement
             name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
         <requirement
@@ -661,10 +627,14 @@
           name="org.eclipse.m2e.logback.feature.feature.group"/>
       <requirement
           name="org.eclipse.egit.feature.group"/>
+      <requirement
+          name="fr.obeo.releng.targetplatform-feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/viatra/updates/integration/"/>
       <repository
           url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+      <repository
+          url="http://mbarbero.github.io/fr.obeo.releng.targetplatform/p2/"/>
     </setupTask>
   </stream>
   <stream name="0.4-maintenance">
@@ -672,25 +642,6 @@
         xsi:type="setup.targlets:TargletTask">
       <targlet
           name="Massif Targlet Platform">
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
-          <detail
-              key="location">
-            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/massif_oomphgen.target}</value>
-          </detail>
-          <detail
-              key="includeAllPlatforms">
-            <value>false</value>
-          </detail>
-          <detail
-              key="includeSource">
-            <value>false</value>
-          </detail>
-          <detail
-              key="generateVersions">
-            <value>true</value>
-          </detail>
-        </annotation>
         <requirement
             name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
         <requirement
@@ -744,25 +695,6 @@
         xsi:type="setup.targlets:TargletTask">
       <targlet
           name="Massif Targlet Platform">
-        <annotation
-            source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
-          <detail
-              key="location">
-            <value>${git.clone.massif.location/releng/hu.bme.mit.massif.releng/massif_oomphgen.target}</value>
-          </detail>
-          <detail
-              key="includeAllPlatforms">
-            <value>false</value>
-          </detail>
-          <detail
-              key="includeSource">
-            <value>false</value>
-          </detail>
-          <detail
-              key="generateVersions">
-            <value>true</value>
-          </detail>
-        </annotation>
         <requirement
             name="org.eclipse.incquery.sdk.feature.source.feature.group"/>
         <requirement

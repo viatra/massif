@@ -7,7 +7,7 @@
 	<artifactId>hu.bme.mit.massif.parent</artifactId>
 	<version>0.6.0-SNAPSHOT</version>
 	<name>Massif</name>
-	<url>https://github.com/IncQueryLabs/massif</url>
+	<url>https://github.com/viatra/massif</url>
 	<packaging>pom</packaging>
 	<modules>
 		<!-- Target platform -->
@@ -58,16 +58,22 @@
 		
 	</modules>
 	<properties>
-		<tycho.version>0.20.0</tycho.version>
-		<xtend.compiler.version>2.9.2</xtend.compiler.version>
-		<viatra.compiler.version>1.3.0</viatra.compiler.version>
+		<tycho.version>1.0.0</tycho.version>
+		<xtend.compiler.version>2.12.0</xtend.compiler.version>
+		<viatra.compiler.version>1.7.0-SNAPSHOT</viatra.compiler.version>
 		<viatra.repository.url>http://download.eclipse.org/viatra/updates/integration/</viatra.repository.url>
 		<viatra.maven.repository.url>https://repo.eclipse.org/content/repositories/viatra-snapshots/</viatra.maven.repository.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.skippedModules></sonar.skippedModules>
+		<java.version>1.7</java.version>
+	    <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
 	</properties>
 	<build>
 		<plugins>
+			<plugin>
+			    <artifactId>maven-toolchains-plugin</artifactId>
+		    </plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
@@ -128,6 +134,39 @@
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>2.5</version>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-toolchains-plugin</artifactId>
+					<version>1.1</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>toolchain</goal>
+							</goals>
+							<configuration>
+								<toolchains>
+									<jdk>
+										<id>JavaSE-${java.version}</id>
+									</jdk>
+								</toolchains>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tycho.version}</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<useJDK>BREE</useJDK>
+						<useProjectSettings>true</useProjectSettings>
+						<excludeResources>
+							<excludeResource>**/.gitignore</excludeResource>
+						</excludeResources>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -148,15 +187,15 @@
 		</pluginRepository>
 	</pluginRepositories>
 	<scm>
-		<connection>scm:git:https://github.com/IncQueryLabs/massif.git</connection>
-		<url>https://github.com/IncQueryLabs/massif.git</url>
+		<connection>scm:git:https://github.com/viatra/massif.git</connection>
+		<url>https://github.com/viatra/massif.git</url>
 	</scm>
 	<ciManagement>
 		<url>https://build.incquerylabs.com/jenkins/job/Massif</url>
 		<system>Jenkins</system>
 	</ciManagement>
 	<issueManagement>
-		<url>https://github.com/IncQueryLabs/massif/issues</url>
+		<url>https://github.com/viatra/massif/issues</url>
 		<system>Github</system>
 	</issueManagement>
 </project>

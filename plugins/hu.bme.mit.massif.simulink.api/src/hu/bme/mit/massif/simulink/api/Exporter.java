@@ -175,6 +175,7 @@ public class Exporter {
         // If no command evaluator object is assigned yet, indicate it
         if (commandFactory == null) {
             logger.error("No Matlab command factory is set for the exporter. Was the model to be saved already exported?");
+            return;
         }
 
         /*
@@ -405,8 +406,8 @@ public class Exporter {
                 gotoCache.add((Goto) block);
             }
 
-            // TODO process the block
-            IVisitableMatlabData newBlockHandle = null;
+            // process the block
+            IVisitableMatlabData newBlockHandle;
 
             String sourceBlockFQN = getRealSourceBlockFQN(block);
             String blockFQN = getFQN(block);
@@ -425,7 +426,7 @@ public class Exporter {
             newBlockHandle = addBlock.execute();
             MatlabCommand lastErrorMessage = commandFactory.getLastErrorMessage();
             String lastErrorMessageString = MatlabString.getMatlabStringData(lastErrorMessage.execute());
-            if (!lastErrorMessageString.equals("")) {
+            if (!"".equals(lastErrorMessageString)) {
                 logger.error("The block '" + blockFQN + "' with sourceBlock '" + sourceBlockFQN
                         + "' could not be added");
                 continue;
@@ -676,8 +677,8 @@ public class Exporter {
      */
     private boolean isDefaultSubsystem(Block block) {
         String realSourceBlockFQN = getRealSourceBlockFQN(block);
-        return realSourceBlockFQN.equalsIgnoreCase("simulink/Ports & Subsystems/Subsystem")
-                || realSourceBlockFQN.equalsIgnoreCase("simulink/Ports & Subsystems/Atomic Subsystem");
+        return "simulink/Ports & Subsystems/Subsystem".equalsIgnoreCase(realSourceBlockFQN)
+                || "simulink/Ports & Subsystems/Atomic Subsystem".equalsIgnoreCase(realSourceBlockFQN);
     }
 
     /**
@@ -743,7 +744,7 @@ public class Exporter {
 
             for (OutPort outPort : block.getOutports()) {
 
-            	Double addedLineHandle = null;
+            	Double addedLineHandle;
                 Connection conn = outPort.getConnection();
                 if (conn == null)
                     continue;
@@ -785,10 +786,10 @@ public class Exporter {
         		if(!(iVisitableMatlabData instanceof Handle)){
         			break;
         		}
-				double currentLineHandle = Handle.getHandleData(iVisitableMatlabData);
+				Double currentLineHandle = Handle.getHandleData(iVisitableMatlabData);
 				boolean isContained = false;
 				for (Double lh : addedLineHandles) {
-					if(lh.doubleValue() == currentLineHandle){
+					if(lh.equals(currentLineHandle)){
 						isContained = true;
 						break;
 					}
@@ -808,8 +809,9 @@ public class Exporter {
 				}
 			}
         } else if (allQueriedLineHandles instanceof Handle){
-        	if(!addedLineHandles.contains(allQueriedLineHandles)){
-        		linesToDelete.add((Handle) allQueriedLineHandles);
+        	Handle handle = (Handle) allQueriedLineHandles;
+            if(!addedLineHandles.contains(handle.getData())){
+        		linesToDelete.add(handle);
         	}
         }
         for (Handle handle : linesToDelete) {
@@ -897,7 +899,7 @@ public class Exporter {
         IVisitableMatlabData addedLineHandle = addLine.execute();
         String lastErrorMsg = MatlabString.getMatlabStringData(commandFactory.getLastErrorMessage().execute());
         
-        if(!lastErrorMsg.equals("")) {
+        if(!"".equals(lastErrorMsg)) {
         	// There was an error message in the returned variable instead of the desired handle
 
         	// This also happens when there is already a connection between the selected elements, so try to get the line

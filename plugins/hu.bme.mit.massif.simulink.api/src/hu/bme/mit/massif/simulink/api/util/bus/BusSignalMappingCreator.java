@@ -15,6 +15,22 @@ package hu.bme.mit.massif.simulink.api.util.bus;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkState;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.eclipse.emf.common.util.EList;
+
+import com.google.common.base.Function;
+import com.google.common.base.Splitter;
+import com.google.common.base.Strings;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+
 import hu.bme.mit.massif.models.simulink.util.FirstOutPortFromBusSpecificationMatch;
 import hu.bme.mit.massif.simulink.BusCreator;
 import hu.bme.mit.massif.simulink.BusSelector;
@@ -23,22 +39,6 @@ import hu.bme.mit.massif.simulink.BusSpecification;
 import hu.bme.mit.massif.simulink.InPort;
 import hu.bme.mit.massif.simulink.OutPort;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.regex.Pattern;
-
-import org.eclipse.emf.common.util.EList;
-
-import com.google.common.base.Function;
-import com.google.common.base.Strings;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-
 /**
  * 
  * @author Abel Hegedus
@@ -46,7 +46,6 @@ import com.google.common.collect.Sets;
  */
 public class BusSignalMappingCreator {
 
-    private static final String DOT_REGEXP = Pattern.quote(".");
     private BusSignalMapper mapper;
 
     public BusSignalMappingCreator(BusSignalMapper mapper) {
@@ -132,7 +131,7 @@ public class BusSignalMappingCreator {
         BusSpecification busSpecification = origin.specification;
         OutPort previousSpecOutPort = origin.outPort;
 
-        SpecifiableOriginatingOutPort creator = null;
+        SpecifiableOriginatingOutPort creator;
         if (busSpecification instanceof BusSelector) {
             BusSelector previousBusSelector = (BusSelector) busSpecification;
             if (previousBusSelector.getBusCreator() == null) {
@@ -206,9 +205,8 @@ public class BusSignalMappingCreator {
     }
 
     private List<String> splitPathToFragments(String mappingPath) {
-        // split path by dot, could be new StringTokenizer(mappingPath,".");
-        List<String> fragments = Lists.newArrayList(mappingPath.split(DOT_REGEXP));
-        return fragments;
+        // split path by dot
+        return Splitter.on('.').splitToList(mappingPath);
     }
 
     private void storeFragmentsInMap(Map<String, FragmentResolution> resolutionMap, BusSignalMapping mapping,

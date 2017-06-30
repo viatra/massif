@@ -52,10 +52,10 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
         ImportMode importMode = traverser.getImportMode();
         String modelReferenceFQN = blockToProcess.getSimulinkRef().getFQN();
         MatlabCommandFactory commandFactory = traverser.getCommandFactory();
-        String referencedModelName = null;
-        SimulinkModel actualReferredModel = null;
+        String referencedModelName;
+        SimulinkModel actualReferredModel;
         ModelReference modelReference = null;
-        if(ImportMode.FLATTENING != traverser.getImportMode()){
+        if(ImportMode.FLATTENING != importMode){
         	modelReference = (ModelReference) blockToProcess;	
         }
         
@@ -66,8 +66,8 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
             referencedModelName = MatlabString.getMatlabStringData(getReferencedModelName.execute());
             referencedModelName = handleSpecialCharacters(referencedModelName);
 
-            String qualifier = null;
-            String name = null;
+            String qualifier;
+            String name;
             if (referencedModelName.contains("/")) {
                 qualifier = referencedModelName.substring(referencedModelName.lastIndexOf('/'));
                 name = referencedModelName
@@ -77,8 +77,9 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
                 name = referencedModelName;
             }
             IdentifierReference modelSimRef = SimulinkUtil.createIdentifierReference(name, qualifier);
-
-            modelReference.setModelRef(modelSimRef);
+            if(modelReference != null) {
+                modelReference.setModelRef(modelSimRef);
+            }
             break;
         case REFERENCING: // fall-through
         case DEEP:
@@ -87,7 +88,9 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
                 actualReferredModel = traverseReferencedModel(traverser, modelReferenceFQN, commandFactory,
                         ImportMode.DEEP);
                 IdentifierReference actualReferredModelSimRef = EcoreUtil.copy(actualReferredModel.getSimulinkRef());
-                modelReference.setModelRef(actualReferredModelSimRef);
+                if(modelReference != null) {
+                    modelReference.setModelRef(actualReferredModelSimRef);
+                }
             } catch (SimulinkApiException e) {
                 traverser.getLogger().error("Exception occurred while traversing referenced model in deep copy!", e);
             }

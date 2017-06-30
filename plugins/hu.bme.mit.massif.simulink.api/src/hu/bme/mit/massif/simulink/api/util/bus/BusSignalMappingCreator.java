@@ -145,8 +145,10 @@ public class BusSignalMappingCreator {
             throw new IllegalStateException(
                     "Previous bus specification cannot be other type of elements! But encountered: " + busSpecification);
         }
-        BusSpecification specification = creator.specification;
-        mapper.logDebug(String.format("Creator of bus is %s", mapper.getFQNOrEmpty(specification)));
+        if(creator != null) {
+            BusSpecification specification = creator.specification;
+            mapper.logDebug(String.format("Creator of bus is %s", mapper.getFQNOrEmpty(specification)));
+        }
         return creator;
     }
 

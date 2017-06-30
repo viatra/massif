@@ -67,14 +67,18 @@ public class BusSelectorAdapter extends DefaultBlockAdapter {
             }
         }
 
-        if ("on".equals(outputAsBusProperty.getValue())) {
+        if (outputAsBusProperty != null && "on".equals(outputAsBusProperty.getValue())) {
             busSelector.setOutputAsBus(true);
         } else {
             busSelector.setOutputAsBus(false);
         }
 
+        String signals = "";
+        if(outputSignalsProperty != null) {
+            signals = outputSignalsProperty.getValue();
+        }
         // Signal FQNs to trace back
-        String[] outputSignals = outputSignalsProperty.getValue().split(",");
+        String[] outputSignals = signals.split(",");
 
         MatlabCommand getPortHandles = commandFactory.getParam().addParam(busSelectorFQN).addParam("PortHandles");
         IVisitableMatlabData portHandles = getPortHandles.execute();

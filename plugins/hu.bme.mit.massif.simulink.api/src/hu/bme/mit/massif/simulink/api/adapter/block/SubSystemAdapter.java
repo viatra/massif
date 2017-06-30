@@ -123,7 +123,9 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
         librariesBeingImported.remove(libraryName);
 
         libraryRegistry.putAll(referencedLibraryTraverser.getReferencedLibraries());
-        libraryRegistry.put(actualLibrary.getSimulinkRef().getFQN(), actualLibrary);
+        if (actualLibrary != null) {
+            libraryRegistry.put(actualLibrary.getSimulinkRef().getFQN(), actualLibrary);
+        }
 
         return actualLibrary;
     }

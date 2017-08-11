@@ -10,6 +10,8 @@
  *******************************************************************************/
 package hu.bme.mit.massif.communication.datavisitor;
 
+import java.util.List;
+
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
@@ -21,26 +23,41 @@ public class SourceBlockGetterVisitor implements IMatlabDataVisitor {
 
     private String sourceBlockFQN;
 
+    private SourceBlockHint hint;
+    
+    public void setSourceBlockHint(SourceBlockHint hint) {
+    	this.hint = hint;
+    }
+    
     public String getSourceBlockFQN() {
         return sourceBlockFQN;
     }
 
     @Override
     public void visit(CellMatlabData compositeData) {
-        // Multiple blocks were found with the specified type
-        // TODO not sure, if the first match is the best
-        for (IVisitableMatlabData fqn : compositeData.getDatas()) {
-            if (!fqn.toString().contains("Commonly Used Blocks")) {
+        List<IVisitableMatlabData> dataList = compositeData.getDatas();
+        int startIndex = 0;
+        boolean notFloating = true;
+        if(hint != null) {
+        	Object hintObject = hint.getHint(SourceBlockHintKeys.IS_FLOATING_SCOPE);
+        	if(hintObject != null) {
+				notFloating = !((Boolean) hintObject).booleanValue();
+        	}
+        }
+		for (int i = startIndex; i < dataList.size(); i++) {
+			IVisitableMatlabData fqn = dataList.get(i);
+			boolean isDesiredScopeType = fqn.toString().contains("Floating") ^ notFloating;
+			if (!fqn.toString().contains("Commonly Used Blocks") && isDesiredScopeType) {
                 sourceBlockFQN = MatlabString.getMatlabStringData(fqn);
                 break;
             }
-        }
+		}
     }
 
     @Override
     public void visit(Handle handle) {
         // TODO Get name for handle
-        throw new UnsupportedOperationException("Not yet implemented!");
+        throw new UnsupportedOperationException("Not (yet) implemented!");
     }
 
     @Override
@@ -55,7 +72,7 @@ public class SourceBlockGetterVisitor implements IMatlabDataVisitor {
     @Override
     public void visit(StructMatlabData structMatlabData) {
         // TODO Unsupported operation?
-        throw new UnsupportedOperationException("Not yet implemented!");
+        throw new UnsupportedOperationException("Not implemented!");
     }
     
 	@Override

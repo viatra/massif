@@ -10,6 +10,7 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -193,7 +194,7 @@ public class Exporter {
         // Navigate to the save location
         for (int i = 0; i < savePathSegments.length - 1; i++) {
             String segment = savePathSegments[i];
-            MatlabCommand changeToSaveDir = commandFactory.cd().addParam(segment + "\\");
+            MatlabCommand changeToSaveDir = commandFactory.cd().addParam(segment + File.separator);
             changeToSaveDir.execute();
         }
 

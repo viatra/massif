@@ -10,6 +10,9 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.provider.block;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import hu.bme.mit.massif.simulink.api.adapter.block.BusCreatorAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.block.BusSelectorAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.block.DefaultBlockAdapter;
@@ -22,12 +25,8 @@ import hu.bme.mit.massif.simulink.api.adapter.block.InportBlockAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.block.InportShadowAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.block.ModelReferenceAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.block.OutPortAdapter;
-import hu.bme.mit.massif.simulink.api.adapter.block.ScopeAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.block.SubSystemAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.block.TriggerPortAdapter;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Provider class to return the appropriate adapter for the specified block type
@@ -57,7 +56,6 @@ public class BlockProvider {
         adapters.put("EnablePort", new EnablePortAdapter());
         adapters.put("TriggerPort", new TriggerPortAdapter());
         adapters.put("InportShadow", new InportShadowAdapter());
-        adapters.put("Scope", new ScopeAdapter());
         adapters.put(DEFAULT_BLOCK_ADAPTER, new DefaultBlockAdapter());
     }
 

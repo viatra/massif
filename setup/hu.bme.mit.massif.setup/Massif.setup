@@ -498,8 +498,6 @@
           name="Massif Targlet Platform"
           activeRepositoryList="${eclipse.target.platform}">
         <requirement
-            name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
-        <requirement
             name="org.eclipse.equinox.sdk.feature.group"/>
         <requirement
             name="org.eclipse.sdk.feature.group"/>
@@ -512,16 +510,12 @@
         <repositoryList
             name="Mars">
           <repository
-              url="http://download.eclipse.org/viatra/updates/release/"/>
-          <repository
               url="http://download.eclipse.org/releases/mars"/>
           <repository
               url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
         </repositoryList>
         <repositoryList
             name="Neon">
-          <repository
-              url="http://download.eclipse.org/viatra/updates/release/"/>
           <repository
               url="http://download.eclipse.org/releases/neon"/>
           <repository
@@ -530,11 +524,18 @@
         <repositoryList
             name="Oxygen">
           <repository
-              url="http://download.eclipse.org/viatra/updates/release/"/>
-          <repository
               url="http://download.eclipse.org/releases/oxygen"/>
           <repository
               url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+        </repositoryList>
+      </targlet>
+      <targlet
+          name="Massif VIATRA Dependency">
+        <requirement
+            name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
+        <repositoryList>
+          <repository
+              url="http://download.eclipse.org/viatra/updates/release/"/>
         </repositoryList>
       </targlet>
     </setupTask>
@@ -571,8 +572,6 @@
           name="Massif Targlet Platform"
           activeRepositoryList="${eclipse.target.platform}">
         <requirement
-            name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
-        <requirement
             name="org.eclipse.equinox.sdk.feature.group"/>
         <requirement
             name="org.eclipse.sdk.feature.group"/>
@@ -585,16 +584,12 @@
         <repositoryList
             name="Mars">
           <repository
-              url="http://download.eclipse.org/viatra/updates/release/"/>
-          <repository
               url="http://download.eclipse.org/releases/mars"/>
           <repository
               url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
         </repositoryList>
         <repositoryList
             name="Neon">
-          <repository
-              url="http://download.eclipse.org/viatra/updates/release/"/>
           <repository
               url="http://download.eclipse.org/releases/neon"/>
           <repository
@@ -603,11 +598,18 @@
         <repositoryList
             name="Oxygen">
           <repository
-              url="http://download.eclipse.org/viatra/updates/release/"/>
-          <repository
               url="http://download.eclipse.org/releases/oxygen"/>
           <repository
               url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+        </repositoryList>
+      </targlet>
+      <targlet
+          name="Massif VIATRA Dependency">
+        <requirement
+            name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
+        <repositoryList>
+          <repository
+              url="http://download.eclipse.org/viatra/updates/integration/"/>
         </repositoryList>
       </targlet>
     </setupTask>

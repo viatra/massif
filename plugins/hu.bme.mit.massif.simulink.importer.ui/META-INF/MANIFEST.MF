@@ -14,7 +14,7 @@ Require-Bundle: org.eclipse.ui,
  hu.bme.mit.massif.communication,
  hu.bme.mit.massif.communication.manager
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.
 Import-Package: com.google.common.base;version="10.0.0",
  com.google.common.collect;version="10.0.0"

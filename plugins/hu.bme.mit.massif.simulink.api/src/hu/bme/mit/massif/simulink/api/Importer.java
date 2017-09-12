@@ -18,6 +18,8 @@ import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import hu.bme.mit.massif.communication.datavisitor.SourceBlockGetterVisitor;
+import hu.bme.mit.massif.communication.datavisitor.SourceBlockHint;
+import hu.bme.mit.massif.communication.datavisitor.SourceBlockHintKeys;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusSelector;
 import hu.bme.mit.massif.simulink.BusSignalMapping;
@@ -884,12 +886,13 @@ public class Importer {
         // TODO a null check + return was removed from here for createdBlock - NEEDS TESTING, then delete this message
 
         // Create and set the SimulinkReference of the source block
-        MatlabCommand getReferenceBlockFQN = commandFactory.getParam().addParam(createdBlock.getSimulinkRef().getFQN()).addParam("ReferenceBlock");
+        String blockFQN = createdBlock.getSimulinkRef().getFQN();
+		MatlabCommand getReferenceBlockFQN = commandFactory.getParam().addParam(blockFQN).addParam("ReferenceBlock");
         String sourceBlockFQN = MatlabString.getMatlabStringData(getReferenceBlockFQN.execute());
 
         // If no ReferenceBlock is set, check the AncestorBlock. It might be set in case of disabled links.
         if ("".equals(sourceBlockFQN)) {
-        	MatlabCommand getAncestorBlockFQN = commandFactory.getParam().addParam(createdBlock.getSimulinkRef().getFQN()).addParam("AncestorBlock");
+        	MatlabCommand getAncestorBlockFQN = commandFactory.getParam().addParam(blockFQN).addParam("AncestorBlock");
             sourceBlockFQN = MatlabString.getMatlabStringData(getAncestorBlockFQN.execute());
         }
 
@@ -903,10 +906,10 @@ public class Importer {
             // if it contains usable information
             if ("Reference".equals(blockType)) {
                 // Get the reference's source type and source block
-            	MatlabCommand getSourceType = commandFactory.getParam().addParam(createdBlock.getSimulinkRef().getFQN()).addParam("SourceType");
+            	MatlabCommand getSourceType = commandFactory.getParam().addParam(blockFQN).addParam("SourceType");
                 String sourceType = MatlabString.getMatlabStringData(getSourceType.execute());
 
-                MatlabCommand getSourceBlock = commandFactory.getParam().addParam(createdBlock.getSimulinkRef().getFQN()).addParam("SourceBlock");
+                MatlabCommand getSourceBlock = commandFactory.getParam().addParam(blockFQN).addParam("SourceBlock");
                 sourceBlockFQN = MatlabString.getMatlabStringData(getSourceBlock.execute());
                 if (!"".equals(sourceType) && !"Unknown".equals(sourceType)) {
                     // If set, set it as the type of the block
@@ -927,7 +930,12 @@ public class Importer {
 				IVisitableMatlabData potentialSourceBlockHandles = findPotentialSourceBlocks.execute();
 
                 SourceBlockGetterVisitor sourceBlockNameGetter = new SourceBlockGetterVisitor();
-
+                
+                // Corner case for scopes
+                if("Scope".equalsIgnoreCase(blockType)) {
+                    scopeBlockExtraActions(blockFQN, sourceBlockNameGetter);
+                }
+                
                 // A block with the given type was found in the current library
                 if (potentialSourceBlockHandles != null) {
                     CellMatlabData potentialSourceBlockNames = new CellMatlabData();
@@ -978,7 +986,7 @@ public class Importer {
 
         if (sourceBlockFQN == null || "".equals(sourceBlockFQN)) {
             logger.warning("The reference block could not be determined for block: "
-                    + createdBlock.getSimulinkRef().getFQN());
+                    + blockFQN);
         } else {
             // Calculate the parameters of the EMF block object
             sourceBlockName = sourceBlockFQN.lastIndexOf('/') == -1 ? sourceBlockFQN : sourceBlockFQN
@@ -992,7 +1000,7 @@ public class Importer {
 
         // When creating subsystems, the link status has to be checked
         if (createdBlock instanceof SubSystem) {
-        	MatlabCommand getLinkStatus = commandFactory.getParam().addParam(createdBlock.getSimulinkRef().getFQN()).addParam("LinkStatus");
+        	MatlabCommand getLinkStatus = commandFactory.getParam().addParam(blockFQN).addParam("LinkStatus");
             String linkStatus = MatlabString.getMatlabStringData(getLinkStatus.execute());
             // If the link is active, the above command in matlab returns the string "resolved"
             // Other possible values:
@@ -1016,6 +1024,18 @@ public class Importer {
         // Return the ready block
         return createdBlock;
     }
+
+	private void scopeBlockExtraActions(String blockFQN, SourceBlockGetterVisitor sourceBlockNameGetter) {
+		MatlabCommand getFloatingValue = commandFactory.getParam().addParam(blockFQN).addParam("floating");
+		String isFloatingString = MatlabString.getMatlabStringData(getFloatingValue.execute());
+		SourceBlockHint hint = new SourceBlockHint();
+		if("off".equals(isFloatingString)) {
+			hint.addHint(SourceBlockHintKeys.IS_FLOATING_SCOPE, false);
+		} else {
+			hint.addHint(SourceBlockHintKeys.IS_FLOATING_SCOPE, true);
+		}
+		sourceBlockNameGetter.setSourceBlockHint(hint);
+	}
 
     /**
      * Creates and sets the simulink reference for a simulink element

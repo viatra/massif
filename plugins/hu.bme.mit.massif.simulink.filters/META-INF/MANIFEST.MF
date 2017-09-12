@@ -8,6 +8,6 @@ Require-Bundle: org.eclipse.ui,
  hu.bme.mit.massif.simulink.api,
  hu.bme.mit.massif.simulink,
  hu.bme.mit.massif.communication
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: hu.bme.mit.massif.simulink.filters
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

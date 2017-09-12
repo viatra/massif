@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -39,13 +38,13 @@ import br.com.embraer.massif.commandevaluation.util.TimeLimitedClientSocketFacto
 public class ServerEntryPoint {
 
     /** RMI Server Host address and port **/
-    private static String hostAddress;
-    private static int hostPort;
+    private String hostAddress;
+    private int hostPort;
 
     /** RMI service name */
-    private static String serviceName;
+    private String serviceName;
 
-    private static boolean debug;
+    private boolean debug;
 
     /** RMI server registry */
     private Registry registry;
@@ -56,25 +55,23 @@ public class ServerEntryPoint {
      * 
      * @throws MatlabPropertiesException
      */
-    private static void readProperties(String filePath) throws MatlabPropertiesException {
-        String _filePath = filePath;
+    private void readProperties(String filePath) throws MatlabPropertiesException {
+        String realFilePath = filePath;
         // if path was not given, try to load from the jar directory
-        if (_filePath.isEmpty()) {
+        if (realFilePath.isEmpty()) {
             try {
                 File jarFile = new File(ServerEntryPoint.class.getProtectionDomain().getCodeSource().getLocation()
                         .toURI());
                 String jarFolder = jarFile.getParent();
-                _filePath = jarFolder + File.separator + MatlabProviderProperties.MATLAB_DEFAULT_CONFIG_FILE_NAME;
+                realFilePath = jarFolder + File.separator + MatlabProviderProperties.MATLAB_DEFAULT_CONFIG_FILE_NAME;
 
-                printMessage("Configuration path not provided, " + "considering the following path: " + _filePath);
+                printMessage("Configuration path not provided, " + "considering the following path: " + realFilePath);
             } catch (URISyntaxException e1) {
-                MatlabPropertiesException exception = new MatlabPropertiesException(
-                        MatlabError.RETRIEVE_JAR_LOCATION_ERROR, e1);
-                throw exception;
+                throw new MatlabPropertiesException(MatlabError.RETRIEVE_JAR_LOCATION_ERROR, e1);
             }
         }
 
-        MatlabProviderProperties serverProperties = new MatlabProviderProperties(_filePath);
+        MatlabProviderProperties serverProperties = new MatlabProviderProperties(realFilePath);
 
         // get host address
         hostAddress = serverProperties.getProperty(MatlabProviderProperties.MATLAB_SERVER_ADDRESS);
@@ -123,10 +120,10 @@ public class ServerEntryPoint {
             throws MatlabPropertiesException, MatlabRMIException {
         readProperties(configFilePath);
 
-        String _matlabVersion = matlabVersion.toLowerCase();
+        String realMatlabVersion = matlabVersion.toLowerCase();
         // if matlab version was provided concatenates with prefix
-        if (!_matlabVersion.isEmpty()) {
-            serviceName = serviceName + _matlabVersion + matlabPid;
+        if (!realMatlabVersion.isEmpty()) {
+            serviceName = serviceName + realMatlabVersion + matlabPid;
         }
 
         StringBuilder sb = new StringBuilder("Starting Matlab RMI Server...\n");
@@ -145,7 +142,7 @@ public class ServerEntryPoint {
 
         // sets RMI security manager
         if (System.getSecurityManager() == null) {
-            System.setSecurityManager(new RMISecurityManager());
+            System.setSecurityManager(new SecurityManager());
         }
 
         // creates RMI server registry

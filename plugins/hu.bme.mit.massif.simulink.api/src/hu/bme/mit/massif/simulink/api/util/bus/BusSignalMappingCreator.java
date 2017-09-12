@@ -84,10 +84,12 @@ public class BusSignalMappingCreator {
 
     private void findCreatorAndCreateBusMapping(BusSelector selector) {
         SpecifiableOriginatingOutPort origin = findBusCreatorOfIncomigBus(selector);
-        if (origin.specification == null) {
-            handleIncompleteMappings(origin.outPort, selector.getMappings());
-        } else {
-            createBusMappingUsingCreator(selector, origin.specification);
+        if (origin != null) {
+            if (origin.specification == null) {
+                handleIncompleteMappings(origin.outPort, selector.getMappings());
+            } else {
+                createBusMappingUsingCreator(selector, origin.specification);
+            }
         }
         mapper.logDebug("Created bus mapping for %s", mapper.getFQNOrEmpty(selector));
     }
@@ -145,8 +147,10 @@ public class BusSignalMappingCreator {
             throw new IllegalStateException(
                     "Previous bus specification cannot be other type of elements! But encountered: " + busSpecification);
         }
-        BusSpecification specification = creator.specification;
-        mapper.logDebug(String.format("Creator of bus is %s", mapper.getFQNOrEmpty(specification)));
+        if(creator != null) {
+            BusSpecification specification = creator.specification;
+            mapper.logDebug(String.format("Creator of bus is %s", mapper.getFQNOrEmpty(specification)));
+        }
         return creator;
     }
 

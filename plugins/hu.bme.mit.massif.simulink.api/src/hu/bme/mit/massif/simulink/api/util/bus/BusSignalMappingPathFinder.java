@@ -28,7 +28,7 @@ import org.eclipse.viatra.query.runtime.api.ViatraQueryEngine;
 
 import com.google.common.collect.Maps;
 
-import hu.bme.mit.massif.models.simulink.util.NextOutPortInPathMatch;
+import hu.bme.mit.massif.models.simulink.util.NextOutPortInPath;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusCreator;
 import hu.bme.mit.massif.simulink.BusSelector;
@@ -137,7 +137,7 @@ public class BusSignalMappingPathFinder {
     }
 
     private List<Deque<Object>> searchForUnfilteredPaths(OutPort mappingFrom, OutPort mappingTo) {
-        PathMatcherGraphDataSource<NextOutPortInPathMatch> matcherGraphDataSource = new PathMatcherGraphDataSource<NextOutPortInPathMatch>(
+        PathMatcherGraphDataSource<NextOutPortInPath.Match> matcherGraphDataSource = new PathMatcherGraphDataSource<NextOutPortInPath.Match>(
                 mapper.getNextOutPortInPathMatcher());
         matcherGraphDataSource.setTarget(mappingTo);
         DepthFirstSearch search = new DepthFirstSearch();

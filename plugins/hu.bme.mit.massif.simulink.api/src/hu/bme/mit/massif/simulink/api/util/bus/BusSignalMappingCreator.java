@@ -31,7 +31,7 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
-import hu.bme.mit.massif.models.simulink.util.FirstOutPortFromBusSpecificationMatch;
+import hu.bme.mit.massif.models.simulink.util.FirstOutPortFromBusSpecification;
 import hu.bme.mit.massif.simulink.BusCreator;
 import hu.bme.mit.massif.simulink.BusSelector;
 import hu.bme.mit.massif.simulink.BusSignalMapping;
@@ -121,10 +121,10 @@ public class BusSignalMappingCreator {
 
     private OutPort findOriginatingOutPortForSpecification(BusSpecification specification,
             OutPort outPortBeforeSpecification) {
-        Collection<FirstOutPortFromBusSpecificationMatch> matches = mapper.getFirstOutPortFromBusSpecificationMatcher()
+        Collection<FirstOutPortFromBusSpecification.Match> matches = mapper.getFirstOutPortFromBusSpecificationMatcher()
                 .getAllMatches(null, specification, outPortBeforeSpecification);
         checkState(matches.size() == 1, "Invalid model, backward navigation is not deterministic!");
-        FirstOutPortFromBusSpecificationMatch match = Iterables.getOnlyElement(matches);
+        FirstOutPortFromBusSpecification.Match match = Iterables.getOnlyElement(matches);
         OutPort firstOutPort = (OutPort) match.getOutPort();
         return firstOutPort;
     }

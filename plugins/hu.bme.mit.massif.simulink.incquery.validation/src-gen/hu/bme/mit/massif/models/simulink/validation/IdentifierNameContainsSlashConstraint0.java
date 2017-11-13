@@ -17,14 +17,14 @@ import org.eclipse.viatra.query.runtime.api.IQuerySpecification;
 import org.eclipse.viatra.query.runtime.api.ViatraQueryMatcher;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
-import hu.bme.mit.massif.models.simulink.validation.IdentifierNameContainsSlash;
+import hu.bme.mit.massif.models.simulink.validation.util.IdentifierNameContainsSlashQuerySpecification;
 
 public class IdentifierNameContainsSlashConstraint0 implements IConstraintSpecification {
 
-    private IdentifierNameContainsSlash querySpecification;
+    private IdentifierNameContainsSlashQuerySpecification querySpecification;
 
     public IdentifierNameContainsSlashConstraint0() throws ViatraQueryException {
-        querySpecification = IdentifierNameContainsSlash.instance();
+        querySpecification = IdentifierNameContainsSlashQuerySpecification.instance();
     }
 
     @Override

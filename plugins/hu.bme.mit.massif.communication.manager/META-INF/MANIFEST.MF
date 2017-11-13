@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Massif Matlab Communication Connector Manager
 Bundle-SymbolicName: hu.bme.mit.massif.communication.manager;singleton:=true
 Bundle-Version: 0.6.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.
 Require-Bundle: hu.bme.mit.massif.communication,
  org.eclipse.equinox.registry,

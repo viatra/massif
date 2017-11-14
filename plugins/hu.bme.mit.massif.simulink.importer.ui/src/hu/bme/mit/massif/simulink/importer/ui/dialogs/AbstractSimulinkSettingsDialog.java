@@ -44,7 +44,14 @@ public abstract class AbstractSimulinkSettingsDialog extends Dialog {
     protected void configureShell(Shell newShell) {
         super.configureShell(newShell);
         newShell.setText(dialogTitle);
-        newShell.setSize(500, 170);
+        newShell.setMinimumSize(500, 170);
+    }
+
+    @Override
+    protected Control createContents(Composite parent) {
+        Control control = super.createContents(parent);
+        parent.pack(true);
+        return control;
     }
 
     @Override

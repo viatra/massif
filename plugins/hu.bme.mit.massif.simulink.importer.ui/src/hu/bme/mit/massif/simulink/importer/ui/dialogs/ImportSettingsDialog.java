@@ -49,13 +49,6 @@ public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 	}
 
 	@Override
-	protected void configureShell(Shell newShell) {
-		super.configureShell(newShell);
-		int filterCount = ImportFilterRegistry.INSTANCE.getFiltersById().keySet().size();
-		newShell.setSize(500, 180 + 20 * filterCount);
-	}
-
-	@Override
 	protected void buttonPressed(int buttonId) {
 		if (buttonId == IDialogConstants.OK_ID) {
 			importedModelName = importedModelNameEditor.getStringValue();

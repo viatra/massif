@@ -29,13 +29,6 @@ public class ExportSettingsDialog extends AbstractSimulinkSettingsDialog {
     public ExportSettingsDialog(Shell parentShell, File targetDirectory) {
         super(parentShell, "Export Parameters", targetDirectory);
 	}
-
-    @Override
-    protected void configureShell(Shell newShell) {
-        super.configureShell(newShell);
-        newShell.setSize(500, 192);
-    }
-
     
     @Override
     protected List<? extends FieldEditor> additionalFields(Composite fieldEditorParent) {

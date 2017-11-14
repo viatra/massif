@@ -43,13 +43,17 @@ public class CEServerCommandEvaluatorFactory implements ICommandEvaluatorFactory
 		int hostPort = (Integer) parameters.get("hostPort");
 		String serviceName = (String) parameters.get("serviceName");
 
-		boolean existingSession = checkExistingMatlabSession(serviceName);
-
-        if (!existingSession) {
-            String errorMsg = MATLAB_NOT_FOUND_WITH_GIVEN_PARAMETERS;
-            throw new ConnectorCreationException(errorMsg, null);
-        }
-        
+		String osName = System.getProperty("os.name");
+		if (osName != null && osName.indexOf("win") >= 0) {
+		    // Check whether there is an open matlab session on this computer
+		    // The checking only work on windows thus the system property check
+		    boolean existingSession = checkExistingMatlabSession(serviceName);
+    
+            if (!existingSession) {
+                String errorMsg = MATLAB_NOT_FOUND_WITH_GIVEN_PARAMETERS;
+                throw new ConnectorCreationException(errorMsg, null);
+            }
+		}
         try {
             MatlabClient matlabClient = new MatlabClient(hostAddress, hostPort, serviceName);
             result = new CommandEvaluatorImpl(matlabClient);

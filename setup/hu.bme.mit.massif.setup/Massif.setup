@@ -301,12 +301,6 @@
   </setupTask>
   <setupTask
       xsi:type="jdt:JRETask"
-      version="JavaSE-1.7"
-      location="${jre.location-1.7}">
-    <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
-  </setupTask>
-  <setupTask
-      xsi:type="jdt:JRETask"
       version="JavaSE-1.8"
       location="${jre.location-1.8}">
     <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
@@ -505,7 +499,7 @@
             name="org.eclipse.emf.sdk.feature.group"
             versionRange="[2.9.0,3.0.0)"/>
         <requirement
-            name="org.eclipse.xtext.sdk.feature.group"
+            name="org.eclipse.xtext.redist.feature.group"
             versionRange="[2.9.0,2.13.0)"/>
         <repositoryList
             name="Mars">
@@ -547,7 +541,7 @@
           name="org.eclipse.emf.sdk.feature.group"
           versionRange="[2.9.0,3.0.0)"/>
       <requirement
-          name="org.eclipse.xtext.sdk.feature.group"
+          name="org.eclipse.xtext.redist.feature.group"
           versionRange="[2.9.0,2.13.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
@@ -564,6 +558,12 @@
       <repository
           url="http://mbarbero.github.io/fr.obeo.releng.targetplatform/p2/"/>
     </setupTask>
+    <setupTask
+        xsi:type="jdt:JRETask"
+        version="JavaSE-1.7"
+        location="${jre.location-1.7}">
+      <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
+    </setupTask>
   </stream>
   <stream name="viatra-master">
     <setupTask
@@ -579,8 +579,8 @@
             name="org.eclipse.emf.sdk.feature.group"
             versionRange="[2.9.0,3.0.0)"/>
         <requirement
-            name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.9.0,2.13.0)"/>
+            name="org.eclipse.xtext.redist.feature.group"
+            versionRange="[2.13.0,3.0.0)"/>
         <repositoryList
             name="Mars">
           <repository
@@ -621,8 +621,8 @@
           name="org.eclipse.emf.sdk.feature.group"
           versionRange="[2.9.0,3.0.0)"/>
       <requirement
-          name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.10.0,2.13.0)"/>
+          name="org.eclipse.xtext.redist.feature.group"
+          versionRange="[2.13.0,3.0.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
@@ -691,6 +691,12 @@
       <repository
           url="http://download.eclipse.org/releases/luna"/>
     </setupTask>
+    <setupTask
+        xsi:type="jdt:JRETask"
+        version="JavaSE-1.7"
+        location="${jre.location-1.7}">
+      <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
+    </setupTask>
   </stream>
   <stream name="0.5-maintenance">
     <setupTask
@@ -743,6 +749,12 @@
           url="http://download.eclipse.org/incquery/updates-extra/release/"/>
       <repository
           url="http://download.eclipse.org/releases/mars"/>
+    </setupTask>
+    <setupTask
+        xsi:type="jdt:JRETask"
+        version="JavaSE-1.7"
+        location="${jre.location-1.7}">
+      <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
     </setupTask>
   </stream>
   <logicalProjectContainer

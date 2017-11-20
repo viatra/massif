@@ -12,7 +12,7 @@ Require-Bundle: org.junit;bundle-version="4.10.0",
  hu.bme.mit.massif.communication.matlabcontrol,
  br.com.embraer.massif.commandevaluation.client,
  hu.bme.mit.massif.communication,
- org.eclipse.viatra.query.runtime;bundle-version="[1.2.0,2.0.0)"
+ org.eclipse.viatra.query.runtime;bundle-version="[2.0.0,3.0.0)"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: com.google.common.base;version="10.0.0",
  com.google.common.collect;version="10.0.0"

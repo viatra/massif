@@ -579,8 +579,8 @@
             name="org.eclipse.emf.sdk.feature.group"
             versionRange="[2.9.0,3.0.0)"/>
         <requirement
-            name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.9.0,2.13.0)"/>
+            name="org.eclipse.xtext.redist.feature.group"
+            versionRange="[2.13.0,3.0.0)"/>
         <repositoryList
             name="Mars">
           <repository
@@ -621,8 +621,8 @@
           name="org.eclipse.emf.sdk.feature.group"
           versionRange="[2.9.0,3.0.0)"/>
       <requirement
-          name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.10.0,2.13.0)"/>
+          name="org.eclipse.xtext.redist.feature.group"
+          versionRange="[2.13.0,3.0.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement

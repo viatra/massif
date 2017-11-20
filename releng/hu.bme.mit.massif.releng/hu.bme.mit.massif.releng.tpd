@@ -1,5 +1,5 @@
 target "Massif"
-environment JavaSE-1.7
+environment JavaSE-1.8
 with requirements
 
 location "http://download.eclipse.org/releases/mars" {

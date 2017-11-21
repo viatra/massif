@@ -8,7 +8,7 @@
  * Contributors: 
  *     Rodrigo Rizzi Starr, Lincoln Nascimento - initial API and implementation 
  *******************************************************************************/
-package br.com.embraer.massif.commandevaluation.server;
+package br.com.embraer.massif.commandevaluation.commands;
 
 import java.util.UUID;
 import java.util.concurrent.BlockingQueue;
@@ -17,7 +17,6 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.Semaphore;
 
-import br.com.embraer.massif.commandevaluation.command.InteractionCommand;
 import br.com.embraer.massif.commandevaluation.exception.MatlabError;
 import br.com.embraer.massif.commandevaluation.exception.MatlabOutputException;
 import br.com.embraer.massif.commandevaluation.exception.MatlabRMIException;
@@ -31,7 +30,7 @@ import com.mathworks.jmi.Matlab;
  *
  * @author ldnascim
  */
-public class MatlabServerController implements Runnable {
+public class MatlabController implements Runnable {
 	
 	/** Flag to indicate if the thread is running**/
 	private boolean running;
@@ -57,7 +56,7 @@ public class MatlabServerController implements Runnable {
 	 * in order to enable the execution of the commands
 	 * in background
 	 */
-	public MatlabServerController() {
+	public MatlabController() {
 		commands = new LinkedBlockingQueue<InteractionCommand>();
 		commandsResponses = new ConcurrentHashMap<UUID, InteractionCommand>();
 		commandsSemaphore = new Semaphore(0);

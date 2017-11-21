@@ -15,9 +15,10 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.UUID;
 
 import br.com.embraer.massif.commandevaluation.base.MatlabRemoteInterface;
-import br.com.embraer.massif.commandevaluation.command.EvalCommand;
-import br.com.embraer.massif.commandevaluation.command.FevalCommand;
-import br.com.embraer.massif.commandevaluation.command.InteractionCommand;
+import br.com.embraer.massif.commandevaluation.commands.EvalCommand;
+import br.com.embraer.massif.commandevaluation.commands.FevalCommand;
+import br.com.embraer.massif.commandevaluation.commands.InteractionCommand;
+import br.com.embraer.massif.commandevaluation.commands.MatlabController;
 import br.com.embraer.massif.commandevaluation.exception.MatlabOutputException;
 
 public class MatlabRemoteImpl extends java.rmi.server.UnicastRemoteObject
@@ -28,7 +29,7 @@ public class MatlabRemoteImpl extends java.rmi.server.UnicastRemoteObject
 	 */
 	private static final long serialVersionUID = -4980200238447184775L;
 	
-	private MatlabServerController matlabServerController;
+	private MatlabController matlabServerController;
 
 	/**
 	 * Default constructor.
@@ -40,7 +41,7 @@ public class MatlabRemoteImpl extends java.rmi.server.UnicastRemoteObject
     public MatlabRemoteImpl(boolean debug) throws java.rmi.RemoteException {
 		super();
 		UnicastRemoteObject.unexportObject(this, true);
-		matlabServerController = new MatlabServerController();
+		matlabServerController = new MatlabController();
         matlabServerController.setDebug(debug);
 	}
 	

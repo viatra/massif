@@ -33,11 +33,14 @@
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.base</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.server</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.client</module>
+		<module>../../plugins/br.com.embraer.massif.commandevaluation.commands</module>
 		<module>../../plugins/hu.bme.mit.massif.communication.commandevaluation</module>
 		
 		<!-- MatlabControl connector -->
 		<module>../../dependencies/matlabcontrol.external.bundle</module>
 		<module>../../plugins/hu.bme.mit.massif.communication.matlabcontrol</module>
+		
+		
 		
 		<!-- Features -->
 		<module>../../features/hu.bme.mit.massif.simulink.emf-feature</module>

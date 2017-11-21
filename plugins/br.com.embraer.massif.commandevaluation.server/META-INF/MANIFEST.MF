@@ -3,10 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Modelprovider
 Bundle-SymbolicName: br.com.embraer.massif.commandevaluation.server
 Bundle-Version: 0.6.0.qualifier
-Export-Package: br.com.embraer.massif.commandevaluation.command,
- br.com.embraer.massif.commandevaluation.server
+Export-Package: br.com.embraer.massif.commandevaluation.server
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: br.com.embraer.massif.commandevaluation.base;bundle-version="0.4.0"
-Bundle-ClassPath: lib/jmi.jar,
- .
+Require-Bundle: br.com.embraer.massif.commandevaluation.commands
+Bundle-ClassPath: .
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

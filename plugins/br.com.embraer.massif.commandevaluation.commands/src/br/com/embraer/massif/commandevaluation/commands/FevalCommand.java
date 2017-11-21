@@ -8,7 +8,7 @@
  * Contributors: 
  *     Rodrigo Rizzi Starr, Lincoln Nascimento - initial API and implementation 
  *******************************************************************************/
-package br.com.embraer.massif.commandevaluation.command;
+package br.com.embraer.massif.commandevaluation.commands;
 
 import java.util.Arrays;
 

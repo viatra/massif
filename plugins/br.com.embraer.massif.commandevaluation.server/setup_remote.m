@@ -9,6 +9,7 @@
 %     Rodrigo Rizzi Starr, Lincoln Nascimento - initial API and implementation 
 %##############################################################################
 javaaddpath('br.com.embraer.massif.commandevaluation.base.jar');
+javaaddpath('br.com.embraer.massif.commandevaluation.commands.jar');
 javaaddpath('br.com.embraer.massif.commandevaluation.server.jar');
 
 pid = feature('getpid');

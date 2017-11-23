@@ -40,6 +40,8 @@
 		<module>../../dependencies/matlabcontrol.external.bundle</module>
 		<module>../../plugins/hu.bme.mit.massif.communication.matlabcontrol</module>
 		
+		<!-- Local MATLAB script connector -->
+		<module>../../plugins/hu.bme.mit.massif.communication.localscript</module>
 		
 		
 		<!-- Features -->

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="hu.bme.mit.massif.cli"
-      label="Massif CLI Feature"
+      id="hu.bme.mit.massif.sinmulink.cli"
+      label="Massif Simulink CLI Feature"
       version="0.6.0.qualifier"
       provider-name="Budapest University of Technology and Economics, Fault Tolerant Systems Research Group &amp; Embraer S.A.">
 

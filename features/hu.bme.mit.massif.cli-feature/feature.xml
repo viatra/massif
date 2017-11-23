@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="hu.bme.mit.massif.all"
-      label="Massif (All)"
+      id="hu.bme.mit.massif.cli"
+      label="Massif CLI Feature"
       version="0.6.0.qualifier"
       provider-name="Budapest University of Technology and Economics, Fault Tolerant Systems Research Group &amp; Embraer S.A.">
 
    <description url="http://www.example.com/description">
-      Contains all Massif features.
+      [Enter Feature Description here.]
    </description>
 
    <copyright url="http://www.example.com/copyright">
@@ -18,51 +18,36 @@
    </license>
 
    <includes
-         id="hu.bme.mit.massif.commandevaluation"
+         id="hu.bme.mit.massif.communication"
          version="0.0.0"/>
 
    <includes
-         id="hu.bme.mit.massif.matlabcontrol"
-         version="0.0.0"/>
-
-   <includes
-         id="hu.bme.mit.massif.simulink.ui"
-         version="0.0.0"/>
-
-   <includes
-         id="hu.bme.mit.massif.cli"
+         id="hu.bme.mit.massif.simulink.api"
          version="0.0.0"/>
 
    <plugin
-         id="br.com.embraer.massif.commandevaluation.server"
+         id="br.com.embraer.massif.commandevaluation.base"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="br.com.embraer.massif.commandevaluation.tests"
+         id="br.com.embraer.massif.commandevaluation.commands"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="hu.bme.mit.massif.simulink.api.tests"
+         id="hu.bme.mit.massif.communication.localscript"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="hu.bme.mit.massif.simulink.importall.tests"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="hu.bme.mit.massif.simulink.tests"
+         id="hu.bme.mit.massif.simulink.cli"
          download-size="0"
          install-size="0"
          version="0.0.0"

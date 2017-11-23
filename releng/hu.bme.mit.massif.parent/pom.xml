@@ -48,6 +48,7 @@
 		<!-- Features -->
 		<module>../../features/hu.bme.mit.massif.simulink.emf-feature</module>
 		<module>../../features/hu.bme.mit.massif.simulink.api-feature</module>
+		<module>../../features/hu.bme.mit.massif.simulink.cli-feature</module>
 		<module>../../features/hu.bme.mit.massif.communication-feature</module>
 		<module>../../features/hu.bme.mit.massif.simulink.ui-feature</module>
 		<module>../../features/hu.bme.mit.massif.matlabcontrol-feature</module>

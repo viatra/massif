@@ -65,14 +65,14 @@ pipeline {
     }
     
     post {
-    	always {
-    		archiveArtifacts 'releng/hu.bme.mit.massif.site/target/repository/**'
-    		archiveArtifacts 'releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip'
-    	}
+    		always {
+    			archiveArtifacts 'releng/hu.bme.mit.massif.site/target/repository/**'
+    			archiveArtifacts 'releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip'
+    		}
         success {
             slackSend channel: "viatra-notifications", 
     			color: "good",
-				message: "Build Successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
+			message: "Build Successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
     			teamDomain: "incquerylabs",
     			tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad" 
         }
@@ -82,9 +82,9 @@ pipeline {
     			message: "Build Unstable - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
     			teamDomain: "incquerylabs",
     			tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad"
-    	}
+    		}
 		failure {
-    		slackSend channel: "viatra-notifications", 
+    			slackSend channel: "viatra-notifications", 
     			color: "danger",
     			message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
     			teamDomain: "incquerylabs",

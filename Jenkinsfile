@@ -2,7 +2,7 @@
 pipeline {
 	agent any
 	parameters {
-		booleanParam(defaultValue: true, description: '''This parameter is used to allow not to execute Sonar analysis. It is safe to always make this true, as the Sonar-trigger job will trigger this job without the SKIP_SONAR parameter set daily.''', name: 'SKIP_SONAR'),
+		booleanParam(defaultValue: true, description: '''This parameter is used to allow not to execute Sonar analysis. It is safe to always make this true, as the Sonar-trigger job will trigger this job without the SKIP_SONAR parameter set daily.''', name: 'SKIP_SONAR')
         choice(choices: ['ci', 'integration', 'release'], description: '', name: 'BUILD_TYPE')
 	}
 

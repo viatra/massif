@@ -20,7 +20,7 @@ pipeline {
         stage('Build') { 
             steps {
                 configFileProvider([configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenToolchainsConfig1427876196924', variable: 'TOOLCHAIN'), configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1377688925713', variable: 'MAVEN_SETTINGS')]) {
-                    sh 'mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dviatra.repository.url=$VIATRA_REPOSITORY -Dmaven.repo.local=$WORKSPACE/.repository'
+                    sh "mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dviatra.repository.url=${env.VIATRA_REPOSITORY} -Dmaven.repo.local=$WORKSPACE/.repository"
                 }
             	sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
             }

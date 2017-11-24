@@ -18,45 +18,47 @@ pipeline {
 	 
     stages { 
         stage('Build') { 
-            wrap([$class: 'TimestamperBuildWrapper']) {
-                configFileProvider([
-                    configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenToolchainsConfig1427876196924', variable: 'TOOLCHAIN'),
-                    configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1377688925713', variable: 'MAVEN_SETTINGS')]) {
-                        steps {
+            steps {
+                wrap([$class: 'TimestamperBuildWrapper']) {
+                    configFileProvider([
+                        configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenToolchainsConfig1427876196924', variable: 'TOOLCHAIN'),
+                        configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1377688925713', variable: 'MAVEN_SETTINGS')]) {
                             sh 'mvn clean verify -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository -DBUILD_TYPE=$BUILD_TYPE'
                             sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
                         }
-		            }
                 }
+            }
         }
         stage('Sonar') {
-            wrap([$class: 'TimestamperBuildWrapper']) {
-                configFileProvider([
-                    configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenToolchainsConfig1427876196924', variable: 'TOOLCHAIN'),
-                    configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1377688925713', variable: 'MAVEN_SETTINGS')]) {
-                        steps {
+            steps {
+                wrap([$class: 'TimestamperBuildWrapper']) {
+                    configFileProvider([
+                        configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenToolchainsConfig1427876196924', variable: 'TOOLCHAIN'),
+                        configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1377688925713', variable: 'MAVEN_SETTINGS')]) {
                             if (!$SKIP_SONAR) {
                                 withSonarQubeEnv {
                                     sh 'mvn $SONAR_GOAL -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository -DBUILD_TYPE=$BUILD_TYPE -Dmirror-integration=false -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.scm.disabled=true'
                                 }
                             }
-                        }
+                    }
                 }
             }
         }
         stage('Deployment') {
-            sh '''  if [ -d "massif-install-artifacts" ]; then
-                        rm -fr massif-install-artifacts
-                    fi
-                    mkdir massif-install-artifacts
-                    mkdir massif-install-artifacts/${BUILD_TYPE}
-                    mkdir massif-install-artifacts/${BUILD_TYPE}/site
+            steps{
+                sh '''  if [ -d "massif-install-artifacts" ]; then
+                            rm -fr massif-install-artifacts
+                        fi
+                        mkdir massif-install-artifacts
+                        mkdir massif-install-artifacts/${BUILD_TYPE}
+                        mkdir massif-install-artifacts/${BUILD_TYPE}/site
 
-                    cp -R releng/hu.bme.mit.massif.site/target/repository/* massif-install-artifacts/${BUILD_TYPE}/site/
-                    cp releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip massif-install-artifacts/${BUILD_TYPE}/massif.commandevaluation.server-${BUILD_TYPE}_${BUILD_ID}.zip'''
-            sshagent(['24f0908d-7662-4e93-80cc-1143b7f92ff1']) {
-                sh 'scp massif-install-artifacts/* jenkins@static.incquerylabs.com:projects/massif/massif-artifacts -P 45678'
-                sh 'ssh jenkins@static.incquerylabs.com -p 45678 /home/jenkins/static/projects/massif/massif-artifacts.sh'
+                        cp -R releng/hu.bme.mit.massif.site/target/repository/* massif-install-artifacts/${BUILD_TYPE}/site/
+                        cp releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip massif-install-artifacts/${BUILD_TYPE}/massif.commandevaluation.server-${BUILD_TYPE}_${BUILD_ID}.zip'''
+                sshagent(['24f0908d-7662-4e93-80cc-1143b7f92ff1']) {
+                    sh 'scp massif-install-artifacts/* jenkins@static.incquerylabs.com:projects/massif/massif-artifacts -P 45678'
+                    sh 'ssh jenkins@static.incquerylabs.com -p 45678 /home/jenkins/static/projects/massif/massif-artifacts.sh'
+                }
             }
         }
     }

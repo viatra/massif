@@ -9,6 +9,6 @@
     <relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
   </parent>
   <groupId>hu.bme.mit.massif.features</groupId>
-  <artifactId>hu.bme.mit.massif.localscript</artifactId>
+  <artifactId>hu.bme.mit.massif.simulink.cli</artifactId>
   <packaging>eclipse-feature</packaging>
 </project>

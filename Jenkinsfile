@@ -3,7 +3,7 @@ pipeline {
 	agent any
 	parameters {
 		//string(name: 'viatra.repository.url', defaultValue: 'http://download.eclipse.org/viatra/updates/integration/')
-		string(name: 'VIATRA.REPOSITORY', defaultValue: 'https://hudson.eclipse.org/viatra/job/viatra-master/lastSuccessfulBuild/artifact/releng/org.eclipse.viatra.update/target/repository')
+		string(name: 'VIATRA_REPOSITORY', defaultValue: 'https://hudson.eclipse.org/viatra/job/viatra-master/lastSuccessfulBuild/artifact/releng/org.eclipse.viatra.update/target/repository')
 	}
 
     // Keep only the last 15 builds
@@ -20,7 +20,7 @@ pipeline {
         stage('Build') { 
             steps {
                 configFileProvider([configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenToolchainsConfig1427876196924', variable: 'TOOLCHAIN'), configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1377688925713', variable: 'MAVEN_SETTINGS')]) {
-                    sh 'mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -viatra.repository.url=$VIATRA.REPOSITORY'
+                    sh 'mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -viatra.repository.url=$VIATRA_REPOSITORY'
                 }
             	sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
             }

@@ -20,7 +20,7 @@ pipeline {
         stage('Build') { 
             steps {
                 configFileProvider([configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenToolchainsConfig1427876196924', variable: 'TOOLCHAIN'), configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1377688925713', variable: 'MAVEN_SETTINGS')]) {
-                    sh 'mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dviatra.repository.url=$VIATRA_REPOSITORY'
+                    sh 'mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dviatra.repository.url=$VIATRA_REPOSITORY -Dmaven.repo.local=$WORKSPACE/.repository'
                 }
             	sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
             }
@@ -28,14 +28,14 @@ pipeline {
     }
     
     post {
-    	always {
-    		archiveArtifacts 'releng/hu.bme.mit.massif.site/target/repository/**'
-    		archiveArtifacts 'releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip'
-    	}
+    		always {
+    			archiveArtifacts 'releng/hu.bme.mit.massif.site/target/repository/**'
+    			archiveArtifacts 'releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip'
+    		}
         success {
             slackSend channel: "viatra-notifications", 
     			color: "good",
-				message: "Build Successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
+			message: "Build Successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
     			teamDomain: "incquerylabs",
     			tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad" 
         }
@@ -45,9 +45,9 @@ pipeline {
     			message: "Build Unstable - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
     			teamDomain: "incquerylabs",
     			tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad"
-    	}
+    		}
 		failure {
-    		slackSend channel: "viatra-notifications", 
+    			slackSend channel: "viatra-notifications", 
     			color: "danger",
     			message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
     			teamDomain: "incquerylabs",

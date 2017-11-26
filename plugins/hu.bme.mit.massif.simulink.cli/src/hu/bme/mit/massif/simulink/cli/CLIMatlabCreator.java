@@ -23,7 +23,7 @@ import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
  */
 public class CLIMatlabCreator {
 
-    public void importSimulinkModel(String modelName, String modelPath,
+    public void createMatlabModel(String modelName, String modelPath,
             final String finalResultPath, String extension) {
         LocalScriptEvaluator evaluator = new LocalScriptEvaluator();
         final Exporter exporter = new Exporter();

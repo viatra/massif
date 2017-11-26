@@ -23,7 +23,7 @@ import hu.bme.mit.massif.simulink.api.util.ImportMode;
  */
 public class CLIEMFCreator {
 
-    public void importSimulinkModel(String modelName, String modelPath, final String resultPath) {
+    public void createSimulinkModel(String modelName, String modelPath, final String resultPath) {
         LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator();
         
         final ModelObject model = new ModelObject(modelName, localScriptEvaluator);

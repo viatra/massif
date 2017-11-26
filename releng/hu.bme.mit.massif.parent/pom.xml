@@ -48,7 +48,6 @@
 		<!-- Features -->
 		<module>../../features/hu.bme.mit.massif.simulink.emf-feature</module>
 		<module>../../features/hu.bme.mit.massif.simulink.api-feature</module>
-		<module>../../features/hu.bme.mit.massif.simulink.cli-feature</module>
 		<module>../../features/hu.bme.mit.massif.communication-feature</module>
 		<module>../../features/hu.bme.mit.massif.simulink.ui-feature</module>
 		<module>../../features/hu.bme.mit.massif.matlabcontrol-feature</module>
@@ -56,6 +55,9 @@
 
 		<!-- Update site -->
 		<module>../../releng/hu.bme.mit.massif.site</module>
+		
+		<!-- CLI jar package -->
+		<module>../../releng/hu.bme.mit.massif.simulink.cli-package</module>
 		
 		<!-- Maven projects -->
 		<module>../../maven/massif-communication-runtime</module>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>hu.bme.mit.massif.parent</artifactId>
+    <groupId>hu.bme.mit.massif</groupId>
+    <version>0.6.0-SNAPSHOT</version>
+    <relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
+  </parent>
+  <groupId>hu.bme.mit.massif.features</groupId>
+  <artifactId>hu.bme.mit.massif.simulink.cli-package</artifactId> 
+  	<properties>
+		<massif.version>0.6.0-SNAPSHOT</massif.version>
+	</properties>
+  	<build>
+		<plugins>
+			<!-- download source code in Eclipse, best practice -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+				</configuration>
+			</plugin>
+			<!-- setup compilation level -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<!-- Copy project dependency -->
+			
+        	<plugin>
+  				<groupId>org.apache.maven.plugins</groupId>
+  				<artifactId>maven-shade-plugin</artifactId>
+  				<version>2.3</version>
+	            <configuration>
+	                <createDependencyReducedPom>false</createDependencyReducedPom>
+	            </configuration>
+	            <executions>
+	                <execution>
+	                    <phase>package</phase>
+	                    <goals>
+	                        <goal>shade</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>br.com.embraer.massif.commandevaluation.base</artifactId>
+			<version>${massif.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>br.com.embraer.massif.commandevaluation.commands</artifactId>
+			<version>${massif.version}</version>
+		</dependency>
+		
+
+
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>hu.bme.mit.massif.simulink.cli</artifactId>
+			<version>${massif.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>hu.bme.mit.massif.simulink.api</artifactId>
+			<version>${massif.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>hu.bme.mit.massif.communication.localscript</artifactId>
+			<version>${massif.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>hu.bme.mit.massif.communication</artifactId>
+			<version>${massif.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>hu.bme.mit.massif.simulink</artifactId>
+			<version>${massif.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>hu.bme.mit.massif.simulink.incquery</artifactId>
+			<version>${massif.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>hu.bme.mit.massif.common</artifactId>
+			<version>${massif.version}</version>
+		</dependency>
+
+		<!-- Xtend -->
+		<dependency>
+			<groupId>org.eclipse.xtend</groupId>
+			<artifactId>org.eclipse.xtend.lib</artifactId>
+			<version>${xtend.compiler.version}</version>
+		</dependency>
+
+		<!-- VIATRA -->
+		<dependency>
+			<groupId>org.eclipse.viatra</groupId>
+			<artifactId>viatra-query-runtime</artifactId>
+			<version>${viatra.compiler.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.viatra</groupId>
+			<artifactId>viatra-transformation-runtime</artifactId>
+			<version>${viatra.compiler.version}</version>
+		</dependency>
+
+		
+		<!-- Eclipse resources -->
+		<dependency>
+    		<groupId>org.eclipse.platform</groupId>
+			<artifactId>org.eclipse.core.resources</artifactId>
+			<version>3.12.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.eclipse.emf</groupId>
+		    <artifactId>org.eclipse.emf.edit</artifactId>
+		    <version>2.12.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore</artifactId>
+			<version>2.12.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+			<version>2.12.0</version>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>repo.eclipse.org.viatra</id>
+			<url>https://repo.eclipse.org/content/repositories/viatra2-snapshots/</url>
+		</repository>
+	</repositories>
+</project>

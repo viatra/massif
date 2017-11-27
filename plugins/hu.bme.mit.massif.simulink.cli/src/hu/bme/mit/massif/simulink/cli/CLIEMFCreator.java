@@ -1,12 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010-2017, IncQueryLabs Ltd.
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Peter Lunk - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.cli;
 
@@ -23,21 +23,23 @@ import hu.bme.mit.massif.simulink.api.util.ImportMode;
  */
 public class CLIEMFCreator {
 
-    public void createSimulinkModel(String modelName, String modelPath, final String resultPath) {
+    public void createSimulinkModel(String modelName, String outputDir, ImportMode importMode) throws SimulinkApiException {
         LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator();
         
         final ModelObject model = new ModelObject(modelName, localScriptEvaluator);
-        model.setLoadPath(modelPath);
+        model.setLoadPath(modelName);
         
-        Importer traverser = new Importer(model);
-        traverser.setDefaultSavePath(resultPath);
-        
-        try {
-            traverser.traverseAndCreateEMFModel(ImportMode.SHALLOW);
-            traverser.saveEMFModel(resultPath + File.separator + modelName);
-        } catch (SimulinkApiException e) {
-            e.printStackTrace();
-        }
-    }
+        System.out.println("Importing model: " + modelName);
 
+        // Model name to save the imported Simulink library
+        String importedModelName = outputDir + File.separator + modelName;
+
+        Importer importer = new Importer(model);
+        importer.traverseAndCreateEMFModel(importMode);
+        importer.saveEMFModel(importedModelName);
+    }
+    
+    public void createSimulinkModel(String modelName, String outputDir) throws SimulinkApiException {
+        createSimulinkModel(modelName, outputDir, ImportMode.FLATTENING);
+    }
 }

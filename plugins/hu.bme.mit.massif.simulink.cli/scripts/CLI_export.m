@@ -1,5 +1,5 @@
 %##############################################################################
-% Copyright (c) 2010-2017, IncQuery Labs Ltd., Embraer S.A., Budapest University of Technology and Economics
+% Copyright (c) 2010-2017, IncQuery Labs Ltd.
 % All rights reserved. This program and the accompanying materials 
 % are made available under the terms of the Eclipse Public License v1.0 
 % which accompanies this distribution, and is available at 
@@ -11,4 +11,4 @@
 javaaddpath('hu.bme.mit.massif.simulink.cli-package.jar');
 
 modelExporter = hu.bme.mit.massif.simulink.cli.CLIEMFCreator;
-modelExporter.createSimulinkModel("name", "path", "resultPath")
+modelExporter.createSimulinkModel('name', 'resultPath')

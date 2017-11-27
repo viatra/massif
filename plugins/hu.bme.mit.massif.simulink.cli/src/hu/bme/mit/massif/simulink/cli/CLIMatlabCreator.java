@@ -1,16 +1,14 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010-2017, IncQueryLabs Ltd.
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Peter Lunk - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.cli;
-
-import java.io.File;
 
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.localscript.LocalScriptEvaluator;
@@ -23,27 +21,14 @@ import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
  */
 public class CLIMatlabCreator {
 
-    public void createMatlabModel(String modelName, String modelPath,
-            final String finalResultPath, String extension) {
+    public void createMatlabModel(String modelName, String modelPath) throws SimulinkApiException {
         LocalScriptEvaluator evaluator = new LocalScriptEvaluator();
-        final Exporter exporter = new Exporter();
+        
+        Exporter exporter = new Exporter();
+        SimulinkModel loadedModel;
+        loadedModel = exporter.loadSimulinkModel(modelPath + modelName);
+        MatlabCommandFactory commandFactory = new MatlabCommandFactory(evaluator);
+        exporter.export(loadedModel, commandFactory);
 
-        try {
-            final SimulinkModel loadedModel = exporter.loadSimulinkModel("file:/" + modelPath
-                    + File.separator + modelName);
-            MatlabCommandFactory factory = new MatlabCommandFactory(evaluator);
-            exporter.export(loadedModel, factory);
-            
-            String newModelName = loadedModel.getSimulinkRef().getFQN();
-
-            // Model name to save the imported Simulink library
-            String exportedModelName = finalResultPath + File.separator + newModelName;
-            
-            exporter.saveSimulinkModel(exportedModelName, extension);
-            
-            
-        } catch (SimulinkApiException e) {
-            e.printStackTrace();
-        }
     }
 }

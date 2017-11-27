@@ -51,8 +51,8 @@ Integration builds: http://static.incquerylabs.com/projects/massif/integration/
 
 ### CI update site
 
-We also provide a [CI update site](https://build.incquerylabs.com/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
-  * Command evaluation server archive [download](https://build.incquerylabs.com/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/) 
+We also provide a [CI update site](https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
+  * Command evaluation server archive [download](https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/) 
 
 [CI Build](https://build.incquerylabs.com/jenkins/job/Massif/job/master/) on Jenkins: 
 [![Build Status](https://build.incquerylabs.com/jenkins/buildStatus/icon?job=Massif/master)](https://build.incquerylabs.com/jenkins/job/Massif/job/master)

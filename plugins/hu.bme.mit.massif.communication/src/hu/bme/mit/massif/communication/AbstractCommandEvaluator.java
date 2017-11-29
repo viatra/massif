@@ -1,12 +1,13 @@
 /*******************************************************************************
- * Copyright (c) 2010-2017, LunkP, Peter Lunk
+ * Copyright (c) 2010, 2017, Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     lunkpeter - initial API and implementation 
+ *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Peter Lunk - Extracted common code, introduced ICommandAccess
  *******************************************************************************/
 package hu.bme.mit.massif.communication;
 
@@ -21,9 +22,9 @@ import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 
 /**
- * Abstract base class for defaul command evaluator implementations
+ * Abstract base class for default command evaluator implementations.
  * 
- * @author lunkpeter
+ * @author Peter Lunk
  *
  */
 public class AbstractCommandEvaluator<Access extends ICommandAccess> implements ICommandEvaluator {

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010-2017, IncQueryLabs Ltd.
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
@@ -17,8 +17,9 @@ import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.ICommandEvaluatorFactory;
 
 /**
- * This class is responsible for returning the appropriate object with the ICommandEvaluator interface for command
- * execution.
+ * 
+ * @author Peter Lunk
+ *
  */
 public class LocalScriptEvaluatorFactory implements ICommandEvaluatorFactory {
 

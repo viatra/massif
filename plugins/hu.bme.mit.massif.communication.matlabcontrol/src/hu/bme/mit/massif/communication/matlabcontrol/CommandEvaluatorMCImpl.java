@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010, 2017, Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
@@ -7,6 +7,7 @@
  *
  * Contributors: 
  *     Abel Hegedus - initial API and implementation 
+ *     Peter Lunk - Extracted common code, introduced ICommandAccess
  *******************************************************************************/
 package hu.bme.mit.massif.communication.matlabcontrol;
 

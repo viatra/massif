@@ -22,44 +22,46 @@ import hu.bme.mit.massif.simulink.cli.util.CLIInitializationUtil;
 import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
 
 /**
- * This class provides functions to export and save Simulink models represented by EMF models
+ * This class provides functions to load Massif EMF models into MATLAB
+ * 
+ * @author Peter Lunk
  */
 public class CLIMatlabCreator {
 
     public void createMatlabModel(String modelName, String modelPath) throws SimulinkApiException, ViatraQueryException {
         CLIInitializationUtil.setupEnvironment();
         CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
-        
+
         MatlabController controller = new MatlabController();
         controller.setDebug(true);
         LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator(controller);
         Exporter exporter = new Exporter(logger);
         SimulinkModel loadedModel;
         logger.debug("Loading Simulunk model...");
-        loadedModel = exporter.loadSimulinkModel("file:/"+modelPath + modelName);
+        loadedModel = exporter.loadSimulinkModel("file:/" + modelPath + modelName);
         logger.debug("Simulink model loaded");
         MatlabCommandFactory commandFactory = new MatlabCommandFactory(localScriptEvaluator);
         logger.debug("Loading model into MATLAB...");
-        
+
         Thread thread = new Thread(new Runnable() {
-            
+
             @Override
             public void run() {
                 try {
                     exporter.export(loadedModel, commandFactory);
-                    
+
                     String fqn = loadedModel.getSimulinkRef().getFQN();
-                    exporter.saveSimulinkModel(fqn,"slx");
+                    exporter.saveSimulinkModel(fqn, "slx");
                 } catch (SimulinkApiException e) {
                     e.printStackTrace();
                 }
-                
+
             }
         });
-        
+
         thread.start();
-        
+
         logger.debug("Model loaded into MATLAB");
     }
-    
+
 }

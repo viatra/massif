@@ -29,16 +29,17 @@ import hu.bme.mit.massif.simulink.SimulinkPackage;
  *
  */
 public class CLIInitializationUtil {
-    
+
     public static void setupEnvironment() throws ViatraQueryException {
         SimulinkPackage.eINSTANCE.eClass();
         registerQuerySpecifications();
-        EStructuralFeature.Internal.SettingDelegate.Factory.Registry.INSTANCE.put("org.eclipse.viatra.query.querybasedfeature", new QueryBasedFeatureSettingDelegateFactory());
+        EStructuralFeature.Internal.SettingDelegate.Factory.Registry.INSTANCE.put("org.eclipse.viatra.query.querybasedfeature",
+                new QueryBasedFeatureSettingDelegateFactory());
     }
-    
+
     private static void registerQuerySpecifications() throws ViatraQueryException {
         QuerySpecificationRegistry querySpecificationRegistry = (QuerySpecificationRegistry) QuerySpecificationRegistry.getInstance();
-        
+
         DerivedFeatures group = DerivedFeatures.instance();
         Set<IQuerySpecification<?>> specifications = group.getSpecifications();
         SpecificationMapSourceConnector connector = new SpecificationMapSourceConnector(group.getClass().getName(), true);

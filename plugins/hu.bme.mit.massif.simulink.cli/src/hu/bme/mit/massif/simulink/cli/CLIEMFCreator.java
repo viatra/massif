@@ -24,14 +24,17 @@ import hu.bme.mit.massif.simulink.cli.util.CLIInitializationUtil;
 import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
 
 /**
- * This class provides functions to import and save Simulink models to EMF models
+ * This class provides functions to create and save Massif .simulink models based on Simulink models loaded into MATLAB.
+ * 
+ * @author Peter Lunk
  */
 public class CLIEMFCreator {
 
-    public void createSimulinkModel(String modelName, String outputDir, ImportMode importMode) throws SimulinkApiException, ViatraQueryException {
+    public void createSimulinkModel(String modelName, String outputDir, ImportMode importMode)
+            throws SimulinkApiException, ViatraQueryException {
         CLIInitializationUtil.setupEnvironment();
         CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
-        
+
         logger.debug("Creating controller..");
         MatlabController controller = new MatlabController();
         logger.debug("Controller created");
@@ -46,9 +49,9 @@ public class CLIEMFCreator {
         String importedModelName = outputDir + File.separator + modelName;
 
         Importer importer = new Importer(model, logger);
-        
+
         Thread thread = new Thread(new Runnable() {
-            
+
             @Override
             public void run() {
                 try {
@@ -57,14 +60,14 @@ public class CLIEMFCreator {
                 } catch (SimulinkApiException e) {
                     e.printStackTrace();
                 }
-                
+
             }
         });
-        
+
         thread.start();
-        
+
     }
-    
+
     public void createSimulinkModel(String modelName, String outputDir) throws SimulinkApiException, ViatraQueryException {
         createSimulinkModel(modelName, outputDir, ImportMode.FLATTENING);
     }

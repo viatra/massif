@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2014, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010-2017, IncQueryLabs Ltd.
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
@@ -14,9 +14,9 @@ import br.com.embraer.massif.commandevaluation.commands.MatlabController;
 import hu.bme.mit.massif.communication.AbstractCommandEvaluator;
 
 /**
- * TODO
  * 
- * (The successor class of BasicOperationsApi utility class)
+ * @author Peter Lunk
+ *
  */
 public class LocalScriptEvaluator extends AbstractCommandEvaluator<LocalScriptAccess> {
 	

@@ -20,8 +20,8 @@ import hu.bme.mit.massif.communication.AbstractCommandEvaluator;
  */
 public class LocalScriptEvaluator extends AbstractCommandEvaluator<LocalScriptAccess> {
 	
-    public LocalScriptEvaluator() {
-        super(new LocalScriptAccess(new MatlabController()));
+    public LocalScriptEvaluator(MatlabController controller) {
+        super(new LocalScriptAccess(controller));
     }
 
 }

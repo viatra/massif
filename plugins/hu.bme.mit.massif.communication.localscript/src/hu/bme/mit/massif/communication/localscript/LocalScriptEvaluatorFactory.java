@@ -12,6 +12,7 @@ package hu.bme.mit.massif.communication.localscript;
 
 import java.util.Map;
 
+import br.com.embraer.massif.commandevaluation.commands.MatlabController;
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.ICommandEvaluatorFactory;
 
@@ -24,7 +25,7 @@ public class LocalScriptEvaluatorFactory implements ICommandEvaluatorFactory {
 	@Override
 	public ICommandEvaluator createCommandEvaluator(
 			Map<String, Object> parameters) {
-	    return new LocalScriptEvaluator();
+	    return new LocalScriptEvaluator(new MatlabController());
 	}
 
 	@Override

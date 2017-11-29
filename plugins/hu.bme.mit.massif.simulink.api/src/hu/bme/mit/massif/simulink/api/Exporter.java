@@ -107,10 +107,18 @@ public class Exporter {
     private BusSignalMappingPathFinder pathFinder;
 
     /**
-     * The constructor for the exporter. Creates the logger, layout provider and initializes caches.
+     * The constructor for the exporter. Creates the logger, layout provider and initializes caches. It uses an instance of
+     * {@link PluginSimulinkAPILogger} therefore the usage of this constructor in a non-OSGi environment is discouraged
      */
     public Exporter() {
-        logger = new PluginSimulinkAPILogger();
+        this(new PluginSimulinkAPILogger());
+    }
+    
+    /**
+     * The constructor for the exporter. Creates the layout provider, caches and sets. Receives an external logger implementation. 
+     */
+    public Exporter(ISimulinkAPILogger logger) {
+        this.logger = logger;
         layoutTool = new DummyExporterLayoutProvider();
         gotoCache = new HashSet<Goto>();
         gotoTagVisibilityCache = new HashSet<GotoTagVisibility>();

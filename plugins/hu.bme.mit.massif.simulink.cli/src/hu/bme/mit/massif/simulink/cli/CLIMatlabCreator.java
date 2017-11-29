@@ -10,25 +10,54 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.cli;
 
+import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+
+import br.com.embraer.massif.commandevaluation.commands.MatlabController;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.localscript.LocalScriptEvaluator;
 import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.api.Exporter;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
+import hu.bme.mit.massif.simulink.cli.util.CLIInitializationUtil;
+import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
 
 /**
  * This class provides functions to export and save Simulink models represented by EMF models
  */
 public class CLIMatlabCreator {
 
-    public void createMatlabModel(String modelName, String modelPath) throws SimulinkApiException {
-        LocalScriptEvaluator evaluator = new LocalScriptEvaluator();
+    public void createMatlabModel(String modelName, String modelPath) throws SimulinkApiException, ViatraQueryException {
+        CLIInitializationUtil.setupEnvironment();
         
-        Exporter exporter = new Exporter();
+        MatlabController controller = new MatlabController();
+        controller.setDebug(true);
+        LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator(controller);
+        Exporter exporter = new Exporter(new CLISimulinkAPILogger());
         SimulinkModel loadedModel;
+        System.out.println("Loading Simulunk model...");
         loadedModel = exporter.loadSimulinkModel(modelPath + modelName);
-        MatlabCommandFactory commandFactory = new MatlabCommandFactory(evaluator);
-        exporter.export(loadedModel, commandFactory);
-
+        System.out.println("Simulink model loaded");
+        MatlabCommandFactory commandFactory = new MatlabCommandFactory(localScriptEvaluator);
+        System.out.println("Loading model into MATLAB...");
+        
+        Thread thread = new Thread(new Runnable() {
+            
+            @Override
+            public void run() {
+                try {
+                    exporter.export(loadedModel, commandFactory);
+                    
+                    String fqn = loadedModel.getSimulinkRef().getFQN();
+                    exporter.saveSimulinkModel(fqn,"slx");
+                } catch (SimulinkApiException e) {
+                    e.printStackTrace();
+                }
+                
+            }
+        });
+        
+        thread.start();
+        
+        System.out.println("Model loaded into MATLAB");
     }
 }

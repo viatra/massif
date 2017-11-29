@@ -12,20 +12,31 @@ package hu.bme.mit.massif.simulink.cli;
 
 import java.io.File;
 
+import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+
+import br.com.embraer.massif.commandevaluation.commands.MatlabController;
 import hu.bme.mit.massif.communication.localscript.LocalScriptEvaluator;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
+import hu.bme.mit.massif.simulink.cli.util.CLIInitializationUtil;
+import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
 
 /**
  * This class provides functions to import and save Simulink models to EMF models
  */
 public class CLIEMFCreator {
 
-    public void createSimulinkModel(String modelName, String outputDir, ImportMode importMode) throws SimulinkApiException {
-        LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator();
+    public void createSimulinkModel(String modelName, String outputDir, ImportMode importMode) throws SimulinkApiException, ViatraQueryException {
+        CLIInitializationUtil.setupEnvironment();
         
+        System.out.println("Creating controller..");
+        MatlabController controller = new MatlabController();
+        System.out.println("Controller created");
+        System.out.println("Creating Local Script Evaluator");
+        LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator(controller);
+        System.out.println("Local Script Evaluator Created");
         final ModelObject model = new ModelObject(modelName, localScriptEvaluator);
         model.setLoadPath(modelName);
         
@@ -34,12 +45,27 @@ public class CLIEMFCreator {
         // Model name to save the imported Simulink library
         String importedModelName = outputDir + File.separator + modelName;
 
-        Importer importer = new Importer(model);
-        importer.traverseAndCreateEMFModel(importMode);
-        importer.saveEMFModel(importedModelName);
+        Importer importer = new Importer(model, new CLISimulinkAPILogger());
+        
+        Thread thread = new Thread(new Runnable() {
+            
+            @Override
+            public void run() {
+                try {
+                    importer.traverseAndCreateEMFModel(importMode);
+                    importer.saveEMFModel(importedModelName);
+                } catch (SimulinkApiException e) {
+                    e.printStackTrace();
+                }
+                
+            }
+        });
+        
+        thread.start();
+        
     }
     
-    public void createSimulinkModel(String modelName, String outputDir) throws SimulinkApiException {
+    public void createSimulinkModel(String modelName, String outputDir) throws SimulinkApiException, ViatraQueryException {
         createSimulinkModel(modelName, outputDir, ImportMode.FLATTENING);
     }
 }

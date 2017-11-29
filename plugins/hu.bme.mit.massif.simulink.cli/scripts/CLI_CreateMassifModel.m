@@ -11,4 +11,4 @@
 javaaddpath('hu.bme.mit.massif.simulink.cli-package.jar');
 
 modelExporter = hu.bme.mit.massif.simulink.cli.CLIEMFCreator;
-modelExporter.createSimulinkModel('name', 'resultPath')
+modelExporter.createSimulinkModel('MODEL_NAME', 'TARGET_LOCATION');

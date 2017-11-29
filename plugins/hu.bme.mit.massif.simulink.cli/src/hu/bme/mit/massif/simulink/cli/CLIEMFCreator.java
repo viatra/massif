@@ -30,22 +30,22 @@ public class CLIEMFCreator {
 
     public void createSimulinkModel(String modelName, String outputDir, ImportMode importMode) throws SimulinkApiException, ViatraQueryException {
         CLIInitializationUtil.setupEnvironment();
+        CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
         
-        System.out.println("Creating controller..");
+        logger.debug("Creating controller..");
         MatlabController controller = new MatlabController();
-        System.out.println("Controller created");
-        System.out.println("Creating Local Script Evaluator");
+        logger.debug("Controller created");
+        logger.debug("Creating Local Script Evaluator");
         LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator(controller);
-        System.out.println("Local Script Evaluator Created");
+        logger.debug("Local Script Evaluator Created");
         final ModelObject model = new ModelObject(modelName, localScriptEvaluator);
         model.setLoadPath(modelName);
-        
-        System.out.println("Importing model: " + modelName);
+        logger.debug("Importing model: " + modelName);
 
         // Model name to save the imported Simulink library
         String importedModelName = outputDir + File.separator + modelName;
 
-        Importer importer = new Importer(model, new CLISimulinkAPILogger());
+        Importer importer = new Importer(model, logger);
         
         Thread thread = new Thread(new Runnable() {
             

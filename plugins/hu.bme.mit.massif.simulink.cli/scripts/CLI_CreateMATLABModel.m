@@ -8,7 +8,7 @@
 % Contributors: 
 %     Peter Lunk- initial API and implementation 
 %##############################################################################
-javaaddpath('hu.bme.mit.massif.simulink.cli-package.jar');
-
-modelImporter = hu.bme.mit.massif.simulink.cli.CLIMatlabCreator;
-modelImporter.createMatlabModel('name', 'resultPath')
+ javaaddpath('hu.bme.mit.massif.simulink.cli-package.jar');
+ 
+ modelImporter = hu.bme.mit.massif.simulink.cli.CLIMatlabCreator;
+ modelImporter.createMatlabModel('EMF_MODEL_NAME', 'EMF_MODEL_LOCATION');

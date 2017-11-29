@@ -28,17 +28,18 @@ public class CLIMatlabCreator {
 
     public void createMatlabModel(String modelName, String modelPath) throws SimulinkApiException, ViatraQueryException {
         CLIInitializationUtil.setupEnvironment();
+        CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
         
         MatlabController controller = new MatlabController();
         controller.setDebug(true);
         LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator(controller);
-        Exporter exporter = new Exporter(new CLISimulinkAPILogger());
+        Exporter exporter = new Exporter(logger);
         SimulinkModel loadedModel;
-        System.out.println("Loading Simulunk model...");
-        loadedModel = exporter.loadSimulinkModel(modelPath + modelName);
-        System.out.println("Simulink model loaded");
+        logger.debug("Loading Simulunk model...");
+        loadedModel = exporter.loadSimulinkModel("file:/"+modelPath + modelName);
+        logger.debug("Simulink model loaded");
         MatlabCommandFactory commandFactory = new MatlabCommandFactory(localScriptEvaluator);
-        System.out.println("Loading model into MATLAB...");
+        logger.debug("Loading model into MATLAB...");
         
         Thread thread = new Thread(new Runnable() {
             
@@ -58,6 +59,7 @@ public class CLIMatlabCreator {
         
         thread.start();
         
-        System.out.println("Model loaded into MATLAB");
+        logger.debug("Model loaded into MATLAB");
     }
+    
 }

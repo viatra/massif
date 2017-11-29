@@ -17,8 +17,8 @@ mkdir -p $MATLABDIRPARENT/matlab
 cp $TARGETDIR/target/hu.bme.mit.massif.simulink.cli-package*-SNAPSHOT.jar $TARGETDIR/matlab/hu.bme.mit.massif.simulink.cli-package.jar
 cp $PLUGINSDIR/hu.bme.mit.massif.simulink.api/scripts/library_collector.m $MATLABDIRPARENT/matlab
 
-cp $PLUGINSDIR/hu.bme.mit.massif.simulink.cli/scripts/CLI_export.m $MATLABDIRPARENT/matlab
-cp $PLUGINSDIR/hu.bme.mit.massif.simulink.cli/scripts/CLI_import.m $MATLABDIRPARENT/matlab
+cp $PLUGINSDIR/hu.bme.mit.massif.simulink.cli/scripts/CLI_CreateMATLABModel.m $MATLABDIRPARENT/matlab
+cp $PLUGINSDIR/hu.bme.mit.massif.simulink.cli/scripts/CLI_CreateMassifModel.m $MATLABDIRPARENT/matlab
 
 cd $MATLABDIRPARENT
 

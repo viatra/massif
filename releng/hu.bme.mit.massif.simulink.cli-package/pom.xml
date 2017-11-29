@@ -144,7 +144,7 @@
 		
 		<dependency>
 			<groupId>org.eclipse.viatra</groupId>
-			<artifactId>org.eclipse.viatra.addon.querybasedfeatures.runtime</artifactId>
+			<artifactId>viatra-querybasedfeatures</artifactId>
 			<version>${viatra.compiler.version}</version>
 		</dependency>
 

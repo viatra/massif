@@ -1,11 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010-2017, IncQuery Labs Ltd., Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
+ *     Peter Lunk - Modified API to allow custom Logger definition
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api;
@@ -387,11 +388,23 @@ public class Importer {
 
     /**
      * Constructor for the traverser.
-     * 
+     * this constructor uses an instance of
+     * {@link PluginSimulinkAPILogger} therefore the usage of this constructor in a non-OSGi environment is discouraged.
      * @param model
      *            the model assigned to the traverser
+     *            
      */
     public Importer(ModelObject model) {
+        this(model, new PluginSimulinkAPILogger());
+    }
+    
+    /**
+     *  Constructor for the Simulink model importer.
+     *  
+     * @param model the model assigned to the traverser
+     * @param logger logger implementation handed to the importer.
+     */
+    public Importer(ModelObject model, ISimulinkAPILogger logger) {
 
         // Initialization of fields
         blocks = new HashMap<String, Block>();
@@ -408,7 +421,7 @@ public class Importer {
         inPorts = new HashMap<Double, InPort>();
         outPorts = new HashMap<Double, OutPort>();
         cachedOutPortHandles = new HashMap<OutPort, Double>();
-        logger = new PluginSimulinkAPILogger();
+        this.logger = logger;
         referencedLibraries = new HashMap<String, SimulinkModel>();
         librariesBeingImported = new HashSet<String>();
         

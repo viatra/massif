@@ -141,6 +141,12 @@
 			<artifactId>viatra-transformation-runtime</artifactId>
 			<version>${viatra.compiler.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.eclipse.viatra</groupId>
+			<artifactId>org.eclipse.viatra.addon.querybasedfeatures.runtime</artifactId>
+			<version>${viatra.compiler.version}</version>
+		</dependency>
 
 		
 		<!-- Eclipse resources -->

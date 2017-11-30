@@ -10,6 +10,8 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.cli;
 
+import java.io.File;
+
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
 import br.com.embraer.massif.commandevaluation.commands.MatlabController;
@@ -29,16 +31,20 @@ import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
 public class CLIMatlabCreator {
 
     public void createMatlabModel(String modelName, String modelPath) throws SimulinkApiException, ViatraQueryException {
+        createMatlabModel(modelName, modelPath, "slx");
+    }
+    
+    public void createMatlabModel(String modelName, String modelPath, String extension) throws SimulinkApiException, ViatraQueryException {
         CLIInitializationUtil.setupEnvironment();
         CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
-
+ 
         MatlabController controller = new MatlabController();
         controller.setDebug(true);
         LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator(controller);
         Exporter exporter = new Exporter(logger);
         SimulinkModel loadedModel;
         logger.debug("Loading Simulunk model...");
-        loadedModel = exporter.loadSimulinkModel("file:/" + modelPath + modelName);
+        loadedModel = exporter.loadSimulinkModel("file:/" + modelPath +File.separator+ modelName);
         logger.debug("Simulink model loaded");
         MatlabCommandFactory commandFactory = new MatlabCommandFactory(localScriptEvaluator);
         logger.debug("Loading model into MATLAB...");
@@ -51,7 +57,7 @@ public class CLIMatlabCreator {
                     exporter.export(loadedModel, commandFactory);
 
                     String fqn = loadedModel.getSimulinkRef().getFQN();
-                    exporter.saveSimulinkModel(fqn, "slx");
+                    exporter.saveSimulinkModel(fqn, extension);
                 } catch (SimulinkApiException e) {
                     e.printStackTrace();
                 }

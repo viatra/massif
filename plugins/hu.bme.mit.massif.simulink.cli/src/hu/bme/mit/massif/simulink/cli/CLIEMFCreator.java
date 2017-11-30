@@ -46,7 +46,7 @@ public class CLIEMFCreator {
         logger.debug("Importing model: " + modelName);
 
         // Model name to save the imported Simulink library
-        String importedModelName = outputDir + File.separator + modelName;
+        String importedModelPath = outputDir + File.separator + modelName;
 
         Importer importer = new Importer(model, logger);
 
@@ -56,7 +56,7 @@ public class CLIEMFCreator {
             public void run() {
                 try {
                     importer.traverseAndCreateEMFModel(importMode);
-                    importer.saveEMFModel(importedModelName);
+                    importer.saveEMFModel(importedModelPath);
                 } catch (SimulinkApiException e) {
                     e.printStackTrace();
                 }

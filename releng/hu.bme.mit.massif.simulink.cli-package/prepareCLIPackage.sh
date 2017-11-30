@@ -15,11 +15,13 @@ PLUGINSDIR=$WORKSPACE/plugins
 mkdir -p $MATLABDIRPARENT/matlab
 
 cp $TARGETDIR/target/hu.bme.mit.massif.simulink.cli-package*-SNAPSHOT.jar $TARGETDIR/matlab/hu.bme.mit.massif.simulink.cli-package.jar
-cp $PLUGINSDIR/hu.bme.mit.massif.simulink.api/scripts/library_collector.m $MATLABDIRPARENT/matlab
 
-cp $PLUGINSDIR/hu.bme.mit.massif.simulink.cli/scripts/CLI_CreateMATLABModel.m $MATLABDIRPARENT/matlab
-cp $PLUGINSDIR/hu.bme.mit.massif.simulink.cli/scripts/CLI_CreateMassifModel.m $MATLABDIRPARENT/matlab
+cp $TARGETDIR/Example_MATLAB.slx $MATLABDIRPARENT/matlab
+cp $TARGETDIR/Example.simulink $MATLABDIRPARENT/matlab
+
+cp $PLUGINSDIR/hu.bme.mit.massif.simulink.cli/scripts/CLI_CreateMATLABModel_Example.m $MATLABDIRPARENT/matlab
+cp $PLUGINSDIR/hu.bme.mit.massif.simulink.cli/scripts/CLI_CreateMassifModel_Example.m $MATLABDIRPARENT/matlab
 
 cd $MATLABDIRPARENT
 
-zip -r hu.bme.mit.massif.simulink.cli-package.zip ./matlab
+zip -r hu.bme.mit.massif.simulink.cli-example.zip ./matlab

@@ -8,7 +8,15 @@
 % Contributors: 
 %     Peter Lunk- initial API and implementation 
 %##############################################################################
+% Add the simulink CLI package to the classpath
  javaaddpath('hu.bme.mit.massif.simulink.cli-package.jar');
- 
+
+% Instantiate a MATLAB Simulink model creator
  modelImporter = hu.bme.mit.massif.simulink.cli.CLIMatlabCreator;
- modelImporter.createMatlabModel('EMF_MODEL_NAME', 'EMF_MODEL_LOCATION');
+% Create a new Simulink model based on a Massif model
+% Parameters:
+%           - modelName : imported Massif model file name
+%           - modelPath : Massif model location
+%           - extension : (optional) extension to be used when saving
+%           MATLAB model ('slx' by default)
+ modelImporter.createMatlabModel('Example', pwd);

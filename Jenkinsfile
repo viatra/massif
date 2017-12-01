@@ -23,6 +23,7 @@ pipeline {
                     sh "mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dviatra.repository.url=${env.VIATRA_REPOSITORY} -Dmaven.repo.local=$WORKSPACE/.repository"
                 }
             	sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
+            	sh './releng/hu.bme.mit.massif.simulink.cli-package/prepareCLIPackage.sh'
             }
 		}
     }
@@ -31,6 +32,7 @@ pipeline {
     		always {
     			archiveArtifacts 'releng/hu.bme.mit.massif.site/target/repository/**'
     			archiveArtifacts 'releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip'
+    			archiveArtifacts 'releng/hu.bme.mit.massif.simulink.cli-package/hu.bme.mit.massif.simulink.cli-example.zip'
     		}
         success {
             slackSend channel: "viatra-notifications", 

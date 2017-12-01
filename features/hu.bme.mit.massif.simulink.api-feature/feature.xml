@@ -2,7 +2,7 @@
 <feature
       id="hu.bme.mit.massif.simulink.api"
       label="Massif Simulink API Feature"
-      version="0.6.0.qualifier"
+      version="0.7.0.qualifier"
       provider-name="Budapest University of Technology and Economics, Fault Tolerant Systems Research Group &amp; Embraer S.A.">
 
    <description url="http://www.example.com/description">

@@ -495,7 +495,8 @@ public class Exporter {
         // When there is at least one block on the same level, check that only blocks are there on the same level will be present in the exported model
         String containerFQN = getContainerFQN(sameLevelBlocks);
 
-        MatlabCommand findExistingBlocks = commandFactory.findSystem().addParam(containerFQN).addParam("SearchDepth").addParam(1.0).addParam("type").addParam("block");
+        MatlabCommand findExistingBlocks = commandFactory.findSystem().addParam("IncludeCommented").addParam("on")
+                .addParam(containerFQN).addParam("SearchDepth").addParam(1.0).addParam("type").addParam("block");
         List<IVisitableMatlabData> fqnsInTheModel = CellMatlabData.getCellMatlabDataData(findExistingBlocks.execute());
         
         for (IVisitableMatlabData iVisitableMatlabData : fqnsInTheModel) {

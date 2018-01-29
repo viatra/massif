@@ -752,8 +752,8 @@ public class Importer {
     private void createBlocksFromTopLevel(SimulinkModel simulinkModel) throws SimulinkApiException {
         // Get the top level block handles
         logger.debug("Traversing top level blocks");
-        MatlabCommand findTopLevelBlockHandles = commandFactory.findSystem().addParam("IncludeCommented").addParam("on")
-                .addParam(modelFQN).addParam("SearchDepth").addParam(1.0).addParam("LookUnderMasks")
+        MatlabCommand findTopLevelBlockHandles = commandFactory.findSystem().addParam(modelFQN).addParam("IncludeCommented").addParam("on")
+                .addParam("SearchDepth").addParam(1.0).addParam("LookUnderMasks")
                 .addParam("all").addParam("FindAll").addParam("on").addParam("FollowLinks").addParam("on")
                 .addParam("type").addParam("block");
         IVisitableMatlabData toplevelBlockHandles = findTopLevelBlockHandles.execute();

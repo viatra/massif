@@ -63,6 +63,7 @@
 		<module>../../maven/massif-communication-runtime</module>
 		<module>../../maven/massif-matlabcontrol-runtime</module>
 		<module>../../maven/massif-commandevaluation-runtime</module>
+		<module>../../maven/massif-simulink-emf</module>
 
 		
 	</modules>

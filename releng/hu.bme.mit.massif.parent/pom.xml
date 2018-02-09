@@ -185,12 +185,12 @@
 	</build>
 	<distributionManagement>
         <repository>
-            <id>build.incquerylabs.com/nexus</id>
+            <id>build.incquerylabs.com</id>
             <name>Massif Project Repository - Releases</name>
             <url>${massif.deploy.release}</url>
         </repository>
         <snapshotRepository>
-            <id>build.incquerylabs.com/nexus</id>
+            <id>build.incquerylabs.com</id>
             <name>Massif Project Repository - Snapshots</name>
             <url>${massif.deploy.snapshot}</url>
         </snapshotRepository>

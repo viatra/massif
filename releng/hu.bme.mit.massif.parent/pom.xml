@@ -63,6 +63,7 @@
 		<module>../../maven/massif-communication-runtime</module>
 		<module>../../maven/massif-matlabcontrol-runtime</module>
 		<module>../../maven/massif-commandevaluation-runtime</module>
+		<module>../../maven/massif-simulink-emf</module>
 
 		
 	</modules>
@@ -77,6 +78,9 @@
 		<java.version>1.8</java.version>
 	    <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- Maven deploy related properties-->
+        <massif.deploy.release>https://build.incquerylabs.com/nexus/repository/massif-releases/</massif.deploy.release>
+        <massif.deploy.snapshot>https://build.incquerylabs.com/nexus/repository/massif-snapshots/</massif.deploy.snapshot>
 	</properties>
 	<build>
 		<plugins>
@@ -179,6 +183,18 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<distributionManagement>
+        <repository>
+            <id>build.incquerylabs.com</id>
+            <name>Massif Project Repository - Releases</name>
+            <url>${massif.deploy.release}</url>
+        </repository>
+        <snapshotRepository>
+            <id>build.incquerylabs.com</id>
+            <name>Massif Project Repository - Snapshots</name>
+            <url>${massif.deploy.snapshot}</url>
+        </snapshotRepository>
+    </distributionManagement>
 	<repositories>
         <repository>
             <id>viatra.update</id>

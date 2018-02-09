@@ -10,8 +10,18 @@
   <name>Massif Simulink EMF Meta-model</name>
   <dependencies>
   	<dependency>
-  		<groupId>hu.bme.mit.massif.features</groupId>
-  		<artifactId>hu.bme.mit.massif.simulink.emf</artifactId>
+  		<groupId>hu.bme.mit.massif</groupId>
+  		<artifactId>hu.bme.mit.massif.simulink</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>hu.bme.mit.massif</groupId>
+  		<artifactId>hu.bme.mit.massif.simulink.edit</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>hu.bme.mit.massif</groupId>
+  		<artifactId>hu.bme.mit.massif.simulink.incquery</artifactId>
   		<version>${project.version}</version>
   	</dependency>
   </dependencies>

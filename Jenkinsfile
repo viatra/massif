@@ -21,8 +21,8 @@ pipeline {
             steps {
                 wrap([$class: 'TimestamperBuildWrapper']) {
                     configFileProvider([
-                        configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenToolchainsConfig1427876196924', variable: 'TOOLCHAIN'),
-                        configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1377688925713', variable: 'MAVEN_SETTINGS')]) {
+                        configFile(fileId: 'default-maven-toolchains', variable: 'TOOLCHAIN'),
+                        configFile(fileId: 'default-maven-settings', variable: 'MAVEN_SETTINGS')]) {
                             sh "mvn clean verify -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository -DBUILD_TYPE=${params.BUILD_TYPE}"
                             sh "./releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh"
                         }
@@ -36,8 +36,8 @@ pipeline {
             steps {
                 wrap([$class: 'TimestamperBuildWrapper']) {
                     configFileProvider([
-                        configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenToolchainsConfig1427876196924', variable: 'TOOLCHAIN'),
-                        configFile(fileId: 'org.jenkinsci.plugins.configfiles.maven.MavenSettingsConfig1377688925713', variable: 'MAVEN_SETTINGS')]) {
+                        configFile(fileId: 'default-maven-toolchains', variable: 'TOOLCHAIN'),
+                        configFile(fileId: 'default-maven-settings', variable: 'MAVEN_SETTINGS')]) {
                             withSonarQubeEnv('IncQuery Labs SonarQube') {
                                 sh "mvn sonar:sonar -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository -DBUILD_TYPE=${params.BUILD_TYPE} -Dmirror-integration=false -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.scm.disabled=true"
                             }

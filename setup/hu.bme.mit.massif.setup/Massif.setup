@@ -404,8 +404,6 @@
           name="org.eclipse.egit.mylyn.feature.group"/>
       <requirement
           name="org.sonarlint.eclipse.feature.feature.group"/>
-      <requirement
-          name="org.sonarlint.eclipse.jdt.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/mylyn/releases/latest"/>
       <repository

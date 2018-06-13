@@ -608,6 +608,8 @@
         <repositoryList>
           <repository
               url="http://download.eclipse.org/viatra/updates/integration/"/>
+          <repository
+              url="http://download.eclipse.org/collections/9.2.0/repository"/>
         </repositoryList>
       </targlet>
     </setupTask>

@@ -14,7 +14,7 @@
 
 	</modules>
 	<properties>
-		<tycho.version>1.1.0</tycho.version>
+		<tycho.version>1.2.0</tycho.version>
 		<xtend.compiler.version>2.13.0</xtend.compiler.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>

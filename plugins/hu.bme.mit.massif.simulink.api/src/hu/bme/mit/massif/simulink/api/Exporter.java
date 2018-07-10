@@ -395,6 +395,11 @@ public class Exporter {
      */
     private void exportBlocks(EList<Block> sameLevelBlocks) throws SimulinkApiException {
 
+		// Check if there is at least one block present at the given level
+		if (sameLevelBlocks.size() <= 0) {
+			return;
+		}
+
         // BlockFQN and block size map
         Map<Block, BlockLayoutSpecification> blocksOriginalSize = new HashMap<Block, BlockLayoutSpecification>();
 

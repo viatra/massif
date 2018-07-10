@@ -238,21 +238,25 @@ public class Exporter {
         
         String modelFQN = getFQN(model);
 
-        // TODO do not close, open the model if able instead
-        // Before the new system creation, close the possibly open model
-//        MatlabCommand closeSystem = commandFactory.closeSystem().addParam(modelFQN);
-//        closeSystem.execute();
-        boolean modelAlreadyExists = Handle.getHandleData(commandFactory.exist().addParam(modelFQN).execute()) > 0.5;
+        int existValue = Handle.getHandleData(commandFactory.exist().addParam(modelFQN).execute()).intValue();
+        boolean modelAlreadyExists = existValue == 4;
         if(modelAlreadyExists){
         	MatlabCommand loadSystem = commandFactory.loadSytem();
         	loadSystem.addParam(modelFQN).execute();
-        } else {
-        	MatlabCommand newSystem = commandFactory.newSytem();
-        	newSystem.addParam(modelFQN);
-        	if (model.isLibrary()) {
-        		newSystem.addParam("Library");
-        	}
-        	newSystem.execute();
+		} else {
+			if (existValue == 0) {
+				MatlabCommand newSystem = commandFactory.newSytem();
+				newSystem.addParam(modelFQN);
+				if (model.isLibrary()) {
+					newSystem.addParam("Library");
+				}
+				newSystem.execute();
+			} else {
+				logger.error("Model name collides with a MATLAB object name. 'exist' return status: " + existValue
+						+ System.getProperty("line.separator") + "See > help exist in MATLAB for details");
+				return;
+
+			}
         }
 
         BusSignalMapper mapper = new BusSignalMapper(model.eResource().getResourceSet());

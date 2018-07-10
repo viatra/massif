@@ -38,7 +38,7 @@ public class DepthFirstSearch {
 	
     protected List<Deque<Object>> depthFirstSearch(IGraphDataSource<Object> graph, Deque<Object> visited,
         List<Object> endNodes) {
-        Set<Object> nodes = graph.getTargetNodes(visited.getLast()).keySet();
+        Set<Object> nodes = graph.getTargetNodes(visited.getLast()).distinctValues();
         // examine adjacent nodes
         for (Object node : nodes) {
             if (visited.contains(node)) {

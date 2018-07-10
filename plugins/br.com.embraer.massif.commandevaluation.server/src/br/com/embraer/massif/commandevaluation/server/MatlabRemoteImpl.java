@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010-2017, IncQuery Labs Ltd., Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
@@ -7,6 +7,7 @@
  *
  * Contributors: 
  *     Rodrigo Rizzi Starr, Lincoln Nascimento - initial API and implementation 
+ *     Peter Lunk - Separated MATLAB commands and RMI server
  *******************************************************************************/
 package br.com.embraer.massif.commandevaluation.server;
 
@@ -15,9 +16,10 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.UUID;
 
 import br.com.embraer.massif.commandevaluation.base.MatlabRemoteInterface;
-import br.com.embraer.massif.commandevaluation.command.EvalCommand;
-import br.com.embraer.massif.commandevaluation.command.FevalCommand;
-import br.com.embraer.massif.commandevaluation.command.InteractionCommand;
+import br.com.embraer.massif.commandevaluation.commands.EvalCommand;
+import br.com.embraer.massif.commandevaluation.commands.FevalCommand;
+import br.com.embraer.massif.commandevaluation.commands.InteractionCommand;
+import br.com.embraer.massif.commandevaluation.commands.MatlabController;
 import br.com.embraer.massif.commandevaluation.exception.MatlabOutputException;
 
 public class MatlabRemoteImpl extends java.rmi.server.UnicastRemoteObject
@@ -28,7 +30,7 @@ public class MatlabRemoteImpl extends java.rmi.server.UnicastRemoteObject
 	 */
 	private static final long serialVersionUID = -4980200238447184775L;
 	
-	private MatlabServerController matlabServerController;
+	private MatlabController matlabServerController;
 
 	/**
 	 * Default constructor.
@@ -40,7 +42,7 @@ public class MatlabRemoteImpl extends java.rmi.server.UnicastRemoteObject
     public MatlabRemoteImpl(boolean debug) throws java.rmi.RemoteException {
 		super();
 		UnicastRemoteObject.unexportObject(this, true);
-		matlabServerController = new MatlabServerController();
+		matlabServerController = new MatlabController();
         matlabServerController.setDebug(debug);
 	}
 	

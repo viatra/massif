@@ -1,11 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010-2017, IncQuery Labs Ltd., Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
+ *     Peter Lunk - Modified API to allow custom Logger definition
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api;
@@ -107,10 +108,18 @@ public class Exporter {
     private BusSignalMappingPathFinder pathFinder;
 
     /**
-     * The constructor for the exporter. Creates the logger, layout provider and initializes caches.
+     * The constructor for the exporter. Creates the logger, layout provider and initializes caches. It uses an instance of
+     * {@link PluginSimulinkAPILogger} therefore the usage of this constructor in a non-OSGi environment is discouraged
      */
     public Exporter() {
-        logger = new PluginSimulinkAPILogger();
+        this(new PluginSimulinkAPILogger());
+    }
+    
+    /**
+     * The constructor for the exporter. Creates the layout provider, caches and sets. Receives an external logger implementation. 
+     */
+    public Exporter(ISimulinkAPILogger logger) {
+        this.logger = logger;
         layoutTool = new DummyExporterLayoutProvider();
         gotoCache = new HashSet<Goto>();
         gotoTagVisibilityCache = new HashSet<GotoTagVisibility>();

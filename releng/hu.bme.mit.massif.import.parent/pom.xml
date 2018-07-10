@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>hu.bme.mit.massif</groupId>
 	<artifactId>hu.bme.mit.massif.import.parent</artifactId>
-	<version>0.4.0-SNAPSHOT</version>
+	<version>0.7.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
 		<module>../../tests/hu.bme.mit.massif.simulink.importall.tests</module>
@@ -14,8 +14,8 @@
 
 	</modules>
 	<properties>
-		<tycho.version>0.18.0</tycho.version>
-		<xtend.compiler.version>2.4.2</xtend.compiler.version>
+		<tycho.version>1.2.0</tycho.version>
+		<xtend.compiler.version>2.13.0</xtend.compiler.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<build>

@@ -578,7 +578,7 @@
             versionRange="[2.9.0,3.0.0)"/>
         <requirement
             name="org.eclipse.xtext.redist.feature.group"
-            versionRange="[2.12.0,3.0.0)"/>
+            versionRange="[2.13.0,3.0.0)"/>
         <repositoryList
             name="Mars">
           <repository
@@ -622,7 +622,7 @@
           versionRange="[2.9.0,3.0.0)"/>
       <requirement
           name="org.eclipse.xtext.redist.feature.group"
-          versionRange="[2.12.0,3.0.0)"/>
+          versionRange="[2.13.0,3.0.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement

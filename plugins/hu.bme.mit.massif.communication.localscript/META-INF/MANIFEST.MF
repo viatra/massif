@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Local Matlab script evaluator
+Bundle-SymbolicName: hu.bme.mit.massif.communication.localscript;singleton:=true
+Bundle-Version: 0.7.0.qualifier
+Require-Bundle: hu.bme.mit.massif.communication,
+ br.com.embraer.massif.commandevaluation.commands
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: hu.bme.mit.massif.communication.localscript
+Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

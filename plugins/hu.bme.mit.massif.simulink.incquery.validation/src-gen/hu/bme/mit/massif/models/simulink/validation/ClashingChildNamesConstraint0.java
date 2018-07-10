@@ -17,14 +17,14 @@ import org.eclipse.viatra.query.runtime.api.IQuerySpecification;
 import org.eclipse.viatra.query.runtime.api.ViatraQueryMatcher;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
-import hu.bme.mit.massif.models.simulink.validation.util.ClashingChildNamesQuerySpecification;
+import hu.bme.mit.massif.models.simulink.validation.ClashingChildNames;
 
 public class ClashingChildNamesConstraint0 implements IConstraintSpecification {
 
-    private ClashingChildNamesQuerySpecification querySpecification;
+    private ClashingChildNames querySpecification;
 
     public ClashingChildNamesConstraint0() throws ViatraQueryException {
-        querySpecification = ClashingChildNamesQuerySpecification.instance();
+        querySpecification = ClashingChildNames.instance();
     }
 
     @Override

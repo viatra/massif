@@ -3,6 +3,7 @@ pipeline {
 	agent any 
 	parameters {
 		string(name: 'VIATRA_REPOSITORY', defaultValue: 'https://hudson.eclipse.org/viatra/job/viatra-master/lastSuccessfulBuild/artifact/releng/org.eclipse.viatra.update/target/repository')
+		choice(choices: 'ci\nintegration\nrelease', description: '', name: 'BUILD_TYPE')
 	}
 
     // Keep only the last 20 builds
@@ -15,12 +16,12 @@ pipeline {
         jdk 'Oracle JDK 8' 
     }
 	 
-    stages { 
+    stages {
        stage('Build') { 
             steps {
                 configFileProvider([configFile(fileId: 'default-maven-toolchains', variable: 'TOOLCHAIN'), configFile(fileId: 'default-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                    sh "mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dviatra.repository.url=${env.VIATRA_REPOSITORY} -Dmaven.repo.local=$WORKSPACE/.repository"
-                    sh "mvn clean deploy -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dviatra.repository.url=${env.VIATRA_REPOSITORY} -Dmaven.repo.local=$WORKSPACE/.repository"
+                    sh "mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dviatra.repository.url=${params.VIATRA_REPOSITORY} -Dmaven.repo.local=$WORKSPACE/.repository"
+                    sh "mvn clean deploy -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dviatra.repository.url=${params.VIATRA_REPOSITORY} -Dmaven.repo.local=$WORKSPACE/.repository"
                 }
             	sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
             	sh './releng/hu.bme.mit.massif.simulink.cli-package/prepareCLIPackage.sh'

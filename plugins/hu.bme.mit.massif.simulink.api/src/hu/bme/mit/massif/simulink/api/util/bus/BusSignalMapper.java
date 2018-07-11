@@ -20,8 +20,8 @@ import org.eclipse.viatra.query.runtime.api.IQueryGroup;
 import org.eclipse.viatra.query.runtime.emf.EMFScope;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
-import hu.bme.mit.massif.models.simulink.util.FirstOutPortFromBusSpecificationMatcher;
-import hu.bme.mit.massif.models.simulink.util.NextOutPortInPathMatcher;
+import hu.bme.mit.massif.models.simulink.util.FirstOutPortFromBusSpecification;
+import hu.bme.mit.massif.models.simulink.util.NextOutPortInPath;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.InPort;
 import hu.bme.mit.massif.simulink.MultiConnection;
@@ -40,8 +40,8 @@ import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
  */
 public class BusSignalMapper {
     protected AdvancedViatraQueryEngine viatraEngine;
-    protected NextOutPortInPathMatcher nextOutPortInPathMatcher;
-    private FirstOutPortFromBusSpecificationMatcher firstOutPortFromBusSpecificationMatcher;
+    protected NextOutPortInPath.Matcher nextOutPortInPathMatcher;
+    private FirstOutPortFromBusSpecification.Matcher firstOutPortFromBusSpecificationMatcher;
     private ISimulinkAPILogger logger;
 
     /**
@@ -55,12 +55,12 @@ public class BusSignalMapper {
         checkArgument(busMappingResourceSet != null, "Resource set for bus mapping path finder cannot be null!");
         try {
             viatraEngine = AdvancedViatraQueryEngine.createUnmanagedEngine(new EMFScope(busMappingResourceSet));
-            IQueryGroup group = GenericQueryGroup.of(NextOutPortInPathMatcher.querySpecification(),
-                    FirstOutPortFromBusSpecificationMatcher.querySpecification());
+            IQueryGroup group = GenericQueryGroup.of(NextOutPortInPath.instance(),
+                    FirstOutPortFromBusSpecification.instance());
             group.prepare(viatraEngine);
 
-            nextOutPortInPathMatcher = NextOutPortInPathMatcher.on(viatraEngine);
-            firstOutPortFromBusSpecificationMatcher = FirstOutPortFromBusSpecificationMatcher.on(viatraEngine);
+            nextOutPortInPathMatcher = NextOutPortInPath.Matcher.on(viatraEngine);
+            firstOutPortFromBusSpecificationMatcher = FirstOutPortFromBusSpecification.Matcher.on(viatraEngine);
         } catch (ViatraQueryException e) {
             throw new IllegalStateException("Could not initialize matcher for bus mapping path finder!", e);
         }
@@ -70,11 +70,11 @@ public class BusSignalMapper {
         return viatraEngine;
     }
 
-    protected NextOutPortInPathMatcher getNextOutPortInPathMatcher() {
+    protected NextOutPortInPath.Matcher getNextOutPortInPathMatcher() {
         return nextOutPortInPathMatcher;
     }
 
-    protected FirstOutPortFromBusSpecificationMatcher getFirstOutPortFromBusSpecificationMatcher() {
+    protected FirstOutPortFromBusSpecification.Matcher getFirstOutPortFromBusSpecificationMatcher() {
         return firstOutPortFromBusSpecificationMatcher;
     }
 

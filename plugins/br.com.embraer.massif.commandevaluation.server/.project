@@ -27,8 +27,8 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.sonar.ide.eclipse.core.sonarNature</nature>
+		<nature>org.eclipse.pde.PluginNature</nature><nature>org.sonar.ide.eclipse.core.sonarNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
-		<nature>org.eclipse.pde.PluginNature</nature>
+		
 	</natures>
 </projectDescription>

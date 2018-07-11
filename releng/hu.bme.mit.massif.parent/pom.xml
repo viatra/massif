@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>hu.bme.mit.massif</groupId>
 	<artifactId>hu.bme.mit.massif.parent</artifactId>
-	<version>0.6.0-SNAPSHOT</version>
+	<version>0.7.0-SNAPSHOT</version>
 	<name>Massif</name>
 	<url>https://github.com/viatra/massif</url>
 	<packaging>pom</packaging>
@@ -27,17 +27,23 @@
 		<module>../../plugins/hu.bme.mit.massif.simulink.api</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.filters</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.importer.ui</module>
+		<module>../../plugins/hu.bme.mit.massif.simulink.cli</module>
 		
 		<!-- Command evaluation connector -->
 		<module>../../dependencies/matlab.access.external.bundle</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.base</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.server</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.client</module>
+		<module>../../plugins/br.com.embraer.massif.commandevaluation.commands</module>
 		<module>../../plugins/hu.bme.mit.massif.communication.commandevaluation</module>
 		
 		<!-- MatlabControl connector -->
 		<module>../../dependencies/matlabcontrol.external.bundle</module>
 		<module>../../plugins/hu.bme.mit.massif.communication.matlabcontrol</module>
+		
+		<!-- Local MATLAB script connector -->
+		<module>../../plugins/hu.bme.mit.massif.communication.localscript</module>
+		
 		
 		<!-- Features -->
 		<module>../../features/hu.bme.mit.massif.simulink.emf-feature</module>
@@ -50,24 +56,31 @@
 		<!-- Update site -->
 		<module>../../releng/hu.bme.mit.massif.site</module>
 		
+		<!-- CLI jar package -->
+		<module>../../releng/hu.bme.mit.massif.simulink.cli-package</module>
+		
 		<!-- Maven projects -->
 		<module>../../maven/massif-communication-runtime</module>
 		<module>../../maven/massif-matlabcontrol-runtime</module>
 		<module>../../maven/massif-commandevaluation-runtime</module>
+		<module>../../maven/massif-simulink-emf</module>
 
 		
 	</modules>
 	<properties>
-		<tycho.version>1.0.0</tycho.version>
-		<xtend.compiler.version>2.12.0</xtend.compiler.version>
-		<viatra.compiler.version>1.6.0</viatra.compiler.version>
-		<viatra.repository.url>http://download.eclipse.org/viatra/updates/release/</viatra.repository.url>
-		<viatra.maven.repository.url>https://repo.eclipse.org/content/repositories/viatra-releases/</viatra.maven.repository.url>
+		<tycho.version>1.2.0</tycho.version>
+		<xtend.compiler.version>2.13.0</xtend.compiler.version>
+		<viatra.compiler.version>2.0.0</viatra.compiler.version>
+		<viatra.repository.url>http://download.eclipse.org/viatra/updates/integration/</viatra.repository.url>
+		<viatra.maven.repository.url>https://repo.eclipse.org/content/repositories/viatra-snapshots/</viatra.maven.repository.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.skippedModules></sonar.skippedModules>
-		<java.version>1.7</java.version>
+		<java.version>1.8</java.version>
 	    <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- Maven deploy related properties-->
+        <massif.deploy.release>https://build.incquerylabs.com/nexus/repository/massif-releases/</massif.deploy.release>
+        <massif.deploy.snapshot>https://build.incquerylabs.com/nexus/repository/massif-snapshots/</massif.deploy.snapshot>
 	</properties>
 	<build>
 		<plugins>
@@ -170,6 +183,18 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<distributionManagement>
+        <repository>
+            <id>build.incquerylabs.com</id>
+            <name>Massif Project Repository - Releases</name>
+            <url>${massif.deploy.release}</url>
+        </repository>
+        <snapshotRepository>
+            <id>build.incquerylabs.com</id>
+            <name>Massif Project Repository - Snapshots</name>
+            <url>${massif.deploy.snapshot}</url>
+        </snapshotRepository>
+    </distributionManagement>
 	<repositories>
         <repository>
             <id>viatra.update</id>

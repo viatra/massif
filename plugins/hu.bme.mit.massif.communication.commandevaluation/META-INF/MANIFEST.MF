@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Massif Matlab Connector for Command Evaluation Client
 Bundle-SymbolicName: hu.bme.mit.massif.communication.commandevaluation;singleton:=true
-Bundle-Version: 0.6.0.qualifier
+Bundle-Version: 0.7.0.qualifier
 Require-Bundle: br.com.embraer.massif.commandevaluation.client,
  hu.bme.mit.massif.communication
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: hu.bme.mit.massif.communication.commandevaluation
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

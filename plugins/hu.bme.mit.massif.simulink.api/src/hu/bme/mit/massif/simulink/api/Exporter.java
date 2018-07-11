@@ -1,11 +1,12 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010-2017, IncQuery Labs Ltd., Embraer S.A., Budapest University of Technology and Economics
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
+ *     Peter Lunk - Modified API to allow custom Logger definition
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api;
@@ -107,10 +108,18 @@ public class Exporter {
     private BusSignalMappingPathFinder pathFinder;
 
     /**
-     * The constructor for the exporter. Creates the logger, layout provider and initializes caches.
+     * The constructor for the exporter. Creates the logger, layout provider and initializes caches. It uses an instance of
+     * {@link PluginSimulinkAPILogger} therefore the usage of this constructor in a non-OSGi environment is discouraged
      */
     public Exporter() {
-        logger = new PluginSimulinkAPILogger();
+        this(new PluginSimulinkAPILogger());
+    }
+    
+    /**
+     * The constructor for the exporter. Creates the layout provider, caches and sets. Receives an external logger implementation. 
+     */
+    public Exporter(ISimulinkAPILogger logger) {
+        this.logger = logger;
         layoutTool = new DummyExporterLayoutProvider();
         gotoCache = new HashSet<Goto>();
         gotoTagVisibilityCache = new HashSet<GotoTagVisibility>();
@@ -238,21 +247,25 @@ public class Exporter {
         
         String modelFQN = getFQN(model);
 
-        // TODO do not close, open the model if able instead
-        // Before the new system creation, close the possibly open model
-//        MatlabCommand closeSystem = commandFactory.closeSystem().addParam(modelFQN);
-//        closeSystem.execute();
-        boolean modelAlreadyExists = Handle.getHandleData(commandFactory.exist().addParam(modelFQN).execute()) > 0.5;
+        int existValue = Handle.getHandleData(commandFactory.exist().addParam(modelFQN).execute()).intValue();
+        boolean modelAlreadyExists = existValue == 4;
         if(modelAlreadyExists){
         	MatlabCommand loadSystem = commandFactory.loadSytem();
         	loadSystem.addParam(modelFQN).execute();
-        } else {
-        	MatlabCommand newSystem = commandFactory.newSytem();
-        	newSystem.addParam(modelFQN);
-        	if (model.isLibrary()) {
-        		newSystem.addParam("Library");
-        	}
-        	newSystem.execute();
+		} else {
+			if (existValue == 0) {
+				MatlabCommand newSystem = commandFactory.newSytem();
+				newSystem.addParam(modelFQN);
+				if (model.isLibrary()) {
+					newSystem.addParam("Library");
+				}
+				newSystem.execute();
+			} else {
+				logger.error("Model name collides with a MATLAB object name. 'exist' return status: " + existValue
+						+ System.getProperty("line.separator") + "See > help exist in MATLAB for details");
+				return;
+
+			}
         }
 
         BusSignalMapper mapper = new BusSignalMapper(model.eResource().getResourceSet());
@@ -394,6 +407,11 @@ public class Exporter {
      * @throws SimulinkApiException
      */
     private void exportBlocks(EList<Block> sameLevelBlocks) throws SimulinkApiException {
+
+		// Check if there is at least one block present at the given level
+		if (sameLevelBlocks.size() <= 0) {
+			return;
+		}
 
         // BlockFQN and block size map
         Map<Block, BlockLayoutSpecification> blocksOriginalSize = new HashMap<Block, BlockLayoutSpecification>();

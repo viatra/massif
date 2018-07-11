@@ -1,1 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><plugin/>
+<?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="validation.constraint.hu.bme.mit.massif.models.simulink.validation.clashingChildNames" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.massif.models.simulink.validation.ClashingChildNamesConstraint0" name="hu.bme.mit.massif.models.simulink.validation.clashingChildNames"/>
+  </extension>
+  <extension id="validation.constraint.hu.bme.mit.massif.models.simulink.validation.identifierNameContainsSlash" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.massif.models.simulink.validation.IdentifierNameContainsSlashConstraint0" name="hu.bme.mit.massif.models.simulink.validation.identifierNameContainsSlash"/>
+  </extension>
+</plugin>

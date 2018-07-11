@@ -73,7 +73,7 @@ Massif provides two basic model conversion functions:
  * Export from EMF to MATLAB (referred as export or exporting)
 
 To use these features, choose a MATLAB provider. At this point you can choose between
- * MatlabControl, an existing MATLAB connector
+ * MatlabControl, an existing MATLAB connector ([GitHub page](https://github.com/jakaplan/matlabcontrol))
  * Command Evaluation Server, which is provided as part of Massif.
 
 The functions are available in the context menu commands of `.mdl`, `.slx` and `.simulink` files (right click on the files in `Package Explorer`) called `Import Simulink Model` and `Export Simulink Model`.

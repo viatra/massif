@@ -35,31 +35,31 @@ package hu.bme.mit.massif.simulink;
  */
 public interface PortBlock extends VirtualBlock {
 	/**
-     * Returns the value of the '<em><b>Port</b></em>' reference.
-     * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.Port#getPortBlock <em>Port Block</em>}'.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Port</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.Port#getPortBlock <em>Port Block</em>}'.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Port</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Port</em>' reference.
-     * @see #setPort(Port)
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPortBlock_Port()
-     * @see hu.bme.mit.massif.simulink.Port#getPortBlock
-     * @model opposite="portBlock"
-     * @generated
-     */
+	 * @return the value of the '<em>Port</em>' reference.
+	 * @see #setPort(Port)
+	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPortBlock_Port()
+	 * @see hu.bme.mit.massif.simulink.Port#getPortBlock
+	 * @model opposite="portBlock"
+	 * @generated
+	 */
 	Port getPort();
 
 	/**
-     * Sets the value of the '{@link hu.bme.mit.massif.simulink.PortBlock#getPort <em>Port</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link hu.bme.mit.massif.simulink.PortBlock#getPort <em>Port</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Port</em>' reference.
-     * @see #getPort()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Port</em>' reference.
+	 * @see #getPort()
+	 * @generated
+	 */
 	void setPort(Port value);
 
 } // PortBlock

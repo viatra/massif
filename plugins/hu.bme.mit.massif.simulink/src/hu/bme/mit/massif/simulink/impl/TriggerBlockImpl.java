@@ -26,22 +26,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class TriggerBlockImpl extends InPortBlockImpl implements TriggerBlock {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected TriggerBlockImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.TRIGGER_BLOCK;
-    }
+		return SimulinkPackage.Literals.TRIGGER_BLOCK;
+	}
 
 } //TriggerBlockImpl

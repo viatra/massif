@@ -89,6 +89,10 @@
         eOpposite="#//Block/ports"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="portBlock" eType="#//PortBlock"
         eOpposite="#//PortBlock/port"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="portType" eType="#//SimscapePortType"
+        defaultValueLiteral="None"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -355,5 +359,10 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This is a specific class used as a unique identifier for Simulink elements."/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SimscapePortType">
+    <eLiterals name="None"/>
+    <eLiterals name="LConn" value="1"/>
+    <eLiterals name="RConn" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

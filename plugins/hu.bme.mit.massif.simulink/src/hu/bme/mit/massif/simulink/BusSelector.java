@@ -44,74 +44,74 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface BusSelector extends BusSpecification {
 	/**
-     * Returns the value of the '<em><b>Mappings</b></em>' containment reference list.
-     * The list contents are of type {@link hu.bme.mit.massif.simulink.BusSignalMapping}.
-     * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.BusSignalMapping#getSelector <em>Selector</em>}'.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Mappings</b></em>' containment reference list.
+	 * The list contents are of type {@link hu.bme.mit.massif.simulink.BusSignalMapping}.
+	 * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.BusSignalMapping#getSelector <em>Selector</em>}'.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Mappings</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Mappings</em>' containment reference list.
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBusSelector_Mappings()
-     * @see hu.bme.mit.massif.simulink.BusSignalMapping#getSelector
-     * @model opposite="selector" containment="true"
-     * @generated
-     */
+	 * @return the value of the '<em>Mappings</em>' containment reference list.
+	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBusSelector_Mappings()
+	 * @see hu.bme.mit.massif.simulink.BusSignalMapping#getSelector
+	 * @model opposite="selector" containment="true"
+	 * @generated
+	 */
 	EList<BusSignalMapping> getMappings();
 
 	/**
-     * Returns the value of the '<em><b>Output As Bus</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Output As Bus</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Output As Bus</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Output As Bus</em>' attribute.
-     * @see #setOutputAsBus(boolean)
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBusSelector_OutputAsBus()
-     * @model
-     * @generated
-     */
+	 * @return the value of the '<em>Output As Bus</em>' attribute.
+	 * @see #setOutputAsBus(boolean)
+	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBusSelector_OutputAsBus()
+	 * @model
+	 * @generated
+	 */
 	boolean isOutputAsBus();
 
 	/**
-     * Sets the value of the '{@link hu.bme.mit.massif.simulink.BusSelector#isOutputAsBus <em>Output As Bus</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link hu.bme.mit.massif.simulink.BusSelector#isOutputAsBus <em>Output As Bus</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Output As Bus</em>' attribute.
-     * @see #isOutputAsBus()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Output As Bus</em>' attribute.
+	 * @see #isOutputAsBus()
+	 * @generated
+	 */
 	void setOutputAsBus(boolean value);
 
 	/**
-     * Returns the value of the '<em><b>Bus Creator</b></em>' reference.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Bus Creator</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * This reference points to the creator of the incoming bus signal.
-     *  Either a bus creator or a bus selector with outputAsBus = true.
-     *  Always determined as backward navigation on signals is deterministic.
-     * <!-- end-model-doc -->
-     * @return the value of the '<em>Bus Creator</em>' reference.
-     * @see #setBusCreator(BusSpecification)
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBusSelector_BusCreator()
-     * @model
-     * @generated
-     */
+	 * <!-- begin-model-doc -->
+	 * This reference points to the creator of the incoming bus signal.
+	 *  Either a bus creator or a bus selector with outputAsBus = true.
+	 *  Always determined as backward navigation on signals is deterministic.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Bus Creator</em>' reference.
+	 * @see #setBusCreator(BusSpecification)
+	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBusSelector_BusCreator()
+	 * @model
+	 * @generated
+	 */
 	BusSpecification getBusCreator();
 
 	/**
-     * Sets the value of the '{@link hu.bme.mit.massif.simulink.BusSelector#getBusCreator <em>Bus Creator</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link hu.bme.mit.massif.simulink.BusSelector#getBusCreator <em>Bus Creator</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Bus Creator</em>' reference.
-     * @see #getBusCreator()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Bus Creator</em>' reference.
+	 * @see #getBusCreator()
+	 * @generated
+	 */
 	void setBusCreator(BusSpecification value);
 
 } // BusSelector

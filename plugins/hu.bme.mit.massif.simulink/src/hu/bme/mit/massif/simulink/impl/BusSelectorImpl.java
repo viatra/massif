@@ -45,259 +45,259 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class BusSelectorImpl extends BusSpecificationImpl implements BusSelector {
 	/**
-     * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getMappings()
-     * @generated
-     * @ordered
-     */
+	 * @see #getMappings()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<BusSignalMapping> mappings;
 
 	/**
-     * The default value of the '{@link #isOutputAsBus() <em>Output As Bus</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isOutputAsBus() <em>Output As Bus</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isOutputAsBus()
-     * @generated
-     * @ordered
-     */
+	 * @see #isOutputAsBus()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean OUTPUT_AS_BUS_EDEFAULT = false;
 
 	/**
-     * The cached value of the '{@link #isOutputAsBus() <em>Output As Bus</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isOutputAsBus() <em>Output As Bus</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isOutputAsBus()
-     * @generated
-     * @ordered
-     */
+	 * @see #isOutputAsBus()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean outputAsBus = OUTPUT_AS_BUS_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getBusCreator() <em>Bus Creator</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getBusCreator() <em>Bus Creator</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getBusCreator()
-     * @generated
-     * @ordered
-     */
+	 * @see #getBusCreator()
+	 * @generated
+	 * @ordered
+	 */
 	protected BusSpecification busCreator;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected BusSelectorImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.BUS_SELECTOR;
-    }
+		return SimulinkPackage.Literals.BUS_SELECTOR;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<BusSignalMapping> getMappings() {
-        if (mappings == null) {
-            mappings = new EObjectContainmentWithInverseEList<BusSignalMapping>(BusSignalMapping.class, this, SimulinkPackage.BUS_SELECTOR__MAPPINGS, SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR);
-        }
-        return mappings;
-    }
+		if (mappings == null) {
+			mappings = new EObjectContainmentWithInverseEList<BusSignalMapping>(BusSignalMapping.class, this, SimulinkPackage.BUS_SELECTOR__MAPPINGS, SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR);
+		}
+		return mappings;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public boolean isOutputAsBus() {
-        return outputAsBus;
-    }
+		return outputAsBus;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setOutputAsBus(boolean newOutputAsBus) {
-        boolean oldOutputAsBus = outputAsBus;
-        outputAsBus = newOutputAsBus;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS, oldOutputAsBus, outputAsBus));
-    }
+		boolean oldOutputAsBus = outputAsBus;
+		outputAsBus = newOutputAsBus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS, oldOutputAsBus, outputAsBus));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusSpecification getBusCreator() {
-        if (busCreator != null && busCreator.eIsProxy()) {
-            InternalEObject oldBusCreator = (InternalEObject)busCreator;
-            busCreator = (BusSpecification)eResolveProxy(oldBusCreator);
-            if (busCreator != oldBusCreator) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulinkPackage.BUS_SELECTOR__BUS_CREATOR, oldBusCreator, busCreator));
-            }
-        }
-        return busCreator;
-    }
+		if (busCreator != null && busCreator.eIsProxy()) {
+			InternalEObject oldBusCreator = (InternalEObject)busCreator;
+			busCreator = (BusSpecification)eResolveProxy(oldBusCreator);
+			if (busCreator != oldBusCreator) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulinkPackage.BUS_SELECTOR__BUS_CREATOR, oldBusCreator, busCreator));
+			}
+		}
+		return busCreator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusSpecification basicGetBusCreator() {
-        return busCreator;
-    }
+		return busCreator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setBusCreator(BusSpecification newBusCreator) {
-        BusSpecification oldBusCreator = busCreator;
-        busCreator = newBusCreator;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SELECTOR__BUS_CREATOR, oldBusCreator, busCreator));
-    }
+		BusSpecification oldBusCreator = busCreator;
+		busCreator = newBusCreator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SELECTOR__BUS_CREATOR, oldBusCreator, busCreator));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappings()).basicAdd(otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappings()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
-                return ((InternalEList<?>)getMappings()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
+				return ((InternalEList<?>)getMappings()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
-                return getMappings();
-            case SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS:
-                return isOutputAsBus();
-            case SimulinkPackage.BUS_SELECTOR__BUS_CREATOR:
-                if (resolve) return getBusCreator();
-                return basicGetBusCreator();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
+				return getMappings();
+			case SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS:
+				return isOutputAsBus();
+			case SimulinkPackage.BUS_SELECTOR__BUS_CREATOR:
+				if (resolve) return getBusCreator();
+				return basicGetBusCreator();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
-                getMappings().clear();
-                getMappings().addAll((Collection<? extends BusSignalMapping>)newValue);
-                return;
-            case SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS:
-                setOutputAsBus((Boolean)newValue);
-                return;
-            case SimulinkPackage.BUS_SELECTOR__BUS_CREATOR:
-                setBusCreator((BusSpecification)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
+				getMappings().clear();
+				getMappings().addAll((Collection<? extends BusSignalMapping>)newValue);
+				return;
+			case SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS:
+				setOutputAsBus((Boolean)newValue);
+				return;
+			case SimulinkPackage.BUS_SELECTOR__BUS_CREATOR:
+				setBusCreator((BusSpecification)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
-                getMappings().clear();
-                return;
-            case SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS:
-                setOutputAsBus(OUTPUT_AS_BUS_EDEFAULT);
-                return;
-            case SimulinkPackage.BUS_SELECTOR__BUS_CREATOR:
-                setBusCreator((BusSpecification)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
+				getMappings().clear();
+				return;
+			case SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS:
+				setOutputAsBus(OUTPUT_AS_BUS_EDEFAULT);
+				return;
+			case SimulinkPackage.BUS_SELECTOR__BUS_CREATOR:
+				setBusCreator((BusSpecification)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
-                return mappings != null && !mappings.isEmpty();
-            case SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS:
-                return outputAsBus != OUTPUT_AS_BUS_EDEFAULT;
-            case SimulinkPackage.BUS_SELECTOR__BUS_CREATOR:
-                return busCreator != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
+				return mappings != null && !mappings.isEmpty();
+			case SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS:
+				return outputAsBus != OUTPUT_AS_BUS_EDEFAULT;
+			case SimulinkPackage.BUS_SELECTOR__BUS_CREATOR:
+				return busCreator != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (outputAsBus: ");
-        result.append(outputAsBus);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (outputAsBus: ");
+		result.append(outputAsBus);
+		result.append(')');
+		return result.toString();
+	}
 
 } //BusSelectorImpl

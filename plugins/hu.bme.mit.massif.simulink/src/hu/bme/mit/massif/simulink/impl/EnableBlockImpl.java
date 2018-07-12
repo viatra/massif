@@ -26,22 +26,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class EnableBlockImpl extends InPortBlockImpl implements EnableBlock {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EnableBlockImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.ENABLE_BLOCK;
-    }
+		return SimulinkPackage.Literals.ENABLE_BLOCK;
+	}
 
 } //EnableBlockImpl

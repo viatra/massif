@@ -45,291 +45,291 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SimulinkModelImpl extends SimulinkElementImpl implements SimulinkModel {
 	/**
-     * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String VERSION_EDEFAULT = null;
 
 	/**
-     * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getVersion()
-     * @generated
-     * @ordered
-     */
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
 	protected String version = VERSION_EDEFAULT;
 
 	/**
-     * The cached value of the '{@link #getContains() <em>Contains</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getContains() <em>Contains</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getContains()
-     * @generated
-     * @ordered
-     */
+	 * @see #getContains()
+	 * @generated
+	 * @ordered
+	 */
 	protected EList<Block> contains;
 
 	/**
-     * The default value of the '{@link #getFile() <em>File</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getFile() <em>File</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFile()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFile()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final String FILE_EDEFAULT = null;
 
 	/**
-     * The cached value of the '{@link #getFile() <em>File</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getFile() <em>File</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getFile()
-     * @generated
-     * @ordered
-     */
+	 * @see #getFile()
+	 * @generated
+	 * @ordered
+	 */
 	protected String file = FILE_EDEFAULT;
 
 	/**
-     * The default value of the '{@link #isLibrary() <em>Library</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #isLibrary() <em>Library</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isLibrary()
-     * @generated
-     * @ordered
-     */
+	 * @see #isLibrary()
+	 * @generated
+	 * @ordered
+	 */
 	protected static final boolean LIBRARY_EDEFAULT = false;
 
 	/**
-     * The cached value of the '{@link #isLibrary() <em>Library</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #isLibrary() <em>Library</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #isLibrary()
-     * @generated
-     * @ordered
-     */
+	 * @see #isLibrary()
+	 * @generated
+	 * @ordered
+	 */
 	protected boolean library = LIBRARY_EDEFAULT;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SimulinkModelImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.SIMULINK_MODEL;
-    }
+		return SimulinkPackage.Literals.SIMULINK_MODEL;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getVersion() {
-        return version;
-    }
+		return version;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setVersion(String newVersion) {
-        String oldVersion = version;
-        version = newVersion;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_MODEL__VERSION, oldVersion, version));
-    }
+		String oldVersion = version;
+		version = newVersion;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_MODEL__VERSION, oldVersion, version));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EList<Block> getContains() {
-        if (contains == null) {
-            contains = new EObjectContainmentEList<Block>(Block.class, this, SimulinkPackage.SIMULINK_MODEL__CONTAINS);
-        }
-        return contains;
-    }
+		if (contains == null) {
+			contains = new EObjectContainmentEList<Block>(Block.class, this, SimulinkPackage.SIMULINK_MODEL__CONTAINS);
+		}
+		return contains;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getFile() {
-        return file;
-    }
+		return file;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setFile(String newFile) {
-        String oldFile = file;
-        file = newFile;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_MODEL__FILE, oldFile, file));
-    }
+		String oldFile = file;
+		file = newFile;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_MODEL__FILE, oldFile, file));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public boolean isLibrary() {
-        return library;
-    }
+		return library;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setLibrary(boolean newLibrary) {
-        boolean oldLibrary = library;
-        library = newLibrary;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_MODEL__LIBRARY, oldLibrary, library));
-    }
+		boolean oldLibrary = library;
+		library = newLibrary;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_MODEL__LIBRARY, oldLibrary, library));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
-                return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
+				return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case SimulinkPackage.SIMULINK_MODEL__VERSION:
-                return getVersion();
-            case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
-                return getContains();
-            case SimulinkPackage.SIMULINK_MODEL__FILE:
-                return getFile();
-            case SimulinkPackage.SIMULINK_MODEL__LIBRARY:
-                return isLibrary();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case SimulinkPackage.SIMULINK_MODEL__VERSION:
+				return getVersion();
+			case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
+				return getContains();
+			case SimulinkPackage.SIMULINK_MODEL__FILE:
+				return getFile();
+			case SimulinkPackage.SIMULINK_MODEL__LIBRARY:
+				return isLibrary();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case SimulinkPackage.SIMULINK_MODEL__VERSION:
-                setVersion((String)newValue);
-                return;
-            case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
-                getContains().clear();
-                getContains().addAll((Collection<? extends Block>)newValue);
-                return;
-            case SimulinkPackage.SIMULINK_MODEL__FILE:
-                setFile((String)newValue);
-                return;
-            case SimulinkPackage.SIMULINK_MODEL__LIBRARY:
-                setLibrary((Boolean)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case SimulinkPackage.SIMULINK_MODEL__VERSION:
+				setVersion((String)newValue);
+				return;
+			case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
+				getContains().clear();
+				getContains().addAll((Collection<? extends Block>)newValue);
+				return;
+			case SimulinkPackage.SIMULINK_MODEL__FILE:
+				setFile((String)newValue);
+				return;
+			case SimulinkPackage.SIMULINK_MODEL__LIBRARY:
+				setLibrary((Boolean)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case SimulinkPackage.SIMULINK_MODEL__VERSION:
-                setVersion(VERSION_EDEFAULT);
-                return;
-            case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
-                getContains().clear();
-                return;
-            case SimulinkPackage.SIMULINK_MODEL__FILE:
-                setFile(FILE_EDEFAULT);
-                return;
-            case SimulinkPackage.SIMULINK_MODEL__LIBRARY:
-                setLibrary(LIBRARY_EDEFAULT);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case SimulinkPackage.SIMULINK_MODEL__VERSION:
+				setVersion(VERSION_EDEFAULT);
+				return;
+			case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
+				getContains().clear();
+				return;
+			case SimulinkPackage.SIMULINK_MODEL__FILE:
+				setFile(FILE_EDEFAULT);
+				return;
+			case SimulinkPackage.SIMULINK_MODEL__LIBRARY:
+				setLibrary(LIBRARY_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case SimulinkPackage.SIMULINK_MODEL__VERSION:
-                return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
-            case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
-                return contains != null && !contains.isEmpty();
-            case SimulinkPackage.SIMULINK_MODEL__FILE:
-                return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
-            case SimulinkPackage.SIMULINK_MODEL__LIBRARY:
-                return library != LIBRARY_EDEFAULT;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case SimulinkPackage.SIMULINK_MODEL__VERSION:
+				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+			case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
+				return contains != null && !contains.isEmpty();
+			case SimulinkPackage.SIMULINK_MODEL__FILE:
+				return FILE_EDEFAULT == null ? file != null : !FILE_EDEFAULT.equals(file);
+			case SimulinkPackage.SIMULINK_MODEL__LIBRARY:
+				return library != LIBRARY_EDEFAULT;
+		}
+		return super.eIsSet(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public String toString() {
-        if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (version: ");
-        result.append(version);
-        result.append(", file: ");
-        result.append(file);
-        result.append(", library: ");
-        result.append(library);
-        result.append(')');
-        return result.toString();
-    }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (version: ");
+		result.append(version);
+		result.append(", file: ");
+		result.append(file);
+		result.append(", library: ");
+		result.append(library);
+		result.append(')');
+		return result.toString();
+	}
 
 } //SimulinkModelImpl

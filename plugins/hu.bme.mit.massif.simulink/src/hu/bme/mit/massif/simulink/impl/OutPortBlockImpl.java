@@ -26,22 +26,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class OutPortBlockImpl extends PortBlockImpl implements OutPortBlock {
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected OutPortBlockImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.OUT_PORT_BLOCK;
-    }
+		return SimulinkPackage.Literals.OUT_PORT_BLOCK;
+	}
 
 } //OutPortBlockImpl

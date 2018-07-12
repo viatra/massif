@@ -59,464 +59,488 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory {
 	/**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc -->
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static SimulinkFactory init() {
-        try {
-            SimulinkFactory theSimulinkFactory = (SimulinkFactory)EPackage.Registry.INSTANCE.getEFactory(SimulinkPackage.eNS_URI);
-            if (theSimulinkFactory != null) {
-                return theSimulinkFactory;
-            }
-        }
-        catch (Exception exception) {
-            EcorePlugin.INSTANCE.log(exception);
-        }
-        return new SimulinkFactoryImpl();
-    }
+		try {
+			SimulinkFactory theSimulinkFactory = (SimulinkFactory)EPackage.Registry.INSTANCE.getEFactory(SimulinkPackage.eNS_URI);
+			if (theSimulinkFactory != null) {
+				return theSimulinkFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new SimulinkFactoryImpl();
+	}
 
 	/**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc -->
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SimulinkFactoryImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public EObject create(EClass eClass) {
-        switch (eClass.getClassifierID()) {
-            case SimulinkPackage.BLOCK: return createBlock();
-            case SimulinkPackage.PROPERTY: return createProperty();
-            case SimulinkPackage.IN_PORT: return createInPort();
-            case SimulinkPackage.OUT_PORT: return createOutPort();
-            case SimulinkPackage.TRIGGER: return createTrigger();
-            case SimulinkPackage.ENABLE: return createEnable();
-            case SimulinkPackage.BUS_SELECTOR: return createBusSelector();
-            case SimulinkPackage.BUS_CREATOR: return createBusCreator();
-            case SimulinkPackage.GOTO: return createGoto();
-            case SimulinkPackage.FROM: return createFrom();
-            case SimulinkPackage.SIMULINK_MODEL: return createSimulinkModel();
-            case SimulinkPackage.MULTI_CONNECTION: return createMultiConnection();
-            case SimulinkPackage.SINGLE_CONNECTION: return createSingleConnection();
-            case SimulinkPackage.OUT_PORT_BLOCK: return createOutPortBlock();
-            case SimulinkPackage.IN_PORT_BLOCK: return createInPortBlock();
-            case SimulinkPackage.TRIGGER_BLOCK: return createTriggerBlock();
-            case SimulinkPackage.ENABLE_BLOCK: return createEnableBlock();
-            case SimulinkPackage.GOTO_TAG_VISIBILITY: return createGotoTagVisibility();
-            case SimulinkPackage.SUB_SYSTEM: return createSubSystem();
-            case SimulinkPackage.MODEL_REFERENCE: return createModelReference();
-            case SimulinkPackage.BUS_SIGNAL_MAPPING: return createBusSignalMapping();
-            case SimulinkPackage.LIBRARY_LINK_REFERENCE: return createLibraryLinkReference();
-            case SimulinkPackage.IDENTIFIER_REFERENCE: return createIdentifierReference();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eClass.getClassifierID()) {
+			case SimulinkPackage.BLOCK: return createBlock();
+			case SimulinkPackage.PROPERTY: return createProperty();
+			case SimulinkPackage.IN_PORT: return createInPort();
+			case SimulinkPackage.OUT_PORT: return createOutPort();
+			case SimulinkPackage.TRIGGER: return createTrigger();
+			case SimulinkPackage.ENABLE: return createEnable();
+			case SimulinkPackage.BUS_SELECTOR: return createBusSelector();
+			case SimulinkPackage.BUS_CREATOR: return createBusCreator();
+			case SimulinkPackage.GOTO: return createGoto();
+			case SimulinkPackage.FROM: return createFrom();
+			case SimulinkPackage.SIMULINK_MODEL: return createSimulinkModel();
+			case SimulinkPackage.MULTI_CONNECTION: return createMultiConnection();
+			case SimulinkPackage.SINGLE_CONNECTION: return createSingleConnection();
+			case SimulinkPackage.OUT_PORT_BLOCK: return createOutPortBlock();
+			case SimulinkPackage.IN_PORT_BLOCK: return createInPortBlock();
+			case SimulinkPackage.TRIGGER_BLOCK: return createTriggerBlock();
+			case SimulinkPackage.ENABLE_BLOCK: return createEnableBlock();
+			case SimulinkPackage.GOTO_TAG_VISIBILITY: return createGotoTagVisibility();
+			case SimulinkPackage.SUB_SYSTEM: return createSubSystem();
+			case SimulinkPackage.MODEL_REFERENCE: return createModelReference();
+			case SimulinkPackage.BUS_SIGNAL_MAPPING: return createBusSignalMapping();
+			case SimulinkPackage.LIBRARY_LINK_REFERENCE: return createLibraryLinkReference();
+			case SimulinkPackage.IDENTIFIER_REFERENCE: return createIdentifierReference();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-        switch (eDataType.getClassifierID()) {
-            case SimulinkPackage.PROPERTY_TYPE:
-                return createPropertyTypeFromString(eDataType, initialValue);
-            case SimulinkPackage.ENABLE_STATES:
-                return createEnableStatesFromString(eDataType, initialValue);
-            case SimulinkPackage.TRIGGER_TYPE:
-                return createTriggerTypeFromString(eDataType, initialValue);
-            case SimulinkPackage.TAG_VISIBILITY:
-                return createTagVisibilityFromString(eDataType, initialValue);
-            case SimulinkPackage.PROPERTY_SOURCE:
-                return createPropertySourceFromString(eDataType, initialValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eDataType.getClassifierID()) {
+			case SimulinkPackage.PROPERTY_TYPE:
+				return createPropertyTypeFromString(eDataType, initialValue);
+			case SimulinkPackage.ENABLE_STATES:
+				return createEnableStatesFromString(eDataType, initialValue);
+			case SimulinkPackage.TRIGGER_TYPE:
+				return createTriggerTypeFromString(eDataType, initialValue);
+			case SimulinkPackage.TAG_VISIBILITY:
+				return createTagVisibilityFromString(eDataType, initialValue);
+			case SimulinkPackage.PROPERTY_SOURCE:
+				return createPropertySourceFromString(eDataType, initialValue);
+			case SimulinkPackage.SIMSCAPE_PORT_TYPE:
+				return createSimscapePortTypeFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-        switch (eDataType.getClassifierID()) {
-            case SimulinkPackage.PROPERTY_TYPE:
-                return convertPropertyTypeToString(eDataType, instanceValue);
-            case SimulinkPackage.ENABLE_STATES:
-                return convertEnableStatesToString(eDataType, instanceValue);
-            case SimulinkPackage.TRIGGER_TYPE:
-                return convertTriggerTypeToString(eDataType, instanceValue);
-            case SimulinkPackage.TAG_VISIBILITY:
-                return convertTagVisibilityToString(eDataType, instanceValue);
-            case SimulinkPackage.PROPERTY_SOURCE:
-                return convertPropertySourceToString(eDataType, instanceValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eDataType.getClassifierID()) {
+			case SimulinkPackage.PROPERTY_TYPE:
+				return convertPropertyTypeToString(eDataType, instanceValue);
+			case SimulinkPackage.ENABLE_STATES:
+				return convertEnableStatesToString(eDataType, instanceValue);
+			case SimulinkPackage.TRIGGER_TYPE:
+				return convertTriggerTypeToString(eDataType, instanceValue);
+			case SimulinkPackage.TAG_VISIBILITY:
+				return convertTagVisibilityToString(eDataType, instanceValue);
+			case SimulinkPackage.PROPERTY_SOURCE:
+				return convertPropertySourceToString(eDataType, instanceValue);
+			case SimulinkPackage.SIMSCAPE_PORT_TYPE:
+				return convertSimscapePortTypeToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Block createBlock() {
-        BlockImpl block = new BlockImpl();
-        return block;
-    }
+		BlockImpl block = new BlockImpl();
+		return block;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Property createProperty() {
-        PropertyImpl property = new PropertyImpl();
-        return property;
-    }
+		PropertyImpl property = new PropertyImpl();
+		return property;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public InPort createInPort() {
-        InPortImpl inPort = new InPortImpl();
-        return inPort;
-    }
+		InPortImpl inPort = new InPortImpl();
+		return inPort;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public OutPort createOutPort() {
-        OutPortImpl outPort = new OutPortImpl();
-        return outPort;
-    }
+		OutPortImpl outPort = new OutPortImpl();
+		return outPort;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Trigger createTrigger() {
-        TriggerImpl trigger = new TriggerImpl();
-        return trigger;
-    }
+		TriggerImpl trigger = new TriggerImpl();
+		return trigger;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Enable createEnable() {
-        EnableImpl enable = new EnableImpl();
-        return enable;
-    }
+		EnableImpl enable = new EnableImpl();
+		return enable;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusSelector createBusSelector() {
-        BusSelectorImpl busSelector = new BusSelectorImpl();
-        return busSelector;
-    }
+		BusSelectorImpl busSelector = new BusSelectorImpl();
+		return busSelector;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusCreator createBusCreator() {
-        BusCreatorImpl busCreator = new BusCreatorImpl();
-        return busCreator;
-    }
+		BusCreatorImpl busCreator = new BusCreatorImpl();
+		return busCreator;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Goto createGoto() {
-        GotoImpl goto_ = new GotoImpl();
-        return goto_;
-    }
+		GotoImpl goto_ = new GotoImpl();
+		return goto_;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public From createFrom() {
-        FromImpl from = new FromImpl();
-        return from;
-    }
+		FromImpl from = new FromImpl();
+		return from;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SimulinkModel createSimulinkModel() {
-        SimulinkModelImpl simulinkModel = new SimulinkModelImpl();
-        return simulinkModel;
-    }
+		SimulinkModelImpl simulinkModel = new SimulinkModelImpl();
+		return simulinkModel;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public MultiConnection createMultiConnection() {
-        MultiConnectionImpl multiConnection = new MultiConnectionImpl();
-        return multiConnection;
-    }
+		MultiConnectionImpl multiConnection = new MultiConnectionImpl();
+		return multiConnection;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SingleConnection createSingleConnection() {
-        SingleConnectionImpl singleConnection = new SingleConnectionImpl();
-        return singleConnection;
-    }
+		SingleConnectionImpl singleConnection = new SingleConnectionImpl();
+		return singleConnection;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public OutPortBlock createOutPortBlock() {
-        OutPortBlockImpl outPortBlock = new OutPortBlockImpl();
-        return outPortBlock;
-    }
+		OutPortBlockImpl outPortBlock = new OutPortBlockImpl();
+		return outPortBlock;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public InPortBlock createInPortBlock() {
-        InPortBlockImpl inPortBlock = new InPortBlockImpl();
-        return inPortBlock;
-    }
+		InPortBlockImpl inPortBlock = new InPortBlockImpl();
+		return inPortBlock;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public TriggerBlock createTriggerBlock() {
-        TriggerBlockImpl triggerBlock = new TriggerBlockImpl();
-        return triggerBlock;
-    }
+		TriggerBlockImpl triggerBlock = new TriggerBlockImpl();
+		return triggerBlock;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnableBlock createEnableBlock() {
-        EnableBlockImpl enableBlock = new EnableBlockImpl();
-        return enableBlock;
-    }
+		EnableBlockImpl enableBlock = new EnableBlockImpl();
+		return enableBlock;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public GotoTagVisibility createGotoTagVisibility() {
-        GotoTagVisibilityImpl gotoTagVisibility = new GotoTagVisibilityImpl();
-        return gotoTagVisibility;
-    }
+		GotoTagVisibilityImpl gotoTagVisibility = new GotoTagVisibilityImpl();
+		return gotoTagVisibility;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public SubSystem createSubSystem() {
-        SubSystemImpl subSystem = new SubSystemImpl();
-        return subSystem;
-    }
+		SubSystemImpl subSystem = new SubSystemImpl();
+		return subSystem;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public ModelReference createModelReference() {
-        ModelReferenceImpl modelReference = new ModelReferenceImpl();
-        return modelReference;
-    }
+		ModelReferenceImpl modelReference = new ModelReferenceImpl();
+		return modelReference;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public BusSignalMapping createBusSignalMapping() {
-        BusSignalMappingImpl busSignalMapping = new BusSignalMappingImpl();
-        return busSignalMapping;
-    }
+		BusSignalMappingImpl busSignalMapping = new BusSignalMappingImpl();
+		return busSignalMapping;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public LibraryLinkReference createLibraryLinkReference() {
-        LibraryLinkReferenceImpl libraryLinkReference = new LibraryLinkReferenceImpl();
-        return libraryLinkReference;
-    }
+		LibraryLinkReferenceImpl libraryLinkReference = new LibraryLinkReferenceImpl();
+		return libraryLinkReference;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public IdentifierReference createIdentifierReference() {
-        IdentifierReferenceImpl identifierReference = new IdentifierReferenceImpl();
-        return identifierReference;
-    }
+		IdentifierReferenceImpl identifierReference = new IdentifierReferenceImpl();
+		return identifierReference;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertyType createPropertyTypeFromString(EDataType eDataType, String initialValue) {
-        PropertyType result = PropertyType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		PropertyType result = PropertyType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertPropertyTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public EnableStates createEnableStatesFromString(EDataType eDataType, String initialValue) {
-        EnableStates result = EnableStates.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		EnableStates result = EnableStates.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertEnableStatesToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public TriggerType createTriggerTypeFromString(EDataType eDataType, String initialValue) {
-        TriggerType result = TriggerType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		TriggerType result = TriggerType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertTriggerTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public TagVisibility createTagVisibilityFromString(EDataType eDataType, String initialValue) {
-        TagVisibility result = TagVisibility.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		TagVisibility result = TagVisibility.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertTagVisibilityToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public PropertySource createPropertySourceFromString(EDataType eDataType, String initialValue) {
-        PropertySource result = PropertySource.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
+		PropertySource result = PropertySource.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String convertPropertySourceToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
+		return instanceValue == null ? null : instanceValue.toString();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
+	public SimscapePortType createSimscapePortTypeFromString(EDataType eDataType, String initialValue) {
+		SimscapePortType result = SimscapePortType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSimscapePortTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SimulinkPackage getSimulinkPackage() {
-        return (SimulinkPackage)getEPackage();
-    }
+		return (SimulinkPackage)getEPackage();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @deprecated
-     * @generated
-     */
+	 * @deprecated
+	 * @generated
+	 */
 	@Deprecated
 	public static SimulinkPackage getPackage() {
-        return SimulinkPackage.eINSTANCE;
-    }
+		return SimulinkPackage.eINSTANCE;
+	}
 
 } //SimulinkFactoryImpl

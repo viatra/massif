@@ -37,181 +37,181 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class PortBlockImpl extends VirtualBlockImpl implements PortBlock {
 	/**
-     * The cached value of the '{@link #getPort() <em>Port</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getPort() <em>Port</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getPort()
-     * @generated
-     * @ordered
-     */
+	 * @see #getPort()
+	 * @generated
+	 * @ordered
+	 */
 	protected Port port;
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected PortBlockImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.PORT_BLOCK;
-    }
+		return SimulinkPackage.Literals.PORT_BLOCK;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Port getPort() {
-        if (port != null && port.eIsProxy()) {
-            InternalEObject oldPort = (InternalEObject)port;
-            port = (Port)eResolveProxy(oldPort);
-            if (port != oldPort) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulinkPackage.PORT_BLOCK__PORT, oldPort, port));
-            }
-        }
-        return port;
-    }
+		if (port != null && port.eIsProxy()) {
+			InternalEObject oldPort = (InternalEObject)port;
+			port = (Port)eResolveProxy(oldPort);
+			if (port != oldPort) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulinkPackage.PORT_BLOCK__PORT, oldPort, port));
+			}
+		}
+		return port;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public Port basicGetPort() {
-        return port;
-    }
+		return port;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetPort(Port newPort, NotificationChain msgs) {
-        Port oldPort = port;
-        port = newPort;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimulinkPackage.PORT_BLOCK__PORT, oldPort, newPort);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		Port oldPort = port;
+		port = newPort;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimulinkPackage.PORT_BLOCK__PORT, oldPort, newPort);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setPort(Port newPort) {
-        if (newPort != port) {
-            NotificationChain msgs = null;
-            if (port != null)
-                msgs = ((InternalEObject)port).eInverseRemove(this, SimulinkPackage.PORT__PORT_BLOCK, Port.class, msgs);
-            if (newPort != null)
-                msgs = ((InternalEObject)newPort).eInverseAdd(this, SimulinkPackage.PORT__PORT_BLOCK, Port.class, msgs);
-            msgs = basicSetPort(newPort, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PORT_BLOCK__PORT, newPort, newPort));
-    }
+		if (newPort != port) {
+			NotificationChain msgs = null;
+			if (port != null)
+				msgs = ((InternalEObject)port).eInverseRemove(this, SimulinkPackage.PORT__PORT_BLOCK, Port.class, msgs);
+			if (newPort != null)
+				msgs = ((InternalEObject)newPort).eInverseAdd(this, SimulinkPackage.PORT__PORT_BLOCK, Port.class, msgs);
+			msgs = basicSetPort(newPort, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PORT_BLOCK__PORT, newPort, newPort));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case SimulinkPackage.PORT_BLOCK__PORT:
-                if (port != null)
-                    msgs = ((InternalEObject)port).eInverseRemove(this, SimulinkPackage.PORT__PORT_BLOCK, Port.class, msgs);
-                return basicSetPort((Port)otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case SimulinkPackage.PORT_BLOCK__PORT:
+				if (port != null)
+					msgs = ((InternalEObject)port).eInverseRemove(this, SimulinkPackage.PORT__PORT_BLOCK, Port.class, msgs);
+				return basicSetPort((Port)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case SimulinkPackage.PORT_BLOCK__PORT:
-                return basicSetPort(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case SimulinkPackage.PORT_BLOCK__PORT:
+				return basicSetPort(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case SimulinkPackage.PORT_BLOCK__PORT:
-                if (resolve) return getPort();
-                return basicGetPort();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case SimulinkPackage.PORT_BLOCK__PORT:
+				if (resolve) return getPort();
+				return basicGetPort();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case SimulinkPackage.PORT_BLOCK__PORT:
-                setPort((Port)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case SimulinkPackage.PORT_BLOCK__PORT:
+				setPort((Port)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case SimulinkPackage.PORT_BLOCK__PORT:
-                setPort((Port)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case SimulinkPackage.PORT_BLOCK__PORT:
+				setPort((Port)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case SimulinkPackage.PORT_BLOCK__PORT:
-                return port != null;
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case SimulinkPackage.PORT_BLOCK__PORT:
+				return port != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //PortBlockImpl

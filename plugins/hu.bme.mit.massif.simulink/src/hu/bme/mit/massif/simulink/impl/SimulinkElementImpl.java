@@ -40,170 +40,170 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class SimulinkElementImpl extends EObjectImpl implements SimulinkElement {
 	/**
-     * The cached value of the '{@link #getSimulinkRef() <em>Simulink Ref</em>}' containment reference.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSimulinkRef() <em>Simulink Ref</em>}' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getSimulinkRef()
-     * @generated
-     * @ordered
-     */
+	 * @see #getSimulinkRef()
+	 * @generated
+	 * @ordered
+	 */
 	protected IdentifierReference simulinkRef;
 
 	/**
-     * The cached setting delegate for the '{@link #getName() <em>Name</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached setting delegate for the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @see #getName()
-     * @generated
-     * @ordered
-     */
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
 	protected EStructuralFeature.Internal.SettingDelegate NAME__ESETTING_DELEGATE = ((EStructuralFeature.Internal)SimulinkPackage.Literals.SIMULINK_ELEMENT__NAME).getSettingDelegate();
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected SimulinkElementImpl() {
-        super();
-    }
+		super();
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.SIMULINK_ELEMENT;
-    }
+		return SimulinkPackage.Literals.SIMULINK_ELEMENT;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public IdentifierReference getSimulinkRef() {
-        return simulinkRef;
-    }
+		return simulinkRef;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public NotificationChain basicSetSimulinkRef(IdentifierReference newSimulinkRef, NotificationChain msgs) {
-        IdentifierReference oldSimulinkRef = simulinkRef;
-        simulinkRef = newSimulinkRef;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF, oldSimulinkRef, newSimulinkRef);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
-        }
-        return msgs;
-    }
+		IdentifierReference oldSimulinkRef = simulinkRef;
+		simulinkRef = newSimulinkRef;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF, oldSimulinkRef, newSimulinkRef);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public void setSimulinkRef(IdentifierReference newSimulinkRef) {
-        if (newSimulinkRef != simulinkRef) {
-            NotificationChain msgs = null;
-            if (simulinkRef != null)
-                msgs = ((InternalEObject)simulinkRef).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF, null, msgs);
-            if (newSimulinkRef != null)
-                msgs = ((InternalEObject)newSimulinkRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF, null, msgs);
-            msgs = basicSetSimulinkRef(newSimulinkRef, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF, newSimulinkRef, newSimulinkRef));
-    }
+		if (newSimulinkRef != simulinkRef) {
+			NotificationChain msgs = null;
+			if (simulinkRef != null)
+				msgs = ((InternalEObject)simulinkRef).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF, null, msgs);
+			if (newSimulinkRef != null)
+				msgs = ((InternalEObject)newSimulinkRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF, null, msgs);
+			msgs = basicSetSimulinkRef(newSimulinkRef, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF, newSimulinkRef, newSimulinkRef));
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public String getName() {
-        return (String)NAME__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-    }
+		return (String)NAME__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-        switch (featureID) {
-            case SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF:
-                return basicSetSimulinkRef(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+		switch (featureID) {
+			case SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF:
+				return basicSetSimulinkRef(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-        switch (featureID) {
-            case SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF:
-                return getSimulinkRef();
-            case SimulinkPackage.SIMULINK_ELEMENT__NAME:
-                return getName();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+		switch (featureID) {
+			case SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF:
+				return getSimulinkRef();
+			case SimulinkPackage.SIMULINK_ELEMENT__NAME:
+				return getName();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-        switch (featureID) {
-            case SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF:
-                setSimulinkRef((IdentifierReference)newValue);
-                return;
-        }
-        super.eSet(featureID, newValue);
-    }
+		switch (featureID) {
+			case SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF:
+				setSimulinkRef((IdentifierReference)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public void eUnset(int featureID) {
-        switch (featureID) {
-            case SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF:
-                setSimulinkRef((IdentifierReference)null);
-                return;
-        }
-        super.eUnset(featureID);
-    }
+		switch (featureID) {
+			case SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF:
+				setSimulinkRef((IdentifierReference)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
 	/**
-     * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	@Override
 	public boolean eIsSet(int featureID) {
-        switch (featureID) {
-            case SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF:
-                return simulinkRef != null;
-            case SimulinkPackage.SIMULINK_ELEMENT__NAME:
-                return NAME__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-        }
-        return super.eIsSet(featureID);
-    }
+		switch (featureID) {
+			case SimulinkPackage.SIMULINK_ELEMENT__SIMULINK_REF:
+				return simulinkRef != null;
+			case SimulinkPackage.SIMULINK_ELEMENT__NAME:
+				return NAME__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+		}
+		return super.eIsSet(featureID);
+	}
 
 } //SimulinkElementImpl

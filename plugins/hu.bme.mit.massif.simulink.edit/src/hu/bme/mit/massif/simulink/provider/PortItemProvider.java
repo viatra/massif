@@ -24,6 +24,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link hu.bme.mit.massif.simulink.Port} object.
@@ -54,6 +56,8 @@ public class PortItemProvider extends SimulinkElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPortBlockPropertyDescriptor(object);
+			addPortTypePropertyDescriptor(object);
+			addPortNoPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -76,6 +80,50 @@ public class PortItemProvider extends SimulinkElementItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Port Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPortTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Port_portType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Port_portType_feature", "_UI_Port_type"),
+				 SimulinkPackage.Literals.PORT__PORT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Port No feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPortNoPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Port_portNo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Port_portNo_feature", "_UI_Port_type"),
+				 SimulinkPackage.Literals.PORT__PORT_NO,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -105,6 +153,13 @@ public class PortItemProvider extends SimulinkElementItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Port.class)) {
+			case SimulinkPackage.PORT__PORT_TYPE:
+			case SimulinkPackage.PORT__PORT_NO:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

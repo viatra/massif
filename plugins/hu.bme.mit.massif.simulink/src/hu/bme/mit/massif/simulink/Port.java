@@ -28,6 +28,8 @@ package hu.bme.mit.massif.simulink;
  * <ul>
  *   <li>{@link hu.bme.mit.massif.simulink.Port#getContainer <em>Container</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.Port#getPortBlock <em>Port Block</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.Port#getPortType <em>Port Type</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.Port#getPortNo <em>Port No</em>}</li>
  * </ul>
  *
  * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPort()
@@ -36,59 +38,116 @@ package hu.bme.mit.massif.simulink;
  */
 public interface Port extends SimulinkElement {
 	/**
-     * Returns the value of the '<em><b>Container</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.Block#getPorts <em>Ports</em>}'.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Container</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.Block#getPorts <em>Ports</em>}'.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Container</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Container</em>' container reference.
-     * @see #setContainer(Block)
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPort_Container()
-     * @see hu.bme.mit.massif.simulink.Block#getPorts
-     * @model opposite="ports" transient="false"
-     * @generated
-     */
+	 * @return the value of the '<em>Container</em>' container reference.
+	 * @see #setContainer(Block)
+	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPort_Container()
+	 * @see hu.bme.mit.massif.simulink.Block#getPorts
+	 * @model opposite="ports" transient="false"
+	 * @generated
+	 */
 	Block getContainer();
 
 	/**
-     * Sets the value of the '{@link hu.bme.mit.massif.simulink.Port#getContainer <em>Container</em>}' container reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link hu.bme.mit.massif.simulink.Port#getContainer <em>Container</em>}' container reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Container</em>' container reference.
-     * @see #getContainer()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Container</em>' container reference.
+	 * @see #getContainer()
+	 * @generated
+	 */
 	void setContainer(Block value);
 
 	/**
-     * Returns the value of the '<em><b>Port Block</b></em>' reference.
-     * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.PortBlock#getPort <em>Port</em>}'.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Port Block</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.PortBlock#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Port Block</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Port Block</em>' reference.
-     * @see #setPortBlock(PortBlock)
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPort_PortBlock()
-     * @see hu.bme.mit.massif.simulink.PortBlock#getPort
-     * @model opposite="port"
-     * @generated
-     */
+	 * @return the value of the '<em>Port Block</em>' reference.
+	 * @see #setPortBlock(PortBlock)
+	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPort_PortBlock()
+	 * @see hu.bme.mit.massif.simulink.PortBlock#getPort
+	 * @model opposite="port"
+	 * @generated
+	 */
 	PortBlock getPortBlock();
 
 	/**
-     * Sets the value of the '{@link hu.bme.mit.massif.simulink.Port#getPortBlock <em>Port Block</em>}' reference.
-     * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link hu.bme.mit.massif.simulink.Port#getPortBlock <em>Port Block</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Port Block</em>' reference.
-     * @see #getPortBlock()
-     * @generated
-     */
+	 * @param value the new value of the '<em>Port Block</em>' reference.
+	 * @see #getPortBlock()
+	 * @generated
+	 */
 	void setPortBlock(PortBlock value);
+
+	/**
+	 * Returns the value of the '<em><b>Port Type</b></em>' attribute.
+	 * The default value is <code>"None"</code>.
+	 * The literals are from the enumeration {@link hu.bme.mit.massif.simulink.SimscapePortType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Port Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Port Type</em>' attribute.
+	 * @see hu.bme.mit.massif.simulink.SimscapePortType
+	 * @see #setPortType(SimscapePortType)
+	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPort_PortType()
+	 * @model default="None"
+	 * @generated
+	 */
+	SimscapePortType getPortType();
+
+	/**
+	 * Sets the value of the '{@link hu.bme.mit.massif.simulink.Port#getPortType <em>Port Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Port Type</em>' attribute.
+	 * @see hu.bme.mit.massif.simulink.SimscapePortType
+	 * @see #getPortType()
+	 * @generated
+	 */
+	void setPortType(SimscapePortType value);
+
+	/**
+	 * Returns the value of the '<em><b>Port No</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Port No</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Port No</em>' attribute.
+	 * @see #setPortNo(int)
+	 * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPort_PortNo()
+	 * @model default="0"
+	 * @generated
+	 */
+	int getPortNo();
+
+	/**
+	 * Sets the value of the '{@link hu.bme.mit.massif.simulink.Port#getPortNo <em>Port No</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Port No</em>' attribute.
+	 * @see #getPortNo()
+	 * @generated
+	 */
+	void setPortNo(int value);
 
 } // Port

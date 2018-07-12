@@ -4,7 +4,7 @@ Bundle-Name: Matlab Control Bundle
 Bundle-SymbolicName: matlabcontrol.external.bundle
 Bundle-Version: 0.7.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-ClassPath: lib/matlabcontrol-4.0.0.jar,
+Bundle-ClassPath: lib/matlabcontrol-4.1.0.jar,
  .
 Export-Package: matlabcontrol,
  matlabcontrol.extensions,

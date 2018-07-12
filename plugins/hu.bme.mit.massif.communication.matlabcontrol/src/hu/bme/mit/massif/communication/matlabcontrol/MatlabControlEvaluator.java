@@ -23,13 +23,13 @@ import matlabcontrol.MatlabProxyFactoryOptions.Builder;
  * 
  * (The successor class of BasicOperationsApi utility class)
  */
-public class CommandEvaluatorMCImpl extends AbstractCommandEvaluator<MatlabControlAccess> {
+public class MatlabControlEvaluator extends AbstractCommandEvaluator<MatlabControlAccess> {
 		
-    public CommandEvaluatorMCImpl(String matlabPath) {
+    public MatlabControlEvaluator(String matlabPath) {
         super(new MatlabControlAccess(getProxy(matlabPath)));
     }
     
-    public CommandEvaluatorMCImpl(MatlabProxy proxy) {
+    public MatlabControlEvaluator(MatlabProxy proxy) {
         super(new MatlabControlAccess(proxy));
     }
     

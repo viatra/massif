@@ -19,7 +19,7 @@ import java.util.Map;
  * This class is responsible for returning the appropriate object with the ICommandEvaluator interface for command
  * execution.
  */
-public class MatlabControlCommandEvaluatorFactory implements ICommandEvaluatorFactory {
+public class MatlabControlEvaluatorFactory implements ICommandEvaluatorFactory {
 
 	@Override
 	public ICommandEvaluator createCommandEvaluator(
@@ -27,7 +27,7 @@ public class MatlabControlCommandEvaluatorFactory implements ICommandEvaluatorFa
 		// Get the parameters
 		String matlabPath = (String) parameters.get("matlabPath");
 		
-		ICommandEvaluator result = new CommandEvaluatorMCImpl(matlabPath);
+		ICommandEvaluator result = new MatlabControlEvaluator(matlabPath);
 		
         return result;
 	}

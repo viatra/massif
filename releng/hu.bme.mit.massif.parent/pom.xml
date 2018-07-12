@@ -26,7 +26,7 @@
 		<module>../../plugins/hu.bme.mit.massif.communication.manager</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.api</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.filters</module>
-		<module>../../plugins/hu.bme.mit.massif.simulink.importer.ui</module>
+		<module>../../plugins/hu.bme.mit.massif.simulink.ui</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.cli</module>
 		
 		<!-- Command evaluation connector -->

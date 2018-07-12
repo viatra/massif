@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="hu.bme.mit.massif.simulink.importer.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="hu.bme.mit.massif.simulink.ui" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="hu.bme.mit.massif.simulink.importer.ui" id="hu.bme.mit.massif.matlab.connectors" name="Massif Matlab Connectors"/>
+         <meta.schema plugin="hu.bme.mit.massif.simulink.ui" id="hu.bme.mit.massif.matlab.connectors" name="Massif Matlab Connectors"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]
@@ -62,7 +62,7 @@
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":hu.bme.mit.massif.simulink.importer.ui.util.ICommandEvaluatorFactory"/>
+                  <meta.attribute kind="java" basedOn=":hu.bme.mit.massif.simulink.ui.util.ICommandEvaluatorFactory"/>
                </appinfo>
             </annotation>
          </attribute>

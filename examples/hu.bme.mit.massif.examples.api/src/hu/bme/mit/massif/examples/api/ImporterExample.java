@@ -54,28 +54,7 @@ public class ImporterExample {
 	@Test
 	public void exampleImport() throws IOException, MatlabRMIException, SimulinkApiException {
 		
-//		FastClasspathScanner scanner = new FastClasspathScanner();
-//		String uniqueClasspathElementsAsPathStr = scanner.getUniqueClasspathElementsAsPathStr();
-//		System.out.println(uniqueClasspathElementsAsPathStr);
-		
 		MatlabCommandFactory factory = new MatlabCommandFactory(commandEvaluator);
-
-		
-		
-		 
-//		URLClassLoader oscl = (URLClassLoader) sun.misc.Launcher.getLauncher().getClassLoader();
-//		try {
-//			Method addURL = URLClassLoader.class.getDeclaredMethod("addURL", URL.class);
-//			
-////			URL jarUrl = new URL("file:///usr/local/MATLAB/R2018a/extern/engines/java/jar/engine.jar");
-////			addURL.setAccessible(true);
-////			addURL.invoke(oscl, jarUrl);
-//			
-//			oscl.loadClass(Struct.class.toString());
-//		} catch (ClassNotFoundException | NoSuchMethodException | SecurityException | IllegalArgumentException e) {
-//			e.printStackTrace();
-//		}
-////		URLClassLoader child = new URLClassLoader (myJar.toURL(), this.getClass().getClassLoader());
 
 		String modelPath = ImporterExampleSettings.SIMULINK_MODEL_PATH;
 		String modelName = ImporterExampleSettings.SIMULINK_MODEL_NAME;

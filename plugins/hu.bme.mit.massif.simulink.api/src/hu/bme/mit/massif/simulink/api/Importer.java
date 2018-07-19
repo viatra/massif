@@ -717,7 +717,7 @@ public class Importer {
 
             // For each name get the from block and set the goto block
             for (String fromName : fromNames) {
-                From from = froms.get(fromName);
+                From from = froms.get(fromName.replaceAll("\n", " "));
                 if(from!=null){
                     from.setGotoBlock(gotoBlock);
                 }

@@ -70,40 +70,54 @@ public class MatlabEngineEvaluator extends AbstractCommandEvaluator<MatlabEngine
 			} else if (value instanceof String[]) {
 				CellMatlabData cellData = new CellMatlabData();
 				for (String stringVal : (String[]) value) {
-					cellData.addData(new MatlabString(stringVal));
+					cellData.addData(new MatlabString(stringVal.replaceAll("\n", " ")));
 				}
 				result = cellData;
 			} else if (value instanceof Character) {
 				String strVal = value.toString();
-				result = new MatlabString(strVal);
+				result = new MatlabString(strVal.replaceAll("\n", " "));
 			} else if (value instanceof Character[]) {
 				// TODO I'm not sure if this case happens
 			} else if (value != null && value.getClass().getSimpleName().contentEquals("Struct")) {
 				// XXX this hack should be removed after issue #89 is closed
 				// This piece of code basically moves the data from one struct to the other
-				Struct struct = new Struct();
-				Field[] fields = value.getClass().getDeclaredFields();
-				for (Field field : fields) {
-					if (java.lang.reflect.Modifier.isFinal(field.getModifiers())) {
-						// Don't bother if field is final
-						continue;
-					}
-					try {
-						String fieldName = field.getName();
-						field.setAccessible(true);
-						Object fieldValue = field.get(value);
-						Field fieldToSet = Struct.class.getDeclaredField(fieldName);
-						fieldToSet.setAccessible(true);
-						fieldToSet.set(struct, fieldValue);
-					} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException
-							| SecurityException e) {
-						e.printStackTrace();
-					}
-				}
+				Struct struct = extractStructContents(value);
 				result = processStruct(struct);
+			} else if (value != null && value.getClass().getSimpleName().contentEquals("Struct[]")) {
+				// XXX this hack should be removed after issue #89 is closed
+				// This piece of code basically moves the data from one struct to the other
+				Object[] rawStructArray = (Object[]) value;				
+				result = new CellMatlabData();
+				for (Object object : rawStructArray) {
+					Struct struct = extractStructContents(object);	
+					((CellMatlabData)result).addData(processStruct(struct));
+				}
 			}
 		}
 		return result;
+	}
+
+	private Struct extractStructContents(Object value) {
+		Struct struct = new Struct();
+		Field[] fields = value.getClass().getDeclaredFields();
+		for (Field field : fields) {
+			if (java.lang.reflect.Modifier.isFinal(field.getModifiers())) {
+				// Don't bother if field is final
+				continue;
+			}
+			try {
+				String fieldName = field.getName();
+				field.setAccessible(true);
+				Object fieldValue = field.get(value);
+				Field fieldToSet = Struct.class.getDeclaredField(fieldName);
+				fieldToSet.setAccessible(true);
+				fieldToSet.set(struct, fieldValue);
+			} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException
+					| SecurityException e) {
+				e.printStackTrace();
+			}
+		}
+		return struct;
 	}
 
 	private IVisitableMatlabData processStruct(Struct structObject) {

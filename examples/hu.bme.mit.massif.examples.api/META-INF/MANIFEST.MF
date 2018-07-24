@@ -9,7 +9,8 @@ Require-Bundle: org.junit,
  hu.bme.mit.massif.simulink.api,
  hu.bme.mit.massif.communication,
  hu.bme.mit.massif.communication.commandevaluation,
- matlab.engine.api.bundle;bundle-version="0.7.0",
  hu.bme.mit.massif.communication.matlabengine;bundle-version="0.7.0",
  matlabcontrol.external.bundle;bundle-version="0.7.0",
  hu.bme.mit.massif.communication.matlabcontrol;bundle-version="0.7.0"
+Import-Package: com.mathworks.engine,
+ com.mathworks.matlab.types

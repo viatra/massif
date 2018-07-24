@@ -21,6 +21,7 @@ import hu.bme.mit.massif.communication.AbstractCommandEvaluator;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
+import hu.bme.mit.massif.communication.datatype.Logical;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 
@@ -63,6 +64,14 @@ public class MatlabEngineEvaluator extends AbstractCommandEvaluator<MatlabEngine
 				CellMatlabData cellData = new CellMatlabData();
 				for (Double doubleVal : (double[]) value) {
 					cellData.addData(new Handle(doubleVal));
+				}
+				result = cellData;
+			} else if (Boolean.class.isInstance(value) || value instanceof Boolean) {
+				result = new Logical((Boolean) value);
+			} else if (value instanceof Boolean[]) {
+				CellMatlabData cellData = new CellMatlabData();
+				for (Boolean logicalVal : (Boolean[]) value) {
+					cellData.addData(new Logical(logicalVal));
 				}
 				result = cellData;
 			} else if (value instanceof String) {

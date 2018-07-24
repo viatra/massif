@@ -21,6 +21,7 @@ import hu.bme.mit.massif.communication.AbstractCommandEvaluator;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
+import hu.bme.mit.massif.communication.datatype.Logical;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 
@@ -65,6 +66,14 @@ public class MatlabEngineEvaluator extends AbstractCommandEvaluator<MatlabEngine
 					cellData.addData(new Handle(doubleVal));
 				}
 				result = cellData;
+			} else if (Boolean.class.isInstance(value) || value instanceof Boolean) {
+				result = new Logical((Boolean) value);
+			} else if (value instanceof Boolean[]) {
+				CellMatlabData cellData = new CellMatlabData();
+				for (Boolean logicalVal : (Boolean[]) value) {
+					cellData.addData(new Logical(logicalVal));
+				}
+				result = cellData;
 			} else if (value instanceof String) {
 				result = new MatlabString((String) value);
 			} else if (value instanceof String[]) {
@@ -79,13 +88,9 @@ public class MatlabEngineEvaluator extends AbstractCommandEvaluator<MatlabEngine
 			} else if (value instanceof Character[]) {
 				// TODO I'm not sure if this case happens
 			} else if (value != null && value.getClass().getSimpleName().contentEquals("Struct")) {
-				// XXX this hack should be removed after issue #89 is closed
-				// This piece of code basically moves the data from one struct to the other
 				Struct struct = (Struct)value;
 				result = processStruct(struct);
 			} else if (value != null && value.getClass().getSimpleName().contentEquals("Struct[]")) {
-				// XXX this hack should be removed after issue #89 is closed
-				// This piece of code basically moves the data from one struct to the other
 				Object[] rawStructArray = (Object[]) value;				
 				result = new CellMatlabData();
 				for (Object object : rawStructArray) {

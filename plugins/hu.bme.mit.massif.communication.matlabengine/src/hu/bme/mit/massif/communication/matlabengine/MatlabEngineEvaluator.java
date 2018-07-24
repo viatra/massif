@@ -88,13 +88,9 @@ public class MatlabEngineEvaluator extends AbstractCommandEvaluator<MatlabEngine
 			} else if (value instanceof Character[]) {
 				// TODO I'm not sure if this case happens
 			} else if (value != null && value.getClass().getSimpleName().contentEquals("Struct")) {
-				// XXX this hack should be removed after issue #89 is closed
-				// This piece of code basically moves the data from one struct to the other
 				Struct struct = (Struct)value;
 				result = processStruct(struct);
 			} else if (value != null && value.getClass().getSimpleName().contentEquals("Struct[]")) {
-				// XXX this hack should be removed after issue #89 is closed
-				// This piece of code basically moves the data from one struct to the other
 				Object[] rawStructArray = (Object[]) value;				
 				result = new CellMatlabData();
 				for (Object object : rawStructArray) {

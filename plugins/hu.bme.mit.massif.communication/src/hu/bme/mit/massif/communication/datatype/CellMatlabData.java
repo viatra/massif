@@ -51,7 +51,9 @@ public class CellMatlabData implements IVisitableMatlabData {
             return (CellMatlabData) data;
         } else {
             CellMatlabData tmp = new CellMatlabData();
-            tmp.addData(data);
+            if(data != null) {
+            	tmp.addData(data);            	
+            }
             return tmp;
         }
     }

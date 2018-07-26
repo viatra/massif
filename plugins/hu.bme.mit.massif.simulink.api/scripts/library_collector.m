@@ -1,4 +1,15 @@
+%##############################################################################
+% Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+% All rights reserved. This program and the accompanying materials 
+% are made available under the terms of the Eclipse Public License v1.0 
+% which accompanies this distribution, and is available at 
+% http://www.eclipse.org/legal/epl-v10.html 
+%
+% Contributors:
+%     Marton Bur - initial API and implementation 
+%##############################################################################
 function libraryNames = library_collector()
+%library_collector Searches for all block libraries visible to MATLAB
 
 slblocksLocations = which('slblocks','-ALL');
 sizeMat = size(slblocksLocations);

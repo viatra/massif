@@ -179,7 +179,12 @@ public final class BasicSimulinkEMFOperationsAPI {
         if (_maskVarValues.charAt(_maskVarValues.length() - 1) == '|')
             _maskVarValues = _maskVarValues.concat("''");
 
-        String[] splitValues = _maskVarValues.split("\\|");
+        // split at every "|" except at "\|"
+        String[] splitValues = _maskVarValues.split("(?<!\\\\)\\|");
+        // remove all "\"
+        for (int i = 0; i < splitValues.length; i++) {
+			splitValues[i] = splitValues[i].replaceAll("\\\\", "");
+		}
 
         int maskVarValuesArrayLength = splitValues.length;
         if (_maskVarValues.lastIndexOf('|') == _maskVarValues.length() - 1) {

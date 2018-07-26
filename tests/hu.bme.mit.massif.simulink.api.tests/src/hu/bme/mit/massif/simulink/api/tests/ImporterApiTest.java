@@ -90,7 +90,7 @@ public class ImporterApiTest {
      * @throws SimulinkApiException
      * @throws IOException
      */
-    @Ignore
+    //@Ignore
     @Test
     public void modelByName() throws SimulinkApiException, IOException {
 
@@ -136,55 +136,55 @@ public class ImporterApiTest {
         importModel(modelName, modelPath, importedModelName, traverseMode, pathArray, filterArray, scriptArray);
     }
 
-    //@Ignore
+    @Ignore
     @SuppressWarnings("javadoc")
     @Test
     public void emptyModelTest() throws Exception {
         runTest("empty_model", ImportMode.DEEP, new String[] {}, new String[] {});
     }
 
-    //@Ignore
+    @Ignore
     @SuppressWarnings("javadoc")
     @Test
     public void simpleIntegratorTest() throws Exception {
         runTest("simple_integrator", ImportMode.DEEP, new String[] {}, new String[] {});
     }
 
-    //@Ignore
+    @Ignore
     @Test
     public void simpleIOPortsTest() throws Exception {
         runTest("simple_io_ports", ImportMode.DEEP, new String[] {}, new String[] {});
     }
 
-    //@Ignore
+    @Ignore
     @SuppressWarnings("javadoc")
     @Test
     public void complexWithSubsystemsTest() throws Exception {
         runTest("complex_with_subsystems", ImportMode.DEEP, new String[] {}, new String[] {});
     }
 
-    //@Ignore
+    @Ignore
     @SuppressWarnings("javadoc")
     @Test
     public void blockWithApostrophes() throws Exception {
         runTest("block_with_apostrophes", ImportMode.DEEP, new String[] {}, new String[] {});
     }
 
-    //@Ignore
+    @Ignore
     @SuppressWarnings("javadoc")
     @Test
     public void modelWithMulticonnection() throws Exception {
         runTest("model_multiconnection", ImportMode.DEEP, new String[] {}, new String[] {});
     }
 
-    //@Ignore
+    @Ignore
     @SuppressWarnings("javadoc")
     @Test
     public void modelWithStateflow() throws Exception {
         runTest("complex_with_stateflow", ImportMode.DEEP, new String[] {}, new String[] {});
     }
 
-    //@Ignore
+    @Ignore
     @SuppressWarnings("javadoc")
     @Test
     public void modelWithGotoTagVisibilty() throws Exception {
@@ -199,7 +199,7 @@ public class ImporterApiTest {
         runTest("complex_with_simpower", ImportMode.DEEP, new String[] {}, new String[] {});
     }
 
-    //@Ignore
+    @Ignore
     @SuppressWarnings("javadoc")
     @Test
     public void modelNestedSubsystems() throws Exception {

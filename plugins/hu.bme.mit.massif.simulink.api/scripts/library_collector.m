@@ -23,30 +23,19 @@ for j=1:locationCount
     fileName = slblocksLocations(j);
     fileName = fileName{1,1};
     fileHandle = fopen(fileName);
-    %fileContent = fscanf(fileHandle,'%c')
     fileContent = '';
     
-    
     tline = fgets(fileHandle);
-%     isComment = regexp(tline,'^\s+%');
-%         
-%     if(~isempty(isComment))
-%         fileContent = tline;
-%     end
-    
 
     % purify the file - remove unnecessary lines
     while ischar(tline)
-        
         isComment = regexp(tline,'^\s*%', 'once');
         isBlank = regexp(tline,'^\s*\n', 'once');
         if(isempty(isComment) && isempty(isBlank))
             %disp (tline)
             fileContent = strcat(fileContent, tline);
         end
-        
         tline = fgets(fileHandle);
-        
     end
     
     % Get matching locations
@@ -55,11 +44,8 @@ for j=1:locationCount
     
     for k=1:length(nameStartIndex)
         
-    
-        potentialName = fileContent(nameStartIndex(k):length(fileContent)) ;   
-        
+        potentialName = fileContent(nameStartIndex(k):length(fileContent));   
         [~,endIdx] = regexp(potentialName,'''');
-        
         
         libraryName = potentialName(1:endIdx-1);
         if(~isempty(libraryName))
@@ -67,10 +53,8 @@ for j=1:locationCount
             libraryNames = [libraryNames , libraryName];
         end
         
-        
     end
     
-   
     fclose(fileHandle);
 end
 

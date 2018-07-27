@@ -17,7 +17,7 @@ s=struct();
 TmpObjParams=get_param(blockId,'ObjectParameters');
 names=fieldnames(TmpObjParams);
 for i = 1:numel(names)
-    if strcmpi(names{i},'Capabilities') == 0 || strcmpi(names{i},'MaskObject') == 0
+    if strcmpi(names{i},'Capabilities') == 0 && strcmpi(names{i},'MaskObject') == 0
         TmpParamValue=get_param(blockId,names{i});
         if strcmp(class(TmpParamValue), "char") == 0 
             [s(:).(names{i})]=TmpParamValue;

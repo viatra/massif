@@ -18,6 +18,8 @@ import java.util.Set;
 
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
+import hu.bme.mit.massif.communication.datatype.CellMatlabData;
+import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
@@ -54,14 +56,34 @@ public class DefaultBlockAdapter implements IBlockAdapter {
         Set<Entry<String, IVisitableMatlabData>> entries = blockPropsMap.entrySet();
         for (Entry<String, IVisitableMatlabData> entry : entries) {
 			IVisitableMatlabData value = entry.getValue();
-			if(value instanceof MatlabString) {
-				Property prop = SimulinkFactory.eINSTANCE.createProperty();
-				prop.setName(entry.getKey());
+			
+			Property prop = SimulinkFactory.eINSTANCE.createProperty();
+			prop.setName(entry.getKey());
+			
+			if (value == null) {
+				// Default: empty string
 				prop.setType(PropertyType.STRING_PROPERTY);
-				prop.setValue(value.toString());				
-				blockProperties.add(prop);
-			}
-   
+				prop.setValue("");				
+				blockProperties.add(prop);	
+			} else { 
+				if(value instanceof MatlabString) {
+					prop.setType(PropertyType.STRING_PROPERTY);
+					prop.setValue(value.toString());				
+					blockProperties.add(prop);
+				} else if(value instanceof Handle) {
+					prop.setType(PropertyType.DOUBLE_PROPERTY);
+					prop.setValue(value.toString());				
+					blockProperties.add(prop);
+				} else if(value instanceof StructMatlabData) {
+					prop.setType(PropertyType.STRING_PROPERTY);
+					// TODO set this value and uncomment the following line
+					// blockProperties.add(prop);
+				} else if(value instanceof CellMatlabData) {
+					prop.setType(PropertyType.STRING_PROPERTY);
+					// TODO set this value and uncomment the following line
+					// blockProperties.add(prop);
+				}
+			} 
         }
         
         blockToProcess.getProperties().addAll(blockProperties);

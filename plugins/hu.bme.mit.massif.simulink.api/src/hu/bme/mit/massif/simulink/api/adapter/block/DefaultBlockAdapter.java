@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.StringJoiner;
 
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
@@ -69,20 +70,27 @@ public class DefaultBlockAdapter implements IBlockAdapter {
 				if(value instanceof MatlabString) {
 					prop.setType(PropertyType.STRING_PROPERTY);
 					prop.setValue(value.toString());				
-					blockProperties.add(prop);
 				} else if(value instanceof Handle) {
 					prop.setType(PropertyType.DOUBLE_PROPERTY);
 					prop.setValue(value.toString());				
-					blockProperties.add(prop);
+				} else if (value instanceof CellMatlabData) {
+					prop.setType(PropertyType.STRING_PROPERTY);
+					CellMatlabData cell = (CellMatlabData) value;
+					StringJoiner joiner = new StringJoiner(",", "[", "]");
+					for (IVisitableMatlabData data : cell.getDatas()) {
+						joiner.add(data.toString());
+					}
+					prop.setValue(joiner.toString());
 				} else if(value instanceof StructMatlabData) {
 					prop.setType(PropertyType.STRING_PROPERTY);
-					// TODO set this value and uncomment the following line
-					// blockProperties.add(prop);
-				} else if(value instanceof CellMatlabData) {
-					prop.setType(PropertyType.STRING_PROPERTY);
-					// TODO set this value and uncomment the following line
-					// blockProperties.add(prop);
+					StructMatlabData struct = (StructMatlabData) value;
+					StringJoiner joiner = new StringJoiner(",", "{", "}");
+					for (Entry<String, IVisitableMatlabData> structEntry : struct.getDatas().entrySet()) {
+						joiner.add(structEntry.getKey().toString() + ":" + (structEntry.getValue() == null ? "" : structEntry.getValue().toString()));
+					}
+					prop.setValue(joiner.toString());
 				}
+				blockProperties.add(prop);
 			} 
         }
         

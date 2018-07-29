@@ -6,7 +6,7 @@
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Marton Bur - initial API and implementation 
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.extension;
 

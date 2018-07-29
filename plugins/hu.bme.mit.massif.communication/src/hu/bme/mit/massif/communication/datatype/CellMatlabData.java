@@ -14,6 +14,7 @@ import hu.bme.mit.massif.communication.datavisitor.IMatlabDataVisitor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 /**
  * This class represents data from MATLAB that contains more than 1 single value
@@ -67,4 +68,13 @@ public class CellMatlabData implements IVisitableMatlabData {
         visitor.visit(this);
     }
 
+    @Override
+    public String toString() {
+		StringJoiner joiner = new StringJoiner(",", "[", "]");
+		for (IVisitableMatlabData data : getDatas()) {
+			joiner.add(data.toString());
+		}
+		return joiner.toString();
+    }
+    
 }

@@ -69,27 +69,14 @@ public class DefaultBlockAdapter implements IBlockAdapter {
 			} else { 
 				if(value instanceof MatlabString) {
 					prop.setType(PropertyType.STRING_PROPERTY);
-					prop.setValue(value.toString());				
 				} else if(value instanceof Handle) {
 					prop.setType(PropertyType.DOUBLE_PROPERTY);
-					prop.setValue(value.toString());				
 				} else if (value instanceof CellMatlabData) {
 					prop.setType(PropertyType.STRING_PROPERTY);
-					CellMatlabData cell = (CellMatlabData) value;
-					StringJoiner joiner = new StringJoiner(",", "[", "]");
-					for (IVisitableMatlabData data : cell.getDatas()) {
-						joiner.add(data.toString());
-					}
-					prop.setValue(joiner.toString());
 				} else if(value instanceof StructMatlabData) {
 					prop.setType(PropertyType.STRING_PROPERTY);
-					StructMatlabData struct = (StructMatlabData) value;
-					StringJoiner joiner = new StringJoiner(",", "{", "}");
-					for (Entry<String, IVisitableMatlabData> structEntry : struct.getDatas().entrySet()) {
-						joiner.add(structEntry.getKey().toString() + ":" + (structEntry.getValue() == null ? "" : structEntry.getValue().toString()));
-					}
-					prop.setValue(joiner.toString());
 				}
+				prop.setValue(value.toString());
 				blockProperties.add(prop);
 			} 
         }

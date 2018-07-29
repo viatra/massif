@@ -1,6 +1,6 @@
 package hu.bme.mit.massif.simulink.ui.providers;
 
-import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
 import hu.bme.mit.massif.simulink.ui.MassifSimulinkUIPlugin;
 
 import java.util.Map;
@@ -20,9 +20,9 @@ public enum ImportFilterRegistry {
 
 	INSTANCE;
 	
-	private Map<String,ISimulinkImportFilter> filtersById;
+	private Map<String,IBlockImportFilter> filtersById;
 	
-	public synchronized Map<String, ISimulinkImportFilter> getFiltersById() {
+	public synchronized Map<String, IBlockImportFilter> getFiltersById() {
 		if(filtersById == null){
 			readExtensionRegistry();
 		}
@@ -45,7 +45,7 @@ public enum ImportFilterRegistry {
 					for (IConfigurationElement el : els) {
 						if (el.getName().equals("filter")) {
 							try {
-								ISimulinkImportFilter filter = (ISimulinkImportFilter) el.createExecutableExtension("filterImplClass");
+								IBlockImportFilter filter = (IBlockImportFilter) el.createExecutableExtension("filterImplClass");
 								String filterId = el.getAttribute("filterId");
 								if (filterId != null && !"".equals(filterId) && filter != null) {
 									filtersById.put(filterId,filter);

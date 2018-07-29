@@ -10,7 +10,7 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.ui.preferences;
 
-import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 import hu.bme.mit.massif.simulink.ui.MassifSimulinkUIPlugin;
 import hu.bme.mit.massif.simulink.ui.dialogs.ContainerFieldEditor;
@@ -90,9 +90,9 @@ public class ImporterPreferencePage extends FieldEditorPreferencePage implements
         filterInformation.setText("Import filters to use by default:");
 
         
-        Map<String, ISimulinkImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getFiltersById();
+        Map<String, IBlockImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getFiltersById();
         for (String filterId : filtersById.keySet()) {
-        	ISimulinkImportFilter filter = filtersById.get(filterId);
+        	IBlockImportFilter filter = filtersById.get(filterId);
         	Composite filterCheckboxParent = getFieldEditorParent();
         	BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId,filter.getName(), filterCheckboxParent);
         	filterCheckbox.getDescriptionControl(filterCheckboxParent).setToolTipText(filter.getDescription());

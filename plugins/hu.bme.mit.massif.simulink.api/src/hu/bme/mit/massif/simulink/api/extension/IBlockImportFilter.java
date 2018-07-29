@@ -31,8 +31,8 @@ public interface IBlockImportFilter {
     /**
      * Determines if the internal content of a Simulink block should also be imported.
      * 
-     * @param commandEvaluator
-     *            the MATLAB command evaluator object
+     * @param commandFactory
+     *            the MATLAB command factory object
      * @param blockFQN
      *            the fully qualified name of the block
      * @return true if the sub-blocks of the block should not be imported (in other words: returns if the sub-blocks

@@ -15,7 +15,7 @@ import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 /**
  * Interface that defines the filter for importing Simulink models
  */
-public interface ISimulinkImportFilter {
+public interface IBlockImportFilter {
 
 	
 	/**

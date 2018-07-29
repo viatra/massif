@@ -13,9 +13,9 @@ package hu.bme.mit.massif.simulink.api.extension.impl;
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
-import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
 
-public class ReferencingImportFilter implements ISimulinkImportFilter {
+public class ReferencingImportFilter implements IBlockImportFilter {
 
 	@Override
 	public String getName() {

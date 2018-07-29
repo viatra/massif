@@ -14,7 +14,7 @@ import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
-import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
 
 /**
  * This filter identifies atomic library blocks inside a library model. Such blocks are not represented graphically by
@@ -42,7 +42,7 @@ import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
  * 
  * (b/iv) Otherwise, it is not atomic, that is, it is simply part of the hierarchical organization (return false)<br>
  */
-public class LibraryFilter implements ISimulinkImportFilter {
+public class LibraryFilter implements IBlockImportFilter {
 
 	@Override
 	public String getName() {

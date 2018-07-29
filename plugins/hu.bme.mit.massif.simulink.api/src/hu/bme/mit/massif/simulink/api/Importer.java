@@ -46,7 +46,7 @@ import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.api.adapter.block.IBlockAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.IPortAdapter;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
 import hu.bme.mit.massif.simulink.api.extension.impl.ReferencingImportFilter;
 import hu.bme.mit.massif.simulink.api.internal.PluginSimulinkAPILogger;
 import hu.bme.mit.massif.simulink.api.internal.SimulinkApiPlugin;
@@ -311,7 +311,7 @@ public class Importer {
         return importMode;
     }
 
-    public Set<ISimulinkImportFilter> getFilters() {
+    public Set<IBlockImportFilter> getFilters() {
         return filters;
     }
 
@@ -334,7 +334,7 @@ public class Importer {
     /**
      * Collection of filters that decide whether the Simulink block should be imported
      */
-    private Set<ISimulinkImportFilter> filters = new HashSet<ISimulinkImportFilter>();
+    private Set<IBlockImportFilter> filters = new HashSet<IBlockImportFilter>();
     /**
      * The current command factory connected to the currentMatlabClient
      */
@@ -432,7 +432,7 @@ public class Importer {
         commandFactory = model.getCommandFactory();
     }
 
-    public void registerFilters(Collection<ISimulinkImportFilter> filters){
+    public void registerFilters(Collection<IBlockImportFilter> filters){
     	this.filters.addAll(filters);
     }
 
@@ -441,7 +441,7 @@ public class Importer {
      * 
      * @param filter
      */
-    public void registerFilter(ISimulinkImportFilter filter) {
+    public void registerFilter(IBlockImportFilter filter) {
         filters.add(filter);
     }
 
@@ -861,7 +861,7 @@ public class Importer {
      */
     private boolean isFiltered(Block block) {
         boolean filtered = false;
-        for (ISimulinkImportFilter filter : filters) {
+        for (IBlockImportFilter filter : filters) {
             if (filter.filter(commandFactory, block.getSimulinkRef().getFQN())) {
                 filtered = true;
                 break;

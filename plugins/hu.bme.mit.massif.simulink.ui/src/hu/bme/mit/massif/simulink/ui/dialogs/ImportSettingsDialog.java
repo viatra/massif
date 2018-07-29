@@ -10,7 +10,7 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.ui.dialogs;
 
-import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
 import hu.bme.mit.massif.simulink.ui.providers.ImportFilterRegistry;
 
 import java.io.File;
@@ -72,9 +72,9 @@ public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 
 		List<FieldEditor> fes = new LinkedList<FieldEditor>();
 
-		Map<String, ISimulinkImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getFiltersById();
+		Map<String, IBlockImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getFiltersById();
 		for (String filterId : filtersById.keySet()) {
-			ISimulinkImportFilter filter = filtersById.get(filterId);
+			IBlockImportFilter filter = filtersById.get(filterId);
 			BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId, filter.getName(), fieldEditorParent);
 			filterCheckbox.setPreferenceStore(store);
 			filterCheckbox.setPreferenceName(filterId);

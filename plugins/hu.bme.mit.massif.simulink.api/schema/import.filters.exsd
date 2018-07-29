@@ -18,7 +18,10 @@
       </annotation>
       <complexType>
          <sequence minOccurs="0" maxOccurs="unbounded">
-            <element ref="blockfilter"/>
+            <choice>
+               <element ref="blockfilter"/>
+               <element ref="parameterfilter"/>
+            </choice>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>

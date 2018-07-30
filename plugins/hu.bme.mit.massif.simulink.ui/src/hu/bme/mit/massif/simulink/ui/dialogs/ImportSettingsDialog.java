@@ -11,6 +11,7 @@
 package hu.bme.mit.massif.simulink.ui.dialogs;
 
 import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 import hu.bme.mit.massif.simulink.ui.providers.ImportFilterRegistry;
 
 import java.io.File;
@@ -75,7 +76,19 @@ public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 		Map<String, IBlockImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getBlockFiltersById();
 		for (String filterId : filtersById.keySet()) {
 			IBlockImportFilter filter = filtersById.get(filterId);
-			BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId, filter.getName(), fieldEditorParent);
+			BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId, filter.getName() + " (block filter)", fieldEditorParent);
+			filterCheckbox.setPreferenceStore(store);
+			filterCheckbox.setPreferenceName(filterId);
+			filterCheckbox.load();
+			filterCheckbox.getDescriptionControl(fieldEditorParent).setToolTipText(filter.getDescription());
+			fes.add(filterCheckbox);
+			filterSelectors.put(filterId, filterCheckbox);
+		}
+
+		Map<String, IParameterImportFilter> paramFiltersById = ImportFilterRegistry.INSTANCE.getParameterFiltersById();
+		for (String filterId : paramFiltersById.keySet()) {
+			IParameterImportFilter filter = paramFiltersById.get(filterId);
+			BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId, filter.getName() + " (parameter filter)", fieldEditorParent);
 			filterCheckbox.setPreferenceStore(store);
 			filterCheckbox.setPreferenceName(filterId);
 			filterCheckbox.load();

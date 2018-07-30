@@ -11,5 +11,9 @@
             blockFilterId="library"
             blockFilterImplClass="hu.bme.mit.massif.simulink.filters.LibraryFilter">
       </blockfilter>
+      <parameterfilter
+            parameterFilterId="hu.bme.mit.massif.simulink.filters.ignoreall"
+            parameterFilterImplClass="hu.bme.mit.massif.simulink.filters.IgnoreAllParametersFilter">
+      </parameterfilter>
    </extension>
 </plugin>

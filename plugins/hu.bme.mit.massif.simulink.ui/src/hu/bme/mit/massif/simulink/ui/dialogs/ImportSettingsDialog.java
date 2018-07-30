@@ -72,7 +72,7 @@ public class ImportSettingsDialog extends AbstractSimulinkSettingsDialog {
 
 		List<FieldEditor> fes = new LinkedList<FieldEditor>();
 
-		Map<String, IBlockImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getFiltersById();
+		Map<String, IBlockImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getBlockFiltersById();
 		for (String filterId : filtersById.keySet()) {
 			IBlockImportFilter filter = filtersById.get(filterId);
 			BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId, filter.getName(), fieldEditorParent);

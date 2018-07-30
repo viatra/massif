@@ -5,36 +5,36 @@
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
- * Contributors: 
+ * Contributors:
  *     Marton Bur - initial API and implementation 
  *******************************************************************************/
-package hu.bme.mit.massif.simulink.api.extension.impl;
+package hu.bme.mit.massif.simulink.filters;
 
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 
 /**
- * 
- * Simple filter that filters no parameters.
+ * Simple filter that makes the importer skip processing block parameters during import.
  * 
  * @author Marton Bur
  *
  */
-public class KeepAllParametersFilter implements IParameterImportFilter {
+public class IgnoreAllParametersFilter implements IParameterImportFilter {
 
 	@Override
 	public String getName() {
-		return "Keep all block parameters filter";
+		return "Filter all block parameters";
 	}
-	
+
 	@Override
 	public String getDescription() {
-		return "Simple filter that filters no parameters.";
+		return "This filter makes the importer skip all block parameters.";
 	}
-	
+
 	@Override
-    public boolean filter(MatlabCommandFactory commandFactory, String parameterName) {
-		return false;
+	public boolean filter(MatlabCommandFactory commandFactory, String parameterName) {
+		// Filter all block parameters
+		return true;
 	}
 
 }

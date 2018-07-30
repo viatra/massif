@@ -311,8 +311,8 @@ public class Importer {
         return importMode;
     }
 
-    public Set<IBlockImportFilter> getFilters() {
-        return filters;
+    public Set<IBlockImportFilter> getBlockFilters() {
+        return blockFilters;
     }
 
     public MatlabCommandFactory getCommandFactory(){
@@ -334,7 +334,7 @@ public class Importer {
     /**
      * Collection of filters that decide whether the Simulink block should be imported
      */
-    private Set<IBlockImportFilter> filters = new HashSet<IBlockImportFilter>();
+    private Set<IBlockImportFilter> blockFilters = new HashSet<IBlockImportFilter>();
     /**
      * The current command factory connected to the currentMatlabClient
      */
@@ -432,8 +432,13 @@ public class Importer {
         commandFactory = model.getCommandFactory();
     }
 
-    public void registerFilters(Collection<IBlockImportFilter> filters){
-    	this.filters.addAll(filters);
+    /**
+     * Registers a block filter for the importer
+     * 
+     * @param filter
+     */
+    public void registerBlockFilter(IBlockImportFilter filter) {
+        blockFilters.add(filter);
     }
 
     /**
@@ -441,13 +446,20 @@ public class Importer {
      * 
      * @param filter
      */
-    public void registerFilter(IBlockImportFilter filter) {
-        filters.add(filter);
+
+    /**
+     * Batch register a collection of block filters
+     * 
+     * @param filters
+     */
+    public void registerBlockFilters(Collection<IBlockImportFilter> filters){
+    	this.blockFilters.addAll(filters);
     }
 
     public void saveEMFModel() throws SimulinkApiException {
         saveEMFModel(getDefaultSavePath() + File.separator + modelFQN);
     }
+    
     /**
      * The saver function for the result model
      * 
@@ -522,7 +534,7 @@ public class Importer {
         this.importMode = importMode;
 
         if(importMode==ImportMode.REFERENCING){
-            filters.add(new ReferencingImportFilter());
+            blockFilters.add(new ReferencingImportFilter());
         }
         
         simulinkModel = SimulinkFactory.eINSTANCE.createSimulinkModel();
@@ -861,7 +873,7 @@ public class Importer {
      */
     private boolean isFiltered(Block block) {
         boolean filtered = false;
-        for (IBlockImportFilter filter : filters) {
+        for (IBlockImportFilter filter : blockFilters) {
             if (filter.filter(commandFactory, block.getSimulinkRef().getFQN())) {
                 filtered = true;
                 break;

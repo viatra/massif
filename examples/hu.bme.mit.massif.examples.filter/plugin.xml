@@ -3,10 +3,10 @@
 <plugin>
    <extension
          point="hu.bme.mit.massif.simulink.api.import.filters">
-      <filter
-            filterId="hu.bme.mit.massif.examples.filter.maskfilterid"
-            filterImplClass="hu.bme.mit.massif.examples.filter.MaskFilter">
-      </filter>
+      <blockfilter
+            blockFilterId="hu.bme.mit.massif.examples.filter.maskfilter"
+            blockFilterImplClass="hu.bme.mit.massif.examples.filter.MaskFilter">
+      </blockfilter>
    </extension>
 
 </plugin>

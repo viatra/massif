@@ -11,6 +11,7 @@
 package hu.bme.mit.massif.simulink.ui.preferences;
 
 import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 import hu.bme.mit.massif.simulink.ui.MassifSimulinkUIPlugin;
 import hu.bme.mit.massif.simulink.ui.dialogs.ContainerFieldEditor;
@@ -85,20 +86,33 @@ public class ImporterPreferencePage extends FieldEditorPreferencePage implements
 
         // Import filter
         // TODO magic string elimination
-        Label filterInformation = new Label(getFieldEditorParent(), SWT.NONE);
-        filterInformation.setBounds(new Rectangle(0, 0, 300, 15));
-        filterInformation.setText("Import filters to use by default:");
+        Label blockFilterInformation = new Label(getFieldEditorParent(), SWT.NONE);
+        blockFilterInformation.setBounds(new Rectangle(0, 0, 300, 15));
+        blockFilterInformation.setText("Block import filters to use by default:");
 
-        
-        Map<String, IBlockImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getBlockFiltersById();
-        for (String filterId : filtersById.keySet()) {
-        	IBlockImportFilter filter = filtersById.get(filterId);
+        Map<String, IBlockImportFilter> blockFiltersById = ImportFilterRegistry.INSTANCE.getBlockFiltersById();
+        for (String filterId : blockFiltersById.keySet()) {
+        	IBlockImportFilter filter = blockFiltersById.get(filterId);
         	Composite filterCheckboxParent = getFieldEditorParent();
         	BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId,filter.getName(), filterCheckboxParent);
         	filterCheckbox.getDescriptionControl(filterCheckboxParent).setToolTipText(filter.getDescription());
         	addField(filterCheckbox);			
-		}
+		}        
+        Label parameterFilterInformation = new Label(getFieldEditorParent(), SWT.NONE);
+        parameterFilterInformation.setBounds(new Rectangle(0, 0, 300, 15));
+        parameterFilterInformation.setText("Parameter import filters to use by default:");
         
+        Map<String, IParameterImportFilter> parameterFiltersById = ImportFilterRegistry.INSTANCE.getParameterFiltersById();
+        for (String filterId : parameterFiltersById.keySet()) {
+        	IParameterImportFilter filter = parameterFiltersById.get(filterId);
+        	Composite filterCheckboxParent = getFieldEditorParent();
+        	BooleanFieldEditor filterCheckbox = new BooleanFieldEditor(filterId,filter.getName(), filterCheckboxParent);
+        	filterCheckbox.getDescriptionControl(filterCheckboxParent).setToolTipText(filter.getDescription());
+        	addField(filterCheckbox);			
+        }
+        
+        SeparatorFieldEditor separator2 = new SeparatorFieldEditor(getFieldEditorParent());
+        addField(separator2);
 
 		// TODO set this, makes the setting more user friendly
 		// resultModelPathEditor.setFilterPath(path);

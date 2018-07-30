@@ -47,6 +47,7 @@ import hu.bme.mit.massif.simulink.api.adapter.block.IBlockAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.IPortAdapter;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 import hu.bme.mit.massif.simulink.api.extension.impl.ReferencingImportFilter;
 import hu.bme.mit.massif.simulink.api.internal.PluginSimulinkAPILogger;
 import hu.bme.mit.massif.simulink.api.internal.SimulinkApiPlugin;
@@ -314,6 +315,10 @@ public class Importer {
     public Set<IBlockImportFilter> getBlockFilters() {
         return blockFilters;
     }
+    
+    public Set<IParameterImportFilter> getParameterFilters() {
+    	return parameterFilters;
+    }
 
     public MatlabCommandFactory getCommandFactory(){
     	return commandFactory;
@@ -335,6 +340,10 @@ public class Importer {
      * Collection of filters that decide whether the Simulink block should be imported
      */
     private Set<IBlockImportFilter> blockFilters = new HashSet<IBlockImportFilter>();
+    /**
+     * Collection of filters that decide if a Simulink block parameter should be imported
+     */
+    private Set<IParameterImportFilter> parameterFilters = new HashSet<IParameterImportFilter>();
     /**
      * The current command factory connected to the currentMatlabClient
      */
@@ -442,10 +451,13 @@ public class Importer {
     }
 
     /**
-     * Registers an import filter for the traverser
+     * Registers a block parameter filter for the importer
      * 
      * @param filter
      */
+    public void registerParameterFilter(IParameterImportFilter filter) {
+    	parameterFilters.add(filter);
+    }
 
     /**
      * Batch register a collection of block filters
@@ -454,6 +466,16 @@ public class Importer {
      */
     public void registerBlockFilters(Collection<IBlockImportFilter> filters){
     	this.blockFilters.addAll(filters);
+    }
+    
+    /**
+     * 
+     * Batch register a collection of block parameter filters
+     * 
+     * @param filters
+     */
+    public void registerParameterFilters(Collection<IParameterImportFilter> filters){
+    	this.parameterFilters.addAll(filters);
     }
 
     public void saveEMFModel() throws SimulinkApiException {

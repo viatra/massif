@@ -177,7 +177,7 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
                     
                     // Register applicable filters for the traverser
                     for (String filterId : model.getApplicableFilters()) {						
-                    	traverser.registerFilter(ImportFilterRegistry.INSTANCE.getFiltersById().get(filterId));
+                    	traverser.registerFilter(ImportFilterRegistry.INSTANCE.getBlockFiltersById().get(filterId));
 					}
                     
                     traverser.traverseAndCreateEMFModel(ImportMode.valueOf(settings.traverseMode));

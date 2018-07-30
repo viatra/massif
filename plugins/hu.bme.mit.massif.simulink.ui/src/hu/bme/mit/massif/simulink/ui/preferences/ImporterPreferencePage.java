@@ -90,7 +90,7 @@ public class ImporterPreferencePage extends FieldEditorPreferencePage implements
         filterInformation.setText("Import filters to use by default:");
 
         
-        Map<String, IBlockImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getFiltersById();
+        Map<String, IBlockImportFilter> filtersById = ImportFilterRegistry.INSTANCE.getBlockFiltersById();
         for (String filterId : filtersById.keySet()) {
         	IBlockImportFilter filter = filtersById.get(filterId);
         	Composite filterCheckboxParent = getFieldEditorParent();

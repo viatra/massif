@@ -36,13 +36,6 @@ public enum CommandEvaluatorManager {
 	INSTANCE;
 	
 	private Map<String, ICommandEvaluatorFactory> factoryMap = null;
-	
-    /**
-     * Enumeration for the different MATLAB client providers
-     */
-    public enum MatlabProvider {
-        COMMAND_EVALUATION_SERVER, MATLABCONTROL
-    }
 
     public ICommandEvaluator getCommandEvaluator(String id, Map<String, Object> parameters) throws ConnectorCreationException {
     	ICommandEvaluator result = null;

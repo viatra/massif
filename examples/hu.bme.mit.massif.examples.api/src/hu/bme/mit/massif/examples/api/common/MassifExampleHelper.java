@@ -36,9 +36,9 @@ public class MassifExampleHelper {
     		return new CommandEvaluatorImpl(matlabClient);			    		
 		case MATLAB_CONTROL:
 			
-			return new MatlabControlEvaluator(ImporterExampleSettings.MATLAB_PATH);
+			return new MatlabControlEvaluator(ImporterExampleSettings.MATLAB_PATH, ImporterExampleSettings.PRINT_ISSUED_COMMANDS);
 		case MATLAB_ENGINE:
-			return new MatlabEngineEvaluator();			
+			return new MatlabEngineEvaluator(ImporterExampleSettings.PRINT_ISSUED_COMMANDS);			
 		default:
 			throw new SimulinkApiException("Not supported connector was set: " + ImporterExampleSettings.MATLAB_CONNECTOR);
 		}

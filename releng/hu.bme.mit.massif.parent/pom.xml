@@ -71,7 +71,7 @@
 		<tycho.version>1.2.0</tycho.version>
 		<xtend.compiler.version>2.13.0</xtend.compiler.version>
 		<viatra.compiler.version>2.0.0</viatra.compiler.version>
-		<viatra.repository.url>http://download.eclipse.org/viatra/updates/integration/</viatra.repository.url>
+		<viatra.repository.url>http://download.eclipse.org/viatra/updates/release/</viatra.repository.url>
 		<viatra.maven.repository.url>https://repo.eclipse.org/content/repositories/viatra-snapshots/</viatra.maven.repository.url>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.skippedModules></sonar.skippedModules>

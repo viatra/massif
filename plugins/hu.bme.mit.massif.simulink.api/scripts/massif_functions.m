@@ -1,13 +1,23 @@
 %##############################################################################
-% Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+% Copyright (c) 2010-2018, IncQuery Labs Ltd., logi.cals GmbH, McGill
+% University, Embraer S.A., Budapest University of Technology and Economics
 % All rights reserved. This program and the accompanying materials 
 % are made available under the terms of the Eclipse Public License v1.0 
 % which accompanies this distribution, and is available at 
 % http://www.eclipse.org/legal/epl-v10.html 
 %
-% Contributors:
+% Contributors: 
 %     Marton Bur - initial API and implementation 
 %##############################################################################
+function massif = massif_functions()
+%MASSIF_FUNCITONS Summary of this function goes here
+%   Detailed explanation goes here
+
+massif.library_collector=@library_collector;
+massif.get_all_block_parameters=@get_all_block_parameters;
+
+end
+
 function libraryNames = library_collector()
 %library_collector Searches for all block libraries visible to MATLAB
 
@@ -56,8 +66,31 @@ for j=1:locationCount
     end
     
     fclose(fileHandle);
+
 end
 
 libraryNames = libraryNames(2:length(libraryNames));
-    
+end
 
+function s = get_all_block_parameters(blockId)
+%get_all_block_parameters Gathers all block parameters to a struct
+%   The following block parameters are skipped because of connector limitations:
+%    * Capabilities
+%    * MaskObject
+
+s=struct();
+TmpObjParams=get_param(blockId,'ObjectParameters');
+names=fieldnames(TmpObjParams);
+for i = 1:numel(names)
+    if strcmpi(names{i},'Capabilities') == 0 && strcmpi(names{i},'MaskObject') == 0
+        TmpParamValue=get_param(blockId,names{i});
+        isReadOnly = find(not(cellfun('isempty', strfind(TmpObjParams.(names{i}).Attributes,'read-only'))));
+        if isReadOnly
+            [s(:).(strcat(names{i},"_READONLY"))]=TmpParamValue;
+        else
+            [s(:).(names{i})]=TmpParamValue;
+        end
+    end
+end
+
+end

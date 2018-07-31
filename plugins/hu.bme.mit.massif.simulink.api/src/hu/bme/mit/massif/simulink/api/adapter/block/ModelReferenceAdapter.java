@@ -136,7 +136,7 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
 
         referencedModel = new ModelObject(referencedModelName, commandFactory.getCommandEvaluator());
         
-        Importer referencedModelTraverser = new Importer(referencedModel, traverser.getLogger());
+        Importer referencedModelTraverser = new Importer(referencedModel);
         referencedModelTraverser.registerFilters(traverser.getFilters());
 
 

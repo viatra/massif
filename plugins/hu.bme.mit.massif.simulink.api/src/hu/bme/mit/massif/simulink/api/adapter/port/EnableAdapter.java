@@ -57,8 +57,7 @@ public class EnableAdapter implements IPortAdapter {
 
         // Get the EnablePort block's handle - this should exist, while there was an enable port on
         // the parent
-        MatlabCommand findEnablePortBlockHandle = commandFactory.findSystem().addParam(portParentName)
-                .addParam("IncludeCommented").addParam("on").addParam("SearchDepth").addParam(1.0)
+        MatlabCommand findEnablePortBlockHandle = commandFactory.findSystem().addParam(portParentName).addParam("SearchDepth").addParam(1.0)
                 .addParam("LookUnderMasks").addParam("all").addParam("FindAll").addParam("on").addParam("BlockType")
                 .addParam("EnablePort");
         IVisitableMatlabData enablePortBlockHandle = findEnablePortBlockHandle.execute();

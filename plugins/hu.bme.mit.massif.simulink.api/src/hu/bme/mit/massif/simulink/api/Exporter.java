@@ -52,8 +52,8 @@ import hu.bme.mit.massif.simulink.GotoTagVisibility;
 import hu.bme.mit.massif.simulink.InPort;
 import hu.bme.mit.massif.simulink.MultiConnection;
 import hu.bme.mit.massif.simulink.OutPort;
+import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.Port;
-import hu.bme.mit.massif.simulink.Property;
 import hu.bme.mit.massif.simulink.SimulinkElement;
 import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.SimulinkReference;
@@ -493,10 +493,10 @@ public class Exporter {
             // //////////////////////////////////////////////////////////
 
             // Set block dialog/mask parameters
-            EList<Property> properties = block.getProperties();
-            for (Property property : properties) {
-                String propertyName = property.getName();
-                commandFactory.setParam().addParam(getFQN(block)).addParam(propertyName).addParam(property.getValue()).execute();
+            EList<Parameter> parameters = block.getParameters();
+            for (Parameter parameter : parameters) {
+                String propertyName = parameter.getName();
+                commandFactory.setParam().addParam(getFQN(block)).addParam(propertyName).addParam(parameter.getValue()).execute();
             }
 
         }

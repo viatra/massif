@@ -38,5 +38,8 @@ public class ImporterExampleSettings {
 	public static MatlabConnector MATLAB_CONNECTOR = MatlabConnector.MATLAB_CONTROL;
 	// The path to the MATLAB executable
 	public static String MATLAB_PATH = "/usr/local/MATLAB/R2018a/bin/matlab";
-	
+	// Set to true to make MATLAB print issued commands (CE Server configured in its
+	// corresponding properties file)
+	public static boolean PRINT_ISSUED_COMMANDS = false;
+
 }

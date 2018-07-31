@@ -48,13 +48,16 @@ public abstract class AbstractSimulinkHandler extends AbstractHandler {
         String hostPortString = getPreferenceStringValue(PreferenceConstants.HOST_PORT, "0");
         int hostPort = Integer.parseInt(hostPortString);
         String matlabPath = getPreferenceStringValue(PreferenceConstants.MATLAB_PATH, "");
-        
+		boolean printCommands = Platform.getPreferencesService().getBoolean(MassifSimulinkUIPlugin.PLUGIN_ID,
+				PreferenceConstants.PRINT_ISSUED_COMMANDS, false, null);
+
         // Adding the current path of the model to the MATLAB path so that it is able to find it
         Map<String, Object> evaluatorParameters = new HashMap<String, Object>();
         evaluatorParameters.put(PreferenceConstants.HOST_ADDRESS, hostAddress);
         evaluatorParameters.put(PreferenceConstants.HOST_PORT, hostPort);
         evaluatorParameters.put(PreferenceConstants.SERVICE_NAME, serviceName);
         evaluatorParameters.put(PreferenceConstants.MATLAB_PATH, matlabPath);
+        evaluatorParameters.put(PreferenceConstants.PRINT_ISSUED_COMMANDS, printCommands);
 
         String matlabConnectorId = getMatlabConnector();
     	ICommandEvaluator commandEvaluator = null;

@@ -16,6 +16,7 @@ import hu.bme.mit.massif.simulink.ui.MassifSimulinkUIPlugin;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -50,11 +51,11 @@ public class SimulinkPreferencePage extends FieldEditorPreferencePage implements
 
         addField(new StringFieldEditor(PreferenceConstants.HOST_ADDRESS, "Host IPv4 address:", getFieldEditorParent()));
         addField(new IntegerFieldEditor(PreferenceConstants.HOST_PORT, "Host port number:", getFieldEditorParent()));
-        addField(new StringFieldEditor(PreferenceConstants.SERVICE_NAME, "Service name:", getFieldEditorParent()));
-        addField(new StringFieldEditor(PreferenceConstants.MATLAB_PATH, "(optional - MatlabControl only) Path to Matlab executable", getFieldEditorParent()));
-        
+        addField(new StringFieldEditor(PreferenceConstants.SERVICE_NAME, "(CE Server only) Service name:", getFieldEditorParent()));
+        addField(new StringFieldEditor(PreferenceConstants.MATLAB_PATH, "(MatlabControl only) Path to Matlab executable:", getFieldEditorParent()));        
         String[][] connectors = processAvailableConnectors();
         addField(new ComboFieldEditor(PreferenceConstants.MATLAB_CONNECTOR, "Matlab Connector", connectors, getFieldEditorParent()));
+        addField(new BooleanFieldEditor(PreferenceConstants.PRINT_ISSUED_COMMANDS, "Print issued commands (CE Server is not configured here)", getFieldEditorParent()));        
     }
 
 	private String[][] processAvailableConnectors() {

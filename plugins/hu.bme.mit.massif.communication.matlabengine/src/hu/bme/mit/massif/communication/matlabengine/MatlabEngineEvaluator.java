@@ -10,7 +10,6 @@
  *******************************************************************************/
 package hu.bme.mit.massif.communication.matlabengine;
 
-import java.lang.reflect.Field;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -30,10 +29,18 @@ import hu.bme.mit.massif.communication.datatype.StructMatlabData;
  */
 public class MatlabEngineEvaluator extends AbstractCommandEvaluator<MatlabEngineAccess> {
 
-	public MatlabEngineEvaluator() throws EngineException, InterruptedException {
+	private boolean debugPrint;
+
+	public MatlabEngineEvaluator(boolean debugPrint) throws EngineException, InterruptedException {
 		super(new MatlabEngineAccess());
+		this.debugPrint = debugPrint;
 	}
 
+	@Override
+	public IVisitableMatlabData evaluateCommand(String command, int nargout) {
+		return super.evaluateCommand(debugPrint ? command : command + ";", nargout);
+	}
+	
 	@Override
 	protected IVisitableMatlabData dataRetriever() throws Exception {
 		Object[] data = commandAccess.executeEval("GetImporterTmpResult", 1);

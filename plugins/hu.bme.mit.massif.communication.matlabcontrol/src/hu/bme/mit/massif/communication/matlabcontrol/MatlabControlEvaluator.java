@@ -12,6 +12,7 @@
 package hu.bme.mit.massif.communication.matlabcontrol;
 
 import hu.bme.mit.massif.communication.AbstractCommandEvaluator;
+import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import matlabcontrol.MatlabConnectionException;
 import matlabcontrol.MatlabProxy;
 import matlabcontrol.MatlabProxyFactory;
@@ -25,12 +26,20 @@ import matlabcontrol.MatlabProxyFactoryOptions.Builder;
  */
 public class MatlabControlEvaluator extends AbstractCommandEvaluator<MatlabControlAccess> {
 		
-    public MatlabControlEvaluator(String matlabPath) {
+    private boolean debugPrint;
+
+	public MatlabControlEvaluator(String matlabPath, boolean debugPrint) {
         super(new MatlabControlAccess(getProxy(matlabPath)));
+		this.debugPrint = debugPrint;
     }
     
     public MatlabControlEvaluator(MatlabProxy proxy) {
         super(new MatlabControlAccess(proxy));
+    }
+    
+    @Override
+    public IVisitableMatlabData evaluateCommand(String command, int nargout) {
+    	return super.evaluateCommand(debugPrint ? command : command + ";", nargout);
     }
     
     private static MatlabProxy getProxy(String matlabPath) {

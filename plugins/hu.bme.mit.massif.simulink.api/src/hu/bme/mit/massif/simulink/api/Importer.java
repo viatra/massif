@@ -1001,7 +1001,7 @@ public class Importer {
 
                     IVisitableMatlabData libnames;
                     // TODO embed script code to source here
-                    MatlabCommand libraryCollector = commandFactory.customCommand("library_collector", 1);
+                    MatlabCommand libraryCollector = commandFactory.customCommand("massif.library_collector()", 1);
                     libnames = libraryCollector.execute();
 
                     // Look in each library until a block with the same type is found

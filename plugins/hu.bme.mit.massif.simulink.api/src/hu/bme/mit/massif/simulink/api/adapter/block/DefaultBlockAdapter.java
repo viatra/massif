@@ -53,7 +53,7 @@ public class DefaultBlockAdapter implements IBlockAdapter {
         
         List<Property> blockProperties = new LinkedList<Property>();
 
-        MatlabCommand getAllBlockParameters = commandFactory.customCommand("get_all_block_parameters", 1).addParam(blockFQN);
+        MatlabCommand getAllBlockParameters = commandFactory.customCommand("massif.get_all_block_parameters", 1).addParam(blockFQN);
         Map<String, IVisitableMatlabData> blockPropsMap = StructMatlabData.getStructMatlabDataData(getAllBlockParameters.execute());
         
         Set<IParameterImportFilter> parameterFilters = traverser.getParameterFilters();

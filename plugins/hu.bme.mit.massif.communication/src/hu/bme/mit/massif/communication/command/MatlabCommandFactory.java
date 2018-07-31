@@ -48,6 +48,8 @@ public class MatlabCommandFactory {
 
     public MatlabCommandFactory(ICommandEvaluator evaluator) {
         this.commandEvaluator = evaluator;
+        // Create function handles for Massif functions
+        evaluator.evaluateCommand("massif = massif_functions()", 0);
     }
     
     public ICommandEvaluator getCommandEvaluator(){

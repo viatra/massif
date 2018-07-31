@@ -34,6 +34,9 @@ public class MatlabString extends PrimitiveMatlabData<String> {
     }
 
     public static String getMatlabStringData(IVisitableMatlabData data) {
+    	if(data == null) { 
+    		data = new MatlabString("");
+    	}
         return ((MatlabString) data).data.replaceAll("\\n", " ");
     }
 

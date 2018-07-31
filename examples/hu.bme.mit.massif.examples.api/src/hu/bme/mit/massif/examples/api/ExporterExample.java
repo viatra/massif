@@ -23,6 +23,8 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.mathworks.engine.EngineException;
+
 import br.com.embraer.massif.commandevaluation.exception.MatlabRMIException;
 
 /**
@@ -39,7 +41,7 @@ public class ExporterExample {
 	private ICommandEvaluator commandEvaluator;
 
 	@Before
-	public void initializeCommandEvaluator() throws MatlabRMIException {
+	public void initializeCommandEvaluator() throws MatlabRMIException, EngineException, SimulinkApiException, InterruptedException {
 		commandEvaluator = MassifExampleHelper.createCommandEvaluator();
 	}
 

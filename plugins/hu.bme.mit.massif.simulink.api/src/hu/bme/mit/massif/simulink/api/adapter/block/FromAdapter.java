@@ -30,7 +30,7 @@ public class FromAdapter extends DefaultBlockAdapter {
     public void process(Importer traverser, SimulinkReference parentSimRef, Block blockToProcess) {
         super.process(traverser, parentSimRef, blockToProcess);
         From fromBlock = (From) blockToProcess;
-        traverser.getFroms().put(fromBlock.getSimulinkRef().getFQN().replace('\n', ' '), fromBlock);
+        traverser.getFroms().put(fromBlock.getSimulinkRef().getFQN().replaceAll("\n", " "), fromBlock);
         // This block is processed further during the creation of connections between blocks
     }
 

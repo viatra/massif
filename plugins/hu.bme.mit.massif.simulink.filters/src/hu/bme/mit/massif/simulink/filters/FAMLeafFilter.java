@@ -13,12 +13,12 @@ package hu.bme.mit.massif.simulink.filters;
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
-import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
 
 /**
  * This class is a subsystem filter extension for the importer. Only the non-leaf FAM elements are not filtered.
  */
-public class FAMLeafFilter implements ISimulinkImportFilter {
+public class FAMLeafFilter implements IBlockImportFilter {
 
 	@Override
 	public String getName() {

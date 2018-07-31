@@ -136,8 +136,7 @@ public class AbstractCommandEvaluator<Access extends ICommandAccess> implements 
         return result;
     }
 
-
-    private IVisitableMatlabData dataRetriever() throws Exception {
+    protected IVisitableMatlabData dataRetriever() throws Exception {
         IVisitableMatlabData result = null;
         String type = (String) commandAccess.executeEval("class(ImporterTmpResult)", 1)[0];
         Object[] data = commandAccess.executeEval("ImporterTmpResult(1:end)", 1);

@@ -14,6 +14,8 @@ import hu.bme.mit.massif.communication.datavisitor.IMatlabDataVisitor;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringJoiner;
+import java.util.Map.Entry;
 
 public class StructMatlabData implements IVisitableMatlabData {
     private Map<String, IVisitableMatlabData> datas;
@@ -56,6 +58,15 @@ public class StructMatlabData implements IVisitableMatlabData {
     @Override
     public void acceptDataVisitor(IMatlabDataVisitor visitor) {
         visitor.visit(this);
+    }
+    
+    @Override
+    public String toString() {
+    	StringJoiner joiner = new StringJoiner(",", "{", "}");
+		for (Entry<String, IVisitableMatlabData> structEntry : getDatas().entrySet()) {
+			joiner.add(structEntry.getKey().toString() + ":" + (structEntry.getValue() == null ? "" : structEntry.getValue().toString()));
+		}
+    	return joiner.toString();
     }
 
 }

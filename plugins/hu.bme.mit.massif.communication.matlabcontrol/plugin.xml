@@ -4,7 +4,7 @@
    <extension
          point="hu.bme.mit.massif.matlab.connectors">
    	  <connector
-            factory="hu.bme.mit.massif.communication.matlabcontrol.MatlabControlCommandEvaluatorFactory"
+            factory="hu.bme.mit.massif.communication.matlabcontrol.MatlabControlEvaluatorFactory"
             id="massif.connectors.matlab.control">
       </connector>
    </extension>

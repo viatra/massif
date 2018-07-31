@@ -10,13 +10,15 @@
  *******************************************************************************/
 package hu.bme.mit.massif.communication.datavisitor;
 
+import java.util.Arrays;
+import java.util.Map;
+
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
+import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.Logical;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
-
-import java.util.Arrays;
 
 /**
  * Visitor implementation for command string creation
@@ -63,10 +65,19 @@ public class ParameterVisitor implements IMatlabDataVisitor {
         }
     }
 
-    @Override
-    public void visit(StructMatlabData structMatlabData) {
-        // TODO Unsupported operation? A struct should be created again using the given datas?
-    }
+	@Override
+	public void visit(StructMatlabData structMatlabData) {
+		for (int i = 0; i < commandStrings.length; i++) {
+			Map<String, IVisitableMatlabData> dataMap = structMatlabData.getDatas();
+			// Define and call an anonymous function to create structure. Not optimal solution, but confirms to the current API
+			commandStrings[i] = commandStrings[i] + "feval(@() struct(";
+			for (String dataMemberName : dataMap.keySet()) {
+				commandStrings[i] = commandStrings[i] + "'" + dataMemberName + "'," + dataMap.get(dataMemberName) + ",";
+			}
+			commandStrings[i] = commandStrings[i].replaceAll(",$", ""); // remove the last unnecessary comma
+			commandStrings[i] = commandStrings[i] + ")),";
+		}
+	}
 
 	@Override
 	public void visit(Logical logical) {

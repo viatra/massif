@@ -12,13 +12,13 @@ package hu.bme.mit.massif.examples.api.settings;
 
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
-import java.io.File;
-
 public class ImporterExampleSettings {
 	
 	/*
 	 * Importer example settings
 	 * TODO fill out the parameters before running the import example
+	 * Values provided here are supposed to serve as examples.
+	 * Depending on your connector, some parameters will be ignored.
 	 */
 	// The address of the machine where MatlabServer runs
 	public static String HOST_ADDRESS = "127.0.0.1";
@@ -27,12 +27,19 @@ public class ImporterExampleSettings {
 	// The registered service name
 	public static String SERVICE_NAME = "MatlabModelProviderr2012a1772";
 	// The path to the Simulink model, end it with a filesystem separator (the file name is not part of this path)
-	public static String SIMULINK_MODEL_PATH = "resources\\importer\\";
+	public static String SIMULINK_MODEL_PATH = "/folder/where/the/model/is/";
 	// The name of the of the Simulink model (the .slx or .mdl file without file extension)
 	public static String SIMULINK_MODEL_NAME = "sldemo_clutch_import";
 	// The traversal strategy of the importer
 	public static ImportMode IMPORT_MODE = ImportMode.FLATTENING;
 	// The path where the imported models are saved
-	public static String OUTPUT_DIRECTORY = /*e.g.:*/ "c:\\" + File.separator + "output";
+	public static String OUTPUT_DIRECTORY = "/folder/to/place/the/model/in/";
+	// The connector to use when running the example
+	public static MatlabConnector MATLAB_CONNECTOR = MatlabConnector.MATLAB_CONTROL;
+	// The path to the MATLAB executable
+	public static String MATLAB_PATH = "/usr/local/MATLAB/R2018a/bin/matlab";
+	// Set to true to make MATLAB print issued commands (CE Server configured in its
+	// corresponding properties file)
+	public static boolean PRINT_ISSUED_COMMANDS = false;
 
 }

@@ -7,20 +7,31 @@
  *
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Marton Bur - script-based parameter querying
+ *     Marton Bur - support for parameter filtering
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
+import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
+import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
+import hu.bme.mit.massif.communication.datatype.MatlabString;
+import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.Property;
+import hu.bme.mit.massif.simulink.PropertyType;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.api.Importer;
-import hu.bme.mit.massif.simulink.api.util.BasicSimulinkEMFOperationsAPI;
-
-import java.util.List;
+import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 
 /**
  * Generic adapter for non-specific blocks. This adapter is used when no adapter is registered for a block type. The
@@ -39,20 +50,52 @@ public class DefaultBlockAdapter implements IBlockAdapter {
 
         MatlabCommandFactory commandFactory = traverser.getCommandFactory();
         String blockFQN = blockToProcess.getSimulinkRef().getFQN();
+        
+        List<Property> blockProperties = new LinkedList<Property>();
 
-        MatlabCommand getBlockHandle = commandFactory.getParam().addParam(blockFQN).addParam("Handle");
-        Handle blockHandle = Handle.asHandle(getBlockHandle.execute());
+        MatlabCommand getAllBlockParameters = commandFactory.customCommand("massif.get_all_block_parameters", 1).addParam(blockFQN);
+        Map<String, IVisitableMatlabData> blockPropsMap = StructMatlabData.getStructMatlabDataData(getAllBlockParameters.execute());
+        
+        Set<IParameterImportFilter> parameterFilters = traverser.getParameterFilters();
+        
+        Set<Entry<String, IVisitableMatlabData>> entries = blockPropsMap.entrySet();
+        for (Entry<String, IVisitableMatlabData> entry : entries) {
+        	String propertyName = entry.getKey();
+        	
+        	boolean isFiltered = false;
+        	for (IParameterImportFilter paramFilter : parameterFilters) {
+				isFiltered |= paramFilter.filter(commandFactory, propertyName);
+			}
+        	
+        	if(isFiltered) {
+        		continue;
+        	}
 
-        // Get Mask parameters list
-        List<Property> maskProperties = BasicSimulinkEMFOperationsAPI.getMaskParameters(commandFactory, blockHandle);
-        // Add all
-        blockToProcess.getProperties().addAll(maskProperties);
-
-        // Get Dialog parameters list
-        List<Property> dialogProperties = BasicSimulinkEMFOperationsAPI.getDialogParameters(commandFactory,
-                blockToProcess);
-        // Add all
-        blockToProcess.getProperties().addAll(dialogProperties);
+        	IVisitableMatlabData value = entry.getValue();
+			Property prop = SimulinkFactory.eINSTANCE.createProperty();
+			prop.setName(propertyName);
+			
+			if (value == null) {
+				// Default: empty string
+				prop.setType(PropertyType.STRING_PROPERTY);
+				prop.setValue("");				
+				blockProperties.add(prop);	
+			} else { 
+				if(value instanceof MatlabString) {
+					prop.setType(PropertyType.STRING_PROPERTY);
+				} else if(value instanceof Handle) {
+					prop.setType(PropertyType.DOUBLE_PROPERTY);
+				} else if (value instanceof CellMatlabData) {
+					prop.setType(PropertyType.STRING_PROPERTY);
+				} else if(value instanceof StructMatlabData) {
+					prop.setType(PropertyType.STRING_PROPERTY);
+				}
+				prop.setValue(value.toString());
+				blockProperties.add(prop);
+			} 
+        }
+        
+        blockToProcess.getProperties().addAll(blockProperties);
 
     }
 

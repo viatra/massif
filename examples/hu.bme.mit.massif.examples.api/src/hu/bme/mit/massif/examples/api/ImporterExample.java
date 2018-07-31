@@ -10,6 +10,20 @@
  *******************************************************************************/
 package hu.bme.mit.massif.examples.api;
 
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.mathworks.engine.EngineException;
+import com.mathworks.matlab.types.Struct;
+
+import br.com.embraer.massif.commandevaluation.exception.MatlabRMIException;
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
@@ -18,14 +32,6 @@ import hu.bme.mit.massif.examples.api.settings.ImporterExampleSettings;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
-
-import java.io.File;
-import java.io.IOException;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import br.com.embraer.massif.commandevaluation.exception.MatlabRMIException;
 
 /**
  * This class demonstrates how to use the Simulink Importer from code via a
@@ -41,7 +47,7 @@ public class ImporterExample {
 	private ICommandEvaluator commandEvaluator;
 
 	@Before
-	public void initializeCommandEvaluator() throws MatlabRMIException {
+	public void initializeCommandEvaluator() throws MatlabRMIException, EngineException, SimulinkApiException, InterruptedException {
 		commandEvaluator = MassifExampleHelper.createCommandEvaluator();
 	}
 

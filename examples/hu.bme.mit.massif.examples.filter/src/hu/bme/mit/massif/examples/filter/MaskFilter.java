@@ -3,9 +3,9 @@ package hu.bme.mit.massif.examples.filter;
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
-import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
 
-public class MaskFilter implements ISimulinkImportFilter {
+public class MaskFilter implements IBlockImportFilter {
 
 	public MaskFilter() {
 		// TODO Auto-generated constructor stub

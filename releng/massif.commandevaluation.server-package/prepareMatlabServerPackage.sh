@@ -18,7 +18,7 @@ cp $PLUGINSDIR/br.com.embraer.massif.commandevaluation.base/target/br.com.embrae
 cp $PLUGINSDIR/br.com.embraer.massif.commandevaluation.commands/target/br.com.embraer.massif.commandevaluation.commands*-SNAPSHOT.jar $MATLABDIRPARENT/matlab/br.com.embraer.massif.commandevaluation.commands.jar
 cp $PLUGINSDIR/br.com.embraer.massif.commandevaluation.server/target/br.com.embraer.massif.commandevaluation.server*-SNAPSHOT.jar $MATLABDIRPARENT/matlab/br.com.embraer.massif.commandevaluation.server.jar
 cp $PLUGINSDIR/br.com.embraer.massif.commandevaluation.server/setup_remote.m $MATLABDIRPARENT/matlab
-cp $PLUGINSDIR/hu.bme.mit.massif.simulink.api/scripts/library_collector.m $MATLABDIRPARENT/matlab
+cp $PLUGINSDIR/hu.bme.mit.massif.simulink.api/scripts/massif_functions.m $MATLABDIRPARENT/matlab
 cp $WORKSPACE/tests/br.com.embraer.massif.commandevaluation.tests/testconfig/matlabserverconfig.properties $MATLABDIRPARENT/matlab
 cd $MATLABDIRPARENT
 

@@ -17,6 +17,7 @@ import org.eclipse.viatra.query.runtime.api.IPatternMatch;
 import org.eclipse.viatra.query.runtime.api.ViatraQueryMatcher;
 import org.eclipse.viatra.query.runtime.base.itc.igraph.IBiDirectionalGraphDataSource;
 import org.eclipse.viatra.query.runtime.base.itc.igraph.IGraphObserver;
+import org.eclipse.viatra.query.runtime.matchers.util.IMemoryView;
 
 import com.google.common.base.Functions;
 import com.google.common.collect.Maps;
@@ -58,15 +59,15 @@ public class PathMatcherGraphDataSource<Match extends IPatternMatch> implements 
 	}
 
 	@Override
-	public Map<Object, Integer> getTargetNodes(Object source) {
+	public IMemoryView<Object> getTargetNodes(Object source) {
 	    Match match = matcher.newMatch(source, null, targetObject);
-	    return Maps.toMap(matcher.getAllValues(second, match), Functions.constant(1));
+	    return IMemoryView.fromMap(Maps.toMap(matcher.getAllValues(second, match), Functions.constant(1)));
 	}
 	
 	@Override
-	public Map<Object, Integer> getSourceNodes(Object target) {
+	public IMemoryView<Object> getSourceNodes(Object target) {
 	    Match match = matcher.newMatch(null, target, targetObject);
-	    return Maps.toMap(matcher.getAllValues(first, match), Functions.constant(1));
+	    return IMemoryView.fromMap(Maps.toMap(matcher.getAllValues(first, match), Functions.constant(1)));
 	}
 
     @Override

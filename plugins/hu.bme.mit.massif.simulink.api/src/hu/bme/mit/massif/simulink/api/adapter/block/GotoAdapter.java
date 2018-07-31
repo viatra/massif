@@ -81,7 +81,7 @@ public class GotoAdapter extends DefaultBlockAdapter {
             }
 
             String fromName = MatlabString.getMatlabStringData(structFromData.getData("name"));
-            fromNames.add(fromName);
+            fromNames.add(fromName.replaceAll("\n", " "));
         }
         traverser.getGotos().put(gotoBlock, fromNames);
 

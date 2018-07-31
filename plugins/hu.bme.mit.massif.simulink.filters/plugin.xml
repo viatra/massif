@@ -3,13 +3,17 @@
 <plugin>
    <extension
          point="hu.bme.mit.massif.simulink.api.import.filters">
-      <filter
-            filterId="library"
-            filterImplClass="hu.bme.mit.massif.simulink.filters.LibraryFilter">
-      </filter> 
-      <filter
-            filterId="famfilter"
-            filterImplClass="hu.bme.mit.massif.simulink.filters.FAMLeafFilter">
-      </filter>
+      <blockfilter
+            blockFilterId="famfilter"
+            blockFilterImplClass="hu.bme.mit.massif.simulink.filters.FAMLeafFilter">
+      </blockfilter>
+      <blockfilter
+            blockFilterId="library"
+            blockFilterImplClass="hu.bme.mit.massif.simulink.filters.LibraryFilter">
+      </blockfilter>
+      <parameterfilter
+            parameterFilterId="hu.bme.mit.massif.simulink.filters.ignoreall"
+            parameterFilterImplClass="hu.bme.mit.massif.simulink.filters.IgnoreAllParametersFilter">
+      </parameterfilter>
    </extension>
 </plugin>

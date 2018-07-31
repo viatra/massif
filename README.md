@@ -29,14 +29,15 @@ Please let us know if you use Massif (e.g. open an [issue](https://github.com/vi
 
  * Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
  * Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
- * Integration 0.6.0: VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/
- * CI:  VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/
+ * Release 0.6.0: VIATRA Query runtime 1.7 http://download.eclipse.org/viatra/updates/release/1.7.2
+ * Integration 0.7.0: VIATRA Query runtime 2.0 http://download.eclipse.org/viatra/updates/release/
+ * CI: VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/
 
-### Latest release: 0.5.0
+### Latest release: 0.6.0
 
-Releases: http://static.incquerylabs.com/projects/massif/release/0.4.0-0.5.0/repository
+Releases: http://static.incquerylabs.com/projects/massif/release/0.6.0/repository
   
-  * Command evaluation server archive [download](http://static.incquerylabs.com/projects/massif/release/0.4.0-0.5.0) 
+  * Command evaluation server archive [download](http://static.incquerylabs.com/projects/massif/release/0.6.0) 
 
 ### All releases
 
@@ -51,11 +52,11 @@ Integration builds: http://static.incquerylabs.com/projects/massif/integration/
 
 ### CI update site
 
-We also provide a [CI update site](https://build.incquerylabs.com/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
-  * Command evaluation server archive [download](https://build.incquerylabs.com/jenkins/job/Massif/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/) 
+We also provide a [CI update site](https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/).
+  * Command evaluation server archive [download](https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/) 
 
-[CI Build](https://build.incquerylabs.com/jenkins/job/Massif/) on Jenkins: 
-[![Build Status](https://build.incquerylabs.com/jenkins/buildStatus/icon?job=Massif)](https://build.incquerylabs.com/jenkins/job/Massif/)
+[CI Build](https://build.incquerylabs.com/jenkins/job/Massif/job/master/) on Jenkins: 
+[![Build Status](https://build.incquerylabs.com/jenkins/buildStatus/icon?job=Massif/master)](https://build.incquerylabs.com/jenkins/job/Massif/job/master)
 
 ## I. Installation:
 
@@ -72,7 +73,7 @@ Massif provides two basic model conversion functions:
  * Export from EMF to MATLAB (referred as export or exporting)
 
 To use these features, choose a MATLAB provider. At this point you can choose between
- * MatlabControl, an existing MATLAB connector
+ * MatlabControl, an existing MATLAB connector ([GitHub page](https://github.com/jakaplan/matlabcontrol))
  * Command Evaluation Server, which is provided as part of Massif.
 
 The functions are available in the context menu commands of `.mdl`, `.slx` and `.simulink` files (right click on the files in `Package Explorer`) called `Import Simulink Model` and `Export Simulink Model`.

@@ -404,8 +404,6 @@
           name="org.eclipse.egit.mylyn.feature.group"/>
       <requirement
           name="org.sonarlint.eclipse.feature.feature.group"/>
-      <requirement
-          name="org.sonarlint.eclipse.jdt.feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/mylyn/releases/latest"/>
       <repository
@@ -440,7 +438,7 @@
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone"
-          value="0.6.0"/>
+          value="0.7.0"/>
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone.id"
@@ -451,7 +449,7 @@
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone"
-          value="0.6.0"/>
+          value="0.7.0"/>
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone.id"
@@ -499,7 +497,7 @@
             name="org.eclipse.emf.sdk.feature.group"
             versionRange="[2.9.0,3.0.0)"/>
         <requirement
-            name="org.eclipse.xtext.sdk.feature.group"
+            name="org.eclipse.xtext.redist.feature.group"
             versionRange="[2.9.0,2.13.0)"/>
         <repositoryList
             name="Mars">
@@ -541,7 +539,7 @@
           name="org.eclipse.emf.sdk.feature.group"
           versionRange="[2.9.0,3.0.0)"/>
       <requirement
-          name="org.eclipse.xtext.sdk.feature.group"
+          name="org.eclipse.xtext.redist.feature.group"
           versionRange="[2.9.0,2.13.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
@@ -610,6 +608,8 @@
         <repositoryList>
           <repository
               url="http://download.eclipse.org/viatra/updates/integration/"/>
+          <repository
+              url="http://download.eclipse.org/collections/9.2.0/repository"/>
         </repositoryList>
       </targlet>
     </setupTask>

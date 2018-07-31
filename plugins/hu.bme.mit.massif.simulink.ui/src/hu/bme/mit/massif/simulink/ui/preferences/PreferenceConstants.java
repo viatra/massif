@@ -22,6 +22,8 @@ public class PreferenceConstants {
 	public static final String SERVICE_NAME = "serviceName";
 	public static final String MATLAB_CONNECTOR = "matlab_connector";
 	public static final String MATLAB_PATH = "matlabPath";
+	public static final String PRINT_ISSUED_COMMANDS = "print_issued_commands";
+	
 	
 	// Import
 	public static final String IMPORT_TRAVERSE_MODE = "traverseMode";

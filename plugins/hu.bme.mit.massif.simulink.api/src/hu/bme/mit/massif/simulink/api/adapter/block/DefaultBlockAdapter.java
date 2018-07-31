@@ -7,6 +7,8 @@
  *
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Marton Bur - script-based parameter querying
+ *     Marton Bur - support for parameter filtering
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
@@ -15,7 +17,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.StringJoiner;
 
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
@@ -30,6 +31,7 @@ import hu.bme.mit.massif.simulink.PropertyType;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.api.Importer;
+import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 
 /**
  * Generic adapter for non-specific blocks. This adapter is used when no adapter is registered for a block type. The
@@ -54,12 +56,24 @@ public class DefaultBlockAdapter implements IBlockAdapter {
         MatlabCommand getAllBlockParameters = commandFactory.customCommand("get_all_block_parameters", 1).addParam(blockFQN);
         Map<String, IVisitableMatlabData> blockPropsMap = StructMatlabData.getStructMatlabDataData(getAllBlockParameters.execute());
         
+        Set<IParameterImportFilter> parameterFilters = traverser.getParameterFilters();
+        
         Set<Entry<String, IVisitableMatlabData>> entries = blockPropsMap.entrySet();
         for (Entry<String, IVisitableMatlabData> entry : entries) {
-			IVisitableMatlabData value = entry.getValue();
-			
+        	String propertyName = entry.getKey();
+        	
+        	boolean isFiltered = false;
+        	for (IParameterImportFilter paramFilter : parameterFilters) {
+				isFiltered |= paramFilter.filter(commandFactory, propertyName);
+			}
+        	
+        	if(isFiltered) {
+        		continue;
+        	}
+
+        	IVisitableMatlabData value = entry.getValue();
 			Property prop = SimulinkFactory.eINSTANCE.createProperty();
-			prop.setName(entry.getKey());
+			prop.setName(propertyName);
 			
 			if (value == null) {
 				// Default: empty string

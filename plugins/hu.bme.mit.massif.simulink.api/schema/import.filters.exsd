@@ -18,7 +18,10 @@
       </annotation>
       <complexType>
          <sequence minOccurs="0" maxOccurs="unbounded">
-            <element ref="filter"/>
+            <choice>
+               <element ref="blockfilter"/>
+               <element ref="parameterfilter"/>
+            </choice>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -47,19 +50,41 @@
       </complexType>
    </element>
 
-   <element name="filter">
+   <element name="blockfilter">
       <complexType>
-         <attribute name="filterImplClass" type="string" use="required">
+         <attribute name="blockFilterImplClass" type="string" use="required">
             <annotation>
                <documentation>
                   
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter"/>
+                  <meta.attribute kind="java" basedOn=":hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter"/>
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="filterId" type="string" use="required">
+         <attribute name="blockFilterId" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="parameterfilter">
+      <complexType>
+         <attribute name="parameterFilterImplClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="parameterFilterId" type="string" use="required">
             <annotation>
                <documentation>
                   

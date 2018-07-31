@@ -16,6 +16,8 @@ import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
+import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 import hu.bme.mit.massif.simulink.ui.MassifSimulinkUIPlugin;
 import hu.bme.mit.massif.simulink.ui.dialogs.ImportSettingsDialog;
@@ -175,9 +177,20 @@ public class ImportModelHandler extends AbstractSimulinkHandler {
                 try {
                     saveModel = true;
                     
-                    // Register applicable filters for the traverser
+                    // Register applicable filters for the traverser (both block and parameter filters)
                     for (String filterId : model.getApplicableFilters()) {						
-                    	traverser.registerFilter(ImportFilterRegistry.INSTANCE.getFiltersById().get(filterId));
+                    	IBlockImportFilter blockFilter = ImportFilterRegistry.INSTANCE.getBlockFiltersById().get(filterId);
+                    	if(blockFilter != null) {
+                    		traverser.registerBlockFilter(blockFilter);                    		
+                    	} else {
+                    		IParameterImportFilter paramFilter = ImportFilterRegistry.INSTANCE.getParameterFiltersById().get(filterId);
+                    		if (paramFilter != null) {
+                    			traverser.registerParameterFilter(paramFilter);
+                    		} else {
+                    			// Given filter is not known/not a block or parameter filter
+                    			throw new SimulinkApiException("Could not register filter with ID " + filterId);
+                    		}
+                    	}
 					}
                     
                     traverser.traverseAndCreateEMFModel(ImportMode.valueOf(settings.traverseMode));

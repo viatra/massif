@@ -46,7 +46,8 @@ import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.api.adapter.block.IBlockAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.IPortAdapter;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.massif.simulink.api.extension.ISimulinkImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
+import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 import hu.bme.mit.massif.simulink.api.extension.impl.ReferencingImportFilter;
 import hu.bme.mit.massif.simulink.api.internal.PluginSimulinkAPILogger;
 import hu.bme.mit.massif.simulink.api.internal.SimulinkApiPlugin;
@@ -311,8 +312,12 @@ public class Importer {
         return importMode;
     }
 
-    public Set<ISimulinkImportFilter> getFilters() {
-        return filters;
+    public Set<IBlockImportFilter> getBlockFilters() {
+        return blockFilters;
+    }
+    
+    public Set<IParameterImportFilter> getParameterFilters() {
+    	return parameterFilters;
     }
 
     public MatlabCommandFactory getCommandFactory(){
@@ -334,7 +339,11 @@ public class Importer {
     /**
      * Collection of filters that decide whether the Simulink block should be imported
      */
-    private Set<ISimulinkImportFilter> filters = new HashSet<ISimulinkImportFilter>();
+    private Set<IBlockImportFilter> blockFilters = new HashSet<IBlockImportFilter>();
+    /**
+     * Collection of filters that decide if a Simulink block parameter should be imported
+     */
+    private Set<IParameterImportFilter> parameterFilters = new HashSet<IParameterImportFilter>();
     /**
      * The current command factory connected to the currentMatlabClient
      */
@@ -432,22 +441,47 @@ public class Importer {
         commandFactory = model.getCommandFactory();
     }
 
-    public void registerFilters(Collection<ISimulinkImportFilter> filters){
-    	this.filters.addAll(filters);
-    }
-
     /**
-     * Registers an import filter for the traverser
+     * Registers a block filter for the importer
      * 
      * @param filter
      */
-    public void registerFilter(ISimulinkImportFilter filter) {
-        filters.add(filter);
+    public void registerBlockFilter(IBlockImportFilter filter) {
+        blockFilters.add(filter);
+    }
+
+    /**
+     * Registers a block parameter filter for the importer
+     * 
+     * @param filter
+     */
+    public void registerParameterFilter(IParameterImportFilter filter) {
+    	parameterFilters.add(filter);
+    }
+
+    /**
+     * Batch register a collection of block filters
+     * 
+     * @param filters
+     */
+    public void registerBlockFilters(Collection<IBlockImportFilter> filters){
+    	this.blockFilters.addAll(filters);
+    }
+    
+    /**
+     * 
+     * Batch register a collection of block parameter filters
+     * 
+     * @param filters
+     */
+    public void registerParameterFilters(Collection<IParameterImportFilter> filters){
+    	this.parameterFilters.addAll(filters);
     }
 
     public void saveEMFModel() throws SimulinkApiException {
         saveEMFModel(getDefaultSavePath() + File.separator + modelFQN);
     }
+    
     /**
      * The saver function for the result model
      * 
@@ -522,7 +556,7 @@ public class Importer {
         this.importMode = importMode;
 
         if(importMode==ImportMode.REFERENCING){
-            filters.add(new ReferencingImportFilter());
+            blockFilters.add(new ReferencingImportFilter());
         }
         
         simulinkModel = SimulinkFactory.eINSTANCE.createSimulinkModel();
@@ -861,7 +895,7 @@ public class Importer {
      */
     private boolean isFiltered(Block block) {
         boolean filtered = false;
-        for (ISimulinkImportFilter filter : filters) {
+        for (IBlockImportFilter filter : blockFilters) {
             if (filter.filter(commandFactory, block.getSimulinkRef().getFQN())) {
                 filtered = true;
                 break;

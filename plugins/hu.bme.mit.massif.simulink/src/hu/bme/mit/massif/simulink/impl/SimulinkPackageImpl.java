@@ -337,7 +337,7 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
 	/**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-     * 
+     *
      * <p>This method is used to initialize {@link SimulinkPackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
      * <!-- begin-user-doc -->
@@ -351,7 +351,8 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         if (isInited) return (SimulinkPackage)EPackage.Registry.INSTANCE.getEPackage(SimulinkPackage.eNS_URI);
 
         // Obtain or create and register package
-        SimulinkPackageImpl theSimulinkPackage = (SimulinkPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SimulinkPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SimulinkPackageImpl());
+        Object registeredSimulinkPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+        SimulinkPackageImpl theSimulinkPackage = registeredSimulinkPackage instanceof SimulinkPackageImpl ? (SimulinkPackageImpl)registeredSimulinkPackage : new SimulinkPackageImpl();
 
         isInited = true;
 
@@ -364,7 +365,6 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         // Mark meta-data to indicate it can't be changed
         theSimulinkPackage.freeze();
 
-  
         // Update the registry and return the package
         EPackage.Registry.INSTANCE.put(SimulinkPackage.eNS_URI, theSimulinkPackage);
         return theSimulinkPackage;
@@ -1526,12 +1526,12 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
      * @generated
      */
 	protected void createEcoreAnnotations() {
-        String source = "http://www.eclipse.org/emf/2002/Ecore";	
+        String source = "http://www.eclipse.org/emf/2002/Ecore";
         addAnnotation
-          (this, 
-           source, 
+          (this,
+           source,
            new String[] {
-             "settingDelegates", "org.eclipse.viatra.query.querybasedfeature"
+               "settingDelegates", "org.eclipse.viatra.query.querybasedfeature"
            });
     }
 
@@ -1542,48 +1542,48 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
      * @generated
      */
 	protected void createOrgAnnotations() {
-        String source = "org.eclipse.viatra.query.querybasedfeature";	
+        String source = "org.eclipse.viatra.query.querybasedfeature";
         addAnnotation
-          (getSimulinkElement_Name(), 
-           source, 
+          (getSimulinkElement_Name(),
+           source,
            new String[] {
-             "patternFQN", "hu.bme.mit.massif.models.simulink.derived.name"
-           });	
+               "patternFQN", "hu.bme.mit.massif.models.simulink.derived.name"
+           });
         addAnnotation
-          (getBlock_Trigger(), 
-           source, 
+          (getBlock_Trigger(),
+           source,
            new String[] {
-             "patternFQN", "hu.bme.mit.massif.models.simulink.derived.trigger"
-           });	
+               "patternFQN", "hu.bme.mit.massif.models.simulink.derived.trigger"
+           });
         addAnnotation
-          (getBlock_Enabler(), 
-           source, 
+          (getBlock_Enabler(),
+           source,
            new String[] {
-             "patternFQN", "hu.bme.mit.massif.models.simulink.derived.enabler"
-           });	
+               "patternFQN", "hu.bme.mit.massif.models.simulink.derived.enabler"
+           });
         addAnnotation
-          (getBlock_Inports(), 
-           source, 
+          (getBlock_Inports(),
+           source,
            new String[] {
-             "patternFQN", "hu.bme.mit.massif.models.simulink.derived.inports"
-           });	
+               "patternFQN", "hu.bme.mit.massif.models.simulink.derived.inports"
+           });
         addAnnotation
-          (getBlock_Outports(), 
-           source, 
+          (getBlock_Outports(),
+           source,
            new String[] {
-             "patternFQN", "hu.bme.mit.massif.models.simulink.derived.outports"
-           });	
+               "patternFQN", "hu.bme.mit.massif.models.simulink.derived.outports"
+           });
         addAnnotation
-          (getBlock_SourceBlock(), 
-           source, 
+          (getBlock_SourceBlock(),
+           source,
            new String[] {
-             "patternFQN", "hu.bme.mit.massif.models.simulink.derived.sourceBlock"
-           });	
+               "patternFQN", "hu.bme.mit.massif.models.simulink.derived.sourceBlock"
+           });
         addAnnotation
-          (getModelReference_ReferencedModel(), 
-           source, 
+          (getModelReference_ReferencedModel(),
+           source,
            new String[] {
-             "patternFQN", "hu.bme.mit.massif.models.simulink.derived.referencedModel"
+               "patternFQN", "hu.bme.mit.massif.models.simulink.derived.referencedModel"
            });
     }
 

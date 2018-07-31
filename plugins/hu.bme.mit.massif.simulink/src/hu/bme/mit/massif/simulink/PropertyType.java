@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- *
- * Contributors: 
- *     Abel Hegedus, Akos Horvath - initial API and implementation 
- *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink;
@@ -31,111 +21,111 @@ import org.eclipse.emf.common.util.Enumerator;
  * @generated
  */
 public enum PropertyType implements Enumerator {
-	/**
+    /**
      * The '<em><b>String Property</b></em>' literal object.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #STRING_PROPERTY_VALUE
      * @generated
      * @ordered
      */
-	STRING_PROPERTY(0, "StringProperty", "StringProperty"),
+    STRING_PROPERTY(0, "StringProperty", "StringProperty"),
 
-	/**
+    /**
      * The '<em><b>Integer Property</b></em>' literal object.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #INTEGER_PROPERTY_VALUE
      * @generated
      * @ordered
      */
-	INTEGER_PROPERTY(1, "IntegerProperty", "IntegerProperty"),
+    INTEGER_PROPERTY(1, "IntegerProperty", "IntegerProperty"),
 
-	/**
+    /**
      * The '<em><b>Double Property</b></em>' literal object.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #DOUBLE_PROPERTY_VALUE
      * @generated
      * @ordered
      */
-	DOUBLE_PROPERTY(2, "DoubleProperty", "DoubleProperty");
+    DOUBLE_PROPERTY(2, "DoubleProperty", "DoubleProperty");
 
-	/**
+    /**
      * The '<em><b>String Property</b></em>' literal value.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>String Property</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>String Property</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @see #STRING_PROPERTY
      * @model name="StringProperty"
      * @generated
      * @ordered
      */
-	public static final int STRING_PROPERTY_VALUE = 0;
+    public static final int STRING_PROPERTY_VALUE = 0;
 
-	/**
+    /**
      * The '<em><b>Integer Property</b></em>' literal value.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Integer Property</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>Integer Property</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @see #INTEGER_PROPERTY
      * @model name="IntegerProperty"
      * @generated
      * @ordered
      */
-	public static final int INTEGER_PROPERTY_VALUE = 1;
+    public static final int INTEGER_PROPERTY_VALUE = 1;
 
-	/**
+    /**
      * The '<em><b>Double Property</b></em>' literal value.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Double Property</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>Double Property</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @see #DOUBLE_PROPERTY
      * @model name="DoubleProperty"
      * @generated
      * @ordered
      */
-	public static final int DOUBLE_PROPERTY_VALUE = 2;
+    public static final int DOUBLE_PROPERTY_VALUE = 2;
 
-	/**
+    /**
      * An array of all the '<em><b>Property Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private static final PropertyType[] VALUES_ARRAY =
-		new PropertyType[] {
+    private static final PropertyType[] VALUES_ARRAY =
+        new PropertyType[] {
             STRING_PROPERTY,
             INTEGER_PROPERTY,
             DOUBLE_PROPERTY,
         };
 
-	/**
+    /**
      * A public read-only list of all the '<em><b>Property Type</b></em>' enumerators.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public static final List<PropertyType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<PropertyType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
-	/**
+    /**
      * Returns the '<em><b>Property Type</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param literal the literal.
      * @return the matching enumerator or <code>null</code>.
      * @generated
      */
-	public static PropertyType get(String literal) {
+    public static PropertyType get(String literal) {
         for (int i = 0; i < VALUES_ARRAY.length; ++i) {
             PropertyType result = VALUES_ARRAY[i];
             if (result.toString().equals(literal)) {
@@ -145,15 +135,15 @@ public enum PropertyType implements Enumerator {
         return null;
     }
 
-	/**
+    /**
      * Returns the '<em><b>Property Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param name the name.
      * @return the matching enumerator or <code>null</code>.
      * @generated
      */
-	public static PropertyType getByName(String name) {
+    public static PropertyType getByName(String name) {
         for (int i = 0; i < VALUES_ARRAY.length; ++i) {
             PropertyType result = VALUES_ARRAY[i];
             if (result.getName().equals(name)) {
@@ -163,15 +153,15 @@ public enum PropertyType implements Enumerator {
         return null;
     }
 
-	/**
+    /**
      * Returns the '<em><b>Property Type</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the integer value.
      * @return the matching enumerator or <code>null</code>.
      * @generated
      */
-	public static PropertyType get(int value) {
+    public static PropertyType get(int value) {
         switch (value) {
             case STRING_PROPERTY_VALUE: return STRING_PROPERTY;
             case INTEGER_PROPERTY_VALUE: return INTEGER_PROPERTY;
@@ -180,75 +170,75 @@ public enum PropertyType implements Enumerator {
         return null;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private final int value;
+    private final int value;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private final String name;
+    private final String name;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private final String literal;
+    private final String literal;
 
-	/**
+    /**
      * Only this class can construct instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private PropertyType(int value, String name, String literal) {
+    private PropertyType(int value, String name, String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public int getValue() {
+    public int getValue() {
       return value;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getName() {
+    public String getName() {
       return name;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getLiteral() {
+    public String getLiteral() {
       return literal;
     }
 
-	/**
+    /**
      * Returns the literal value of the enumerator, which is its string representation.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         return literal;
     }
-	
+    
 } //PropertyType

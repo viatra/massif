@@ -285,7 +285,7 @@ public class GotoImpl extends VirtualBlockImpl implements Goto {
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (tagVisibility: ");
         result.append(tagVisibility);
         result.append(", gotoTag: ");

@@ -161,7 +161,7 @@ public class EnableImpl extends InPortImpl implements Enable {
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (statesWhenEnabling: ");
         result.append(statesWhenEnabling);
         result.append(')');

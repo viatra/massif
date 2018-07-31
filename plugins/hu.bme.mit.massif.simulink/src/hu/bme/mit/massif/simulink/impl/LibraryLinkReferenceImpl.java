@@ -160,7 +160,7 @@ public class LibraryLinkReferenceImpl extends SimulinkReferenceImpl implements L
 	public String toString() {
         if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (disabled: ");
         result.append(disabled);
         result.append(')');

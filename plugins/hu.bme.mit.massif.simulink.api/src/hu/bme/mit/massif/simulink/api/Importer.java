@@ -786,7 +786,8 @@ public class Importer {
     private void createBlocksFromTopLevel(SimulinkModel simulinkModel) throws SimulinkApiException {
         // Get the top level block handles
         logger.debug("Traversing top level blocks");
-        MatlabCommand findTopLevelBlockHandles = commandFactory.findSystem().addParam(modelFQN).addParam("SearchDepth").addParam(1.0).addParam("LookUnderMasks")
+        MatlabCommand findTopLevelBlockHandles = commandFactory.findSystem().addParam(modelFQN).addParam("IncludeCommented").addParam("on")
+                .addParam("SearchDepth").addParam(1.0).addParam("LookUnderMasks")
                 .addParam("all").addParam("FindAll").addParam("on").addParam("FollowLinks").addParam("on")
                 .addParam("type").addParam("block");
         IVisitableMatlabData toplevelBlockHandles = findTopLevelBlockHandles.execute();
@@ -821,7 +822,8 @@ public class Importer {
         IVisitableMatlabData name = getRootName.execute();
 
         // Retrieve potential sub block handles
-        MatlabCommand findSubBlocks = commandFactory.findSystem().addParam(name).addParam("SearchDepth").addParam(1.0).addParam("LookUnderMasks").addParam("all")
+        MatlabCommand findSubBlocks = commandFactory.findSystem().addParam(name).addParam("IncludeCommented").addParam("on")
+                .addParam("SearchDepth").addParam(1.0).addParam("LookUnderMasks").addParam("all")
                 .addParam("FollowLinks").addParam("on").addParam("FindAll").addParam("on").addParam("type")
                 .addParam("block");
         CellMatlabData subBlockHandles = CellMatlabData.asCellMatlabData(findSubBlocks.execute());
@@ -973,7 +975,8 @@ public class Importer {
                 openSimulinkLibrary.execute();
 
 				MatlabCommand findPotentialSourceBlocks = commandFactory.findSystem().addParam("simulink")
-						.addParam("Type").addParam("Block").addParam("BlockType").addParam(blockType);
+				        .addParam("IncludeCommented").addParam("on")
+				        .addParam("Type").addParam("Block").addParam("BlockType").addParam(blockType);
 				IVisitableMatlabData potentialSourceBlockHandles = findPotentialSourceBlocks.execute();
 
                 SourceBlockGetterVisitor sourceBlockNameGetter = new SourceBlockGetterVisitor();

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- *
- * Contributors: 
- *     Abel Hegedus, Akos Horvath - initial API and implementation 
- *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -19,9 +9,12 @@ import hu.bme.mit.massif.simulink.SimulinkPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -39,61 +32,61 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public abstract class PortImpl extends SimulinkElementImpl implements Port {
-	/**
+    /**
      * The cached value of the '{@link #getPortBlock() <em>Port Block</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getPortBlock()
      * @generated
      * @ordered
      */
-	protected PortBlock portBlock;
+    protected PortBlock portBlock;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected PortImpl() {
+    protected PortImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return SimulinkPackage.Literals.PORT;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Block getContainer() {
+    public Block getContainer() {
         if (eContainerFeatureID() != SimulinkPackage.PORT__CONTAINER) return null;
         return (Block)eInternalContainer();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetContainer(Block newContainer, NotificationChain msgs) {
+    public NotificationChain basicSetContainer(Block newContainer, NotificationChain msgs) {
         msgs = eBasicSetContainer((InternalEObject)newContainer, SimulinkPackage.PORT__CONTAINER, msgs);
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setContainer(Block newContainer) {
+    public void setContainer(Block newContainer) {
         if (newContainer != eInternalContainer() || (eContainerFeatureID() != SimulinkPackage.PORT__CONTAINER && newContainer != null)) {
             if (EcoreUtil.isAncestor(this, newContainer))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -109,12 +102,12 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PORT__CONTAINER, newContainer, newContainer));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public PortBlock getPortBlock() {
+    public PortBlock getPortBlock() {
         if (portBlock != null && portBlock.eIsProxy()) {
             InternalEObject oldPortBlock = (InternalEObject)portBlock;
             portBlock = (PortBlock)eResolveProxy(oldPortBlock);
@@ -126,21 +119,21 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
         return portBlock;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public PortBlock basicGetPortBlock() {
+    public PortBlock basicGetPortBlock() {
         return portBlock;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetPortBlock(PortBlock newPortBlock, NotificationChain msgs) {
+    public NotificationChain basicSetPortBlock(PortBlock newPortBlock, NotificationChain msgs) {
         PortBlock oldPortBlock = portBlock;
         portBlock = newPortBlock;
         if (eNotificationRequired()) {
@@ -150,12 +143,12 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setPortBlock(PortBlock newPortBlock) {
+    public void setPortBlock(PortBlock newPortBlock) {
         if (newPortBlock != portBlock) {
             NotificationChain msgs = null;
             if (portBlock != null)
@@ -169,13 +162,13 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PORT__PORT_BLOCK, newPortBlock, newPortBlock));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.PORT__CONTAINER:
                 if (eInternalContainer() != null)
@@ -189,13 +182,13 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.PORT__CONTAINER:
                 return basicSetContainer(null, msgs);
@@ -205,13 +198,13 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
             case SimulinkPackage.PORT__CONTAINER:
                 return eInternalContainer().eInverseRemove(this, SimulinkPackage.BLOCK__PORTS, Block.class, msgs);
@@ -219,13 +212,13 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.PORT__CONTAINER:
                 return getContainer();
@@ -236,13 +229,13 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.PORT__CONTAINER:
                 setContainer((Block)newValue);
@@ -254,13 +247,13 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.PORT__CONTAINER:
                 setContainer((Block)null);
@@ -272,13 +265,13 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.PORT__CONTAINER:
                 return getContainer() != null;

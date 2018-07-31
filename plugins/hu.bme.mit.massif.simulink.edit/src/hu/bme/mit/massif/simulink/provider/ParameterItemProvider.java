@@ -3,8 +3,8 @@
 package hu.bme.mit.massif.simulink.provider;
 
 
+import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkPackage;
-import hu.bme.mit.massif.simulink.SimulinkReference;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link hu.bme.mit.massif.simulink.SimulinkReference} object.
+ * This is the item provider adapter for a {@link hu.bme.mit.massif.simulink.Parameter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SimulinkReferenceItemProvider 
+public class ParameterItemProvider 
     extends ItemProviderAdapter
     implements
         IEditingDomainItemProvider,
@@ -45,7 +45,7 @@ public class SimulinkReferenceItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public SimulinkReferenceItemProvider(AdapterFactory adapterFactory) {
+    public ParameterItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -61,7 +61,9 @@ public class SimulinkReferenceItemProvider
             super.getPropertyDescriptors(object);
 
             addNamePropertyDescriptor(object);
-            addQualifierPropertyDescriptor(object);
+            addTypePropertyDescriptor(object);
+            addValuePropertyDescriptor(object);
+            addSourcePropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -77,9 +79,9 @@ public class SimulinkReferenceItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_SimulinkReference_name_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SimulinkReference_name_feature", "_UI_SimulinkReference_type"),
-                 SimulinkPackage.Literals.SIMULINK_REFERENCE__NAME,
+                 getString("_UI_Parameter_name_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_name_feature", "_UI_Parameter_type"),
+                 SimulinkPackage.Literals.PARAMETER__NAME,
                  true,
                  false,
                  false,
@@ -89,19 +91,63 @@ public class SimulinkReferenceItemProvider
     }
 
     /**
-     * This adds a property descriptor for the Qualifier feature.
+     * This adds a property descriptor for the Type feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    protected void addQualifierPropertyDescriptor(Object object) {
+    protected void addTypePropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_SimulinkReference_qualifier_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SimulinkReference_qualifier_feature", "_UI_SimulinkReference_type"),
-                 SimulinkPackage.Literals.SIMULINK_REFERENCE__QUALIFIER,
+                 getString("_UI_Parameter_type_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_type_feature", "_UI_Parameter_type"),
+                 SimulinkPackage.Literals.PARAMETER__TYPE,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Value feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addValuePropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Parameter_value_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_value_feature", "_UI_Parameter_type"),
+                 SimulinkPackage.Literals.PARAMETER__VALUE,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
+     * This adds a property descriptor for the Source feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addSourcePropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Parameter_source_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_source_feature", "_UI_Parameter_type"),
+                 SimulinkPackage.Literals.PARAMETER__SOURCE,
                  true,
                  false,
                  false,
@@ -121,14 +167,14 @@ public class SimulinkReferenceItemProvider
     }
 
     /**
-     * This returns SimulinkReference.gif.
+     * This returns Parameter.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SimulinkReference"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Parameter"));
     }
 
     /**
@@ -139,10 +185,10 @@ public class SimulinkReferenceItemProvider
      */
     @Override
     public String getText(Object object) {
-        String label = ((SimulinkReference)object).getName();
+        String label = ((Parameter)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_SimulinkReference_type") :
-            getString("_UI_SimulinkReference_type") + " " + label;
+            getString("_UI_Parameter_type") :
+            getString("_UI_Parameter_type") + " " + label;
     }
 
 
@@ -157,9 +203,11 @@ public class SimulinkReferenceItemProvider
     public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(SimulinkReference.class)) {
-            case SimulinkPackage.SIMULINK_REFERENCE__NAME:
-            case SimulinkPackage.SIMULINK_REFERENCE__QUALIFIER:
+        switch (notification.getFeatureID(Parameter.class)) {
+            case SimulinkPackage.PARAMETER__NAME:
+            case SimulinkPackage.PARAMETER__TYPE:
+            case SimulinkPackage.PARAMETER__VALUE:
+            case SimulinkPackage.PARAMETER__SOURCE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- *
- * Contributors: 
- *     Abel Hegedus, Akos Horvath - initial API and implementation 
- *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink;
@@ -33,111 +23,111 @@ import org.eclipse.emf.common.util.Enumerator;
  * @generated
  */
 public enum EnableStates implements Enumerator {
-	/**
+    /**
      * The '<em><b>Held</b></em>' literal object.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #HELD_VALUE
      * @generated
      * @ordered
      */
-	HELD(0, "Held", "Held"),
+    HELD(0, "Held", "Held"),
 
-	/**
+    /**
      * The '<em><b>Reset</b></em>' literal object.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #RESET_VALUE
      * @generated
      * @ordered
      */
-	RESET(1, "Reset", "Reset"),
+    RESET(1, "Reset", "Reset"),
 
-	/**
+    /**
      * The '<em><b>Inherit</b></em>' literal object.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #INHERIT_VALUE
      * @generated
      * @ordered
      */
-	INHERIT(2, "Inherit", "Inherit");
+    INHERIT(2, "Inherit", "Inherit");
 
-	/**
+    /**
      * The '<em><b>Held</b></em>' literal value.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Held</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>Held</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @see #HELD
      * @model name="Held"
      * @generated
      * @ordered
      */
-	public static final int HELD_VALUE = 0;
+    public static final int HELD_VALUE = 0;
 
-	/**
+    /**
      * The '<em><b>Reset</b></em>' literal value.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Reset</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>Reset</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @see #RESET
      * @model name="Reset"
      * @generated
      * @ordered
      */
-	public static final int RESET_VALUE = 1;
+    public static final int RESET_VALUE = 1;
 
-	/**
+    /**
      * The '<em><b>Inherit</b></em>' literal value.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Inherit</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of '<em><b>Inherit</b></em>' literal object isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @see #INHERIT
      * @model name="Inherit"
      * @generated
      * @ordered
      */
-	public static final int INHERIT_VALUE = 2;
+    public static final int INHERIT_VALUE = 2;
 
-	/**
+    /**
      * An array of all the '<em><b>Enable States</b></em>' enumerators.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private static final EnableStates[] VALUES_ARRAY =
-		new EnableStates[] {
+    private static final EnableStates[] VALUES_ARRAY =
+        new EnableStates[] {
             HELD,
             RESET,
             INHERIT,
         };
 
-	/**
+    /**
      * A public read-only list of all the '<em><b>Enable States</b></em>' enumerators.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public static final List<EnableStates> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<EnableStates> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
-	/**
+    /**
      * Returns the '<em><b>Enable States</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param literal the literal.
      * @return the matching enumerator or <code>null</code>.
      * @generated
      */
-	public static EnableStates get(String literal) {
+    public static EnableStates get(String literal) {
         for (int i = 0; i < VALUES_ARRAY.length; ++i) {
             EnableStates result = VALUES_ARRAY[i];
             if (result.toString().equals(literal)) {
@@ -147,15 +137,15 @@ public enum EnableStates implements Enumerator {
         return null;
     }
 
-	/**
+    /**
      * Returns the '<em><b>Enable States</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param name the name.
      * @return the matching enumerator or <code>null</code>.
      * @generated
      */
-	public static EnableStates getByName(String name) {
+    public static EnableStates getByName(String name) {
         for (int i = 0; i < VALUES_ARRAY.length; ++i) {
             EnableStates result = VALUES_ARRAY[i];
             if (result.getName().equals(name)) {
@@ -165,15 +155,15 @@ public enum EnableStates implements Enumerator {
         return null;
     }
 
-	/**
+    /**
      * Returns the '<em><b>Enable States</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the integer value.
      * @return the matching enumerator or <code>null</code>.
      * @generated
      */
-	public static EnableStates get(int value) {
+    public static EnableStates get(int value) {
         switch (value) {
             case HELD_VALUE: return HELD;
             case RESET_VALUE: return RESET;
@@ -182,75 +172,75 @@ public enum EnableStates implements Enumerator {
         return null;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private final int value;
+    private final int value;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private final String name;
+    private final String name;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private final String literal;
+    private final String literal;
 
-	/**
+    /**
      * Only this class can construct instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EnableStates(int value, String name, String literal) {
+    private EnableStates(int value, String name, String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public int getValue() {
+    public int getValue() {
       return value;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getName() {
+    public String getName() {
       return name;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getLiteral() {
+    public String getLiteral() {
       return literal;
     }
 
-	/**
+    /**
      * Returns the literal value of the enumerator, which is its string representation.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         return literal;
     }
-	
+    
 } //EnableStates

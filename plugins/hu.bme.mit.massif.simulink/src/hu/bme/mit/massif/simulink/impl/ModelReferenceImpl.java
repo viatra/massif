@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- *
- * Contributors: 
- *     Abel Hegedus, Akos Horvath - initial API and implementation 
- *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -19,9 +9,11 @@ import hu.bme.mit.massif.simulink.SimulinkPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -39,78 +31,78 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class ModelReferenceImpl extends BlockImpl implements ModelReference {
-	/**
+    /**
      * The cached setting delegate for the '{@link #getReferencedModel() <em>Referenced Model</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getReferencedModel()
      * @generated
      * @ordered
      */
-	protected EStructuralFeature.Internal.SettingDelegate REFERENCED_MODEL__ESETTING_DELEGATE = ((EStructuralFeature.Internal)SimulinkPackage.Literals.MODEL_REFERENCE__REFERENCED_MODEL).getSettingDelegate();
+    protected EStructuralFeature.Internal.SettingDelegate REFERENCED_MODEL__ESETTING_DELEGATE = ((EStructuralFeature.Internal)SimulinkPackage.Literals.MODEL_REFERENCE__REFERENCED_MODEL).getSettingDelegate();
 
-	/**
+    /**
      * The cached value of the '{@link #getModelRef() <em>Model Ref</em>}' containment reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getModelRef()
      * @generated
      * @ordered
      */
-	protected IdentifierReference modelRef;
+    protected IdentifierReference modelRef;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected ModelReferenceImpl() {
+    protected ModelReferenceImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return SimulinkPackage.Literals.MODEL_REFERENCE;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public SimulinkModel getReferencedModel() {
+    public SimulinkModel getReferencedModel() {
         return (SimulinkModel)REFERENCED_MODEL__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public SimulinkModel basicGetReferencedModel() {
+    public SimulinkModel basicGetReferencedModel() {
         return (SimulinkModel)REFERENCED_MODEL__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public IdentifierReference getModelRef() {
+    public IdentifierReference getModelRef() {
         return modelRef;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetModelRef(IdentifierReference newModelRef, NotificationChain msgs) {
+    public NotificationChain basicSetModelRef(IdentifierReference newModelRef, NotificationChain msgs) {
         IdentifierReference oldModelRef = modelRef;
         modelRef = newModelRef;
         if (eNotificationRequired()) {
@@ -120,12 +112,12 @@ public class ModelReferenceImpl extends BlockImpl implements ModelReference {
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setModelRef(IdentifierReference newModelRef) {
+    public void setModelRef(IdentifierReference newModelRef) {
         if (newModelRef != modelRef) {
             NotificationChain msgs = null;
             if (modelRef != null)
@@ -139,13 +131,13 @@ public class ModelReferenceImpl extends BlockImpl implements ModelReference {
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.MODEL_REFERENCE__MODEL_REF, newModelRef, newModelRef));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.MODEL_REFERENCE__MODEL_REF:
                 return basicSetModelRef(null, msgs);
@@ -153,13 +145,13 @@ public class ModelReferenceImpl extends BlockImpl implements ModelReference {
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.MODEL_REFERENCE__REFERENCED_MODEL:
                 if (resolve) return getReferencedModel();
@@ -170,13 +162,13 @@ public class ModelReferenceImpl extends BlockImpl implements ModelReference {
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.MODEL_REFERENCE__MODEL_REF:
                 setModelRef((IdentifierReference)newValue);
@@ -185,13 +177,13 @@ public class ModelReferenceImpl extends BlockImpl implements ModelReference {
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.MODEL_REFERENCE__MODEL_REF:
                 setModelRef((IdentifierReference)null);
@@ -200,13 +192,13 @@ public class ModelReferenceImpl extends BlockImpl implements ModelReference {
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.MODEL_REFERENCE__REFERENCED_MODEL:
                 return REFERENCED_MODEL__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);

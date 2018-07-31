@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- *
- * Contributors: 
- *     Abel Hegedus, Akos Horvath - initial API and implementation 
- *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -18,8 +8,10 @@ import hu.bme.mit.massif.simulink.SingleConnection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -36,41 +28,41 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class InPortImpl extends PortImpl implements InPort {
-	/**
+    /**
      * The cached value of the '{@link #getConnection() <em>Connection</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getConnection()
      * @generated
      * @ordered
      */
-	protected SingleConnection connection;
+    protected SingleConnection connection;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected InPortImpl() {
+    protected InPortImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return SimulinkPackage.Literals.IN_PORT;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public SingleConnection getConnection() {
+    public SingleConnection getConnection() {
         if (connection != null && connection.eIsProxy()) {
             InternalEObject oldConnection = (InternalEObject)connection;
             connection = (SingleConnection)eResolveProxy(oldConnection);
@@ -82,21 +74,21 @@ public class InPortImpl extends PortImpl implements InPort {
         return connection;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public SingleConnection basicGetConnection() {
+    public SingleConnection basicGetConnection() {
         return connection;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetConnection(SingleConnection newConnection, NotificationChain msgs) {
+    public NotificationChain basicSetConnection(SingleConnection newConnection, NotificationChain msgs) {
         SingleConnection oldConnection = connection;
         connection = newConnection;
         if (eNotificationRequired()) {
@@ -106,12 +98,12 @@ public class InPortImpl extends PortImpl implements InPort {
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setConnection(SingleConnection newConnection) {
+    public void setConnection(SingleConnection newConnection) {
         if (newConnection != connection) {
             NotificationChain msgs = null;
             if (connection != null)
@@ -125,13 +117,13 @@ public class InPortImpl extends PortImpl implements InPort {
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.IN_PORT__CONNECTION, newConnection, newConnection));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.IN_PORT__CONNECTION:
                 if (connection != null)
@@ -141,13 +133,13 @@ public class InPortImpl extends PortImpl implements InPort {
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.IN_PORT__CONNECTION:
                 return basicSetConnection(null, msgs);
@@ -155,13 +147,13 @@ public class InPortImpl extends PortImpl implements InPort {
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.IN_PORT__CONNECTION:
                 if (resolve) return getConnection();
@@ -170,13 +162,13 @@ public class InPortImpl extends PortImpl implements InPort {
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.IN_PORT__CONNECTION:
                 setConnection((SingleConnection)newValue);
@@ -185,13 +177,13 @@ public class InPortImpl extends PortImpl implements InPort {
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.IN_PORT__CONNECTION:
                 setConnection((SingleConnection)null);
@@ -200,13 +192,13 @@ public class InPortImpl extends PortImpl implements InPort {
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.IN_PORT__CONNECTION:
                 return connection != null;

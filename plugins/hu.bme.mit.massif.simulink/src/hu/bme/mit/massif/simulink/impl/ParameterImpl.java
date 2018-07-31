@@ -1,325 +1,316 @@
-/*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- *
- * Contributors: 
- *     Abel Hegedus, Akos Horvath - initial API and implementation 
- *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
 
-import hu.bme.mit.massif.simulink.Property;
-import hu.bme.mit.massif.simulink.PropertySource;
-import hu.bme.mit.massif.simulink.PropertyType;
+import hu.bme.mit.massif.simulink.Parameter;
+import hu.bme.mit.massif.simulink.ParameterSource;
 import hu.bme.mit.massif.simulink.SimulinkPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Property</b></em>'.
+ * An implementation of the model object '<em><b>Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link hu.bme.mit.massif.simulink.impl.PropertyImpl#getName <em>Name</em>}</li>
- *   <li>{@link hu.bme.mit.massif.simulink.impl.PropertyImpl#getType <em>Type</em>}</li>
- *   <li>{@link hu.bme.mit.massif.simulink.impl.PropertyImpl#getValue <em>Value</em>}</li>
- *   <li>{@link hu.bme.mit.massif.simulink.impl.PropertyImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getName <em>Name</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getType <em>Type</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getSource <em>Source</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PropertyImpl extends EObjectImpl implements Property {
-	/**
+public class ParameterImpl extends EObjectImpl implements Parameter {
+    /**
      * The default value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getName()
      * @generated
      * @ordered
      */
-	protected static final String NAME_EDEFAULT = null;
+    protected static final String NAME_EDEFAULT = null;
 
-	/**
+    /**
      * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getName()
      * @generated
      * @ordered
      */
-	protected String name = NAME_EDEFAULT;
+    protected String name = NAME_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getType()
      * @generated
      * @ordered
      */
-	protected static final PropertyType TYPE_EDEFAULT = PropertyType.STRING_PROPERTY;
+    protected static final String TYPE_EDEFAULT = null;
 
-	/**
+    /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getType()
      * @generated
      * @ordered
      */
-	protected PropertyType type = TYPE_EDEFAULT;
+    protected String type = TYPE_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getValue()
      * @generated
      * @ordered
      */
-	protected static final String VALUE_EDEFAULT = null;
+    protected static final String VALUE_EDEFAULT = null;
 
-	/**
+    /**
      * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getValue()
      * @generated
      * @ordered
      */
-	protected String value = VALUE_EDEFAULT;
+    protected String value = VALUE_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getSource()
      * @generated
      * @ordered
      */
-	protected static final PropertySource SOURCE_EDEFAULT = PropertySource.MASK;
+    protected static final ParameterSource SOURCE_EDEFAULT = ParameterSource.MASK;
 
-	/**
+    /**
      * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getSource()
      * @generated
      * @ordered
      */
-	protected PropertySource source = SOURCE_EDEFAULT;
+    protected ParameterSource source = SOURCE_EDEFAULT;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected PropertyImpl() {
+    protected ParameterImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
-        return SimulinkPackage.Literals.PROPERTY;
+    @Override
+    protected EClass eStaticClass() {
+        return SimulinkPackage.Literals.PARAMETER;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getName() {
+    public String getName() {
         return name;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setName(String newName) {
+    public void setName(String newName) {
         String oldName = name;
         name = newName;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PROPERTY__NAME, oldName, name));
+            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PARAMETER__NAME, oldName, name));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public PropertyType getType() {
+    public String getType() {
         return type;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setType(PropertyType newType) {
-        PropertyType oldType = type;
-        type = newType == null ? TYPE_EDEFAULT : newType;
+    public void setType(String newType) {
+        String oldType = type;
+        type = newType;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PROPERTY__TYPE, oldType, type));
+            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PARAMETER__TYPE, oldType, type));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getValue() {
+    public String getValue() {
         return value;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setValue(String newValue) {
+    public void setValue(String newValue) {
         String oldValue = value;
         value = newValue;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PROPERTY__VALUE, oldValue, value));
+            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PARAMETER__VALUE, oldValue, value));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public PropertySource getSource() {
+    public ParameterSource getSource() {
         return source;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setSource(PropertySource newSource) {
-        PropertySource oldSource = source;
+    public void setSource(ParameterSource newSource) {
+        ParameterSource oldSource = source;
         source = newSource == null ? SOURCE_EDEFAULT : newSource;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PROPERTY__SOURCE, oldSource, source));
+            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PARAMETER__SOURCE, oldSource, source));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case SimulinkPackage.PROPERTY__NAME:
+            case SimulinkPackage.PARAMETER__NAME:
                 return getName();
-            case SimulinkPackage.PROPERTY__TYPE:
+            case SimulinkPackage.PARAMETER__TYPE:
                 return getType();
-            case SimulinkPackage.PROPERTY__VALUE:
+            case SimulinkPackage.PARAMETER__VALUE:
                 return getValue();
-            case SimulinkPackage.PROPERTY__SOURCE:
+            case SimulinkPackage.PARAMETER__SOURCE:
                 return getSource();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case SimulinkPackage.PROPERTY__NAME:
+            case SimulinkPackage.PARAMETER__NAME:
                 setName((String)newValue);
                 return;
-            case SimulinkPackage.PROPERTY__TYPE:
-                setType((PropertyType)newValue);
+            case SimulinkPackage.PARAMETER__TYPE:
+                setType((String)newValue);
                 return;
-            case SimulinkPackage.PROPERTY__VALUE:
+            case SimulinkPackage.PARAMETER__VALUE:
                 setValue((String)newValue);
                 return;
-            case SimulinkPackage.PROPERTY__SOURCE:
-                setSource((PropertySource)newValue);
+            case SimulinkPackage.PARAMETER__SOURCE:
+                setSource((ParameterSource)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
-            case SimulinkPackage.PROPERTY__NAME:
+            case SimulinkPackage.PARAMETER__NAME:
                 setName(NAME_EDEFAULT);
                 return;
-            case SimulinkPackage.PROPERTY__TYPE:
+            case SimulinkPackage.PARAMETER__TYPE:
                 setType(TYPE_EDEFAULT);
                 return;
-            case SimulinkPackage.PROPERTY__VALUE:
+            case SimulinkPackage.PARAMETER__VALUE:
                 setValue(VALUE_EDEFAULT);
                 return;
-            case SimulinkPackage.PROPERTY__SOURCE:
+            case SimulinkPackage.PARAMETER__SOURCE:
                 setSource(SOURCE_EDEFAULT);
                 return;
         }
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case SimulinkPackage.PROPERTY__NAME:
+            case SimulinkPackage.PARAMETER__NAME:
                 return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-            case SimulinkPackage.PROPERTY__TYPE:
-                return type != TYPE_EDEFAULT;
-            case SimulinkPackage.PROPERTY__VALUE:
+            case SimulinkPackage.PARAMETER__TYPE:
+                return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+            case SimulinkPackage.PARAMETER__VALUE:
                 return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-            case SimulinkPackage.PROPERTY__SOURCE:
+            case SimulinkPackage.PARAMETER__SOURCE:
                 return source != SOURCE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (name: ");
         result.append(name);
         result.append(", type: ");
@@ -332,4 +323,4 @@ public class PropertyImpl extends EObjectImpl implements Property {
         return result.toString();
     }
 
-} //PropertyImpl
+} //ParameterImpl

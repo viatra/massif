@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- *
- * Contributors: 
- *     Abel Hegedus, Akos Horvath - initial API and implementation 
- *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -21,10 +11,14 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -44,104 +38,104 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class BusSelectorImpl extends BusSpecificationImpl implements BusSelector {
-	/**
+    /**
      * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getMappings()
      * @generated
      * @ordered
      */
-	protected EList<BusSignalMapping> mappings;
+    protected EList<BusSignalMapping> mappings;
 
-	/**
+    /**
      * The default value of the '{@link #isOutputAsBus() <em>Output As Bus</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isOutputAsBus()
      * @generated
      * @ordered
      */
-	protected static final boolean OUTPUT_AS_BUS_EDEFAULT = false;
+    protected static final boolean OUTPUT_AS_BUS_EDEFAULT = false;
 
-	/**
+    /**
      * The cached value of the '{@link #isOutputAsBus() <em>Output As Bus</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isOutputAsBus()
      * @generated
      * @ordered
      */
-	protected boolean outputAsBus = OUTPUT_AS_BUS_EDEFAULT;
+    protected boolean outputAsBus = OUTPUT_AS_BUS_EDEFAULT;
 
-	/**
+    /**
      * The cached value of the '{@link #getBusCreator() <em>Bus Creator</em>}' reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getBusCreator()
      * @generated
      * @ordered
      */
-	protected BusSpecification busCreator;
+    protected BusSpecification busCreator;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected BusSelectorImpl() {
+    protected BusSelectorImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return SimulinkPackage.Literals.BUS_SELECTOR;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<BusSignalMapping> getMappings() {
+    public EList<BusSignalMapping> getMappings() {
         if (mappings == null) {
             mappings = new EObjectContainmentWithInverseEList<BusSignalMapping>(BusSignalMapping.class, this, SimulinkPackage.BUS_SELECTOR__MAPPINGS, SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR);
         }
         return mappings;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public boolean isOutputAsBus() {
+    public boolean isOutputAsBus() {
         return outputAsBus;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setOutputAsBus(boolean newOutputAsBus) {
+    public void setOutputAsBus(boolean newOutputAsBus) {
         boolean oldOutputAsBus = outputAsBus;
         outputAsBus = newOutputAsBus;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SELECTOR__OUTPUT_AS_BUS, oldOutputAsBus, outputAsBus));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusSpecification getBusCreator() {
+    public BusSpecification getBusCreator() {
         if (busCreator != null && busCreator.eIsProxy()) {
             InternalEObject oldBusCreator = (InternalEObject)busCreator;
             busCreator = (BusSpecification)eResolveProxy(oldBusCreator);
@@ -153,35 +147,35 @@ public class BusSelectorImpl extends BusSpecificationImpl implements BusSelector
         return busCreator;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public BusSpecification basicGetBusCreator() {
+    public BusSpecification basicGetBusCreator() {
         return busCreator;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setBusCreator(BusSpecification newBusCreator) {
+    public void setBusCreator(BusSpecification newBusCreator) {
         BusSpecification oldBusCreator = busCreator;
         busCreator = newBusCreator;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SELECTOR__BUS_CREATOR, oldBusCreator, busCreator));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getMappings()).basicAdd(otherEnd, msgs);
@@ -189,13 +183,13 @@ public class BusSelectorImpl extends BusSpecificationImpl implements BusSelector
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
                 return ((InternalEList<?>)getMappings()).basicRemove(otherEnd, msgs);
@@ -203,13 +197,13 @@ public class BusSelectorImpl extends BusSpecificationImpl implements BusSelector
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
                 return getMappings();
@@ -222,14 +216,14 @@ public class BusSelectorImpl extends BusSpecificationImpl implements BusSelector
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
                 getMappings().clear();
@@ -245,13 +239,13 @@ public class BusSelectorImpl extends BusSpecificationImpl implements BusSelector
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
                 getMappings().clear();
@@ -266,13 +260,13 @@ public class BusSelectorImpl extends BusSpecificationImpl implements BusSelector
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.BUS_SELECTOR__MAPPINGS:
                 return mappings != null && !mappings.isEmpty();
@@ -284,16 +278,16 @@ public class BusSelectorImpl extends BusSpecificationImpl implements BusSelector
         return super.eIsSet(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (outputAsBus: ");
         result.append(outputAsBus);
         result.append(')');

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- *
- * Contributors: 
- *     Abel Hegedus, Akos Horvath - initial API and implementation 
- *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -18,8 +8,10 @@ import hu.bme.mit.massif.simulink.SimulinkPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -36,50 +28,50 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class OutPortImpl extends PortImpl implements OutPort {
-	/**
+    /**
      * The cached value of the '{@link #getConnection() <em>Connection</em>}' containment reference.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getConnection()
      * @generated
      * @ordered
      */
-	protected Connection connection;
+    protected Connection connection;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected OutPortImpl() {
+    protected OutPortImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return SimulinkPackage.Literals.OUT_PORT;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Connection getConnection() {
+    public Connection getConnection() {
         return connection;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public NotificationChain basicSetConnection(Connection newConnection, NotificationChain msgs) {
+    public NotificationChain basicSetConnection(Connection newConnection, NotificationChain msgs) {
         Connection oldConnection = connection;
         connection = newConnection;
         if (eNotificationRequired()) {
@@ -89,12 +81,12 @@ public class OutPortImpl extends PortImpl implements OutPort {
         return msgs;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setConnection(Connection newConnection) {
+    public void setConnection(Connection newConnection) {
         if (newConnection != connection) {
             NotificationChain msgs = null;
             if (connection != null)
@@ -108,13 +100,13 @@ public class OutPortImpl extends PortImpl implements OutPort {
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.OUT_PORT__CONNECTION, newConnection, newConnection));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.OUT_PORT__CONNECTION:
                 if (connection != null)
@@ -124,13 +116,13 @@ public class OutPortImpl extends PortImpl implements OutPort {
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.OUT_PORT__CONNECTION:
                 return basicSetConnection(null, msgs);
@@ -138,13 +130,13 @@ public class OutPortImpl extends PortImpl implements OutPort {
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.OUT_PORT__CONNECTION:
                 return getConnection();
@@ -152,13 +144,13 @@ public class OutPortImpl extends PortImpl implements OutPort {
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.OUT_PORT__CONNECTION:
                 setConnection((Connection)newValue);
@@ -167,13 +159,13 @@ public class OutPortImpl extends PortImpl implements OutPort {
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.OUT_PORT__CONNECTION:
                 setConnection((Connection)null);
@@ -182,13 +174,13 @@ public class OutPortImpl extends PortImpl implements OutPort {
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.OUT_PORT__CONNECTION:
                 return connection != null;

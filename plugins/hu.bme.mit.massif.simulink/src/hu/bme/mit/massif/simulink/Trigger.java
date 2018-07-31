@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- *
- * Contributors: 
- *     Abel Hegedus, Akos Horvath - initial API and implementation 
- *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink;
@@ -37,15 +27,15 @@ package hu.bme.mit.massif.simulink;
  * @generated
  */
 public interface Trigger extends InPort {
-	/**
+    /**
      * Returns the value of the '<em><b>Trigger Type</b></em>' attribute.
      * The literals are from the enumeration {@link hu.bme.mit.massif.simulink.TriggerType}.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Trigger Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Trigger Type</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>Trigger Type</em>' attribute.
      * @see hu.bme.mit.massif.simulink.TriggerType
      * @see #setTriggerType(TriggerType)
@@ -53,28 +43,28 @@ public interface Trigger extends InPort {
      * @model
      * @generated
      */
-	TriggerType getTriggerType();
+    TriggerType getTriggerType();
 
-	/**
+    /**
      * Sets the value of the '{@link hu.bme.mit.massif.simulink.Trigger#getTriggerType <em>Trigger Type</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>Trigger Type</em>' attribute.
      * @see hu.bme.mit.massif.simulink.TriggerType
      * @see #getTriggerType()
      * @generated
      */
-	void setTriggerType(TriggerType value);
+    void setTriggerType(TriggerType value);
 
-	/**
+    /**
      * Returns the value of the '<em><b>States When Enabling</b></em>' attribute.
      * The literals are from the enumeration {@link hu.bme.mit.massif.simulink.EnableStates}.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>States When Enabling</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
+     * <p>
+     * If the meaning of the '<em>States When Enabling</em>' attribute isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
      * @return the value of the '<em>States When Enabling</em>' attribute.
      * @see hu.bme.mit.massif.simulink.EnableStates
      * @see #setStatesWhenEnabling(EnableStates)
@@ -82,17 +72,17 @@ public interface Trigger extends InPort {
      * @model
      * @generated
      */
-	EnableStates getStatesWhenEnabling();
+    EnableStates getStatesWhenEnabling();
 
-	/**
+    /**
      * Sets the value of the '{@link hu.bme.mit.massif.simulink.Trigger#getStatesWhenEnabling <em>States When Enabling</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @param value the new value of the '<em>States When Enabling</em>' attribute.
      * @see hu.bme.mit.massif.simulink.EnableStates
      * @see #getStatesWhenEnabling()
      * @generated
      */
-	void setStatesWhenEnabling(EnableStates value);
+    void setStatesWhenEnabling(EnableStates value);
 
 } // Trigger

@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
- * All rights reserved. This program and the accompanying materials 
- * are made available under the terms of the Eclipse Public License v1.0 
- * which accompanies this distribution, and is available at 
- * http://www.eclipse.org/legal/epl-v10.html 
- *
- * Contributors: 
- *     Abel Hegedus, Akos Horvath - initial API and implementation 
- *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -20,16 +10,20 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Simulink Model</b></em>'.
+ * An implementation of the model object '<em><b>Model</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -44,177 +38,177 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class SimulinkModelImpl extends SimulinkElementImpl implements SimulinkModel {
-	/**
+    /**
      * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getVersion()
      * @generated
      * @ordered
      */
-	protected static final String VERSION_EDEFAULT = null;
+    protected static final String VERSION_EDEFAULT = null;
 
-	/**
+    /**
      * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getVersion()
      * @generated
      * @ordered
      */
-	protected String version = VERSION_EDEFAULT;
+    protected String version = VERSION_EDEFAULT;
 
-	/**
+    /**
      * The cached value of the '{@link #getContains() <em>Contains</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getContains()
      * @generated
      * @ordered
      */
-	protected EList<Block> contains;
+    protected EList<Block> contains;
 
-	/**
+    /**
      * The default value of the '{@link #getFile() <em>File</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getFile()
      * @generated
      * @ordered
      */
-	protected static final String FILE_EDEFAULT = null;
+    protected static final String FILE_EDEFAULT = null;
 
-	/**
+    /**
      * The cached value of the '{@link #getFile() <em>File</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #getFile()
      * @generated
      * @ordered
      */
-	protected String file = FILE_EDEFAULT;
+    protected String file = FILE_EDEFAULT;
 
-	/**
+    /**
      * The default value of the '{@link #isLibrary() <em>Library</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isLibrary()
      * @generated
      * @ordered
      */
-	protected static final boolean LIBRARY_EDEFAULT = false;
+    protected static final boolean LIBRARY_EDEFAULT = false;
 
-	/**
+    /**
      * The cached value of the '{@link #isLibrary() <em>Library</em>}' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @see #isLibrary()
      * @generated
      * @ordered
      */
-	protected boolean library = LIBRARY_EDEFAULT;
+    protected boolean library = LIBRARY_EDEFAULT;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected SimulinkModelImpl() {
+    protected SimulinkModelImpl() {
         super();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return SimulinkPackage.Literals.SIMULINK_MODEL;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getVersion() {
+    public String getVersion() {
         return version;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setVersion(String newVersion) {
+    public void setVersion(String newVersion) {
         String oldVersion = version;
         version = newVersion;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_MODEL__VERSION, oldVersion, version));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<Block> getContains() {
+    public EList<Block> getContains() {
         if (contains == null) {
             contains = new EObjectContainmentEList<Block>(Block.class, this, SimulinkPackage.SIMULINK_MODEL__CONTAINS);
         }
         return contains;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String getFile() {
+    public String getFile() {
         return file;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setFile(String newFile) {
+    public void setFile(String newFile) {
         String oldFile = file;
         file = newFile;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_MODEL__FILE, oldFile, file));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public boolean isLibrary() {
+    public boolean isLibrary() {
         return library;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public void setLibrary(boolean newLibrary) {
+    public void setLibrary(boolean newLibrary) {
         boolean oldLibrary = library;
         library = newLibrary;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SIMULINK_MODEL__LIBRARY, oldLibrary, library));
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.SIMULINK_MODEL__CONTAINS:
                 return ((InternalEList<?>)getContains()).basicRemove(otherEnd, msgs);
@@ -222,13 +216,13 @@ public class SimulinkModelImpl extends SimulinkElementImpl implements SimulinkMo
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.SIMULINK_MODEL__VERSION:
                 return getVersion();
@@ -242,14 +236,14 @@ public class SimulinkModelImpl extends SimulinkElementImpl implements SimulinkMo
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.SIMULINK_MODEL__VERSION:
                 setVersion((String)newValue);
@@ -268,13 +262,13 @@ public class SimulinkModelImpl extends SimulinkElementImpl implements SimulinkMo
         super.eSet(featureID, newValue);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.SIMULINK_MODEL__VERSION:
                 setVersion(VERSION_EDEFAULT);
@@ -292,13 +286,13 @@ public class SimulinkModelImpl extends SimulinkElementImpl implements SimulinkMo
         super.eUnset(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.SIMULINK_MODEL__VERSION:
                 return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
@@ -312,16 +306,16 @@ public class SimulinkModelImpl extends SimulinkElementImpl implements SimulinkMo
         return super.eIsSet(featureID);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public String toString() {
+    @Override
+    public String toString() {
         if (eIsProxy()) return super.toString();
 
-        StringBuffer result = new StringBuffer(super.toString());
+        StringBuilder result = new StringBuilder(super.toString());
         result.append(" (version: ");
         result.append(version);
         result.append(", file: ");

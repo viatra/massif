@@ -10,7 +10,6 @@
  *******************************************************************************/
 package hu.bme.mit.massif.communication.matlabengine;
 
-import java.lang.reflect.Field;
 import java.util.Map.Entry;
 import java.util.Set;
 

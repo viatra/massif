@@ -29,7 +29,13 @@ import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
  * @author Peter Lunk
  */
 public class CLIMatlabCreator {
-
+    
+    private boolean debugMode = false;
+    
+    public void setDebugMode(boolean debugMode) {
+        this.debugMode = debugMode;
+    }
+    
     public void createMatlabModel(String modelName, String modelPath) throws SimulinkApiException, ViatraQueryException {
         createMatlabModel(modelName, modelPath, "slx");
     }
@@ -39,7 +45,7 @@ public class CLIMatlabCreator {
         CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
  
         MatlabController controller = new MatlabController();
-        controller.setDebug(true);
+        controller.setDebug(debugMode);
         LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator(controller);
         Exporter exporter = new Exporter(logger);
         SimulinkModel loadedModel;

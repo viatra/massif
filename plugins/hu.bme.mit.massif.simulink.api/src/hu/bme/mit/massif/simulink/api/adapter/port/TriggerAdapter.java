@@ -59,7 +59,8 @@ public class TriggerAdapter implements IPortAdapter {
 
         // Get the TiggerPort block's handle - this sould exist, while there was an enable port on
         // the parent
-        MatlabCommand findTriggerPortBlockHandle = commandFactory.findSystem().addParam(portParentName).addParam("SearchDepth").addParam(1.0)
+        MatlabCommand findTriggerPortBlockHandle = commandFactory.findSystem().addParam(portParentName)
+                .addParam("IncludeCommented").addParam("on").addParam("SearchDepth").addParam(1.0)
                 .addParam("LookUnderMasks").addParam("all").addParam("FindAll").addParam("on").addParam("BlockType")
                 .addParam("TriggerPort");
         IVisitableMatlabData triggerPortBlockHandle = findTriggerPortBlockHandle.execute();

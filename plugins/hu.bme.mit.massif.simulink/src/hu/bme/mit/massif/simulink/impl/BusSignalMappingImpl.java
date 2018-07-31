@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at 
+ * http://www.eclipse.org/legal/epl-v10.html 
+ *
+ * Contributors: 
+ *     Abel Hegedus, Akos Horvath - initial API and implementation 
+ *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -9,13 +19,10 @@ import hu.bme.mit.massif.simulink.SimulinkPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -36,111 +43,111 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMapping {
-    /**
+	/**
      * The cached value of the '{@link #getMappingFrom() <em>Mapping From</em>}' reference.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getMappingFrom()
      * @generated
      * @ordered
      */
-    protected OutPort mappingFrom;
+	protected OutPort mappingFrom;
 
-    /**
+	/**
      * The cached value of the '{@link #getMappingTo() <em>Mapping To</em>}' reference.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getMappingTo()
      * @generated
      * @ordered
      */
-    protected OutPort mappingTo;
+	protected OutPort mappingTo;
 
-    /**
+	/**
      * The default value of the '{@link #getMappingPath() <em>Mapping Path</em>}' attribute.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getMappingPath()
      * @generated
      * @ordered
      */
-    protected static final String MAPPING_PATH_EDEFAULT = null;
+	protected static final String MAPPING_PATH_EDEFAULT = null;
 
-    /**
+	/**
      * The cached value of the '{@link #getMappingPath() <em>Mapping Path</em>}' attribute.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getMappingPath()
      * @generated
      * @ordered
      */
-    protected String mappingPath = MAPPING_PATH_EDEFAULT;
+	protected String mappingPath = MAPPING_PATH_EDEFAULT;
 
-    /**
+	/**
      * The default value of the '{@link #isIncomplete() <em>Incomplete</em>}' attribute.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #isIncomplete()
      * @generated
      * @ordered
      */
-    protected static final boolean INCOMPLETE_EDEFAULT = false;
+	protected static final boolean INCOMPLETE_EDEFAULT = false;
 
-    /**
+	/**
      * The cached value of the '{@link #isIncomplete() <em>Incomplete</em>}' attribute.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #isIncomplete()
      * @generated
      * @ordered
      */
-    protected boolean incomplete = INCOMPLETE_EDEFAULT;
+	protected boolean incomplete = INCOMPLETE_EDEFAULT;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected BusSignalMappingImpl() {
+	protected BusSignalMappingImpl() {
         super();
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    protected EClass eStaticClass() {
+	@Override
+	protected EClass eStaticClass() {
         return SimulinkPackage.Literals.BUS_SIGNAL_MAPPING;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public BusSelector getSelector() {
+	public BusSelector getSelector() {
         if (eContainerFeatureID() != SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR) return null;
         return (BusSelector)eInternalContainer();
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetSelector(BusSelector newSelector, NotificationChain msgs) {
+	public NotificationChain basicSetSelector(BusSelector newSelector, NotificationChain msgs) {
         msgs = eBasicSetContainer((InternalEObject)newSelector, SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR, msgs);
         return msgs;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setSelector(BusSelector newSelector) {
+	public void setSelector(BusSelector newSelector) {
         if (newSelector != eInternalContainer() || (eContainerFeatureID() != SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR && newSelector != null)) {
             if (EcoreUtil.isAncestor(this, newSelector))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -156,12 +163,12 @@ public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMappin
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR, newSelector, newSelector));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public OutPort getMappingFrom() {
+	public OutPort getMappingFrom() {
         if (mappingFrom != null && mappingFrom.eIsProxy()) {
             InternalEObject oldMappingFrom = (InternalEObject)mappingFrom;
             mappingFrom = (OutPort)eResolveProxy(oldMappingFrom);
@@ -173,33 +180,33 @@ public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMappin
         return mappingFrom;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public OutPort basicGetMappingFrom() {
+	public OutPort basicGetMappingFrom() {
         return mappingFrom;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setMappingFrom(OutPort newMappingFrom) {
+	public void setMappingFrom(OutPort newMappingFrom) {
         OutPort oldMappingFrom = mappingFrom;
         mappingFrom = newMappingFrom;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SIGNAL_MAPPING__MAPPING_FROM, oldMappingFrom, mappingFrom));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public OutPort getMappingTo() {
+	public OutPort getMappingTo() {
         if (mappingTo != null && mappingTo.eIsProxy()) {
             InternalEObject oldMappingTo = (InternalEObject)mappingTo;
             mappingTo = (OutPort)eResolveProxy(oldMappingTo);
@@ -211,76 +218,76 @@ public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMappin
         return mappingTo;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public OutPort basicGetMappingTo() {
+	public OutPort basicGetMappingTo() {
         return mappingTo;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setMappingTo(OutPort newMappingTo) {
+	public void setMappingTo(OutPort newMappingTo) {
         OutPort oldMappingTo = mappingTo;
         mappingTo = newMappingTo;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SIGNAL_MAPPING__MAPPING_TO, oldMappingTo, mappingTo));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public String getMappingPath() {
+	public String getMappingPath() {
         return mappingPath;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setMappingPath(String newMappingPath) {
+	public void setMappingPath(String newMappingPath) {
         String oldMappingPath = mappingPath;
         mappingPath = newMappingPath;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SIGNAL_MAPPING__MAPPING_PATH, oldMappingPath, mappingPath));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public boolean isIncomplete() {
+	public boolean isIncomplete() {
         return incomplete;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setIncomplete(boolean newIncomplete) {
+	public void setIncomplete(boolean newIncomplete) {
         boolean oldIncomplete = incomplete;
         incomplete = newIncomplete;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.BUS_SIGNAL_MAPPING__INCOMPLETE, oldIncomplete, incomplete));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR:
                 if (eInternalContainer() != null)
@@ -290,13 +297,13 @@ public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMappin
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR:
                 return basicSetSelector(null, msgs);
@@ -304,13 +311,13 @@ public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMappin
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
             case SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR:
                 return eInternalContainer().eInverseRemove(this, SimulinkPackage.BUS_SELECTOR__MAPPINGS, BusSelector.class, msgs);
@@ -318,13 +325,13 @@ public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMappin
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR:
                 return getSelector();
@@ -342,13 +349,13 @@ public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMappin
         return super.eGet(featureID, resolve, coreType);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void eSet(int featureID, Object newValue) {
+	@Override
+	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR:
                 setSelector((BusSelector)newValue);
@@ -369,13 +376,13 @@ public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMappin
         super.eSet(featureID, newValue);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void eUnset(int featureID) {
+	@Override
+	public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR:
                 setSelector((BusSelector)null);
@@ -396,13 +403,13 @@ public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMappin
         super.eUnset(featureID);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public boolean eIsSet(int featureID) {
+	@Override
+	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.BUS_SIGNAL_MAPPING__SELECTOR:
                 return getSelector() != null;
@@ -418,13 +425,13 @@ public class BusSignalMappingImpl extends EObjectImpl implements BusSignalMappin
         return super.eIsSet(featureID);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public String toString() {
+	@Override
+	public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());

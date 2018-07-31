@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at 
+ * http://www.eclipse.org/legal/epl-v10.html 
+ *
+ * Contributors: 
+ *     Abel Hegedus, Akos Horvath - initial API and implementation 
+ *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink;
@@ -30,33 +40,33 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Goto extends VirtualBlock {
-    /**
+	/**
      * Returns the value of the '<em><b>From Blocks</b></em>' reference list.
      * The list contents are of type {@link hu.bme.mit.massif.simulink.From}.
      * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.From#getGotoBlock <em>Goto Block</em>}'.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>From Blocks</em>' reference list isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>From Blocks</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
      * @return the value of the '<em>From Blocks</em>' reference list.
      * @see hu.bme.mit.massif.simulink.SimulinkPackage#getGoto_FromBlocks()
      * @see hu.bme.mit.massif.simulink.From#getGotoBlock
      * @model opposite="gotoBlock"
      * @generated
      */
-    EList<From> getFromBlocks();
+	EList<From> getFromBlocks();
 
-    /**
+	/**
      * Returns the value of the '<em><b>Tag Visibility</b></em>' attribute.
      * The literals are from the enumeration {@link hu.bme.mit.massif.simulink.TagVisibility}.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Tag Visibility</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tag Visibility</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
      * @return the value of the '<em>Tag Visibility</em>' attribute.
      * @see hu.bme.mit.massif.simulink.TagVisibility
      * @see #setTagVisibility(TagVisibility)
@@ -64,43 +74,43 @@ public interface Goto extends VirtualBlock {
      * @model
      * @generated
      */
-    TagVisibility getTagVisibility();
+	TagVisibility getTagVisibility();
 
-    /**
+	/**
      * Sets the value of the '{@link hu.bme.mit.massif.simulink.Goto#getTagVisibility <em>Tag Visibility</em>}' attribute.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @param value the new value of the '<em>Tag Visibility</em>' attribute.
      * @see hu.bme.mit.massif.simulink.TagVisibility
      * @see #getTagVisibility()
      * @generated
      */
-    void setTagVisibility(TagVisibility value);
+	void setTagVisibility(TagVisibility value);
 
-    /**
+	/**
      * Returns the value of the '<em><b>Goto Tag</b></em>' attribute.
      * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Goto Tag</em>' attribute isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Goto Tag</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
      * @return the value of the '<em>Goto Tag</em>' attribute.
      * @see #setGotoTag(String)
      * @see hu.bme.mit.massif.simulink.SimulinkPackage#getGoto_GotoTag()
      * @model
      * @generated
      */
-    String getGotoTag();
+	String getGotoTag();
 
-    /**
+	/**
      * Sets the value of the '{@link hu.bme.mit.massif.simulink.Goto#getGotoTag <em>Goto Tag</em>}' attribute.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @param value the new value of the '<em>Goto Tag</em>' attribute.
      * @see #getGotoTag()
      * @generated
      */
-    void setGotoTag(String value);
+	void setGotoTag(String value);
 
 } // Goto

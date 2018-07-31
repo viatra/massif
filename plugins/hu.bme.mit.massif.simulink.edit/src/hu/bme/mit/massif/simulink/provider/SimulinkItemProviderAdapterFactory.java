@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at 
+ * http://www.eclipse.org/legal/epl-v10.html 
+ *
+ * Contributors: 
+ *     Abel Hegedus, Akos Horvath - initial API and implementation 
+ *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.provider;
@@ -33,37 +43,37 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
-    /**
+	/**
      * This keeps track of the root adapter factory that delegates to this adapter factory.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected ComposedAdapterFactory parentAdapterFactory;
+	protected ComposedAdapterFactory parentAdapterFactory;
 
-    /**
+	/**
      * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected IChangeNotifier changeNotifier = new ChangeNotifier();
+	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
-    /**
+	/**
      * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected Collection<Object> supportedTypes = new ArrayList<Object>();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
-    /**
+	/**
      * This constructs an instance.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public SimulinkItemProviderAdapterFactory() {
+	public SimulinkItemProviderAdapterFactory() {
         supportedTypes.add(IEditingDomainItemProvider.class);
         supportedTypes.add(IStructuredItemContentProvider.class);
         supportedTypes.add(ITreeItemContentProvider.class);
@@ -71,22 +81,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         supportedTypes.add(IItemPropertySource.class);
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.Block} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected BlockItemProvider blockItemProvider;
+	protected BlockItemProvider blockItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.Block}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createBlockAdapter() {
+	@Override
+	public Adapter createBlockAdapter() {
         if (blockItemProvider == null) {
             blockItemProvider = new BlockItemProvider(this);
         }
@@ -94,7 +104,7 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return blockItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.Parameter} instances.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -120,19 +130,19 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
     /**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.InPort} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected InPortItemProvider inPortItemProvider;
+	protected InPortItemProvider inPortItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.InPort}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createInPortAdapter() {
+	@Override
+	public Adapter createInPortAdapter() {
         if (inPortItemProvider == null) {
             inPortItemProvider = new InPortItemProvider(this);
         }
@@ -140,22 +150,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return inPortItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.OutPort} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected OutPortItemProvider outPortItemProvider;
+	protected OutPortItemProvider outPortItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.OutPort}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createOutPortAdapter() {
+	@Override
+	public Adapter createOutPortAdapter() {
         if (outPortItemProvider == null) {
             outPortItemProvider = new OutPortItemProvider(this);
         }
@@ -163,22 +173,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return outPortItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.Trigger} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected TriggerItemProvider triggerItemProvider;
+	protected TriggerItemProvider triggerItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.Trigger}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createTriggerAdapter() {
+	@Override
+	public Adapter createTriggerAdapter() {
         if (triggerItemProvider == null) {
             triggerItemProvider = new TriggerItemProvider(this);
         }
@@ -186,22 +196,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return triggerItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.Enable} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected EnableItemProvider enableItemProvider;
+	protected EnableItemProvider enableItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.Enable}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createEnableAdapter() {
+	@Override
+	public Adapter createEnableAdapter() {
         if (enableItemProvider == null) {
             enableItemProvider = new EnableItemProvider(this);
         }
@@ -209,22 +219,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return enableItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.BusSelector} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected BusSelectorItemProvider busSelectorItemProvider;
+	protected BusSelectorItemProvider busSelectorItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.BusSelector}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createBusSelectorAdapter() {
+	@Override
+	public Adapter createBusSelectorAdapter() {
         if (busSelectorItemProvider == null) {
             busSelectorItemProvider = new BusSelectorItemProvider(this);
         }
@@ -232,22 +242,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return busSelectorItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.BusCreator} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected BusCreatorItemProvider busCreatorItemProvider;
+	protected BusCreatorItemProvider busCreatorItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.BusCreator}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createBusCreatorAdapter() {
+	@Override
+	public Adapter createBusCreatorAdapter() {
         if (busCreatorItemProvider == null) {
             busCreatorItemProvider = new BusCreatorItemProvider(this);
         }
@@ -255,22 +265,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return busCreatorItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.Goto} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected GotoItemProvider gotoItemProvider;
+	protected GotoItemProvider gotoItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.Goto}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createGotoAdapter() {
+	@Override
+	public Adapter createGotoAdapter() {
         if (gotoItemProvider == null) {
             gotoItemProvider = new GotoItemProvider(this);
         }
@@ -278,22 +288,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return gotoItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.From} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected FromItemProvider fromItemProvider;
+	protected FromItemProvider fromItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.From}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createFromAdapter() {
+	@Override
+	public Adapter createFromAdapter() {
         if (fromItemProvider == null) {
             fromItemProvider = new FromItemProvider(this);
         }
@@ -301,22 +311,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return fromItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.SimulinkModel} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected SimulinkModelItemProvider simulinkModelItemProvider;
+	protected SimulinkModelItemProvider simulinkModelItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.SimulinkModel}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createSimulinkModelAdapter() {
+	@Override
+	public Adapter createSimulinkModelAdapter() {
         if (simulinkModelItemProvider == null) {
             simulinkModelItemProvider = new SimulinkModelItemProvider(this);
         }
@@ -324,22 +334,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return simulinkModelItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.MultiConnection} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected MultiConnectionItemProvider multiConnectionItemProvider;
+	protected MultiConnectionItemProvider multiConnectionItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.MultiConnection}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createMultiConnectionAdapter() {
+	@Override
+	public Adapter createMultiConnectionAdapter() {
         if (multiConnectionItemProvider == null) {
             multiConnectionItemProvider = new MultiConnectionItemProvider(this);
         }
@@ -347,22 +357,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return multiConnectionItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.SingleConnection} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected SingleConnectionItemProvider singleConnectionItemProvider;
+	protected SingleConnectionItemProvider singleConnectionItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.SingleConnection}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createSingleConnectionAdapter() {
+	@Override
+	public Adapter createSingleConnectionAdapter() {
         if (singleConnectionItemProvider == null) {
             singleConnectionItemProvider = new SingleConnectionItemProvider(this);
         }
@@ -370,22 +380,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return singleConnectionItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.OutPortBlock} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected OutPortBlockItemProvider outPortBlockItemProvider;
+	protected OutPortBlockItemProvider outPortBlockItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.OutPortBlock}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createOutPortBlockAdapter() {
+	@Override
+	public Adapter createOutPortBlockAdapter() {
         if (outPortBlockItemProvider == null) {
             outPortBlockItemProvider = new OutPortBlockItemProvider(this);
         }
@@ -393,22 +403,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return outPortBlockItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.InPortBlock} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected InPortBlockItemProvider inPortBlockItemProvider;
+	protected InPortBlockItemProvider inPortBlockItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.InPortBlock}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createInPortBlockAdapter() {
+	@Override
+	public Adapter createInPortBlockAdapter() {
         if (inPortBlockItemProvider == null) {
             inPortBlockItemProvider = new InPortBlockItemProvider(this);
         }
@@ -416,22 +426,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return inPortBlockItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.TriggerBlock} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected TriggerBlockItemProvider triggerBlockItemProvider;
+	protected TriggerBlockItemProvider triggerBlockItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.TriggerBlock}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createTriggerBlockAdapter() {
+	@Override
+	public Adapter createTriggerBlockAdapter() {
         if (triggerBlockItemProvider == null) {
             triggerBlockItemProvider = new TriggerBlockItemProvider(this);
         }
@@ -439,22 +449,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return triggerBlockItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.EnableBlock} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected EnableBlockItemProvider enableBlockItemProvider;
+	protected EnableBlockItemProvider enableBlockItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.EnableBlock}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createEnableBlockAdapter() {
+	@Override
+	public Adapter createEnableBlockAdapter() {
         if (enableBlockItemProvider == null) {
             enableBlockItemProvider = new EnableBlockItemProvider(this);
         }
@@ -462,22 +472,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return enableBlockItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.GotoTagVisibility} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected GotoTagVisibilityItemProvider gotoTagVisibilityItemProvider;
+	protected GotoTagVisibilityItemProvider gotoTagVisibilityItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.GotoTagVisibility}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createGotoTagVisibilityAdapter() {
+	@Override
+	public Adapter createGotoTagVisibilityAdapter() {
         if (gotoTagVisibilityItemProvider == null) {
             gotoTagVisibilityItemProvider = new GotoTagVisibilityItemProvider(this);
         }
@@ -485,22 +495,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return gotoTagVisibilityItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.SubSystem} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected SubSystemItemProvider subSystemItemProvider;
+	protected SubSystemItemProvider subSystemItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.SubSystem}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createSubSystemAdapter() {
+	@Override
+	public Adapter createSubSystemAdapter() {
         if (subSystemItemProvider == null) {
             subSystemItemProvider = new SubSystemItemProvider(this);
         }
@@ -508,22 +518,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return subSystemItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.ModelReference} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected ModelReferenceItemProvider modelReferenceItemProvider;
+	protected ModelReferenceItemProvider modelReferenceItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.ModelReference}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createModelReferenceAdapter() {
+	@Override
+	public Adapter createModelReferenceAdapter() {
         if (modelReferenceItemProvider == null) {
             modelReferenceItemProvider = new ModelReferenceItemProvider(this);
         }
@@ -531,22 +541,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return modelReferenceItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.BusSignalMapping} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected BusSignalMappingItemProvider busSignalMappingItemProvider;
+	protected BusSignalMappingItemProvider busSignalMappingItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.BusSignalMapping}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createBusSignalMappingAdapter() {
+	@Override
+	public Adapter createBusSignalMappingAdapter() {
         if (busSignalMappingItemProvider == null) {
             busSignalMappingItemProvider = new BusSignalMappingItemProvider(this);
         }
@@ -554,22 +564,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return busSignalMappingItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.LibraryLinkReference} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected LibraryLinkReferenceItemProvider libraryLinkReferenceItemProvider;
+	protected LibraryLinkReferenceItemProvider libraryLinkReferenceItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.LibraryLinkReference}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createLibraryLinkReferenceAdapter() {
+	@Override
+	public Adapter createLibraryLinkReferenceAdapter() {
         if (libraryLinkReferenceItemProvider == null) {
             libraryLinkReferenceItemProvider = new LibraryLinkReferenceItemProvider(this);
         }
@@ -577,22 +587,22 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return libraryLinkReferenceItemProvider;
     }
 
-    /**
+	/**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.IdentifierReference} instances.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected IdentifierReferenceItemProvider identifierReferenceItemProvider;
+	protected IdentifierReferenceItemProvider identifierReferenceItemProvider;
 
-    /**
+	/**
      * This creates an adapter for a {@link hu.bme.mit.massif.simulink.IdentifierReference}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter createIdentifierReferenceAdapter() {
+	@Override
+	public Adapter createIdentifierReferenceAdapter() {
         if (identifierReferenceItemProvider == null) {
             identifierReferenceItemProvider = new IdentifierReferenceItemProvider(this);
         }
@@ -600,54 +610,54 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return identifierReferenceItemProvider;
     }
 
-    /**
+	/**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public ComposeableAdapterFactory getRootAdapterFactory() {
+	public ComposeableAdapterFactory getRootAdapterFactory() {
         return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
     }
 
-    /**
+	/**
      * This sets the composed adapter factory that contains this factory.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public boolean isFactoryForType(Object type) {
+	@Override
+	public boolean isFactoryForType(Object type) {
         return supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
-    /**
+	/**
      * This implementation substitutes the factory itself as the key for the adapter.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+	@Override
+	public Adapter adapt(Notifier notifier, Object type) {
         return super.adapt(notifier, this);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Object adapt(Object object, Object type) {
+	@Override
+	public Object adapt(Object object, Object type) {
         if (isFactoryForType(type)) {
             Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
@@ -658,33 +668,33 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         return null;
     }
 
-    /**
+	/**
      * This adds a listener.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
+	public void addListener(INotifyChangedListener notifyChangedListener) {
         changeNotifier.addListener(notifyChangedListener);
     }
 
-    /**
+	/**
      * This removes a listener.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
+	public void removeListener(INotifyChangedListener notifyChangedListener) {
         changeNotifier.removeListener(notifyChangedListener);
     }
 
-    /**
+	/**
      * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
+	public void fireNotifyChanged(Notification notification) {
         changeNotifier.fireNotifyChanged(notification);
 
         if (parentAdapterFactory != null) {
@@ -692,13 +702,13 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         }
     }
 
-    /**
+	/**
      * This disposes all of the item providers created by this factory. 
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void dispose() {
+	public void dispose() {
         if (blockItemProvider != null) blockItemProvider.dispose();
         if (parameterItemProvider != null) parameterItemProvider.dispose();
         if (inPortItemProvider != null) inPortItemProvider.dispose();

@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at 
+ * http://www.eclipse.org/legal/epl-v10.html 
+ *
+ * Contributors: 
+ *     Abel Hegedus, Akos Horvath - initial API and implementation 
+ *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -9,12 +19,9 @@ import hu.bme.mit.massif.simulink.SingleConnection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -32,61 +39,61 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class SingleConnectionImpl extends ConnectionImpl implements SingleConnection {
-    /**
+	/**
      * The cached value of the '{@link #getTo() <em>To</em>}' reference.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getTo()
      * @generated
      * @ordered
      */
-    protected InPort to;
+	protected InPort to;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected SingleConnectionImpl() {
+	protected SingleConnectionImpl() {
         super();
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    protected EClass eStaticClass() {
+	@Override
+	protected EClass eStaticClass() {
         return SimulinkPackage.Literals.SINGLE_CONNECTION;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public MultiConnection getParent() {
+	public MultiConnection getParent() {
         if (eContainerFeatureID() != SimulinkPackage.SINGLE_CONNECTION__PARENT) return null;
         return (MultiConnection)eInternalContainer();
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetParent(MultiConnection newParent, NotificationChain msgs) {
+	public NotificationChain basicSetParent(MultiConnection newParent, NotificationChain msgs) {
         msgs = eBasicSetContainer((InternalEObject)newParent, SimulinkPackage.SINGLE_CONNECTION__PARENT, msgs);
         return msgs;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setParent(MultiConnection newParent) {
+	public void setParent(MultiConnection newParent) {
         if (newParent != eInternalContainer() || (eContainerFeatureID() != SimulinkPackage.SINGLE_CONNECTION__PARENT && newParent != null)) {
             if (EcoreUtil.isAncestor(this, newParent))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -102,12 +109,12 @@ public class SingleConnectionImpl extends ConnectionImpl implements SingleConnec
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SINGLE_CONNECTION__PARENT, newParent, newParent));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public InPort getTo() {
+	public InPort getTo() {
         if (to != null && to.eIsProxy()) {
             InternalEObject oldTo = (InternalEObject)to;
             to = (InPort)eResolveProxy(oldTo);
@@ -119,21 +126,21 @@ public class SingleConnectionImpl extends ConnectionImpl implements SingleConnec
         return to;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public InPort basicGetTo() {
+	public InPort basicGetTo() {
         return to;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetTo(InPort newTo, NotificationChain msgs) {
+	public NotificationChain basicSetTo(InPort newTo, NotificationChain msgs) {
         InPort oldTo = to;
         to = newTo;
         if (eNotificationRequired()) {
@@ -143,12 +150,12 @@ public class SingleConnectionImpl extends ConnectionImpl implements SingleConnec
         return msgs;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setTo(InPort newTo) {
+	public void setTo(InPort newTo) {
         if (newTo != to) {
             NotificationChain msgs = null;
             if (to != null)
@@ -162,13 +169,13 @@ public class SingleConnectionImpl extends ConnectionImpl implements SingleConnec
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SINGLE_CONNECTION__TO, newTo, newTo));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.SINGLE_CONNECTION__PARENT:
                 if (eInternalContainer() != null)
@@ -182,13 +189,13 @@ public class SingleConnectionImpl extends ConnectionImpl implements SingleConnec
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.SINGLE_CONNECTION__PARENT:
                 return basicSetParent(null, msgs);
@@ -198,13 +205,13 @@ public class SingleConnectionImpl extends ConnectionImpl implements SingleConnec
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
             case SimulinkPackage.SINGLE_CONNECTION__PARENT:
                 return eInternalContainer().eInverseRemove(this, SimulinkPackage.MULTI_CONNECTION__CONNECTIONS, MultiConnection.class, msgs);
@@ -212,13 +219,13 @@ public class SingleConnectionImpl extends ConnectionImpl implements SingleConnec
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.SINGLE_CONNECTION__PARENT:
                 return getParent();
@@ -229,13 +236,13 @@ public class SingleConnectionImpl extends ConnectionImpl implements SingleConnec
         return super.eGet(featureID, resolve, coreType);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void eSet(int featureID, Object newValue) {
+	@Override
+	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.SINGLE_CONNECTION__PARENT:
                 setParent((MultiConnection)newValue);
@@ -247,13 +254,13 @@ public class SingleConnectionImpl extends ConnectionImpl implements SingleConnec
         super.eSet(featureID, newValue);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void eUnset(int featureID) {
+	@Override
+	public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.SINGLE_CONNECTION__PARENT:
                 setParent((MultiConnection)null);
@@ -265,13 +272,13 @@ public class SingleConnectionImpl extends ConnectionImpl implements SingleConnec
         super.eUnset(featureID);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public boolean eIsSet(int featureID) {
+	@Override
+	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.SINGLE_CONNECTION__PARENT:
                 return getParent() != null;

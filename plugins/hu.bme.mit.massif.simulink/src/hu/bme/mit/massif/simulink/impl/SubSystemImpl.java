@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at 
+ * http://www.eclipse.org/legal/epl-v10.html 
+ *
+ * Contributors: 
+ *     Abel Hegedus, Akos Horvath - initial API and implementation 
+ *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -10,14 +20,10 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -36,96 +42,96 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class SubSystemImpl extends BlockImpl implements SubSystem {
-    /**
+	/**
      * The cached value of the '{@link #getSubBlocks() <em>Sub Blocks</em>}' containment reference list.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getSubBlocks()
      * @generated
      * @ordered
      */
-    protected EList<Block> subBlocks;
+	protected EList<Block> subBlocks;
 
-    /**
+	/**
      * The default value of the '{@link #getTag() <em>Tag</em>}' attribute.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getTag()
      * @generated
      * @ordered
      */
-    protected static final String TAG_EDEFAULT = null;
+	protected static final String TAG_EDEFAULT = null;
 
-    /**
+	/**
      * The cached value of the '{@link #getTag() <em>Tag</em>}' attribute.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getTag()
      * @generated
      * @ordered
      */
-    protected String tag = TAG_EDEFAULT;
+	protected String tag = TAG_EDEFAULT;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected SubSystemImpl() {
+	protected SubSystemImpl() {
         super();
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    protected EClass eStaticClass() {
+	@Override
+	protected EClass eStaticClass() {
         return SimulinkPackage.Literals.SUB_SYSTEM;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EList<Block> getSubBlocks() {
+	public EList<Block> getSubBlocks() {
         if (subBlocks == null) {
             subBlocks = new EObjectContainmentWithInverseEList<Block>(Block.class, this, SimulinkPackage.SUB_SYSTEM__SUB_BLOCKS, SimulinkPackage.BLOCK__PARENT);
         }
         return subBlocks;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public String getTag() {
+	public String getTag() {
         return tag;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setTag(String newTag) {
+	public void setTag(String newTag) {
         String oldTag = tag;
         tag = newTag;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.SUB_SYSTEM__TAG, oldTag, tag));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
-    @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.SUB_SYSTEM__SUB_BLOCKS:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubBlocks()).basicAdd(otherEnd, msgs);
@@ -133,13 +139,13 @@ public class SubSystemImpl extends BlockImpl implements SubSystem {
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.SUB_SYSTEM__SUB_BLOCKS:
                 return ((InternalEList<?>)getSubBlocks()).basicRemove(otherEnd, msgs);
@@ -147,13 +153,13 @@ public class SubSystemImpl extends BlockImpl implements SubSystem {
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.SUB_SYSTEM__SUB_BLOCKS:
                 return getSubBlocks();
@@ -163,14 +169,14 @@ public class SubSystemImpl extends BlockImpl implements SubSystem {
         return super.eGet(featureID, resolve, coreType);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(int featureID, Object newValue) {
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.SUB_SYSTEM__SUB_BLOCKS:
                 getSubBlocks().clear();
@@ -183,13 +189,13 @@ public class SubSystemImpl extends BlockImpl implements SubSystem {
         super.eSet(featureID, newValue);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void eUnset(int featureID) {
+	@Override
+	public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.SUB_SYSTEM__SUB_BLOCKS:
                 getSubBlocks().clear();
@@ -201,13 +207,13 @@ public class SubSystemImpl extends BlockImpl implements SubSystem {
         super.eUnset(featureID);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public boolean eIsSet(int featureID) {
+	@Override
+	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.SUB_SYSTEM__SUB_BLOCKS:
                 return subBlocks != null && !subBlocks.isEmpty();
@@ -217,13 +223,13 @@ public class SubSystemImpl extends BlockImpl implements SubSystem {
         return super.eIsSet(featureID);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public String toString() {
+	@Override
+	public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());

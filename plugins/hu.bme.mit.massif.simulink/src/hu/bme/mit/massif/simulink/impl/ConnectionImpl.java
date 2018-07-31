@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at 
+ * http://www.eclipse.org/legal/epl-v10.html 
+ *
+ * Contributors: 
+ *     Abel Hegedus, Akos Horvath - initial API and implementation 
+ *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -8,12 +18,9 @@ import hu.bme.mit.massif.simulink.SimulinkPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -31,71 +38,71 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public abstract class ConnectionImpl extends SimulinkElementImpl implements Connection {
-    /**
+	/**
      * The default value of the '{@link #getLineName() <em>Line Name</em>}' attribute.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getLineName()
      * @generated
      * @ordered
      */
-    protected static final String LINE_NAME_EDEFAULT = null;
+	protected static final String LINE_NAME_EDEFAULT = null;
 
-    /**
+	/**
      * The cached value of the '{@link #getLineName() <em>Line Name</em>}' attribute.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getLineName()
      * @generated
      * @ordered
      */
-    protected String lineName = LINE_NAME_EDEFAULT;
+	protected String lineName = LINE_NAME_EDEFAULT;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected ConnectionImpl() {
+	protected ConnectionImpl() {
         super();
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    protected EClass eStaticClass() {
+	@Override
+	protected EClass eStaticClass() {
         return SimulinkPackage.Literals.CONNECTION;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public OutPort getFrom() {
+	public OutPort getFrom() {
         if (eContainerFeatureID() != SimulinkPackage.CONNECTION__FROM) return null;
         return (OutPort)eInternalContainer();
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetFrom(OutPort newFrom, NotificationChain msgs) {
+	public NotificationChain basicSetFrom(OutPort newFrom, NotificationChain msgs) {
         msgs = eBasicSetContainer((InternalEObject)newFrom, SimulinkPackage.CONNECTION__FROM, msgs);
         return msgs;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setFrom(OutPort newFrom) {
+	public void setFrom(OutPort newFrom) {
         if (newFrom != eInternalContainer() || (eContainerFeatureID() != SimulinkPackage.CONNECTION__FROM && newFrom != null)) {
             if (EcoreUtil.isAncestor(this, newFrom))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -111,34 +118,34 @@ public abstract class ConnectionImpl extends SimulinkElementImpl implements Conn
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.CONNECTION__FROM, newFrom, newFrom));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public String getLineName() {
+	public String getLineName() {
         return lineName;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setLineName(String newLineName) {
+	public void setLineName(String newLineName) {
         String oldLineName = lineName;
         lineName = newLineName;
         if (eNotificationRequired())
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.CONNECTION__LINE_NAME, oldLineName, lineName));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.CONNECTION__FROM:
                 if (eInternalContainer() != null)
@@ -148,13 +155,13 @@ public abstract class ConnectionImpl extends SimulinkElementImpl implements Conn
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.CONNECTION__FROM:
                 return basicSetFrom(null, msgs);
@@ -162,13 +169,13 @@ public abstract class ConnectionImpl extends SimulinkElementImpl implements Conn
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
             case SimulinkPackage.CONNECTION__FROM:
                 return eInternalContainer().eInverseRemove(this, SimulinkPackage.OUT_PORT__CONNECTION, OutPort.class, msgs);
@@ -176,13 +183,13 @@ public abstract class ConnectionImpl extends SimulinkElementImpl implements Conn
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.CONNECTION__FROM:
                 return getFrom();
@@ -192,13 +199,13 @@ public abstract class ConnectionImpl extends SimulinkElementImpl implements Conn
         return super.eGet(featureID, resolve, coreType);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void eSet(int featureID, Object newValue) {
+	@Override
+	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.CONNECTION__FROM:
                 setFrom((OutPort)newValue);
@@ -210,13 +217,13 @@ public abstract class ConnectionImpl extends SimulinkElementImpl implements Conn
         super.eSet(featureID, newValue);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void eUnset(int featureID) {
+	@Override
+	public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.CONNECTION__FROM:
                 setFrom((OutPort)null);
@@ -228,13 +235,13 @@ public abstract class ConnectionImpl extends SimulinkElementImpl implements Conn
         super.eUnset(featureID);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public boolean eIsSet(int featureID) {
+	@Override
+	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.CONNECTION__FROM:
                 return getFrom() != null;
@@ -244,13 +251,13 @@ public abstract class ConnectionImpl extends SimulinkElementImpl implements Conn
         return super.eIsSet(featureID);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public String toString() {
+	@Override
+	public String toString() {
         if (eIsProxy()) return super.toString();
 
         StringBuilder result = new StringBuilder(super.toString());

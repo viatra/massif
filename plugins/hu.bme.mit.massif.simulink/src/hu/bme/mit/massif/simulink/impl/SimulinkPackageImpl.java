@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at 
+ * http://www.eclipse.org/legal/epl-v10.html 
+ *
+ * Contributors: 
+ *     Abel Hegedus, Akos Horvath - initial API and implementation 
+ *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -44,7 +54,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -54,28 +63,28 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage {
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass simulinkElementEClass = null;
+	private EClass simulinkElementEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass blockEClass = null;
+	private EClass blockEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass portEClass = null;
+	private EClass portEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -84,208 +93,208 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
     /**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass inPortEClass = null;
+	private EClass inPortEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass outPortEClass = null;
+	private EClass outPortEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass connectionEClass = null;
+	private EClass connectionEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass triggerEClass = null;
+	private EClass triggerEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass enableEClass = null;
+	private EClass enableEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass busSelectorEClass = null;
+	private EClass busSelectorEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass busCreatorEClass = null;
+	private EClass busCreatorEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass gotoEClass = null;
+	private EClass gotoEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass virtualBlockEClass = null;
+	private EClass virtualBlockEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass fromEClass = null;
+	private EClass fromEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass simulinkModelEClass = null;
+	private EClass simulinkModelEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass multiConnectionEClass = null;
+	private EClass multiConnectionEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass singleConnectionEClass = null;
+	private EClass singleConnectionEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass portBlockEClass = null;
+	private EClass portBlockEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass outPortBlockEClass = null;
+	private EClass outPortBlockEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass inPortBlockEClass = null;
+	private EClass inPortBlockEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass triggerBlockEClass = null;
+	private EClass triggerBlockEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass enableBlockEClass = null;
+	private EClass enableBlockEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass simulinkReferenceEClass = null;
+	private EClass simulinkReferenceEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass gotoTagVisibilityEClass = null;
+	private EClass gotoTagVisibilityEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass subSystemEClass = null;
+	private EClass subSystemEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass modelReferenceEClass = null;
+	private EClass modelReferenceEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass busSpecificationEClass = null;
+	private EClass busSpecificationEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass busSignalMappingEClass = null;
+	private EClass busSignalMappingEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass libraryLinkReferenceEClass = null;
+	private EClass libraryLinkReferenceEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EClass identifierReferenceEClass = null;
+	private EClass identifierReferenceEClass = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum enableStatesEEnum = null;
+	private EEnum enableStatesEEnum = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum triggerTypeEEnum = null;
+	private EEnum triggerTypeEEnum = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private EEnum tagVisibilityEEnum = null;
+	private EEnum tagVisibilityEEnum = null;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -301,36 +310,36 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
      * initialization of the package, or returns the registered package,
      * if one already exists.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see hu.bme.mit.massif.simulink.SimulinkPackage#eNS_URI
      * @see #init()
      * @generated
      */
-    private SimulinkPackageImpl() {
+	private SimulinkPackageImpl() {
         super(eNS_URI, SimulinkFactory.eINSTANCE);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private static boolean isInited = false;
+	private static boolean isInited = false;
 
-    /**
+	/**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
      *
      * <p>This method is used to initialize {@link SimulinkPackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
      * @generated
      */
-    public static SimulinkPackage init() {
+	public static SimulinkPackage init() {
         if (isInited) return (SimulinkPackage)EPackage.Registry.INSTANCE.getEPackage(SimulinkPackage.eNS_URI);
 
         // Obtain or create and register package
@@ -353,43 +362,43 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         return theSimulinkPackage;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getSimulinkElement() {
+	public EClass getSimulinkElement() {
         return simulinkElementEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSimulinkElement_SimulinkRef() {
+	public EReference getSimulinkElement_SimulinkRef() {
         return (EReference)simulinkElementEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSimulinkElement_Name() {
+	public EAttribute getSimulinkElement_Name() {
         return (EAttribute)simulinkElementEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getBlock() {
+	public EClass getBlock() {
         return blockEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -400,104 +409,104 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
     /**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBlock_Ports() {
+	public EReference getBlock_Ports() {
         return (EReference)blockEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBlock_Trigger() {
+	public EReference getBlock_Trigger() {
         return (EReference)blockEClass.getEStructuralFeatures().get(2);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBlock_Enabler() {
+	public EReference getBlock_Enabler() {
         return (EReference)blockEClass.getEStructuralFeatures().get(3);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBlock_Inports() {
+	public EReference getBlock_Inports() {
         return (EReference)blockEClass.getEStructuralFeatures().get(4);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBlock_Outports() {
+	public EReference getBlock_Outports() {
         return (EReference)blockEClass.getEStructuralFeatures().get(5);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBlock_Parent() {
+	public EReference getBlock_Parent() {
         return (EReference)blockEClass.getEStructuralFeatures().get(6);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBlock_SourceBlock() {
+	public EReference getBlock_SourceBlock() {
         return (EReference)blockEClass.getEStructuralFeatures().get(7);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBlock_SourceBlockRef() {
+	public EReference getBlock_SourceBlockRef() {
         return (EReference)blockEClass.getEStructuralFeatures().get(8);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getPort() {
+	public EClass getPort() {
         return portEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getPort_Container() {
+	public EReference getPort_Container() {
         return (EReference)portEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getPort_PortBlock() {
+	public EReference getPort_PortBlock() {
         return (EReference)portEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -544,590 +553,590 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
     /**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getInPort() {
+	public EClass getInPort() {
         return inPortEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getInPort_Connection() {
+	public EReference getInPort_Connection() {
         return (EReference)inPortEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getOutPort() {
+	public EClass getOutPort() {
         return outPortEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getOutPort_Connection() {
+	public EReference getOutPort_Connection() {
         return (EReference)outPortEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getConnection() {
+	public EClass getConnection() {
         return connectionEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getConnection_From() {
+	public EReference getConnection_From() {
         return (EReference)connectionEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getConnection_LineName() {
+	public EAttribute getConnection_LineName() {
         return (EAttribute)connectionEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getTrigger() {
+	public EClass getTrigger() {
         return triggerEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTrigger_TriggerType() {
+	public EAttribute getTrigger_TriggerType() {
         return (EAttribute)triggerEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getTrigger_StatesWhenEnabling() {
+	public EAttribute getTrigger_StatesWhenEnabling() {
         return (EAttribute)triggerEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getEnable() {
+	public EClass getEnable() {
         return enableEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getEnable_StatesWhenEnabling() {
+	public EAttribute getEnable_StatesWhenEnabling() {
         return (EAttribute)enableEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getBusSelector() {
+	public EClass getBusSelector() {
         return busSelectorEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBusSelector_Mappings() {
+	public EReference getBusSelector_Mappings() {
         return (EReference)busSelectorEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getBusSelector_OutputAsBus() {
+	public EAttribute getBusSelector_OutputAsBus() {
         return (EAttribute)busSelectorEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBusSelector_BusCreator() {
+	public EReference getBusSelector_BusCreator() {
         return (EReference)busSelectorEClass.getEStructuralFeatures().get(2);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getBusCreator() {
+	public EClass getBusCreator() {
         return busCreatorEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getGoto() {
+	public EClass getGoto() {
         return gotoEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getGoto_FromBlocks() {
+	public EReference getGoto_FromBlocks() {
         return (EReference)gotoEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getGoto_TagVisibility() {
+	public EAttribute getGoto_TagVisibility() {
         return (EAttribute)gotoEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getGoto_GotoTag() {
+	public EAttribute getGoto_GotoTag() {
         return (EAttribute)gotoEClass.getEStructuralFeatures().get(2);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getVirtualBlock() {
+	public EClass getVirtualBlock() {
         return virtualBlockEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getFrom() {
+	public EClass getFrom() {
         return fromEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getFrom_GotoBlock() {
+	public EReference getFrom_GotoBlock() {
         return (EReference)fromEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getSimulinkModel() {
+	public EClass getSimulinkModel() {
         return simulinkModelEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSimulinkModel_Version() {
+	public EAttribute getSimulinkModel_Version() {
         return (EAttribute)simulinkModelEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSimulinkModel_Contains() {
+	public EReference getSimulinkModel_Contains() {
         return (EReference)simulinkModelEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSimulinkModel_File() {
+	public EAttribute getSimulinkModel_File() {
         return (EAttribute)simulinkModelEClass.getEStructuralFeatures().get(2);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSimulinkModel_Library() {
+	public EAttribute getSimulinkModel_Library() {
         return (EAttribute)simulinkModelEClass.getEStructuralFeatures().get(3);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getMultiConnection() {
+	public EClass getMultiConnection() {
         return multiConnectionEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getMultiConnection_Connections() {
+	public EReference getMultiConnection_Connections() {
         return (EReference)multiConnectionEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getSingleConnection() {
+	public EClass getSingleConnection() {
         return singleConnectionEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSingleConnection_Parent() {
+	public EReference getSingleConnection_Parent() {
         return (EReference)singleConnectionEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSingleConnection_To() {
+	public EReference getSingleConnection_To() {
         return (EReference)singleConnectionEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getPortBlock() {
+	public EClass getPortBlock() {
         return portBlockEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getPortBlock_Port() {
+	public EReference getPortBlock_Port() {
         return (EReference)portBlockEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getOutPortBlock() {
+	public EClass getOutPortBlock() {
         return outPortBlockEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getInPortBlock() {
+	public EClass getInPortBlock() {
         return inPortBlockEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getTriggerBlock() {
+	public EClass getTriggerBlock() {
         return triggerBlockEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getEnableBlock() {
+	public EClass getEnableBlock() {
         return enableBlockEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getSimulinkReference() {
+	public EClass getSimulinkReference() {
         return simulinkReferenceEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSimulinkReference_Element() {
+	public EReference getSimulinkReference_Element() {
         return (EReference)simulinkReferenceEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSimulinkReference_Name() {
+	public EAttribute getSimulinkReference_Name() {
         return (EAttribute)simulinkReferenceEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSimulinkReference_Qualifier() {
+	public EAttribute getSimulinkReference_Qualifier() {
         return (EAttribute)simulinkReferenceEClass.getEStructuralFeatures().get(2);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getGotoTagVisibility() {
+	public EClass getGotoTagVisibility() {
         return gotoTagVisibilityEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getGotoTagVisibility_GotoBlock() {
+	public EReference getGotoTagVisibility_GotoBlock() {
         return (EReference)gotoTagVisibilityEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getSubSystem() {
+	public EClass getSubSystem() {
         return subSystemEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getSubSystem_SubBlocks() {
+	public EReference getSubSystem_SubBlocks() {
         return (EReference)subSystemEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getSubSystem_Tag() {
+	public EAttribute getSubSystem_Tag() {
         return (EAttribute)subSystemEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getModelReference() {
+	public EClass getModelReference() {
         return modelReferenceEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getModelReference_ReferencedModel() {
+	public EReference getModelReference_ReferencedModel() {
         return (EReference)modelReferenceEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getModelReference_ModelRef() {
+	public EReference getModelReference_ModelRef() {
         return (EReference)modelReferenceEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getBusSpecification() {
+	public EClass getBusSpecification() {
         return busSpecificationEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getBusSignalMapping() {
+	public EClass getBusSignalMapping() {
         return busSignalMappingEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBusSignalMapping_Selector() {
+	public EReference getBusSignalMapping_Selector() {
         return (EReference)busSignalMappingEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBusSignalMapping_MappingFrom() {
+	public EReference getBusSignalMapping_MappingFrom() {
         return (EReference)busSignalMappingEClass.getEStructuralFeatures().get(1);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getBusSignalMapping_MappingTo() {
+	public EReference getBusSignalMapping_MappingTo() {
         return (EReference)busSignalMappingEClass.getEStructuralFeatures().get(2);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getBusSignalMapping_MappingPath() {
+	public EAttribute getBusSignalMapping_MappingPath() {
         return (EAttribute)busSignalMappingEClass.getEStructuralFeatures().get(3);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getBusSignalMapping_Incomplete() {
+	public EAttribute getBusSignalMapping_Incomplete() {
         return (EAttribute)busSignalMappingEClass.getEStructuralFeatures().get(4);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getLibraryLinkReference() {
+	public EClass getLibraryLinkReference() {
         return libraryLinkReferenceEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getLibraryLinkReference_Disabled() {
+	public EAttribute getLibraryLinkReference_Disabled() {
         return (EAttribute)libraryLinkReferenceEClass.getEStructuralFeatures().get(0);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EClass getIdentifierReference() {
+	public EClass getIdentifierReference() {
         return identifierReferenceEClass;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EEnum getEnableStates() {
+	public EEnum getEnableStates() {
         return enableStatesEEnum;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EEnum getTriggerType() {
+	public EEnum getTriggerType() {
         return triggerTypeEEnum;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public EEnum getTagVisibility() {
+	public EEnum getTagVisibility() {
         return tagVisibilityEEnum;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1138,28 +1147,28 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
     /**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public SimulinkFactory getSimulinkFactory() {
+	public SimulinkFactory getSimulinkFactory() {
         return (SimulinkFactory)getEFactoryInstance();
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private boolean isCreated = false;
+	private boolean isCreated = false;
 
-    /**
+	/**
      * Creates the meta-model objects for the package.  This method is
      * guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void createPackageContents() {
+	public void createPackageContents() {
         if (isCreated) return;
         isCreated = true;
 
@@ -1284,21 +1293,21 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         parameterSourceEEnum = createEEnum(PARAMETER_SOURCE);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    private boolean isInitialized = false;
+	private boolean isInitialized = false;
 
-    /**
+	/**
      * Complete the initialization of the package and its meta-model.  This
      * method is guarded to have no affect on any invocation but its first.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void initializePackageContents() {
+	public void initializePackageContents() {
         if (isInitialized) return;
         isInitialized = true;
 
@@ -1487,13 +1496,13 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         createOrgAnnotations();
     }
 
-    /**
+	/**
      * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected void createEcoreAnnotations() {
+	protected void createEcoreAnnotations() {
         String source = "http://www.eclipse.org/emf/2002/Ecore";
         addAnnotation
           (this,
@@ -1503,13 +1512,13 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
            });
     }
 
-    /**
+	/**
      * Initializes the annotations for <b>org.eclipse.viatra.query.querybasedfeature</b>.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected void createOrgAnnotations() {
+	protected void createOrgAnnotations() {
         String source = "org.eclipse.viatra.query.querybasedfeature";
         addAnnotation
           (getSimulinkElement_Name(),

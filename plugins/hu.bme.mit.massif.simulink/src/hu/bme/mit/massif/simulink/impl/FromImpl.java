@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at 
+ * http://www.eclipse.org/legal/epl-v10.html 
+ *
+ * Contributors: 
+ *     Abel Hegedus, Akos Horvath - initial API and implementation 
+ *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.impl;
@@ -8,10 +18,8 @@ import hu.bme.mit.massif.simulink.SimulinkPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -28,41 +36,41 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class FromImpl extends VirtualBlockImpl implements From {
-    /**
+	/**
      * The cached value of the '{@link #getGotoBlock() <em>Goto Block</em>}' reference.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @see #getGotoBlock()
      * @generated
      * @ordered
      */
-    protected Goto gotoBlock;
+	protected Goto gotoBlock;
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected FromImpl() {
+	protected FromImpl() {
         super();
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    protected EClass eStaticClass() {
+	@Override
+	protected EClass eStaticClass() {
         return SimulinkPackage.Literals.FROM;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public Goto getGotoBlock() {
+	public Goto getGotoBlock() {
         if (gotoBlock != null && gotoBlock.eIsProxy()) {
             InternalEObject oldGotoBlock = (InternalEObject)gotoBlock;
             gotoBlock = (Goto)eResolveProxy(oldGotoBlock);
@@ -74,21 +82,21 @@ public class FromImpl extends VirtualBlockImpl implements From {
         return gotoBlock;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public Goto basicGetGotoBlock() {
+	public Goto basicGetGotoBlock() {
         return gotoBlock;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetGotoBlock(Goto newGotoBlock, NotificationChain msgs) {
+	public NotificationChain basicSetGotoBlock(Goto newGotoBlock, NotificationChain msgs) {
         Goto oldGotoBlock = gotoBlock;
         gotoBlock = newGotoBlock;
         if (eNotificationRequired()) {
@@ -98,12 +106,12 @@ public class FromImpl extends VirtualBlockImpl implements From {
         return msgs;
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public void setGotoBlock(Goto newGotoBlock) {
+	public void setGotoBlock(Goto newGotoBlock) {
         if (newGotoBlock != gotoBlock) {
             NotificationChain msgs = null;
             if (gotoBlock != null)
@@ -117,13 +125,13 @@ public class FromImpl extends VirtualBlockImpl implements From {
             eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.FROM__GOTO_BLOCK, newGotoBlock, newGotoBlock));
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.FROM__GOTO_BLOCK:
                 if (gotoBlock != null)
@@ -133,13 +141,13 @@ public class FromImpl extends VirtualBlockImpl implements From {
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
             case SimulinkPackage.FROM__GOTO_BLOCK:
                 return basicSetGotoBlock(null, msgs);
@@ -147,13 +155,13 @@ public class FromImpl extends VirtualBlockImpl implements From {
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
             case SimulinkPackage.FROM__GOTO_BLOCK:
                 if (resolve) return getGotoBlock();
@@ -162,13 +170,13 @@ public class FromImpl extends VirtualBlockImpl implements From {
         return super.eGet(featureID, resolve, coreType);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void eSet(int featureID, Object newValue) {
+	@Override
+	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.FROM__GOTO_BLOCK:
                 setGotoBlock((Goto)newValue);
@@ -177,13 +185,13 @@ public class FromImpl extends VirtualBlockImpl implements From {
         super.eSet(featureID, newValue);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public void eUnset(int featureID) {
+	@Override
+	public void eUnset(int featureID) {
         switch (featureID) {
             case SimulinkPackage.FROM__GOTO_BLOCK:
                 setGotoBlock((Goto)null);
@@ -192,13 +200,13 @@ public class FromImpl extends VirtualBlockImpl implements From {
         super.eUnset(featureID);
     }
 
-    /**
+	/**
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    @Override
-    public boolean eIsSet(int featureID) {
+	@Override
+	public boolean eIsSet(int featureID) {
         switch (featureID) {
             case SimulinkPackage.FROM__GOTO_BLOCK:
                 return gotoBlock != null;

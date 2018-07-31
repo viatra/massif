@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at 
+ * http://www.eclipse.org/legal/epl-v10.html 
+ *
+ * Contributors: 
+ *     Abel Hegedus, Akos Horvath - initial API and implementation 
+ *******************************************************************************/
 /**
  */
 package hu.bme.mit.massif.simulink.util;
@@ -23,48 +33,48 @@ import org.eclipse.emf.ecore.util.Switch;
  * @generated
  */
 public class SimulinkSwitch<T> extends Switch<T> {
-    /**
+	/**
      * The cached model package
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    protected static SimulinkPackage modelPackage;
+	protected static SimulinkPackage modelPackage;
 
-    /**
+	/**
      * Creates an instance of the switch.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @generated
      */
-    public SimulinkSwitch() {
+	public SimulinkSwitch() {
         if (modelPackage == null) {
             modelPackage = SimulinkPackage.eINSTANCE;
         }
     }
 
-    /**
+	/**
      * Checks whether this is a switch for the given package.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @param ePackage the package in question.
      * @return whether this is a switch for the given package.
      * @generated
      */
-    @Override
-    protected boolean isSwitchFor(EPackage ePackage) {
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
         return ePackage == modelPackage;
     }
 
-    /**
+	/**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
      * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    @Override
-    protected T doSwitch(int classifierID, EObject theEObject) {
+	@Override
+	protected T doSwitch(int classifierID, EObject theEObject) {
         switch (classifierID) {
             case SimulinkPackage.SIMULINK_ELEMENT: {
                 SimulinkElement simulinkElement = (SimulinkElement)theEObject;
@@ -314,52 +324,52 @@ public class SimulinkSwitch<T> extends Switch<T> {
         }
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSimulinkElement(SimulinkElement object) {
+	public T caseSimulinkElement(SimulinkElement object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Block</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBlock(Block object) {
+	public T caseBlock(Block object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Port</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Port</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T casePort(Port object) {
+	public T casePort(Port object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
      * <!-- begin-user-doc -->
      * This implementation returns null;
@@ -377,406 +387,406 @@ public class SimulinkSwitch<T> extends Switch<T> {
     /**
      * Returns the result of interpreting the object as an instance of '<em>In Port</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>In Port</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInPort(InPort object) {
+	public T caseInPort(InPort object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Out Port</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Out Port</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseOutPort(OutPort object) {
+	public T caseOutPort(OutPort object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Connection</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Connection</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseConnection(Connection object) {
+	public T caseConnection(Connection object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Trigger</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Trigger</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTrigger(Trigger object) {
+	public T caseTrigger(Trigger object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Enable</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Enable</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEnable(Enable object) {
+	public T caseEnable(Enable object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Bus Selector</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Bus Selector</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBusSelector(BusSelector object) {
+	public T caseBusSelector(BusSelector object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Bus Creator</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Bus Creator</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBusCreator(BusCreator object) {
+	public T caseBusCreator(BusCreator object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Goto</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Goto</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseGoto(Goto object) {
+	public T caseGoto(Goto object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Virtual Block</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Virtual Block</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseVirtualBlock(VirtualBlock object) {
+	public T caseVirtualBlock(VirtualBlock object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>From</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>From</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseFrom(From object) {
+	public T caseFrom(From object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Model</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSimulinkModel(SimulinkModel object) {
+	public T caseSimulinkModel(SimulinkModel object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Multi Connection</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Multi Connection</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseMultiConnection(MultiConnection object) {
+	public T caseMultiConnection(MultiConnection object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Single Connection</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Single Connection</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSingleConnection(SingleConnection object) {
+	public T caseSingleConnection(SingleConnection object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Port Block</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Port Block</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T casePortBlock(PortBlock object) {
+	public T casePortBlock(PortBlock object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Out Port Block</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Out Port Block</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseOutPortBlock(OutPortBlock object) {
+	public T caseOutPortBlock(OutPortBlock object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>In Port Block</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>In Port Block</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInPortBlock(InPortBlock object) {
+	public T caseInPortBlock(InPortBlock object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Trigger Block</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Trigger Block</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseTriggerBlock(TriggerBlock object) {
+	public T caseTriggerBlock(TriggerBlock object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Enable Block</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Enable Block</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEnableBlock(EnableBlock object) {
+	public T caseEnableBlock(EnableBlock object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSimulinkReference(SimulinkReference object) {
+	public T caseSimulinkReference(SimulinkReference object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Goto Tag Visibility</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Goto Tag Visibility</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseGotoTagVisibility(GotoTagVisibility object) {
+	public T caseGotoTagVisibility(GotoTagVisibility object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Sub System</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Sub System</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSubSystem(SubSystem object) {
+	public T caseSubSystem(SubSystem object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Model Reference</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Model Reference</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseModelReference(ModelReference object) {
+	public T caseModelReference(ModelReference object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Bus Specification</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Bus Specification</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBusSpecification(BusSpecification object) {
+	public T caseBusSpecification(BusSpecification object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Bus Signal Mapping</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Bus Signal Mapping</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBusSignalMapping(BusSignalMapping object) {
+	public T caseBusSignalMapping(BusSignalMapping object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Library Link Reference</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Library Link Reference</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLibraryLinkReference(LibraryLinkReference object) {
+	public T caseLibraryLinkReference(LibraryLinkReference object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>Identifier Reference</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Identifier Reference</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseIdentifierReference(IdentifierReference object) {
+	public T caseIdentifierReference(IdentifierReference object) {
         return null;
     }
 
-    /**
+	/**
      * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
      * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch, but this is the last case anyway.
-     * <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch, but this is the last case anyway.
+	 * <!-- end-user-doc -->
      * @param object the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-    @Override
-    public T defaultCase(EObject object) {
+	@Override
+	public T defaultCase(EObject object) {
         return null;
     }
 

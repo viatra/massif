@@ -4,10 +4,11 @@
     editorDirectory="/hu.bme.mit.massif.simulink.editor/src" modelPluginID="hu.bme.mit.massif.simulink"
     modelName="Simulink" modelPluginClass="" editPluginClass="hu.bme.mit.massif.simulink.provider.SimulinkEditPlugin"
     editorPluginClass="hu.bme.mit.massif.simulink.presentation.SimulinkEditorPlugin"
-    testsDirectory="/hu.bme.mit.massif.simulink.tests/src" testSuiteClass="hu.bme.mit.massif.simulink.tests.SimulinkAllTests"
+    testsDirectory="" testSuiteClass="hu.bme.mit.massif.simulink.tests.SimulinkAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     editPluginID="hu.bme.mit.massif.simulink.edit" editorPluginID="hu.bme.mit.massif.simulink.editor"
-    testsPluginID="hu.bme.mit.massif.simulink.tests" optimizedHasChildren="true" interfaceNamePattern="">
+    testsPluginID="hu.bme.mit.massif.simulink.tests" optimizedHasChildren="true" runtimeVersion="2.11"
+    interfaceNamePattern="">
   <foreignModel>simulink.ecore</foreignModel>
   <genPackages prefix="Simulink" basePackage="hu.bme.mit.massif" disposableProviderFactory="true"
       ecorePackage="simulink.ecore#/">

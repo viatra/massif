@@ -653,11 +653,14 @@ public class SimulinkEditor
             }
 
             if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
-                try {
-                    markerHelper.updateMarkers(diagnostic);
-                }
-                catch (CoreException exception) {
-                    SimulinkEditorPlugin.INSTANCE.log(exception);
+                markerHelper.deleteMarkers(editingDomain.getResourceSet());
+                if (diagnostic.getSeverity() != Diagnostic.OK) {
+                    try {
+                        markerHelper.createMarkers(diagnostic);
+                    }
+                    catch (CoreException exception) {
+                        SimulinkEditorPlugin.INSTANCE.log(exception);
+                    }
                 }
             }
         }
@@ -1399,7 +1402,7 @@ public class SimulinkEditor
      */
     public IPropertySheetPage getPropertySheetPage() {
         PropertySheetPage propertySheetPage =
-            new ExtendedPropertySheetPage(editingDomain, ExtendedPropertySheetPage.Decoration.NONE, null, 0, false) {
+            new ExtendedPropertySheetPage(editingDomain) {
                 @Override
                 public void setSelectionToViewer(List<?> selection) {
                     SimulinkEditor.this.setSelectionToViewer(selection);

@@ -58,7 +58,6 @@ public abstract class PortAdapter extends DefaultBlockAdapter {
             // write model modification code here
             Parameter busObject = SimulinkFactory.eINSTANCE.createParameter();
             busObject.setName("BusObject");
-            busObject.setSource(ParameterSource.DIALOG);
             busObject.setValue(busSignal.toString());
             portBlock.getParameters().add(busObject);
             // for now, only log it

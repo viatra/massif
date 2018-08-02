@@ -1,5 +1,4 @@
-/**
- */
+
 package hu.bme.mit.massif.simulink.impl;
 
 import hu.bme.mit.massif.simulink.Parameter;

@@ -1,5 +1,4 @@
-/**
- */
+
 package hu.bme.mit.massif.simulink;
 
 import org.eclipse.emf.ecore.EObject;

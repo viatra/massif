@@ -1,5 +1,4 @@
-/**
- */
+
 package hu.bme.mit.massif.simulink;
 
 import java.util.Arrays;

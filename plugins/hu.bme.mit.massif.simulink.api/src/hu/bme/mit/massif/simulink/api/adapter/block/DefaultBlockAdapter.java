@@ -72,6 +72,10 @@ public class DefaultBlockAdapter implements IBlockAdapter {
 
         	IVisitableMatlabData value = entry.getValue();
 			Parameter prop = SimulinkFactory.eINSTANCE.createParameter();
+			if (propertyName.matches(".*READONLY$")) {
+                propertyName = propertyName.replace("_READONLY", "");
+                prop.setReadOnly(true);
+            }
 			prop.setName(propertyName);
 			
 			if (value == null) {

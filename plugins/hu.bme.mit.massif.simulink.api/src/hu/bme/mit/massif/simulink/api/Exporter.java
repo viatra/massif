@@ -494,8 +494,18 @@ public class Exporter {
 
             // Set block dialog/mask parameters
             EList<Parameter> parameters = block.getParameters();
+            boolean isMaskOn = false;
             for (Parameter parameter : parameters) {
-                if(!parameter.isReadOnly()) {
+                if(parameter.getName().equals("Mask")) {
+                    isMaskOn = parameter.getValue().equals("on");
+                }
+            }
+            for (Parameter parameter : parameters) {
+                // Set if
+                // * not read-only AND
+                // * it is _not_ a mask parameter OR mask is on
+                // Explanation: if the mask is off, mask parameters should be ignored
+                if(!parameter.isReadOnly() && (isMaskOn || !parameter.getName().startsWith("Mask"))) {
                     String propertyName = parameter.getName();
                     commandFactory.setParam().addParam(getFQN(block)).addParam(propertyName).addParam(parameter.getValue()).execute();                    
                 }

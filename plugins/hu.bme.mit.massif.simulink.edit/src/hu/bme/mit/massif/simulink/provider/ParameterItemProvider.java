@@ -72,6 +72,7 @@ public class ParameterItemProvider
             addTypePropertyDescriptor(object);
             addValuePropertyDescriptor(object);
             addSourcePropertyDescriptor(object);
+            addReadOnlyPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
     }
@@ -165,6 +166,28 @@ public class ParameterItemProvider
     }
 
     /**
+     * This adds a property descriptor for the Read Only feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected void addReadOnlyPropertyDescriptor(Object object) {
+        itemPropertyDescriptors.add
+            (createItemPropertyDescriptor
+                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                 getResourceLocator(),
+                 getString("_UI_Parameter_readOnly_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_readOnly_feature", "_UI_Parameter_type"),
+                 SimulinkPackage.Literals.PARAMETER__READ_ONLY,
+                 true,
+                 false,
+                 false,
+                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+                 null,
+                 null));
+    }
+
+    /**
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -216,6 +239,7 @@ public class ParameterItemProvider
             case SimulinkPackage.PARAMETER__TYPE:
             case SimulinkPackage.PARAMETER__VALUE:
             case SimulinkPackage.PARAMETER__SOURCE:
+            case SimulinkPackage.PARAMETER__READ_ONLY:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

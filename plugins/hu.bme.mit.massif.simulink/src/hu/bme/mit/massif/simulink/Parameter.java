@@ -1,12 +1,11 @@
-/**
- */
+
 package hu.bme.mit.massif.simulink;
 
 import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Property</b></em>'.
+ * A representation of the model object '<em><b>Parameter</b></em>'.
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
@@ -18,17 +17,17 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link hu.bme.mit.massif.simulink.Property#getName <em>Name</em>}</li>
- *   <li>{@link hu.bme.mit.massif.simulink.Property#getType <em>Type</em>}</li>
- *   <li>{@link hu.bme.mit.massif.simulink.Property#getValue <em>Value</em>}</li>
- *   <li>{@link hu.bme.mit.massif.simulink.Property#getSource <em>Source</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.Parameter#getName <em>Name</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.Parameter#getType <em>Type</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.Parameter#getValue <em>Value</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.Parameter#getSource <em>Source</em>}</li>
  * </ul>
  *
- * @see hu.bme.mit.massif.simulink.SimulinkPackage#getProperty()
+ * @see hu.bme.mit.massif.simulink.SimulinkPackage#getParameter()
  * @model
  * @generated
  */
-public interface Property extends EObject {
+public interface Parameter extends EObject {
     /**
      * Returns the value of the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
@@ -39,14 +38,14 @@ public interface Property extends EObject {
      * <!-- end-user-doc -->
      * @return the value of the '<em>Name</em>' attribute.
      * @see #setName(String)
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getProperty_Name()
+     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getParameter_Name()
      * @model
      * @generated
      */
     String getName();
 
     /**
-     * Sets the value of the '{@link hu.bme.mit.massif.simulink.Property#getName <em>Name</em>}' attribute.
+     * Sets the value of the '{@link hu.bme.mit.massif.simulink.Parameter#getName <em>Name</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Name</em>' attribute.
@@ -57,7 +56,6 @@ public interface Property extends EObject {
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute.
-     * The literals are from the enumeration {@link hu.bme.mit.massif.simulink.PropertyType}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Type</em>' attribute isn't clear,
@@ -65,24 +63,22 @@ public interface Property extends EObject {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Type</em>' attribute.
-     * @see hu.bme.mit.massif.simulink.PropertyType
-     * @see #setType(PropertyType)
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getProperty_Type()
+     * @see #setType(String)
+     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getParameter_Type()
      * @model
      * @generated
      */
-    PropertyType getType();
+    String getType();
 
     /**
-     * Sets the value of the '{@link hu.bme.mit.massif.simulink.Property#getType <em>Type</em>}' attribute.
+     * Sets the value of the '{@link hu.bme.mit.massif.simulink.Parameter#getType <em>Type</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Type</em>' attribute.
-     * @see hu.bme.mit.massif.simulink.PropertyType
      * @see #getType()
      * @generated
      */
-    void setType(PropertyType value);
+    void setType(String value);
 
     /**
      * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -94,14 +90,14 @@ public interface Property extends EObject {
      * <!-- end-model-doc -->
      * @return the value of the '<em>Value</em>' attribute.
      * @see #setValue(String)
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getProperty_Value()
+     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getParameter_Value()
      * @model
      * @generated
      */
     String getValue();
 
     /**
-     * Sets the value of the '{@link hu.bme.mit.massif.simulink.Property#getValue <em>Value</em>}' attribute.
+     * Sets the value of the '{@link hu.bme.mit.massif.simulink.Parameter#getValue <em>Value</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Value</em>' attribute.
@@ -112,7 +108,7 @@ public interface Property extends EObject {
 
     /**
      * Returns the value of the '<em><b>Source</b></em>' attribute.
-     * The literals are from the enumeration {@link hu.bme.mit.massif.simulink.PropertySource}.
+     * The literals are from the enumeration {@link hu.bme.mit.massif.simulink.ParameterSource}.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Source</em>' attribute isn't clear,
@@ -120,23 +116,23 @@ public interface Property extends EObject {
      * </p>
      * <!-- end-user-doc -->
      * @return the value of the '<em>Source</em>' attribute.
-     * @see hu.bme.mit.massif.simulink.PropertySource
-     * @see #setSource(PropertySource)
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getProperty_Source()
+     * @see hu.bme.mit.massif.simulink.ParameterSource
+     * @see #setSource(ParameterSource)
+     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getParameter_Source()
      * @model
      * @generated
      */
-    PropertySource getSource();
+    ParameterSource getSource();
 
     /**
-     * Sets the value of the '{@link hu.bme.mit.massif.simulink.Property#getSource <em>Source</em>}' attribute.
+     * Sets the value of the '{@link hu.bme.mit.massif.simulink.Parameter#getSource <em>Source</em>}' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the new value of the '<em>Source</em>' attribute.
-     * @see hu.bme.mit.massif.simulink.PropertySource
+     * @see hu.bme.mit.massif.simulink.ParameterSource
      * @see #getSource()
      * @generated
      */
-    void setSource(PropertySource value);
+    void setSource(ParameterSource value);
 
-} // Property
+} // Parameter

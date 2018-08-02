@@ -4,18 +4,14 @@
     editorDirectory="/hu.bme.mit.massif.simulink.editor/src" modelPluginID="hu.bme.mit.massif.simulink"
     modelName="Simulink" modelPluginClass="" editPluginClass="hu.bme.mit.massif.simulink.provider.SimulinkEditPlugin"
     editorPluginClass="hu.bme.mit.massif.simulink.presentation.SimulinkEditorPlugin"
-    testsDirectory="/hu.bme.mit.massif.simulink.tests/src" testSuiteClass="hu.bme.mit.massif.simulink.tests.SimulinkAllTests"
+    testsDirectory="" testSuiteClass="hu.bme.mit.massif.simulink.tests.SimulinkAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
     editPluginID="hu.bme.mit.massif.simulink.edit" editorPluginID="hu.bme.mit.massif.simulink.editor"
-    testsPluginID="hu.bme.mit.massif.simulink.tests" optimizedHasChildren="true" interfaceNamePattern="">
+    testsPluginID="hu.bme.mit.massif.simulink.tests" optimizedHasChildren="true" runtimeVersion="2.11"
+    interfaceNamePattern="">
   <foreignModel>simulink.ecore</foreignModel>
   <genPackages prefix="Simulink" basePackage="hu.bme.mit.massif" disposableProviderFactory="true"
       ecorePackage="simulink.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="simulink.ecore#//PropertyType">
-      <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//PropertyType/StringProperty"/>
-      <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//PropertyType/IntegerProperty"/>
-      <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//PropertyType/DoubleProperty"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="simulink.ecore#//EnableStates">
       <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//EnableStates/Held"/>
       <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//EnableStates/Reset"/>
@@ -32,17 +28,17 @@
       <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//TagVisibility/Scoped"/>
       <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//TagVisibility/Global"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="simulink.ecore#//PropertySource">
-      <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//PropertySource/MASK"/>
-      <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//PropertySource/DIALOG"/>
-      <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//PropertySource/INTERNAL"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="simulink.ecore#//ParameterSource">
+      <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//ParameterSource/MASK"/>
+      <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//ParameterSource/DIALOG"/>
+      <genEnumLiterals ecoreEnumLiteral="simulink.ecore#//ParameterSource/INTERNAL"/>
     </genEnums>
     <genClasses image="false" ecoreClass="simulink.ecore#//SimulinkElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulink.ecore#//SimulinkElement/simulinkRef"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//SimulinkElement/name"/>
     </genClasses>
     <genClasses ecoreClass="simulink.ecore#//Block">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulink.ecore#//Block/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulink.ecore#//Block/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulink.ecore#//Block/ports"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference simulink.ecore#//Block/trigger"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference simulink.ecore#//Block/enabler"/>
@@ -56,11 +52,11 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simulink.ecore#//Port/container"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulink.ecore#//Port/portBlock"/>
     </genClasses>
-    <genClasses ecoreClass="simulink.ecore#//Property">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Property/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Property/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Property/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Property/source"/>
+    <genClasses ecoreClass="simulink.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Parameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Parameter/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Parameter/source"/>
     </genClasses>
     <genClasses ecoreClass="simulink.ecore#//InPort">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulink.ecore#//InPort/connection"/>
@@ -118,7 +114,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference simulink.ecore#//SimulinkReference/element"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//SimulinkReference/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//SimulinkReference/qualifier"/>
-      <genOperations ecoreOperation="simulink.ecore#//SimulinkReference/getFQN"/>
+      <genOperations ecoreOperation="simulink.ecore#//SimulinkReference/getFQN" body="if(qualifier != null)&#xD;&#xA;&#x9;return qualifier+&quot;/&quot;+name;&#xD;&#xA;else &#xD;&#xA;&#x9;return name;"/>
     </genClasses>
     <genClasses ecoreClass="simulink.ecore#//GotoTagVisibility">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulink.ecore#//GotoTagVisibility/gotoBlock"/>

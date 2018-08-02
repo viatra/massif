@@ -10,6 +10,8 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
+import java.util.List;
+
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.BusSignal;
@@ -18,14 +20,12 @@ import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.simulink.Block;
+import hu.bme.mit.massif.simulink.Parameter;
+import hu.bme.mit.massif.simulink.ParameterSource;
 import hu.bme.mit.massif.simulink.PortBlock;
-import hu.bme.mit.massif.simulink.Property;
-import hu.bme.mit.massif.simulink.PropertySource;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.api.Importer;
-
-import java.util.List;
 
 /**
  * Generic adapter class for the port block
@@ -56,11 +56,10 @@ public abstract class PortAdapter extends DefaultBlockAdapter {
 
             // The busObjectStructCell stores the raw and busSignal the processed BusObject
             // write model modification code here
-            Property busObject = SimulinkFactory.eINSTANCE.createProperty();
+            Parameter busObject = SimulinkFactory.eINSTANCE.createParameter();
             busObject.setName("BusObject");
-            busObject.setSource(PropertySource.DIALOG);
             busObject.setValue(busSignal.toString());
-            portBlock.getProperties().add(busObject);
+            portBlock.getParameters().add(busObject);
             // for now, only log it
             traverser.getLogger().debug(String.format("BusObject in %s was processed to %s", portBlockName, busSignal));
         }

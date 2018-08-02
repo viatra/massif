@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -148,15 +146,15 @@ public interface SimulinkPackage extends EPackage {
 	int BLOCK__NAME = SIMULINK_ELEMENT__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int BLOCK__PROPERTIES = SIMULINK_ELEMENT_FEATURE_COUNT + 0;
+    int BLOCK__PARAMETERS = SIMULINK_ELEMENT_FEATURE_COUNT + 0;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,61 +291,61 @@ public interface SimulinkPackage extends EPackage {
 	int PORT_FEATURE_COUNT = SIMULINK_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-     * The meta object id for the '{@link hu.bme.mit.massif.simulink.impl.PropertyImpl <em>Property</em>}' class.
+     * The meta object id for the '{@link hu.bme.mit.massif.simulink.impl.ParameterImpl <em>Parameter</em>}' class.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see hu.bme.mit.massif.simulink.impl.PropertyImpl
-     * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getProperty()
+     * <!-- end-user-doc -->
+     * @see hu.bme.mit.massif.simulink.impl.ParameterImpl
+     * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getParameter()
      * @generated
      */
-	int PROPERTY = 3;
+    int PARAMETER = 3;
 
-	/**
+    /**
      * The feature id for the '<em><b>Name</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int PROPERTY__NAME = 0;
+    int PARAMETER__NAME = 0;
 
-	/**
+    /**
      * The feature id for the '<em><b>Type</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int PROPERTY__TYPE = 1;
+    int PARAMETER__TYPE = 1;
 
-	/**
+    /**
      * The feature id for the '<em><b>Value</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int PROPERTY__VALUE = 2;
+    int PARAMETER__VALUE = 2;
 
-	/**
+    /**
      * The feature id for the '<em><b>Source</b></em>' attribute.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int PROPERTY__SOURCE = 3;
+    int PARAMETER__SOURCE = 3;
 
-	/**
-     * The number of structural features of the '<em>Property</em>' class.
+    /**
+     * The number of structural features of the '<em>Parameter</em>' class.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int PROPERTY_FEATURE_COUNT = 4;
+    int PARAMETER_FEATURE_COUNT = 4;
 
-	/**
+    /**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.impl.InPortImpl <em>In Port</em>}' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -714,15 +712,15 @@ public interface SimulinkPackage extends EPackage {
 	int BUS_SPECIFICATION__NAME = BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int BUS_SPECIFICATION__PROPERTIES = BLOCK__PROPERTIES;
+    int BUS_SPECIFICATION__PARAMETERS = BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -832,15 +830,15 @@ public interface SimulinkPackage extends EPackage {
 	int BUS_SELECTOR__NAME = BUS_SPECIFICATION__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int BUS_SELECTOR__PROPERTIES = BUS_SPECIFICATION__PROPERTIES;
+    int BUS_SELECTOR__PARAMETERS = BUS_SPECIFICATION__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -977,15 +975,15 @@ public interface SimulinkPackage extends EPackage {
 	int BUS_CREATOR__NAME = BUS_SPECIFICATION__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int BUS_CREATOR__PROPERTIES = BUS_SPECIFICATION__PROPERTIES;
+    int BUS_CREATOR__PARAMETERS = BUS_SPECIFICATION__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1095,15 +1093,15 @@ public interface SimulinkPackage extends EPackage {
 	int VIRTUAL_BLOCK__NAME = BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int VIRTUAL_BLOCK__PROPERTIES = BLOCK__PROPERTIES;
+    int VIRTUAL_BLOCK__PARAMETERS = BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1213,15 +1211,15 @@ public interface SimulinkPackage extends EPackage {
 	int GOTO__NAME = VIRTUAL_BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int GOTO__PROPERTIES = VIRTUAL_BLOCK__PROPERTIES;
+    int GOTO__PARAMETERS = VIRTUAL_BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1358,15 +1356,15 @@ public interface SimulinkPackage extends EPackage {
 	int FROM__NAME = VIRTUAL_BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int FROM__PROPERTIES = VIRTUAL_BLOCK__PROPERTIES;
+    int FROM__PARAMETERS = VIRTUAL_BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1695,15 +1693,15 @@ public interface SimulinkPackage extends EPackage {
 	int PORT_BLOCK__NAME = VIRTUAL_BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int PORT_BLOCK__PROPERTIES = VIRTUAL_BLOCK__PROPERTIES;
+    int PORT_BLOCK__PARAMETERS = VIRTUAL_BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1822,15 +1820,15 @@ public interface SimulinkPackage extends EPackage {
 	int OUT_PORT_BLOCK__NAME = PORT_BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int OUT_PORT_BLOCK__PROPERTIES = PORT_BLOCK__PROPERTIES;
+    int OUT_PORT_BLOCK__PARAMETERS = PORT_BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1949,15 +1947,15 @@ public interface SimulinkPackage extends EPackage {
 	int IN_PORT_BLOCK__NAME = PORT_BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int IN_PORT_BLOCK__PROPERTIES = PORT_BLOCK__PROPERTIES;
+    int IN_PORT_BLOCK__PARAMETERS = PORT_BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2076,15 +2074,15 @@ public interface SimulinkPackage extends EPackage {
 	int TRIGGER_BLOCK__NAME = IN_PORT_BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int TRIGGER_BLOCK__PROPERTIES = IN_PORT_BLOCK__PROPERTIES;
+    int TRIGGER_BLOCK__PARAMETERS = IN_PORT_BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2203,15 +2201,15 @@ public interface SimulinkPackage extends EPackage {
 	int ENABLE_BLOCK__NAME = IN_PORT_BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int ENABLE_BLOCK__PROPERTIES = IN_PORT_BLOCK__PROPERTIES;
+    int ENABLE_BLOCK__PARAMETERS = IN_PORT_BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2376,15 +2374,15 @@ public interface SimulinkPackage extends EPackage {
 	int GOTO_TAG_VISIBILITY__NAME = VIRTUAL_BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int GOTO_TAG_VISIBILITY__PROPERTIES = VIRTUAL_BLOCK__PROPERTIES;
+    int GOTO_TAG_VISIBILITY__PARAMETERS = VIRTUAL_BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2503,15 +2501,15 @@ public interface SimulinkPackage extends EPackage {
 	int SUB_SYSTEM__NAME = BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int SUB_SYSTEM__PROPERTIES = BLOCK__PROPERTIES;
+    int SUB_SYSTEM__PARAMETERS = BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2639,15 +2637,15 @@ public interface SimulinkPackage extends EPackage {
 	int MODEL_REFERENCE__NAME = BLOCK__NAME;
 
 	/**
-     * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int MODEL_REFERENCE__PROPERTIES = BLOCK__PROPERTIES;
+    int MODEL_REFERENCE__PARAMETERS = BLOCK__PARAMETERS;
 
-	/**
+    /**
      * The feature id for the '<em><b>Ports</b></em>' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2912,16 +2910,6 @@ public interface SimulinkPackage extends EPackage {
 	int IDENTIFIER_REFERENCE_FEATURE_COUNT = SIMULINK_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
-     * The meta object id for the '{@link hu.bme.mit.massif.simulink.PropertyType <em>Property Type</em>}' enum.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see hu.bme.mit.massif.simulink.PropertyType
-     * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getPropertyType()
-     * @generated
-     */
-	int PROPERTY_TYPE = 30;
-
-	/**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.EnableStates <em>Enable States</em>}' enum.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2929,7 +2917,7 @@ public interface SimulinkPackage extends EPackage {
      * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getEnableStates()
      * @generated
      */
-	int ENABLE_STATES = 31;
+	int ENABLE_STATES = 30;
 
 	/**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.TriggerType <em>Trigger Type</em>}' enum.
@@ -2939,7 +2927,7 @@ public interface SimulinkPackage extends EPackage {
      * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getTriggerType()
      * @generated
      */
-	int TRIGGER_TYPE = 32;
+	int TRIGGER_TYPE = 31;
 
 	/**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.TagVisibility <em>Tag Visibility</em>}' enum.
@@ -2949,20 +2937,19 @@ public interface SimulinkPackage extends EPackage {
      * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getTagVisibility()
      * @generated
      */
-	int TAG_VISIBILITY = 33;
+	int TAG_VISIBILITY = 32;
 
 	/**
-     * The meta object id for the '{@link hu.bme.mit.massif.simulink.PropertySource <em>Property Source</em>}' enum.
+     * The meta object id for the '{@link hu.bme.mit.massif.simulink.ParameterSource <em>Parameter Source</em>}' enum.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see hu.bme.mit.massif.simulink.PropertySource
-     * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getPropertySource()
+     * <!-- end-user-doc -->
+     * @see hu.bme.mit.massif.simulink.ParameterSource
+     * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getParameterSource()
      * @generated
      */
-	int PROPERTY_SOURCE = 34;
+    int PARAMETER_SOURCE = 33;
 
-
-	/**
+    /**
      * Returns the meta object for class '{@link hu.bme.mit.massif.simulink.SimulinkElement <em>Element</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3005,17 +2992,17 @@ public interface SimulinkPackage extends EPackage {
 	EClass getBlock();
 
 	/**
-     * Returns the meta object for the containment reference list '{@link hu.bme.mit.massif.simulink.Block#getProperties <em>Properties</em>}'.
+     * Returns the meta object for the containment reference list '{@link hu.bme.mit.massif.simulink.Block#getParameters <em>Parameters</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Properties</em>'.
-     * @see hu.bme.mit.massif.simulink.Block#getProperties()
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Parameters</em>'.
+     * @see hu.bme.mit.massif.simulink.Block#getParameters()
      * @see #getBlock()
      * @generated
      */
-	EReference getBlock_Properties();
+    EReference getBlock_Parameters();
 
-	/**
+    /**
      * Returns the meta object for the containment reference list '{@link hu.bme.mit.massif.simulink.Block#getPorts <em>Ports</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3136,60 +3123,60 @@ public interface SimulinkPackage extends EPackage {
 	EReference getPort_PortBlock();
 
 	/**
-     * Returns the meta object for class '{@link hu.bme.mit.massif.simulink.Property <em>Property</em>}'.
+     * Returns the meta object for class '{@link hu.bme.mit.massif.simulink.Parameter <em>Parameter</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for class '<em>Property</em>'.
-     * @see hu.bme.mit.massif.simulink.Property
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>Parameter</em>'.
+     * @see hu.bme.mit.massif.simulink.Parameter
      * @generated
      */
-	EClass getProperty();
+    EClass getParameter();
 
-	/**
-     * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Property#getName <em>Name</em>}'.
+    /**
+     * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Parameter#getName <em>Name</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Name</em>'.
-     * @see hu.bme.mit.massif.simulink.Property#getName()
-     * @see #getProperty()
+     * @see hu.bme.mit.massif.simulink.Parameter#getName()
+     * @see #getParameter()
      * @generated
      */
-	EAttribute getProperty_Name();
+    EAttribute getParameter_Name();
 
-	/**
-     * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Property#getType <em>Type</em>}'.
+    /**
+     * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Parameter#getType <em>Type</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Type</em>'.
-     * @see hu.bme.mit.massif.simulink.Property#getType()
-     * @see #getProperty()
+     * @see hu.bme.mit.massif.simulink.Parameter#getType()
+     * @see #getParameter()
      * @generated
      */
-	EAttribute getProperty_Type();
+    EAttribute getParameter_Type();
 
-	/**
-     * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Property#getValue <em>Value</em>}'.
+    /**
+     * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Parameter#getValue <em>Value</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Value</em>'.
-     * @see hu.bme.mit.massif.simulink.Property#getValue()
-     * @see #getProperty()
+     * @see hu.bme.mit.massif.simulink.Parameter#getValue()
+     * @see #getParameter()
      * @generated
      */
-	EAttribute getProperty_Value();
+    EAttribute getParameter_Value();
 
-	/**
-     * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Property#getSource <em>Source</em>}'.
+    /**
+     * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Parameter#getSource <em>Source</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @return the meta object for the attribute '<em>Source</em>'.
-     * @see hu.bme.mit.massif.simulink.Property#getSource()
-     * @see #getProperty()
+     * @see hu.bme.mit.massif.simulink.Parameter#getSource()
+     * @see #getParameter()
      * @generated
      */
-	EAttribute getProperty_Source();
+    EAttribute getParameter_Source();
 
-	/**
+    /**
      * Returns the meta object for class '{@link hu.bme.mit.massif.simulink.InPort <em>In Port</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3846,16 +3833,6 @@ public interface SimulinkPackage extends EPackage {
 	EClass getIdentifierReference();
 
 	/**
-     * Returns the meta object for enum '{@link hu.bme.mit.massif.simulink.PropertyType <em>Property Type</em>}'.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for enum '<em>Property Type</em>'.
-     * @see hu.bme.mit.massif.simulink.PropertyType
-     * @generated
-     */
-	EEnum getPropertyType();
-
-	/**
      * Returns the meta object for enum '{@link hu.bme.mit.massif.simulink.EnableStates <em>Enable States</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3886,16 +3863,16 @@ public interface SimulinkPackage extends EPackage {
 	EEnum getTagVisibility();
 
 	/**
-     * Returns the meta object for enum '{@link hu.bme.mit.massif.simulink.PropertySource <em>Property Source</em>}'.
+     * Returns the meta object for enum '{@link hu.bme.mit.massif.simulink.ParameterSource <em>Parameter Source</em>}'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return the meta object for enum '<em>Property Source</em>'.
-     * @see hu.bme.mit.massif.simulink.PropertySource
+     * <!-- end-user-doc -->
+     * @return the meta object for enum '<em>Parameter Source</em>'.
+     * @see hu.bme.mit.massif.simulink.ParameterSource
      * @generated
      */
-	EEnum getPropertySource();
+    EEnum getParameterSource();
 
-	/**
+    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3954,14 +3931,14 @@ public interface SimulinkPackage extends EPackage {
 		EClass BLOCK = eINSTANCE.getBlock();
 
 		/**
-         * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-		EReference BLOCK__PROPERTIES = eINSTANCE.getBlock_Properties();
+        EReference BLOCK__PARAMETERS = eINSTANCE.getBlock_Parameters();
 
-		/**
+        /**
          * The meta object literal for the '<em><b>Ports</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4052,48 +4029,48 @@ public interface SimulinkPackage extends EPackage {
 		EReference PORT__PORT_BLOCK = eINSTANCE.getPort_PortBlock();
 
 		/**
-         * The meta object literal for the '{@link hu.bme.mit.massif.simulink.impl.PropertyImpl <em>Property</em>}' class.
+         * The meta object literal for the '{@link hu.bme.mit.massif.simulink.impl.ParameterImpl <em>Parameter</em>}' class.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @see hu.bme.mit.massif.simulink.impl.PropertyImpl
-         * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getProperty()
+         * <!-- end-user-doc -->
+         * @see hu.bme.mit.massif.simulink.impl.ParameterImpl
+         * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getParameter()
          * @generated
          */
-		EClass PROPERTY = eINSTANCE.getProperty();
+        EClass PARAMETER = eINSTANCE.getParameter();
 
-		/**
+        /**
          * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-		EAttribute PROPERTY__NAME = eINSTANCE.getProperty_Name();
+        EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
 
-		/**
+        /**
          * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-		EAttribute PROPERTY__TYPE = eINSTANCE.getProperty_Type();
+        EAttribute PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
-		/**
+        /**
          * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-		EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
+        EAttribute PARAMETER__VALUE = eINSTANCE.getParameter_Value();
 
-		/**
+        /**
          * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-		EAttribute PROPERTY__SOURCE = eINSTANCE.getProperty_Source();
+        EAttribute PARAMETER__SOURCE = eINSTANCE.getParameter_Source();
 
-		/**
+        /**
          * The meta object literal for the '{@link hu.bme.mit.massif.simulink.impl.InPortImpl <em>In Port</em>}' class.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4642,16 +4619,6 @@ public interface SimulinkPackage extends EPackage {
 		EClass IDENTIFIER_REFERENCE = eINSTANCE.getIdentifierReference();
 
 		/**
-         * The meta object literal for the '{@link hu.bme.mit.massif.simulink.PropertyType <em>Property Type</em>}' enum.
-         * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @see hu.bme.mit.massif.simulink.PropertyType
-         * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getPropertyType()
-         * @generated
-         */
-		EEnum PROPERTY_TYPE = eINSTANCE.getPropertyType();
-
-		/**
          * The meta object literal for the '{@link hu.bme.mit.massif.simulink.EnableStates <em>Enable States</em>}' enum.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4682,14 +4649,14 @@ public interface SimulinkPackage extends EPackage {
 		EEnum TAG_VISIBILITY = eINSTANCE.getTagVisibility();
 
 		/**
-         * The meta object literal for the '{@link hu.bme.mit.massif.simulink.PropertySource <em>Property Source</em>}' enum.
+         * The meta object literal for the '{@link hu.bme.mit.massif.simulink.ParameterSource <em>Parameter Source</em>}' enum.
          * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-         * @see hu.bme.mit.massif.simulink.PropertySource
-         * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getPropertySource()
+         * <!-- end-user-doc -->
+         * @see hu.bme.mit.massif.simulink.ParameterSource
+         * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getParameterSource()
          * @generated
          */
-		EEnum PROPERTY_SOURCE = eINSTANCE.getPropertySource();
+        EEnum PARAMETER_SOURCE = eINSTANCE.getParameterSource();
 
 	}
 

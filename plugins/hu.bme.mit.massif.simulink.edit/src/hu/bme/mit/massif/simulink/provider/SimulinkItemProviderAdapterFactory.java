@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink.provider;
 
 import hu.bme.mit.massif.simulink.util.SimulinkAdapterFactory;
@@ -105,29 +103,29 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
     }
 
 	/**
-     * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.Property} instances.
+     * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.Parameter} instances.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	protected PropertyItemProvider propertyItemProvider;
+    protected ParameterItemProvider parameterItemProvider;
 
-	/**
-     * This creates an adapter for a {@link hu.bme.mit.massif.simulink.Property}.
+    /**
+     * This creates an adapter for a {@link hu.bme.mit.massif.simulink.Parameter}.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	@Override
-	public Adapter createPropertyAdapter() {
-        if (propertyItemProvider == null) {
-            propertyItemProvider = new PropertyItemProvider(this);
+    @Override
+    public Adapter createParameterAdapter() {
+        if (parameterItemProvider == null) {
+            parameterItemProvider = new ParameterItemProvider(this);
         }
 
-        return propertyItemProvider;
+        return parameterItemProvider;
     }
 
-	/**
+    /**
      * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.InPort} instances.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -710,7 +708,7 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
      */
 	public void dispose() {
         if (blockItemProvider != null) blockItemProvider.dispose();
-        if (propertyItemProvider != null) propertyItemProvider.dispose();
+        if (parameterItemProvider != null) parameterItemProvider.dispose();
         if (inPortItemProvider != null) inPortItemProvider.dispose();
         if (outPortItemProvider != null) outPortItemProvider.dispose();
         if (triggerItemProvider != null) triggerItemProvider.dispose();

@@ -1,5 +1,4 @@
-/**
- */
+
 package hu.bme.mit.massif.simulink;
 
 import java.util.Arrays;
@@ -10,124 +9,124 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Property Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Parameter Source</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
  * <!-- begin-model-doc -->
- * This EEnum represents the possible value types of #{simulink.Property} elements.
+ * This EEnum represents the possible sources of properties in a Simulink element.
  * <!-- end-model-doc -->
- * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPropertyType()
+ * @see hu.bme.mit.massif.simulink.SimulinkPackage#getParameterSource()
  * @model
  * @generated
  */
-public enum PropertyType implements Enumerator {
+public enum ParameterSource implements Enumerator {
     /**
-     * The '<em><b>String Property</b></em>' literal object.
+     * The '<em><b>MASK</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #STRING_PROPERTY_VALUE
+     * @see #MASK_VALUE
      * @generated
      * @ordered
      */
-    STRING_PROPERTY(0, "StringProperty", "StringProperty"),
+    MASK(0, "MASK", "MASK"),
 
     /**
-     * The '<em><b>Integer Property</b></em>' literal object.
+     * The '<em><b>DIALOG</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #INTEGER_PROPERTY_VALUE
+     * @see #DIALOG_VALUE
      * @generated
      * @ordered
      */
-    INTEGER_PROPERTY(1, "IntegerProperty", "IntegerProperty"),
+    DIALOG(1, "DIALOG", "DIALOG"),
 
     /**
-     * The '<em><b>Double Property</b></em>' literal object.
+     * The '<em><b>INTERNAL</b></em>' literal object.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #DOUBLE_PROPERTY_VALUE
+     * @see #INTERNAL_VALUE
      * @generated
      * @ordered
      */
-    DOUBLE_PROPERTY(2, "DoubleProperty", "DoubleProperty");
+    INTERNAL(2, "INTERNAL", "INTERNAL");
 
     /**
-     * The '<em><b>String Property</b></em>' literal value.
+     * The '<em><b>MASK</b></em>' literal value.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of '<em><b>String Property</b></em>' literal object isn't clear,
+     * If the meaning of '<em><b>MASK</b></em>' literal object isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @see #STRING_PROPERTY
-     * @model name="StringProperty"
+     * @see #MASK
+     * @model
      * @generated
      * @ordered
      */
-    public static final int STRING_PROPERTY_VALUE = 0;
+    public static final int MASK_VALUE = 0;
 
     /**
-     * The '<em><b>Integer Property</b></em>' literal value.
+     * The '<em><b>DIALOG</b></em>' literal value.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of '<em><b>Integer Property</b></em>' literal object isn't clear,
+     * If the meaning of '<em><b>DIALOG</b></em>' literal object isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @see #INTEGER_PROPERTY
-     * @model name="IntegerProperty"
+     * @see #DIALOG
+     * @model
      * @generated
      * @ordered
      */
-    public static final int INTEGER_PROPERTY_VALUE = 1;
+    public static final int DIALOG_VALUE = 1;
 
     /**
-     * The '<em><b>Double Property</b></em>' literal value.
+     * The '<em><b>INTERNAL</b></em>' literal value.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of '<em><b>Double Property</b></em>' literal object isn't clear,
+     * If the meaning of '<em><b>INTERNAL</b></em>' literal object isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @see #DOUBLE_PROPERTY
-     * @model name="DoubleProperty"
+     * @see #INTERNAL
+     * @model
      * @generated
      * @ordered
      */
-    public static final int DOUBLE_PROPERTY_VALUE = 2;
+    public static final int INTERNAL_VALUE = 2;
 
     /**
-     * An array of all the '<em><b>Property Type</b></em>' enumerators.
+     * An array of all the '<em><b>Parameter Source</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    private static final PropertyType[] VALUES_ARRAY =
-        new PropertyType[] {
-            STRING_PROPERTY,
-            INTEGER_PROPERTY,
-            DOUBLE_PROPERTY,
+    private static final ParameterSource[] VALUES_ARRAY =
+        new ParameterSource[] {
+            MASK,
+            DIALOG,
+            INTERNAL,
         };
 
     /**
-     * A public read-only list of all the '<em><b>Property Type</b></em>' enumerators.
+     * A public read-only list of all the '<em><b>Parameter Source</b></em>' enumerators.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    public static final List<PropertyType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<ParameterSource> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
-     * Returns the '<em><b>Property Type</b></em>' literal with the specified literal value.
+     * Returns the '<em><b>Parameter Source</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param literal the literal.
      * @return the matching enumerator or <code>null</code>.
      * @generated
      */
-    public static PropertyType get(String literal) {
+    public static ParameterSource get(String literal) {
         for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            PropertyType result = VALUES_ARRAY[i];
+            ParameterSource result = VALUES_ARRAY[i];
             if (result.toString().equals(literal)) {
                 return result;
             }
@@ -136,16 +135,16 @@ public enum PropertyType implements Enumerator {
     }
 
     /**
-     * Returns the '<em><b>Property Type</b></em>' literal with the specified name.
+     * Returns the '<em><b>Parameter Source</b></em>' literal with the specified name.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param name the name.
      * @return the matching enumerator or <code>null</code>.
      * @generated
      */
-    public static PropertyType getByName(String name) {
+    public static ParameterSource getByName(String name) {
         for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            PropertyType result = VALUES_ARRAY[i];
+            ParameterSource result = VALUES_ARRAY[i];
             if (result.getName().equals(name)) {
                 return result;
             }
@@ -154,18 +153,18 @@ public enum PropertyType implements Enumerator {
     }
 
     /**
-     * Returns the '<em><b>Property Type</b></em>' literal with the specified integer value.
+     * Returns the '<em><b>Parameter Source</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @param value the integer value.
      * @return the matching enumerator or <code>null</code>.
      * @generated
      */
-    public static PropertyType get(int value) {
+    public static ParameterSource get(int value) {
         switch (value) {
-            case STRING_PROPERTY_VALUE: return STRING_PROPERTY;
-            case INTEGER_PROPERTY_VALUE: return INTEGER_PROPERTY;
-            case DOUBLE_PROPERTY_VALUE: return DOUBLE_PROPERTY;
+            case MASK_VALUE: return MASK;
+            case DIALOG_VALUE: return DIALOG;
+            case INTERNAL_VALUE: return INTERNAL;
         }
         return null;
     }
@@ -197,7 +196,7 @@ public enum PropertyType implements Enumerator {
      * <!-- end-user-doc -->
      * @generated
      */
-    private PropertyType(int value, String name, String literal) {
+    private ParameterSource(int value, String name, String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;
@@ -241,4 +240,4 @@ public enum PropertyType implements Enumerator {
         return literal;
     }
     
-} //PropertyType
+} //ParameterSource

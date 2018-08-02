@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink;
 
 import org.eclipse.emf.common.util.EList;

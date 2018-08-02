@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink.impl;
 
 import hu.bme.mit.massif.simulink.*;
@@ -31,9 +29,6 @@ import hu.bme.mit.massif.simulink.ModelReference;
 import hu.bme.mit.massif.simulink.MultiConnection;
 import hu.bme.mit.massif.simulink.OutPort;
 import hu.bme.mit.massif.simulink.OutPortBlock;
-import hu.bme.mit.massif.simulink.Property;
-import hu.bme.mit.massif.simulink.PropertySource;
-import hu.bme.mit.massif.simulink.PropertyType;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.SimulinkPackage;
@@ -96,7 +91,7 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
 	public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
             case SimulinkPackage.BLOCK: return createBlock();
-            case SimulinkPackage.PROPERTY: return createProperty();
+            case SimulinkPackage.PARAMETER: return createParameter();
             case SimulinkPackage.IN_PORT: return createInPort();
             case SimulinkPackage.OUT_PORT: return createOutPort();
             case SimulinkPackage.TRIGGER: return createTrigger();
@@ -131,16 +126,14 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
         switch (eDataType.getClassifierID()) {
-            case SimulinkPackage.PROPERTY_TYPE:
-                return createPropertyTypeFromString(eDataType, initialValue);
             case SimulinkPackage.ENABLE_STATES:
                 return createEnableStatesFromString(eDataType, initialValue);
             case SimulinkPackage.TRIGGER_TYPE:
                 return createTriggerTypeFromString(eDataType, initialValue);
             case SimulinkPackage.TAG_VISIBILITY:
                 return createTagVisibilityFromString(eDataType, initialValue);
-            case SimulinkPackage.PROPERTY_SOURCE:
-                return createPropertySourceFromString(eDataType, initialValue);
+            case SimulinkPackage.PARAMETER_SOURCE:
+                return createParameterSourceFromString(eDataType, initialValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -154,16 +147,14 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
         switch (eDataType.getClassifierID()) {
-            case SimulinkPackage.PROPERTY_TYPE:
-                return convertPropertyTypeToString(eDataType, instanceValue);
             case SimulinkPackage.ENABLE_STATES:
                 return convertEnableStatesToString(eDataType, instanceValue);
             case SimulinkPackage.TRIGGER_TYPE:
                 return convertTriggerTypeToString(eDataType, instanceValue);
             case SimulinkPackage.TAG_VISIBILITY:
                 return convertTagVisibilityToString(eDataType, instanceValue);
-            case SimulinkPackage.PROPERTY_SOURCE:
-                return convertPropertySourceToString(eDataType, instanceValue);
+            case SimulinkPackage.PARAMETER_SOURCE:
+                return convertParameterSourceToString(eDataType, instanceValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -181,15 +172,15 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public Property createProperty() {
-        PropertyImpl property = new PropertyImpl();
-        return property;
+    public Parameter createParameter() {
+        ParameterImpl parameter = new ParameterImpl();
+        return parameter;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -404,26 +395,6 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
 	 * <!-- end-user-doc -->
      * @generated
      */
-	public PropertyType createPropertyTypeFromString(EDataType eDataType, String initialValue) {
-        PropertyType result = PropertyType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public String convertPropertyTypeToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
 	public EnableStates createEnableStatesFromString(EDataType eDataType, String initialValue) {
         EnableStates result = EnableStates.get(initialValue);
         if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -481,25 +452,25 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public PropertySource createPropertySourceFromString(EDataType eDataType, String initialValue) {
-        PropertySource result = PropertySource.get(initialValue);
+    public ParameterSource createParameterSourceFromString(EDataType eDataType, String initialValue) {
+        ParameterSource result = ParameterSource.get(initialValue);
         if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         return result;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public String convertPropertySourceToString(EDataType eDataType, Object instanceValue) {
+    public String convertParameterSourceToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated

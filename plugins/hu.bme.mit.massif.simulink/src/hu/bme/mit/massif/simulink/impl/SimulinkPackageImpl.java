@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink.impl;
 
 import hu.bme.mit.massif.simulink.Block;
@@ -32,11 +30,10 @@ import hu.bme.mit.massif.simulink.ModelReference;
 import hu.bme.mit.massif.simulink.MultiConnection;
 import hu.bme.mit.massif.simulink.OutPort;
 import hu.bme.mit.massif.simulink.OutPortBlock;
+import hu.bme.mit.massif.simulink.Parameter;
+import hu.bme.mit.massif.simulink.ParameterSource;
 import hu.bme.mit.massif.simulink.Port;
 import hu.bme.mit.massif.simulink.PortBlock;
-import hu.bme.mit.massif.simulink.Property;
-import hu.bme.mit.massif.simulink.PropertySource;
-import hu.bme.mit.massif.simulink.PropertyType;
 import hu.bme.mit.massif.simulink.SimulinkElement;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkModel;
@@ -87,12 +84,12 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EClass propertyEClass = null;
+    private EClass parameterEClass = null;
 
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -279,13 +276,6 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 	 * <!-- end-user-doc -->
      * @generated
      */
-	private EEnum propertyTypeEEnum = null;
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
 	private EEnum enableStatesEEnum = null;
 
 	/**
@@ -304,12 +294,12 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	private EEnum propertySourceEEnum = null;
+    private EEnum parameterSourceEEnum = null;
 
-	/**
+    /**
      * Creates an instance of the model <b>Package</b>, registered with
      * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
      * package URI value.
@@ -408,14 +398,14 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EReference getBlock_Properties() {
+    public EReference getBlock_Parameters() {
         return (EReference)blockEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -516,50 +506,50 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EClass getProperty() {
-        return propertyEClass;
+    public EClass getParameter() {
+        return parameterEClass;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getProperty_Name() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(0);
+    public EAttribute getParameter_Name() {
+        return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getProperty_Type() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(1);
+    public EAttribute getParameter_Type() {
+        return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getProperty_Value() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(2);
+    public EAttribute getParameter_Value() {
+        return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EAttribute getProperty_Source() {
-        return (EAttribute)propertyEClass.getEStructuralFeatures().get(3);
+    public EAttribute getParameter_Source() {
+        return (EAttribute)parameterEClass.getEStructuralFeatures().get(3);
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -1122,15 +1112,6 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 	 * <!-- end-user-doc -->
      * @generated
      */
-	public EEnum getPropertyType() {
-        return propertyTypeEEnum;
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
 	public EEnum getEnableStates() {
         return enableStatesEEnum;
     }
@@ -1155,14 +1136,14 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EEnum getPropertySource() {
-        return propertySourceEEnum;
+    public EEnum getParameterSource() {
+        return parameterSourceEEnum;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -1195,7 +1176,7 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         createEAttribute(simulinkElementEClass, SIMULINK_ELEMENT__NAME);
 
         blockEClass = createEClass(BLOCK);
-        createEReference(blockEClass, BLOCK__PROPERTIES);
+        createEReference(blockEClass, BLOCK__PARAMETERS);
         createEReference(blockEClass, BLOCK__PORTS);
         createEReference(blockEClass, BLOCK__TRIGGER);
         createEReference(blockEClass, BLOCK__ENABLER);
@@ -1209,11 +1190,11 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         createEReference(portEClass, PORT__CONTAINER);
         createEReference(portEClass, PORT__PORT_BLOCK);
 
-        propertyEClass = createEClass(PROPERTY);
-        createEAttribute(propertyEClass, PROPERTY__NAME);
-        createEAttribute(propertyEClass, PROPERTY__TYPE);
-        createEAttribute(propertyEClass, PROPERTY__VALUE);
-        createEAttribute(propertyEClass, PROPERTY__SOURCE);
+        parameterEClass = createEClass(PARAMETER);
+        createEAttribute(parameterEClass, PARAMETER__NAME);
+        createEAttribute(parameterEClass, PARAMETER__TYPE);
+        createEAttribute(parameterEClass, PARAMETER__VALUE);
+        createEAttribute(parameterEClass, PARAMETER__SOURCE);
 
         inPortEClass = createEClass(IN_PORT);
         createEReference(inPortEClass, IN_PORT__CONNECTION);
@@ -1304,11 +1285,10 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         identifierReferenceEClass = createEClass(IDENTIFIER_REFERENCE);
 
         // Create enums
-        propertyTypeEEnum = createEEnum(PROPERTY_TYPE);
         enableStatesEEnum = createEEnum(ENABLE_STATES);
         triggerTypeEEnum = createEEnum(TRIGGER_TYPE);
         tagVisibilityEEnum = createEEnum(TAG_VISIBILITY);
-        propertySourceEEnum = createEEnum(PROPERTY_SOURCE);
+        parameterSourceEEnum = createEEnum(PARAMETER_SOURCE);
     }
 
 	/**
@@ -1372,7 +1352,7 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         initEAttribute(getSimulinkElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, SimulinkElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getBlock_Properties(), this.getProperty(), null, "properties", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getBlock_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBlock_Ports(), this.getPort(), this.getPort_Container(), "ports", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getBlock_Trigger(), this.getTrigger(), null, "trigger", null, 0, 1, Block.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
         initEReference(getBlock_Enabler(), this.getEnable(), null, "enabler", null, 0, 1, Block.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1386,11 +1366,11 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         initEReference(getPort_Container(), this.getBlock(), this.getBlock_Ports(), "container", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getPort_PortBlock(), this.getPortBlock(), this.getPortBlock_Port(), "portBlock", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getProperty_Type(), this.getPropertyType(), "type", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getProperty_Source(), this.getPropertySource(), "source", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getParameter_Type(), ecorePackage.getEString(), "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getParameter_Source(), this.getParameterSource(), "source", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(inPortEClass, InPort.class, "InPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getInPort_Connection(), this.getSingleConnection(), this.getSingleConnection_To(), "connection", null, 0, 1, InPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1483,11 +1463,6 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         initEClass(identifierReferenceEClass, IdentifierReference.class, "IdentifierReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         // Initialize enums and add enum literals
-        initEEnum(propertyTypeEEnum, PropertyType.class, "PropertyType");
-        addEEnumLiteral(propertyTypeEEnum, PropertyType.STRING_PROPERTY);
-        addEEnumLiteral(propertyTypeEEnum, PropertyType.INTEGER_PROPERTY);
-        addEEnumLiteral(propertyTypeEEnum, PropertyType.DOUBLE_PROPERTY);
-
         initEEnum(enableStatesEEnum, EnableStates.class, "EnableStates");
         addEEnumLiteral(enableStatesEEnum, EnableStates.HELD);
         addEEnumLiteral(enableStatesEEnum, EnableStates.RESET);
@@ -1504,10 +1479,10 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         addEEnumLiteral(tagVisibilityEEnum, TagVisibility.SCOPED);
         addEEnumLiteral(tagVisibilityEEnum, TagVisibility.GLOBAL);
 
-        initEEnum(propertySourceEEnum, PropertySource.class, "PropertySource");
-        addEEnumLiteral(propertySourceEEnum, PropertySource.MASK);
-        addEEnumLiteral(propertySourceEEnum, PropertySource.DIALOG);
-        addEEnumLiteral(propertySourceEEnum, PropertySource.INTERNAL);
+        initEEnum(parameterSourceEEnum, ParameterSource.class, "ParameterSource");
+        addEEnumLiteral(parameterSourceEEnum, ParameterSource.MASK);
+        addEEnumLiteral(parameterSourceEEnum, ParameterSource.DIALOG);
+        addEEnumLiteral(parameterSourceEEnum, ParameterSource.INTERNAL);
 
         // Create resource
         createResource(eNS_URI);

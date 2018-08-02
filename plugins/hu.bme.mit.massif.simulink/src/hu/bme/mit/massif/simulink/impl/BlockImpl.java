@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink.impl;
 
 import hu.bme.mit.massif.simulink.Block;
@@ -17,8 +15,8 @@ import hu.bme.mit.massif.simulink.Enable;
 import hu.bme.mit.massif.simulink.InPort;
 import hu.bme.mit.massif.simulink.LibraryLinkReference;
 import hu.bme.mit.massif.simulink.OutPort;
+import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.Port;
-import hu.bme.mit.massif.simulink.Property;
 import hu.bme.mit.massif.simulink.SimulinkPackage;
 import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.Trigger;
@@ -45,7 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link hu.bme.mit.massif.simulink.impl.BlockImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.impl.BlockImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.BlockImpl#getPorts <em>Ports</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.BlockImpl#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.BlockImpl#getEnabler <em>Enabler</em>}</li>
@@ -60,16 +58,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class BlockImpl extends SimulinkElementImpl implements Block {
 	/**
-     * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+     * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see #getProperties()
+     * <!-- end-user-doc -->
+     * @see #getParameters()
      * @generated
      * @ordered
      */
-	protected EList<Property> properties;
+    protected EList<Parameter> parameters;
 
-	/**
+    /**
      * The cached value of the '{@link #getPorts() <em>Ports</em>}' containment reference list.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -160,17 +158,17 @@ public class BlockImpl extends SimulinkElementImpl implements Block {
 
 	/**
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
      * @generated
      */
-	public EList<Property> getProperties() {
-        if (properties == null) {
-            properties = new EObjectContainmentEList<Property>(Property.class, this, SimulinkPackage.BLOCK__PROPERTIES);
+    public EList<Parameter> getParameters() {
+        if (parameters == null) {
+            parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, SimulinkPackage.BLOCK__PARAMETERS);
         }
-        return properties;
+        return parameters;
     }
 
-	/**
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -367,8 +365,8 @@ public class BlockImpl extends SimulinkElementImpl implements Block {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case SimulinkPackage.BLOCK__PROPERTIES:
-                return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+            case SimulinkPackage.BLOCK__PARAMETERS:
+                return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
             case SimulinkPackage.BLOCK__PORTS:
                 return ((InternalEList<?>)getPorts()).basicRemove(otherEnd, msgs);
             case SimulinkPackage.BLOCK__PARENT:
@@ -401,8 +399,8 @@ public class BlockImpl extends SimulinkElementImpl implements Block {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case SimulinkPackage.BLOCK__PROPERTIES:
-                return getProperties();
+            case SimulinkPackage.BLOCK__PARAMETERS:
+                return getParameters();
             case SimulinkPackage.BLOCK__PORTS:
                 return getPorts();
             case SimulinkPackage.BLOCK__TRIGGER:
@@ -435,9 +433,9 @@ public class BlockImpl extends SimulinkElementImpl implements Block {
 	@Override
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case SimulinkPackage.BLOCK__PROPERTIES:
-                getProperties().clear();
-                getProperties().addAll((Collection<? extends Property>)newValue);
+            case SimulinkPackage.BLOCK__PARAMETERS:
+                getParameters().clear();
+                getParameters().addAll((Collection<? extends Parameter>)newValue);
                 return;
             case SimulinkPackage.BLOCK__PORTS:
                 getPorts().clear();
@@ -461,8 +459,8 @@ public class BlockImpl extends SimulinkElementImpl implements Block {
 	@Override
 	public void eUnset(int featureID) {
         switch (featureID) {
-            case SimulinkPackage.BLOCK__PROPERTIES:
-                getProperties().clear();
+            case SimulinkPackage.BLOCK__PARAMETERS:
+                getParameters().clear();
                 return;
             case SimulinkPackage.BLOCK__PORTS:
                 getPorts().clear();
@@ -485,8 +483,8 @@ public class BlockImpl extends SimulinkElementImpl implements Block {
 	@Override
 	public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case SimulinkPackage.BLOCK__PROPERTIES:
-                return properties != null && !properties.isEmpty();
+            case SimulinkPackage.BLOCK__PARAMETERS:
+                return parameters != null && !parameters.isEmpty();
             case SimulinkPackage.BLOCK__PORTS:
                 return ports != null && !ports.isEmpty();
             case SimulinkPackage.BLOCK__TRIGGER:

@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde?>
-<!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform -->
-<target name="Massif" sequenceNumber="1511182314">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde?><!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform --><target name="Massif" sequenceNumber="1511182314">
   <locations>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
+    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
       <unit id="org.eclipse.draw2d" version="3.10.1.201508170204"/>
       <unit id="org.eclipse.emf.mwe2.language.ui" version="2.8.3.v201512160634"/>
       <unit id="org.eclipse.emf.mwe2.launch.ui" version="2.8.3.v201512160634"/>
@@ -12,14 +9,19 @@
       <unit id="org.eclipse.sdk.feature.group" version="4.5.2.v20160212-1500"/>
       <repository location="http://download.eclipse.org/releases/mars"/>
     </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
+    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
       <unit id="org.eclipse.xtext.redist.feature.group" version="2.13.0.v20171020-0920"/>
       <repository location="http://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.13.0"/>
     </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="false" includeConfigurePhase="false" type="InstallableUnit">
+    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
       <unit id="org.eclipse.collections" version="9.2.0.v20180518-1448"/>
       <repository location="http://download.eclipse.org/collections/9.2.0/repository"/>
     </location>
+	  <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
+		  <unit id="com.sun.jna" version="4.5.1.v20180403-1933"/>
+		  <unit id="com.sun.jna.platform" version="4.5.1.v20180403-1933"/>
+		  <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository/"/>
+	  </location>
   </locations>
   <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 </target>

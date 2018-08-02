@@ -8,7 +8,6 @@
  * Contributors: 
  *     Marton Bur - initial API and implementation 
  *******************************************************************************/
-
 package hu.bme.mit.massif.simulink.provider;
 
 

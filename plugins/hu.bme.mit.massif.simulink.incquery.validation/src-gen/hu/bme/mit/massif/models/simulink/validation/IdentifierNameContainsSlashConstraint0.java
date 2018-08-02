@@ -3,19 +3,18 @@ Generated from platform:/resource/hu.bme.mit.massif.simulink.incquery/src/hu/bme
 */
 package hu.bme.mit.massif.models.simulink.validation;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
+import java.util.Arrays;
 
 import org.eclipse.viatra.addon.validation.core.api.Severity;
 import org.eclipse.viatra.addon.validation.core.api.IConstraintSpecification;
 import org.eclipse.viatra.query.runtime.api.IPatternMatch;
 import org.eclipse.viatra.query.runtime.api.IQuerySpecification;
 import org.eclipse.viatra.query.runtime.api.ViatraQueryMatcher;
-import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 
 import hu.bme.mit.massif.models.simulink.validation.IdentifierNameContainsSlash;
 
@@ -23,7 +22,7 @@ public class IdentifierNameContainsSlashConstraint0 implements IConstraintSpecif
 
     private IdentifierNameContainsSlash querySpecification;
 
-    public IdentifierNameContainsSlashConstraint0() throws ViatraQueryException {
+    public IdentifierNameContainsSlashConstraint0() {
         querySpecification = IdentifierNameContainsSlash.instance();
     }
 
@@ -35,15 +34,14 @@ public class IdentifierNameContainsSlashConstraint0 implements IConstraintSpecif
 
     @Override
     public Map<String,Object> getKeyObjects(IPatternMatch signature) {
-        Map<String,Object> map = ImmutableMap.of(
-            "id",signature.get("id")
-        );
+        Map<String,Object> map = new HashMap<>();
+        map.put("id",signature.get("id"));
         return map;
     }
 
     @Override
     public List<String> getKeyNames() {
-        List<String> keyNames = ImmutableList.of(
+        List<String> keyNames = Arrays.asList(
             "id"
         );
         return keyNames;
@@ -51,21 +49,21 @@ public class IdentifierNameContainsSlashConstraint0 implements IConstraintSpecif
 
     @Override
     public List<String> getPropertyNames() {
-        List<String> propertyNames = ImmutableList.of(
+        List<String> propertyNames = Arrays.asList(
         );
         return propertyNames;
     }
 
     @Override
     public Set<List<String>> getSymmetricPropertyNames() {
-        Set<List<String>> symmetricPropertyNamesSet = ImmutableSet.<List<String>>of(
+        Set<List<String>> symmetricPropertyNamesSet = new HashSet<>(
         );
         return symmetricPropertyNamesSet;
     }
 
     @Override
     public Set<List<String>> getSymmetricKeyNames() {
-        Set<List<String>> symmetricKeyNamesSet = ImmutableSet.<List<String>>of(
+        Set<List<String>> symmetricKeyNamesSet = new HashSet<>(
         );
         return symmetricKeyNamesSet;
     }

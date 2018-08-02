@@ -8,7 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-
 package hu.bme.mit.massif.simulink.impl;
 
 import hu.bme.mit.massif.simulink.IdentifierReference;

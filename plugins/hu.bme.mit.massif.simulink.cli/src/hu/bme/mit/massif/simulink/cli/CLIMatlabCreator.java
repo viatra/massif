@@ -35,7 +35,7 @@ public class CLIMatlabCreator {
     public void setDebugMode(boolean debugMode) {
         this.debugMode = debugMode;
     }
-    
+
     public void createMatlabModel(String modelName, String modelPath) throws SimulinkApiException, ViatraQueryException {
         createMatlabModel(modelName, modelPath, "slx");
     }

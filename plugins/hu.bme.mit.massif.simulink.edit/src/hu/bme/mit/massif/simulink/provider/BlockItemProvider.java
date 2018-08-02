@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink.provider;
 
 
@@ -188,7 +186,7 @@ public class BlockItemProvider extends SimulinkElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
         if (childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(SimulinkPackage.Literals.BLOCK__PROPERTIES);
+            childrenFeatures.add(SimulinkPackage.Literals.BLOCK__PARAMETERS);
             childrenFeatures.add(SimulinkPackage.Literals.BLOCK__PORTS);
             childrenFeatures.add(SimulinkPackage.Literals.BLOCK__SOURCE_BLOCK_REF);
         }
@@ -246,7 +244,7 @@ public class BlockItemProvider extends SimulinkElementItemProvider {
         updateChildren(notification);
 
         switch (notification.getFeatureID(Block.class)) {
-            case SimulinkPackage.BLOCK__PROPERTIES:
+            case SimulinkPackage.BLOCK__PARAMETERS:
             case SimulinkPackage.BLOCK__PORTS:
             case SimulinkPackage.BLOCK__SOURCE_BLOCK_REF:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -268,8 +266,8 @@ public class BlockItemProvider extends SimulinkElementItemProvider {
 
         newChildDescriptors.add
             (createChildParameter
-                (SimulinkPackage.Literals.BLOCK__PROPERTIES,
-                 SimulinkFactory.eINSTANCE.createProperty()));
+                (SimulinkPackage.Literals.BLOCK__PARAMETERS,
+                 SimulinkFactory.eINSTANCE.createParameter()));
 
         newChildDescriptors.add
             (createChildParameter

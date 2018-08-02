@@ -10,14 +10,14 @@
  *******************************************************************************/
 package hu.bme.mit.massif.common;
 
-import hu.bme.mit.massif.simulink.BusSelector;
-import hu.bme.mit.massif.simulink.BusSignalMapping;
-import hu.bme.mit.massif.simulink.Property;
-import hu.bme.mit.massif.simulink.SimulinkElement;
-
 import org.eclipse.emf.ecore.EObject;
 
 import com.google.common.base.Strings;
+
+import hu.bme.mit.massif.simulink.BusSelector;
+import hu.bme.mit.massif.simulink.BusSignalMapping;
+import hu.bme.mit.massif.simulink.Parameter;
+import hu.bme.mit.massif.simulink.SimulinkElement;
 
 public class NamingUtil {
 
@@ -26,8 +26,8 @@ public class NamingUtil {
         /* SIMULINK */
         if (massifElement instanceof SimulinkElement) {
             result = ((SimulinkElement) massifElement).getName();
-        } else if (massifElement instanceof Property) {
-            result = ((Property) massifElement).getName();
+        } else if (massifElement instanceof Parameter) {
+            result = ((Parameter) massifElement).getName();
         } else if (massifElement instanceof BusSignalMapping) {
             EObject parent = massifElement.eContainer();
             if (parent instanceof BusSelector) {

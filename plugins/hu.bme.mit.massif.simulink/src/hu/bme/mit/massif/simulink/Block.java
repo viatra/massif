@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink;
 
 import org.eclipse.emf.common.util.EList;
@@ -32,7 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link hu.bme.mit.massif.simulink.Block#getProperties <em>Properties</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.Block#getParameters <em>Parameters</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.Block#getPorts <em>Ports</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.Block#getTrigger <em>Trigger</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.Block#getEnabler <em>Enabler</em>}</li>
@@ -49,22 +47,22 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Block extends SimulinkElement {
 	/**
-     * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
-     * The list contents are of type {@link hu.bme.mit.massif.simulink.Property}.
+     * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+     * The list contents are of type {@link hu.bme.mit.massif.simulink.Parameter}.
      * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Properties</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-     * @return the value of the '<em>Properties</em>' containment reference list.
-     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBlock_Properties()
+     * <p>
+     * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Parameters</em>' containment reference list.
+     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getBlock_Parameters()
      * @model containment="true"
      * @generated
      */
-	EList<Property> getProperties();
+    EList<Parameter> getParameters();
 
-	/**
+    /**
      * Returns the value of the '<em><b>Ports</b></em>' containment reference list.
      * The list contents are of type {@link hu.bme.mit.massif.simulink.Port}.
      * It is bidirectional and its opposite is '{@link hu.bme.mit.massif.simulink.Port#getContainer <em>Container</em>}'.

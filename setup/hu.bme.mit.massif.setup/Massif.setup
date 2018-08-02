@@ -546,7 +546,7 @@
             name="org.eclipse.viatra.query.sdk.feature.source.feature.group"/>
         <repositoryList>
           <repository
-              url="http://download.eclipse.org/viatra/updates/release/2.0.1"/>
+              url="http://download.eclipse.org/viatra/updates/release/"/>
         </repositoryList>
       </targlet>
     </setupTask>
@@ -578,6 +578,12 @@
           url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
       <repository
           url="http://mbarbero.github.io/fr.obeo.releng.targetplatform/p2/"/>
+    </setupTask>
+    <setupTask
+        xsi:type="jdt:JRETask"
+        version="JavaSE-1.7"
+        location="${jre.location-1.7}">
+      <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
     </setupTask>
   </stream>
   <stream name="viatra-master">

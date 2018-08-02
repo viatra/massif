@@ -29,13 +29,13 @@ import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
  * @author Peter Lunk
  */
 public class CLIEMFCreator {
-
+    
     private boolean debugMode = false;
     
     public void setDebugMode(boolean debugMode) {
         this.debugMode = debugMode;
     }
-    
+
     public void createSimulinkModel(String modelName, String outputDir, ImportMode importMode)
             throws SimulinkApiException, ViatraQueryException {
         CLIInitializationUtil.setupEnvironment();

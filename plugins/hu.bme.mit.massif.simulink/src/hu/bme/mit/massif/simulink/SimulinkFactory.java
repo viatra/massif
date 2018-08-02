@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink;
 
 import org.eclipse.emf.ecore.EFactory;
@@ -41,15 +39,15 @@ public interface SimulinkFactory extends EFactory {
 	Block createBlock();
 
 	/**
-     * Returns a new object of class '<em>Property</em>'.
+     * Returns a new object of class '<em>Parameter</em>'.
      * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @return a new object of class '<em>Property</em>'.
+     * <!-- end-user-doc -->
+     * @return a new object of class '<em>Parameter</em>'.
      * @generated
      */
-	Property createProperty();
+    Parameter createParameter();
 
-	/**
+    /**
      * Returns a new object of class '<em>In Port</em>'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

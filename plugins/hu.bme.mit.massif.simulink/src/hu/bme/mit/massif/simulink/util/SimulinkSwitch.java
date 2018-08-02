@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink.util;
 
 import hu.bme.mit.massif.simulink.*;
@@ -96,9 +94,9 @@ public class SimulinkSwitch<T> extends Switch<T> {
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
-            case SimulinkPackage.PROPERTY: {
-                Property property = (Property)theEObject;
-                T result = caseProperty(property);
+            case SimulinkPackage.PARAMETER: {
+                Parameter parameter = (Parameter)theEObject;
+                T result = caseParameter(parameter);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }
@@ -370,21 +368,21 @@ public class SimulinkSwitch<T> extends Switch<T> {
     }
 
 	/**
-     * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
      * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+     * This implementation returns null;
+     * returning a non-null result will terminate the switch.
+     * <!-- end-user-doc -->
      * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-	public T caseProperty(Property object) {
+    public T caseParameter(Parameter object) {
         return null;
     }
 
-	/**
+    /**
      * Returns the result of interpreting the object as an instance of '<em>In Port</em>'.
      * <!-- begin-user-doc -->
 	 * This implementation returns null;

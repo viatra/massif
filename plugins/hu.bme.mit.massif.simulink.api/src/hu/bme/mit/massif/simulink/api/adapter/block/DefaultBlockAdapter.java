@@ -26,8 +26,7 @@ import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import hu.bme.mit.massif.simulink.Block;
-import hu.bme.mit.massif.simulink.Property;
-import hu.bme.mit.massif.simulink.PropertyType;
+import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.api.Importer;
@@ -51,7 +50,7 @@ public class DefaultBlockAdapter implements IBlockAdapter {
         MatlabCommandFactory commandFactory = traverser.getCommandFactory();
         String blockFQN = blockToProcess.getSimulinkRef().getFQN();
         
-        List<Property> blockProperties = new LinkedList<Property>();
+        List<Parameter> blockProperties = new LinkedList<Parameter>();
 
         MatlabCommand getAllBlockParameters = commandFactory.customCommand("massif.get_all_block_parameters", 1).addParam(blockFQN);
         Map<String, IVisitableMatlabData> blockPropsMap = StructMatlabData.getStructMatlabDataData(getAllBlockParameters.execute());
@@ -72,30 +71,30 @@ public class DefaultBlockAdapter implements IBlockAdapter {
         	}
 
         	IVisitableMatlabData value = entry.getValue();
-			Property prop = SimulinkFactory.eINSTANCE.createProperty();
+			Parameter prop = SimulinkFactory.eINSTANCE.createParameter();
 			prop.setName(propertyName);
 			
 			if (value == null) {
 				// Default: empty string
-				prop.setType(PropertyType.STRING_PROPERTY);
+				prop.setType("char");
 				prop.setValue("");				
 				blockProperties.add(prop);	
 			} else { 
 				if(value instanceof MatlabString) {
-					prop.setType(PropertyType.STRING_PROPERTY);
+					prop.setType("char");
 				} else if(value instanceof Handle) {
-					prop.setType(PropertyType.DOUBLE_PROPERTY);
+					prop.setType("handle");
 				} else if (value instanceof CellMatlabData) {
-					prop.setType(PropertyType.STRING_PROPERTY);
+					prop.setType("cell");
 				} else if(value instanceof StructMatlabData) {
-					prop.setType(PropertyType.STRING_PROPERTY);
+					prop.setType("struct");
 				}
 				prop.setValue(value.toString());
 				blockProperties.add(prop);
 			} 
         }
         
-        blockToProcess.getProperties().addAll(blockProperties);
+        blockToProcess.getParameters().addAll(blockProperties);
 
     }
 

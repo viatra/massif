@@ -8,8 +8,6 @@
  * Contributors: 
  *     Abel Hegedus, Akos Horvath - initial API and implementation 
  *******************************************************************************/
-/**
- */
 package hu.bme.mit.massif.simulink.util;
 
 import hu.bme.mit.massif.simulink.*;
@@ -90,8 +88,8 @@ public class SimulinkAdapterFactory extends AdapterFactoryImpl {
                 return createPortAdapter();
             }
             @Override
-            public Adapter caseProperty(Property object) {
-                return createPropertyAdapter();
+            public Adapter caseParameter(Parameter object) {
+                return createParameterAdapter();
             }
             @Override
             public Adapter caseInPort(InPort object) {
@@ -260,20 +258,20 @@ public class SimulinkAdapterFactory extends AdapterFactoryImpl {
     }
 
 	/**
-     * Creates a new adapter for an object of class '{@link hu.bme.mit.massif.simulink.Property <em>Property</em>}'.
+     * Creates a new adapter for an object of class '{@link hu.bme.mit.massif.simulink.Parameter <em>Parameter</em>}'.
      * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases;
+     * it's useful to ignore a case when inheritance will catch all the cases anyway.
+     * <!-- end-user-doc -->
      * @return the new adapter.
-     * @see hu.bme.mit.massif.simulink.Property
+     * @see hu.bme.mit.massif.simulink.Parameter
      * @generated
      */
-	public Adapter createPropertyAdapter() {
+    public Adapter createParameterAdapter() {
         return null;
     }
 
-	/**
+    /**
      * Creates a new adapter for an object of class '{@link hu.bme.mit.massif.simulink.InPort <em>In Port</em>}'.
      * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;

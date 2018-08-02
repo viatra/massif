@@ -10,6 +10,12 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.emf.common.util.EList;
+
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
@@ -18,16 +24,10 @@ import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusSelector;
-import hu.bme.mit.massif.simulink.Property;
+import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.api.Importer;
-
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-import org.eclipse.emf.common.util.EList;
 
 /**
  * Adapter class for the bus selector
@@ -56,14 +56,14 @@ public class BusSelectorAdapter extends DefaultBlockAdapter {
         // Get relevant properties - don't have to be queried again from MATLAB, super.process() already obtained all
         // mask/dialog
         // parameters
-        Property outputSignalsProperty = null;
-        Property outputAsBusProperty = null;
-        EList<Property> properties = busSelector.getProperties();
-        for (Property property : properties) {
-            if ("OutputAsBus".equalsIgnoreCase(property.getName())) {
-                outputAsBusProperty = property;
-            } else if ("OutputSignals".equalsIgnoreCase(property.getName())) {
-                outputSignalsProperty = property;
+        Parameter outputSignalsProperty = null;
+        Parameter outputAsBusProperty = null;
+        EList<Parameter> parameters = busSelector.getParameters();
+        for (Parameter parameter : parameters) {
+            if ("OutputAsBus".equalsIgnoreCase(parameter.getName())) {
+                outputAsBusProperty = parameter;
+            } else if ("OutputSignals".equalsIgnoreCase(parameter.getName())) {
+                outputSignalsProperty = parameter;
             }
         }
 

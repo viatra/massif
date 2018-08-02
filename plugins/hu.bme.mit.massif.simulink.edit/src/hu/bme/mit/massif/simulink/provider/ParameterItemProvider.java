@@ -1,9 +1,17 @@
-/**
- */
+/*******************************************************************************
+ * Copyright (c) 2010-2018, IncQuery Labs Ltd., logi.cals GmbH, McGill University
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0 
+ * which accompanies this distribution, and is available at 
+ * http://www.eclipse.org/legal/epl-v10.html 
+ *
+ * Contributors: 
+ *     Marton Bur - initial API and implementation 
+ *******************************************************************************/
 package hu.bme.mit.massif.simulink.provider;
 
 
-import hu.bme.mit.massif.simulink.Property;
+import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkPackage;
 
 import java.util.Collection;
@@ -26,12 +34,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link hu.bme.mit.massif.simulink.Property} object.
+ * This is the item provider adapter for a {@link hu.bme.mit.massif.simulink.Parameter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PropertyItemProvider 
+public class ParameterItemProvider 
     extends ItemProviderAdapter
     implements
         IEditingDomainItemProvider,
@@ -45,7 +53,7 @@ public class PropertyItemProvider
      * <!-- end-user-doc -->
      * @generated
      */
-    public PropertyItemProvider(AdapterFactory adapterFactory) {
+    public ParameterItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -79,9 +87,9 @@ public class PropertyItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Property_name_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Property_name_feature", "_UI_Property_type"),
-                 SimulinkPackage.Literals.PROPERTY__NAME,
+                 getString("_UI_Parameter_name_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_name_feature", "_UI_Parameter_type"),
+                 SimulinkPackage.Literals.PARAMETER__NAME,
                  true,
                  false,
                  false,
@@ -101,9 +109,9 @@ public class PropertyItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Property_type_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Property_type_feature", "_UI_Property_type"),
-                 SimulinkPackage.Literals.PROPERTY__TYPE,
+                 getString("_UI_Parameter_type_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_type_feature", "_UI_Parameter_type"),
+                 SimulinkPackage.Literals.PARAMETER__TYPE,
                  true,
                  false,
                  false,
@@ -123,9 +131,9 @@ public class PropertyItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Property_value_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Property_value_feature", "_UI_Property_type"),
-                 SimulinkPackage.Literals.PROPERTY__VALUE,
+                 getString("_UI_Parameter_value_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_value_feature", "_UI_Parameter_type"),
+                 SimulinkPackage.Literals.PARAMETER__VALUE,
                  true,
                  false,
                  false,
@@ -145,9 +153,9 @@ public class PropertyItemProvider
             (createItemPropertyDescriptor
                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                  getResourceLocator(),
-                 getString("_UI_Property_source_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Property_source_feature", "_UI_Property_type"),
-                 SimulinkPackage.Literals.PROPERTY__SOURCE,
+                 getString("_UI_Parameter_source_feature"),
+                 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_source_feature", "_UI_Parameter_type"),
+                 SimulinkPackage.Literals.PARAMETER__SOURCE,
                  true,
                  false,
                  false,
@@ -167,14 +175,14 @@ public class PropertyItemProvider
     }
 
     /**
-     * This returns Property.gif.
+     * This returns Parameter.gif.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     @Override
     public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Property"));
+        return overlayImage(object, getResourceLocator().getImage("full/obj16/Parameter"));
     }
 
     /**
@@ -185,10 +193,10 @@ public class PropertyItemProvider
      */
     @Override
     public String getText(Object object) {
-        String label = ((Property)object).getName();
+        String label = ((Parameter)object).getName();
         return label == null || label.length() == 0 ?
-            getString("_UI_Property_type") :
-            getString("_UI_Property_type") + " " + label;
+            getString("_UI_Parameter_type") :
+            getString("_UI_Parameter_type") + " " + label;
     }
 
 
@@ -203,11 +211,11 @@ public class PropertyItemProvider
     public void notifyChanged(Notification notification) {
         updateChildren(notification);
 
-        switch (notification.getFeatureID(Property.class)) {
-            case SimulinkPackage.PROPERTY__NAME:
-            case SimulinkPackage.PROPERTY__TYPE:
-            case SimulinkPackage.PROPERTY__VALUE:
-            case SimulinkPackage.PROPERTY__SOURCE:
+        switch (notification.getFeatureID(Parameter.class)) {
+            case SimulinkPackage.PARAMETER__NAME:
+            case SimulinkPackage.PARAMETER__TYPE:
+            case SimulinkPackage.PARAMETER__VALUE:
+            case SimulinkPackage.PARAMETER__SOURCE:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;
         }

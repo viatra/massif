@@ -551,6 +551,15 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
     /**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EAttribute getParameter_ReadOnly() {
+        return (EAttribute)parameterEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -1195,6 +1204,7 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         createEAttribute(parameterEClass, PARAMETER__TYPE);
         createEAttribute(parameterEClass, PARAMETER__VALUE);
         createEAttribute(parameterEClass, PARAMETER__SOURCE);
+        createEAttribute(parameterEClass, PARAMETER__READ_ONLY);
 
         inPortEClass = createEClass(IN_PORT);
         createEReference(inPortEClass, IN_PORT__CONNECTION);
@@ -1371,6 +1381,7 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         initEAttribute(getParameter_Type(), ecorePackage.getEString(), "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getParameter_Source(), this.getParameterSource(), "source", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEAttribute(getParameter_ReadOnly(), ecorePackage.getEBoolean(), "readOnly", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(inPortEClass, InPort.class, "InPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getInPort_Connection(), this.getSingleConnection(), this.getSingleConnection_To(), "connection", null, 0, 1, InPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -337,13 +337,22 @@ public interface SimulinkPackage extends EPackage {
     int PARAMETER__SOURCE = 3;
 
     /**
+     * The feature id for the '<em><b>Read Only</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PARAMETER__READ_ONLY = 4;
+
+    /**
      * The number of structural features of the '<em>Parameter</em>' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PARAMETER_FEATURE_COUNT = 4;
+    int PARAMETER_FEATURE_COUNT = 5;
 
     /**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.impl.InPortImpl <em>In Port</em>}' class.
@@ -3177,6 +3186,17 @@ public interface SimulinkPackage extends EPackage {
     EAttribute getParameter_Source();
 
     /**
+     * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Parameter#isReadOnly <em>Read Only</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Read Only</em>'.
+     * @see hu.bme.mit.massif.simulink.Parameter#isReadOnly()
+     * @see #getParameter()
+     * @generated
+     */
+    EAttribute getParameter_ReadOnly();
+
+    /**
      * Returns the meta object for class '{@link hu.bme.mit.massif.simulink.InPort <em>In Port</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4069,6 +4089,14 @@ public interface SimulinkPackage extends EPackage {
          * @generated
          */
         EAttribute PARAMETER__SOURCE = eINSTANCE.getParameter_Source();
+
+        /**
+         * The meta object literal for the '<em><b>Read Only</b></em>' attribute feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EAttribute PARAMETER__READ_ONLY = eINSTANCE.getParameter_ReadOnly();
 
         /**
          * The meta object literal for the '{@link hu.bme.mit.massif.simulink.impl.InPortImpl <em>In Port</em>}' class.

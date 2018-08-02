@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getValue <em>Value</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#isReadOnly <em>Read Only</em>}</li>
  * </ul>
  *
  * @generated
@@ -108,6 +109,26 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
      * @ordered
      */
     protected ParameterSource source = SOURCE_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #isReadOnly() <em>Read Only</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isReadOnly()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean READ_ONLY_EDEFAULT = false;
+
+    /**
+     * The cached value of the '{@link #isReadOnly() <em>Read Only</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isReadOnly()
+     * @generated
+     * @ordered
+     */
+    protected boolean readOnly = READ_ONLY_EDEFAULT;
 
     /**
      * <!-- begin-user-doc -->
@@ -217,6 +238,27 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
      * <!-- end-user-doc -->
      * @generated
      */
+    public boolean isReadOnly() {
+        return readOnly;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setReadOnly(boolean newReadOnly) {
+        boolean oldReadOnly = readOnly;
+        readOnly = newReadOnly;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PARAMETER__READ_ONLY, oldReadOnly, readOnly));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
@@ -228,6 +270,8 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
                 return getValue();
             case SimulinkPackage.PARAMETER__SOURCE:
                 return getSource();
+            case SimulinkPackage.PARAMETER__READ_ONLY:
+                return isReadOnly();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -251,6 +295,9 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
                 return;
             case SimulinkPackage.PARAMETER__SOURCE:
                 setSource((ParameterSource)newValue);
+                return;
+            case SimulinkPackage.PARAMETER__READ_ONLY:
+                setReadOnly((Boolean)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -276,6 +323,9 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
             case SimulinkPackage.PARAMETER__SOURCE:
                 setSource(SOURCE_EDEFAULT);
                 return;
+            case SimulinkPackage.PARAMETER__READ_ONLY:
+                setReadOnly(READ_ONLY_EDEFAULT);
+                return;
         }
         super.eUnset(featureID);
     }
@@ -296,6 +346,8 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
                 return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
             case SimulinkPackage.PARAMETER__SOURCE:
                 return source != SOURCE_EDEFAULT;
+            case SimulinkPackage.PARAMETER__READ_ONLY:
+                return readOnly != READ_ONLY_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -318,6 +370,8 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
         result.append(value);
         result.append(", source: ");
         result.append(source);
+        result.append(", readOnly: ");
+        result.append(readOnly);
         result.append(')');
         return result.toString();
     }

@@ -57,6 +57,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Parameter/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Parameter/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Parameter/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//Parameter/readOnly"/>
     </genClasses>
     <genClasses ecoreClass="simulink.ecore#//InPort">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulink.ecore#//InPort/connection"/>

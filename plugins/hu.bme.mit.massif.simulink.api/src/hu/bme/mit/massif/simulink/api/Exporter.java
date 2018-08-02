@@ -495,8 +495,10 @@ public class Exporter {
             // Set block dialog/mask parameters
             EList<Parameter> parameters = block.getParameters();
             for (Parameter parameter : parameters) {
-                String propertyName = parameter.getName();
-                commandFactory.setParam().addParam(getFQN(block)).addParam(propertyName).addParam(parameter.getValue()).execute();
+                if(!parameter.isReadOnly()) {
+                    String propertyName = parameter.getName();
+                    commandFactory.setParam().addParam(getFQN(block)).addParam(propertyName).addParam(parameter.getValue()).execute();                    
+                }
             }
 
         }

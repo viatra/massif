@@ -499,12 +499,18 @@
         <requirement
             name="org.eclipse.xtext.redist.feature.group"
             versionRange="[2.9.0,2.13.0)"/>
+        <requirement
+            name="com.sun.jna"/>
+        <requirement
+            name="com.sun.jna.platform"/>
         <repositoryList
             name="Mars">
           <repository
               url="http://download.eclipse.org/releases/mars"/>
           <repository
               url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+          <repository
+              url="http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/"/>
         </repositoryList>
         <repositoryList
             name="Neon">
@@ -512,6 +518,8 @@
               url="http://download.eclipse.org/releases/neon"/>
           <repository
               url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+          <repository
+              url="http://download.eclipse.org/tools/orbit/downloads/drops/R20170307180635/repository/"/>
         </repositoryList>
         <repositoryList
             name="Oxygen">
@@ -519,6 +527,17 @@
               url="http://download.eclipse.org/releases/oxygen"/>
           <repository
               url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+          <repository
+              url="http://download.eclipse.org/tools/orbit/downloads/drops/R20180330011457/repository/"/>
+        </repositoryList>
+        <repositoryList
+            name="Photon">
+          <repository
+              url="http://download.eclipse.org/releases/photon"/>
+          <repository
+              url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+          <repository
+              url="http://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository/"/>
         </repositoryList>
       </targlet>
       <targlet
@@ -549,6 +568,10 @@
           name="org.eclipse.egit.feature.group"/>
       <requirement
           name="fr.obeo.releng.targetplatform-feature.feature.group"/>
+      <requirement
+          name="com.sun.jna"/>
+      <requirement
+          name="com.sun.jna.platform"/>
       <repository
           url="http://download.eclipse.org/viatra/updates/release/"/>
       <repository

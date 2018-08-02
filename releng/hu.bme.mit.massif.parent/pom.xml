@@ -30,7 +30,6 @@
 		<module>../../plugins/hu.bme.mit.massif.simulink.cli</module>
 		
 		<!-- Command evaluation connector -->
-		<module>../../dependencies/matlab.access.external.bundle</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.base</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.server</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.client</module>

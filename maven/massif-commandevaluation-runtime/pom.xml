@@ -29,10 +29,5 @@
   		<artifactId>hu.bme.mit.massif.communication.commandevaluation</artifactId>
   		<version>${project.version}</version>
   	</dependency>
-	<dependency>
-  		<groupId>hu.bme.mit.massif</groupId>
-  		<artifactId>matlab.access.external.bundle</artifactId>
-  		<version>${project.version}</version>
-  	</dependency>
   </dependencies>
 </project>

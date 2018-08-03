@@ -23,11 +23,6 @@
     <description>Set the heap space needed to work with the projects of ${scope.project.label}</description>
   </setupTask>
   <setupTask
-      xsi:type="setup:EclipseIniTask"
-      option="-XX:MaxPermSize="
-      value="256M"
-      vm="true"/>
-  <setupTask
       xsi:type="setup:VariableTask"
       name="massif.copyright.holder"
       label="Additional copyright owners (Massif)">
@@ -559,31 +554,17 @@
           versionRange="[2.9.0,3.0.0)"/>
       <requirement
           name="org.eclipse.xtext.redist.feature.group"
-          versionRange="[2.9.0,2.13.0)"/>
+          versionRange="[2.12.0,3.0.0)"/>
       <requirement
           name="org.eclipse.m2e.feature.feature.group"/>
       <requirement
           name="org.eclipse.m2e.logback.feature.feature.group"/>
       <requirement
           name="org.eclipse.egit.feature.group"/>
-      <requirement
-          name="fr.obeo.releng.targetplatform-feature.feature.group"/>
-      <requirement
-          name="com.sun.jna"/>
-      <requirement
-          name="com.sun.jna.platform"/>
       <repository
           url="http://download.eclipse.org/viatra/updates/release/"/>
       <repository
           url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-      <repository
-          url="http://mbarbero.github.io/fr.obeo.releng.targetplatform/p2/"/>
-    </setupTask>
-    <setupTask
-        xsi:type="jdt:JRETask"
-        version="JavaSE-1.7"
-        location="${jre.location-1.7}">
-      <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
     </setupTask>
   </stream>
   <stream name="viatra-master">
@@ -652,14 +633,10 @@
           name="org.eclipse.m2e.logback.feature.feature.group"/>
       <requirement
           name="org.eclipse.egit.feature.group"/>
-      <requirement
-          name="fr.obeo.releng.targetplatform-feature.feature.group"/>
       <repository
           url="http://download.eclipse.org/viatra/updates/integration/"/>
       <repository
           url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-      <repository
-          url="http://mbarbero.github.io/fr.obeo.releng.targetplatform/p2/"/>
     </setupTask>
   </stream>
   <stream name="0.4-maintenance">
@@ -720,6 +697,11 @@
         location="${jre.location-1.7}">
       <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-XX:MaxPermSize="
+        value="256M"
+        vm="true"/>
   </stream>
   <stream name="0.5-maintenance">
     <setupTask
@@ -779,6 +761,11 @@
         location="${jre.location-1.7}">
       <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
     </setupTask>
+    <setupTask
+        xsi:type="setup:EclipseIniTask"
+        option="-XX:MaxPermSize="
+        value="256M"
+        vm="true"/>
   </stream>
   <logicalProjectContainer
       xsi:type="setup:ProjectCatalog"

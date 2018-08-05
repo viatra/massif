@@ -86,14 +86,17 @@ public class DefaultBlockAdapter implements IBlockAdapter {
 			} else { 
 				if(value instanceof MatlabString) {
 					prop.setType("char");
+					prop.setValue(value.toString().replaceAll("'", ""));
 				} else if(value instanceof Handle) {
 					prop.setType("handle");
+					prop.setValue(value.toString());
 				} else if (value instanceof CellMatlabData) {
 					prop.setType("cell");
+					prop.setValue(value.toString());
 				} else if(value instanceof StructMatlabData) {
 					prop.setType("struct");
+					prop.setValue(value.toString());
 				}
-				prop.setValue(value.toString());
 				blockProperties.add(prop);
 			} 
         }

@@ -23,13 +23,16 @@ import hu.bme.mit.massif.communication.ICommandEvaluatorFactory;
  */
 public class MatlabEngineEvaluatorFactory implements ICommandEvaluatorFactory {
 
-	@Override
+	private ICommandEvaluator evaluator;
+
+    @Override
 	public ICommandEvaluator createCommandEvaluator(Map<String, Object> parameters) throws ConnectorCreationException {
-		ICommandEvaluator evaluator;
 		boolean debugPrint = (boolean) parameters.get("print_issued_commands");
 		try {
-			evaluator = new MatlabEngineEvaluator(debugPrint);
-		} catch (EngineException | InterruptedException e) {
+            if (evaluator == null) {
+                evaluator = new MatlabEngineEvaluator(debugPrint);
+            }
+        } catch (EngineException | InterruptedException e) {
 			throw new ConnectorCreationException("Failed to create " + getConnectorName(), e);
 		}
 		return evaluator;

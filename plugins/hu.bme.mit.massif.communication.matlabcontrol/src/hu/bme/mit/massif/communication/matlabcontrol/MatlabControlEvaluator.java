@@ -21,8 +21,6 @@ import matlabcontrol.MatlabProxyFactoryOptions.Builder;
 
 /**
  * Class responsible for the low level operations with MATLAB
- * 
- * (The successor class of BasicOperationsApi utility class)
  */
 public class MatlabControlEvaluator extends AbstractCommandEvaluator<MatlabControlAccess> {
 		
@@ -33,6 +31,10 @@ public class MatlabControlEvaluator extends AbstractCommandEvaluator<MatlabContr
 		this.debugPrint = debugPrint;
     }
     
+	public void setDebugPrint(boolean debugPrint) {
+	    this.debugPrint = debugPrint; 
+	}
+	
     public MatlabControlEvaluator(MatlabProxy proxy) {
         super(new MatlabControlAccess(proxy));
     }

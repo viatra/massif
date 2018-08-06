@@ -21,7 +21,7 @@ import java.util.Map;
  */
 public class MatlabControlEvaluatorFactory implements ICommandEvaluatorFactory {
 
-	private ICommandEvaluator evaluator;
+	private MatlabControlEvaluator evaluator;
 
     @Override
 	public ICommandEvaluator createOrGetCommandEvaluator(
@@ -33,7 +33,9 @@ public class MatlabControlEvaluatorFactory implements ICommandEvaluatorFactory {
         if (evaluator == null) {
             evaluator = new MatlabControlEvaluator(matlabPath, debugPrint);
         }
-
+        
+        evaluator.setDebugPrint(debugPrint);
+        
         return evaluator;
 	}
 

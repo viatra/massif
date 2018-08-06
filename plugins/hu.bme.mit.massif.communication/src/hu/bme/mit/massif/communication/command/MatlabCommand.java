@@ -83,6 +83,7 @@ public abstract class MatlabCommand {
     }
 
     public String[] getCommandStrings() {
+        compileCommandStrings();
         return Arrays.copyOf(commandStrings, commandStrings.length);
     }
 
@@ -97,7 +98,15 @@ public abstract class MatlabCommand {
      * @throws CommandEvaluationException if an unexpected error occurred during execution of the command
      */
     public final IVisitableMatlabData execute() {
+        compileCommandStrings();
+        // Executing command
+        return commandEvaluator.evaluateCommands(commandStrings, getOutputArgumentCount());
+    }
 
+    /**
+     * Compile command strings based on the current command parameters
+     */
+    private void compileCommandStrings() {
         if (params.size() > 0) {
 
             commandStrings = new String[] { this.getCommandName() + "(" };
@@ -114,8 +123,6 @@ public abstract class MatlabCommand {
         } else {
             commandStrings = new String[] { this.getCommandName() };
         }
-        // Executing command
-        return commandEvaluator.evaluateCommands(commandStrings, getOutputArgumentCount());
     }
 
     /**

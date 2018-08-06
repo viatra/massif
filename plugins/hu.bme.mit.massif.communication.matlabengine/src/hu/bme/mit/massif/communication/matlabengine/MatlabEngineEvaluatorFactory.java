@@ -26,7 +26,7 @@ public class MatlabEngineEvaluatorFactory implements ICommandEvaluatorFactory {
 	private ICommandEvaluator evaluator;
 
     @Override
-	public ICommandEvaluator createCommandEvaluator(Map<String, Object> parameters) throws ConnectorCreationException {
+	public ICommandEvaluator createOrGetCommandEvaluator(Map<String, Object> parameters) throws ConnectorCreationException {
 		boolean debugPrint = (boolean) parameters.get("print_issued_commands");
 		try {
             if (evaluator == null) {

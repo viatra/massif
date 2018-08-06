@@ -87,10 +87,6 @@ public abstract class MatlabCommand {
         return Arrays.copyOf(commandStrings, commandStrings.length);
     }
 
-    public void setCommandString(String[] commandStrings) {
-        this.commandStrings = Arrays.copyOf(commandStrings, commandStrings.length);
-    }
-
     /**
      * Execute the represented command
      * 

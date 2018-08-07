@@ -14,10 +14,12 @@ package hu.bme.mit.massif.simulink.api;
 import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.core.internal.resources.ProjectPathVariableManager;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import com.google.common.base.Strings;
 import com.google.common.collect.Sets;
 
+import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
@@ -40,6 +43,7 @@ import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
+import hu.bme.mit.massif.communication.datavisitor.IMatlabDataVisitor;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusCreator;
 import hu.bme.mit.massif.simulink.BusSelector;
@@ -506,11 +510,37 @@ public class Exporter {
                 // * it is _not_ a mask parameter OR mask is on
                 // Explanation: if the mask is off, mask parameters should be ignored
                 if(!parameter.isReadOnly() && (isMaskOn || !parameter.getName().startsWith("Mask"))) {
-                    String propertyName = parameter.getName();
-                    commandFactory.setParam().addParam(getFQN(block)).addParam(propertyName).addParam(parameter.getValue()).execute();                    
+                    String commandString = generateSetParamCommandStub(block, parameter);
+                    if("char".equals(parameter.getType())) {
+                        commandString= commandString.concat("'" + parameter.getValue() + "'");
+                        // @formatter\:off
+                        // A problematic case: empty string as parameter value
+                        // We don't know what the type was originally, so we use try-catch to retry with a different type
+                        if (parameter.getValue().equals("")) {
+                            commandString = "try " + commandString + "); " +
+                                            "catch " + 
+                                                "try " + commandString.replaceFirst("''", "") + "cell.empty()); " +
+                                                "catch " +
+                                                    "try " + commandString.replaceFirst("''", "") + "[]); " +
+                                                    "catch " +
+                                                        // TODO add proper logging here
+                                                        "fprintf('Failed to set parameter " + parameter.getName() + "'); " +
+                                                    "end; " +
+                                                "end; " +
+                                            "end";
+                        } else {                 
+                            commandString = "try " + commandString + "); catch "+ "fprintf('Failed to set parameter " + parameter.getName() + "'); end ";
+                        }
+                        // @formatter\:on
+                    } else {
+                        commandString = commandString.concat(parameter.getValue());
+                        commandString = commandString.concat(")");
+                    }
+                    ICommandEvaluator commandEvaluator = commandFactory.getCommandEvaluator();
+                    commandEvaluator.evaluateCommand(commandString, 0);
                 }
+                // TODO compile command string into a single command - see issue #120
             }
-
         }
 
         // When there is at least one block on the same level, check that only blocks are there on the same level will be present in the exported model
@@ -541,6 +571,19 @@ public class Exporter {
         
         // create connections between the exported blocks
         exportLines(sameLevelBlocks);
+    }
+
+    /**
+     * @param block
+     * @param parameter
+     * @return
+     */
+    private String generateSetParamCommandStub(Block block, Parameter parameter) {
+        // There is going to be only one command string compiled at this point
+        String commandString = commandFactory.setParam().addParam(getFQN(block)).addParam(parameter.getName()).getCommandStrings()[0];
+        // Reopen the end of the command to allow adding one more parameter
+        commandString = commandString.replaceFirst("\\)$", ",");
+        return commandString;
     }
 
 	private String getContainerFQN(EList<Block> sameLevelBlocks) {

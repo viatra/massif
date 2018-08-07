@@ -37,7 +37,7 @@ public class CEServerCommandEvaluatorFactory implements ICommandEvaluatorFactory
     Map<String,ICommandEvaluator> evaluators = new HashMap<>();
     
 	@Override
-	public ICommandEvaluator createOrGetCommandEvaluator(
+	public ICommandEvaluator getOrCreateCommandEvaluator(
 			Map<String, Object> parameters) throws ConnectorCreationException {
 		ICommandEvaluator evaluator = null;
 		

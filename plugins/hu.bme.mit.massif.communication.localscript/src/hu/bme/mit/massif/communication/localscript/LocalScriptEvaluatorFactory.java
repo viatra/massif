@@ -26,7 +26,7 @@ public class LocalScriptEvaluatorFactory implements ICommandEvaluatorFactory {
 	private LocalScriptEvaluator evaluator;
 
     @Override
-	public ICommandEvaluator createOrGetCommandEvaluator(
+	public ICommandEvaluator getOrCreateCommandEvaluator(
 			Map<String, Object> parameters) {
 	    if(evaluator == null) {
 	        evaluator = new LocalScriptEvaluator(new MatlabController());	        

@@ -20,7 +20,7 @@ public interface ICommandEvaluatorFactory {
      * @param parameters a map containing the required parameters for the connection to the MATLAB session
      * @return the object with the ICommandEvaluator interface
      */
-	public ICommandEvaluator createOrGetCommandEvaluator(Map<String, Object> parameters) throws ConnectorCreationException;
+	public ICommandEvaluator getOrCreateCommandEvaluator(Map<String, Object> parameters) throws ConnectorCreationException;
 	
 	public String getConnectorName();
 	

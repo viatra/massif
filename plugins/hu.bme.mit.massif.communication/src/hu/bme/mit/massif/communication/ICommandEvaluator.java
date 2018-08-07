@@ -35,7 +35,7 @@ public interface ICommandEvaluator {
      * CellMatlabData.
      * 
      * @param commandStrings
-     *            the array containig the command strings
+     *            the array containing the command strings
      * @param outputArgumentCount
      *            the output argument count for each command (must be the same for every command in the given array)
      * @return

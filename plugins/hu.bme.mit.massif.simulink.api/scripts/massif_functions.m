@@ -84,13 +84,13 @@ names=fieldnames(TmpObjParams);
 for i = 1:numel(names)
     if strcmpi(names{i},'Capabilities') == 0 && strcmpi(names{i},'MaskObject') == 0
         TmpParamValue=get_param(blockId,names{i});
-        isReadOnly = find(not(cellfun('isempty', strfind(TmpObjParams.(names{i}).Attributes,'read-only'))));
-        if isReadOnly
+        isReadOnly = sum(strcmp(TmpObjParams.(names{i}).Attributes,'read-only'));
+        isNeverSave = sum(strcmp(TmpObjParams.(names{i}).Attributes,'never-save'));
+        if (isReadOnly + isNeverSave) > 0
             [s(:).(strcat(names{i},"_READONLY"))]=TmpParamValue;
         else
             [s(:).(names{i})]=TmpParamValue;
         end
     end
 end
-
-end
+end 

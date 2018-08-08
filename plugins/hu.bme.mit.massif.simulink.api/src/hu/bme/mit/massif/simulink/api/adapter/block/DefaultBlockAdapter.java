@@ -86,7 +86,7 @@ public class DefaultBlockAdapter implements IBlockAdapter {
 			} else { 
 				if(value instanceof MatlabString) {
 					prop.setType("char");
-					prop.setValue(value.toString().replaceAll("'", ""));
+					prop.setValue(value.toString().replaceFirst("'", "").replaceAll("'$", ""));
 				} else if(value instanceof Handle) {
 					prop.setType("handle");
 					prop.setValue(value.toString());

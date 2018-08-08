@@ -548,11 +548,6 @@ public class Exporter {
         exportLines(sameLevelBlocks);
     }
 
-    /**
-     * @param block
-     * @param parameter
-     * @return
-     */
     private String prepareParameterSetterCommand(Block block, Parameter parameter) {
         String commandString = generateSetParamCommandStub(block, parameter);
         if("char".equals(parameter.getType())) {

@@ -42,7 +42,7 @@ public enum CommandEvaluatorManager {
     	if(id != null){
     		ICommandEvaluatorFactory factory = getFactoryMap().get(id);
     		if(factory != null){
-    			result = factory.createCommandEvaluator(parameters);
+    			result = factory.getOrCreateCommandEvaluator(parameters);
     		}
     	}
     	return result;

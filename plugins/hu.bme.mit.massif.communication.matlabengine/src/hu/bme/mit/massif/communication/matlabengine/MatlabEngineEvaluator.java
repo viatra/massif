@@ -36,6 +36,10 @@ public class MatlabEngineEvaluator extends AbstractCommandEvaluator<MatlabEngine
 		this.debugPrint = debugPrint;
 	}
 
+    public void setDebugPrint(boolean debugPrint) {
+        this.debugPrint = debugPrint; 
+    }
+    
 	@Override
 	public IVisitableMatlabData evaluateCommand(String command, int nargout) {
 		return super.evaluateCommand(debugPrint ? command : command + ";", nargout);

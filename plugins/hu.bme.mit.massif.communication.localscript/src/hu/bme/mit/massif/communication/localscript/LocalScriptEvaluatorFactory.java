@@ -23,10 +23,15 @@ import hu.bme.mit.massif.communication.ICommandEvaluatorFactory;
  */
 public class LocalScriptEvaluatorFactory implements ICommandEvaluatorFactory {
 
-	@Override
-	public ICommandEvaluator createCommandEvaluator(
+	private LocalScriptEvaluator evaluator;
+
+    @Override
+	public ICommandEvaluator getOrCreateCommandEvaluator(
 			Map<String, Object> parameters) {
-	    return new LocalScriptEvaluator(new MatlabController());
+	    if(evaluator == null) {
+	        evaluator = new LocalScriptEvaluator(new MatlabController());	        
+	    }
+        return evaluator;
 	}
 
 	@Override

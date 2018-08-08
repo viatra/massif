@@ -21,16 +21,22 @@ import java.util.Map;
  */
 public class MatlabControlEvaluatorFactory implements ICommandEvaluatorFactory {
 
-	@Override
-	public ICommandEvaluator createCommandEvaluator(
+	private MatlabControlEvaluator evaluator;
+
+    @Override
+	public ICommandEvaluator getOrCreateCommandEvaluator(
 			Map<String, Object> parameters) {
 		// Get the parameters
 		String matlabPath = (String) parameters.get("matlabPath");
 		boolean debugPrint = (boolean) parameters.get("print_issued_commands");
 		
-		ICommandEvaluator result = new MatlabControlEvaluator(matlabPath, debugPrint);
-		
-        return result;
+        if (evaluator == null) {
+            evaluator = new MatlabControlEvaluator(matlabPath, debugPrint);
+        }
+        
+        evaluator.setDebugPrint(debugPrint);
+        
+        return evaluator;
 	}
 
 	@Override

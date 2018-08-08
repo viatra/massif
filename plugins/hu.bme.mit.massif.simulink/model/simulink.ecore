@@ -349,4 +349,5 @@
       <details key="documentation" value="This is a specific class used as a unique identifier for Simulink elements."/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//OutPort"/>
 </ecore:EPackage>

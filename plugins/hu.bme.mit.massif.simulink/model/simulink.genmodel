@@ -140,5 +140,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulink.ecore#//LibraryLinkReference/disabled"/>
     </genClasses>
     <genClasses ecoreClass="simulink.ecore#//IdentifierReference"/>
+    <genClasses ecoreClass="simulink.ecore#//State"/>
   </genPackages>
 </genmodel:GenModel>

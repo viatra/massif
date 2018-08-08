@@ -36,21 +36,21 @@ pipeline {
     			archiveArtifacts 'releng/hu.bme.mit.massif.simulink.cli-package/hu.bme.mit.massif.simulink.cli-example.zip'
     		}
         success {
-            slackSend channel: "massif-notifications", 
+            slackSend channel: "massif-notifications,viatra-notifications", 
     			color: "good",
 			message: "Build Successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
     			teamDomain: "incquerylabs",
     			tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad" 
         }
 		unstable {
-	   		slackSend channel: "massif-notifications", 
+	   		slackSend channel: "massif-notifications,viatra-notifications", 
     			color: "warning",
     			message: "Build Unstable - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
     			teamDomain: "incquerylabs",
     			tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad"
     		}
 		failure {
-    			slackSend channel: "masif-notifications", 
+    			slackSend channel: "massif-notifications,viatra-notifications", 
     			color: "danger",
     			message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
     			teamDomain: "incquerylabs",

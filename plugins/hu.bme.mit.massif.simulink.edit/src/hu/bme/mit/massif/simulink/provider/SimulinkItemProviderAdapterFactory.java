@@ -609,6 +609,29 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
     }
 
 	/**
+     * This keeps track of the one adapter used for all {@link hu.bme.mit.massif.simulink.State} instances.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected StateItemProvider stateItemProvider;
+
+    /**
+     * This creates an adapter for a {@link hu.bme.mit.massif.simulink.State}.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Adapter createStateAdapter() {
+        if (stateItemProvider == null) {
+            stateItemProvider = new StateItemProvider(this);
+        }
+
+        return stateItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -730,6 +753,7 @@ public class SimulinkItemProviderAdapterFactory extends SimulinkAdapterFactory i
         if (busSignalMappingItemProvider != null) busSignalMappingItemProvider.dispose();
         if (libraryLinkReferenceItemProvider != null) libraryLinkReferenceItemProvider.dispose();
         if (identifierReferenceItemProvider != null) identifierReferenceItemProvider.dispose();
+        if (stateItemProvider != null) stateItemProvider.dispose();
     }
 
 }

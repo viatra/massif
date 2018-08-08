@@ -40,6 +40,7 @@ import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.SimulinkPackage;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.SingleConnection;
+import hu.bme.mit.massif.simulink.State;
 import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.TagVisibility;
 import hu.bme.mit.massif.simulink.Trigger;
@@ -272,6 +273,13 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 	private EClass identifierReferenceEClass = null;
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass stateEClass = null;
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -1118,6 +1126,15 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getState() {
+        return stateEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -1294,6 +1311,8 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
         identifierReferenceEClass = createEClass(IDENTIFIER_REFERENCE);
 
+        stateEClass = createEClass(STATE);
+
         // Create enums
         enableStatesEEnum = createEEnum(ENABLE_STATES);
         triggerTypeEEnum = createEEnum(TRIGGER_TYPE);
@@ -1355,6 +1374,7 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         busSpecificationEClass.getESuperTypes().add(this.getBlock());
         libraryLinkReferenceEClass.getESuperTypes().add(this.getSimulinkReference());
         identifierReferenceEClass.getESuperTypes().add(this.getSimulinkReference());
+        stateEClass.getESuperTypes().add(this.getOutPort());
 
         // Initialize classes and features; add operations and parameters
         initEClass(simulinkElementEClass, SimulinkElement.class, "SimulinkElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1472,6 +1492,8 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         initEAttribute(getLibraryLinkReference_Disabled(), ecorePackage.getEBoolean(), "disabled", null, 0, 1, LibraryLinkReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(identifierReferenceEClass, IdentifierReference.class, "IdentifierReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         // Initialize enums and add enum literals
         initEEnum(enableStatesEEnum, EnableStates.class, "EnableStates");

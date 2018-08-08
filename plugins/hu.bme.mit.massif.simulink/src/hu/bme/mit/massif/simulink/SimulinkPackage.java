@@ -2919,6 +2919,70 @@ public interface SimulinkPackage extends EPackage {
 	int IDENTIFIER_REFERENCE_FEATURE_COUNT = SIMULINK_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
+     * The meta object id for the '{@link hu.bme.mit.massif.simulink.impl.StateImpl <em>State</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see hu.bme.mit.massif.simulink.impl.StateImpl
+     * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getState()
+     * @generated
+     */
+    int STATE = 30;
+
+    /**
+     * The feature id for the '<em><b>Simulink Ref</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STATE__SIMULINK_REF = OUT_PORT__SIMULINK_REF;
+
+    /**
+     * The feature id for the '<em><b>Name</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STATE__NAME = OUT_PORT__NAME;
+
+    /**
+     * The feature id for the '<em><b>Container</b></em>' container reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STATE__CONTAINER = OUT_PORT__CONTAINER;
+
+    /**
+     * The feature id for the '<em><b>Port Block</b></em>' reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STATE__PORT_BLOCK = OUT_PORT__PORT_BLOCK;
+
+    /**
+     * The feature id for the '<em><b>Connection</b></em>' containment reference.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STATE__CONNECTION = OUT_PORT__CONNECTION;
+
+    /**
+     * The number of structural features of the '<em>State</em>' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STATE_FEATURE_COUNT = OUT_PORT_FEATURE_COUNT + 0;
+
+    /**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.EnableStates <em>Enable States</em>}' enum.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2926,7 +2990,7 @@ public interface SimulinkPackage extends EPackage {
      * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getEnableStates()
      * @generated
      */
-	int ENABLE_STATES = 30;
+	int ENABLE_STATES = 31;
 
 	/**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.TriggerType <em>Trigger Type</em>}' enum.
@@ -2936,7 +3000,7 @@ public interface SimulinkPackage extends EPackage {
      * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getTriggerType()
      * @generated
      */
-	int TRIGGER_TYPE = 31;
+	int TRIGGER_TYPE = 32;
 
 	/**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.TagVisibility <em>Tag Visibility</em>}' enum.
@@ -2946,7 +3010,7 @@ public interface SimulinkPackage extends EPackage {
      * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getTagVisibility()
      * @generated
      */
-	int TAG_VISIBILITY = 32;
+	int TAG_VISIBILITY = 33;
 
 	/**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.ParameterSource <em>Parameter Source</em>}' enum.
@@ -2956,7 +3020,7 @@ public interface SimulinkPackage extends EPackage {
      * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getParameterSource()
      * @generated
      */
-    int PARAMETER_SOURCE = 33;
+    int PARAMETER_SOURCE = 34;
 
     /**
      * Returns the meta object for class '{@link hu.bme.mit.massif.simulink.SimulinkElement <em>Element</em>}'.
@@ -3853,6 +3917,16 @@ public interface SimulinkPackage extends EPackage {
 	EClass getIdentifierReference();
 
 	/**
+     * Returns the meta object for class '{@link hu.bme.mit.massif.simulink.State <em>State</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for class '<em>State</em>'.
+     * @see hu.bme.mit.massif.simulink.State
+     * @generated
+     */
+    EClass getState();
+
+    /**
      * Returns the meta object for enum '{@link hu.bme.mit.massif.simulink.EnableStates <em>Enable States</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4647,6 +4721,16 @@ public interface SimulinkPackage extends EPackage {
 		EClass IDENTIFIER_REFERENCE = eINSTANCE.getIdentifierReference();
 
 		/**
+         * The meta object literal for the '{@link hu.bme.mit.massif.simulink.impl.StateImpl <em>State</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see hu.bme.mit.massif.simulink.impl.StateImpl
+         * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getState()
+         * @generated
+         */
+        EClass STATE = eINSTANCE.getState();
+
+        /**
          * The meta object literal for the '{@link hu.bme.mit.massif.simulink.EnableStates <em>Enable States</em>}' enum.
          * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

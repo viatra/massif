@@ -113,6 +113,7 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
             case SimulinkPackage.BUS_SIGNAL_MAPPING: return createBusSignalMapping();
             case SimulinkPackage.LIBRARY_LINK_REFERENCE: return createLibraryLinkReference();
             case SimulinkPackage.IDENTIFIER_REFERENCE: return createIdentifierReference();
+            case SimulinkPackage.STATE: return createState();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -391,6 +392,16 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
     }
 
 	/**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public State createState() {
+        StateImpl state = new StateImpl();
+        return state;
+    }
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated

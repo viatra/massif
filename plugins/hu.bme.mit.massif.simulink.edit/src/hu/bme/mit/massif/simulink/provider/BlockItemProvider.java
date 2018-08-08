@@ -291,6 +291,11 @@ public class BlockItemProvider extends SimulinkElementItemProvider {
 
         newChildDescriptors.add
             (createChildParameter
+                (SimulinkPackage.Literals.BLOCK__PORTS,
+                 SimulinkFactory.eINSTANCE.createState()));
+
+        newChildDescriptors.add
+            (createChildParameter
                 (SimulinkPackage.Literals.BLOCK__SOURCE_BLOCK_REF,
                  SimulinkFactory.eINSTANCE.createLibraryLinkReference()));
     }

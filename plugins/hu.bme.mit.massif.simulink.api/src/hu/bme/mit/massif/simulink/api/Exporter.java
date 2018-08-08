@@ -510,32 +510,7 @@ public class Exporter {
                 // * it is _not_ a mask parameter OR mask is on
                 // Explanation: if the mask is off, mask parameters should be ignored
                 if(!parameter.isReadOnly() && (isMaskOn || !parameter.getName().startsWith("Mask"))) {
-                    String commandString = generateSetParamCommandStub(block, parameter);
-                    if("char".equals(parameter.getType())) {
-                        commandString= commandString.concat("'" + parameter.getValue() + "'");
-                        // @formatter\:off
-                        // A problematic case: empty string as parameter value
-                        // We don't know what the type was originally, so we use try-catch to retry with a different type
-                        if (parameter.getValue().equals("")) {
-                            commandString = "try " + commandString + "); " +
-                                            "catch " + 
-                                                "try " + commandString.replaceFirst("''", "") + "cell.empty()); " +
-                                                "catch " +
-                                                    "try " + commandString.replaceFirst("''", "") + "[]); " +
-                                                    "catch " +
-                                                        // TODO add proper logging here
-                                                        "fprintf('Failed to set parameter " + parameter.getName() + "'); " +
-                                                    "end; " +
-                                                "end; " +
-                                            "end";
-                        } else {                 
-                            commandString = "try " + commandString + "); catch "+ "fprintf('Failed to set parameter " + parameter.getName() + "'); end ";
-                        }
-                        // @formatter\:on
-                    } else {
-                        commandString = commandString.concat(parameter.getValue());
-                        commandString = commandString.concat(")");
-                    }
+                    String commandString = prepareParameterSetterCommand(block, parameter);
                     ICommandEvaluator commandEvaluator = commandFactory.getCommandEvaluator();
                     commandEvaluator.evaluateCommand(commandString, 0);
                 }
@@ -571,6 +546,41 @@ public class Exporter {
         
         // create connections between the exported blocks
         exportLines(sameLevelBlocks);
+    }
+
+    /**
+     * @param block
+     * @param parameter
+     * @return
+     */
+    private String prepareParameterSetterCommand(Block block, Parameter parameter) {
+        String commandString = generateSetParamCommandStub(block, parameter);
+        if("char".equals(parameter.getType())) {
+            commandString= commandString.concat("'" + parameter.getValue() + "'");
+            // @formatter\:off
+            // A problematic case: empty string as parameter value
+            // We don't know what the type was originally, so we use try-catch to retry with a different type
+            if (parameter.getValue().equals("")) {
+                commandString = "try " + commandString + "); " +
+                                "catch " +
+                                    "try " + commandString.replaceFirst("''", "") + "cell.empty()); " +
+                                    "catch " +
+                                        "try " + commandString.replaceFirst("''", "") + "[]); " +
+                                        "catch " +
+                                            // TODO add proper logging here
+                                            "fprintf('Failed to set parameter " + parameter.getName() + "'); " +
+                                        "end; " +
+                                    "end; " +
+                                "end";
+            } else {
+                commandString = "try " + commandString + "); catch "+ "fprintf('Failed to set parameter " + parameter.getName() + "'); end ";
+            }
+            // @formatter\:on
+        } else {
+            commandString = commandString.concat(parameter.getValue());
+            commandString = commandString.concat(")");
+        }
+        return commandString;
     }
 
     /**

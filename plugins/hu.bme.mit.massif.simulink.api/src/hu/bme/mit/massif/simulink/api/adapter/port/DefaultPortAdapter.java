@@ -21,7 +21,7 @@ import hu.bme.mit.massif.simulink.api.Importer;
 import java.util.Map;
 import java.util.Set;
 
-public class DefaultAdapter implements IPortAdapter {
+public class DefaultPortAdapter implements IPortAdapter {
 
     @Override
     public Port createPort(Block parent, IVisitableMatlabData currentPortHandle, Map<Double, ? extends Port> inPorts) {

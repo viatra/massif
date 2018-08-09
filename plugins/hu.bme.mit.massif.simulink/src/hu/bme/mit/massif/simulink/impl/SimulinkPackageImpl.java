@@ -10,6 +10,13 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusCreator;
 import hu.bme.mit.massif.simulink.BusSelector;
@@ -31,7 +38,6 @@ import hu.bme.mit.massif.simulink.MultiConnection;
 import hu.bme.mit.massif.simulink.OutPort;
 import hu.bme.mit.massif.simulink.OutPortBlock;
 import hu.bme.mit.massif.simulink.Parameter;
-import hu.bme.mit.massif.simulink.ParameterSource;
 import hu.bme.mit.massif.simulink.Port;
 import hu.bme.mit.massif.simulink.PortBlock;
 import hu.bme.mit.massif.simulink.SimulinkElement;
@@ -40,19 +46,13 @@ import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.SimulinkPackage;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.SingleConnection;
+import hu.bme.mit.massif.simulink.State;
 import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.TagVisibility;
 import hu.bme.mit.massif.simulink.Trigger;
 import hu.bme.mit.massif.simulink.TriggerBlock;
 import hu.bme.mit.massif.simulink.TriggerType;
 import hu.bme.mit.massif.simulink.VirtualBlock;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -273,6 +273,13 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    private EClass stateEClass = null;
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -293,13 +300,6 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 	private EEnum tagVisibilityEEnum = null;
 
 	/**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    private EEnum parameterSourceEEnum = null;
-
-    /**
      * Creates an instance of the model <b>Package</b>, registered with
      * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
      * package URI value.
@@ -509,6 +509,15 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
      * <!-- end-user-doc -->
      * @generated
      */
+    public EReference getPort_Parameters() {
+        return (EReference)portEClass.getEStructuralFeatures().get(2);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
     public EClass getParameter() {
         return parameterEClass;
     }
@@ -545,17 +554,8 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EAttribute getParameter_Source() {
-        return (EAttribute)parameterEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public EAttribute getParameter_ReadOnly() {
-        return (EAttribute)parameterEClass.getEStructuralFeatures().get(4);
+        return (EAttribute)parameterEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -1118,6 +1118,15 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EClass getState() {
+        return stateEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -1144,15 +1153,6 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
     }
 
 	/**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public EEnum getParameterSource() {
-        return parameterSourceEEnum;
-    }
-
-    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -1198,12 +1198,12 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         portEClass = createEClass(PORT);
         createEReference(portEClass, PORT__CONTAINER);
         createEReference(portEClass, PORT__PORT_BLOCK);
+        createEReference(portEClass, PORT__PARAMETERS);
 
         parameterEClass = createEClass(PARAMETER);
         createEAttribute(parameterEClass, PARAMETER__NAME);
         createEAttribute(parameterEClass, PARAMETER__TYPE);
         createEAttribute(parameterEClass, PARAMETER__VALUE);
-        createEAttribute(parameterEClass, PARAMETER__SOURCE);
         createEAttribute(parameterEClass, PARAMETER__READ_ONLY);
 
         inPortEClass = createEClass(IN_PORT);
@@ -1294,11 +1294,12 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
         identifierReferenceEClass = createEClass(IDENTIFIER_REFERENCE);
 
+        stateEClass = createEClass(STATE);
+
         // Create enums
         enableStatesEEnum = createEEnum(ENABLE_STATES);
         triggerTypeEEnum = createEEnum(TRIGGER_TYPE);
         tagVisibilityEEnum = createEEnum(TAG_VISIBILITY);
-        parameterSourceEEnum = createEEnum(PARAMETER_SOURCE);
     }
 
 	/**
@@ -1355,6 +1356,7 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         busSpecificationEClass.getESuperTypes().add(this.getBlock());
         libraryLinkReferenceEClass.getESuperTypes().add(this.getSimulinkReference());
         identifierReferenceEClass.getESuperTypes().add(this.getSimulinkReference());
+        stateEClass.getESuperTypes().add(this.getOutPort());
 
         // Initialize classes and features; add operations and parameters
         initEClass(simulinkElementEClass, SimulinkElement.class, "SimulinkElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1375,12 +1377,12 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         initEClass(portEClass, Port.class, "Port", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getPort_Container(), this.getBlock(), this.getBlock_Ports(), "container", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getPort_PortBlock(), this.getPortBlock(), this.getPortBlock_Port(), "portBlock", null, 0, 1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getPort_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Port.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getParameter_Type(), ecorePackage.getEString(), "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getParameter_Source(), this.getParameterSource(), "source", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getParameter_ReadOnly(), ecorePackage.getEBoolean(), "readOnly", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(inPortEClass, InPort.class, "InPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1473,6 +1475,8 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
 
         initEClass(identifierReferenceEClass, IdentifierReference.class, "IdentifierReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+        initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
         // Initialize enums and add enum literals
         initEEnum(enableStatesEEnum, EnableStates.class, "EnableStates");
         addEEnumLiteral(enableStatesEEnum, EnableStates.HELD);
@@ -1489,11 +1493,6 @@ public class SimulinkPackageImpl extends EPackageImpl implements SimulinkPackage
         addEEnumLiteral(tagVisibilityEEnum, TagVisibility.LOCAL);
         addEEnumLiteral(tagVisibilityEEnum, TagVisibility.SCOPED);
         addEEnumLiteral(tagVisibilityEEnum, TagVisibility.GLOBAL);
-
-        initEEnum(parameterSourceEEnum, ParameterSource.class, "ParameterSource");
-        addEEnumLiteral(parameterSourceEEnum, ParameterSource.MASK);
-        addEEnumLiteral(parameterSourceEEnum, ParameterSource.DIALOG);
-        addEEnumLiteral(parameterSourceEEnum, ParameterSource.INTERNAL);
 
         // Create resource
         createResource(eNS_URI);

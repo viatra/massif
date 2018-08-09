@@ -64,6 +64,7 @@ import hu.bme.mit.massif.simulink.SimulinkElement;
 import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.SingleConnection;
+import hu.bme.mit.massif.simulink.State;
 import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.Trigger;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
@@ -924,10 +925,16 @@ public class Exporter {
         int indexOfOutportInMatlab = 1;
         EList<Port> outPortContainerPortList = outPort.getContainer().getPorts();
 
+        Object fromPortNumber = null;
         for (Port port : outPortContainerPortList) {
             if (port instanceof OutPort) {
                 // Look for the outport involved in the connection
                 if (port.equals(outPort)) {
+                    if(port instanceof State) {
+                        fromPortNumber = "State";
+                    } else {
+                        fromPortNumber = indexOfOutportInMatlab;                        
+                    }
                     break;
                 } else {
                     // Only increment the counter, when outports are encountered in the list
@@ -936,9 +943,6 @@ public class Exporter {
             }
         }
 
-        int fromPortNumber = indexOfOutportInMatlab;
-        
-        
         
         String srcPort = fromBlockName + "/" + fromPortNumber;
         
@@ -999,11 +1003,7 @@ public class Exporter {
         	// TODO might be needed to check for null
         	//return null;
 		}
-		if(Handle.asHandle(addedLineHandle).getData().equals(prevdata)){
-			// FIXME this is only a hotfix for State (out)ports
-			addLine = commandFactory.addLine().addParam(system).addParam(fromBlockName+"/State").addParam(dstPort).addParam("AutoRouting").addParam("on");
-			addedLineHandle = addLine.execute();
-        }
+		
         prevdata = Handle.asHandle(addedLineHandle).getData(); 
         
         // IF the line name is not artificially created while importing, the exporter sets the name

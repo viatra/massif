@@ -113,6 +113,7 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
             case SimulinkPackage.BUS_SIGNAL_MAPPING: return createBusSignalMapping();
             case SimulinkPackage.LIBRARY_LINK_REFERENCE: return createLibraryLinkReference();
             case SimulinkPackage.IDENTIFIER_REFERENCE: return createIdentifierReference();
+            case SimulinkPackage.STATE: return createState();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -132,8 +133,6 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
                 return createTriggerTypeFromString(eDataType, initialValue);
             case SimulinkPackage.TAG_VISIBILITY:
                 return createTagVisibilityFromString(eDataType, initialValue);
-            case SimulinkPackage.PARAMETER_SOURCE:
-                return createParameterSourceFromString(eDataType, initialValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -153,8 +152,6 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
                 return convertTriggerTypeToString(eDataType, instanceValue);
             case SimulinkPackage.TAG_VISIBILITY:
                 return convertTagVisibilityToString(eDataType, instanceValue);
-            case SimulinkPackage.PARAMETER_SOURCE:
-                return convertParameterSourceToString(eDataType, instanceValue);
             default:
                 throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -392,6 +389,16 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public State createState() {
+        StateImpl state = new StateImpl();
+        return state;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -451,26 +458,6 @@ public class SimulinkFactoryImpl extends EFactoryImpl implements SimulinkFactory
     }
 
 	/**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public ParameterSource createParameterSourceFromString(EDataType eDataType, String initialValue) {
-        ParameterSource result = ParameterSource.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-        return result;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public String convertParameterSourceToString(EDataType eDataType, Object instanceValue) {
-        return instanceValue == null ? null : instanceValue.toString();
-    }
-
-    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated

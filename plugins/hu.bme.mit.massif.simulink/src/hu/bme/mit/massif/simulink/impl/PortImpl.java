@@ -11,16 +11,21 @@
 package hu.bme.mit.massif.simulink.impl;
 
 import hu.bme.mit.massif.simulink.Block;
+import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.Port;
 import hu.bme.mit.massif.simulink.PortBlock;
 import hu.bme.mit.massif.simulink.SimulinkPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +37,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.PortImpl#getContainer <em>Container</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.PortImpl#getPortBlock <em>Port Block</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.impl.PortImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,6 +54,16 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
 	protected PortBlock portBlock;
 
 	/**
+     * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getParameters()
+     * @generated
+     * @ordered
+     */
+    protected EList<Parameter> parameters;
+
+    /**
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
@@ -169,6 +185,18 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
 
 	/**
      * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<Parameter> getParameters() {
+        if (parameters == null) {
+            parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, SimulinkPackage.PORT__PARAMETERS);
+        }
+        return parameters;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      */
@@ -199,6 +227,8 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
                 return basicSetContainer(null, msgs);
             case SimulinkPackage.PORT__PORT_BLOCK:
                 return basicSetPortBlock(null, msgs);
+            case SimulinkPackage.PORT__PARAMETERS:
+                return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -230,6 +260,8 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
             case SimulinkPackage.PORT__PORT_BLOCK:
                 if (resolve) return getPortBlock();
                 return basicGetPortBlock();
+            case SimulinkPackage.PORT__PARAMETERS:
+                return getParameters();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -239,7 +271,8 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
 	 * <!-- end-user-doc -->
      * @generated
      */
-	@Override
+	@SuppressWarnings("unchecked")
+    @Override
 	public void eSet(int featureID, Object newValue) {
         switch (featureID) {
             case SimulinkPackage.PORT__CONTAINER:
@@ -247,6 +280,10 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
                 return;
             case SimulinkPackage.PORT__PORT_BLOCK:
                 setPortBlock((PortBlock)newValue);
+                return;
+            case SimulinkPackage.PORT__PARAMETERS:
+                getParameters().clear();
+                getParameters().addAll((Collection<? extends Parameter>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -266,6 +303,9 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
             case SimulinkPackage.PORT__PORT_BLOCK:
                 setPortBlock((PortBlock)null);
                 return;
+            case SimulinkPackage.PORT__PARAMETERS:
+                getParameters().clear();
+                return;
         }
         super.eUnset(featureID);
     }
@@ -282,6 +322,8 @@ public abstract class PortImpl extends SimulinkElementImpl implements Port {
                 return getContainer() != null;
             case SimulinkPackage.PORT__PORT_BLOCK:
                 return portBlock != null;
+            case SimulinkPackage.PORT__PARAMETERS:
+                return parameters != null && !parameters.isEmpty();
         }
         return super.eIsSet(featureID);
     }

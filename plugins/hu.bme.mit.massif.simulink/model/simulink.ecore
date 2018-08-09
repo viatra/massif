@@ -89,6 +89,8 @@
         eOpposite="#//Block/ports"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="portBlock" eType="#//PortBlock"
         eOpposite="#//PortBlock/port"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -101,7 +103,6 @@
         <details key="documentation" value="b{Validation}&#xD;&#xA; * ERROR: Value type is not compatible with property type."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="#//ParameterSource"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InPort" eSuperTypes="#//Port">
@@ -326,14 +327,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ParameterSource">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="This EEnum represents the possible sources of properties in a Simulink element."/>
-    </eAnnotations>
-    <eLiterals name="MASK" literal="MASK"/>
-    <eLiterals name="DIALOG" value="1" literal="DIALOG"/>
-    <eLiterals name="INTERNAL" value="2" literal="INTERNAL"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LibraryLinkReference" eSuperTypes="#//SimulinkReference">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This is a specific class used for representing links to Simulink elements."/>
@@ -349,4 +342,5 @@
       <details key="documentation" value="This is a specific class used as a unique identifier for Simulink elements."/>
     </eAnnotations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//OutPort"/>
 </ecore:EPackage>

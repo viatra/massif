@@ -15,5 +15,9 @@
             parameterFilterId="hu.bme.mit.massif.simulink.filters.ignoreall"
             parameterFilterImplClass="hu.bme.mit.massif.simulink.filters.IgnoreAllParametersFilter">
       </parameterfilter>
+      <parameterfilter
+            parameterFilterId="hu.bme.mit.massif.simulink.filters.readonly"
+            parameterFilterImplClass="hu.bme.mit.massif.simulink.filters.ReadOnlyParametersFilter">
+      </parameterfilter>
    </extension>
 </plugin>

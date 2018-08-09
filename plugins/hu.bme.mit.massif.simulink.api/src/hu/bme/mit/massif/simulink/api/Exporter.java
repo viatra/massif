@@ -12,6 +12,8 @@
 package hu.bme.mit.massif.simulink.api;
 
 import java.io.File;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -201,7 +203,7 @@ public class Exporter {
         // Save the current directory
         String currentWorkdirectory = MatlabString.getMatlabStringData(commandFactory.cd().execute());
 
-        String[] savePathSegments = modelNameWithPath.split("\\\\");
+        String[] savePathSegments = modelNameWithPath.split(FileSystems.getDefault().getSeparator());
         String modelName = savePathSegments[savePathSegments.length - 1];
 
         // Navigate to the save location

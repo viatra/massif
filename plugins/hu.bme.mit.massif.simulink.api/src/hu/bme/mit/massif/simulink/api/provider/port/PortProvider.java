@@ -15,6 +15,7 @@ import hu.bme.mit.massif.simulink.api.adapter.port.EnableAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.IPortAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.InportAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.OutportAdapter;
+import hu.bme.mit.massif.simulink.api.adapter.port.StateAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.TriggerAdapter;
 
 import java.util.HashMap;
@@ -32,10 +33,11 @@ public class PortProvider {
         // TODO later this can be initialized via extensions
         adapters = new HashMap<String, IPortAdapter>();
 
-        adapters.put("Inport", new InportAdapter());
-        adapters.put("Trigger", new TriggerAdapter());
-        adapters.put("Enable", new EnableAdapter());
-        adapters.put("Outport", new OutportAdapter());
+        adapters.put("inport", new InportAdapter());
+        adapters.put("trigger", new TriggerAdapter());
+        adapters.put("enable", new EnableAdapter());
+        adapters.put("outport", new OutportAdapter());
+        adapters.put("state", new StateAdapter());
 
         adapters.put(DEFAULT_PORT_ADAPTER, new DefaultAdapter());
     }

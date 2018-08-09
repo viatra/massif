@@ -1136,8 +1136,7 @@ public class Importer {
                     .getData("State"));
             for (IVisitableMatlabData iVisitableMatlabData : stateHandles) {
                 Handle outportHandle = Handle.asHandle(iVisitableMatlabData);
-                // TODO the type is state here
-                createAndAddPort(parentBlock, portProvider, outportHandle, "Outport");
+                createAndAddPort(parentBlock, portProvider, outportHandle, "State");
             }
             
             // Process inports
@@ -1181,17 +1180,18 @@ public class Importer {
      */
     private void createAndAddPort(Block parent, PortProvider portProvider, Handle portHandle, String portType) {
         // Get the port adapter that contains block creation and processing logic
-        IPortAdapter portAdapter = portProvider.adapt(portType);
+        IPortAdapter portAdapter = portProvider.adapt(portType.toLowerCase());
         // Setting the name of the port according to its port number
         MatlabCommand getPortNumber = commandFactory.getParam().addParam(portHandle).addParam("PortNumber");
         Integer portNumber = Handle.getHandleData(getPortNumber.execute()).intValue();
         Port port;
-        // TODO for now handle state ports the same way as we would handle outports
+        // State is a special outport kind
         if ("outport".equalsIgnoreCase(portType) || "state".equalsIgnoreCase(portType)) {
             port = portAdapter.createPort(parent, portHandle, outPorts);
             createAndSetSimulinkRef("outport." + portNumber.toString(), parent.getSimulinkRef(), port);
             cachedOutPortHandles.put((OutPort) port, Handle.getHandleData(portHandle));
         } else {
+            // The case for Inport, Trigger, Enable, Ifact
             port = portAdapter.createPort(parent, portHandle, inPorts);
             createAndSetSimulinkRef("inport." + portNumber.toString(), parent.getSimulinkRef(), port);
         }
@@ -1207,11 +1207,13 @@ public class Importer {
                     outPortBlockSet, this);
 
             // Creating the reference between the port and the portBlock
-            if (portBlock != null)
-                // It is possible in Simulink to create port in a subsystem without portblock by writing
-                // higher portnumber to an existing block
-                if (!((portBlock instanceof InPortBlock) && shadowInports.keySet().contains(portBlock)))
+            if (portBlock != null) {
+                // It is possible in Simulink to create port in a subsystem without port block by writing
+                // higher port number to an existing block
+                if (!((portBlock instanceof InPortBlock) && shadowInports.keySet().contains(portBlock))) {
                     portBlock.setPort(port);
+                }
+            }
         }
         // else {
         // If a block has no sub blocks

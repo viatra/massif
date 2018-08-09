@@ -14,27 +14,26 @@ import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 
 /**
- * Simple filter that makes the importer skip processing block parameters during import.
+ * A parameter filter that filters read-only parameters.
  * 
  * @author Marton Bur
  *
  */
-public class IgnoreAllParametersFilter implements IParameterImportFilter {
+public class ReadOnlyParametersFilter implements IParameterImportFilter {
 
 	@Override
 	public String getName() {
-		return "Ignore all parameters filter";
+		return "Read-only parameter filter";
 	}
 
 	@Override
 	public String getDescription() {
-		return "This filter makes the importer skip all block parameters.";
+		return "This filter makes the importer skip parameters that are read only.";
 	}
 
 	@Override
 	public boolean filter(MatlabCommandFactory commandFactory, String parameterName) {
-		// Filter all block parameters
-		return true;
+	    return parameterName.matches(".*READONLY$");
 	}
 
 }

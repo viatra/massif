@@ -71,7 +71,6 @@ public class ParameterItemProvider
             addNamePropertyDescriptor(object);
             addTypePropertyDescriptor(object);
             addValuePropertyDescriptor(object);
-            addSourcePropertyDescriptor(object);
             addReadOnlyPropertyDescriptor(object);
         }
         return itemPropertyDescriptors;
@@ -135,28 +134,6 @@ public class ParameterItemProvider
                  getString("_UI_Parameter_value_feature"),
                  getString("_UI_PropertyDescriptor_description", "_UI_Parameter_value_feature", "_UI_Parameter_type"),
                  SimulinkPackage.Literals.PARAMETER__VALUE,
-                 true,
-                 false,
-                 false,
-                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                 null,
-                 null));
-    }
-
-    /**
-     * This adds a property descriptor for the Source feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    protected void addSourcePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_Parameter_source_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_source_feature", "_UI_Parameter_type"),
-                 SimulinkPackage.Literals.PARAMETER__SOURCE,
                  true,
                  false,
                  false,
@@ -238,7 +215,6 @@ public class ParameterItemProvider
             case SimulinkPackage.PARAMETER__NAME:
             case SimulinkPackage.PARAMETER__TYPE:
             case SimulinkPackage.PARAMETER__VALUE:
-            case SimulinkPackage.PARAMETER__SOURCE:
             case SimulinkPackage.PARAMETER__READ_ONLY:
                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
                 return;

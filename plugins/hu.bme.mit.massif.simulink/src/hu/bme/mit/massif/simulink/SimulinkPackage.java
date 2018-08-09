@@ -282,13 +282,22 @@ public interface SimulinkPackage extends EPackage {
 	int PORT__PORT_BLOCK = SIMULINK_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PORT__PARAMETERS = SIMULINK_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
      * The number of structural features of the '<em>Port</em>' class.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-	int PORT_FEATURE_COUNT = SIMULINK_ELEMENT_FEATURE_COUNT + 2;
+	int PORT_FEATURE_COUNT = SIMULINK_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -328,22 +337,13 @@ public interface SimulinkPackage extends EPackage {
     int PARAMETER__VALUE = 2;
 
     /**
-     * The feature id for the '<em><b>Source</b></em>' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
-    int PARAMETER__SOURCE = 3;
-
-    /**
      * The feature id for the '<em><b>Read Only</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int PARAMETER__READ_ONLY = 4;
+    int PARAMETER__READ_ONLY = 3;
 
     /**
      * The number of structural features of the '<em>Parameter</em>' class.
@@ -352,7 +352,7 @@ public interface SimulinkPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PARAMETER_FEATURE_COUNT = 5;
+    int PARAMETER_FEATURE_COUNT = 4;
 
     /**
      * The meta object id for the '{@link hu.bme.mit.massif.simulink.impl.InPortImpl <em>In Port</em>}' class.
@@ -401,6 +401,15 @@ public interface SimulinkPackage extends EPackage {
 	int IN_PORT__PORT_BLOCK = PORT__PORT_BLOCK;
 
 	/**
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int IN_PORT__PARAMETERS = PORT__PARAMETERS;
+
+    /**
      * The feature id for the '<em><b>Connection</b></em>' reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -465,6 +474,15 @@ public interface SimulinkPackage extends EPackage {
 	int OUT_PORT__PORT_BLOCK = PORT__PORT_BLOCK;
 
 	/**
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int OUT_PORT__PARAMETERS = PORT__PARAMETERS;
+
+    /**
      * The feature id for the '<em><b>Connection</b></em>' containment reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -584,6 +602,15 @@ public interface SimulinkPackage extends EPackage {
 	int TRIGGER__PORT_BLOCK = IN_PORT__PORT_BLOCK;
 
 	/**
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TRIGGER__PARAMETERS = IN_PORT__PARAMETERS;
+
+    /**
      * The feature id for the '<em><b>Connection</b></em>' reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -666,6 +693,15 @@ public interface SimulinkPackage extends EPackage {
 	int ENABLE__PORT_BLOCK = IN_PORT__PORT_BLOCK;
 
 	/**
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ENABLE__PARAMETERS = IN_PORT__PARAMETERS;
+
+    /**
      * The feature id for the '<em><b>Connection</b></em>' reference.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2965,6 +3001,15 @@ public interface SimulinkPackage extends EPackage {
     int STATE__PORT_BLOCK = OUT_PORT__PORT_BLOCK;
 
     /**
+     * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int STATE__PARAMETERS = OUT_PORT__PARAMETERS;
+
+    /**
      * The feature id for the '<em><b>Connection</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3013,16 +3058,6 @@ public interface SimulinkPackage extends EPackage {
 	int TAG_VISIBILITY = 33;
 
 	/**
-     * The meta object id for the '{@link hu.bme.mit.massif.simulink.ParameterSource <em>Parameter Source</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see hu.bme.mit.massif.simulink.ParameterSource
-     * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getParameterSource()
-     * @generated
-     */
-    int PARAMETER_SOURCE = 34;
-
-    /**
      * Returns the meta object for class '{@link hu.bme.mit.massif.simulink.SimulinkElement <em>Element</em>}'.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3196,6 +3231,17 @@ public interface SimulinkPackage extends EPackage {
 	EReference getPort_PortBlock();
 
 	/**
+     * Returns the meta object for the containment reference list '{@link hu.bme.mit.massif.simulink.Port#getParameters <em>Parameters</em>}'.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @return the meta object for the containment reference list '<em>Parameters</em>'.
+     * @see hu.bme.mit.massif.simulink.Port#getParameters()
+     * @see #getPort()
+     * @generated
+     */
+    EReference getPort_Parameters();
+
+    /**
      * Returns the meta object for class '{@link hu.bme.mit.massif.simulink.Parameter <em>Parameter</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3237,17 +3283,6 @@ public interface SimulinkPackage extends EPackage {
      * @generated
      */
     EAttribute getParameter_Value();
-
-    /**
-     * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Parameter#getSource <em>Source</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for the attribute '<em>Source</em>'.
-     * @see hu.bme.mit.massif.simulink.Parameter#getSource()
-     * @see #getParameter()
-     * @generated
-     */
-    EAttribute getParameter_Source();
 
     /**
      * Returns the meta object for the attribute '{@link hu.bme.mit.massif.simulink.Parameter#isReadOnly <em>Read Only</em>}'.
@@ -3957,16 +3992,6 @@ public interface SimulinkPackage extends EPackage {
 	EEnum getTagVisibility();
 
 	/**
-     * Returns the meta object for enum '{@link hu.bme.mit.massif.simulink.ParameterSource <em>Parameter Source</em>}'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @return the meta object for enum '<em>Parameter Source</em>'.
-     * @see hu.bme.mit.massif.simulink.ParameterSource
-     * @generated
-     */
-    EEnum getParameterSource();
-
-    /**
      * Returns the factory that creates the instances of the model.
      * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4123,6 +4148,14 @@ public interface SimulinkPackage extends EPackage {
 		EReference PORT__PORT_BLOCK = eINSTANCE.getPort_PortBlock();
 
 		/**
+         * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        EReference PORT__PARAMETERS = eINSTANCE.getPort_Parameters();
+
+        /**
          * The meta object literal for the '{@link hu.bme.mit.massif.simulink.impl.ParameterImpl <em>Parameter</em>}' class.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -4155,14 +4188,6 @@ public interface SimulinkPackage extends EPackage {
          * @generated
          */
         EAttribute PARAMETER__VALUE = eINSTANCE.getParameter_Value();
-
-        /**
-         * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        EAttribute PARAMETER__SOURCE = eINSTANCE.getParameter_Source();
 
         /**
          * The meta object literal for the '<em><b>Read Only</b></em>' attribute feature.
@@ -4759,16 +4784,6 @@ public interface SimulinkPackage extends EPackage {
          * @generated
          */
 		EEnum TAG_VISIBILITY = eINSTANCE.getTagVisibility();
-
-		/**
-         * The meta object literal for the '{@link hu.bme.mit.massif.simulink.ParameterSource <em>Parameter Source</em>}' enum.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see hu.bme.mit.massif.simulink.ParameterSource
-         * @see hu.bme.mit.massif.simulink.impl.SimulinkPackageImpl#getParameterSource()
-         * @generated
-         */
-        EEnum PARAMETER_SOURCE = eINSTANCE.getParameterSource();
 
 	}
 

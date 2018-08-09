@@ -21,7 +21,6 @@ import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.Parameter;
-import hu.bme.mit.massif.simulink.ParameterSource;
 import hu.bme.mit.massif.simulink.PortBlock;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;

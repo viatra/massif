@@ -1,16 +1,13 @@
 
 package hu.bme.mit.massif.simulink.impl;
 
-import hu.bme.mit.massif.simulink.Parameter;
-import hu.bme.mit.massif.simulink.ParameterSource;
-import hu.bme.mit.massif.simulink.SimulinkPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import hu.bme.mit.massif.simulink.Parameter;
+import hu.bme.mit.massif.simulink.SimulinkPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +20,6 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getName <em>Name</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getType <em>Type</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getValue <em>Value</em>}</li>
- *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#getSource <em>Source</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.impl.ParameterImpl#isReadOnly <em>Read Only</em>}</li>
  * </ul>
  *
@@ -89,26 +85,6 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
      * @ordered
      */
     protected String value = VALUE_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getSource()
-     * @generated
-     * @ordered
-     */
-    protected static final ParameterSource SOURCE_EDEFAULT = ParameterSource.MASK;
-
-    /**
-     * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see #getSource()
-     * @generated
-     * @ordered
-     */
-    protected ParameterSource source = SOURCE_EDEFAULT;
 
     /**
      * The default value of the '{@link #isReadOnly() <em>Read Only</em>}' attribute.
@@ -217,27 +193,6 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
      * <!-- end-user-doc -->
      * @generated
      */
-    public ParameterSource getSource() {
-        return source;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setSource(ParameterSource newSource) {
-        ParameterSource oldSource = source;
-        source = newSource == null ? SOURCE_EDEFAULT : newSource;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SimulinkPackage.PARAMETER__SOURCE, oldSource, source));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
     public boolean isReadOnly() {
         return readOnly;
     }
@@ -268,8 +223,6 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
                 return getType();
             case SimulinkPackage.PARAMETER__VALUE:
                 return getValue();
-            case SimulinkPackage.PARAMETER__SOURCE:
-                return getSource();
             case SimulinkPackage.PARAMETER__READ_ONLY:
                 return isReadOnly();
         }
@@ -292,9 +245,6 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
                 return;
             case SimulinkPackage.PARAMETER__VALUE:
                 setValue((String)newValue);
-                return;
-            case SimulinkPackage.PARAMETER__SOURCE:
-                setSource((ParameterSource)newValue);
                 return;
             case SimulinkPackage.PARAMETER__READ_ONLY:
                 setReadOnly((Boolean)newValue);
@@ -320,9 +270,6 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
             case SimulinkPackage.PARAMETER__VALUE:
                 setValue(VALUE_EDEFAULT);
                 return;
-            case SimulinkPackage.PARAMETER__SOURCE:
-                setSource(SOURCE_EDEFAULT);
-                return;
             case SimulinkPackage.PARAMETER__READ_ONLY:
                 setReadOnly(READ_ONLY_EDEFAULT);
                 return;
@@ -344,8 +291,6 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
                 return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
             case SimulinkPackage.PARAMETER__VALUE:
                 return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-            case SimulinkPackage.PARAMETER__SOURCE:
-                return source != SOURCE_EDEFAULT;
             case SimulinkPackage.PARAMETER__READ_ONLY:
                 return readOnly != READ_ONLY_EDEFAULT;
         }
@@ -368,8 +313,6 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
         result.append(type);
         result.append(", value: ");
         result.append(value);
-        result.append(", source: ");
-        result.append(source);
         result.append(", readOnly: ");
         result.append(readOnly);
         result.append(')');

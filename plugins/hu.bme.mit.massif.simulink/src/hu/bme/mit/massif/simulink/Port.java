@@ -10,6 +10,8 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +28,7 @@ package hu.bme.mit.massif.simulink;
  * <ul>
  *   <li>{@link hu.bme.mit.massif.simulink.Port#getContainer <em>Container</em>}</li>
  *   <li>{@link hu.bme.mit.massif.simulink.Port#getPortBlock <em>Port Block</em>}</li>
+ *   <li>{@link hu.bme.mit.massif.simulink.Port#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
  * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPort()
@@ -88,5 +91,21 @@ public interface Port extends SimulinkElement {
      * @generated
      */
 	void setPortBlock(PortBlock value);
+
+    /**
+     * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+     * The list contents are of type {@link hu.bme.mit.massif.simulink.Parameter}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     * @return the value of the '<em>Parameters</em>' containment reference list.
+     * @see hu.bme.mit.massif.simulink.SimulinkPackage#getPort_Parameters()
+     * @model containment="true"
+     * @generated
+     */
+    EList<Parameter> getParameters();
 
 } // Port

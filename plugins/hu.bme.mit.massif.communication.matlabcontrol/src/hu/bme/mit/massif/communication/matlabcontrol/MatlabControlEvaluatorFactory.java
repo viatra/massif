@@ -28,7 +28,8 @@ public class MatlabControlEvaluatorFactory implements ICommandEvaluatorFactory {
 			Map<String, Object> parameters) {
 		// Get the parameters
 		String matlabPath = (String) parameters.get("matlabPath");
-		boolean debugPrint = (boolean) parameters.get("print_issued_commands");
+		Boolean debugFlag = (Boolean)parameters.get("print_issued_commands");
+        boolean debugPrint = debugFlag != null ? debugFlag.booleanValue() : false;
 		
         if (evaluator == null) {
             evaluator = new MatlabControlEvaluator(matlabPath, debugPrint);

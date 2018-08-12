@@ -20,13 +20,16 @@ import hu.bme.mit.massif.simulink.EnableBlock;
 import hu.bme.mit.massif.simulink.InPort;
 import hu.bme.mit.massif.simulink.InPortBlock;
 import hu.bme.mit.massif.simulink.OutPortBlock;
+import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.Port;
 import hu.bme.mit.massif.simulink.PortBlock;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.TriggerBlock;
 import hu.bme.mit.massif.simulink.api.Importer;
+import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -38,6 +41,8 @@ public class InportAdapter implements IPortAdapter {
         InPort port = SimulinkFactory.eINSTANCE.createInPort();
         parent.getPorts().add(port);
         ((Map<Double, InPort>) inPorts).put(Handle.getHandleData(currentPortHandle), port);
+        List<Parameter> portParams = ParameterHelper.collectParameters(importer, importer.getCommandFactory(), (Handle) currentPortHandle);
+        port.getParameters().addAll(portParams);
         return port;
     }
 

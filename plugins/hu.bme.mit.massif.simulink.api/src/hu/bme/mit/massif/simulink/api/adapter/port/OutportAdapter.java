@@ -31,7 +31,7 @@ public class OutportAdapter implements IPortAdapter {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Port createPort(Block parent, IVisitableMatlabData currentPortHandle, Map<Double, ? extends Port> outPorts) {
+    public Port createPort(Importer importer, Block parent, IVisitableMatlabData currentPortHandle, Map<Double, ? extends Port> outPorts) {
         OutPort port = SimulinkFactory.eINSTANCE.createOutPort();
         parent.getPorts().add(port);
         ((Map<Double, OutPort>) outPorts).put(Handle.getHandleData(currentPortHandle), port);

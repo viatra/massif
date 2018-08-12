@@ -34,7 +34,7 @@ public class EnableAdapter implements IPortAdapter {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Port createPort(Block parent, IVisitableMatlabData currentPortHandle, Map<Double, ? extends Port> inPorts) {
+    public Port createPort(Importer importer, Block parent, IVisitableMatlabData currentPortHandle, Map<Double, ? extends Port> inPorts) {
         InPort port = SimulinkFactory.eINSTANCE.createEnable();
         parent.getPorts().add(port);
         ((Map<Double, InPort>) inPorts).put(Handle.getHandleData(currentPortHandle), port);

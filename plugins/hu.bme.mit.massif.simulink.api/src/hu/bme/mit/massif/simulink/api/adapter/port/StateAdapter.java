@@ -29,7 +29,7 @@ public class StateAdapter implements IPortAdapter {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Port createPort(Block parent, IVisitableMatlabData currentPortHandle, Map<Double, ? extends Port> outPorts) {
+    public Port createPort(Importer importer, Block parent, IVisitableMatlabData currentPortHandle, Map<Double, ? extends Port> outPorts) {
         State port = SimulinkFactory.eINSTANCE.createState();
         parent.getPorts().add(port);
         ((Map<Double, OutPort>) outPorts).put(Handle.getHandleData(currentPortHandle), port);

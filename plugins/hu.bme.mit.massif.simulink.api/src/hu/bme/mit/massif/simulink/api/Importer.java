@@ -803,12 +803,15 @@ public class Importer {
 
         // Get the handle of the model itself
         MatlabCommand getModelHandle = commandFactory.getParam().addParam(modelFQN).addParam("Handle");
-        Double modelHandle = Handle.getHandleData(getModelHandle.execute());
+        IVisitableMatlabData modelHandle = getModelHandle.execute();
+        Double modelHandleValue = Handle.getHandleData(modelHandle);
 
+        blockHandleCache.put(modelFQN, (Handle) modelHandle);
+        
         // Traversing from each block
         for (IVisitableMatlabData currentBlockHandle : CellMatlabData.getCellMatlabDataData(toplevelBlockHandles)) {
             // If the handle refers to the subsystem block we are traversing, continue
-            if (Handle.getHandleData(currentBlockHandle) == modelHandle)
+            if (Handle.getHandleData(currentBlockHandle) == modelHandleValue)
                 continue;
             createBlock(simulinkModel, (Handle) currentBlockHandle);
         }
@@ -871,10 +874,10 @@ public class Importer {
         // Get the name of the block
         MatlabCommand getBlockName = commandFactory.get().addParam(currentBlockHandle).addParam("Name");
         String blockName = MatlabString.getMatlabStringData(getBlockName.execute());
-        blockHandleCache.put(blockName, currentBlockHandle);
         // Escape the character '/' in the name. It is needed in order to differentiate hierarchy level changes and
         // slashes in names
         blockName = blockName.replace("/", "//");
+        blockHandleCache.put(parentSimulinkElement.getSimulinkRef().getFQN() + '/' + blockName, currentBlockHandle);
 
         // Create the block instance
         Block block = createBlockInstance(blockType, blockName, parentSimulinkElement.getSimulinkRef());

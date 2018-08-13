@@ -12,17 +12,13 @@
 package hu.bme.mit.massif.simulink.api;
 
 import java.io.File;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringJoiner;
 
-import org.eclipse.core.internal.resources.ProjectPathVariableManager;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -46,7 +42,6 @@ import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
-import hu.bme.mit.massif.communication.datavisitor.IMatlabDataVisitor;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusCreator;
 import hu.bme.mit.massif.simulink.BusSelector;

@@ -30,7 +30,9 @@ public class DefaultPortAdapter implements IPortAdapter {
 
     @Override
     public Port createPort(Importer importer, Block parent, IVisitableMatlabData currentPortHandle, Map<Double, ? extends Port> inPorts) {
-        // Default to inport, since all types of outports are explicitly handled
+        // Default to inport
+        // Reason: the outport types are assumed to be explicitly checked when calling 
+        // IPortAdapter#createPort from Importer#createAndAddPort method
         Port port = SimulinkFactory.eINSTANCE.createInPort();
         List<Parameter> portParams = ParameterHelper.collectParameters(importer, importer.getCommandFactory(), (Handle) currentPortHandle);
         port.getParameters().addAll(portParams);

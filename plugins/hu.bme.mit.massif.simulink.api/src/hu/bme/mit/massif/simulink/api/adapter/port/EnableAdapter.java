@@ -10,6 +10,10 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.port;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.Handle;
@@ -29,16 +33,12 @@ import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 public class EnableAdapter implements IPortAdapter {
 
     @SuppressWarnings("unchecked")
     @Override
     public Port createPort(Importer importer, Block parent, IVisitableMatlabData currentPortHandle, Map<Double, ? extends Port> inPorts) {
-        InPort port = SimulinkFactory.eINSTANCE.createEnable();
+        Enable port = SimulinkFactory.eINSTANCE.createEnable();
         parent.getPorts().add(port);
         ((Map<Double, InPort>) inPorts).put(Handle.getHandleData(currentPortHandle), port);
         List<Parameter> portParams = ParameterHelper.collectParameters(importer, importer.getCommandFactory(), (Handle) currentPortHandle);

@@ -20,6 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.StringJoiner;
 
 import org.eclipse.core.internal.resources.ProjectPathVariableManager;
 import org.eclipse.emf.common.util.EList;
@@ -499,7 +500,7 @@ public class Exporter {
             // Block type specific processing part END
             // //////////////////////////////////////////////////////////
 
-            // Set block dialog/mask parameters
+            // Set block parameters
             EList<Parameter> parameters = block.getParameters();
             boolean isMaskOn = false;
             for (Parameter parameter : parameters) {
@@ -512,12 +513,13 @@ public class Exporter {
                 // * not read-only AND
                 // * it is _not_ a mask parameter OR mask is on
                 // Explanation: if the mask is off, mask parameters should be ignored
+                StringJoiner joiner = new StringJoiner(";");
                 if(!parameter.isReadOnly() && (isMaskOn || !parameter.getName().startsWith("Mask"))) {
                     String commandString = prepareParameterSetterCommand(block, parameter);
-                    ICommandEvaluator commandEvaluator = commandFactory.getCommandEvaluator();
-                    commandEvaluator.evaluateCommand(commandString, 0);
+                    joiner.add(commandString);
                 }
-                // TODO compile command string into a single command - see issue #120
+                ICommandEvaluator commandEvaluator = commandFactory.getCommandEvaluator();
+                commandEvaluator.evaluateCommand(joiner.toString(), 0);
             }
         }
 

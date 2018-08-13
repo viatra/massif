@@ -204,7 +204,7 @@ public class Exporter {
         // Save the current directory
         String currentWorkdirectory = MatlabString.getMatlabStringData(commandFactory.cd().execute());
 
-        String[] savePathSegments = modelNameWithPath.split(FileSystems.getDefault().getSeparator());
+        String[] savePathSegments = modelNameWithPath.split(File.separator);
         String modelName = savePathSegments[savePathSegments.length - 1];
 
         // Navigate to the save location
@@ -219,10 +219,10 @@ public class Exporter {
         saveSystem.execute();
 
         // Navigate back to the original working directory
-        String[] workDirSegments = currentWorkdirectory.split("\\\\");
+        String[] workDirSegments = currentWorkdirectory.split(File.separator);
         for (int i = 0; i < workDirSegments.length; i++) {
             String segment = workDirSegments[i];
-            MatlabCommand changeToWorkDir = commandFactory.cd().addParam(segment + "\\");
+            MatlabCommand changeToWorkDir = commandFactory.cd().addParam(segment + File.separator);
             changeToWorkDir.execute();
         }
 

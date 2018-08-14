@@ -3,10 +3,10 @@
   <simulinkRef name="bus_outputAsBusComplex"/>
   <contains xsi:type="simulink:BusCreator">
     <simulinkRef name="Bus Creator" qualifier="bus_outputAsBusComplex"/>
-    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="DisplayOption" value="bar" source="DIALOG"/>
-    <properties name="Inputs" value="2" source="DIALOG"/>
+    <parameters name="NonVirtualBus" value="off" />
+    <parameters name="OutDataTypeStr" value="Inherit: auto" />
+    <parameters name="DisplayOption" value="bar" />
+    <parameters name="Inputs" value="2" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Bus Creator"/>
       <connection xsi:type="simulink:SingleConnection" lineName="bus" to="//@contains.4/@ports.1">
@@ -23,10 +23,10 @@
   </contains>
   <contains xsi:type="simulink:BusCreator">
     <simulinkRef name="Bus Creator1" qualifier="bus_outputAsBusComplex"/>
-    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="DisplayOption" value="bar" source="DIALOG"/>
-    <properties name="Inputs" value="2" source="DIALOG"/>
+    <parameters name="NonVirtualBus" value="off" />
+    <parameters name="OutDataTypeStr" value="Inherit: auto" />
+    <parameters name="DisplayOption" value="bar" />
+    <parameters name="Inputs" value="2" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Bus Creator1"/>
       <connection xsi:type="simulink:SingleConnection" lineName="bus2" to="//@contains.3/@ports.1">
@@ -43,10 +43,10 @@
   </contains>
   <contains xsi:type="simulink:BusCreator">
     <simulinkRef name="Bus Creator2" qualifier="bus_outputAsBusComplex"/>
-    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="DisplayOption" value="bar" source="DIALOG"/>
-    <properties name="Inputs" value="2" source="DIALOG"/>
+    <parameters name="NonVirtualBus" value="off" />
+    <parameters name="OutDataTypeStr" value="Inherit: auto" />
+    <parameters name="DisplayOption" value="bar" />
+    <parameters name="Inputs" value="2" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Bus Creator2"/>
       <connection xsi:type="simulink:SingleConnection" lineName="bus" to="//@contains.5/@ports.1">
@@ -63,10 +63,10 @@
   </contains>
   <contains xsi:type="simulink:BusCreator">
     <simulinkRef name="Bus Creator3" qualifier="bus_outputAsBusComplex"/>
-    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="DisplayOption" value="bar" source="DIALOG"/>
-    <properties name="Inputs" value="2" source="DIALOG"/>
+    <parameters name="NonVirtualBus" value="off" />
+    <parameters name="OutDataTypeStr" value="Inherit: auto" />
+    <parameters name="DisplayOption" value="bar" />
+    <parameters name="Inputs" value="2" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Bus Creator3"/>
       <connection xsi:type="simulink:SingleConnection" lineName="bus3" to="//@contains.2/@ports.1">
@@ -83,8 +83,8 @@
   </contains>
   <contains xsi:type="simulink:BusSelector" outputAsBus="true">
     <simulinkRef name="Bus Selector" qualifier="bus_outputAsBusComplex"/>
-    <properties name="OutputAsBus" value="on" source="DIALOG"/>
-    <properties name="OutputSignals" value="s1,s2" source="DIALOG"/>
+    <parameters name="OutputAsBus" value="on" />
+    <parameters name="OutputSignals" value="s1,s2" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Bus Selector"/>
       <connection xsi:type="simulink:SingleConnection" lineName="selB" to="//@contains.1/@ports.1">
@@ -100,8 +100,8 @@
   </contains>
   <contains xsi:type="simulink:BusSelector">
     <simulinkRef name="Bus Selector2" qualifier="bus_outputAsBusComplex"/>
-    <properties name="OutputAsBus" value="off" source="DIALOG"/>
-    <properties name="OutputSignals" value="bus3.bus2.selB" source="DIALOG"/>
+    <parameters name="OutputAsBus" value="off" />
+    <parameters name="OutputSignals" value="bus3.bus2.selB" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Bus Selector2"/>
       <connection xsi:type="simulink:SingleConnection" lineName="&lt;selB>" to="//@contains.11/@ports.0">
@@ -116,15 +116,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant" qualifier="bus_outputAsBusComplex"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="1" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="1" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Constant"/>
       <connection xsi:type="simulink:SingleConnection" lineName="s2" to="//@contains.0/@ports.2">
@@ -135,15 +135,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant1" qualifier="bus_outputAsBusComplex"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="1" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="1" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Constant1"/>
       <connection xsi:type="simulink:SingleConnection" lineName="s1" to="//@contains.0/@ports.1">
@@ -154,15 +154,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant2" qualifier="bus_outputAsBusComplex"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="1" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="1" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Constant2"/>
       <connection xsi:type="simulink:SingleConnection" lineName="x1" to="//@contains.1/@ports.2">
@@ -173,15 +173,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant3" qualifier="bus_outputAsBusComplex"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="1" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="1" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Constant3"/>
       <connection xsi:type="simulink:SingleConnection" lineName="DERIVED_LINE_NAME from: bus_outputAsBusComplex/Constant3/outport:outport.1 -- to: bus_outputAsBusComplex/Bus Creator2/inport:inport.2" to="//@contains.2/@ports.2">
@@ -192,15 +192,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant4" qualifier="bus_outputAsBusComplex"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="1" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="1" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="bus_outputAsBusComplex/Constant4"/>
       <connection xsi:type="simulink:SingleConnection" lineName="DERIVED_LINE_NAME from: bus_outputAsBusComplex/Constant4/outport:outport.1 -- to: bus_outputAsBusComplex/Bus Creator3/inport:inport.2" to="//@contains.3/@ports.2">
@@ -211,22 +211,22 @@
   </contains>
   <contains>
     <simulinkRef name="Scope" qualifier="bus_outputAsBusComplex"/>
-    <properties name="Open" value="off" source="DIALOG"/>
-    <properties name="DataFormat" value="StructureWithTime" source="DIALOG"/>
-    <properties name="MaxDataPoints" value="5000" source="DIALOG"/>
-    <properties name="SaveToWorkspace" value="off" source="DIALOG"/>
-    <properties name="TimeRange" value="auto" source="DIALOG"/>
-    <properties name="TickLabels" value="OneTimeTick" source="DIALOG"/>
-    <properties name="Decimation" value="1" source="DIALOG"/>
-    <properties name="SaveName" value="ScopeData" source="DIALOG"/>
-    <properties name="ZoomMode" value="on" source="DIALOG"/>
-    <properties name="Grid" value="on" source="DIALOG"/>
-    <properties name="NumInputPorts" value="1" source="DIALOG"/>
-    <properties name="YMin" value="-5" source="DIALOG"/>
-    <properties name="SampleInput" value="off" source="DIALOG"/>
-    <properties name="LimitDataPoints" value="on" source="DIALOG"/>
-    <properties name="SampleTime" value="0" source="DIALOG"/>
-    <properties name="YMax" value="5" source="DIALOG"/>
+    <parameters name="Open" value="off" />
+    <parameters name="DataFormat" value="StructureWithTime" />
+    <parameters name="MaxDataPoints" value="5000" />
+    <parameters name="SaveToWorkspace" value="off" />
+    <parameters name="TimeRange" value="auto" />
+    <parameters name="TickLabels" value="OneTimeTick" />
+    <parameters name="Decimation" value="1" />
+    <parameters name="SaveName" value="ScopeData" />
+    <parameters name="ZoomMode" value="on" />
+    <parameters name="Grid" value="on" />
+    <parameters name="NumInputPorts" value="1" />
+    <parameters name="YMin" value="-5" />
+    <parameters name="SampleInput" value="off" />
+    <parameters name="LimitDataPoints" value="on" />
+    <parameters name="SampleTime" value="0" />
+    <parameters name="YMax" value="5" />
     <ports xsi:type="simulink:InPort" connection="//@contains.5/@ports.0/@connection">
       <simulinkRef name="inport.1" qualifier="bus_outputAsBusComplex/Scope"/>
     </ports>

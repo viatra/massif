@@ -3,10 +3,10 @@
   <simulinkRef name="tst_bus_flattened_signals"/>
   <contains xsi:type="simulink:BusCreator">
     <simulinkRef name="Bus Creator" qualifier="tst_bus_flattened_signals"/>
-    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="DisplayOption" value="bar" source="DIALOG"/>
-    <properties name="Inputs" value="3" source="DIALOG"/>
+    <parameters name="NonVirtualBus" value="off" />
+    <parameters name="OutDataTypeStr" value="Inherit: auto" />
+    <parameters name="DisplayOption" value="bar" />
+    <parameters name="Inputs" value="3" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_flattened_signals/Bus Creator"/>
       <connection xsi:type="simulink:SingleConnection" lineName="b1" to="//@contains.1/@ports.1">
@@ -26,10 +26,10 @@
   </contains>
   <contains xsi:type="simulink:BusCreator">
     <simulinkRef name="Bus Creator1" qualifier="tst_bus_flattened_signals"/>
-    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="DisplayOption" value="bar" source="DIALOG"/>
-    <properties name="Inputs" value="3" source="DIALOG"/>
+    <parameters name="NonVirtualBus" value="off" />
+    <parameters name="OutDataTypeStr" value="Inherit: auto" />
+    <parameters name="DisplayOption" value="bar" />
+    <parameters name="Inputs" value="3" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_flattened_signals/Bus Creator1"/>
       <connection xsi:type="simulink:SingleConnection" lineName="b2" to="//@contains.3/@ports.1">
@@ -49,8 +49,8 @@
   </contains>
   <contains xsi:type="simulink:BusSelector" outputAsBus="true">
     <simulinkRef name="Bus Selector" qualifier="tst_bus_flattened_signals"/>
-    <properties name="OutputAsBus" value="on" source="DIALOG"/>
-    <properties name="OutputSignals" value="s1,s1,b1.s1" source="DIALOG"/>
+    <parameters name="OutputAsBus" value="on" />
+    <parameters name="OutputSignals" value="s1,s1,b1.s1" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_flattened_signals/Bus Selector"/>
       <connection xsi:type="simulink:MultiConnection" lineName="b4">
@@ -73,8 +73,8 @@
   </contains>
   <contains xsi:type="simulink:BusSelector" outputAsBus="true">
     <simulinkRef name="Bus Selector1" qualifier="tst_bus_flattened_signals"/>
-    <properties name="OutputAsBus" value="on" source="DIALOG"/>
-    <properties name="OutputSignals" value="b1.s1,b1,s1" source="DIALOG"/>
+    <parameters name="OutputAsBus" value="on" />
+    <parameters name="OutputSignals" value="b1.s1,b1,s1" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_flattened_signals/Bus Selector1"/>
       <connection xsi:type="simulink:SingleConnection" lineName="b3" to="//@contains.2/@ports.1">
@@ -91,8 +91,8 @@
   </contains>
   <contains xsi:type="simulink:BusSelector" outputAsBus="true">
     <simulinkRef name="Bus Selector2" qualifier="tst_bus_flattened_signals"/>
-    <properties name="OutputAsBus" value="on" source="DIALOG"/>
-    <properties name="OutputSignals" value="s1,s1" source="DIALOG"/>
+    <parameters name="OutputAsBus" value="on" />
+    <parameters name="OutputSignals" value="s1,s1" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_flattened_signals/Bus Selector2"/>
       <connection xsi:type="simulink:SingleConnection" lineName="DERIVED_LINE_NAME from: tst_bus_flattened_signals/Bus Selector2/outport:outport.1 -- to: tst_bus_flattened_signals/Terminator1/inport:inport.1" to="//@contains.11/@ports.0">
@@ -108,15 +108,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant" qualifier="tst_bus_flattened_signals"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="0" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="0" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_flattened_signals/Constant"/>
       <connection xsi:type="simulink:SingleConnection" lineName="s1" to="//@contains.0/@ports.1">
@@ -127,15 +127,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant1" qualifier="tst_bus_flattened_signals"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="1" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="1" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_flattened_signals/Constant1"/>
       <connection xsi:type="simulink:SingleConnection" lineName="s2" to="//@contains.0/@ports.2">
@@ -146,15 +146,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant2" qualifier="tst_bus_flattened_signals"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="2" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="2" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_flattened_signals/Constant2"/>
       <connection xsi:type="simulink:SingleConnection" lineName="s3" to="//@contains.0/@ports.3">
@@ -165,15 +165,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant3" qualifier="tst_bus_flattened_signals"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="3" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="3" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_flattened_signals/Constant3"/>
       <connection xsi:type="simulink:SingleConnection" lineName="s1" to="//@contains.1/@ports.2">
@@ -184,15 +184,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant4" qualifier="tst_bus_flattened_signals"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="4" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="4" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_flattened_signals/Constant4"/>
       <connection xsi:type="simulink:SingleConnection" lineName="s2" to="//@contains.1/@ports.3">

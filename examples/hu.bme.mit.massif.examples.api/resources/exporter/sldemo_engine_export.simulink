@@ -3,34 +3,34 @@
   <simulinkRef name="sldemo_engine_export"/>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="Combustion" qualifier="sldemo_engine_export"/>
-    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-    <properties name="ErrorFcn" value="" source="DIALOG"/>
-    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-    <properties name="MemberBlocks" value="" source="DIALOG"/>
-    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-    <properties name="ActiveVariant" value="" source="DIALOG"/>
-    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-    <properties name="RTWFcnName" value="" source="DIALOG"/>
-    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-    <properties name="BlockChoice" value="" source="DIALOG"/>
-    <properties name="RTWFileName" value="" source="DIALOG"/>
-    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-    <properties name="TemplateBlock" value="" source="DIALOG"/>
-    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="Variant" value="off" source="DIALOG"/>
+    <parameters name="RTWSystemCode" value="Auto" />
+    <parameters name="PermitHierarchicalResolution" value="All" />
+    <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+    <parameters name="OverrideUsingVariant" value="" />
+    <parameters name="IsSubsystemVirtual" value="on" />
+    <parameters name="ErrorFcn" value="" />
+    <parameters name="ShowPortLabels" value="FromPortIcon" />
+    <parameters name="MemberBlocks" value="" />
+    <parameters name="MinAlgLoopOccurrences" value="off" />
+    <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+    <parameters name="SystemSampleTime" value="-1" />
+    <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+    <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+    <parameters name="Permissions" value="ReadWrite" />
+    <parameters name="ActiveVariant" value="" />
+    <parameters name="PropExecContextOutsideSubsystem" value="off" />
+    <parameters name="TreatAsAtomicUnit" value="off" />
+    <parameters name="GeneratePreprocessorConditionals" value="off" />
+    <parameters name="RTWFcnName" value="" />
+    <parameters name="RTWFileNameOpts" value="Auto" />
+    <parameters name="FunctionWithSeparateData" value="off" />
+    <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+    <parameters name="BlockChoice" value="" />
+    <parameters name="RTWFileName" value="" />
+    <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+    <parameters name="TemplateBlock" value="" />
+    <parameters name="RTWFcnNameOpts" value="Auto" />
+    <parameters name="Variant" value="off" />
     <ports xsi:type="simulink:OutPort" portBlock="//@contains.0/@subBlocks.8">
       <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Combustion"/>
       <connection xsi:type="simulink:SingleConnection" to="//@contains.3/@ports.1">
@@ -46,24 +46,24 @@
     <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@ports.1">
       <simulinkRef name="Air Charge" qualifier="sldemo_engine_export/Combustion"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Combustion/Air Charge"/>
         <connection xsi:type="simulink:MultiConnection" lineName="">
@@ -80,24 +80,24 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.0/@ports.2">
       <simulinkRef name="N" qualifier="sldemo_engine_export/Combustion"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="2" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="2" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Combustion/N"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.2/@ports.4">
@@ -108,8 +108,8 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Mux" qualifier="sldemo_engine_export/Combustion"/>
-      <properties name="DisplayOption" value="bar" source="DIALOG"/>
-      <properties name="Inputs" value="4" source="DIALOG"/>
+      <parameters name="DisplayOption" value="bar" />
+      <parameters name="Inputs" value="4" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Combustion/Mux"/>
         <connection xsi:type="simulink:MultiConnection" lineName="">
@@ -138,15 +138,15 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Spark Advance (degrees BTDC)" qualifier="sldemo_engine_export/Combustion"/>
-      <properties name="FramePeriod" value="inf" source="DIALOG"/>
-      <properties name="Value" value="15.0" source="DIALOG"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-      <properties name="SampleTime" value="inf" source="DIALOG"/>
-      <properties name="VectorParams1D" value="on" source="DIALOG"/>
+      <parameters name="FramePeriod" value="inf" />
+      <parameters name="Value" value="15.0" />
+      <parameters name="LockScale" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SamplingMode" value="Sample based" />
+      <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+      <parameters name="SampleTime" value="inf" />
+      <parameters name="VectorParams1D" value="on" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Combustion/Spark Advance (degrees BTDC)"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.2/@ports.3">
@@ -157,18 +157,18 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Stoichiometric Fuel" qualifier="sldemo_engine_export/Combustion"/>
-      <properties name="ParamMin" value="[]" source="DIALOG"/>
-      <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-      <properties name="Multiplication" value="Element-wise(K.*u)" source="DIALOG"/>
-      <properties name="RndMeth" value="Floor" source="DIALOG"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="ParamMax" value="[]" source="DIALOG"/>
-      <properties name="Gain" value="1/14.6" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-      <properties name="ParamDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <parameters name="ParamMin" value="[]" />
+      <parameters name="SaturateOnIntegerOverflow" value="on" />
+      <parameters name="Multiplication" value="Element-wise(K.*u)" />
+      <parameters name="RndMeth" value="Floor" />
+      <parameters name="LockScale" value="off" />
+      <parameters name="ParamMax" value="[]" />
+      <parameters name="Gain" value="1/14.6" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="OutDataTypeStr" value="Inherit: Same as input" />
+      <parameters name="ParamDataTypeStr" value="Inherit: Same as input" />
+      <parameters name="SampleTime" value="-1" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Combustion/Stoichiometric Fuel"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.2/@ports.2">
@@ -182,19 +182,19 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Sum" qualifier="sldemo_engine_export/Combustion"/>
-      <properties name="CollapseDim" value="1" source="DIALOG"/>
-      <properties name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" source="DIALOG"/>
-      <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="CollapseMode" value="All dimensions" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: Same as first input" source="DIALOG"/>
-      <properties name="Inputs" value="++" source="DIALOG"/>
-      <properties name="RndMeth" value="Floor" source="DIALOG"/>
-      <properties name="InputSameDT" value="on" source="DIALOG"/>
-      <properties name="IconShape" value="round" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <parameters name="CollapseDim" value="1" />
+      <parameters name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" />
+      <parameters name="SaturateOnIntegerOverflow" value="on" />
+      <parameters name="LockScale" value="off" />
+      <parameters name="CollapseMode" value="All dimensions" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="OutDataTypeStr" value="Inherit: Same as first input" />
+      <parameters name="Inputs" value="++" />
+      <parameters name="RndMeth" value="Floor" />
+      <parameters name="InputSameDT" value="on" />
+      <parameters name="IconShape" value="round" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Combustion/Sum"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.8/@ports.0">
@@ -211,8 +211,8 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Torque Gen" qualifier="sldemo_engine_export/Combustion"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="Expr" value="-181.3 + 379.36*u[1] + 21.91*u[1]/u[2] - (0.85*u[1]*u[1])/(u[2]*u[2]) + 0.26*u[3] - 0.0028*u[3]*u[3] " source="DIALOG"/>
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="Expr" value="-181.3 + 379.36*u[1] + 21.91*u[1]/u[2] - (0.85*u[1]*u[1])/(u[2]*u[2]) + 0.26*u[3] - 0.0028*u[3]*u[3] " />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Combustion/Torque Gen"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@ports.1">
@@ -226,8 +226,8 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Torque Gen2" qualifier="sldemo_engine_export/Combustion"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="Expr" value="0.027*u[4] - 0.000107*u[4]*u[4] + 0.00048*u[4]*u[3] + 2.55*u[3]*u[1] - 0.05*u[3]*u[3]*u[1]" source="DIALOG"/>
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="Expr" value="0.027*u[4] - 0.000107*u[4]*u[4] + 0.00048*u[4]*u[3] + 2.55*u[3]*u[1] - 0.05*u[3]*u[3]*u[1]" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Combustion/Torque Gen2"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@subBlocks.5/@ports.2">
@@ -241,23 +241,23 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.0/@ports.0">
       <simulinkRef name="Torque" qualifier="sldemo_engine_export/Combustion"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="InitialOutput" value="0" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="InitialOutput" value="0" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="OutputWhenDisabled" value="held" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:InPort" connection="//@contains.0/@subBlocks.5/@ports.0/@connection">
         <simulinkRef name="inport.1" qualifier="sldemo_engine_export/Combustion/Torque"/>
       </ports>
@@ -266,34 +266,34 @@
   </contains>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="Compression" qualifier="sldemo_engine_export"/>
-    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-    <properties name="IsSubsystemVirtual" value="off" source="DIALOG"/>
-    <properties name="ErrorFcn" value="" source="DIALOG"/>
-    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-    <properties name="MemberBlocks" value="" source="DIALOG"/>
-    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-    <properties name="ActiveVariant" value="" source="DIALOG"/>
-    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-    <properties name="TreatAsAtomicUnit" value="on" source="DIALOG"/>
-    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-    <properties name="RTWFcnName" value="" source="DIALOG"/>
-    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-    <properties name="BlockChoice" value="" source="DIALOG"/>
-    <properties name="RTWFileName" value="" source="DIALOG"/>
-    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-    <properties name="TemplateBlock" value="" source="DIALOG"/>
-    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="Variant" value="off" source="DIALOG"/>
+    <parameters name="RTWSystemCode" value="Auto" />
+    <parameters name="PermitHierarchicalResolution" value="All" />
+    <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+    <parameters name="OverrideUsingVariant" value="" />
+    <parameters name="IsSubsystemVirtual" value="off" />
+    <parameters name="ErrorFcn" value="" />
+    <parameters name="ShowPortLabels" value="FromPortIcon" />
+    <parameters name="MemberBlocks" value="" />
+    <parameters name="MinAlgLoopOccurrences" value="off" />
+    <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+    <parameters name="SystemSampleTime" value="-1" />
+    <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+    <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+    <parameters name="Permissions" value="ReadWrite" />
+    <parameters name="ActiveVariant" value="" />
+    <parameters name="PropExecContextOutsideSubsystem" value="off" />
+    <parameters name="TreatAsAtomicUnit" value="on" />
+    <parameters name="GeneratePreprocessorConditionals" value="off" />
+    <parameters name="RTWFcnName" value="" />
+    <parameters name="RTWFileNameOpts" value="Auto" />
+    <parameters name="FunctionWithSeparateData" value="off" />
+    <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+    <parameters name="BlockChoice" value="" />
+    <parameters name="RTWFileName" value="" />
+    <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+    <parameters name="TemplateBlock" value="" />
+    <parameters name="RTWFcnNameOpts" value="Auto" />
+    <parameters name="Variant" value="off" />
     <ports xsi:type="simulink:OutPort" portBlock="//@contains.1/@subBlocks.4">
       <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Compression"/>
       <connection xsi:type="simulink:SingleConnection" to="//@contains.0/@ports.1">
@@ -315,24 +315,24 @@
     <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.1/@ports.2">
       <simulinkRef name="mass(k+1)" qualifier="sldemo_engine_export/Compression"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Compression/mass(k+1)"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@subBlocks.2/@ports.1">
@@ -343,22 +343,22 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:TriggerBlock" port="//@contains.1/@ports.3">
       <simulinkRef name="Trigger" qualifier="sldemo_engine_export/Compression"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="OutputDataType" value="auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="ShowOutputPort" value="on" source="DIALOG"/>
-      <properties name="SampleTimeType" value="triggered" source="DIALOG"/>
-      <properties name="StatesWhenEnabling" value="inherit" source="DIALOG"/>
-      <properties name="ZeroCross" value="on" source="DIALOG"/>
-      <properties name="PropagateVarSize" value="During execution" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="TriggerType" value="either" source="DIALOG"/>
-      <properties name="SampleTime" value="1" source="DIALOG"/>
-      <properties name="TriggerSignalSampleTime" value="-1" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="1"/>
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="OutputDataType" value="auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="ShowOutputPort" value="on" />
+      <parameters name="SampleTimeType" value="triggered" />
+      <parameters name="StatesWhenEnabling" value="inherit" />
+      <parameters name="ZeroCross" value="on" />
+      <parameters name="PropagateVarSize" value="During execution" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="TriggerType" value="either" />
+      <parameters name="SampleTime" value="1" />
+      <parameters name="TriggerSignalSampleTime" value="-1" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Compression/Trigger"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@subBlocks.5/@ports.0">
@@ -369,8 +369,8 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Init" qualifier="sldemo_engine_export/Compression"/>
-      <properties name="Value" value="0.152" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <parameters name="Value" value="0.152" />
+      <parameters name="SampleTime" value="-1" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Compression/Init"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@subBlocks.3/@ports.1">
@@ -384,13 +384,13 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Unit Delay" qualifier="sldemo_engine_export/Compression"/>
-      <properties name="X0" value="0.152" source="DIALOG"/>
-      <properties name="StateIdentifier" value="" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="RTWStateStorageClass" value="Auto" source="DIALOG"/>
-      <properties name="StateMustResolveToSignalObject" value="off" source="DIALOG"/>
-      <properties name="RTWStateStorageTypeQualifier" value="" source="DIALOG"/>
-      <properties name="InputProcessing" value="Inherited" source="DIALOG"/>
+      <parameters name="X0" value="0.152" />
+      <parameters name="StateIdentifier" value="" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="RTWStateStorageClass" value="Auto" />
+      <parameters name="StateMustResolveToSignalObject" value="off" />
+      <parameters name="RTWStateStorageTypeQualifier" value="" />
+      <parameters name="InputProcessing" value="Inherited" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Compression/Unit Delay"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@subBlocks.4/@ports.0">
@@ -404,23 +404,23 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.1/@ports.0">
       <simulinkRef name="mass(k)" qualifier="sldemo_engine_export/Compression"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="InitialOutput" value="0.152" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="InitialOutput" value="0.152" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="OutputWhenDisabled" value="held" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:InPort" connection="//@contains.1/@subBlocks.3/@ports.0/@connection">
         <simulinkRef name="inport.1" qualifier="sldemo_engine_export/Compression/mass(k)"/>
       </ports>
@@ -428,23 +428,23 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.1/@ports.1">
       <simulinkRef name="trigger" qualifier="sldemo_engine_export/Compression"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="InitialOutput" value="-1" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-      <properties name="Port" value="2" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="InitialOutput" value="-1" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="OutputWhenDisabled" value="held" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+      <parameters name="Port" value="2" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:InPort" connection="//@contains.1/@subBlocks.1/@ports.0/@connection">
         <simulinkRef name="inport.1" qualifier="sldemo_engine_export/Compression/trigger"/>
       </ports>
@@ -453,34 +453,34 @@
   </contains>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="Drag Torque" qualifier="sldemo_engine_export"/>
-    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-    <properties name="ErrorFcn" value="" source="DIALOG"/>
-    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-    <properties name="MemberBlocks" value="" source="DIALOG"/>
-    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-    <properties name="ActiveVariant" value="" source="DIALOG"/>
-    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-    <properties name="RTWFcnName" value="" source="DIALOG"/>
-    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-    <properties name="BlockChoice" value="" source="DIALOG"/>
-    <properties name="RTWFileName" value="" source="DIALOG"/>
-    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-    <properties name="TemplateBlock" value="" source="DIALOG"/>
-    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="Variant" value="off" source="DIALOG"/>
+    <parameters name="RTWSystemCode" value="Auto" />
+    <parameters name="PermitHierarchicalResolution" value="All" />
+    <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+    <parameters name="OverrideUsingVariant" value="" />
+    <parameters name="IsSubsystemVirtual" value="on" />
+    <parameters name="ErrorFcn" value="" />
+    <parameters name="ShowPortLabels" value="FromPortIcon" />
+    <parameters name="MemberBlocks" value="" />
+    <parameters name="MinAlgLoopOccurrences" value="off" />
+    <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+    <parameters name="SystemSampleTime" value="-1" />
+    <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+    <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+    <parameters name="Permissions" value="ReadWrite" />
+    <parameters name="ActiveVariant" value="" />
+    <parameters name="PropExecContextOutsideSubsystem" value="off" />
+    <parameters name="TreatAsAtomicUnit" value="off" />
+    <parameters name="GeneratePreprocessorConditionals" value="off" />
+    <parameters name="RTWFcnName" value="" />
+    <parameters name="RTWFileNameOpts" value="Auto" />
+    <parameters name="FunctionWithSeparateData" value="off" />
+    <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+    <parameters name="BlockChoice" value="" />
+    <parameters name="RTWFileName" value="" />
+    <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+    <parameters name="TemplateBlock" value="" />
+    <parameters name="RTWFcnNameOpts" value="Auto" />
+    <parameters name="Variant" value="off" />
     <ports xsi:type="simulink:OutPort" portBlock="//@contains.2/@subBlocks.3">
       <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Drag Torque"/>
       <connection xsi:type="simulink:MultiConnection" lineName="LoadTorque">
@@ -496,12 +496,12 @@
     <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
     <subBlocks>
       <simulinkRef name="Step" qualifier="sldemo_engine_export/Drag Torque"/>
-      <properties name="ZeroCross" value="on" source="DIALOG"/>
-      <properties name="Time" value="2" source="DIALOG"/>
-      <properties name="Before" value="25" source="DIALOG"/>
-      <properties name="SampleTime" value="0" source="DIALOG"/>
-      <properties name="VectorParams1D" value="on" source="DIALOG"/>
-      <properties name="After" value="20" source="DIALOG"/>
+      <parameters name="ZeroCross" value="on" />
+      <parameters name="Time" value="2" />
+      <parameters name="Before" value="25" />
+      <parameters name="SampleTime" value="0" />
+      <parameters name="VectorParams1D" value="on" />
+      <parameters name="After" value="20" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Drag Torque/Step"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.2/@subBlocks.2/@ports.1">
@@ -512,12 +512,12 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Step1" qualifier="sldemo_engine_export/Drag Torque"/>
-      <properties name="ZeroCross" value="on" source="DIALOG"/>
-      <properties name="Time" value="8" source="DIALOG"/>
-      <properties name="Before" value="0" source="DIALOG"/>
-      <properties name="SampleTime" value="0" source="DIALOG"/>
-      <properties name="VectorParams1D" value="on" source="DIALOG"/>
-      <properties name="After" value="5" source="DIALOG"/>
+      <parameters name="ZeroCross" value="on" />
+      <parameters name="Time" value="8" />
+      <parameters name="Before" value="0" />
+      <parameters name="SampleTime" value="0" />
+      <parameters name="VectorParams1D" value="on" />
+      <parameters name="After" value="5" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Drag Torque/Step1"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.2/@subBlocks.2/@ports.2">
@@ -528,19 +528,19 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Sum1" qualifier="sldemo_engine_export/Drag Torque"/>
-      <properties name="CollapseDim" value="1" source="DIALOG"/>
-      <properties name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" source="DIALOG"/>
-      <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="CollapseMode" value="All dimensions" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: Same as first input" source="DIALOG"/>
-      <properties name="Inputs" value="++" source="DIALOG"/>
-      <properties name="RndMeth" value="Floor" source="DIALOG"/>
-      <properties name="InputSameDT" value="on" source="DIALOG"/>
-      <properties name="IconShape" value="round" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <parameters name="CollapseDim" value="1" />
+      <parameters name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" />
+      <parameters name="SaturateOnIntegerOverflow" value="on" />
+      <parameters name="LockScale" value="off" />
+      <parameters name="CollapseMode" value="All dimensions" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="OutDataTypeStr" value="Inherit: Same as first input" />
+      <parameters name="Inputs" value="++" />
+      <parameters name="RndMeth" value="Floor" />
+      <parameters name="InputSameDT" value="on" />
+      <parameters name="IconShape" value="round" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Drag Torque/Sum1"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.2/@subBlocks.3/@ports.0">
@@ -557,23 +557,23 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.2/@ports.0">
       <simulinkRef name="Load" qualifier="sldemo_engine_export/Drag Torque"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="InitialOutput" value="0" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="InitialOutput" value="0" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="OutputWhenDisabled" value="held" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:InPort" connection="//@contains.2/@subBlocks.2/@ports.0/@connection">
         <simulinkRef name="inport.1" qualifier="sldemo_engine_export/Drag Torque/Load"/>
       </ports>
@@ -582,34 +582,34 @@
   </contains>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="Engine Dynamics" qualifier="sldemo_engine_export"/>
-    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-    <properties name="ErrorFcn" value="" source="DIALOG"/>
-    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-    <properties name="MemberBlocks" value="" source="DIALOG"/>
-    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-    <properties name="ActiveVariant" value="" source="DIALOG"/>
-    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-    <properties name="RTWFcnName" value="" source="DIALOG"/>
-    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-    <properties name="BlockChoice" value="" source="DIALOG"/>
-    <properties name="RTWFileName" value="" source="DIALOG"/>
-    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-    <properties name="TemplateBlock" value="" source="DIALOG"/>
-    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="Variant" value="off" source="DIALOG"/>
+    <parameters name="RTWSystemCode" value="Auto" />
+    <parameters name="PermitHierarchicalResolution" value="All" />
+    <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+    <parameters name="OverrideUsingVariant" value="" />
+    <parameters name="IsSubsystemVirtual" value="on" />
+    <parameters name="ErrorFcn" value="" />
+    <parameters name="ShowPortLabels" value="FromPortIcon" />
+    <parameters name="MemberBlocks" value="" />
+    <parameters name="MinAlgLoopOccurrences" value="off" />
+    <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+    <parameters name="SystemSampleTime" value="-1" />
+    <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+    <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+    <parameters name="Permissions" value="ReadWrite" />
+    <parameters name="ActiveVariant" value="" />
+    <parameters name="PropExecContextOutsideSubsystem" value="off" />
+    <parameters name="TreatAsAtomicUnit" value="off" />
+    <parameters name="GeneratePreprocessorConditionals" value="off" />
+    <parameters name="RTWFcnName" value="" />
+    <parameters name="RTWFileNameOpts" value="Auto" />
+    <parameters name="FunctionWithSeparateData" value="off" />
+    <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+    <parameters name="BlockChoice" value="" />
+    <parameters name="RTWFileName" value="" />
+    <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+    <parameters name="TemplateBlock" value="" />
+    <parameters name="RTWFcnNameOpts" value="Auto" />
+    <parameters name="Variant" value="off" />
     <ports xsi:type="simulink:OutPort" portBlock="//@contains.3/@subBlocks.5">
       <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Engine Dynamics"/>
       <connection xsi:type="simulink:MultiConnection" lineName="">
@@ -640,24 +640,24 @@
     <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.3/@ports.1">
       <simulinkRef name="Teng" qualifier="sldemo_engine_export/Engine Dynamics"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Engine Dynamics/Teng"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.3/@subBlocks.3/@ports.1">
@@ -668,24 +668,24 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.3/@ports.2">
       <simulinkRef name="Tload" qualifier="sldemo_engine_export/Engine Dynamics"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="2" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="2" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Engine Dynamics/Tload"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.3/@subBlocks.3/@ports.2">
@@ -696,18 +696,18 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Inverse Inertia, 1//J" qualifier="sldemo_engine_export/Engine Dynamics"/>
-      <properties name="ParamMin" value="[]" source="DIALOG"/>
-      <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-      <properties name="Multiplication" value="Element-wise(K.*u)" source="DIALOG"/>
-      <properties name="RndMeth" value="Floor" source="DIALOG"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="ParamMax" value="[]" source="DIALOG"/>
-      <properties name="Gain" value="1/0.14" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-      <properties name="ParamDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <parameters name="ParamMin" value="[]" />
+      <parameters name="SaturateOnIntegerOverflow" value="on" />
+      <parameters name="Multiplication" value="Element-wise(K.*u)" />
+      <parameters name="RndMeth" value="Floor" />
+      <parameters name="LockScale" value="off" />
+      <parameters name="ParamMax" value="[]" />
+      <parameters name="Gain" value="1/0.14" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="OutDataTypeStr" value="Inherit: Same as input" />
+      <parameters name="ParamDataTypeStr" value="Inherit: Same as input" />
+      <parameters name="SampleTime" value="-1" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Engine Dynamics/Inverse Inertia, 1//J"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.3/@subBlocks.4/@ports.1">
@@ -721,19 +721,19 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Sum" qualifier="sldemo_engine_export/Engine Dynamics"/>
-      <properties name="CollapseDim" value="1" source="DIALOG"/>
-      <properties name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" source="DIALOG"/>
-      <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="CollapseMode" value="All dimensions" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: Same as first input" source="DIALOG"/>
-      <properties name="Inputs" value="+-" source="DIALOG"/>
-      <properties name="RndMeth" value="Floor" source="DIALOG"/>
-      <properties name="InputSameDT" value="on" source="DIALOG"/>
-      <properties name="IconShape" value="round" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <parameters name="CollapseDim" value="1" />
+      <parameters name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" />
+      <parameters name="SaturateOnIntegerOverflow" value="on" />
+      <parameters name="LockScale" value="off" />
+      <parameters name="CollapseMode" value="All dimensions" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="OutDataTypeStr" value="Inherit: Same as first input" />
+      <parameters name="Inputs" value="+-" />
+      <parameters name="RndMeth" value="Floor" />
+      <parameters name="InputSameDT" value="on" />
+      <parameters name="IconShape" value="round" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Engine Dynamics/Sum"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.3/@subBlocks.2/@ports.1">
@@ -750,18 +750,18 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="w = T//J w0 = 209 rad//s" qualifier="sldemo_engine_export/Engine Dynamics"/>
-      <properties name="ShowSaturationPort" value="off" source="DIALOG"/>
-      <properties name="LowerSaturationLimit" value="-inf" source="DIALOG"/>
-      <properties name="ZeroCross" value="on" source="DIALOG"/>
-      <properties name="UpperSaturationLimit" value="inf" source="DIALOG"/>
-      <properties name="LimitOutput" value="off" source="DIALOG"/>
-      <properties name="InitialCondition" value="209.48" source="DIALOG"/>
-      <properties name="ShowStatePort" value="off" source="DIALOG"/>
-      <properties name="ContinuousStateAttributes" value="''" source="DIALOG"/>
-      <properties name="InitialConditionSource" value="internal" source="DIALOG"/>
-      <properties name="AbsoluteTolerance" value="auto" source="DIALOG"/>
-      <properties name="IgnoreLimit" value="off" source="DIALOG"/>
-      <properties name="ExternalReset" value="none" source="DIALOG"/>
+      <parameters name="ShowSaturationPort" value="off" />
+      <parameters name="LowerSaturationLimit" value="-inf" />
+      <parameters name="ZeroCross" value="on" />
+      <parameters name="UpperSaturationLimit" value="inf" />
+      <parameters name="LimitOutput" value="off" />
+      <parameters name="InitialCondition" value="209.48" />
+      <parameters name="ShowStatePort" value="off" />
+      <parameters name="ContinuousStateAttributes" value="''" />
+      <parameters name="InitialConditionSource" value="internal" />
+      <parameters name="AbsoluteTolerance" value="auto" />
+      <parameters name="IgnoreLimit" value="off" />
+      <parameters name="ExternalReset" value="none" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Engine Dynamics/w = T//J w0 = 209 rad//s"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.3/@subBlocks.5/@ports.0">
@@ -775,23 +775,23 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.3/@ports.0">
       <simulinkRef name="N" qualifier="sldemo_engine_export/Engine Dynamics"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="InitialOutput" value="0" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="InitialOutput" value="0" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="OutputWhenDisabled" value="held" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:InPort" connection="//@contains.3/@subBlocks.4/@ports.0/@connection">
         <simulinkRef name="inport.1" qualifier="sldemo_engine_export/Engine Dynamics/N"/>
       </ports>
@@ -800,23 +800,23 @@
   </contains>
   <contains>
     <simulinkRef name="Engine Speed (rpm)" qualifier="sldemo_engine_export"/>
-    <properties name="Open" value="off" source="DIALOG"/>
-    <properties name="DataFormat" value="Structure" source="DIALOG"/>
-    <properties name="MaxDataPoints" value="5000" source="DIALOG"/>
-    <properties name="SaveToWorkspace" value="off" source="DIALOG"/>
-    <properties name="TimeRange" value="10" source="DIALOG"/>
-    <properties name="TickLabels" value="on" source="DIALOG"/>
-    <properties name="Decimation" value="1" source="DIALOG"/>
-    <properties name="SaveName" value="N" source="DIALOG"/>
-    <properties name="ZoomMode" value="on" source="DIALOG"/>
-    <properties name="Grid" value="on" source="DIALOG"/>
-    <properties name="NumInputPorts" value="1" source="DIALOG"/>
-    <properties name="YMin" value="1500" source="DIALOG"/>
-    <properties name="SampleInput" value="off" source="DIALOG"/>
-    <properties name="LimitDataPoints" value="off" source="DIALOG"/>
-    <properties name="SampleTime" value="0" source="DIALOG"/>
-    <properties name="YMax" value="3500" source="DIALOG"/>
-    <properties name="floating" value="off"/>
+    <parameters name="Open" value="off" />
+    <parameters name="DataFormat" value="Structure" />
+    <parameters name="MaxDataPoints" value="5000" />
+    <parameters name="SaveToWorkspace" value="off" />
+    <parameters name="TimeRange" value="10" />
+    <parameters name="TickLabels" value="on" />
+    <parameters name="Decimation" value="1" />
+    <parameters name="SaveName" value="N" />
+    <parameters name="ZoomMode" value="on" />
+    <parameters name="Grid" value="on" />
+    <parameters name="NumInputPorts" value="1" />
+    <parameters name="YMin" value="1500" />
+    <parameters name="SampleInput" value="off" />
+    <parameters name="LimitDataPoints" value="off" />
+    <parameters name="SampleTime" value="0" />
+    <parameters name="YMax" value="3500" />
+    <parameters name="floating" value="off"/>
     <ports xsi:type="simulink:InPort" connection="//@contains.9/@ports.0/@connection">
       <simulinkRef name="inport.1" qualifier="sldemo_engine_export/Engine Speed (rpm)"/>
     </ports>
@@ -824,40 +824,40 @@
   </contains>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="More Info" qualifier="sldemo_engine_export"/>
-    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-    <properties name="ErrorFcn" value="" source="DIALOG"/>
-    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-    <properties name="MemberBlocks" value="" source="DIALOG"/>
-    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-    <properties name="ActiveVariant" value="" source="DIALOG"/>
-    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-    <properties name="RTWFcnName" value="" source="DIALOG"/>
-    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-    <properties name="BlockChoice" value="" source="DIALOG"/>
-    <properties name="RTWFileName" value="" source="DIALOG"/>
-    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-    <properties name="TemplateBlock" value="" source="DIALOG"/>
-    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="Variant" value="off" source="DIALOG"/>
+    <parameters name="RTWSystemCode" value="Auto" />
+    <parameters name="PermitHierarchicalResolution" value="All" />
+    <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+    <parameters name="OverrideUsingVariant" value="" />
+    <parameters name="IsSubsystemVirtual" value="on" />
+    <parameters name="ErrorFcn" value="" />
+    <parameters name="ShowPortLabels" value="FromPortIcon" />
+    <parameters name="MemberBlocks" value="" />
+    <parameters name="MinAlgLoopOccurrences" value="off" />
+    <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+    <parameters name="SystemSampleTime" value="-1" />
+    <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+    <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+    <parameters name="Permissions" value="ReadWrite" />
+    <parameters name="ActiveVariant" value="" />
+    <parameters name="PropExecContextOutsideSubsystem" value="off" />
+    <parameters name="TreatAsAtomicUnit" value="off" />
+    <parameters name="GeneratePreprocessorConditionals" value="off" />
+    <parameters name="RTWFcnName" value="" />
+    <parameters name="RTWFileNameOpts" value="Auto" />
+    <parameters name="FunctionWithSeparateData" value="off" />
+    <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+    <parameters name="BlockChoice" value="" />
+    <parameters name="RTWFileName" value="" />
+    <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+    <parameters name="TemplateBlock" value="" />
+    <parameters name="RTWFcnNameOpts" value="Auto" />
+    <parameters name="Variant" value="off" />
     <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
   </contains>
   <contains>
     <simulinkRef name="Mux" qualifier="sldemo_engine_export"/>
-    <properties name="DisplayOption" value="bar" source="DIALOG"/>
-    <properties name="Inputs" value="2" source="DIALOG"/>
+    <parameters name="DisplayOption" value="bar" />
+    <parameters name="Inputs" value="2" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Mux"/>
       <connection xsi:type="simulink:SingleConnection" to="//@contains.10/@ports.0">
@@ -874,34 +874,34 @@
   </contains>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="Throttle &amp; Manifold" qualifier="sldemo_engine_export"/>
-    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-    <properties name="ErrorFcn" value="" source="DIALOG"/>
-    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-    <properties name="MemberBlocks" value="" source="DIALOG"/>
-    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-    <properties name="ActiveVariant" value="" source="DIALOG"/>
-    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-    <properties name="RTWFcnName" value="" source="DIALOG"/>
-    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-    <properties name="BlockChoice" value="" source="DIALOG"/>
-    <properties name="RTWFileName" value="" source="DIALOG"/>
-    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-    <properties name="TemplateBlock" value="" source="DIALOG"/>
-    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="Variant" value="off" source="DIALOG"/>
+    <parameters name="RTWSystemCode" value="Auto" />
+    <parameters name="PermitHierarchicalResolution" value="All" />
+    <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+    <parameters name="OverrideUsingVariant" value="" />
+    <parameters name="IsSubsystemVirtual" value="on" />
+    <parameters name="ErrorFcn" value="" />
+    <parameters name="ShowPortLabels" value="FromPortIcon" />
+    <parameters name="MemberBlocks" value="" />
+    <parameters name="MinAlgLoopOccurrences" value="off" />
+    <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+    <parameters name="SystemSampleTime" value="-1" />
+    <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+    <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+    <parameters name="Permissions" value="ReadWrite" />
+    <parameters name="ActiveVariant" value="" />
+    <parameters name="PropExecContextOutsideSubsystem" value="off" />
+    <parameters name="TreatAsAtomicUnit" value="off" />
+    <parameters name="GeneratePreprocessorConditionals" value="off" />
+    <parameters name="RTWFcnName" value="" />
+    <parameters name="RTWFileNameOpts" value="Auto" />
+    <parameters name="FunctionWithSeparateData" value="off" />
+    <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+    <parameters name="BlockChoice" value="" />
+    <parameters name="RTWFileName" value="" />
+    <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+    <parameters name="TemplateBlock" value="" />
+    <parameters name="RTWFcnNameOpts" value="Auto" />
+    <parameters name="Variant" value="off" />
     <ports xsi:type="simulink:OutPort" portBlock="//@contains.7/@subBlocks.9">
       <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold"/>
       <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@ports.2">
@@ -920,24 +920,24 @@
     <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@ports.1">
       <simulinkRef name="Throttle Ang." qualifier="sldemo_engine_export/Throttle &amp; Manifold"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle Ang."/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.3/@ports.1">
@@ -948,24 +948,24 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@ports.2">
       <simulinkRef name="Engine Speed, N" qualifier="sldemo_engine_export/Throttle &amp; Manifold"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="2" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="2" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Engine Speed, N"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.6/@ports.3">
@@ -976,24 +976,24 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@ports.3">
       <simulinkRef name="trigger" qualifier="sldemo_engine_export/Throttle &amp; Manifold"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="3" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="3" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/trigger"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.5/@ports.3">
@@ -1004,16 +1004,16 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="0 &lt;= theta &lt;= 90" qualifier="sldemo_engine_export/Throttle &amp; Manifold"/>
-      <properties name="LinearizeAsGain" value="on" source="DIALOG"/>
-      <properties name="LowerLimit" value="0" source="DIALOG"/>
-      <properties name="RndMeth" value="Floor" source="DIALOG"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="ZeroCross" value="on" source="DIALOG"/>
-      <properties name="UpperLimit" value="90" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
+      <parameters name="LinearizeAsGain" value="on" />
+      <parameters name="LowerLimit" value="0" />
+      <parameters name="RndMeth" value="Floor" />
+      <parameters name="LockScale" value="off" />
+      <parameters name="ZeroCross" value="on" />
+      <parameters name="UpperLimit" value="90" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="OutDataTypeStr" value="Inherit: Same as input" />
+      <parameters name="SampleTime" value="-1" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/0 &lt;= theta &lt;= 90"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@ports.1">
@@ -1027,15 +1027,15 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Atmospheric Pressure, Pa (bar)" qualifier="sldemo_engine_export/Throttle &amp; Manifold"/>
-      <properties name="FramePeriod" value="inf" source="DIALOG"/>
-      <properties name="Value" value="1.0" source="DIALOG"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-      <properties name="SampleTime" value="inf" source="DIALOG"/>
-      <properties name="VectorParams1D" value="on" source="DIALOG"/>
+      <parameters name="FramePeriod" value="inf" />
+      <parameters name="Value" value="1.0" />
+      <parameters name="LockScale" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SamplingMode" value="Sample based" />
+      <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+      <parameters name="SampleTime" value="inf" />
+      <parameters name="VectorParams1D" value="on" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Atmospheric Pressure, Pa (bar)"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@ports.3">
@@ -1046,18 +1046,18 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Intake" qualifier="sldemo_engine_export/Throttle &amp; Manifold"/>
-      <properties name="ShowSaturationPort" value="off" source="DIALOG"/>
-      <properties name="LowerSaturationLimit" value="-inf" source="DIALOG"/>
-      <properties name="ZeroCross" value="on" source="DIALOG"/>
-      <properties name="UpperSaturationLimit" value="inf" source="DIALOG"/>
-      <properties name="LimitOutput" value="off" source="DIALOG"/>
-      <properties name="InitialCondition" value="0" source="DIALOG"/>
-      <properties name="ShowStatePort" value="on" source="DIALOG"/>
-      <properties name="ContinuousStateAttributes" value="''" source="DIALOG"/>
-      <properties name="InitialConditionSource" value="internal" source="DIALOG"/>
-      <properties name="AbsoluteTolerance" value="auto" source="DIALOG"/>
-      <properties name="IgnoreLimit" value="off" source="DIALOG"/>
-      <properties name="ExternalReset" value="either" source="DIALOG"/>
+      <parameters name="ShowSaturationPort" value="off" />
+      <parameters name="LowerSaturationLimit" value="-inf" />
+      <parameters name="ZeroCross" value="on" />
+      <parameters name="UpperSaturationLimit" value="inf" />
+      <parameters name="LimitOutput" value="off" />
+      <parameters name="InitialCondition" value="0" />
+      <parameters name="ShowStatePort" value="on" />
+      <parameters name="ContinuousStateAttributes" value="''" />
+      <parameters name="InitialConditionSource" value="internal" />
+      <parameters name="AbsoluteTolerance" value="auto" />
+      <parameters name="IgnoreLimit" value="off" />
+      <parameters name="ExternalReset" value="either" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.7/@ports.0">
@@ -1080,34 +1080,34 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:SubSystem" tag="">
       <simulinkRef name="Intake Manifold" qualifier="sldemo_engine_export/Throttle &amp; Manifold"/>
-      <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-      <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-      <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-      <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-      <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-      <properties name="ErrorFcn" value="" source="DIALOG"/>
-      <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-      <properties name="MemberBlocks" value="" source="DIALOG"/>
-      <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-      <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-      <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-      <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-      <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-      <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-      <properties name="ActiveVariant" value="" source="DIALOG"/>
-      <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-      <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-      <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-      <properties name="RTWFcnName" value="" source="DIALOG"/>
-      <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-      <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-      <properties name="BlockChoice" value="" source="DIALOG"/>
-      <properties name="RTWFileName" value="" source="DIALOG"/>
-      <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-      <properties name="TemplateBlock" value="" source="DIALOG"/>
-      <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="Variant" value="off" source="DIALOG"/>
+      <parameters name="RTWSystemCode" value="Auto" />
+      <parameters name="PermitHierarchicalResolution" value="All" />
+      <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+      <parameters name="OverrideUsingVariant" value="" />
+      <parameters name="IsSubsystemVirtual" value="on" />
+      <parameters name="ErrorFcn" value="" />
+      <parameters name="ShowPortLabels" value="FromPortIcon" />
+      <parameters name="MemberBlocks" value="" />
+      <parameters name="MinAlgLoopOccurrences" value="off" />
+      <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+      <parameters name="SystemSampleTime" value="-1" />
+      <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+      <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+      <parameters name="Permissions" value="ReadWrite" />
+      <parameters name="ActiveVariant" value="" />
+      <parameters name="PropExecContextOutsideSubsystem" value="off" />
+      <parameters name="TreatAsAtomicUnit" value="off" />
+      <parameters name="GeneratePreprocessorConditionals" value="off" />
+      <parameters name="RTWFcnName" value="" />
+      <parameters name="RTWFileNameOpts" value="Auto" />
+      <parameters name="FunctionWithSeparateData" value="off" />
+      <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+      <parameters name="BlockChoice" value="" />
+      <parameters name="RTWFileName" value="" />
+      <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+      <parameters name="TemplateBlock" value="" />
+      <parameters name="RTWFcnNameOpts" value="Auto" />
+      <parameters name="Variant" value="off" />
       <ports xsi:type="simulink:OutPort" portBlock="//@contains.7/@subBlocks.6/@subBlocks.7">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.5/@ports.2">
@@ -1129,24 +1129,24 @@
       <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
       <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@subBlocks.6/@ports.2">
         <simulinkRef name="mdot Input  (g//s)" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="Interpolate" value="on" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="Port" value="1" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="LatchByDelayingOutsideSignal" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="Interpolate" value="on" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="Port" value="1" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="OutputFunctionCall" value="off" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="LatchInputForFeedbackSignals" value="off" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold/mdot Input  (g//s)"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.6/@subBlocks.5/@ports.1">
@@ -1157,24 +1157,24 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@subBlocks.6/@ports.3">
         <simulinkRef name="N (rad//sec)" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="Interpolate" value="on" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="Port" value="2" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="LatchByDelayingOutsideSignal" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="Interpolate" value="on" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="Port" value="2" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="OutputFunctionCall" value="off" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="LatchInputForFeedbackSignals" value="off" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold/N (rad//sec)"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.6/@subBlocks.2/@ports.2">
@@ -1185,8 +1185,8 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Mux" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold"/>
-        <properties name="DisplayOption" value="bar" source="DIALOG"/>
-        <properties name="Inputs" value="2" source="DIALOG"/>
+        <parameters name="DisplayOption" value="bar" />
+        <parameters name="Inputs" value="2" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold/Mux"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.6/@subBlocks.3/@ports.1">
@@ -1203,8 +1203,8 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Pumping" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="Expr" value="-0.366 + 0.08979*u[1]*u[2] - 0.0337*u[2]*u[1]*u[1] + 0.0001*u[1]*u[2]*u[2]" source="DIALOG"/>
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="Expr" value="-0.366 + 0.08979*u[1]*u[2] - 0.0337*u[2]*u[1]*u[1] + 0.0001*u[1]*u[2]*u[2]" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold/Pumping"/>
           <connection xsi:type="simulink:MultiConnection" lineName="">
@@ -1224,18 +1224,18 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="RT//Vm" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold"/>
-        <properties name="ParamMin" value="[]" source="DIALOG"/>
-        <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-        <properties name="Multiplication" value="Element-wise(K.*u)" source="DIALOG"/>
-        <properties name="RndMeth" value="Floor" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="ParamMax" value="[]" source="DIALOG"/>
-        <properties name="Gain" value="0.41328" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-        <properties name="ParamDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <parameters name="ParamMin" value="[]" />
+        <parameters name="SaturateOnIntegerOverflow" value="on" />
+        <parameters name="Multiplication" value="Element-wise(K.*u)" />
+        <parameters name="RndMeth" value="Floor" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="ParamMax" value="[]" />
+        <parameters name="Gain" value="0.41328" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="OutDataTypeStr" value="Inherit: Same as input" />
+        <parameters name="ParamDataTypeStr" value="Inherit: Same as input" />
+        <parameters name="SampleTime" value="-1" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold/RT//Vm"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.6/@subBlocks.6/@ports.1">
@@ -1249,19 +1249,19 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Sum" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold"/>
-        <properties name="CollapseDim" value="1" source="DIALOG"/>
-        <properties name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" source="DIALOG"/>
-        <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="CollapseMode" value="All dimensions" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Same as first input" source="DIALOG"/>
-        <properties name="Inputs" value="|+-" source="DIALOG"/>
-        <properties name="RndMeth" value="Floor" source="DIALOG"/>
-        <properties name="InputSameDT" value="on" source="DIALOG"/>
-        <properties name="IconShape" value="round" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <parameters name="CollapseDim" value="1" />
+        <parameters name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" />
+        <parameters name="SaturateOnIntegerOverflow" value="on" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="CollapseMode" value="All dimensions" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="OutDataTypeStr" value="Inherit: Same as first input" />
+        <parameters name="Inputs" value="|+-" />
+        <parameters name="RndMeth" value="Floor" />
+        <parameters name="InputSameDT" value="on" />
+        <parameters name="IconShape" value="round" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold/Sum"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.6/@subBlocks.4/@ports.1">
@@ -1278,18 +1278,18 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="p0 = 0.543 bar" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold"/>
-        <properties name="ShowSaturationPort" value="off" source="DIALOG"/>
-        <properties name="LowerSaturationLimit" value="-inf" source="DIALOG"/>
-        <properties name="ZeroCross" value="on" source="DIALOG"/>
-        <properties name="UpperSaturationLimit" value="inf" source="DIALOG"/>
-        <properties name="LimitOutput" value="off" source="DIALOG"/>
-        <properties name="InitialCondition" value=".543" source="DIALOG"/>
-        <properties name="ShowStatePort" value="off" source="DIALOG"/>
-        <properties name="ContinuousStateAttributes" value="''" source="DIALOG"/>
-        <properties name="InitialConditionSource" value="internal" source="DIALOG"/>
-        <properties name="AbsoluteTolerance" value="auto" source="DIALOG"/>
-        <properties name="IgnoreLimit" value="off" source="DIALOG"/>
-        <properties name="ExternalReset" value="none" source="DIALOG"/>
+        <parameters name="ShowSaturationPort" value="off" />
+        <parameters name="LowerSaturationLimit" value="-inf" />
+        <parameters name="ZeroCross" value="on" />
+        <parameters name="UpperSaturationLimit" value="inf" />
+        <parameters name="LimitOutput" value="off" />
+        <parameters name="InitialCondition" value=".543" />
+        <parameters name="ShowStatePort" value="off" />
+        <parameters name="ContinuousStateAttributes" value="''" />
+        <parameters name="InitialConditionSource" value="internal" />
+        <parameters name="AbsoluteTolerance" value="auto" />
+        <parameters name="IgnoreLimit" value="off" />
+        <parameters name="ExternalReset" value="none" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold/p0 = 0.543 bar"/>
           <connection xsi:type="simulink:MultiConnection" lineName="">
@@ -1309,23 +1309,23 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.7/@subBlocks.6/@ports.0">
         <simulinkRef name="mdot to  Cylinder  (g//s)" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="InitialOutput" value="0" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-        <properties name="Port" value="1" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="InitialOutput" value="0" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="OutputWhenDisabled" value="held" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+        <parameters name="Port" value="1" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:InPort" connection="//@contains.7/@subBlocks.6/@subBlocks.3/@ports.0/@connection/@connections.1">
           <simulinkRef name="inport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold/mdot to  Cylinder  (g//s)"/>
         </ports>
@@ -1333,23 +1333,23 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.7/@subBlocks.6/@ports.1">
         <simulinkRef name="Manifold Pressure, Pm (bar)" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="InitialOutput" value="0" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-        <properties name="Port" value="2" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="InitialOutput" value="0" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="OutputWhenDisabled" value="held" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+        <parameters name="Port" value="2" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:InPort" connection="//@contains.7/@subBlocks.6/@subBlocks.6/@ports.0/@connection/@connections.1">
           <simulinkRef name="inport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Intake Manifold/Manifold Pressure, Pm (bar)"/>
         </ports>
@@ -1365,34 +1365,34 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:SubSystem" tag="">
       <simulinkRef name="Throttle" qualifier="sldemo_engine_export/Throttle &amp; Manifold"/>
-      <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-      <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-      <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-      <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-      <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-      <properties name="ErrorFcn" value="" source="DIALOG"/>
-      <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-      <properties name="MemberBlocks" value="" source="DIALOG"/>
-      <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-      <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-      <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-      <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-      <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-      <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-      <properties name="ActiveVariant" value="" source="DIALOG"/>
-      <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-      <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-      <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-      <properties name="RTWFcnName" value="" source="DIALOG"/>
-      <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-      <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-      <properties name="BlockChoice" value="" source="DIALOG"/>
-      <properties name="RTWFileName" value="" source="DIALOG"/>
-      <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-      <properties name="TemplateBlock" value="" source="DIALOG"/>
-      <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="Variant" value="off" source="DIALOG"/>
+      <parameters name="RTWSystemCode" value="Auto" />
+      <parameters name="PermitHierarchicalResolution" value="All" />
+      <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+      <parameters name="OverrideUsingVariant" value="" />
+      <parameters name="IsSubsystemVirtual" value="on" />
+      <parameters name="ErrorFcn" value="" />
+      <parameters name="ShowPortLabels" value="FromPortIcon" />
+      <parameters name="MemberBlocks" value="" />
+      <parameters name="MinAlgLoopOccurrences" value="off" />
+      <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+      <parameters name="SystemSampleTime" value="-1" />
+      <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+      <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+      <parameters name="Permissions" value="ReadWrite" />
+      <parameters name="ActiveVariant" value="" />
+      <parameters name="PropExecContextOutsideSubsystem" value="off" />
+      <parameters name="TreatAsAtomicUnit" value="off" />
+      <parameters name="GeneratePreprocessorConditionals" value="off" />
+      <parameters name="RTWFcnName" value="" />
+      <parameters name="RTWFileNameOpts" value="Auto" />
+      <parameters name="FunctionWithSeparateData" value="off" />
+      <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+      <parameters name="BlockChoice" value="" />
+      <parameters name="RTWFileName" value="" />
+      <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+      <parameters name="TemplateBlock" value="" />
+      <parameters name="RTWFcnNameOpts" value="Auto" />
+      <parameters name="Variant" value="off" />
       <ports xsi:type="simulink:OutPort" portBlock="//@contains.7/@subBlocks.8/@subBlocks.13">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.6/@ports.2">
@@ -1411,24 +1411,24 @@
       <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
       <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@subBlocks.8/@ports.1">
         <simulinkRef name="Throttle Angle, theta (deg)" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="Interpolate" value="on" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="Port" value="1" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="LatchByDelayingOutsideSignal" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="Interpolate" value="on" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="Port" value="1" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="OutputFunctionCall" value="off" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="LatchInputForFeedbackSignals" value="off" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/Throttle Angle, theta (deg)"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@subBlocks.10/@ports.1">
@@ -1439,24 +1439,24 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@subBlocks.8/@ports.2">
         <simulinkRef name="Manifold Pressure, Pm (bar)" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="Interpolate" value="on" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="Port" value="2" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="LatchByDelayingOutsideSignal" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="Interpolate" value="on" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="Port" value="2" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="OutputFunctionCall" value="off" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="LatchInputForFeedbackSignals" value="off" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/Manifold Pressure, Pm (bar)"/>
           <connection xsi:type="simulink:MultiConnection" lineName="">
@@ -1476,24 +1476,24 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@subBlocks.8/@ports.3">
         <simulinkRef name="Atmospheric Pressure, Pa (bar) " qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="Interpolate" value="on" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="Port" value="3" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="LatchByDelayingOutsideSignal" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="Interpolate" value="on" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="Port" value="3" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="OutputFunctionCall" value="off" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="LatchInputForFeedbackSignals" value="off" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/Atmospheric Pressure, Pa (bar) "/>
           <connection xsi:type="simulink:MultiConnection" lineName="">
@@ -1513,17 +1513,17 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="MinMax" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-        <properties name="RndMeth" value="Floor" source="DIALOG"/>
-        <properties name="ZeroCross" value="on" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="InputSameDT" value="on" source="DIALOG"/>
-        <properties name="Function" value="min" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Inherit via internal rule" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="Inputs" value="2" source="DIALOG"/>
+        <parameters name="SaturateOnIntegerOverflow" value="on" />
+        <parameters name="RndMeth" value="Floor" />
+        <parameters name="ZeroCross" value="on" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="InputSameDT" value="on" />
+        <parameters name="Function" value="min" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="OutDataTypeStr" value="Inherit: Inherit via internal rule" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="Inputs" value="2" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/MinMax"/>
           <connection xsi:type="simulink:MultiConnection" lineName="pratio">
@@ -1546,18 +1546,18 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Product" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-        <properties name="CollapseDim" value="1" source="DIALOG"/>
-        <properties name="Multiplication" value="Element-wise(.*)" source="DIALOG"/>
-        <properties name="RndMeth" value="Zero" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="InputSameDT" value="on" source="DIALOG"/>
-        <properties name="CollapseMode" value="All dimensions" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Same as first input" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="Inputs" value="3" source="DIALOG"/>
+        <parameters name="SaturateOnIntegerOverflow" value="on" />
+        <parameters name="CollapseDim" value="1" />
+        <parameters name="Multiplication" value="Element-wise(.*)" />
+        <parameters name="RndMeth" value="Zero" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="InputSameDT" value="on" />
+        <parameters name="CollapseMode" value="All dimensions" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="OutDataTypeStr" value="Inherit: Same as first input" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="Inputs" value="3" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/Product"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@subBlocks.13/@ports.0">
@@ -1577,18 +1577,18 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Product1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-        <properties name="CollapseDim" value="1" source="DIALOG"/>
-        <properties name="Multiplication" value="Element-wise(.*)" source="DIALOG"/>
-        <properties name="RndMeth" value="Zero" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="InputSameDT" value="on" source="DIALOG"/>
-        <properties name="CollapseMode" value="All dimensions" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Same as first input" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="Inputs" value="*/" source="DIALOG"/>
+        <parameters name="SaturateOnIntegerOverflow" value="on" />
+        <parameters name="CollapseDim" value="1" />
+        <parameters name="Multiplication" value="Element-wise(.*)" />
+        <parameters name="RndMeth" value="Zero" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="InputSameDT" value="on" />
+        <parameters name="CollapseMode" value="All dimensions" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="OutDataTypeStr" value="Inherit: Same as first input" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="Inputs" value="*/" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/Product1"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@subBlocks.3/@ports.1">
@@ -1605,18 +1605,18 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Product2" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-        <properties name="CollapseDim" value="1" source="DIALOG"/>
-        <properties name="Multiplication" value="Element-wise(.*)" source="DIALOG"/>
-        <properties name="RndMeth" value="Zero" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="InputSameDT" value="on" source="DIALOG"/>
-        <properties name="CollapseMode" value="All dimensions" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Same as first input" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="Inputs" value="/*" source="DIALOG"/>
+        <parameters name="SaturateOnIntegerOverflow" value="on" />
+        <parameters name="CollapseDim" value="1" />
+        <parameters name="Multiplication" value="Element-wise(.*)" />
+        <parameters name="RndMeth" value="Zero" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="InputSameDT" value="on" />
+        <parameters name="CollapseMode" value="All dimensions" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="OutDataTypeStr" value="Inherit: Same as first input" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="Inputs" value="/*" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/Product2"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@subBlocks.3/@ports.2">
@@ -1633,15 +1633,15 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Sonic Flow " qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="FramePeriod" value="inf" source="DIALOG"/>
-        <properties name="Value" value="1.0" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-        <properties name="SampleTime" value="inf" source="DIALOG"/>
-        <properties name="VectorParams1D" value="on" source="DIALOG"/>
+        <parameters name="FramePeriod" value="inf" />
+        <parameters name="Value" value="1.0" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SamplingMode" value="Sample based" />
+        <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+        <parameters name="SampleTime" value="inf" />
+        <parameters name="VectorParams1D" value="on" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/Sonic Flow "/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@subBlocks.9/@ports.3">
@@ -1652,19 +1652,19 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Sum" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="CollapseDim" value="1" source="DIALOG"/>
-        <properties name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" source="DIALOG"/>
-        <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="CollapseMode" value="All dimensions" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Same as first input" source="DIALOG"/>
-        <properties name="Inputs" value="+-|" source="DIALOG"/>
-        <properties name="RndMeth" value="Floor" source="DIALOG"/>
-        <properties name="InputSameDT" value="on" source="DIALOG"/>
-        <properties name="IconShape" value="round" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <parameters name="CollapseDim" value="1" />
+        <parameters name="AccumDataTypeStr" value="Inherit: Inherit via internal rule" />
+        <parameters name="SaturateOnIntegerOverflow" value="on" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="CollapseMode" value="All dimensions" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="OutDataTypeStr" value="Inherit: Same as first input" />
+        <parameters name="Inputs" value="+-|" />
+        <parameters name="RndMeth" value="Floor" />
+        <parameters name="InputSameDT" value="on" />
+        <parameters name="IconShape" value="round" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/Sum"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@subBlocks.11/@ports.1">
@@ -1681,18 +1681,18 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Switch" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-        <properties name="RndMeth" value="Floor" source="DIALOG"/>
-        <properties name="ZeroCross" value="on" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="Threshold" value="0.5" source="DIALOG"/>
-        <properties name="InputSameDT" value="on" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="AllowDiffInputSizes" value="off" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Inherit via internal rule" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="Criteria" value="u2 >= Threshold" source="DIALOG"/>
+        <parameters name="SaturateOnIntegerOverflow" value="on" />
+        <parameters name="RndMeth" value="Floor" />
+        <parameters name="ZeroCross" value="on" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="Threshold" value="0.5" />
+        <parameters name="InputSameDT" value="on" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="AllowDiffInputSizes" value="off" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="OutDataTypeStr" value="Inherit: Inherit via internal rule" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="Criteria" value="u2 >= Threshold" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/Switch"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@subBlocks.4/@ports.2">
@@ -1712,8 +1712,8 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="f(theta)" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="Expr" value="2.821 - 0.05231*u + 0.10299*u*u - 0.00063*u*u*u" source="DIALOG"/>
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="Expr" value="2.821 - 0.05231*u + 0.10299*u*u - 0.00063*u*u*u" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/f(theta)"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@subBlocks.4/@ports.1">
@@ -1727,8 +1727,8 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="flow direction" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="ZeroCross" value="on" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <parameters name="ZeroCross" value="on" />
+        <parameters name="SampleTime" value="-1" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/flow direction"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@subBlocks.4/@ports.3">
@@ -1742,8 +1742,8 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="g(pratio)" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="Expr" value="2*sqrt(u - u*u)" source="DIALOG"/>
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="Expr" value="2*sqrt(u - u*u)" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/g(pratio)"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.7/@subBlocks.8/@subBlocks.9/@ports.1">
@@ -1757,23 +1757,23 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.7/@subBlocks.8/@ports.0">
         <simulinkRef name="Throttle  Flow, mdot  (g//s)" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="InitialOutput" value="0" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-        <properties name="Port" value="1" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="InitialOutput" value="0" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="OutputWhenDisabled" value="held" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+        <parameters name="Port" value="1" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:InPort" connection="//@contains.7/@subBlocks.8/@subBlocks.4/@ports.0/@connection">
           <simulinkRef name="inport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/Throttle/Throttle  Flow, mdot  (g//s)"/>
         </ports>
@@ -1782,23 +1782,23 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.7/@ports.0">
       <simulinkRef name="mass(k+1)" qualifier="sldemo_engine_export/Throttle &amp; Manifold"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="InitialOutput" value="0" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="InitialOutput" value="0" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="OutputWhenDisabled" value="held" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:InPort" connection="//@contains.7/@subBlocks.5/@ports.1/@connection">
         <simulinkRef name="inport.1" qualifier="sldemo_engine_export/Throttle &amp; Manifold/mass(k+1)"/>
       </ports>
@@ -1807,12 +1807,12 @@
   </contains>
   <contains>
     <simulinkRef name="Throttle Angle Profiles (degrees)" qualifier="sldemo_engine_export"/>
-    <properties name="ZeroCross" value="on" source="DIALOG"/>
-    <properties name="Time" value="5" source="DIALOG"/>
-    <properties name="Before" value="8.973" source="DIALOG"/>
-    <properties name="SampleTime" value="0" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
-    <properties name="After" value="11.93" source="DIALOG"/>
+    <parameters name="ZeroCross" value="on" />
+    <parameters name="Time" value="5" />
+    <parameters name="Before" value="8.973" />
+    <parameters name="SampleTime" value="0" />
+    <parameters name="VectorParams1D" value="on" />
+    <parameters name="After" value="11.93" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="sldemo_engine_export/Throttle Angle Profiles (degrees)"/>
       <connection xsi:type="simulink:MultiConnection" lineName="ThrottleAngle">
@@ -1829,18 +1829,18 @@
   </contains>
   <contains>
     <simulinkRef name="rad//s to rpm" qualifier="sldemo_engine_export"/>
-    <properties name="ParamMin" value="[]" source="DIALOG"/>
-    <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-    <properties name="Multiplication" value="Element-wise(K.*u)" source="DIALOG"/>
-    <properties name="RndMeth" value="Floor" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="ParamMax" value="[]" source="DIALOG"/>
-    <properties name="Gain" value="30/pi" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-    <properties name="ParamDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-    <properties name="SampleTime" value="-1" source="DIALOG"/>
+    <parameters name="ParamMin" value="[]" />
+    <parameters name="SaturateOnIntegerOverflow" value="on" />
+    <parameters name="Multiplication" value="Element-wise(K.*u)" />
+    <parameters name="RndMeth" value="Floor" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="ParamMax" value="[]" />
+    <parameters name="Gain" value="30/pi" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="OutDataTypeStr" value="Inherit: Same as input" />
+    <parameters name="ParamDataTypeStr" value="Inherit: Same as input" />
+    <parameters name="SampleTime" value="-1" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="sldemo_engine_export/rad//s to rpm"/>
       <connection xsi:type="simulink:SingleConnection" lineName="EngineSpeed" to="//@contains.4/@ports.0">
@@ -1854,23 +1854,23 @@
   </contains>
   <contains>
     <simulinkRef name="throttle deg (purple) load torque Nm (yellow)" qualifier="sldemo_engine_export"/>
-    <properties name="Open" value="off" source="DIALOG"/>
-    <properties name="DataFormat" value="Structure" source="DIALOG"/>
-    <properties name="MaxDataPoints" value="5000" source="DIALOG"/>
-    <properties name="SaveToWorkspace" value="off" source="DIALOG"/>
-    <properties name="TimeRange" value="10" source="DIALOG"/>
-    <properties name="TickLabels" value="on" source="DIALOG"/>
-    <properties name="Decimation" value="1" source="DIALOG"/>
-    <properties name="SaveName" value="Tth" source="DIALOG"/>
-    <properties name="ZoomMode" value="on" source="DIALOG"/>
-    <properties name="Grid" value="on" source="DIALOG"/>
-    <properties name="NumInputPorts" value="1" source="DIALOG"/>
-    <properties name="YMin" value="5" source="DIALOG"/>
-    <properties name="SampleInput" value="off" source="DIALOG"/>
-    <properties name="LimitDataPoints" value="off" source="DIALOG"/>
-    <properties name="SampleTime" value="0" source="DIALOG"/>
-    <properties name="YMax" value="30" source="DIALOG"/>
-    <properties name="floating" value="off"/>
+    <parameters name="Open" value="off" />
+    <parameters name="DataFormat" value="Structure" />
+    <parameters name="MaxDataPoints" value="5000" />
+    <parameters name="SaveToWorkspace" value="off" />
+    <parameters name="TimeRange" value="10" />
+    <parameters name="TickLabels" value="on" />
+    <parameters name="Decimation" value="1" />
+    <parameters name="SaveName" value="Tth" />
+    <parameters name="ZoomMode" value="on" />
+    <parameters name="Grid" value="on" />
+    <parameters name="NumInputPorts" value="1" />
+    <parameters name="YMin" value="5" />
+    <parameters name="SampleInput" value="off" />
+    <parameters name="LimitDataPoints" value="off" />
+    <parameters name="SampleTime" value="0" />
+    <parameters name="YMax" value="30" />
+    <parameters name="floating" value="off"/>
     <ports xsi:type="simulink:InPort" connection="//@contains.6/@ports.0/@connection">
       <simulinkRef name="inport.1" qualifier="sldemo_engine_export/throttle deg (purple) load torque Nm (yellow)"/>
     </ports>
@@ -1878,34 +1878,34 @@
   </contains>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="valve timing" qualifier="sldemo_engine_export"/>
-    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-    <properties name="ErrorFcn" value="" source="DIALOG"/>
-    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-    <properties name="MemberBlocks" value="" source="DIALOG"/>
-    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-    <properties name="ActiveVariant" value="" source="DIALOG"/>
-    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-    <properties name="RTWFcnName" value="" source="DIALOG"/>
-    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-    <properties name="BlockChoice" value="" source="DIALOG"/>
-    <properties name="RTWFileName" value="" source="DIALOG"/>
-    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-    <properties name="TemplateBlock" value="" source="DIALOG"/>
-    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="Variant" value="off" source="DIALOG"/>
+    <parameters name="RTWSystemCode" value="Auto" />
+    <parameters name="PermitHierarchicalResolution" value="All" />
+    <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+    <parameters name="OverrideUsingVariant" value="" />
+    <parameters name="IsSubsystemVirtual" value="on" />
+    <parameters name="ErrorFcn" value="" />
+    <parameters name="ShowPortLabels" value="FromPortIcon" />
+    <parameters name="MemberBlocks" value="" />
+    <parameters name="MinAlgLoopOccurrences" value="off" />
+    <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+    <parameters name="SystemSampleTime" value="-1" />
+    <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+    <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+    <parameters name="Permissions" value="ReadWrite" />
+    <parameters name="ActiveVariant" value="" />
+    <parameters name="PropExecContextOutsideSubsystem" value="off" />
+    <parameters name="TreatAsAtomicUnit" value="off" />
+    <parameters name="GeneratePreprocessorConditionals" value="off" />
+    <parameters name="RTWFcnName" value="" />
+    <parameters name="RTWFileNameOpts" value="Auto" />
+    <parameters name="FunctionWithSeparateData" value="off" />
+    <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+    <parameters name="BlockChoice" value="" />
+    <parameters name="RTWFileName" value="" />
+    <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+    <parameters name="TemplateBlock" value="" />
+    <parameters name="RTWFcnNameOpts" value="Auto" />
+    <parameters name="Variant" value="off" />
     <ports xsi:type="simulink:OutPort" portBlock="//@contains.11/@subBlocks.3">
       <simulinkRef name="outport.1" qualifier="sldemo_engine_export/valve timing"/>
       <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@ports.3">
@@ -1918,24 +1918,24 @@
     <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.11/@ports.1">
       <simulinkRef name="N" qualifier="sldemo_engine_export/valve timing"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/valve timing/N"/>
         <connection xsi:type="simulink:SingleConnection" lineName="rad/sec" to="//@contains.11/@subBlocks.1/@ports.1">
@@ -1946,34 +1946,34 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:SubSystem" tag="">
       <simulinkRef name="TDC and BDC detection" qualifier="sldemo_engine_export/valve timing"/>
-      <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-      <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-      <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-      <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-      <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-      <properties name="ErrorFcn" value="" source="DIALOG"/>
-      <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-      <properties name="MemberBlocks" value="" source="DIALOG"/>
-      <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-      <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-      <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-      <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-      <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-      <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-      <properties name="ActiveVariant" value="" source="DIALOG"/>
-      <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-      <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-      <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-      <properties name="RTWFcnName" value="" source="DIALOG"/>
-      <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-      <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-      <properties name="BlockChoice" value="" source="DIALOG"/>
-      <properties name="RTWFileName" value="" source="DIALOG"/>
-      <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-      <properties name="TemplateBlock" value="" source="DIALOG"/>
-      <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="Variant" value="off" source="DIALOG"/>
+      <parameters name="RTWSystemCode" value="Auto" />
+      <parameters name="PermitHierarchicalResolution" value="All" />
+      <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+      <parameters name="OverrideUsingVariant" value="" />
+      <parameters name="IsSubsystemVirtual" value="on" />
+      <parameters name="ErrorFcn" value="" />
+      <parameters name="ShowPortLabels" value="FromPortIcon" />
+      <parameters name="MemberBlocks" value="" />
+      <parameters name="MinAlgLoopOccurrences" value="off" />
+      <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+      <parameters name="SystemSampleTime" value="-1" />
+      <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+      <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+      <parameters name="Permissions" value="ReadWrite" />
+      <parameters name="ActiveVariant" value="" />
+      <parameters name="PropExecContextOutsideSubsystem" value="off" />
+      <parameters name="TreatAsAtomicUnit" value="off" />
+      <parameters name="GeneratePreprocessorConditionals" value="off" />
+      <parameters name="RTWFcnName" value="" />
+      <parameters name="RTWFileNameOpts" value="Auto" />
+      <parameters name="FunctionWithSeparateData" value="off" />
+      <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+      <parameters name="BlockChoice" value="" />
+      <parameters name="RTWFileName" value="" />
+      <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+      <parameters name="TemplateBlock" value="" />
+      <parameters name="RTWFcnNameOpts" value="Auto" />
+      <parameters name="Variant" value="off" />
       <ports xsi:type="simulink:OutPort" portBlock="//@contains.11/@subBlocks.1/@subBlocks.5">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.11/@subBlocks.2/@ports.1">
@@ -1986,24 +1986,24 @@
       <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
       <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.11/@subBlocks.1/@ports.1">
         <simulinkRef name="N" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="Interpolate" value="on" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="Port" value="1" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="LatchByDelayingOutsideSignal" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="Interpolate" value="on" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="Port" value="1" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="OutputFunctionCall" value="off" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="LatchInputForFeedbackSignals" value="off" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection/N"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.11/@subBlocks.1/@subBlocks.2/@ports.2">
@@ -2014,15 +2014,15 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Constant" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection"/>
-        <properties name="FramePeriod" value="inf" source="DIALOG"/>
-        <properties name="Value" value="pi" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-        <properties name="SampleTime" value="inf" source="DIALOG"/>
-        <properties name="VectorParams1D" value="on" source="DIALOG"/>
+        <parameters name="FramePeriod" value="inf" />
+        <parameters name="Value" value="pi" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SamplingMode" value="Sample based" />
+        <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+        <parameters name="SampleTime" value="inf" />
+        <parameters name="VectorParams1D" value="on" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection/Constant"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.11/@subBlocks.1/@subBlocks.3/@ports.2">
@@ -2033,18 +2033,18 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Get Crank Angle IC 0" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection"/>
-        <properties name="ShowSaturationPort" value="off" source="DIALOG"/>
-        <properties name="LowerSaturationLimit" value="-inf" source="DIALOG"/>
-        <properties name="ZeroCross" value="on" source="DIALOG"/>
-        <properties name="UpperSaturationLimit" value="inf" source="DIALOG"/>
-        <properties name="LimitOutput" value="off" source="DIALOG"/>
-        <properties name="InitialCondition" value="0" source="DIALOG"/>
-        <properties name="ShowStatePort" value="on" source="DIALOG"/>
-        <properties name="ContinuousStateAttributes" value="''" source="DIALOG"/>
-        <properties name="InitialConditionSource" value="internal" source="DIALOG"/>
-        <properties name="AbsoluteTolerance" value="auto" source="DIALOG"/>
-        <properties name="IgnoreLimit" value="off" source="DIALOG"/>
-        <properties name="ExternalReset" value="rising" source="DIALOG"/>
+        <parameters name="ShowSaturationPort" value="off" />
+        <parameters name="LowerSaturationLimit" value="-inf" />
+        <parameters name="ZeroCross" value="on" />
+        <parameters name="UpperSaturationLimit" value="inf" />
+        <parameters name="LimitOutput" value="off" />
+        <parameters name="InitialCondition" value="0" />
+        <parameters name="ShowStatePort" value="on" />
+        <parameters name="ContinuousStateAttributes" value="''" />
+        <parameters name="InitialConditionSource" value="internal" />
+        <parameters name="AbsoluteTolerance" value="auto" />
+        <parameters name="IgnoreLimit" value="off" />
+        <parameters name="ExternalReset" value="rising" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection/Get Crank Angle IC 0"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.11/@subBlocks.1/@subBlocks.4/@ports.0">
@@ -2067,11 +2067,11 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Relational Operator" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection"/>
-        <properties name="ZeroCross" value="on" source="DIALOG"/>
-        <properties name="InputSameDT" value="on" source="DIALOG"/>
-        <properties name="Operator" value=">=" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Logical (see Configuration Parameters: Optimization)" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <parameters name="ZeroCross" value="on" />
+        <parameters name="InputSameDT" value="on" />
+        <parameters name="Operator" value=">=" />
+        <parameters name="OutDataTypeStr" value="Inherit: Logical (see Configuration Parameters: Optimization)" />
+        <parameters name="SampleTime" value="-1" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection/Relational Operator"/>
           <connection xsi:type="simulink:MultiConnection" lineName="">
@@ -2101,23 +2101,23 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.11/@subBlocks.1/@ports.0">
         <simulinkRef name="trigger" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="InitialOutput" value="0" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-        <properties name="Port" value="1" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="InitialOutput" value="0" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="OutputWhenDisabled" value="held" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+        <parameters name="Port" value="1" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:InPort" connection="//@contains.11/@subBlocks.1/@subBlocks.3/@ports.0/@connection/@connections.0">
           <simulinkRef name="inport.1" qualifier="sldemo_engine_export/valve timing/TDC and BDC detection/trigger"/>
         </ports>
@@ -2126,34 +2126,34 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:SubSystem" tag="">
       <simulinkRef name="positive edge to dual edge conversion" qualifier="sldemo_engine_export/valve timing"/>
-      <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-      <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-      <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-      <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-      <properties name="IsSubsystemVirtual" value="off" source="DIALOG"/>
-      <properties name="ErrorFcn" value="" source="DIALOG"/>
-      <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-      <properties name="MemberBlocks" value="" source="DIALOG"/>
-      <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-      <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-      <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-      <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-      <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-      <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-      <properties name="ActiveVariant" value="" source="DIALOG"/>
-      <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-      <properties name="TreatAsAtomicUnit" value="on" source="DIALOG"/>
-      <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-      <properties name="RTWFcnName" value="" source="DIALOG"/>
-      <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-      <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-      <properties name="BlockChoice" value="" source="DIALOG"/>
-      <properties name="RTWFileName" value="" source="DIALOG"/>
-      <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-      <properties name="TemplateBlock" value="" source="DIALOG"/>
-      <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="Variant" value="off" source="DIALOG"/>
+      <parameters name="RTWSystemCode" value="Auto" />
+      <parameters name="PermitHierarchicalResolution" value="All" />
+      <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+      <parameters name="OverrideUsingVariant" value="" />
+      <parameters name="IsSubsystemVirtual" value="off" />
+      <parameters name="ErrorFcn" value="" />
+      <parameters name="ShowPortLabels" value="FromPortIcon" />
+      <parameters name="MemberBlocks" value="" />
+      <parameters name="MinAlgLoopOccurrences" value="off" />
+      <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+      <parameters name="SystemSampleTime" value="-1" />
+      <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+      <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+      <parameters name="Permissions" value="ReadWrite" />
+      <parameters name="ActiveVariant" value="" />
+      <parameters name="PropExecContextOutsideSubsystem" value="off" />
+      <parameters name="TreatAsAtomicUnit" value="on" />
+      <parameters name="GeneratePreprocessorConditionals" value="off" />
+      <parameters name="RTWFcnName" value="" />
+      <parameters name="RTWFileNameOpts" value="Auto" />
+      <parameters name="FunctionWithSeparateData" value="off" />
+      <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+      <parameters name="BlockChoice" value="" />
+      <parameters name="RTWFileName" value="" />
+      <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+      <parameters name="TemplateBlock" value="" />
+      <parameters name="RTWFcnNameOpts" value="Auto" />
+      <parameters name="Variant" value="off" />
       <ports xsi:type="simulink:OutPort" portBlock="//@contains.11/@subBlocks.2/@subBlocks.3">
         <simulinkRef name="outport.1" qualifier="sldemo_engine_export/valve timing/positive edge to dual edge conversion"/>
         <connection xsi:type="simulink:SingleConnection" to="//@contains.11/@subBlocks.3/@ports.0">
@@ -2166,38 +2166,38 @@
       <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems" disabled="true"/>
       <subBlocks xsi:type="simulink:TriggerBlock" port="//@contains.11/@subBlocks.2/@ports.1">
         <simulinkRef name="Trigger" qualifier="sldemo_engine_export/valve timing/positive edge to dual edge conversion"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="Interpolate" value="on" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="OutputDataType" value="auto" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="ShowOutputPort" value="off" source="DIALOG"/>
-        <properties name="SampleTimeType" value="triggered" source="DIALOG"/>
-        <properties name="StatesWhenEnabling" value="inherit" source="DIALOG"/>
-        <properties name="ZeroCross" value="on" source="DIALOG"/>
-        <properties name="PropagateVarSize" value="During execution" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="TriggerType" value="rising" source="DIALOG"/>
-        <properties name="SampleTime" value="1" source="DIALOG"/>
-        <properties name="TriggerSignalSampleTime" value="-1" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="1"/>
+        <parameters name="OutMin" value="[]" />
+        <parameters name="Interpolate" value="on" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="OutputDataType" value="auto" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="ShowOutputPort" value="off" />
+        <parameters name="SampleTimeType" value="triggered" />
+        <parameters name="StatesWhenEnabling" value="inherit" />
+        <parameters name="ZeroCross" value="on" />
+        <parameters name="PropagateVarSize" value="During execution" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="TriggerType" value="rising" />
+        <parameters name="SampleTime" value="1" />
+        <parameters name="TriggerSignalSampleTime" value="-1" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="1"/>
         <sourceBlockRef name="Trigger" qualifier="simulink/Ports &amp; Subsystems"/>
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Gain" qualifier="sldemo_engine_export/valve timing/positive edge to dual edge conversion"/>
-        <properties name="ParamMin" value="[]" source="DIALOG"/>
-        <properties name="SaturateOnIntegerOverflow" value="on" source="DIALOG"/>
-        <properties name="Multiplication" value="Element-wise(K.*u)" source="DIALOG"/>
-        <properties name="RndMeth" value="Floor" source="DIALOG"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="ParamMax" value="[]" source="DIALOG"/>
-        <properties name="Gain" value="-1" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-        <properties name="ParamDataTypeStr" value="Inherit: Same as input" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
+        <parameters name="ParamMin" value="[]" />
+        <parameters name="SaturateOnIntegerOverflow" value="on" />
+        <parameters name="Multiplication" value="Element-wise(K.*u)" />
+        <parameters name="RndMeth" value="Floor" />
+        <parameters name="LockScale" value="off" />
+        <parameters name="ParamMax" value="[]" />
+        <parameters name="Gain" value="-1" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="OutDataTypeStr" value="Inherit: Same as input" />
+        <parameters name="ParamDataTypeStr" value="Inherit: Same as input" />
+        <parameters name="SampleTime" value="-1" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/valve timing/positive edge to dual edge conversion/Gain"/>
           <connection xsi:type="simulink:SingleConnection" to="//@contains.11/@subBlocks.2/@subBlocks.2/@ports.1">
@@ -2211,13 +2211,13 @@
       </subBlocks>
       <subBlocks>
         <simulinkRef name="Unit Delay" qualifier="sldemo_engine_export/valve timing/positive edge to dual edge conversion"/>
-        <properties name="X0" value="1" source="DIALOG"/>
-        <properties name="StateIdentifier" value="" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="RTWStateStorageClass" value="Auto" source="DIALOG"/>
-        <properties name="StateMustResolveToSignalObject" value="off" source="DIALOG"/>
-        <properties name="RTWStateStorageTypeQualifier" value="" source="DIALOG"/>
-        <properties name="InputProcessing" value="Inherited" source="DIALOG"/>
+        <parameters name="X0" value="1" />
+        <parameters name="StateIdentifier" value="" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="RTWStateStorageClass" value="Auto" />
+        <parameters name="StateMustResolveToSignalObject" value="off" />
+        <parameters name="RTWStateStorageTypeQualifier" value="" />
+        <parameters name="InputProcessing" value="Inherited" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="sldemo_engine_export/valve timing/positive edge to dual edge conversion/Unit Delay"/>
           <connection xsi:type="simulink:MultiConnection" lineName="">
@@ -2237,23 +2237,23 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.11/@subBlocks.2/@ports.0">
         <simulinkRef name="trigger" qualifier="sldemo_engine_export/valve timing/positive edge to dual edge conversion"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="InitialOutput" value="-1" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-        <properties name="Port" value="1" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="InitialOutput" value="-1" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="OutputWhenDisabled" value="held" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+        <parameters name="Port" value="1" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:InPort" connection="//@contains.11/@subBlocks.2/@subBlocks.2/@ports.0/@connection/@connections.1">
           <simulinkRef name="inport.1" qualifier="sldemo_engine_export/valve timing/positive edge to dual edge conversion/trigger"/>
         </ports>
@@ -2262,23 +2262,23 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.11/@ports.0">
       <simulinkRef name="edge180" qualifier="sldemo_engine_export/valve timing"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="InitialOutput" value="-1" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="InitialOutput" value="-1" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="OutputWhenDisabled" value="held" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:InPort" connection="//@contains.11/@subBlocks.2/@ports.0/@connection">
         <simulinkRef name="inport.1" qualifier="sldemo_engine_export/valve timing/edge180"/>
       </ports>
@@ -2287,23 +2287,23 @@
   </contains>
   <contains xsi:type="simulink:OutPortBlock">
     <simulinkRef name="crank speed (rad//sec)" qualifier="sldemo_engine_export"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-    <properties name="InitialOutput" value="0" source="DIALOG"/>
-    <properties name="SamplingMode" value="auto" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-    <properties name="PortDimensions" value="-1" source="DIALOG"/>
-    <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-    <properties name="Port" value="1" source="DIALOG"/>
-    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-    <properties name="SignalType" value="auto" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SampleTime" value="-1" source="DIALOG"/>
-    <properties name="DataType" value="Inherit: auto"/>
-    <properties name="SampleTime" value="-1"/>
+    <parameters name="LockScale" value="off" />
+    <parameters name="BusOutputAsStruct" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="VarSizeSig" value="Inherit" />
+    <parameters name="InitialOutput" value="0" />
+    <parameters name="SamplingMode" value="auto" />
+    <parameters name="OutDataTypeStr" value="Inherit: auto" />
+    <parameters name="OutputWhenDisabled" value="held" />
+    <parameters name="PortDimensions" value="-1" />
+    <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+    <parameters name="Port" value="1" />
+    <parameters name="IconDisplay" value="Port number" />
+    <parameters name="SignalType" value="auto" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SampleTime" value="-1" />
+    <parameters name="DataType" value="Inherit: auto"/>
+    <parameters name="SampleTime" value="-1"/>
     <ports xsi:type="simulink:InPort" connection="//@contains.3/@ports.0/@connection/@connections.1">
       <simulinkRef name="inport.1" qualifier="sldemo_engine_export/crank speed (rad//sec)"/>
     </ports>

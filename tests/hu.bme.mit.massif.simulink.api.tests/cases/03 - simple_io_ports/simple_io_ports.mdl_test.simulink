@@ -3,26 +3,207 @@
   <simulinkRef name="simple_io_ports"/>
   <contains xsi:type="simulink:InPortBlock">
     <simulinkRef name="In1" qualifier="simple_io_ports"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-    <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="Interpolate" value="on" source="DIALOG"/>
-    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-    <properties name="SamplingMode" value="auto" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="PortDimensions" value="-1" source="DIALOG"/>
-    <properties name="Port" value="1" source="DIALOG"/>
-    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-    <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-    <properties name="SignalType" value="auto" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SampleTime" value="-1" source="DIALOG"/>
-    <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-    <properties name="DataType" value="Inherit: auto"/>
-    <properties name="SampleTime" value="-1"/>
+    <parameters name="IconDisplay" type="char" value="Port number"/>
+    <parameters name="InputSignalNames" type="char" value="" readOnly="true"/>
+    <parameters name="MaskEnableString" type="char" value=""/>
+    <parameters name="MaskTunableValues" type="char" value=""/>
+    <parameters name="BusOutputAsStruct" type="char" value="off"/>
+    <parameters name="PreDeleteFcn" type="char" value=""/>
+    <parameters name="StaticLinkStatus" type="char" value="none" readOnly="true"/>
+    <parameters name="StatePerturbationForJacobian" type="char" value="1.0e-05"/>
+    <parameters name="MaskPromptString" type="char" value=""/>
+    <parameters name="PortDimensions" type="char" value="-1"/>
+    <parameters name="LatchByDelayingOutsideSignal" type="char" value="off"/>
+    <parameters name="UndoDeleteFcn" type="char" value=""/>
+    <parameters name="SourceLibraryInfo" type="char" value="" readOnly="true"/>
+    <parameters name="PortRotationType" type="char" value="default" readOnly="true"/>
+    <parameters name="MaskBlockDVGIcon" type="char" value=""/>
+    <parameters name="Handle" type="handle" value="5.0006103515625" readOnly="true"/>
+    <parameters name="LoadFcn" type="char" value=""/>
+    <parameters name="OutMax" type="char" value="[]"/>
+    <parameters name="Position" type="cell" value="[45.0,83.0,75.0,97.0]"/>
+    <parameters name="SignalType" type="char" value="auto"/>
+    <parameters name="MaskType" type="char" value=""/>
+    <parameters name="StopFcn" type="char" value=""/>
+    <parameters name="Mask" type="char" value="off"/>
+    <parameters name="RuntimeObject" type="char" value="" readOnly="true"/>
+    <parameters name="CompiledSampleTime" type="cell" value="[-1.0,0.0]" readOnly="true"/>
+    <parameters name="RequirementInfo" type="char" value=""/>
+    <parameters name="BlockDescription" type="char" value="Provide an input port for a subsystem or model. For Triggered Subsystems, ''Latch input by delaying outside signal'' produces the value of the subsystem input at the previous time step. For Function-Call Subsystems, turning ''On'' the ''Latch input for feedback signals of function-call subsystem outputs'' prevents the input value to this subsystem from changing during its execution. The other parameters can be used to explicitly specify the input signal attributes." readOnly="true"/>
+    <parameters name="OutMin" type="char" value="[]"/>
+    <parameters name="LineHandles" type="struct" value="{Inport:,Trigger:,Ifaction:,Outport:7.0006103515625,State:,LConn:,Enable:,Reset:,RConn:}" readOnly="true"/>
+    <parameters name="FontName" type="char" value="auto"/>
+    <parameters name="MaskDisplay" type="char" value=""/>
+    <parameters name="Description" type="char" value=""/>
+    <parameters name="MaskCallbacks" type="char" value=""/>
+    <parameters name="TargetArchitectureMapping" type="char" value="" readOnly="true"/>
+    <parameters name="DialogParameters" type="struct" value="{IconDisplay:{Enum:['Signal name','Port number','Port number and signal name'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','graphical','link-instance'],Prompt:'Icon display:'},OutMax:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Maximum:'},BusOutputAsStruct:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Output as nonvirtual bus'},SignalType:{Enum:['auto','real','complex'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Signal type:'},OutDataTypeStr:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Data type:'},Port:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','always-link-instance'],Prompt:'Port number:'},InputConnect:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','never-save','not-link-instance','run-to-run-tunable'],Prompt:'File name:'},Unit:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Unit (e.g., m, m/s^2, N*m):'},LockScale:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Lock output data type setting against changes by the fixed-point tools'},SampleTime:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Sample time (-1 for inherited):'},OutputFunctionCall:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','not-accel','link-instance'],Prompt:'Output function call'},OutMin:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Minimum:'},PortDimensions:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Port dimensions (-1 for inherited):'},VarSizeSig:{Enum:['Inherit','No','Yes'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Variable-size signal:'},Interpolate:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Interpolate data'},LatchByDelayingOutsideSignal:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Latch input by delaying outside signal'},LatchInputForFeedbackSignals:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Latch input for feedback signals of function-call subsystem outputs'}}" readOnly="true"/>
+    <parameters name="Commented" type="char" value="off"/>
+    <parameters name="BlockType" type="char" value="Inport" readOnly="true"/>
+    <parameters name="CompiledPortDimensions" type="char" value="" readOnly="true"/>
+    <parameters name="MaskVarAliases" type="char" value=""/>
+    <parameters name="MaskHelp" type="char" value=""/>
+    <parameters name="InitFcn" type="char" value=""/>
+    <parameters name="PostSaveFcn" type="char" value=""/>
+    <parameters name="FontAngle" type="char" value="auto"/>
+    <parameters name="PauseFcn" type="char" value=""/>
+    <parameters name="MaskTabNames" type="char" value=""/>
+    <parameters name="HideAutomaticName" type="char" value="on"/>
+    <parameters name="ModelParamTableInfo" type="char" value="" readOnly="true"/>
+    <parameters name="MaskPortRotate" type="char" value="default"/>
+    <parameters name="Selected" type="char" value="off" readOnly="true"/>
+    <parameters name="CompiledPortWidths" type="char" value="" readOnly="true"/>
+    <parameters name="MaskVariables" type="char" value=""/>
+    <parameters name="MaskEnables" type="char" value=""/>
+    <parameters name="OutDataTypeStr" type="char" value="Inherit: auto"/>
+    <parameters name="ReferenceBlock" type="char" value="" readOnly="true"/>
+    <parameters name="OpenFcn" type="char" value=""/>
+    <parameters name="MinMaxOverflowLogging_Compiled" type="char" value="UseLocalSettings" readOnly="true"/>
+    <parameters name="RTWdata" type="char" value=""/>
+    <parameters name="CopyFcn" type="char" value=""/>
+    <parameters name="Interpolate" type="char" value="on"/>
+    <parameters name="Element" type="char" value="" readOnly="true"/>
+    <parameters name="MaskNames" type="char" value="" readOnly="true"/>
+    <parameters name="AlgorithmParameters" type="struct" value="{}" readOnly="true"/>
+    <parameters name="MaskInitialization" type="char" value=""/>
+    <parameters name="LinkStatus" type="char" value="none" readOnly="true"/>
+    <parameters name="ExtModeLoggingTrig" type="char" value="off"/>
+    <parameters name="InstantiateOnLoad" type="char" value="off"/>
+    <parameters name="Tag" type="char" value=""/>
+    <parameters name="CompiledPortComplexSignals" type="char" value="" readOnly="true"/>
+    <parameters name="MaskWSVariables" type="char" value="" readOnly="true"/>
+    <parameters name="MaskVisibilities" type="char" value=""/>
+    <parameters name="HDLData" type="char" value=""/>
+    <parameters name="DataTypeOverride_Compiled" type="char" value="UseLocalSettings" readOnly="true"/>
+    <parameters name="Port" type="char" value="1"/>
+    <parameters name="MaskTunableValueString" type="char" value=""/>
+    <parameters name="CompiledPortDataTypes" type="char" value="" readOnly="true"/>
+    <parameters name="Unit" type="char" value="inherit"/>
+    <parameters name="PreSaveFcn" type="char" value=""/>
+    <parameters name="PolySpaceStartComment" type="char" value=""/>
+    <parameters name="MaskStyleString" type="char" value=""/>
+    <parameters name="Name" type="char" value="In1"/>
+    <parameters name="VarSizeSig" type="char" value="Inherit"/>
+    <parameters name="MaskValueString" type="char" value=""/>
+    <parameters name="IOType" type="char" value="none"/>
+    <parameters name="MaskDescription" type="char" value=""/>
+    <parameters name="MaskPropertyNameString" type="char" value="" readOnly="true"/>
+    <parameters name="DeleteFcn" type="char" value=""/>
+    <parameters name="MaskIconRotate" type="char" value="none"/>
+    <parameters name="ExtModeLoggingSupported" type="char" value="off" readOnly="true"/>
+    <parameters name="ForegroundColor" type="char" value="black"/>
+    <parameters name="NamePlacement" type="char" value="normal"/>
+    <parameters name="MaskIconFrame" type="char" value="on"/>
+    <parameters name="MaskPrompts" type="char" value=""/>
+    <parameters name="AncestorBlock" type="char" value=""/>
+    <parameters name="CloseFcn" type="char" value=""/>
+    <parameters name="Priority" type="char" value=""/>
+    <parameters name="MaskToolTipString" type="char" value=""/>
+    <parameters name="MaskStyles" type="char" value=""/>
+    <parameters name="OutputSignalNames" type="cell" value="['']" readOnly="true"/>
+    <parameters name="SCDEnableBlockLinearizationSpecification" type="char" value="off"/>
+    <parameters name="OutputFunctionCall" type="char" value="off"/>
+    <parameters name="InputConnect" type="char" value="" readOnly="true"/>
+    <parameters name="MaskRunInitForIconRedraw" type="char" value="analyze"/>
+    <parameters name="FontSize" type="handle" value="-1.0"/>
+    <parameters name="SCDBlockLinearizationSpecification" type="char" value=""/>
+    <parameters name="CompiledIsActive" type="char" value="on" readOnly="true"/>
+    <parameters name="UserDataPersistent" type="char" value="off"/>
+    <parameters name="AttributesFormatString" type="char" value=""/>
+    <parameters name="Diagnostics" type="char" value=""/>
+    <parameters name="SecondaryAlgorithmParameters" type="struct" value="{}" readOnly="true"/>
+    <parameters name="UserData" type="char" value=""/>
+    <parameters name="PreCopyFcn" type="char" value=""/>
+    <parameters name="FontWeight" type="char" value="auto"/>
+    <parameters name="DestroyFcn" type="char" value=""/>
+    <parameters name="MaskCallbackString" type="char" value=""/>
+    <parameters name="MaskToolTipsDisplay" type="char" value=""/>
+    <parameters name="Orientation" type="char" value="right" readOnly="true"/>
+    <parameters name="NameChangeFcn" type="char" value=""/>
+    <parameters name="MaskVarAliasString" type="char" value=""/>
+    <parameters name="MaskSelfModifiable" type="char" value="off"/>
+    <parameters name="Ports" type="cell" value="[0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]" readOnly="true"/>
+    <parameters name="PortName" type="char" value="In1" readOnly="true"/>
+    <parameters name="Type" type="char" value="block" readOnly="true"/>
+    <parameters name="IsBusElementPort" type="char" value="off" readOnly="true"/>
+    <parameters name="IOSignalStrings" type="char" value=""/>
+    <parameters name="LatchInputForFeedbackSignals" type="char" value="off"/>
+    <parameters name="Parent" type="char" value="simple_io_ports" readOnly="true"/>
+    <parameters name="CompiledPortUnits" type="char" value="" readOnly="true"/>
+    <parameters name="CompiledPortFrameData" type="char" value="" readOnly="true"/>
+    <parameters name="MaskIconUnits" type="char" value="autoscale"/>
+    <parameters name="PortHandles" type="struct" value="{Inport:,Trigger:,Ifaction:,Outport:8.0006103515625,State:,LConn:,Enable:,Reset:,RConn:}" readOnly="true"/>
+    <parameters name="LibraryVersion" type="char" value=""/>
+    <parameters name="HiliteAncestors" type="char" value="none" readOnly="true"/>
+    <parameters name="ShowName" type="char" value="on"/>
+    <parameters name="LockScale" type="char" value="off"/>
+    <parameters name="SampleTime" type="char" value="-1"/>
+    <parameters name="DropShadow" type="char" value="off"/>
+    <parameters name="IntrinsicDialogParameters" type="struct" value="{IconDisplay:{Enum:['Signal name','Port number','Port number and signal name'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','graphical','link-instance'],Prompt:'Icon display:'},OutMax:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Maximum:'},BusOutputAsStruct:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Output as nonvirtual bus'},SignalType:{Enum:['auto','real','complex'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Signal type:'},OutDataTypeStr:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Data type:'},Port:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','always-link-instance'],Prompt:'Port number:'},InputConnect:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','never-save','not-link-instance','run-to-run-tunable'],Prompt:'File name:'},Unit:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Unit (e.g., m, m/s^2, N*m):'},LockScale:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Lock output data type setting against changes by the fixed-point tools'},SampleTime:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Sample time (-1 for inherited):'},OutputFunctionCall:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','not-accel','link-instance'],Prompt:'Output function call'},OutMin:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Minimum:'},PortDimensions:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Port dimensions (-1 for inherited):'},VarSizeSig:{Enum:['Inherit','No','Yes'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Variable-size signal:'},Interpolate:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Interpolate data'},LatchByDelayingOutsideSignal:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Latch input by delaying outside signal'},LatchInputForFeedbackSignals:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Latch input for feedback signals of function-call subsystem outputs'}}" readOnly="true"/>
+    <parameters name="ContinueFcn" type="char" value=""/>
+    <parameters name="ClipboardFcn" type="char" value=""/>
+    <parameters name="PortConnectivity" type="struct" value="{Type:'1',SrcPort:,Position:[80.0,90.0],SrcBlock:,DstBlock:6.0006103515625,DstPort:0.0}" readOnly="true"/>
+    <parameters name="MoveFcn" type="char" value=""/>
+    <parameters name="MaskIconOpaque" type="char" value="opaque"/>
+    <parameters name="ModelCloseFcn" type="char" value=""/>
+    <parameters name="StartFcn" type="char" value=""/>
+    <parameters name="ExtModeUploadOption" type="char" value="none"/>
+    <parameters name="ParentCloseFcn" type="char" value=""/>
+    <parameters name="MaskVisibilityString" type="char" value=""/>
+    <parameters name="MaskTabNameString" type="char" value=""/>
+    <parameters name="PolySpaceEndComment" type="char" value=""/>
+    <parameters name="BackgroundColor" type="char" value="white"/>
+    <parameters name="MaskValues" type="char" value=""/>
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="simple_io_ports/In1"/>
+      <parameters name="Description" type="char" value=""/>
+      <parameters name="StorageClass" type="char" value="Auto" readOnly="true"/>
+      <parameters name="MustResolveToSignalObject" type="char" value="off"/>
+      <parameters name="CompiledRTWSignalIdentifier" type="char" value="" readOnly="true"/>
+      <parameters name="PortNumber" type="handle" value="1.0" readOnly="true"/>
+      <parameters name="DataLoggingMaxPoints" type="char" value="5000"/>
+      <parameters name="Position" type="cell" value="[80.0,90.0]" readOnly="true"/>
+      <parameters name="CompiledRTWStorageClass" type="char" value="Auto" readOnly="true"/>
+      <parameters name="CompiledBusType" type="char" value="" readOnly="true"/>
+      <parameters name="CompiledRTWStorageTypeQualifier" type="char" value="" readOnly="true"/>
+      <parameters name="Name" type="char" value=""/>
+      <parameters name="SignalNameFromLabel" type="char" value="" readOnly="true"/>
+      <parameters name="CompiledPortDimensions" type="char" value="" readOnly="true"/>
+      <parameters name="CompiledPortComplexSignal" type="handle" value="-1.0" readOnly="true"/>
+      <parameters name="SignalObject" type="char" value=""/>
+      <parameters name="DataLoggingNameMode" type="char" value="SignalName"/>
+      <parameters name="SigGenPortName" type="char" value="" readOnly="true"/>
+      <parameters name="Type" type="char" value="port" readOnly="true"/>
+      <parameters name="Handle" type="handle" value="8.0006103515625" readOnly="true"/>
+      <parameters name="Parent" type="char" value="simple_io_ports/In1" readOnly="true"/>
+      <parameters name="CompiledPortFrameData" type="char" value="" readOnly="true"/>
+      <parameters name="ShowPropagatedSignals" type="char" value="off"/>
+      <parameters name="CompiledTestPoint" type="char" value="off" readOnly="true"/>
+      <parameters name="RTWStorageTypeQualifier" type="char" value=""/>
+      <parameters name="CompiledPortDesignMax" type="char" value="" readOnly="true"/>
+      <parameters name="SignalHierarchy" type="struct" value="{SignalName:,Children:,BusObject:}" readOnly="true"/>
+      <parameters name="DataLoggingDecimation" type="char" value="2"/>
+      <parameters name="HiliteAncestors" type="char" value="none" readOnly="true"/>
+      <parameters name="DocumentLink" type="char" value=""/>
+      <parameters name="PortType" type="char" value="outport" readOnly="true"/>
+      <parameters name="Line" type="handle" value="7.0006103515625" readOnly="true"/>
+      <parameters name="CompiledPortDimensionsMode" type="char" value="" readOnly="true"/>
+      <parameters name="Rotation" type="handle" value="0.0" readOnly="true"/>
+      <parameters name="CompiledPortDesignMin" type="char" value="" readOnly="true"/>
+      <parameters name="DataLoggingLimitDataPoints" type="char" value="off"/>
+      <parameters name="RequirementInfo" type="char" value=""/>
+      <parameters name="DataLogging" type="char" value="off"/>
+      <parameters name="DataLoggingName" type="char" value=""/>
+      <parameters name="ShowSigGenPortName" type="char" value="on"/>
+      <parameters name="DataLoggingDecimateData" type="char" value="off"/>
+      <parameters name="PropagatedSignals" type="char" value=""/>
+      <parameters name="ConnectionCallback" type="char" value=""/>
+      <parameters name="Tag" type="char" value=""/>
+      <parameters name="TestPoint" type="char" value="off"/>
+      <parameters name="CompiledPortWidth" type="handle" value="0.0" readOnly="true"/>
+      <parameters name="DataLoggingSampleTime" type="char" value="-1"/>
+      <parameters name="PerturbationForJacobian" type="char" value=""/>
+      <parameters name="CompiledPortDataType" type="char" value="" readOnly="true"/>
       <connection xsi:type="simulink:SingleConnection" to="//@contains.1/@ports.0">
         <simulinkRef name="from: In1:outport.1 -- to: Out1:inport.1" qualifier="simple_io_ports/In1/outport.1"/>
       </connection>
@@ -31,25 +212,213 @@
   </contains>
   <contains xsi:type="simulink:OutPortBlock">
     <simulinkRef name="Out1" qualifier="simple_io_ports"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-    <properties name="InitialOutput" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="auto" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-    <properties name="PortDimensions" value="-1" source="DIALOG"/>
-    <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-    <properties name="Port" value="1" source="DIALOG"/>
-    <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-    <properties name="SignalType" value="auto" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SampleTime" value="-1" source="DIALOG"/>
-    <properties name="DataType" value="Inherit: auto"/>
-    <properties name="SampleTime" value="-1"/>
+    <parameters name="IconDisplay" type="char" value="Port number"/>
+    <parameters name="InputSignalNames" type="cell" value="['']" readOnly="true"/>
+    <parameters name="MaskEnableString" type="char" value=""/>
+    <parameters name="MaskTunableValues" type="char" value=""/>
+    <parameters name="BusOutputAsStruct" type="char" value="off"/>
+    <parameters name="PreDeleteFcn" type="char" value=""/>
+    <parameters name="StaticLinkStatus" type="char" value="none" readOnly="true"/>
+    <parameters name="StatePerturbationForJacobian" type="char" value="1.0e-05"/>
+    <parameters name="MaskPromptString" type="char" value=""/>
+    <parameters name="PortDimensions" type="char" value="-1"/>
+    <parameters name="SignalObject" type="char" value=""/>
+    <parameters name="UndoDeleteFcn" type="char" value=""/>
+    <parameters name="SourceLibraryInfo" type="char" value="" readOnly="true"/>
+    <parameters name="PortRotationType" type="char" value="default" readOnly="true"/>
+    <parameters name="MaskBlockDVGIcon" type="char" value=""/>
+    <parameters name="Handle" type="handle" value="6.0006103515625" readOnly="true"/>
+    <parameters name="SourceOfInitialOutputValue" type="char" value="Dialog"/>
+    <parameters name="LoadFcn" type="char" value=""/>
+    <parameters name="OutMax" type="char" value="[]"/>
+    <parameters name="Position" type="cell" value="[125.0,83.0,155.0,97.0]"/>
+    <parameters name="SignalType" type="char" value="auto"/>
+    <parameters name="MaskType" type="char" value=""/>
+    <parameters name="StopFcn" type="char" value=""/>
+    <parameters name="Mask" type="char" value="off"/>
+    <parameters name="VectorParamsAs1DForOutWhenUnconnected" type="char" value="off"/>
+    <parameters name="RuntimeObject" type="char" value="" readOnly="true"/>
+    <parameters name="CompiledSampleTime" type="cell" value="[-1.0,0.0]" readOnly="true"/>
+    <parameters name="RequirementInfo" type="char" value=""/>
+    <parameters name="BlockDescription" type="char" value="Provide an output port for a subsystem or model.  The ''Output when disabled'' and ''Initial output'' parameters only apply to conditionally executed subsystems. When a conditionally executed subsystem is disabled, the output is either held at its last value or set to the ''Initial output''." readOnly="true"/>
+    <parameters name="OutMin" type="char" value="[]"/>
+    <parameters name="LineHandles" type="struct" value="{Inport:7.0006103515625,Trigger:,Ifaction:,Outport:,State:,LConn:,Enable:,Reset:,RConn:}" readOnly="true"/>
+    <parameters name="FontName" type="char" value="auto"/>
+    <parameters name="MaskDisplay" type="char" value=""/>
+    <parameters name="Description" type="char" value=""/>
+    <parameters name="MaskCallbacks" type="char" value=""/>
+    <parameters name="StorageClass" type="char" value="Auto" readOnly="true"/>
+    <parameters name="TargetArchitectureMapping" type="char" value="" readOnly="true"/>
+    <parameters name="DialogParameters" type="struct" value="{IconDisplay:{Enum:['Signal name','Port number','Port number and signal name'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','graphical','link-instance'],Prompt:'Icon display:'},OutputWhenUnconnectedValue:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Constant value:'},SourceOfInitialOutputValue:{Enum:['Dialog','Input signal'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Source of initial output value:'},OutMax:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Maximum:'},InitialOutput:{Enum:,Type:'string',Attributes:['read-write','link-instance'],Prompt:'Initial output:'},BusOutputAsStruct:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Output as nonvirtual bus in parent model'},SignalType:{Enum:['auto','real','complex'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Signal type:'},MustResolveToSignalObject:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'MustResolveToSignalObject'},StorageClass:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','never-save','not-link-instance'],Prompt:'Storage class:'},OutDataTypeStr:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Data type:'},Port:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','always-link-instance'],Prompt:'Port number:'},VectorParamsAs1DForOutWhenUnconnected:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Interpret vector parameters as 1-D'},Unit:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Unit (e.g., m, m/s^2, N*m):'},LockScale:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Lock output data type setting against changes by the fixed-point tools'},SampleTime:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Sample time (-1 for inherited):'},OutMin:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Minimum:'},PortDimensions:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Port dimensions (-1 for inherited):'},VarSizeSig:{Enum:['Inherit','No','Yes'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Variable-size signal:'},EnsureOutportIsVirtual:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Ensure outport is virtual'},OutputWhenDisabled:{Enum:['held','reset'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Output when disabled:'},SignalObject:{Enum:,Type:'matrix',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:},SignalName:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Signal name:'},OutputWhenUnConnected:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Specify output when source is unconnected'}}" readOnly="true"/>
+    <parameters name="Commented" type="char" value="off"/>
+    <parameters name="BlockType" type="char" value="Outport" readOnly="true"/>
+    <parameters name="CompiledPortDimensions" type="char" value="" readOnly="true"/>
+    <parameters name="MaskVarAliases" type="char" value=""/>
+    <parameters name="MaskHelp" type="char" value=""/>
+    <parameters name="InitFcn" type="char" value=""/>
+    <parameters name="PostSaveFcn" type="char" value=""/>
+    <parameters name="FontAngle" type="char" value="auto"/>
+    <parameters name="PauseFcn" type="char" value=""/>
+    <parameters name="MaskTabNames" type="char" value=""/>
+    <parameters name="HideAutomaticName" type="char" value="on"/>
+    <parameters name="ModelParamTableInfo" type="char" value="" readOnly="true"/>
+    <parameters name="MaskPortRotate" type="char" value="default"/>
+    <parameters name="Selected" type="char" value="off" readOnly="true"/>
+    <parameters name="CompiledPortWidths" type="char" value="" readOnly="true"/>
+    <parameters name="MaskVariables" type="char" value=""/>
+    <parameters name="MaskEnables" type="char" value=""/>
+    <parameters name="OutDataTypeStr" type="char" value="Inherit: auto"/>
+    <parameters name="ReferenceBlock" type="char" value="" readOnly="true"/>
+    <parameters name="OpenFcn" type="char" value=""/>
+    <parameters name="MinMaxOverflowLogging_Compiled" type="char" value="UseLocalSettings" readOnly="true"/>
+    <parameters name="RTWdata" type="char" value=""/>
+    <parameters name="CopyFcn" type="char" value=""/>
+    <parameters name="Element" type="char" value="" readOnly="true"/>
+    <parameters name="MaskNames" type="char" value="" readOnly="true"/>
+    <parameters name="AlgorithmParameters" type="struct" value="{}" readOnly="true"/>
+    <parameters name="MaskInitialization" type="char" value=""/>
+    <parameters name="SignalName" type="char" value=""/>
+    <parameters name="LinkStatus" type="char" value="none" readOnly="true"/>
+    <parameters name="ExtModeLoggingTrig" type="char" value="off"/>
+    <parameters name="InstantiateOnLoad" type="char" value="off"/>
+    <parameters name="Tag" type="char" value=""/>
+    <parameters name="CompiledPortComplexSignals" type="char" value="" readOnly="true"/>
+    <parameters name="OutputWhenUnConnected" type="char" value="off"/>
+    <parameters name="MaskWSVariables" type="char" value="" readOnly="true"/>
+    <parameters name="MaskVisibilities" type="char" value=""/>
+    <parameters name="HDLData" type="char" value=""/>
+    <parameters name="DataTypeOverride_Compiled" type="char" value="UseLocalSettings" readOnly="true"/>
+    <parameters name="InitialOutput" type="char" value="[]"/>
+    <parameters name="MustResolveToSignalObject" type="char" value="off"/>
+    <parameters name="Port" type="char" value="1"/>
+    <parameters name="MaskTunableValueString" type="char" value=""/>
+    <parameters name="CompiledPortDataTypes" type="char" value="" readOnly="true"/>
+    <parameters name="Unit" type="char" value="inherit"/>
+    <parameters name="PreSaveFcn" type="char" value=""/>
+    <parameters name="PolySpaceStartComment" type="char" value=""/>
+    <parameters name="MaskStyleString" type="char" value=""/>
+    <parameters name="Name" type="char" value="Out1"/>
+    <parameters name="VarSizeSig" type="char" value="Inherit"/>
+    <parameters name="MaskValueString" type="char" value=""/>
+    <parameters name="IOType" type="char" value="none"/>
+    <parameters name="MaskDescription" type="char" value=""/>
+    <parameters name="MaskPropertyNameString" type="char" value="" readOnly="true"/>
+    <parameters name="DeleteFcn" type="char" value=""/>
+    <parameters name="MaskIconRotate" type="char" value="none"/>
+    <parameters name="ExtModeLoggingSupported" type="char" value="off" readOnly="true"/>
+    <parameters name="ForegroundColor" type="char" value="black"/>
+    <parameters name="NamePlacement" type="char" value="normal"/>
+    <parameters name="MaskIconFrame" type="char" value="on"/>
+    <parameters name="MaskPrompts" type="char" value=""/>
+    <parameters name="AncestorBlock" type="char" value=""/>
+    <parameters name="OutputWhenUnconnectedValue" type="char" value="0"/>
+    <parameters name="CloseFcn" type="char" value=""/>
+    <parameters name="Priority" type="char" value=""/>
+    <parameters name="MaskToolTipString" type="char" value=""/>
+    <parameters name="MaskStyles" type="char" value=""/>
+    <parameters name="OutputSignalNames" type="char" value="" readOnly="true"/>
+    <parameters name="SCDEnableBlockLinearizationSpecification" type="char" value="off"/>
+    <parameters name="MaskRunInitForIconRedraw" type="char" value="analyze"/>
+    <parameters name="EnsureOutportIsVirtual" type="char" value="off"/>
+    <parameters name="OutputWhenDisabled" type="char" value="held"/>
+    <parameters name="FontSize" type="handle" value="-1.0"/>
+    <parameters name="SCDBlockLinearizationSpecification" type="char" value=""/>
+    <parameters name="CompiledIsActive" type="char" value="on" readOnly="true"/>
+    <parameters name="UserDataPersistent" type="char" value="off"/>
+    <parameters name="AttributesFormatString" type="char" value=""/>
+    <parameters name="Diagnostics" type="char" value=""/>
+    <parameters name="SecondaryAlgorithmParameters" type="struct" value="{}" readOnly="true"/>
+    <parameters name="UserData" type="char" value=""/>
+    <parameters name="PreCopyFcn" type="char" value=""/>
+    <parameters name="FontWeight" type="char" value="auto"/>
+    <parameters name="DestroyFcn" type="char" value=""/>
+    <parameters name="MaskCallbackString" type="char" value=""/>
+    <parameters name="MaskToolTipsDisplay" type="char" value=""/>
+    <parameters name="Orientation" type="char" value="right" readOnly="true"/>
+    <parameters name="NameChangeFcn" type="char" value=""/>
+    <parameters name="MaskVarAliasString" type="char" value=""/>
+    <parameters name="MaskSelfModifiable" type="char" value="off"/>
+    <parameters name="Ports" type="cell" value="[1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]" readOnly="true"/>
+    <parameters name="PortName" type="char" value="Out1" readOnly="true"/>
+    <parameters name="Type" type="char" value="block" readOnly="true"/>
+    <parameters name="IsBusElementPort" type="char" value="off" readOnly="true"/>
+    <parameters name="IOSignalStrings" type="char" value=""/>
+    <parameters name="Parent" type="char" value="simple_io_ports" readOnly="true"/>
+    <parameters name="CompiledPortUnits" type="char" value="" readOnly="true"/>
+    <parameters name="CompiledPortFrameData" type="char" value="" readOnly="true"/>
+    <parameters name="MaskIconUnits" type="char" value="autoscale"/>
+    <parameters name="PortHandles" type="struct" value="{Inport:9.0006103515625,Trigger:,Ifaction:,Outport:,State:,LConn:,Enable:,Reset:,RConn:}" readOnly="true"/>
+    <parameters name="LibraryVersion" type="char" value=""/>
+    <parameters name="HiliteAncestors" type="char" value="none" readOnly="true"/>
+    <parameters name="ShowName" type="char" value="on"/>
+    <parameters name="LockScale" type="char" value="off"/>
+    <parameters name="SampleTime" type="char" value="-1"/>
+    <parameters name="DropShadow" type="char" value="off"/>
+    <parameters name="IntrinsicDialogParameters" type="struct" value="{IconDisplay:{Enum:['Signal name','Port number','Port number and signal name'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','graphical','link-instance'],Prompt:'Icon display:'},OutputWhenUnconnectedValue:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Constant value:'},SourceOfInitialOutputValue:{Enum:['Dialog','Input signal'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Source of initial output value:'},OutMax:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Maximum:'},InitialOutput:{Enum:,Type:'string',Attributes:['read-write','link-instance'],Prompt:'Initial output:'},BusOutputAsStruct:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Output as nonvirtual bus in parent model'},SignalType:{Enum:['auto','real','complex'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Signal type:'},MustResolveToSignalObject:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'MustResolveToSignalObject'},StorageClass:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','never-save','not-link-instance'],Prompt:'Storage class:'},OutDataTypeStr:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Data type:'},Port:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','always-link-instance'],Prompt:'Port number:'},VectorParamsAs1DForOutWhenUnconnected:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Interpret vector parameters as 1-D'},Unit:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Unit (e.g., m, m/s^2, N*m):'},LockScale:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Lock output data type setting against changes by the fixed-point tools'},SampleTime:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Sample time (-1 for inherited):'},OutMin:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Minimum:'},PortDimensions:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Port dimensions (-1 for inherited):'},VarSizeSig:{Enum:['Inherit','No','Yes'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Variable-size signal:'},EnsureOutportIsVirtual:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Ensure outport is virtual'},OutputWhenDisabled:{Enum:['held','reset'],Type:'enum',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Output when disabled:'},SignalObject:{Enum:,Type:'matrix',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:},SignalName:{Enum:,Type:'string',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Signal name:'},OutputWhenUnConnected:{Enum:,Type:'boolean',Attributes:['read-write','read-only-if-compiled','dont-eval','link-instance'],Prompt:'Specify output when source is unconnected'}}" readOnly="true"/>
+    <parameters name="ContinueFcn" type="char" value=""/>
+    <parameters name="ClipboardFcn" type="char" value=""/>
+    <parameters name="PortConnectivity" type="struct" value="{Type:'1',SrcPort:0.0,Position:[120.0,90.0],SrcBlock:5.0006103515625,DstBlock:,DstPort:}" readOnly="true"/>
+    <parameters name="MoveFcn" type="char" value=""/>
+    <parameters name="MaskIconOpaque" type="char" value="opaque"/>
+    <parameters name="ModelCloseFcn" type="char" value=""/>
+    <parameters name="StartFcn" type="char" value=""/>
+    <parameters name="ExtModeUploadOption" type="char" value="none"/>
+    <parameters name="ParentCloseFcn" type="char" value=""/>
+    <parameters name="MaskVisibilityString" type="char" value=""/>
+    <parameters name="MaskTabNameString" type="char" value=""/>
+    <parameters name="PolySpaceEndComment" type="char" value=""/>
+    <parameters name="BackgroundColor" type="char" value="white"/>
+    <parameters name="MaskValues" type="char" value=""/>
     <ports xsi:type="simulink:InPort" connection="//@contains.0/@ports.0/@connection">
       <simulinkRef name="inport.1" qualifier="simple_io_ports/Out1"/>
+      <parameters name="Description" type="char" value=""/>
+      <parameters name="StorageClass" type="char" value="Auto" readOnly="true"/>
+      <parameters name="MustResolveToSignalObject" type="char" value="off"/>
+      <parameters name="CompiledRTWSignalIdentifier" type="char" value="" readOnly="true"/>
+      <parameters name="PortNumber" type="handle" value="1.0" readOnly="true"/>
+      <parameters name="DataLoggingMaxPoints" type="char" value="5000"/>
+      <parameters name="Position" type="cell" value="[110.0,90.0]" readOnly="true"/>
+      <parameters name="CompiledRTWStorageClass" type="char" value="Auto" readOnly="true"/>
+      <parameters name="CompiledBusType" type="char" value="" readOnly="true"/>
+      <parameters name="CompiledRTWStorageTypeQualifier" type="char" value="" readOnly="true"/>
+      <parameters name="Name" type="char" value=""/>
+      <parameters name="SignalNameFromLabel" type="char" value="" readOnly="true"/>
+      <parameters name="CompiledPortDimensions" type="char" value="" readOnly="true"/>
+      <parameters name="CompiledPortComplexSignal" type="handle" value="-1.0" readOnly="true"/>
+      <parameters name="SignalObject" type="char" value=""/>
+      <parameters name="DataLoggingNameMode" type="char" value="SignalName"/>
+      <parameters name="SigGenPortName" type="char" value="" readOnly="true"/>
+      <parameters name="Type" type="char" value="port" readOnly="true"/>
+      <parameters name="Handle" type="handle" value="9.0006103515625" readOnly="true"/>
+      <parameters name="Parent" type="char" value="simple_io_ports/Out1" readOnly="true"/>
+      <parameters name="CompiledPortFrameData" type="char" value="" readOnly="true"/>
+      <parameters name="ShowPropagatedSignals" type="char" value="off"/>
+      <parameters name="CompiledTestPoint" type="char" value="off" readOnly="true"/>
+      <parameters name="RTWStorageTypeQualifier" type="char" value=""/>
+      <parameters name="CompiledPortDesignMax" type="char" value="" readOnly="true"/>
+      <parameters name="SignalHierarchy" type="struct" value="{SignalName:,Children:,BusObject:}" readOnly="true"/>
+      <parameters name="DataLoggingDecimation" type="char" value="2"/>
+      <parameters name="HiliteAncestors" type="char" value="none" readOnly="true"/>
+      <parameters name="DocumentLink" type="char" value=""/>
+      <parameters name="PortType" type="char" value="inport" readOnly="true"/>
+      <parameters name="Line" type="handle" value="7.0006103515625" readOnly="true"/>
+      <parameters name="CompiledPortDimensionsMode" type="char" value="" readOnly="true"/>
+      <parameters name="Rotation" type="handle" value="0.0" readOnly="true"/>
+      <parameters name="CompiledPortDesignMin" type="char" value="" readOnly="true"/>
+      <parameters name="DataLoggingLimitDataPoints" type="char" value="off"/>
+      <parameters name="RequirementInfo" type="char" value=""/>
+      <parameters name="DataLogging" type="char" value="off"/>
+      <parameters name="DataLoggingName" type="char" value=""/>
+      <parameters name="ShowSigGenPortName" type="char" value="on"/>
+      <parameters name="DataLoggingDecimateData" type="char" value="off"/>
+      <parameters name="PropagatedSignals" type="char" value=""/>
+      <parameters name="ConnectionCallback" type="char" value=""/>
+      <parameters name="Tag" type="char" value=""/>
+      <parameters name="TestPoint" type="char" value="off"/>
+      <parameters name="CompiledPortWidth" type="handle" value="0.0" readOnly="true"/>
+      <parameters name="DataLoggingSampleTime" type="char" value="-1"/>
+      <parameters name="PerturbationForJacobian" type="char" value="1.0e-05"/>
+      <parameters name="CompiledPortDataType" type="char" value="" readOnly="true"/>
     </ports>
     <sourceBlockRef name="Out1" qualifier="simulink/Ports &amp; Subsystems"/>
   </contains>

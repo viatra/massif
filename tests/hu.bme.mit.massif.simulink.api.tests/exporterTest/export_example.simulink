@@ -3,8 +3,8 @@
   <simulinkRef name="export_example"/>
   <contains xsi:type="simulink:InPortBlock">
     <simulinkRef name="In1" qualifier="export_example"/>
-    <properties name="DataType" value="Inherit: auto"/>
-    <properties name="SampleTime" value="-1"/>
+    <parameters name="DataType" value="Inherit: auto"/>
+    <parameters name="SampleTime" value="-1"/>
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="export_example/In1"/>
       <connection xsi:type="simulink:SingleConnection" to="//@contains.5/@ports.1">
@@ -44,10 +44,10 @@
   </contains>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="Linear Second-Order Actuator" qualifier="export_example"/>
-    <properties name="wn_fin" value="1"/>
-    <properties name="z_fin" value="0.3"/>
-    <properties name="fin_act_0" value="0"/>
-    <properties name="fin_act_vel" value="0"/>
+    <parameters name="wn_fin" value="1"/>
+    <parameters name="z_fin" value="0.3"/>
+    <parameters name="fin_act_0" value="0"/>
+    <parameters name="fin_act_vel" value="0"/>
     <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.0/@connection/@connections.0">
       <simulinkRef name="inport.1" qualifier="export_example/Linear Second-Order Actuator"/>
     </ports>
@@ -97,8 +97,8 @@
   </contains>
   <contains xsi:type="simulink:OutPortBlock">
     <simulinkRef name="Out1" qualifier="export_example"/>
-    <properties name="DataType" value="Inherit: auto"/>
-    <properties name="SampleTime" value="-1"/>
+    <parameters name="DataType" value="Inherit: auto"/>
+    <parameters name="SampleTime" value="-1"/>
     <ports xsi:type="simulink:InPort" connection="//@contains.4/@ports.1/@connection">
       <simulinkRef name="inport.1" qualifier="export_example/Out1"/>
     </ports>

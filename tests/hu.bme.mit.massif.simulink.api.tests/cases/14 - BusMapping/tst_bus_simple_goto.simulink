@@ -3,10 +3,10 @@
   <simulinkRef name="tst_bus_simple_goto"/>
   <contains xsi:type="simulink:BusCreator">
     <simulinkRef name="Bus Creator" qualifier="tst_bus_simple_goto"/>
-    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="DisplayOption" value="bar" source="DIALOG"/>
-    <properties name="Inputs" value="2" source="DIALOG"/>
+    <parameters name="NonVirtualBus" value="off" />
+    <parameters name="OutDataTypeStr" value="Inherit: auto" />
+    <parameters name="DisplayOption" value="bar" />
+    <parameters name="Inputs" value="2" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_simple_goto/Bus Creator"/>
       <connection xsi:type="simulink:SingleConnection" lineName="b_before_goto" to="//@contains.5/@ports.0">
@@ -23,8 +23,8 @@
   </contains>
   <contains xsi:type="simulink:BusSelector">
     <simulinkRef name="Bus Selector" qualifier="tst_bus_simple_goto"/>
-    <properties name="OutputAsBus" value="off" source="DIALOG"/>
-    <properties name="OutputSignals" value="s1,s2" source="DIALOG"/>
+    <parameters name="OutputAsBus" value="off" />
+    <parameters name="OutputSignals" value="s1,s2" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_simple_goto/Bus Selector"/>
       <connection xsi:type="simulink:SingleConnection" lineName="&lt;s1>" to="//@contains.6/@ports.0">
@@ -46,15 +46,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant" qualifier="tst_bus_simple_goto"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="1" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="1" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_simple_goto/Constant"/>
       <connection xsi:type="simulink:SingleConnection" lineName="s1" to="//@contains.0/@ports.1">
@@ -65,15 +65,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant1" qualifier="tst_bus_simple_goto"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="1" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="1" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_simple_goto/Constant1"/>
       <connection xsi:type="simulink:SingleConnection" lineName="s2" to="//@contains.0/@ports.2">
@@ -84,8 +84,8 @@
   </contains>
   <contains xsi:type="simulink:From" gotoBlock="//@contains.5">
     <simulinkRef name="From" qualifier="tst_bus_simple_goto"/>
-    <properties name="IconDisplay" value="Tag" source="DIALOG"/>
-    <properties name="GotoTag" value="BusGotoTag" source="DIALOG"/>
+    <parameters name="IconDisplay" value="Tag" />
+    <parameters name="GotoTag" value="BusGotoTag" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_simple_goto/From"/>
       <connection xsi:type="simulink:SingleConnection" lineName="b_after_from" to="//@contains.1/@ports.2">
@@ -96,9 +96,9 @@
   </contains>
   <contains xsi:type="simulink:Goto" fromBlocks="//@contains.4" gotoTag="BusGotoTag">
     <simulinkRef name="Goto" qualifier="tst_bus_simple_goto"/>
-    <properties name="TagVisibility" value="local" source="DIALOG"/>
-    <properties name="IconDisplay" value="Tag" source="DIALOG"/>
-    <properties name="GotoTag" value="BusGotoTag" source="DIALOG"/>
+    <parameters name="TagVisibility" value="local" />
+    <parameters name="IconDisplay" value="Tag" />
+    <parameters name="GotoTag" value="BusGotoTag" />
     <ports xsi:type="simulink:InPort" connection="//@contains.0/@ports.0/@connection">
       <simulinkRef name="inport.1" qualifier="tst_bus_simple_goto/Goto"/>
     </ports>

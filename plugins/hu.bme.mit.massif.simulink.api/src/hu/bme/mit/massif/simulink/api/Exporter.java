@@ -503,19 +503,19 @@ public class Exporter {
                     isMaskOn = parameter.getValue().equals("on");
                 }
             }
+            StringJoiner joiner = new StringJoiner(";");
             for (Parameter parameter : parameters) {
                 // Set if
                 // * not read-only AND
                 // * it is _not_ a mask parameter OR mask is on
                 // Explanation: if the mask is off, mask parameters should be ignored
-                StringJoiner joiner = new StringJoiner(";");
                 if(!parameter.isReadOnly() && (isMaskOn || !parameter.getName().startsWith("Mask"))) {
                     String commandString = prepareParameterSetterCommand(block, parameter);
                     joiner.add(commandString);
                 }
-                ICommandEvaluator commandEvaluator = commandFactory.getCommandEvaluator();
-                commandEvaluator.evaluateCommand(joiner.toString(), 0);
             }
+            ICommandEvaluator commandEvaluator = commandFactory.getCommandEvaluator();
+            commandEvaluator.evaluateCommand(joiner.toString(), 0);
         }
 
         // When there is at least one block on the same level, check that only blocks are there on the same level will be present in the exported model

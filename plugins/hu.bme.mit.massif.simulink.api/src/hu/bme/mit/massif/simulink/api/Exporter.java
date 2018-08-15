@@ -498,12 +498,14 @@ public class Exporter {
             // Set block parameters
             EList<Parameter> parameters = block.getParameters();
             boolean isMaskOn = false;
+            StringJoiner joiner = new StringJoiner(";");
             for (Parameter parameter : parameters) {
                 if(parameter.getName().equals("Mask")) {
                     isMaskOn = parameter.getValue().equals("on");
+                    // Ensure that the mask is turned on first
+                    joiner.add(prepareParameterSetterCommand(block, parameter));
                 }
             }
-            StringJoiner joiner = new StringJoiner(";");
             for (Parameter parameter : parameters) {
                 // Set if
                 // * not read-only AND
@@ -550,30 +552,33 @@ public class Exporter {
 
     private String prepareParameterSetterCommand(Block block, Parameter parameter) {
         String commandString = generateSetParamCommandStub(block, parameter);
-        if("char".equals(parameter.getType())) {
-            commandString= commandString.concat("'" + parameter.getValue() + "'");
-            // @formatter\:off
-            // A problematic case: empty string as parameter value
-            // We don't know what the type was originally, so we use try-catch to retry with a different type
-            if (parameter.getValue().equals("")) {
-                commandString = "try " + commandString + "); " +
-                                "catch " +
-                                    "try " + commandString.replaceFirst("''", "") + "cell.empty()); " +
-                                    "catch " +
-                                        "try " + commandString.replaceFirst("''", "") + "[]); " +
-                                        "catch " +
-                                            // TODO add proper logging here
-                                            "fprintf('Failed to set parameter " + parameter.getName() + "'); " +
-                                        "end; " +
-                                    "end; " +
-                                "end";
+        // @formatter\:off
+        // A problematic case: empty string as parameter value
+        // We don't know what the type was originally, so we use try-catch to retry with a different type
+        if (parameter.getValue().equals("")) {
+            commandString = "try " + commandString + "''); " +
+                    "catch " +
+                        "try " + commandString.replaceFirst("''", "") + "cell.empty()); " +
+                        "catch " +
+                            "try " + commandString.replaceFirst("''", "") + "[]); " +
+                            "catch " +
+                                // TODO add proper logging to catch here
+                                "fprintf('Failed to set parameter " + parameter.getName() + "'); " +
+                            "end; " +
+                        "end; " +
+                    "end";
+        }
+        // @formatter\:on
+        else {
+            if("char".equals(parameter.getType())) {
+                commandString= commandString.concat("'" + parameter.getValue() + "'");
             } else {
-                commandString = "try " + commandString + "); catch "+ "fprintf('Failed to set parameter " + parameter.getName() + "'); end ";
+                commandString = commandString.concat(parameter.getValue());
             }
+            // @formatter\:off
+            // TODO add proper logging to catch here
+            commandString = "try " + commandString + "); catch "+ "fprintf('Failed to set parameter " + parameter.getName() + "'); end ";
             // @formatter\:on
-        } else {
-            commandString = commandString.concat(parameter.getValue());
-            commandString = commandString.concat(")");
         }
         return commandString;
     }

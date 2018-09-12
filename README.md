@@ -64,7 +64,7 @@ It is required to have the following tools:
  * Eclipse with Massif and prerequisites installed
  * MATLAB (recommended r2012a or later)
 
-Details on the [wiki](../../wiki/UserGuide#installation)
+Details on the [wiki](../../wiki/User-Guide#installation)
 
 ## II. Usage:
 

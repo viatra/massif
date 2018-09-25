@@ -433,7 +433,7 @@
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone"
-          value="0.7.0"/>
+          value="0.7.1"/>
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone.id"
@@ -444,7 +444,7 @@
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone"
-          value="0.7.0"/>
+          value="0.7.1"/>
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone.id"

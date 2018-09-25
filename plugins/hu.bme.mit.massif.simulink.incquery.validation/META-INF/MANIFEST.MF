@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: hu.bme.mit.massif.simulink.incquery.validation
 Bundle-SymbolicName: hu.bme.mit.massif.simulink.incquery.validation;singleton:=true
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.7.1.qualifier
 Bundle-Vendor: Budapest University of Technology and Economics
 Require-Bundle: com.google.guava,
   org.eclipse.viatra.query.runtime;bundle-version="[2.0.0,3.0.0)",

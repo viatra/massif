@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Massif Matlab Commands
 Bundle-SymbolicName: br.com.embraer.massif.commandevaluation.commands
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.7.1.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: br.com.embraer.massif.commandevaluation.commands
 Bundle-ClassPath: lib/jmi.jar,

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Massif Core Utility Classes
 Bundle-SymbolicName: hu.bme.mit.massif.common;singleton:=true
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.7.1.qualifier
 Bundle-Activator: hu.bme.mit.massif.common.MassifCommonPlugin
 Bundle-Vendor: Budapest University of Technology and Economics
 Export-Package: hu.bme.mit.massif.common,

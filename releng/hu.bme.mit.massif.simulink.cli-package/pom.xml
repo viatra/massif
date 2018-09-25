@@ -5,13 +5,13 @@
   <parent>
     <artifactId>hu.bme.mit.massif.parent</artifactId>
     <groupId>hu.bme.mit.massif</groupId>
-    <version>0.7.0-SNAPSHOT</version>
+    <version>0.7.1-SNAPSHOT</version>
     <relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
   </parent>
   <groupId>hu.bme.mit.massif.features</groupId>
   <artifactId>hu.bme.mit.massif.simulink.cli-package</artifactId> 
   	<properties>
-		<massif.version>0.7.0-SNAPSHOT</massif.version>
+		<massif.version>0.7.1-SNAPSHOT</massif.version>
 	</properties>
   	<build>
 		<plugins>

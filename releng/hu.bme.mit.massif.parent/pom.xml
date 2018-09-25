@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>hu.bme.mit.massif</groupId>
 	<artifactId>hu.bme.mit.massif.parent</artifactId>
-	<version>0.7.0-SNAPSHOT</version>
+	<version>0.7.1-SNAPSHOT</version>
 	<name>Massif</name>
 	<url>https://github.com/viatra/massif</url>
 	<packaging>pom</packaging>

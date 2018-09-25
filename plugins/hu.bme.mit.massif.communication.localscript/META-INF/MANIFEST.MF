@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Local Matlab script evaluator
 Bundle-SymbolicName: hu.bme.mit.massif.communication.localscript;singleton:=true
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.7.1.qualifier
 Require-Bundle: hu.bme.mit.massif.communication,
  br.com.embraer.massif.commandevaluation.commands
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

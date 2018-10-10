@@ -9,18 +9,18 @@
       <version>2.11.1</version>
     </dependency>
     <dependency>
-			<groupId>hu.bme.mit.massif</groupId>
-			<artifactId>hu.bme.mit.massif.communication</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+      <groupId>hu.bme.mit.massif</groupId>
+      <artifactId>hu.bme.mit.massif.communication</artifactId>
+      <version>${project.version}</version>
+    </dependency>
     <!-- MATLAB engine.jar -->
     <dependency>
-    <groupId>com.mathworks</groupId>
-			<artifactId>com.mathworks.engine</artifactId>
-			<version>0.0.0</version>
-			<scope>system</scope>
-			<systemPath>${env.MATLABROOT}/extern/engines/java/jar/engine.jar</systemPath>
-		</dependency>
+      <groupId>com.mathworks</groupId>
+      <artifactId>com.mathworks.engine</artifactId>
+      <version>0.0.0</version>
+      <scope>system</scope>
+      <systemPath>${env.MATLABROOT}/extern/engines/java/jar/engine.jar</systemPath>
+    </dependency>
   </dependencies>
   <parent>
     <artifactId>hu.bme.mit.massif.parent</artifactId>
@@ -28,10 +28,10 @@
     <version>0.7.1-SNAPSHOT</version>
     <relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
   </parent>
-	<name>Massif MatlabEngine Maven</name>
+    <name>Massif MatlabEngine Maven</name>
   <artifactId>massif-matlabengine</artifactId>
   <packaging>jar</packaging>
   <build>
-		<sourceDirectory>../../plugins/hu.bme.mit.massif.communication.matlabengine/src</sourceDirectory>
-  </build>    
+    <sourceDirectory>../../plugins/hu.bme.mit.massif.communication.matlabengine/src</sourceDirectory>
+  </build>
 </project>

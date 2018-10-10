@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Bundle wrapper for the official Matlab Engine Java library
 Bundle-SymbolicName: matlab.engine.api.bundle
-Bundle-Version: 0.7.1.qualifier
+Bundle-Version: 0.7.0.qualifier
 Bundle-ClassPath: lib/engine.jar,
  .
 Export-Package: com.mathworks.engine,

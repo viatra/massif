@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: hu.bme.mit.massif.models.simulink.incquery
 Bundle-SymbolicName: hu.bme.mit.massif.simulink.incquery;singleton:=true
-Bundle-Version: 0.7.1.qualifier
+Bundle-Version: 0.7.0.qualifier
 Bundle-Vendor: Budapest University of Technology and Economics
 Export-Package: hu.bme.mit.massif.models.simulink.derived,
   hu.bme.mit.massif.models.simulink.util,

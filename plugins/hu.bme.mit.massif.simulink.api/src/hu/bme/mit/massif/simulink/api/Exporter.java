@@ -12,6 +12,7 @@
 package hu.bme.mit.massif.simulink.api;
 
 import java.io.File;
+import java.nio.file.FileSystems;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;

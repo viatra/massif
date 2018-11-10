@@ -11,7 +11,7 @@
   <groupId>hu.bme.mit.massif.features</groupId>
   <artifactId>hu.bme.mit.massif.simulink.cli-package</artifactId> 
   	<properties>
-		<massif.version>0.7.0-SNAPSHOT</massif.version>
+		<massif.version>0.7.1-SNAPSHOT</massif.version>
 	</properties>
   	<build>
 		<plugins>

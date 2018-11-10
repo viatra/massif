@@ -41,8 +41,7 @@
 		<module>../../plugins/hu.bme.mit.massif.communication.matlabcontrol</module>
 		
 		<!-- Local MATLAB script connector -->
-		<module>../../plugins/hu.bme.mit.massif.communication.localscript</module>
-		
+		<module>../../plugins/hu.bme.mit.massif.communication.localscript</module>		
 		
 		<!-- Features -->
 		<module>../../features/hu.bme.mit.massif.simulink.emf-feature</module>
@@ -63,6 +62,7 @@
 		<module>../../maven/massif-matlabcontrol-runtime</module>
 		<module>../../maven/massif-commandevaluation-runtime</module>
 		<module>../../maven/massif-simulink-emf</module>
+		<module>../../maven/massif-matlabengine</module>
 
 		
 	</modules>

@@ -114,15 +114,15 @@
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.targetPlatform"
-          value="1.6"/>
+          value="1.8"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.compliance"
-          value="1.6"/>
+          value="1.8"/>
       <setupTask
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.source"
-          value="1.6"/>
+          value="1.8"/>
     </setupTask>
   </setupTask>
   <setupTask
@@ -433,7 +433,7 @@
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone"
-          value="0.7.0"/>
+          value="0.7.1"/>
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone.id"
@@ -444,7 +444,7 @@
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone"
-          value="0.7.0"/>
+          value="0.7.1"/>
       <setupTask
           xsi:type="setup:VariableTask"
           name="massif.milestone.id"

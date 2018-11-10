@@ -200,7 +200,13 @@ public class Exporter {
         // Save the current directory
         String currentWorkdirectory = MatlabString.getMatlabStringData(commandFactory.cd().execute());
 
-        String[] savePathSegments = modelNameWithPath.split(File.separator);
+        String separator = FileSystems.getDefault().getSeparator();
+        String[] savePathSegments;
+        if(separator.equals("\\")){
+            savePathSegments = modelNameWithPath.split(separator + "\\"); // Add regex escape for windows environment
+        } else {
+            savePathSegments = modelNameWithPath.split(separator);
+        }  
         String modelName = savePathSegments[savePathSegments.length - 1];
 
         // Navigate to the save location

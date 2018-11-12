@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: MatlabEngine
 Bundle-SymbolicName: hu.bme.mit.massif.communication.matlabengine;singleton:=true
-Bundle-Version: 0.7.1.qualifier
+Bundle-Version: 0.7.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: hu.bme.mit.massif.communication;bundle-version="0.7.1",
+Require-Bundle: hu.bme.mit.massif.communication;bundle-version="0.7.0",
  org.apache.log4j
 Export-Package: hu.bme.mit.massif.communication.matlabengine
 Import-Package: com.mathworks.engine,

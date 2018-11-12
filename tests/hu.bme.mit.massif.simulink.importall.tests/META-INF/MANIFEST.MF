@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Import All Models Tests
 Bundle-SymbolicName: hu.bme.mit.massif.simulink.importall.tests
-Bundle-Version: 0.7.1.qualifier
+Bundle-Version: 0.7.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.junit,
  hu.bme.mit.massif.simulink.api,

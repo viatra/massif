@@ -12,25 +12,16 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
-import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
-import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
-import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
-import hu.bme.mit.massif.communication.datatype.MatlabString;
-import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.api.Importer;
-import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
+import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
 
 /**
  * Generic adapter for non-specific blocks. This adapter is used when no adapter is registered for a block type. The
@@ -50,59 +41,9 @@ public class DefaultBlockAdapter implements IBlockAdapter {
         MatlabCommandFactory commandFactory = traverser.getCommandFactory();
         String blockFQN = blockToProcess.getSimulinkRef().getFQN();
         
-        List<Parameter> blockProperties = new LinkedList<Parameter>();
-
-        MatlabCommand getAllBlockParameters = commandFactory.customCommand("massif.get_all_block_parameters", 1).addParam(blockFQN);
-        Map<String, IVisitableMatlabData> blockPropsMap = StructMatlabData.getStructMatlabDataData(getAllBlockParameters.execute());
-        
-        Set<IParameterImportFilter> parameterFilters = traverser.getParameterFilters();
-        
-        Set<Entry<String, IVisitableMatlabData>> entries = blockPropsMap.entrySet();
-        for (Entry<String, IVisitableMatlabData> entry : entries) {
-        	String propertyName = entry.getKey();
-        	
-        	boolean isFiltered = false;
-        	for (IParameterImportFilter paramFilter : parameterFilters) {
-				isFiltered |= paramFilter.filter(commandFactory, propertyName);
-			}
-        	
-        	if(isFiltered) {
-        		continue;
-        	}
-
-        	IVisitableMatlabData value = entry.getValue();
-			Parameter prop = SimulinkFactory.eINSTANCE.createParameter();
-			if (propertyName.matches(".*READONLY$")) {
-                propertyName = propertyName.replace("_READONLY", "");
-                prop.setReadOnly(true);
-            }
-			prop.setName(propertyName);
-			
-			if (value == null) {
-				// Default: empty string
-				prop.setType("char");
-				prop.setValue("");				
-				blockProperties.add(prop);	
-			} else { 
-				if(value instanceof MatlabString) {
-					prop.setType("char");
-					prop.setValue(value.toString().replaceFirst("'", "").replaceAll("'$", ""));
-				} else if(value instanceof Handle) {
-					prop.setType("handle");
-					prop.setValue(value.toString());
-				} else if (value instanceof CellMatlabData) {
-					prop.setType("cell");
-					prop.setValue(value.toString());
-				} else if(value instanceof StructMatlabData) {
-					prop.setType("struct");
-					prop.setValue(value.toString());
-				}
-				blockProperties.add(prop);
-			} 
-        }
-        
+        Handle blockHandle = traverser.getBlockHandleCache().get(blockFQN);
+        List<Parameter> blockProperties = ParameterHelper.collectParameters(traverser, commandFactory, blockHandle);
         blockToProcess.getParameters().addAll(blockProperties);
-
     }
 
 }

@@ -96,6 +96,7 @@ public class Importer {
     // TODO maps for caching EMF objects now could also be stored in a map for <IVisistableData,Block>
     // TODO maps using Doubles should be replaced
 
+    private Map<String, Handle> blockHandleCache;
     /**
      * Block cache for easier EMF model creation
      */
@@ -268,6 +269,13 @@ public class Importer {
         return shadowInports;
     }
 
+    /**
+     * @return a cache that contains the block FQN - handle mappings
+     */
+    public Map<String, Handle> getBlockHandleCache() {
+        return blockHandleCache;
+    }
+
     /* Caches end */
 
     /* Constants */
@@ -433,6 +441,7 @@ public class Importer {
         this.logger = logger;
         referencedLibraries = new HashMap<String, SimulinkModel>();
         librariesBeingImported = new HashSet<String>();
+        blockHandleCache = new HashMap<String, Handle>();
         
         referencesFolderName = model.getFullyQualifiedName();
 
@@ -794,12 +803,15 @@ public class Importer {
 
         // Get the handle of the model itself
         MatlabCommand getModelHandle = commandFactory.getParam().addParam(modelFQN).addParam("Handle");
-        Double modelHandle = Handle.getHandleData(getModelHandle.execute());
+        IVisitableMatlabData modelHandle = getModelHandle.execute();
+        Double modelHandleValue = Handle.getHandleData(modelHandle);
 
+        blockHandleCache.put(modelFQN, (Handle) modelHandle);
+        
         // Traversing from each block
         for (IVisitableMatlabData currentBlockHandle : CellMatlabData.getCellMatlabDataData(toplevelBlockHandles)) {
             // If the handle refers to the subsystem block we are traversing, continue
-            if (Handle.getHandleData(currentBlockHandle) == modelHandle)
+            if (Handle.getHandleData(currentBlockHandle) == modelHandleValue)
                 continue;
             createBlock(simulinkModel, (Handle) currentBlockHandle);
         }
@@ -865,6 +877,7 @@ public class Importer {
         // Escape the character '/' in the name. It is needed in order to differentiate hierarchy level changes and
         // slashes in names
         blockName = blockName.replace("/", "//");
+        blockHandleCache.put(parentSimulinkElement.getSimulinkRef().getFQN() + '/' + blockName, currentBlockHandle);
 
         // Create the block instance
         Block block = createBlockInstance(blockType, blockName, parentSimulinkElement.getSimulinkRef());
@@ -1187,12 +1200,12 @@ public class Importer {
         Port port;
         // State is a special outport kind
         if ("outport".equalsIgnoreCase(portType) || "state".equalsIgnoreCase(portType)) {
-            port = portAdapter.createPort(parent, portHandle, outPorts);
+            port = portAdapter.createPort(this, parent, portHandle, outPorts);
             createAndSetSimulinkRef("outport." + portNumber.toString(), parent.getSimulinkRef(), port);
             cachedOutPortHandles.put((OutPort) port, Handle.getHandleData(portHandle));
         } else {
             // The case for Inport, Trigger, Enable, Ifact
-            port = portAdapter.createPort(parent, portHandle, inPorts);
+            port = portAdapter.createPort(this, parent, portHandle, inPorts);
             createAndSetSimulinkRef("inport." + portNumber.toString(), parent.getSimulinkRef(), port);
         }
 

@@ -12,16 +12,14 @@
 package hu.bme.mit.massif.simulink.api;
 
 import java.io.File;
-import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.StringJoiner;
 
-import org.eclipse.core.internal.resources.ProjectPathVariableManager;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -45,7 +43,6 @@ import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
-import hu.bme.mit.massif.communication.datavisitor.IMatlabDataVisitor;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusCreator;
 import hu.bme.mit.massif.simulink.BusSelector;
@@ -203,6 +200,7 @@ public class Exporter {
 
         // Save the current directory
         String currentWorkdirectory = MatlabString.getMatlabStringData(commandFactory.cd().execute());
+
         String separator = FileSystems.getDefault().getSeparator();
         String[] savePathSegments;
         if(separator.equals("\\")){
@@ -224,10 +222,10 @@ public class Exporter {
         saveSystem.execute();
 
         // Navigate back to the original working directory
-        String[] workDirSegments = currentWorkdirectory.split("\\\\");
+        String[] workDirSegments = currentWorkdirectory.split(File.separator);
         for (int i = 0; i < workDirSegments.length; i++) {
             String segment = workDirSegments[i];
-            MatlabCommand changeToWorkDir = commandFactory.cd().addParam(segment + "\\");
+            MatlabCommand changeToWorkDir = commandFactory.cd().addParam(segment + File.separator);
             changeToWorkDir.execute();
         }
 
@@ -504,12 +502,15 @@ public class Exporter {
             // Block type specific processing part END
             // //////////////////////////////////////////////////////////
 
-            // Set block dialog/mask parameters
+            // Set block parameters
             EList<Parameter> parameters = block.getParameters();
             boolean isMaskOn = false;
+            StringJoiner joiner = new StringJoiner(";");
             for (Parameter parameter : parameters) {
                 if(parameter.getName().equals("Mask")) {
                     isMaskOn = parameter.getValue().equals("on");
+                    // Ensure that the mask is turned on first
+                    joiner.add(prepareParameterSetterCommand(block, parameter));
                 }
             }
             for (Parameter parameter : parameters) {
@@ -519,11 +520,11 @@ public class Exporter {
                 // Explanation: if the mask is off, mask parameters should be ignored
                 if(!parameter.isReadOnly() && (isMaskOn || !parameter.getName().startsWith("Mask"))) {
                     String commandString = prepareParameterSetterCommand(block, parameter);
-                    ICommandEvaluator commandEvaluator = commandFactory.getCommandEvaluator();
-                    commandEvaluator.evaluateCommand(commandString, 0);
+                    joiner.add(commandString);
                 }
-                // TODO compile command string into a single command - see issue #120
             }
+            ICommandEvaluator commandEvaluator = commandFactory.getCommandEvaluator();
+            commandEvaluator.evaluateCommand(joiner.toString(), 0);
         }
 
         // When there is at least one block on the same level, check that only blocks are there on the same level will be present in the exported model
@@ -558,30 +559,33 @@ public class Exporter {
 
     private String prepareParameterSetterCommand(Block block, Parameter parameter) {
         String commandString = generateSetParamCommandStub(block, parameter);
-        if("char".equals(parameter.getType())) {
-            commandString= commandString.concat("'" + parameter.getValue() + "'");
-            // @formatter\:off
-            // A problematic case: empty string as parameter value
-            // We don't know what the type was originally, so we use try-catch to retry with a different type
-            if (parameter.getValue().equals("")) {
-                commandString = "try " + commandString + "); " +
-                                "catch " +
-                                    "try " + commandString.replaceFirst("''", "") + "cell.empty()); " +
-                                    "catch " +
-                                        "try " + commandString.replaceFirst("''", "") + "[]); " +
-                                        "catch " +
-                                            // TODO add proper logging here
-                                            "fprintf('Failed to set parameter " + parameter.getName() + "'); " +
-                                        "end; " +
-                                    "end; " +
-                                "end";
+        // @formatter\:off
+        // A problematic case: empty string as parameter value
+        // We don't know what the type was originally, so we use try-catch to retry with a different type
+        if (parameter.getValue().equals("")) {
+            commandString = "try " + commandString + "''); " +
+                    "catch " +
+                        "try " + commandString.replaceFirst("''", "") + "cell.empty()); " +
+                        "catch " +
+                            "try " + commandString.replaceFirst("''", "") + "[]); " +
+                            "catch " +
+                                // TODO add proper logging to catch here
+                                "fprintf('Failed to set parameter " + parameter.getName() + "'); " +
+                            "end; " +
+                        "end; " +
+                    "end";
+        }
+        // @formatter\:on
+        else {
+            if("char".equals(parameter.getType())) {
+                commandString= commandString.concat("'" + parameter.getValue() + "'");
             } else {
-                commandString = "try " + commandString + "); catch "+ "fprintf('Failed to set parameter " + parameter.getName() + "'); end ";
+                commandString = commandString.concat(parameter.getValue());
             }
+            // @formatter\:off
+            // TODO add proper logging to catch here
+            commandString = "try " + commandString + "); catch "+ "fprintf('Failed to set parameter " + parameter.getName() + "'); end ";
             // @formatter\:on
-        } else {
-            commandString = commandString.concat(parameter.getValue());
-            commandString = commandString.concat(")");
         }
         return commandString;
     }

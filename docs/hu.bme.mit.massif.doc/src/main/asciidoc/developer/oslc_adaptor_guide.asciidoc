@@ -1,0 +1,44 @@
+= OSLC Adaptor Guide
+This page is intended for developers who want to use the Simulink OSLC adaptor.
+
+== Deploying the OSLC adaptor
+The first step is to deploy the OSLC adaptor on a server of your choice.
+In this guide, I will use http://tomcat.apache.org/[Apache Tomcat] as an example.
+For more information regarding the Apache Tomcat server, please read the http://tomcat.apache.org/tomcat-8.0-doc/index.html[documentation].
+From now on I will assume the MATLAB server is already running.
+To set up a MATLAB server, please read the user guide.
+//TODO link to user guide
+
+. Download the http://tomcat.apache.org/download-80.cgi[Apache Tomcat] server core.
+** Install the downloaded zip via extracting it to the installation directory of your choice.
+** Put the OSLC adaptor `.war` file in the servers "webapp" directory.
+** Rename the `.war` file to change the service location (e.g. `OSLCAdaptor.war` will be found at `http://localhost:8080/OSLCAdaptor`).
+. Create the configuration file.
+** The file should be located in the `.massif` folder in your user directory.
+*** Windows: `%HOMEPATH%/.massif/olscClient.properties`
+*** Linux: `home/<username>/.massif/olscClient.properties`
+** Set up the file with the following options:
+*** `service.address` - The IP address of the MATLAB server.
+*** `service.port` - The port of the MATLAB server.
+*** `service.name` - The name of the MATLAB server.
+*** `log.level` - The level of logging (possible values include ALL, DEBUG, ERROR, FATAL, INFO, TRACE, WARN, OFF).
+*** An example configuration can look something like this:
++
+[source]
+----
+service.name=MatlabModelProviderr2012b21676
+server.address=127.0.0.1
+service.port= 1098
+log.level=WARN
+----
+. Start the tomcat server using the `startup.bat` or `startup.sh` (depending on OS).
+As the server starts, the OSLC adaptor will start logging events depending on the log level specified in the config.
+The log file will be located right next to the configuration file in the `.massif` folder.
+
+With this the OSLC adaptor should be up and running.
+To test if the server is indeed running, you can use any web browser to navigate to `http://localhost:8080/<NameOfTheWarFile>/services/catalog` and the service provider catalog should show up.
+If you have any Simulink models currently open in the MATLAB server the adaptor is connecting to, it should show up in the catalog, you can click on it and explore its contents.
+
+== Client Application for the OSCL Adaptor
+
+How to connect using the OSLC API for the Adaptor is discussed https://github.com/viatra/massif/wiki/OSLCClientExampleDocumentation[here].

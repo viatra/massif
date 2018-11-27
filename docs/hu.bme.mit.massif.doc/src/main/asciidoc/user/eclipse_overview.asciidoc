@@ -1,0 +1,119 @@
+= Massif User Guide
+
+== Introduction
+
+Massif is Matlab Simulink Integration Framework for Eclipse.
+Its purpose is to convert Simulink models to Eclipse-EMF models, and vice versa.
+This guide introduces the main features of the software for end-users.
+It also contains illustrative screenshots in order to ease the learning process and to show configuration settings.
+
+== Installation
+
+As it is mostly apparent from its full name (Matlab Simulink Integration Framework for Eclipse), Massif is an Eclipse-based tool.
+For installing just follow these steps:
+
+* Download an Eclipse product from http://www.eclipse.org/downloads/ or use the https://www.eclipse.org/downloads/download.php?file=/oomph/epp/photon/R/eclipse-inst-linux64.tar.gz[Eclipse installer] for Linux systems.
+* Install EMF-IncQuery or VIATRA Query prerequisites:
+** Check ReadMe to see which version is needed.<<id>>
+//TODO: insert link: https://github.com/viatra/massif#update-site
+* Install Massif components from the update site, see links on ReadMe
+//TODO: insert the same link
+
+Please note that as Massif is using the command line interface of Matlab it is required to have it installed on your computer and it has to be at least version R2012a.
+Additionally, the https://github.com/viatra/massif/blob/master/plugins/hu.bme.mit.massif.simulink.api/scripts/massif_functions.m[Massif functions] need to be on the Matlab path.
+
+Massif supports three different ways to communicate with Matlab:
+
+* *MatlabEngine*:
+this is the official Java API provided for Matlab.
+Massif can connect to an already running Matlab instance if `matlab.engine.shareEngine` is issued.
+* *MatlabControl*:
+this one is based on the open source MatlabControl package.
+Currently, each time a new MATLAB instance is started automatically for each import/export job.
+* *Command Evaluation Server* (in CE Server):
+it runs within the running Matlab instance itself.
+To support this version, an additional server component (called _MatlabServer_) is needed to be downloaded from separate links provided for each version in ReadMe (details on how to set it up is discussed later).
+//TODO: add link to readme.
+
+For more details on how to configure/start Matlab connectors, see this wiki page.
+//TODO: Add link to see this wiki page.
+
+== Model importing and exporting
+
+In terms of Massif we speak about _model import_, when a Simulink model is converted into an EMF representation.
+In case of a reverse process we speak about _model export_.
+The following subsections highlight the importing and exporting capabilities of Massif.
+
+=== Model import
+
+In Massif we defined a specific EMF metamodel for describing the Simulink modeling capabilities.
+This Ecore representation was defined to capture the super structure of the Matlab modeling language and thus provides a general representation for any Matlab systems and library.
+The _importer module_ is responsible to create the EMF instance model based on a single traversal on the original Matlab representation.
+
+How this traversal is configured is defined in the model import preferences in _Window/Preferences/Simulink Preferences/Model Import Preferences_.
+
+image::././img/model_import_preferences.png[Model Import Preferences]
+
+The available options are the followings:
+
+* *Traverse mode*:
+In Simulink there are some modeling possibilities, which make the import process complex, and can lead to unexpectedly long import times, so that these cases require extra attention.
+One of these is the handling of blocks called model reference blocks.
+These can be used to embed an individual Simulink model to another model as though it was a single SubSystem.
+The first three options provide different import techniques for such special model elements:
+** The _Shallow_ mode means that when a model reference block is found, a model reference block is placed in the created EMF model, but the referenced model is not processed.
+** The _Deep_ mode means that for each model reference block a new EMF model is created for the referenced model.
+Those models are saved under the same directory using the name of the referenced Simulink model.
+** The _Flattening_ mode imports model reference blocks as though they were subsystems.
+This means, that the model reference is imported as a subsystem block, and the referenced model components are placed (copied) into the SubSystem.
+** In case of very large models we provide a fourth option that can significantly reduce the import time.
+The _Referencing_ mode provides the following:
+during import all libraries are imported only once (the first they are traversed) and whenever there is a block that has a library reference to an already imported library only a referencing subsytem is created pointing to the corresponding library.
+
+* *Default result model location*:
+This field allows the user to select a default destination path for the imported models.
+* *Import filters to use by default*:
+For further import customization there is a filtering mechanism provided by Massif in addition to the previously introduced import modes.
+The basic idea was to decide whether the internal part of a certain SubSystem should be represented in the imported EMF model or not.
+This feature is usually based a specific _block parameter_ of the SubSystems.
+// TODO add detailed info about the filters (may split into two sections by block and parameter filters)
+* *Additional Matlab Path*:
+Folder paths given here are added to Matlab path prior to model import.
+This setting allows the user to ensure that everything is available for Simulink to properly load the models and access their dependencies.
+* *Startup script names*:
+the scripts set here are executed prior to model import.
+
+To import a model, open the context menu on a `.mdl` or `.slx` file in the package explorer within Eclipse (right click on the file).
+
+image::././img/import_simulink_model.png[Import Simulink Model]
+If no default path is set in preferences a popup window will appear automatically to set the required parameters.
+
+image::././img/import_parameters.png[Import Parameters]
+After the model is imported, a manual refresh might be needed on the destination folder to see the EMF model in the Eclipse package explorer.
+//TODO: bug report
+
+=== Model export
+
+The EMF representation stores all information to build up the Simulink model using only command line model manipulation commands.
+This process is more simple compared to importing, thus there are only basic parameters for configuring this feature on the export preferences page.
+
+image::././img/model_export_preferences.png[Model Export Preferences]
+
+* *Default result model location*:
+This field allows the user to select a default destination path for the exported models.
+* *Simulink model file extension*:
+Type of the output simulink models can be `MDL` or `SLX`.
+* *Additional Matlab Path*:
+Folder paths given here are added to Matlab path prior to model export.
+* *Startup Script names*:
+The scripts set here are run prior to model export.
+
+To start an export, open the context menu for a `.simulink` file in the package explorer (right click on the file).
+The export menu entry is shown in the picture below.
+
+image::././img/export_simulink_model.png[Export Simulink Model]
+If no default export path was set previously on the preferences page, a popup window will appear and the path can be selected.
+
+image::././img/export_parameters.png[Export Parameters]
+Please note that no model with the same name as the exported model should be available on the Matlab path at the time of export.
+This case Matlab would open that model and edit that, instead of creating a new one.

@@ -1,5 +1,6 @@
 = Massif: MATLAB Simulink Integration Framework for Eclipse
 
+
 Massif is a new Eclipse feature to support the easy handling of MATLAB Simulink models by providing import and export capabilities to/from EMF.
 Just to highlight some of its unique features, Massif: 
 
@@ -28,7 +29,6 @@ Please let us know if you use Massif (e.g. open an https://github.com/viatra/mas
 
 == Update site:
 === Prerequisites
-[[id]]
 
 * Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
 * Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/

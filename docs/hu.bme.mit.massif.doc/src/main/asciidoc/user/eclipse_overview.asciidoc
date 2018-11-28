@@ -14,7 +14,7 @@ For installing just follow these steps:
 
 * Download an Eclipse product from http://www.eclipse.org/downloads/ or use the https://www.eclipse.org/downloads/download.php?file=/oomph/epp/photon/R/eclipse-inst-linux64.tar.gz[Eclipse installer] for Linux systems.
 * Install EMF-IncQuery or VIATRA Query prerequisites:
-** Check ReadMe to see which version is needed.<<id>>
+** Check ReadMe to see which version is needed.
 //TODO: insert link: https://github.com/viatra/massif#update-site
 * Install Massif components from the update site, see links on ReadMe
 //TODO: insert the same link

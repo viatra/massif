@@ -1,0 +1,6 @@
+= Install Massif plugin
+
+To install Massif plugin you have to download the source code,
+compile it and then add it to your eclipse environment.
+
+

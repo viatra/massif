@@ -1,24 +1,21 @@
 = Home
 
-Welcome to the Massif wiki! If your are new to the project start with the link:++./overview.asciidoc++[overview].
+Welcome to the Massif wiki! If your are new to the project start with the <<overview#, overview>>.
 
 == For users
-Read the link:++./user/eclipse_overview.asciidoc++[user guide] first.
+Read the <<user/eclipse_overview#, user guide>> first.
 It explains how to use the user interface of the Simulink Importer and Exporter.
 
-The Simulink Ecore Metamodel describes how Massif represents Simulink models in EMF.
-//TODO metamodel description
+The <<user/simulink_ecore_metamodel#, Simulink Ecore Metamodel>> 
+describes how Massif represents Simulink models in EMF.
 
-The API usage guide describes how to build your own applications on Massif.
-//TODO api guide docs
+The <<user/api_usage_example#, API usage guide>> describes how to build your own applications on Massif.
 
-You can also read about our OSLC based Simulink explorer.
-//TODO OSLC docs
+You can also read about our <<user/oslc_adaptor_guide#, OSLC based Simulink explorer>>.
+
 
 == For developers
 
-Read the developer guide on how to contribute to Massif.
-//TODO dev guide
+Read the <<developer/developer_install_guide#, developer guide>> on how to contribute to Massif.
 
-Planning: list of ideas for improvement
-//TODO planning docs
+https://github.com/viatra/massif/wiki/Planning[Planning]: list of ideas for improvement.

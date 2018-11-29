@@ -1,4 +1,4 @@
-= Developer install guide
+= Install guide
 //TODO tested with windows
 
 This page is intended for developers, contributors and anyone who wants to look at the source code

@@ -87,6 +87,7 @@ To save the model in Matlab, an explicit save has to be done:
 exporter.saveSimulinkModel(loadedModel.getSimulinkRef().getFQN(), /*extension as string comes here*/);
 ----
 The extension of the model to save can be `slx` or `mdl`.
+(The default by MATLAB is `slx`).
 Please note, that the save path and save name is already set in the EMF representation,
 so it can be obtained by the `loadedModel.getSimulinkRef().getFQN()` call.
 

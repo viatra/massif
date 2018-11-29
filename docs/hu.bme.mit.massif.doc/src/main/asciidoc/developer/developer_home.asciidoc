@@ -1,0 +1,3 @@
+= Massif developer documentation
+
+<<developer_install_guide#, Install guide>> for developers.

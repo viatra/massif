@@ -32,10 +32,26 @@ image::././img/eclipse_install_target.png[Eclipse target]
 *** Click finish and wait for the downloads and preparations to finish.
 . Once your new and shiny Eclipse starts,
 Oomph will once again pop up a wizard for completing the startup tasks.
-** Just click next and you will have your workspace prepared nice and easy.
+** Just click next and you will have your workspace prepared.
 ** After it completes, click Finish.
+** You have to do some small steps to have your Massif working:
+*** Close the following projects:
+**** `massif-commandevaluation-runtime`
+**** `massif-communication-runtime`
+**** `massif-matlabcontrol-runtime`
+**** `massif-matlabengine`
+**** `massif-simulink-emf`
++
+image::././img/eclipse_install_close_unused_projects.png[Close unused projects]
+*** Right click on `matlab.engine.api.bundle/lib/engine.jar` and open properties.
+Edit the location if its not perfect.
+Usually the `engine.jar` is located in the `$MATLAB_ROOT/extern/engines/java/jar` folder.
+*** Open the `matlab.engine.api.bundle/META-INF/MANIFEST.MF` file,
+and delete the row containing `com.mathworks.util.osgi,`
+*** Clean projects via `Project/Clean...` with the clean all option.
 . Finally, if you want, do some additional optional steps:
-** In the local menu of Package Explorer, set Top level elements to Working sets and click OK on the presented list.
+** In the local menu of Package Explorer,
+set Top level elements to Working sets and click OK on the presented list.
 ** Open the following views (with Window/Show view):
 *** Mylyn: Task lists, Builds (if you added the Mylyn and Sonar subproject)
 *** Git: Git repositories

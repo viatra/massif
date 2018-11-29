@@ -1,30 +1,37 @@
 = API Usage Example
 
-To demonstrate the programmatic use of the Massif API, an introductory example project is placed under the `massif/examples/hu.bme.mit.massif.examples.api` project.
+To demonstrate the programmatic use of the Massif API, an introductory example project is placed under the
+`massif/examples/hu.bme.mit.massif.examples.api` project.
 In the following sections code fragments are from the corresponding example classes.
 
 == Prerequisites
 
-In order to successfully use the Importer or the Exporter, some other components has to be created first, namely:
+In order to successfully use the Importer (`ImporterExample` class) or the Exporter (`ExporterExample` class),
+some other components has to be created first in both classes, namely:
 
 * command evaluator
 * command factory
 
-In the followings an example shows their creation, and there is also an explained example for using both the importer and exporter.
+In the followings an example shows their creation,
+and there is also an explained example for using both the importer and exporter.
 
 === Command evaluator
 
-In order to be able to execute commands in Matlab, a command evaluator has to be created first: 
+In order to be able to execute commands in Matlab, a command evaluator has to be created first.
+In the example we use helper method to do this work, but the main logic can be written in one line:
 [source, java]
 ----
 ICommandEvaluator commandEvaluator = new CommandEvaluatorImpl(new MatlabClient(hostAddress, hostPort, serviceName)); 
 ----
-This provides low level command evaluation, like sending commands to Matlab in form of strings and receiving the results in array of objects.
-It is recommended to use the CommandFactory instead for executing commands.
+This provides low level command evaluation,
+like sending commands to Matlab in form of strings and receiving the results in array of objects.
+It is recommended to use the `CommandFactory` instead for executing commands.
 
 === Command factory
 
-To wrap low level Matlab commands a command factory is provided, which can be used to create objects that represent common commands in Matlab, and have methods like parameter addition, execution initiation.
+To wrap low level Matlab commands a command factory is provided,
+which can be used to create objects that represent common commands in Matlab,
+and have methods like parameter addition, execution initiation.
 The factory is to be instantiated in the following way using the previously provided command evaluator: 
 [source, java]
 ----
@@ -32,7 +39,6 @@ MatlabCommandFactory factory = new MatlabCommandFactory(commandEvaluator);
 ----
 
 == Importer API example
-//TODO outdated!!!
 
 The creation of the importer is shown below:
 [source, java]
@@ -40,24 +46,27 @@ The creation of the importer is shown below:
 ModelObject model = new ModelObject(modelName, commandEvaluator);
 model.setLoadPath(modelPath);
 
+model.registerApplicableFilters("famfilter");
+
 Importer importer = new Importer(model);
 ----
 First a `ModelObject` is created that represents a model in Simulink.
-It is parameterized with the model name string and an assigned command evaluator, that is used throughout the import process of the model.
+It is parameterized with the model name string and an assigned command evaluator,
+that is used throughout the import process of the model.
+Then the path to the containing folder of the model and the chosen filter is set on the model object.
+In the example, "famfilter" refers to a filter that skips importing the subblocks of subsystems with Tag value of "FAM Leaf".
+And after initializing the model object an `Importer` object is created.
 [source, java]
 ----
-model.registerApplicableFilters("famfilter");
 importer.traverseAndCreateEMFModel(ImportMode.FLATTENING);
 ----
-The before the import filters can be registered to the ModelObject.
-They can be used to exclude some blocks from being exported. In the example, "famfilter" refers to a filter that skips importing the subblocks of subsystems with Tag value of "FAM Leaf".
 
 The import process is then initiated with the `traverseAndCreateEMFModel` method of the importer.
 
 The model is not persisted until an explicit save was done like in the following:
 [source, java]
 ----
-importer.saveEMFModel(/*Name of the imported model*/);
+importer.saveEMFModel(/*Name of the imported model as string comes here*/);
 ----
 
 == Exporter API example
@@ -75,9 +84,11 @@ It simply loads the EMF representation from the specified location, then exports
 To save the model in Matlab, an explicit save has to be done:
 [source, java]
 ----
-exporter.saveSimulinkModel(loadedModel.getSimulinkRef().getFQN());
+exporter.saveSimulinkModel(loadedModel.getSimulinkRef().getFQN(), /*extension as string comes here*/);
 ----
-Please note, that the save path and save name is already set in the EMF representation, so it can be obtained by the `loadedModel.getSimulinkRef().getFQN()` call.
+The extension of the model to save can be `slx` or `mdl`.
+Please note, that the save path and save name is already set in the EMF representation,
+so it can be obtained by the `loadedModel.getSimulinkRef().getFQN()` call.
 
 
 

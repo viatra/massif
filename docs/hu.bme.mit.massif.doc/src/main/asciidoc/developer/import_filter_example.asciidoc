@@ -5,7 +5,7 @@
 An https://github.com/viatra/massif/tree/master/examples/hu.bme.mit.massif.examples.filter[example here]
 is provided to demonstrate the definition and usage of a custom import filter.
 
-== Documentation for the example
+=== Documentation for the example
 
 As it is briefly described <<api_usage_example#, here>>,
 import filters can be used to drive the import process by selecting which SubSystem blocks should be
@@ -20,25 +20,25 @@ For an import job arbitrary number of filters can be registered.
 In the following we discuss the definition/usage of an import filter using
 the uploaded example source code.
 
-== Create an Eclipse plug-in project
+=== Create an Eclipse plug-in project
 
 Filters are registered to Massif using the extension mechanism of Eclipse.
-To use this platform service, we created an Eclipse plug-in project
-- the example project it is called `hu.bme.mit.massif.examples.filter`.
+To use this platform service, we created an Eclipse plug-in project,
+the example project it is called `hu.bme.mit.massif.examples.filter`.
 
 We added the following projects to the list of required bundles in the project's `MANIFEST.MF` file:
 
 * `hu.bme.mit.massif.simulink.api`
 * `hu.bme.mit.massif.communication`
 
-== Create an extension
+=== Create an extension
 
 We created a `filter` extension to the extension point with ID
 `hu.bme.mit.massif.simulink.api.import.filters`. (See `plugin.xml`).
 We provided a unique identifier and created an implementation class to the interface
 `IBlockImportFilter` called `MaskFilter`.
 
-== Implement the filter interface
+=== Implement the filter interface
 
 Due to technical requirements, a public constructor without parameters must be implemented
 in the filter class (can have an empty body, like in the example).
@@ -55,7 +55,7 @@ or not (value `false` is returned).
 The received `commandFactory` can be used to execute commands within Matlab,
 allowing the filter to query the parameters of the blocks.
 
-== Usage of the filter
+=== Usage of the filter
 
 When the filter is successfully created and the plug-in is loaded and started within Eclipse,
 the filter appears in the preference page under 

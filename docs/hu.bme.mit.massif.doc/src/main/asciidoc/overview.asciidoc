@@ -89,8 +89,9 @@ Massif provides two basic model conversion functions:
 To use these features, choose a MATLAB provider.
 At this point you can choose between
 
-* MatlabControl, an existing MATLAB connector (https://github.com/jakaplan/matlabcontrol[GitHub page])
+* MatlabEngine, the official Java API provided for MATLAB.
 * Command Evaluation Server, which is provided as part of Massif.
+* MatlabControl, an existing MATLAB connector (https://github.com/jakaplan/matlabcontrol[GitHub page]).
 
 The functions are available in the context menu commands of `.mdl`, `.slx` and `.simulink` files
 (right click on the files in `Package Explorer`) called `Import Simulink Model` and `Export Simulink Model`.

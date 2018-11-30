@@ -1,32 +1,32 @@
-= Matlab Connectors
+= MATLAB Connectors
 
 A possible way to work with Simulink is to parse the persisted model files.
 As a well known major problem with this approach is that the format of the serialized models might change over time
 (e.g., in 2012 suddenly the `.slx` format became default instead of the `.mdl`),
-causing extensive additional work to adapt to these changes for tools based on parsing serialized Matlab file formats.
-For this reason, Massif uses the Java interface of a running Matlab and discovers the model using Simulink model
-specific Matlab commands.
+causing extensive additional work to adapt to these changes for tools based on parsing serialized MATLAB file formats.
+For this reason, Massif uses the Java interface of a running MATLAB and discovers the model using Simulink model
+specific MATLAB commands.
 This way it is independent from the format of the files in which models are stored.
-However, it requires at least one running Matlab instance to work.
-Currently, three Matlab Connectors are supported:
+However, it requires at least one running MATLAB instance to work.
+Currently, three MATLAB Connectors are supported:
 
-* *MatlabEngine*:
-this is the official Java API provided for Matlab.
-Massif can connect to an already running Matlab instance if `matlab.engine.shareEngine` is issued.
-* *MatlabControl*:
-this one is based on the open source MatlabControl package.
-Currently, each time a new MATLAB instance is started automatically for each import/export job.
-//TODO ezt át kell írni jóra!
-* *Command Evaluation Server* (in CE Server):
-it runs within the running Matlab instance itself.
+* <<#me, *MatlabEngine*>>:
+this is the official Java API provided for MATLAB.
+Massif can connect to an already running MATLAB instance if `matlab.engine.shareEngine` is issued.
+* <<#ces, *Command Evaluation Server*>> *(in CE Server)*:
+it runs within the running MATLAB instance itself.
 To support this version, an additional server component (called _MatlabServer_) is needed to be downloaded
-from separate links provided for each version in ReadMe (details on how to set it up is discussed later).
+from separate links provided for each version in the <<./overview#, overview>> (details on how to set it up is discussed later).
 //TODO: add link to readme.
+* <<#mc, *MatlabControl*>>:
+this one is based on the open source MatlabControl package.
+Currently, it starts one MATLAB instance, and doesn't close it.
 
-== Matlab Engine
+[[me]]
+== MatlabEngine
 
 Recent versions of MATLAB come with an official https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html[Java API].
-Starting from Massif version 0.7.0, you can use this as the connector for Matlab.
+Starting from Massif version 0.7.0, you can use this as the connector for MATLAB.
 
 To do so, you need to
 
@@ -45,6 +45,7 @@ If you would like to use the matlabengine connector from plain java application,
 In this case, _MATLABROOT_ must be set as an environmental variable pointing to your MATLAB root folder
 containing the `/bin` folder (for example: C:\Program Files\MATLAB\R2018b).
 
+[[ces]]
 == Command Evaluation Server (MatlabServer)
 
 Another option is to use an RMI client-server based solution to execute MATLAB commands programmatically.
@@ -52,7 +53,7 @@ This option can be selected under the preference page shown in the figure below.
 
 image::././img/command_evaluation_server.png[Command Evaluation Server]
 
-This allows connection to an already running Matlab session.
+This allows connection to an already running MATLAB session.
 In order to do so, a _MatlabServer_ has to be started from within MATLAB.
 After you downloaded the
 https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/[zip]
@@ -70,13 +71,13 @@ Configuration path not provided, considering the following path: PATH\matlabserv
 Host address = 127.0.0.1
 Host port: 1098
 Debug mode: null
-Starting Matlab RMI Server...
+Starting MATLAB RMI Server...
 
 Address = 127.0.0.1
 port = 1098
-serviceName = MatlabModelProviderr2012a480
+serviceName = MATLABModelProviderr2012a480
 
-Matlab RMI Server Started!
+MATLAB RMI Server Started!
 ----
 
 Copy the service name into the 'Service name' field in the `Simulink Preferences` window.
@@ -88,9 +89,10 @@ Please note, that the Command Evaluation Server-based approach is currently only
 
 === Enable debug mode
 Open the `matlabserverconfig.properties` file (next to the setup-remote script) and uncomment the `debug = true` line.
-If this property is set, the Matlab console will print each executed command and you may be able to solve some issues
+If this property is set, the MATLAB console will print each executed command and you may be able to solve some issues
 that are hard to debug on the client side.
 
+[[mc]]
 == MatlabControl
 
 Another option is to use the open source https://code.google.com/p/matlabcontrol/[MatlabControl] Java API
@@ -100,8 +102,8 @@ This is integrated to Massif, the user can select this in Eclipse under the _Win
 image::././img/matlab_control_preferences.png[MatlabControl]
 
 This connector handles MATLAB sessions itself.
-Currently it operates the following way: opens a new MATLAB instance, executes the required commands,
-and after its job is finished closes MATLAB. +
+Currently it operates the following way: opens a new MATLAB instance at the first call and executes all the required commands
+in this instance. +
 To use this connector you also have to execute the
 `addpath(%MASSIF_LOCATION%\git\massif\plugins\hu.bme.mit.massif.simulink.api\scripts')`
 command to add MATLAB scripts used by Massif to your MATLAB workspace. +
@@ -109,5 +111,5 @@ Connection or reconnection to a running MATLAB session is not supported with thi
 
 *Important*: If you use additional libraries in Simulink, you will have to make sure the 
 https://github.com/viatra/massif/blob/master/plugins/hu.bme.mit.massif.simulink.api/scripts/massif_functions.m[massif_functions.m]
-script is on the Matlab search path when you are running the import
+script is on the MATLAB search path when you are running the import
 (see https://github.com/viatra/massif/issues/80#issuecomment-393805561[issue #80] for details).

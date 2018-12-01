@@ -30,7 +30,6 @@ Export-Package: com.mathworks.engine,
  com.mathworks.util.jarloader,
  com.mathworks.util.logger,
  com.mathworks.util.logger.impl,
- com.mathworks.util.osgi,
  com.mathworks.util.tree,
  com.mathworks.util.types
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

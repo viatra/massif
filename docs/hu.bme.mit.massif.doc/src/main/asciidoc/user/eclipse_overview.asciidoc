@@ -63,11 +63,13 @@ The basic idea was to decide whether the internal part of a certain SubSystem sh
 or not.
 This feature is usually based a specific _block parameter_ of the SubSystems.
 The folllowing filters are implemented:
-** _Library filter_: This filter allows to skip traversal of atomic library blocks inside a library model.
+** _Block import filters_ are working on block level:
+*** _Library filter_: This filter allows to skip traversal of atomic library blocks inside a library model.
 Such blocks are not represented graphically by the tree view of the Simulink Library Browser in Matlab.
-** _FAM filter_: This filters all internal blocks of subsystems with `Tag` parameter value of `FAM_Leaf`.
-** _Ignore all parameters filter_: This filter makes the importer skip all block parameters.
-** _Read-only parameter filter_: This filter makes the importer skip parameters that are read only.
+** _Parameter import filters_ are working on parameters inside of blocks:
+*** _FAM filter_: This filters all internal blocks of subsystems with `Tag` parameter value of `FAM_Leaf`.
+*** _Ignore all parameters filter_: This filter makes the importer skip all block parameters.
+*** _Read-only parameter filter_: This filter makes the importer skip parameters that are read only.
 * *Additional MATLAB Path*:
 Folder paths given here are added to MATLAB path prior to model import.
 This setting allows the user to ensure that everything is available for Simulink to properly load the models

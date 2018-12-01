@@ -4,6 +4,9 @@
 This page is intended for developers, contributors and anyone who wants to look at the source code
 in the development environment used for working on the tool.
 
+_Please note that this tutorial is for Windows system._
+_If you want to add description for other systems you can do it via pull requests on this file, or you can submit a new issue._ 
+
 We recommend using https://projects.eclipse.org/projects/tools.oomph[Oomph] for deploying a new Massif environment,
 because it's awesome!
 

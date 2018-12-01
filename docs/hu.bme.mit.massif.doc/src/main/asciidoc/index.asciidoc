@@ -4,25 +4,21 @@ Welcome to the Massif wiki! If your are new to the project start with the <<over
 
 == For users
 
-To install Massif first read the <<install_guide#, install guide>>.
+To *install* Massif first read the <<user/install_guide#, install guide>>.
 
 If Massif is installed you have to build connection between Massif and Matlab.
-The options to do this are described in <<matlab_connectors#, this page>>.
+*Matlab connectors* are described in <<user/matlab_connectors#, this page>>.
 
+The *user interface* of Massif is described <<eclipse_overview#, here>>.
 
-The user interface of Massif is described <<eclipse_overview#, here>>.
+There is an example about import *filters* <<user/import_filter_example#, here>>.
 
-The <<user/api_usage_example#, API usage guide>> describes how to build your own applications on Massif.
+The <<user/api_usage_example#, *API usage guide*>> describes how to build your own applications on Massif.
 
-The <<user/simulink_ecore_metamodel#, Simulink Ecore Metamodel>> 
+The <<user/simulink_ecore_metamodel#, *Simulink Ecore Metamodel*>> 
 describes how Massif represents Simulink models in EMF.
-
-You can also read about our <<user/oslc_adaptor_guide#, OSLC based Simulink explorer>>.
 
 
 == For developers
-
-Read the <<developer/developer_install_guide#, contributor guide>> on how to contribute to Massif.
-//TODO create contributor guide
 
 https://github.com/viatra/massif/wiki/Planning[Planning]: list of ideas for improvement.

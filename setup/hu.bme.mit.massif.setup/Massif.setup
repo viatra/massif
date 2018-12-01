@@ -129,7 +129,9 @@
       xsi:type="projects:ProjectsImportTask">
     <sourceLocator
         rootFolder="${git.clone.massif.location}"
-        locateNestedProjects="true"/>
+        locateNestedProjects="true">
+      <excludedPath>maven</excludedPath>
+    </sourceLocator>
   </setupTask>
   <setupTask
       xsi:type="setup.workingsets:WorkingSetTask">

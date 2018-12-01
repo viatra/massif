@@ -7,9 +7,9 @@
         <artifactId>hu.bme.mit.massif.parent</artifactId>
         <groupId>hu.bme.mit.massif</groupId>
         <version>0.7.0-SNAPSHOT</version>
-        <relativePath>../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
+        <relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
     </parent>
-    <artifactId>hu.bme.mit.massif.docs.help</artifactId>
+    <artifactId>hu.bme.mit.massif.doc</artifactId>
     <packaging>eclipse-plugin</packaging>
     <properties>
         <asciidoc.highligher>coderay</asciidoc.highligher>

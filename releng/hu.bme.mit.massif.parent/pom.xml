@@ -65,7 +65,7 @@
 		<module>../../maven/massif-matlabengine</module>
 		
 		<!--  Documentation -->
-		<module>../../docs/asciidoc</module>
+		<module>../../docs/hu.bme.mit.massif.doc</module>
 
 		
 	</modules>

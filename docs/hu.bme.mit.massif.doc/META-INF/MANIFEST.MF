@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Massif Documentation
-Bundle-SymbolicName: hu.bme.mit.massif.docs.help
+Bundle-SymbolicName: hu.bme.mit.massif.doc
 Bundle-Version: 0.7.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: .

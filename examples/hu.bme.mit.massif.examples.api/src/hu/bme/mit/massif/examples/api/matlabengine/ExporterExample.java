@@ -7,13 +7,14 @@
  *
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Krisztian Gabor Mayer - additional features     
  *******************************************************************************/
-package hu.bme.mit.massif.examples.api;
+package hu.bme.mit.massif.examples.api.matlabengine;
 
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
-import hu.bme.mit.massif.examples.api.common.MassifExampleHelper;
-import hu.bme.mit.massif.examples.api.settings.ExporterExampleSettings;
+import hu.bme.mit.massif.communication.matlabcontrol.MatlabControlEvaluator;
+import hu.bme.mit.massif.communication.matlabengine.MatlabEngineEvaluator;
 import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.api.Exporter;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
@@ -42,7 +43,7 @@ public class ExporterExample {
 
 	@Before
 	public void initializeCommandEvaluator() throws MatlabRMIException, EngineException, SimulinkApiException, InterruptedException {
-		commandEvaluator = MassifExampleHelper.createCommandEvaluator();
+	    commandEvaluator = new MatlabEngineEvaluator(MatlabEngineExampleSettings.PRINT_ISSUED_COMMANDS);
 	}
 
 	@Test
@@ -51,8 +52,8 @@ public class ExporterExample {
 		MatlabCommandFactory commandFactory = new MatlabCommandFactory(commandEvaluator);
 
 		// EMF model to read and export
-		String modelPath = ExporterExampleSettings.EMF_MODEL_PATH;
-		String modelName = ExporterExampleSettings.EMF_MODEL_NAME;
+		String modelPath = MatlabEngineExampleSettings.EMF_MODEL_PATH;
+		String modelName = MatlabEngineExampleSettings.EMF_MODEL_NAME;
 
 		Exporter exporter = new Exporter();
 		SimulinkModel loadedModel = exporter.loadSimulinkModel(modelPath + modelName);

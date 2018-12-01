@@ -7,28 +7,21 @@
  *
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Krisztian Gabor Mayer - additional features     
  *******************************************************************************/
-package hu.bme.mit.massif.examples.api;
+package hu.bme.mit.massif.examples.api.matlabengine;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.net.URLClassLoader;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import com.mathworks.engine.EngineException;
-import com.mathworks.matlab.types.Struct;
-
 import br.com.embraer.massif.commandevaluation.exception.MatlabRMIException;
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
-import hu.bme.mit.massif.examples.api.common.MassifExampleHelper;
-import hu.bme.mit.massif.examples.api.settings.ImporterExampleSettings;
+import hu.bme.mit.massif.communication.matlabcontrol.MatlabControlEvaluator;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
@@ -43,12 +36,11 @@ import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
  *
  */
 public class ImporterExample {
-
 	private ICommandEvaluator commandEvaluator;
 
 	@Before
 	public void initializeCommandEvaluator() throws MatlabRMIException, EngineException, SimulinkApiException, InterruptedException {
-		commandEvaluator = MassifExampleHelper.createCommandEvaluator();
+	    commandEvaluator = new MatlabControlEvaluator(MatlabEngineExampleSettings.MATLAB_PATH, MatlabEngineExampleSettings.PRINT_ISSUED_COMMANDS);
 	}
 
 	@Test
@@ -56,8 +48,8 @@ public class ImporterExample {
 		
 		MatlabCommandFactory factory = new MatlabCommandFactory(commandEvaluator);
 
-		String modelPath = ImporterExampleSettings.SIMULINK_MODEL_PATH;
-		String modelName = ImporterExampleSettings.SIMULINK_MODEL_NAME;
+		String modelPath = MatlabEngineExampleSettings.SIMULINK_MODEL_PATH;
+		String modelName = MatlabEngineExampleSettings.SIMULINK_MODEL_NAME;
 
 		System.out.println("Importing model: " + modelPath + modelName);
 
@@ -66,7 +58,7 @@ public class ImporterExample {
 		addModelPath.execute();
 
 		// Model name to save the imported Simulink library
-		String importedModelName = ImporterExampleSettings.OUTPUT_DIRECTORY + File.separator + modelName;
+		String importedModelName = MatlabEngineExampleSettings.OUTPUT_DIRECTORY + File.separator + modelName;
 
 		ModelObject model = new ModelObject(modelName, commandEvaluator);
 		model.setLoadPath(modelPath);
@@ -75,7 +67,7 @@ public class ImporterExample {
 		model.registerApplicableFilters("famfilter");
 
 		Importer importer = new Importer(model);
-		importer.traverseAndCreateEMFModel(ImporterExampleSettings.IMPORT_MODE);
+		importer.traverseAndCreateEMFModel(MatlabEngineExampleSettings.IMPORT_MODE);
 		importer.saveEMFModel(importedModelName);
 
 		MatlabCommand closeSystem = factory.closeSystem();

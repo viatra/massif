@@ -69,7 +69,7 @@ pipeline {
             archiveArtifacts 'releng/hu.bme.mit.massif.site/target/repository/**'
             archiveArtifacts 'releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip'
             archiveArtifacts 'releng/hu.bme.mit.massif.simulink.cli-package/hu.bme.mit.massif.simulink.cli-example.zip'
-			archiveArtifacts 'docs/hu.bme.mit.massif.doc/html'
+			archiveArtifacts 'docs/hu.bme.mit.massif.doc/html/**'
    		}
         success {
             slackSend channel: "massif-notifications", 

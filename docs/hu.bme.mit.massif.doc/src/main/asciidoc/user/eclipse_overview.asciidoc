@@ -1,4 +1,5 @@
 = Massif User Guide
+:imagesdir: ../images
 
 == Introduction
 

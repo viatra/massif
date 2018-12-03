@@ -13,7 +13,7 @@ It also contains illustrative screenshots in order to ease the learning process 
 To install Massif follow the steps described in the <<install_guide#, install guide>>.
 
 If Massif is installed you have to build connection between Massif and MATLAB.
-The options to do this are described in <<matlab_connectors# this page>>.
+The options to do this are described in <<matlab_connectors#, this page>>.
 
 == Model importing and exporting
 
@@ -51,7 +51,7 @@ This means, that the model reference is imported as a subsystem block,
 and the referenced model components are placed (copied) into the SubSystem.
 ** In case of very large models we provide a fourth option that can significantly reduce the import time.
 The _Referencing_ mode provides the following:
-during import all libraries are imported only once (the first they are traversed) and whenever there is a block
+during the import all libraries are imported only once (the first they are traversed) and whenever there is a block
 that has a library reference to an already imported library only a referencing subsytem
 is created pointing to the corresponding library.
 
@@ -67,8 +67,8 @@ The folllowing filters are implemented:
 ** _Block import filters_ are working on block level:
 *** _Library filter_: This filter allows to skip traversal of atomic library blocks inside a library model.
 Such blocks are not represented graphically by the tree view of the Simulink Library Browser in Matlab.
-** _Parameter import filters_ are working on parameters inside of blocks:
 *** _FAM filter_: This filters all internal blocks of subsystems with `Tag` parameter value of `FAM_Leaf`.
+** _Parameter import filters_ are working on parameters inside of blocks:
 *** _Ignore all parameters filter_: This filter makes the importer skip all block parameters.
 *** _Read-only parameter filter_: This filter makes the importer skip parameters that are read only.
 * *Additional MATLAB Path*:
@@ -78,7 +78,7 @@ and access their dependencies.
 * *Startup script names*:
 the scripts set here are executed prior to model import.
 
-To import a model, open the context menu on a `.mdl` or `.slx` file in the package explorer within Eclipse
+To import a model, open the context menu of an `.mdl` or `.slx` file in the package explorer within Eclipse
 (right click on the file).
 
 image::import_simulink_model.png[Import Simulink Model]
@@ -105,7 +105,7 @@ Folder paths given here are added to MATLAB path prior to model export.
 * *Startup Script names*:
 The scripts set here are run prior to model export.
 
-To start an export, open the context menu for a `.simulink` file in the package explorer (right click on the file).
+To start an export, open the context menu of a `.simulink` file in the package explorer (right click on the file).
 The export menu entry is shown in the picture below.
 
 image::export_simulink_model.png[Export Simulink Model]

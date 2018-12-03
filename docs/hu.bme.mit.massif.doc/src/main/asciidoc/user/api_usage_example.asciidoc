@@ -54,7 +54,7 @@ First a `ModelObject` is created that represents a model in Simulink.
 It is parameterized with the model name string and an assigned command evaluator,
 that is used throughout the import process of the model.
 Then the path to the containing folder of the model and the chosen filter is set on the model object.
-In the example, "famfilter" refers to a filter that skips importing the subblocks of subsystems with Tag value of "FAM Leaf".
+In the example, `famfilter` refers to a filter that skips importing the subblocks of subsystems with Tag value of "FAM Leaf".
 And after initializing the model object an `Importer` object is created.
 [source, java]
 ----
@@ -90,28 +90,3 @@ The extension of the model to save can be `slx` or `mdl`.
 (The default by MATLAB is `slx`).
 Please note, that the save path and save name is already set in the EMF representation,
 so it can be obtained by the `loadedModel.getSimulinkRef().getFQN()` call.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

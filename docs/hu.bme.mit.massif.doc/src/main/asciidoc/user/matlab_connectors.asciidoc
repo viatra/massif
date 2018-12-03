@@ -21,7 +21,7 @@ from separate links provided for each version in the <<./overview#, overview>> (
 //TODO: add link to readme.
 * <<#mc, *MatlabControl*>>:
 this one is based on the open source MatlabControl package.
-Currently, it starts one MATLAB instance, and doesn't close it.
+Currently, it starts one MATLAB instance and doesn't close it.
 
 [[me]]
 == MatlabEngine
@@ -83,7 +83,7 @@ MATLAB RMI Server Started!
 
 Copy the service name into the 'Service name' field in the `Simulink Preferences` window.
 Execute `addpath(%MASSIF_LOCATION%\git\massif\plugins\hu.bme.mit.massif.simulink.api\scripts')`
-command to add MATLAB scripts used by Massif to your MATLAB workspace.
+command in MATLAB to add scripts used by Massif to your MATLAB workspace.
 
 After this setup, the importer is ready to use.
 Please note, that the Command Evaluation Server-based approach is currently only available for Windows.

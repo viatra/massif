@@ -6,12 +6,12 @@ Welcome to the Massif wiki! If your are new to the project start with the <<over
 
 To *install* Massif first read the <<user/install_guide#, install guide>>.
 
-If Massif is installed you have to build connection between Massif and Matlab.
-*Matlab connectors* are described in <<user/matlab_connectors#, this page>>.
+If Massif is installed you have to build connection between Massif and MATLAB.
+*MATLAB connectors* are described in <<user/matlab_connectors#, this page>>.
 
-The *user interface* of Massif is described <<eclipse_overview#, here>>.
+The *user interface* of Massif is described <<uesr/eclipse_overview#, here>>.
 
-There is an example about import *filters* <<user/import_filter_example#, here>>.
+There is an example about *import filters* <<user/import_filter_example#, here>>.
 
 The <<user/api_usage_example#, *API usage guide*>> describes how to build your own applications on Massif.
 

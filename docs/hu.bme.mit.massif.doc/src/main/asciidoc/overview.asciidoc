@@ -12,7 +12,7 @@ and provide the type information as defined in MATLAB using library links.
 automatically translated into the required fqn format as used within MATLAB Simulink.
 
 Please note that importing and exporting is done using the command line interface of MATLAB
-(and not by directly parsing the mdl or slx files), which is the API recommended by MathWorks
+(and not by directly parsing the `.mdl` or `.slx` files), which is the API recommended by MathWorks
 for accessing Simulink model information.
 As a consequence, for using the bridge you must have an installed MATLAB Simulink instance
 (with the appropriate licence) on your computer.
@@ -75,9 +75,8 @@ https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild
 
 It is required to have the following tools:
 
-* Eclipse with Massif and prerequisites installed
+* Eclipse with Massif and prerequisites <<user/insatall_guide#, installed>>.
 * MATLAB (recommended r2012a or later)
-Details on the wiki
 
 == II. Usage
 
@@ -96,8 +95,6 @@ At this point you can choose between
 The functions are available in the context menu commands of `.mdl`, `.slx` and `.simulink` files
 (right click on the files in `Package Explorer`) called `Import Simulink Model` and `Export Simulink Model`.
 
-A detailed user guide is available in the wiki.
-
 The EclipseCon 2015 demo is available from https://github.com/viatra/massif/wiki/EclipseCon2015[here] with its
 video presentation from https://www.youtube.com/watch?v=6mv4m5UT9YE[here].
 
@@ -105,10 +102,10 @@ video presentation from https://www.youtube.com/watch?v=6mv4m5UT9YE[here].
 
 If you run into any problems or have questions, do the following:
 
-. Read the https://github.com/viatra/massif/wiki[wiki]
-. Look at the open and closed https://github.com/viatra/massif/issues[issues]
+. Read the https://github.com/viatra/massif/wiki[wiki].
+. Look at the open and closed https://github.com/viatra/massif/issues[issues].
 If you need more help, open a https://github.com/viatra/massif/issues/new[new issue] describing your problem.
 
 == III. Contributing
 
-We welcome contributors, read the https://github.com/viatra/massif/wiki/Developer-Guide[Developer Guide] for setting up shop!
+We welcome contributors, read the <<user/install_guide#, Developer Guide>> for setting up shop!

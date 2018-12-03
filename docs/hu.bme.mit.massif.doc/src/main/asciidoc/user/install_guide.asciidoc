@@ -4,7 +4,7 @@
 This page is intended for developers, contributors and anyone who wants to look at the source code
 in the development environment used for working on the tool.
 
-_Please note that this tutorial is for Windows system._
+_Please note that this tutorial works for Windows systems._
 _If you want to add description for other systems you can do it via pull requests on this file, or you can submit a new issue._ 
 
 We recommend using https://projects.eclipse.org/projects/tools.oomph[Oomph] for deploying a new Massif environment,
@@ -17,7 +17,7 @@ image::eclipse_installer_advanced_mode.png[Advanced mode]
 ** On the next page choose Eclipse IDE for Eclipse Committers.
 *** NOTE: VIATRA 2.0 has a conflicting dependency with Eclipse Parsley.
 For this reason, select a product that does not have Parsley added by default.
-Unfortunately, Eclipse Modeling SDK has parsley installed.
+Unfortunately, Eclipse Modeling SDK has Parsley installed.
 ** On the projects page click the green plus button, select `Github Projects` enter
 `https://raw.githubusercontent.com/viatra/massif/master/setup/hu.bme.mit.massif.setup/Massif.setup` and click OK
 +

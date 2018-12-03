@@ -13,7 +13,7 @@ because it's awesome!
 . Download and run the https://wiki.eclipse.org/Eclipse_Installer[Eclipse installer] for your operating system.
 ** On the first page choose advanced mode through the setting button in the right up corner.
 +
-image::././img/eclipse_installer_advanced_mode.png[Advanced mode]
+image::img/eclipse_installer_advanced_mode.png[Advanced mode]
 ** On the next page choose Eclipse IDE for Eclipse Committers.
 *** NOTE: VIATRA 2.0 has a conflicting dependency with Eclipse Parsley.
 For this reason, select a product that does not have Parsley added by default.
@@ -21,16 +21,16 @@ Unfortunately, Eclipse Modeling SDK has parsley installed.
 ** On the projects page click the green plus button, select `Github Projects` enter
 `https://raw.githubusercontent.com/viatra/massif/master/setup/hu.bme.mit.massif.setup/Massif.setup` and click OK
 +
-image::././img/eclipse_install_add_github_project.png[Add Github Project]
+image::img/eclipse_install_add_github_project.png[Add Github Project]
 ** Double click on Massif under `Github.com/<User>`,
 you will see the master stream selected in the bottom table, click Next.
 +
-image::././img/eclipse_install_select_massif.png[Select Massif]
+image::img/eclipse_install_select_massif.png[Select Massif]
 *** Note that checking the checkbox will add the optional subprojects (`Mylyn and Sonar`) as well.
 ** On the next page, fill out the missing variables.
 *** Set the target platform `Eclipse Oxygen - 4.7` or `Eclipse Photon - 4.8`.
 +
-image::././img/eclipse_install_target.png[Eclipse target]
+image::img/eclipse_install_target.png[Eclipse target]
 *** On the next page you can see the tasks that will be executed.
 *** Click finish and wait for the downloads and preparations to finish.
 . Once your new and shiny Eclipse starts,
@@ -45,7 +45,7 @@ Oomph will once again pop up a wizard for completing the startup tasks.
 **** `massif-matlabengine`
 **** `massif-simulink-emf`
 +
-image::././img/eclipse_install_close_unused_projects.png[Close unused projects]
+image::img/eclipse_install_close_unused_projects.png[Close unused projects]
 *** Right click on `matlab.engine.api.bundle/lib/engine.jar` and open properties.
 Edit the location if its not perfect.
 Usually the `engine.jar` is located in the `$MATLAB_ROOT/extern/engines/java/jar` folder.

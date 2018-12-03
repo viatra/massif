@@ -51,7 +51,7 @@ containing the `/bin` folder (for example: C:\Program Files\MATLAB\R2018b).
 Another option is to use an RMI client-server based solution to execute MATLAB commands programmatically.
 This option can be selected under the preference page shown in the figure below.
 
-image::././img/command_evaluation_server.png[Command Evaluation Server]
+image::img/command_evaluation_server.png[Command Evaluation Server]
 
 This allows connection to an already running MATLAB session.
 In order to do so, a _MatlabServer_ has to be started from within MATLAB.
@@ -99,7 +99,7 @@ Another option is to use the open source https://code.google.com/p/matlabcontrol
 for communicating with MATLAB.
 This is integrated to Massif, the user can select this in Eclipse under the _Window/PreferencesSimulink preferences_ page.
 
-image::././img/matlab_control_preferences.png[MatlabControl]
+image::img/matlab_control_preferences.png[MatlabControl]
 
 This connector handles MATLAB sessions itself.
 Currently it operates the following way: opens a new MATLAB instance at the first call and executes all the required commands

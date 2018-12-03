@@ -31,7 +31,7 @@ representation.
 How this traversal is configured is defined in the model import preferences in
 _Window/Preferences/Simulink Preferences/Model Import Preferences_.
 
-image::img/model_import_preferences.png[Model Import Preferences]
+image::/model_import_preferences.png[Model Import Preferences]
 
 The available options are the followings:
 
@@ -80,10 +80,10 @@ the scripts set here are executed prior to model import.
 To import a model, open the context menu on a `.mdl` or `.slx` file in the package explorer within Eclipse
 (right click on the file).
 
-image::img/import_simulink_model.png[Import Simulink Model]
+image::import_simulink_model.png[Import Simulink Model]
 If no default path is set in preferences a popup window will appear automatically to set the required parameters.
 
-image::img/import_parameters.png[Import Parameters]
+image::import_parameters.png[Import Parameters]
 After the model is imported, a manual refresh might be needed on the destination folder to see the EMF model
 in the Eclipse package explorer.
 
@@ -93,7 +93,7 @@ The EMF representation stores all information to build up the Simulink model usi
 This process is more simple compared to importing,
 thus there are only basic parameters for configuring this feature on the export preferences page.
 
-image::././img/model_export_preferences.png[Model Export Preferences]
+image::model_export_preferences.png[Model Export Preferences]
 
 * *Default result model location*:
 This field allows the user to select a default destination path for the exported models.
@@ -107,9 +107,9 @@ The scripts set here are run prior to model export.
 To start an export, open the context menu for a `.simulink` file in the package explorer (right click on the file).
 The export menu entry is shown in the picture below.
 
-image::img/export_simulink_model.png[Export Simulink Model]
+image::export_simulink_model.png[Export Simulink Model]
 If no default export path was set previously on the preferences page, a popup window will appear and the path can be selected.
 
-image::img/export_parameters.png[Export Parameters]
+image::export_parameters.png[Export Parameters]
 Please note that no model with the same name as the exported model should be available on the MATLAB path at the time of export.
 This case MATLAB would open that model and edit that, instead of creating a new one.

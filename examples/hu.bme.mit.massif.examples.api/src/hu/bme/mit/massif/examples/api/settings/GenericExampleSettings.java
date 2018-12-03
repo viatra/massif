@@ -6,30 +6,31 @@
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *    Krisztian Gabor Mayer - initial API and implementation 
+ *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Krisztian Gabor Mayer - additional features   
  *******************************************************************************/
-package hu.bme.mit.massif.examples.api.matlabengine;
+package hu.bme.mit.massif.examples.api.settings;
 
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
-class MatlabEngineExampleSettings{
-
+public class GenericExampleSettings {
+    
     /*
-     * Example MatlabEngine based settings
-     * TODO fill out the parameters before running the example 
+     * These settings are used by all supported connectors.
+     * 
+     * TODO fill out the parameters before running the examples 
      * Values provided here are supposed to serve as examples.
      */
     
-     /*
-      *  Generic Settings - Used by importer and exporter
-      *   
-      */ 
+    
+    /*
+     *  Generic Settings 
+     *   
+     */ 
     // The path where the imported and exported models are saved
     public static String OUTPUT_DIRECTORY = "/folder/to/place/the/model/in/";
     // Set to true to make MATLAB print issued commands (CE Server configured in its corresponding properties file)
     public static boolean PRINT_ISSUED_COMMANDS = false;
-    // The path to the MATLAB executable
-    public static String MATLAB_PATH = "/usr/local/MATLAB/R2018a/bin/matlab";
     
     /*
      *  Importer Settings 
@@ -50,5 +51,4 @@ class MatlabEngineExampleSettings{
     public static String EMF_MODEL_PATH = "resources\\exporter\\";
     // The name of the of the EMF model (the .simulink file without file extension)
     public static String EMF_MODEL_NAME = "sldemo_engine_export";
-    
 }

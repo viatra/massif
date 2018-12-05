@@ -13,6 +13,9 @@ package hu.bme.mit.massif.simulink.cli;
 import java.io.File;
 
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
+import org.eclipse.viatra.query.runtime.api.ViatraQueryEngineOptions;
+import org.eclipse.viatra.query.runtime.localsearch.matcher.integration.LocalSearchEMFBackendFactory;
+import org.eclipse.viatra.query.runtime.rete.matcher.ReteBackendFactory;
 
 import br.com.embraer.massif.commandevaluation.commands.MatlabController;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
@@ -31,6 +34,10 @@ import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
 public class CLIMatlabCreator {
     
     private boolean debugMode = false;
+    
+    public CLIMatlabCreator() {
+        ViatraQueryEngineOptions.setSystemDefaultBackends(ReteBackendFactory.INSTANCE, ReteBackendFactory.INSTANCE, LocalSearchEMFBackendFactory.INSTANCE);
+    }
     
     public void setDebugMode(boolean debugMode) {
         this.debugMode = debugMode;

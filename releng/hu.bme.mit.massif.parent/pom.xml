@@ -27,7 +27,6 @@
 		<module>../../plugins/hu.bme.mit.massif.simulink.api</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.filters</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.ui</module>
-		<module>../../plugins/hu.bme.mit.massif.simulink.cli</module>
 		
 		<!-- Command evaluation connector -->
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.base</module>
@@ -63,7 +62,9 @@
 		<module>../../maven/massif-commandevaluation-runtime</module>
 		<module>../../maven/massif-simulink-emf</module>
 		<module>../../maven/massif-matlabengine</module>
-
+		<module>../../maven/massif-simulink-cli</module>
+		<module>../../maven/massif-simulink-cli-package</module>
+		
 		
 	</modules>
 	<properties>

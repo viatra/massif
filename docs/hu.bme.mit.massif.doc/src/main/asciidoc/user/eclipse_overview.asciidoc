@@ -36,6 +36,7 @@ image::/model_import_preferences.png[Model Import Preferences]
 
 The available options are the followings:
 
+[[traverse_mode]]
 * *Traverse mode*:
 In Simulink there are some modeling possibilities, which make the import process complex,
 and can lead to unexpectedly long import times, so that these cases require extra attention.

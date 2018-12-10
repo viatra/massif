@@ -93,4 +93,4 @@ If you need more help, open a [new issue](../../issues/new) describing your prob
 
 ## III. Contributing
 
-We welcome contributors, read the [DeveloperGuide](../../wiki/DevelopersGuide) for setting up shop!
+We welcome contributors, read the [Developer Guide](../../wiki/Developer-Guide) for setting up shop!

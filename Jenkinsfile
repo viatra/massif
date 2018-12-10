@@ -29,9 +29,20 @@ pipeline {
             	sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
             	sh './releng/hu.bme.mit.massif.simulink.cli-package/prepareCLIPackage.sh'
             }
+        }
+		stage('Deploy to Nexus') {
+            when {
+                branch "master"
+            }
+            steps {
+                configFileProvider([configFile(fileId: 'default-maven-toolchains', variable: 'TOOLCHAIN'), configFile(fileId: 'default-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository"
+                }
+            }
 		}
         stage('Sonar') {
             when {
+                branch "master"
                 expression {return !params.SKIP_SONAR }
             }
             steps {
@@ -47,6 +58,9 @@ pipeline {
             }
         }
         stage('Deployment') {
+            when {
+                branch "master"
+            }
             steps{
                 sh "if [ -d 'massif-install-artifacts' ]; then rm -fr massif-install-artifacts; fi"
                 sh "mkdir massif-install-artifacts"

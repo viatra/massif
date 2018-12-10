@@ -11,15 +11,14 @@
 package hu.bme.mit.massif.simulink.cli;
 
 import java.io.File;
-import java.util.concurrent.ExecutionException;
 
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngineOptions;
 import org.eclipse.viatra.query.runtime.localsearch.matcher.integration.LocalSearchEMFBackendFactory;
 import org.eclipse.viatra.query.runtime.rete.matcher.ReteBackendFactory;
 
 import br.com.embraer.massif.commandevaluation.commands.MatlabController;
+import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
-import hu.bme.mit.massif.communication.matlabengine.MatlabEngineEvaluator;
 import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.api.Exporter;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
@@ -31,9 +30,11 @@ import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
  * 
  * @author Peter Lunk
  */
-public class CLIMatlabCreator {
+public abstract class CLIMatlabCreator {
 
-    private boolean debugMode = false;
+    public abstract ICommandEvaluator getEvaluator();
+
+    protected boolean debugMode = false;
 
     public CLIMatlabCreator() {
         ViatraQueryEngineOptions.setSystemDefaultBackends(ReteBackendFactory.INSTANCE, ReteBackendFactory.INSTANCE,
@@ -49,43 +50,40 @@ public class CLIMatlabCreator {
     }
 
     public void createMatlabModel(String modelName, String modelPath, String extension) throws SimulinkApiException, InterruptedException {
-        try {
-            CLIInitializationUtil.setupEnvironment();
-            CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
 
-            MatlabController controller = new MatlabController();
-            controller.setDebug(debugMode);
-            MatlabEngineEvaluator matlabEngineEvaluator = new MatlabEngineEvaluator(debugMode);
-            Exporter exporter = new Exporter(logger);
-            SimulinkModel loadedModel;
-            logger.debug("Loading Simulunk model...");
-            loadedModel = exporter.loadSimulinkModel("file:/" + modelPath + File.separator + modelName);
-            logger.debug("Simulink model loaded");
-            MatlabCommandFactory commandFactory = new MatlabCommandFactory(matlabEngineEvaluator);
-            logger.debug("Loading model into MATLAB...");
+        CLIInitializationUtil.setupEnvironment();
+        CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
 
-            Thread thread = new Thread(new Runnable() {
+        MatlabController controller = new MatlabController();
+        controller.setDebug(debugMode);
+        ICommandEvaluator evaluator = getEvaluator();
+        Exporter exporter = new Exporter(logger);
+        SimulinkModel loadedModel;
+        logger.debug("Loading Simulunk model...");
+        loadedModel = exporter.loadSimulinkModel("file:/" + modelPath + File.separator + modelName);
+        logger.debug("Simulink model loaded");
+        MatlabCommandFactory commandFactory = new MatlabCommandFactory(evaluator);
+        logger.debug("Loading model into MATLAB...");
 
-                @Override
-                public void run() {
-                    try {
-                        exporter.export(loadedModel, commandFactory);
+        Thread thread = new Thread(new Runnable() {
 
-                        String fqn = loadedModel.getSimulinkRef().getFQN();
-                        exporter.saveSimulinkModel(fqn, extension);
-                    } catch (SimulinkApiException e) {
-                        e.printStackTrace();
-                    }
+            @Override
+            public void run() {
+                try {
+                    exporter.export(loadedModel, commandFactory);
 
+                    String fqn = loadedModel.getSimulinkRef().getFQN();
+                    exporter.saveSimulinkModel(fqn, extension);
+                } catch (SimulinkApiException e) {
+                    e.printStackTrace();
                 }
-            });
 
-            thread.start();
+            }
+        });
 
-            logger.debug("Model loaded into MATLAB");
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+        thread.start();
+
+        logger.debug("Model loaded into MATLAB");
     }
 
 }

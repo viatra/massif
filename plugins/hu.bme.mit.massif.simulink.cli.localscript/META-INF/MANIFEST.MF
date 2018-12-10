@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LocalScript
+Bundle-SymbolicName: hu.bme.mit.massif.simulink.cli.localscript
+Bundle-Version: 0.7.0.qualifier
+Automatic-Module-Name: hu.bme.mit.massif.simulink.cli.localscript
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: br.com.embraer.massif.commandevaluation.commands;bundle-version="0.7.0",
+ hu.bme.mit.massif.communication;bundle-version="0.7.0",
+ hu.bme.mit.massif.communication.localscript;bundle-version="0.7.0",
+ hu.bme.mit.massif.simulink.cli;bundle-version="0.7.0"

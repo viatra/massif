@@ -11,14 +11,13 @@
 package hu.bme.mit.massif.simulink.cli;
 
 import java.io.File;
-import java.util.concurrent.ExecutionException;
 
 import org.eclipse.viatra.query.runtime.api.ViatraQueryEngineOptions;
 import org.eclipse.viatra.query.runtime.localsearch.matcher.integration.LocalSearchEMFBackendFactory;
 import org.eclipse.viatra.query.runtime.rete.matcher.ReteBackendFactory;
 
 import br.com.embraer.massif.commandevaluation.commands.MatlabController;
-import hu.bme.mit.massif.communication.matlabengine.MatlabEngineEvaluator;
+import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
@@ -31,9 +30,11 @@ import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
  * 
  * @author Peter Lunk
  */
-public class CLIEMFCreator {
+public abstract class CLIEMFCreator {
 
-    private boolean debugMode = false;
+    public abstract ICommandEvaluator getEvaluator();
+
+    protected boolean debugMode = false;
 
     public CLIEMFCreator() {
         ViatraQueryEngineOptions.setSystemDefaultBackends(ReteBackendFactory.INSTANCE, ReteBackendFactory.INSTANCE,
@@ -46,44 +47,41 @@ public class CLIEMFCreator {
 
     public void createSimulinkModel(String modelName, String outputDir, ImportMode importMode)
             throws SimulinkApiException, InterruptedException {
-        try {
-            CLIInitializationUtil.setupEnvironment();
-            CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
 
-            logger.debug("Creating controller..");
-            MatlabController controller = new MatlabController();
-            controller.setDebug(debugMode);
-            logger.debug("Controller created");
-            logger.debug("Creating Local Script Evaluator");
-            MatlabEngineEvaluator matlabEngineEvaluator = new MatlabEngineEvaluator(debugMode);
-            logger.debug("Local Script Evaluator Created");
-            final ModelObject model = new ModelObject(modelName, matlabEngineEvaluator);
-            model.setLoadPath(modelName);
-            logger.debug("Importing model: " + modelName);
+        CLIInitializationUtil.setupEnvironment();
+        CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
 
-            // Model name to save the imported Simulink library
-            String importedModelPath = outputDir + File.separator + modelName;
+        logger.debug("Creating controller..");
+        MatlabController controller = new MatlabController();
+        controller.setDebug(debugMode);
+        logger.debug("Controller created");
+        logger.debug("Creating Evaluator");
+        ICommandEvaluator evaluator = getEvaluator();
+        logger.debug("Evaluator Created");
+        final ModelObject model = new ModelObject(modelName, evaluator);
+        model.setLoadPath(modelName);
+        logger.debug("Importing model: " + modelName);
 
-            Importer importer = new Importer(model, logger);
+        // Model name to save the imported Simulink library
+        String importedModelPath = outputDir + File.separator + modelName;
 
-            Thread thread = new Thread(new Runnable() {
+        Importer importer = new Importer(model, logger);
 
-                @Override
-                public void run() {
-                    try {
-                        importer.traverseAndCreateEMFModel(importMode);
-                        importer.saveEMFModel(importedModelPath);
-                    } catch (SimulinkApiException e) {
-                        e.printStackTrace();
-                    }
+        Thread thread = new Thread(new Runnable() {
 
+            @Override
+            public void run() {
+                try {
+                    importer.traverseAndCreateEMFModel(importMode);
+                    importer.saveEMFModel(importedModelPath);
+                } catch (SimulinkApiException e) {
+                    e.printStackTrace();
                 }
-            });
 
-            thread.start();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+            }
+        });
+
+        thread.start();
 
     }
 

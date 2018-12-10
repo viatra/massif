@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Matlabengine
+Bundle-SymbolicName: hu.bme.mit.massif.simulink.cli.matlabengine
+Bundle-Version: 0.7.0.qualifier
+Automatic-Module-Name: hu.bme.mit.massif.simulink.cli.matlabengine
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: hu.bme.mit.massif.simulink.cli,
+ hu.bme.mit.massif.communication,
+ hu.bme.mit.massif.communication.matlabengine

@@ -35,7 +35,7 @@ import br.com.embraer.massif.commandevaluation.exception.MatlabRMIException;
 
 public class MassifExampleHelper {
     
-    public static void  exampleImport(ICommandEvaluator commandEvaluator) throws SimulinkApiException, IOException {
+    public static void  exampleExport(ICommandEvaluator commandEvaluator) throws SimulinkApiException, IOException {
 
         MatlabCommandFactory commandFactory = new MatlabCommandFactory(commandEvaluator);
 
@@ -52,7 +52,7 @@ public class MassifExampleHelper {
         
     }
     
-    public static void  exampleExport(ICommandEvaluator commandEvaluator) throws SimulinkApiException, IOException {
+    public static void  exampleImport(ICommandEvaluator commandEvaluator) throws SimulinkApiException, IOException {
         
         MatlabCommandFactory factory = new MatlabCommandFactory(commandEvaluator);
 

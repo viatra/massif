@@ -168,7 +168,8 @@ public class Exporter {
         String path = fileNameWithoutExtension + ".simulink";
 
         // Load the resource
-        Resource loadResource = rs.getResource(URI.createURI(path), true);
+        URI fileUri = URI.createFileURI(path);
+        Resource loadResource = rs.getResource(fileUri, true);
         Object resourceContent = loadResource.getContents().get(0);
 
         // Make a log entry if the root object isn't a SimulinkModel
@@ -205,11 +206,15 @@ public class Exporter {
         String currentWorkdirectory = MatlabString.getMatlabStringData(commandFactory.cd().execute());
         String separator = FileSystems.getDefault().getSeparator();
         String[] savePathSegments;
-        if(separator.equals("\\")){
-            savePathSegments = modelNameWithPath.split(separator + "\\"); // Add regex escape for windows environment
+        String[] workDirSegments;
+        if(separator.equals("\\")){            
+            savePathSegments = modelNameWithPath.split(separator + "\\"); // Add regex escape for windows environment      
+            workDirSegments = currentWorkdirectory.split("\\\\"); // The original working directory location            
         } else {
             savePathSegments = modelNameWithPath.split(separator);
+            workDirSegments = currentWorkdirectory.split(separator);        
         }  
+        
         String modelName = savePathSegments[savePathSegments.length - 1];
 
         // Navigate to the save location
@@ -223,11 +228,9 @@ public class Exporter {
         MatlabCommand saveSystem = commandFactory.saveSystem().addParam(modelName).addParam(modelName + "." + fileExtension);
         saveSystem.execute();
 
-        // Navigate back to the original working directory
-        String[] workDirSegments = currentWorkdirectory.split("\\\\");
         for (int i = 0; i < workDirSegments.length; i++) {
             String segment = workDirSegments[i];
-            MatlabCommand changeToWorkDir = commandFactory.cd().addParam(segment + "\\");
+            MatlabCommand changeToWorkDir = commandFactory.cd().addParam(segment + separator);                  
             changeToWorkDir.execute();
         }
 
@@ -253,10 +256,8 @@ public class Exporter {
         
         // The list of blocks on the top level
         EList<Block> topLevelBlocks = model.getContains();
-
         
-        // Create the model in Simulink
-        
+        // Create the model in Simulink        
         String modelFQN = getFQN(model);
 
         int existValue = Handle.getHandleData(commandFactory.exist().addParam(modelFQN).execute()).intValue();

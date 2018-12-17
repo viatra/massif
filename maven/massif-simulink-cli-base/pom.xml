@@ -5,40 +5,20 @@
   <dependencies>  
     <dependency>
       <groupId>org.eclipse.viatra</groupId>
-      <artifactId>org.eclipse.viatra.addon.querybasedfeatures.runtime     </artifactId>
+      <artifactId>viatra-querybasedfeatures</artifactId>
       <version>2.0.0</version>
     </dependency>
     <dependency>
-	  <groupId>org.eclipse.viatra</groupId>
-      <artifactId>viatra-query-runtime</artifactId>
-      <version>2.0.0</version>
-	</dependency>
-	<dependency>
-      <groupId>org.eclipse.viatra</groupId>
-      <artifactId>org.eclipse.viatra.query.runtime.localsearch</artifactId>
-      <version>2.0.0</version>
-	</dependency>
-	<dependency>
-		<groupId>org.eclipse.viatra</groupId>
-		<artifactId>org.eclipse.viatra.query.runtime.rete</artifactId>
-		<version>2.0.0</version>
-	</dependency>
-	<dependency>
 	  <groupId>org.eclipse.emf</groupId>
 	  <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
 	  <version>2.15.0</version>
 	</dependency>
     <dependency>
       <groupId>hu.bme.mit.massif</groupId>
-      <artifactId>massif-matlabengine</artifactId>
+      <artifactId>hu.bme.mit.massif.communication</artifactId>
       <version>${project.version}</version>
     </dependency>
-	<dependency>
-      <groupId>hu.bme.mit.massif</groupId>
-      <artifactId>br.com.embraer.massif.commandevaluation.commands</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-	<dependency>
+    <dependency>
       <groupId>hu.bme.mit.massif</groupId>
       <artifactId>hu.bme.mit.massif.simulink.api</artifactId>
       <version>${project.version}</version>
@@ -53,16 +33,6 @@
       <artifactId>hu.bme.mit.massif.simulink</artifactId>
       <version>${project.version}</version>
     </dependency>
-	<dependency>
-      <groupId>hu.bme.mit.massif</groupId>
-      <artifactId>hu.bme.mit.massif.simulink.cli</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-	<dependency>
-      <groupId>hu.bme.mit.massif</groupId>
-      <artifactId>hu.bme.mit.massif.communication</artifactId>
-      <version>${project.version}</version>
-    </dependency>
   </dependencies>
   <parent>
     <artifactId>hu.bme.mit.massif.parent</artifactId>
@@ -70,10 +40,10 @@
     <version>0.7.0-SNAPSHOT</version>
     <relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
   </parent>
-  <name>Massif CLI Maven Matlab Engine</name>
-  <artifactId>massif-simulink-cli-matlabengine</artifactId>
+  <name>Massif CLI Maven</name>
+  <artifactId>massif-simulink-cli-base</artifactId>
   <packaging>jar</packaging>
   <build>
-    <sourceDirectory>../../plugins/hu.bme.mit.massif.simulink.cli.matlabengine/src</sourceDirectory>
+    <sourceDirectory>../../plugins/hu.bme.mit.massif.simulink.cli.base/src</sourceDirectory>
   </build>
 </project>

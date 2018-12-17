@@ -27,7 +27,7 @@ pipeline {
                     sh "mvn clean deploy -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository"
                 }
             	sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
-            	sh './releng/hu.bme.mit.massif.simulink.cli-package/prepareCLIPackage.sh'
+            //	sh './releng/hu.bme.mit.massif.simulink.cli-package/prepareCLIPackage.sh'
             }
         }
 		stage('Deploy to Nexus') {

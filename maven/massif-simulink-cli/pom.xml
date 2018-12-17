@@ -2,35 +2,15 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <dependencies>  
-    <dependency>
-      <groupId>org.eclipse.viatra</groupId>
-      <artifactId>org.eclipse.viatra.addon.querybasedfeatures.runtime     </artifactId>
-      <version>2.0.0</version>
-    </dependency>
-    <dependency>
-	  <groupId>org.eclipse.viatra</groupId>
-      <artifactId>viatra-query-runtime</artifactId>
-      <version>2.0.0</version>
-	</dependency>
+  <dependencies> 
 	<dependency>
-      <groupId>org.eclipse.viatra</groupId>
-      <artifactId>org.eclipse.viatra.query.runtime.localsearch</artifactId>
-      <version>2.0.0</version>
-	</dependency>
-	<dependency>
-		<groupId>org.eclipse.viatra</groupId>
-		<artifactId>org.eclipse.viatra.query.runtime.rete</artifactId>
-		<version>2.0.0</version>
-	</dependency>
-	<dependency>
-	  <groupId>org.eclipse.emf</groupId>
-	  <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
-	  <version>2.15.0</version>
-	</dependency>
-    <dependency>
       <groupId>hu.bme.mit.massif</groupId>
-      <artifactId>massif-matlabengine</artifactId>
+      <artifactId>massif-simulink-cli-base</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+	<dependency>
+      <groupId>hu.bme.mit.massif</groupId>
+      <artifactId>br.com.embraer.massif.commandevaluation.base</artifactId>
       <version>${project.version}</version>
     </dependency>
 	<dependency>
@@ -40,17 +20,7 @@
     </dependency>
 	<dependency>
       <groupId>hu.bme.mit.massif</groupId>
-      <artifactId>hu.bme.mit.massif.simulink.api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-	<dependency>
-      <groupId>hu.bme.mit.massif</groupId>
-      <artifactId>hu.bme.mit.massif.simulink.incquery</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-	<dependency>
-      <groupId>hu.bme.mit.massif</groupId>
-      <artifactId>hu.bme.mit.massif.simulink</artifactId>
+      <artifactId>hu.bme.mit.massif.communication.localscript</artifactId>
       <version>${project.version}</version>
     </dependency>
   </dependencies>
@@ -60,7 +30,7 @@
     <version>0.7.0-SNAPSHOT</version>
     <relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
   </parent>
-  <name>Massif CLI Maven</name>
+  <name>Massif CLI Maven Localscript</name>
   <artifactId>massif-simulink-cli</artifactId>
   <packaging>jar</packaging>
   <build>

@@ -10,7 +10,8 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.cli.matlabengine;
 
-import hu.bme.mit.massif.communication.ICommandEvaluator;
+import hu.bme.mit.massif.communication.AbstractCommandEvaluator;
+import hu.bme.mit.massif.communication.ICommandAccess;
 import hu.bme.mit.massif.communication.matlabengine.MatlabEngineEvaluator;
 import hu.bme.mit.massif.simulink.cli.CLIMatlabCreator;
 
@@ -21,10 +22,10 @@ import hu.bme.mit.massif.simulink.cli.CLIMatlabCreator;
 public class MatlabEngineCLIMatlabCreator extends CLIMatlabCreator {
 
     @Override
-    public ICommandEvaluator getEvaluator() {
+    public AbstractCommandEvaluator<? extends ICommandAccess> getEvaluator() {
         try {
             return new MatlabEngineEvaluator(debugMode);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

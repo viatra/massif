@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Massif command line interface
+Bundle-SymbolicName: hu.bme.mit.massif.simulink.cli.base
+Bundle-Version: 0.7.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: Budapest University of Technology and Economics
+Require-Bundle: org.eclipse.emf.ecore.xmi,
+ hu.bme.mit.massif.simulink.api,
+ hu.bme.mit.massif.communication,
+ org.eclipse.viatra.addon.querybasedfeatures.runtime,
+ org.eclipse.viatra.query.runtime,
+ hu.bme.mit.massif.simulink.incquery,
+ org.eclipse.viatra.query.runtime.localsearch,
+ org.eclipse.viatra.query.runtime.rete
+Export-Package: hu.bme.mit.massif.simulink.cli.base

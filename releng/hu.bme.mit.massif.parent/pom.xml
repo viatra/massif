@@ -53,17 +53,14 @@
 		<!-- Update site -->
 		<module>../../releng/hu.bme.mit.massif.site</module>
 		
-		<!-- CLI tycho -->
-		<module>../../plugins/hu.bme.mit.massif.simulink.cli</module>
-		<module>../../plugins/hu.bme.mit.massif.simulink.cli.localscript</module>
-		
 		<!-- Maven projects for those projects that require engine.jar -->
 		<module>../../maven/massif-communication-runtime</module>
 		<module>../../maven/massif-matlabcontrol-runtime</module>
 		<module>../../maven/massif-commandevaluation-runtime</module>
 		<module>../../maven/massif-simulink-emf</module>
 		<module>../../maven/massif-matlabengine</module>
-		<module>../../maven/massif-simulink-cli-matlabengine</module>
+		<module>../../maven/massif-simulink-cli-base</module>
+		<module>../../maven/massif-simulink-cli</module>
 		<module>../../maven/massif-simulink-cli-package</module>
 		
 		

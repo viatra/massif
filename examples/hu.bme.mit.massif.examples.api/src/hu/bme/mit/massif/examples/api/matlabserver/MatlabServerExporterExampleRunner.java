@@ -11,27 +11,31 @@
  *******************************************************************************/
 package hu.bme.mit.massif.examples.api.matlabserver;
 
-import java.io.IOException;
-import org.junit.Before;
-import org.junit.Test;
-
-import com.mathworks.engine.EngineException;
-import br.com.embraer.massif.commandevaluation.exception.MatlabRMIException;
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.examples.api.common.MassifExampleHelper;
 import hu.bme.mit.massif.examples.api.common.MatlabConnector;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 
+import java.io.IOException;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.mathworks.engine.EngineException;
+
+import br.com.embraer.massif.commandevaluation.exception.MatlabRMIException;
+
 /**
  * This class demonstrates how to use the Simulink Importer from code via a
  * basic example.
  * 
- * Run it as a JUnit plug-in test.
+ * Run it as a JUnit test, not as JUnit plug-in test.
  * 
  * @author Marton Bur
  *
  */
-public class MatlabEngineImporterExampleRunner {
+public class MatlabServerExporterExampleRunner {
+
 	private ICommandEvaluator commandEvaluator;
 
 	@Before
@@ -40,7 +44,8 @@ public class MatlabEngineImporterExampleRunner {
 	}
 
 	@Test
-	public void exampleImport() throws IOException, MatlabRMIException, SimulinkApiException {
-	    MassifExampleHelper.exampleImport(commandEvaluator);
-	}	
+	public void exampleExport() throws SimulinkApiException, IOException {
+	    MassifExampleHelper.exampleExport(commandEvaluator);
+	}
+
 }

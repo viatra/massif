@@ -26,7 +26,7 @@ import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
  * This class demonstrates how to use the Simulink Importer from code via a
  * basic example.
  * 
- * Run it as a JUnit plug-in test.
+ * Run it as a JUnit test, not as JUnit plug-in test.
  * 
  * @author Marton Bur
  *

@@ -1,35 +1,49 @@
 // Tell Jenkins how to build projects from this repository
 pipeline {
-	agent any 
-	parameters {
-		choice(choices: 'ci\nintegration\nrelease', description: '', name: 'BUILD_TYPE')
+    agent { 
+        label 'matlab'
+    }
+
+    parameters {
+        choice(choices: 'ci\nintegration\nrelease', description: '', name: 'BUILD_TYPE')
+        booleanParam(defaultValue: false, description: 'Set to true if you want to deploy to snapshot repository', name: 'DEPLOY_SNAPSHOT')
         booleanParam(defaultValue: true, description: '''This parameter is used to allow not to execute Sonar analysis. It is safe to always make this true, as the Sonar-trigger job will trigger this job without the SKIP_SONAR parameter set daily.''', name: 'SKIP_SONAR') 
-	}
+    }
 
     // Keep only the last 20 builds
-	options {
-		buildDiscarder(logRotator(numToKeepStr: '20'))
-	}
-	
-	tools { 
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '20'))
+    }
+
+    tools { 
         maven 'Maven 3.3.9' 
         jdk 'Oracle JDK 8' 
     }
-	 
+
     stages {
        stage('Build') { 
             steps {
                 configFileProvider([configFile(fileId: 'default-maven-toolchains', variable: 'TOOLCHAIN'), configFile(fileId: 'default-maven-settings', variable: 'MAVEN_SETTINGS')]) {
                     sh "mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository"
-                    // Do not deploy from this branch, only from master
-		            //sh "mvn clean deploy -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository"
                 }
-            	sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
-            	sh './releng/hu.bme.mit.massif.simulink.cli-package/prepareCLIPackage.sh'
+                sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
+                sh './releng/hu.bme.mit.massif.simulink.cli-package/prepareCLIPackage.sh'
             }
-		}
+        }
+        stage('Deploy to Nexus') {
+            when {
+                branch "master"
+                expression { params.DEPLOY_SNAPSHOT == true }
+            }
+            steps {
+                configFileProvider([configFile(fileId: 'default-maven-toolchains', variable: 'TOOLCHAIN'), configFile(fileId: 'default-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+                    sh "mvn clean deploy -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository"
+                }
+            }
+        }
         stage('Sonar') {
             when {
+                branch "master"
                 expression {return !params.SKIP_SONAR }
             }
             steps {
@@ -45,6 +59,9 @@ pipeline {
             }
         }
         stage('Deployment') {
+            when {
+                branch "master"
+            }
             steps{
                 sh "if [ -d 'massif-install-artifacts' ]; then rm -fr massif-install-artifacts; fi"
                 sh "mkdir massif-install-artifacts"
@@ -61,33 +78,35 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
             archiveArtifacts 'releng/hu.bme.mit.massif.site/target/repository/**'
             archiveArtifacts 'releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip'
             archiveArtifacts 'releng/hu.bme.mit.massif.simulink.cli-package/hu.bme.mit.massif.simulink.cli-example.zip'
-   		}
+            archiveArtifacts 'docs/hu.bme.mit.massif.doc/html/**'		
+        }
+      
         success {
             slackSend channel: "massif-notifications", 
-    			color: "good",
-			message: "Build Successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
-    			teamDomain: "incquerylabs",
-    			tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad" 
+                color: "good",
+                message: "Build Successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
+                teamDomain: "incquerylabs",
+                tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad" 
         }
-		unstable {
-	   		slackSend channel: "massif-notifications", 
-    			color: "warning",
-    			message: "Build Unstable - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
-    			teamDomain: "incquerylabs",
-    			tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad"
-    		}
-		failure {
-    			slackSend channel: "masif-notifications", 
-    			color: "danger",
-    			message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
-    			teamDomain: "incquerylabs",
-    			tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad"
-		}
-	}
+        unstable {
+            slackSend channel: "massif-notifications", 
+                color: "warning",
+                message: "Build Unstable - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
+                teamDomain: "incquerylabs",
+                tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad"
+        }
+        failure {
+            slackSend channel: "masif-notifications", 
+                color: "danger",
+                message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
+                teamDomain: "incquerylabs",
+                tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad"
+        }
+    }
 }

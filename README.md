@@ -30,8 +30,8 @@ Please let us know if you use Massif (e.g. open an [issue](https://github.com/vi
  * Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
  * Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
  * Release 0.6.0: VIATRA Query runtime 1.7 http://download.eclipse.org/viatra/updates/release/1.7.2
- * Integration 0.7.0: VIATRA Query runtime 2.0 http://download.eclipse.org/viatra/updates/release/
- * CI: VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/
+ * Upcoming Release 0.7.0: VIATRA Query runtime 2.0 http://download.eclipse.org/viatra/updates/release/latest
+ * CI : VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/latest
 
 ### Latest release: 0.6.0
 
@@ -64,7 +64,7 @@ It is required to have the following tools:
  * Eclipse with Massif and prerequisites installed
  * MATLAB (recommended r2012a or later)
 
-Details on the [wiki](../../wiki/UserGuide#installation)
+Details on the [wiki](../../wiki/User-Guide#installation)
 
 ## II. Usage:
 
@@ -93,4 +93,4 @@ If you need more help, open a [new issue](../../issues/new) describing your prob
 
 ## III. Contributing
 
-We welcome contributors, read the [DeveloperGuide](../../wiki/DevelopersGuide) for setting up shop!
+We welcome contributors, read the [Developer Guide](../../wiki/Developer-Guide) for setting up shop!

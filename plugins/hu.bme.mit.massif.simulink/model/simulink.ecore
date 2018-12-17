@@ -83,7 +83,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true" eSuperTypes="#//SimulinkElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="This EClass represents the abstract supertype of block ports that are used for allowing data communication and signaling between blocks."/>
+      <details key="documentation" value="This EClass represents the abstract supertype of block ports that are used for allowing data communication and signaling between blocks.&#xA;&#xA;The properties are not a map, so the port may have multiple properties with the same name, or even same name-value pair."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//Block"
         eOpposite="#//Block/ports"/>
@@ -94,7 +94,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="This EClass represents properties of #{simulink.Block} elements. Each property has a name, a type and a value.&#xD;&#xA;The value is stored as a character string but is validated based on the type."/>
+      <details key="documentation" value="This EClass represents properties of #{simulink.Block} elements. Each property has a name, a type and a value.&#xD;&#xA;The value is stored as a character string but is validated based on the type.&#xA;It also stores a readOnly flag about the parameter."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -342,5 +342,9 @@
       <details key="documentation" value="This is a specific class used as a unique identifier for Simulink elements."/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//OutPort"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//OutPort">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This EClass represents a stateport of a #{simulink.Block}.&#xA;&#xA;See @{https://www.mathworks.com/help/simulink/slref/integrator.html#f7-890704.f7-1513490}"/>
+    </eAnnotations>
+  </eClassifiers>
 </ecore:EPackage>

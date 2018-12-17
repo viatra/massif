@@ -1,0 +1,111 @@
+= Massif: MATLAB Simulink Integration Framework for Eclipse
+
+
+Massif is a new Eclipse feature to support the easy handling of MATLAB Simulink models by providing import and export
+capabilities to/from EMF.
+Just to highlight some of its unique features, Massif: 
+
+. Uses a general MATLAB EMF metamodel that was designed to store all information for each MATLAB block
+and provide the type information as defined in MATLAB using library links.
+. Provides automated library reference processing when importing libraries and systems.
+. Supports easier bus creator and selector handling by using direct model referencing in the EMF representation that can be
+automatically translated into the required fqn format as used within MATLAB Simulink.
+
+Please note that importing and exporting is done using the command line interface of MATLAB
+(and not by directly parsing the `.mdl` or `.slx` files), which is the API recommended by MathWorks
+for accessing Simulink model information.
+As a consequence, for using the bridge you must have an installed MATLAB Simulink instance
+(with the appropriate licence) on your computer.
+The system was tested with Simulink R2012b, however, it should work with the newer versions (and some earlier ones as well).
+
+The development of Massif was supported by multiple projects and partners, most notably:
+
+. As the developer of the first verions the Budapest University of Technology and Economics.
+. Embraer through the Trans-IMA (TRANSformation methods applied to the design of Integrated Modular Avionics systems)
+project funded by Embraer S.A.
+. http://www.concerto-project.org/[CONCERTO] Artemis EU project.
+. https://incquerylabs.com/[IncQuery Labs Ltd] that provides professional support for Massif.
+
+== Known Users
+
+* http://www.intecs.it/[INTECS]
+* http://www.math.unipd.it/it/[University of Padua]
+* http://www-list.cea.fr/en/[CEA LIST]
+
+Please let us know if you use Massif (e.g. open an https://github.com/viatra/massif/issues/new[issue])!
+
+== Update site:
+=== Prerequisites
+
+* Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
+* Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
+* Release 0.6.0: VIATRA Query runtime 1.7 http://download.eclipse.org/viatra/updates/release/1.7.2
+* Upcoming Release 0.7.0: VIATRA Query runtime 2.0 http://download.eclipse.org/viatra/updates/release/latest
+* CI : VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/latest
+
+=== Latest release: 0.6.0
+Releases: http://static.incquerylabs.com/projects/massif/release/0.6.0/repository
+
+* Command evaluation server archive http://static.incquerylabs.com/projects/massif/release/0.6.0/[download]
+
+=== All releases
+Release composite site: http://static.incquerylabs.com/projects/massif/release
+
+* Command evaluation server archive in folder of specific releases
+http://static.incquerylabs.com/projects/massif/release/[download]
+
+=== Integration builds
+
+Integration builds: http://static.incquerylabs.com/projects/massif/integration/
+
+* Command evaluation server archive in folder of specific releases
+http://static.incquerylabs.com/projects/massif/integration/[download]
+* These are created regularly and old versions are discarded after a new release.
+
+=== CI update site
+
+We also provide a
+https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/[CI update site].
+
+* Command evaluation server archive
+https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/[download]
+* CI Build on Jenkins: https://build.incquerylabs.com/jenkins/job/Massif/job/master/
+
+== I. Installation
+
+It is required to have the following tools:
+
+* Eclipse with Massif and prerequisites <<user/insatall_guide#, installed>>.
+* MATLAB (recommended r2012a or later)
+
+== II. Usage
+
+Massif provides two basic model conversion functions:
+
+* Import from MATLAB to EMF (referred as import or importing)
+* Export from EMF to MATLAB (referred as export or exporting)
+
+To use these features, choose a MATLAB provider.
+At this point you can choose between
+
+* MatlabEngine, the official Java API provided for MATLAB.
+* Command Evaluation Server, which is provided as part of Massif.
+* MatlabControl, an existing MATLAB connector (https://github.com/jakaplan/matlabcontrol[GitHub page]).
+
+The functions are available in the context menu commands of `.mdl`, `.slx` and `.simulink` files
+(right click on the files in `Package Explorer`) called `Import Simulink Model` and `Export Simulink Model`.
+
+The EclipseCon 2015 demo is available from https://github.com/viatra/massif/wiki/EclipseCon2015[here] with its
+video presentation from https://www.youtube.com/watch?v=6mv4m5UT9YE[here].
+
+=== Get help
+
+If you run into any problems or have questions, do the following:
+
+. Read the https://github.com/viatra/massif/wiki[wiki].
+. Look at the open and closed https://github.com/viatra/massif/issues[issues].
+If you need more help, open a https://github.com/viatra/massif/issues/new[new issue] describing your problem.
+
+== III. Contributing
+
+We welcome contributors, read the <<user/install_guide#, Developer Guide>> for setting up shop!

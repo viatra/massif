@@ -3,10 +3,10 @@
   <simulinkRef name="tst_bus_complex_combined"/>
   <contains xsi:type="simulink:BusCreator">
     <simulinkRef name="Bus Creator1" qualifier="tst_bus_complex_combined"/>
-    <properties name="NonVirtualBus" value="off" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-    <properties name="DisplayOption" value="bar" source="DIALOG"/>
-    <properties name="Inputs" value="2" source="DIALOG"/>
+    <parameters name="NonVirtualBus" value="off" />
+    <parameters name="OutDataTypeStr" value="Inherit: auto" />
+    <parameters name="DisplayOption" value="bar" />
+    <parameters name="Inputs" value="2" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Bus Creator1"/>
       <connection xsi:type="simulink:SingleConnection" lineName="level3_1" to="//@contains.7/@ports.0">
@@ -23,8 +23,8 @@
   </contains>
   <contains xsi:type="simulink:BusSelector" outputAsBus="true">
     <simulinkRef name="Bus Selector" qualifier="tst_bus_complex_combined"/>
-    <properties name="OutputAsBus" value="on" source="DIALOG"/>
-    <properties name="OutputSignals" value="level0_1,level0_2" source="DIALOG"/>
+    <parameters name="OutputAsBus" value="on" />
+    <parameters name="OutputSignals" value="level0_1,level0_2" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Bus Selector"/>
       <connection xsi:type="simulink:MultiConnection" lineName="level2_1_goto">
@@ -46,15 +46,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant2" qualifier="tst_bus_complex_combined"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="2" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="2" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Constant2"/>
       <connection xsi:type="simulink:SingleConnection" lineName="level0_3" to="//@contains.6/@ports.1">
@@ -65,15 +65,15 @@
   </contains>
   <contains>
     <simulinkRef name="Constant3" qualifier="tst_bus_complex_combined"/>
-    <properties name="FramePeriod" value="inf" source="DIALOG"/>
-    <properties name="Value" value="3" source="DIALOG"/>
-    <properties name="LockScale" value="off" source="DIALOG"/>
-    <properties name="OutMin" value="[]" source="DIALOG"/>
-    <properties name="OutMax" value="[]" source="DIALOG"/>
-    <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-    <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-    <properties name="SampleTime" value="inf" source="DIALOG"/>
-    <properties name="VectorParams1D" value="on" source="DIALOG"/>
+    <parameters name="FramePeriod" value="inf" />
+    <parameters name="Value" value="3" />
+    <parameters name="LockScale" value="off" />
+    <parameters name="OutMin" value="[]" />
+    <parameters name="OutMax" value="[]" />
+    <parameters name="SamplingMode" value="Sample based" />
+    <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+    <parameters name="SampleTime" value="inf" />
+    <parameters name="VectorParams1D" value="on" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Constant3"/>
       <connection xsi:type="simulink:SingleConnection" lineName="level0_4" to="//@contains.0/@ports.2">
@@ -84,8 +84,8 @@
   </contains>
   <contains xsi:type="simulink:From" gotoBlock="//@contains.5">
     <simulinkRef name="From" qualifier="tst_bus_complex_combined"/>
-    <properties name="IconDisplay" value="Tag" source="DIALOG"/>
-    <properties name="GotoTag" value="BusGotoTag" source="DIALOG"/>
+    <parameters name="IconDisplay" value="Tag" />
+    <parameters name="GotoTag" value="BusGotoTag" />
     <ports xsi:type="simulink:OutPort">
       <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/From"/>
       <connection xsi:type="simulink:SingleConnection" lineName="level2_1_from" to="//@contains.0/@ports.1">
@@ -96,9 +96,9 @@
   </contains>
   <contains xsi:type="simulink:Goto" fromBlocks="//@contains.4" gotoTag="BusGotoTag">
     <simulinkRef name="Goto" qualifier="tst_bus_complex_combined"/>
-    <properties name="TagVisibility" value="local" source="DIALOG"/>
-    <properties name="IconDisplay" value="Tag" source="DIALOG"/>
-    <properties name="GotoTag" value="BusGotoTag" source="DIALOG"/>
+    <parameters name="TagVisibility" value="local" />
+    <parameters name="IconDisplay" value="Tag" />
+    <parameters name="GotoTag" value="BusGotoTag" />
     <ports xsi:type="simulink:InPort" connection="//@contains.1/@ports.0/@connection/@connections.0">
       <simulinkRef name="inport.1" qualifier="tst_bus_complex_combined/Goto"/>
     </ports>
@@ -106,36 +106,36 @@
   </contains>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="Subsystem1" qualifier="tst_bus_complex_combined"/>
-    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-    <properties name="ErrorFcn" value="" source="DIALOG"/>
-    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-    <properties name="MemberBlocks" value="" source="DIALOG"/>
-    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-    <properties name="VariantObject" value="" source="DIALOG"/>
-    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-    <properties name="ActiveVariant" value="" source="DIALOG"/>
-    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-    <properties name="RTWFcnName" value="" source="DIALOG"/>
-    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-    <properties name="BlockChoice" value="" source="DIALOG"/>
-    <properties name="RTWFileName" value="" source="DIALOG"/>
-    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-    <properties name="TemplateBlock" value="" source="DIALOG"/>
-    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="ActiveVariantBlock" value="" source="DIALOG"/>
-    <properties name="Variant" value="off" source="DIALOG"/>
+    <parameters name="RTWSystemCode" value="Auto" />
+    <parameters name="PermitHierarchicalResolution" value="All" />
+    <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+    <parameters name="OverrideUsingVariant" value="" />
+    <parameters name="IsSubsystemVirtual" value="on" />
+    <parameters name="ErrorFcn" value="" />
+    <parameters name="ShowPortLabels" value="FromPortIcon" />
+    <parameters name="MemberBlocks" value="" />
+    <parameters name="MinAlgLoopOccurrences" value="off" />
+    <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+    <parameters name="SystemSampleTime" value="-1" />
+    <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+    <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+    <parameters name="VariantObject" value="" />
+    <parameters name="Permissions" value="ReadWrite" />
+    <parameters name="ActiveVariant" value="" />
+    <parameters name="PropExecContextOutsideSubsystem" value="off" />
+    <parameters name="TreatAsAtomicUnit" value="off" />
+    <parameters name="GeneratePreprocessorConditionals" value="off" />
+    <parameters name="RTWFcnName" value="" />
+    <parameters name="RTWFileNameOpts" value="Auto" />
+    <parameters name="FunctionWithSeparateData" value="off" />
+    <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+    <parameters name="BlockChoice" value="" />
+    <parameters name="RTWFileName" value="" />
+    <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+    <parameters name="TemplateBlock" value="" />
+    <parameters name="RTWFcnNameOpts" value="Auto" />
+    <parameters name="ActiveVariantBlock" value="" />
+    <parameters name="Variant" value="off" />
     <ports xsi:type="simulink:OutPort" portBlock="//@contains.6/@subBlocks.4">
       <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem1"/>
       <connection xsi:type="simulink:MultiConnection" lineName="level1_1">
@@ -154,24 +154,24 @@
     <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems"/>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.6/@ports.1">
       <simulinkRef name="In1" qualifier="tst_bus_complex_combined/Subsystem1"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem1/In1"/>
         <connection xsi:type="simulink:SingleConnection" lineName="DERIVED_LINE_NAME from: tst_bus_complex_combined/Subsystem1/In1/outport:outport.1 -- to: tst_bus_complex_combined/Subsystem1/Bus Creator/inport:inport.3" to="//@contains.6/@subBlocks.1/@ports.3">
@@ -182,10 +182,10 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:BusCreator">
       <simulinkRef name="Bus Creator" qualifier="tst_bus_complex_combined/Subsystem1"/>
-      <properties name="NonVirtualBus" value="off" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="DisplayOption" value="bar" source="DIALOG"/>
-      <properties name="Inputs" value="3" source="DIALOG"/>
+      <parameters name="NonVirtualBus" value="off" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="DisplayOption" value="bar" />
+      <parameters name="Inputs" value="3" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem1/Bus Creator"/>
         <connection xsi:type="simulink:SingleConnection" lineName="level1_1" to="//@contains.6/@subBlocks.4/@ports.0">
@@ -205,15 +205,15 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Constant" qualifier="tst_bus_complex_combined/Subsystem1"/>
-      <properties name="FramePeriod" value="inf" source="DIALOG"/>
-      <properties name="Value" value="0" source="DIALOG"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-      <properties name="SampleTime" value="inf" source="DIALOG"/>
-      <properties name="VectorParams1D" value="on" source="DIALOG"/>
+      <parameters name="FramePeriod" value="inf" />
+      <parameters name="Value" value="0" />
+      <parameters name="LockScale" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SamplingMode" value="Sample based" />
+      <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+      <parameters name="SampleTime" value="inf" />
+      <parameters name="VectorParams1D" value="on" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem1/Constant"/>
         <connection xsi:type="simulink:SingleConnection" lineName="level0_1" to="//@contains.6/@subBlocks.1/@ports.1">
@@ -224,15 +224,15 @@
     </subBlocks>
     <subBlocks>
       <simulinkRef name="Constant1" qualifier="tst_bus_complex_combined/Subsystem1"/>
-      <properties name="FramePeriod" value="inf" source="DIALOG"/>
-      <properties name="Value" value="1" source="DIALOG"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SamplingMode" value="Sample based" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" source="DIALOG"/>
-      <properties name="SampleTime" value="inf" source="DIALOG"/>
-      <properties name="VectorParams1D" value="on" source="DIALOG"/>
+      <parameters name="FramePeriod" value="inf" />
+      <parameters name="Value" value="1" />
+      <parameters name="LockScale" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SamplingMode" value="Sample based" />
+      <parameters name="OutDataTypeStr" value="Inherit: Inherit from 'Constant value'" />
+      <parameters name="SampleTime" value="inf" />
+      <parameters name="VectorParams1D" value="on" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem1/Constant1"/>
         <connection xsi:type="simulink:SingleConnection" lineName="level0_2" to="//@contains.6/@subBlocks.1/@ports.2">
@@ -243,23 +243,23 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:OutPortBlock" port="//@contains.6/@ports.0">
       <simulinkRef name="Out1" qualifier="tst_bus_complex_combined/Subsystem1"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="InitialOutput" value="[]" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="OutputWhenDisabled" value="held" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="SourceOfInitialOutputValue" value="Dialog" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="InitialOutput" value="[]" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="OutputWhenDisabled" value="held" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="SourceOfInitialOutputValue" value="Dialog" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:InPort" connection="//@contains.6/@subBlocks.1/@ports.0/@connection">
         <simulinkRef name="inport.1" qualifier="tst_bus_complex_combined/Subsystem1/Out1"/>
       </ports>
@@ -268,60 +268,60 @@
   </contains>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="Subsystem2" qualifier="tst_bus_complex_combined"/>
-    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-    <properties name="ErrorFcn" value="" source="DIALOG"/>
-    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-    <properties name="MemberBlocks" value="" source="DIALOG"/>
-    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-    <properties name="VariantObject" value="" source="DIALOG"/>
-    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-    <properties name="ActiveVariant" value="" source="DIALOG"/>
-    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-    <properties name="RTWFcnName" value="" source="DIALOG"/>
-    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-    <properties name="BlockChoice" value="" source="DIALOG"/>
-    <properties name="RTWFileName" value="" source="DIALOG"/>
-    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-    <properties name="TemplateBlock" value="" source="DIALOG"/>
-    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="ActiveVariantBlock" value="" source="DIALOG"/>
-    <properties name="Variant" value="off" source="DIALOG"/>
+    <parameters name="RTWSystemCode" value="Auto" />
+    <parameters name="PermitHierarchicalResolution" value="All" />
+    <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+    <parameters name="OverrideUsingVariant" value="" />
+    <parameters name="IsSubsystemVirtual" value="on" />
+    <parameters name="ErrorFcn" value="" />
+    <parameters name="ShowPortLabels" value="FromPortIcon" />
+    <parameters name="MemberBlocks" value="" />
+    <parameters name="MinAlgLoopOccurrences" value="off" />
+    <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+    <parameters name="SystemSampleTime" value="-1" />
+    <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+    <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+    <parameters name="VariantObject" value="" />
+    <parameters name="Permissions" value="ReadWrite" />
+    <parameters name="ActiveVariant" value="" />
+    <parameters name="PropExecContextOutsideSubsystem" value="off" />
+    <parameters name="TreatAsAtomicUnit" value="off" />
+    <parameters name="GeneratePreprocessorConditionals" value="off" />
+    <parameters name="RTWFcnName" value="" />
+    <parameters name="RTWFileNameOpts" value="Auto" />
+    <parameters name="FunctionWithSeparateData" value="off" />
+    <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+    <parameters name="BlockChoice" value="" />
+    <parameters name="RTWFileName" value="" />
+    <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+    <parameters name="TemplateBlock" value="" />
+    <parameters name="RTWFcnNameOpts" value="Auto" />
+    <parameters name="ActiveVariantBlock" value="" />
+    <parameters name="Variant" value="off" />
     <ports xsi:type="simulink:InPort" portBlock="//@contains.7/@subBlocks.0" connection="//@contains.0/@ports.0/@connection">
       <simulinkRef name="inport.1" qualifier="tst_bus_complex_combined/Subsystem2"/>
     </ports>
     <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems"/>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@ports.0">
       <simulinkRef name="In1" qualifier="tst_bus_complex_combined/Subsystem2"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem2/In1"/>
         <connection xsi:type="simulink:SingleConnection" lineName="level3_1" to="//@contains.7/@subBlocks.1/@ports.3">
@@ -332,8 +332,8 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:BusSelector">
       <simulinkRef name="Bus Selector2" qualifier="tst_bus_complex_combined/Subsystem2"/>
-      <properties name="OutputAsBus" value="off" source="DIALOG"/>
-      <properties name="OutputSignals" value="level2_1_from,level0_4,level2_1_from.level0_1" source="DIALOG"/>
+      <parameters name="OutputAsBus" value="off" />
+      <parameters name="OutputSignals" value="level2_1_from,level0_4,level2_1_from.level0_1" />
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem2/Bus Selector2"/>
         <connection xsi:type="simulink:SingleConnection" lineName="&lt;level2_1_from>" to="//@contains.7/@subBlocks.2/@ports.0">
@@ -362,36 +362,36 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:SubSystem" tag="">
       <simulinkRef name="Subsystem1" qualifier="tst_bus_complex_combined/Subsystem2"/>
-      <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-      <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-      <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-      <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-      <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-      <properties name="ErrorFcn" value="" source="DIALOG"/>
-      <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-      <properties name="MemberBlocks" value="" source="DIALOG"/>
-      <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-      <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-      <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-      <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-      <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-      <properties name="VariantObject" value="" source="DIALOG"/>
-      <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-      <properties name="ActiveVariant" value="" source="DIALOG"/>
-      <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-      <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-      <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-      <properties name="RTWFcnName" value="" source="DIALOG"/>
-      <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-      <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-      <properties name="BlockChoice" value="" source="DIALOG"/>
-      <properties name="RTWFileName" value="" source="DIALOG"/>
-      <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-      <properties name="TemplateBlock" value="" source="DIALOG"/>
-      <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="ActiveVariantBlock" value="" source="DIALOG"/>
-      <properties name="Variant" value="off" source="DIALOG"/>
+      <parameters name="RTWSystemCode" value="Auto" />
+      <parameters name="PermitHierarchicalResolution" value="All" />
+      <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+      <parameters name="OverrideUsingVariant" value="" />
+      <parameters name="IsSubsystemVirtual" value="on" />
+      <parameters name="ErrorFcn" value="" />
+      <parameters name="ShowPortLabels" value="FromPortIcon" />
+      <parameters name="MemberBlocks" value="" />
+      <parameters name="MinAlgLoopOccurrences" value="off" />
+      <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+      <parameters name="SystemSampleTime" value="-1" />
+      <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+      <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+      <parameters name="VariantObject" value="" />
+      <parameters name="Permissions" value="ReadWrite" />
+      <parameters name="ActiveVariant" value="" />
+      <parameters name="PropExecContextOutsideSubsystem" value="off" />
+      <parameters name="TreatAsAtomicUnit" value="off" />
+      <parameters name="GeneratePreprocessorConditionals" value="off" />
+      <parameters name="RTWFcnName" value="" />
+      <parameters name="RTWFileNameOpts" value="Auto" />
+      <parameters name="FunctionWithSeparateData" value="off" />
+      <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+      <parameters name="BlockChoice" value="" />
+      <parameters name="RTWFileName" value="" />
+      <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+      <parameters name="TemplateBlock" value="" />
+      <parameters name="RTWFcnNameOpts" value="Auto" />
+      <parameters name="ActiveVariantBlock" value="" />
+      <parameters name="Variant" value="off" />
       <ports xsi:type="simulink:InPort" portBlock="//@contains.7/@subBlocks.2/@subBlocks.0" connection="//@contains.7/@subBlocks.1/@ports.0/@connection">
         <simulinkRef name="inport.1" qualifier="tst_bus_complex_combined/Subsystem2/Subsystem1"/>
       </ports>
@@ -401,24 +401,24 @@
       <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems"/>
       <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@subBlocks.2/@ports.0">
         <simulinkRef name="In1" qualifier="tst_bus_complex_combined/Subsystem2/Subsystem1"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="Interpolate" value="on" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="Port" value="1" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="LatchByDelayingOutsideSignal" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="Interpolate" value="on" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="Port" value="1" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="OutputFunctionCall" value="off" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="LatchInputForFeedbackSignals" value="off" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem2/Subsystem1/In1"/>
           <connection xsi:type="simulink:SingleConnection" lineName="continued" to="//@contains.7/@subBlocks.2/@subBlocks.2/@ports.3">
@@ -429,24 +429,24 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.7/@subBlocks.2/@ports.1">
         <simulinkRef name="In2" qualifier="tst_bus_complex_combined/Subsystem2/Subsystem1"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="Interpolate" value="on" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="Port" value="2" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="LatchByDelayingOutsideSignal" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="Interpolate" value="on" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="Port" value="2" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="OutputFunctionCall" value="off" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="LatchInputForFeedbackSignals" value="off" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem2/Subsystem1/In2"/>
           <connection xsi:type="simulink:SingleConnection" lineName="continued" to="//@contains.7/@subBlocks.2/@subBlocks.6/@ports.0">
@@ -457,8 +457,8 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:BusSelector">
         <simulinkRef name="Bus Selector3" qualifier="tst_bus_complex_combined/Subsystem2/Subsystem1"/>
-        <properties name="OutputAsBus" value="off" source="DIALOG"/>
-        <properties name="OutputSignals" value="level0_1,level0_2,level0_1" source="DIALOG"/>
+        <parameters name="OutputAsBus" value="off" />
+        <parameters name="OutputSignals" value="level0_1,level0_2,level0_1" />
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem2/Subsystem1/Bus Selector3"/>
           <connection xsi:type="simulink:SingleConnection" lineName="&lt;level0_1>" to="//@contains.7/@subBlocks.2/@subBlocks.3/@ports.0">
@@ -524,60 +524,60 @@
   </contains>
   <contains xsi:type="simulink:SubSystem" tag="">
     <simulinkRef name="Subsystem3" qualifier="tst_bus_complex_combined"/>
-    <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-    <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-    <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-    <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-    <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-    <properties name="ErrorFcn" value="" source="DIALOG"/>
-    <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-    <properties name="MemberBlocks" value="" source="DIALOG"/>
-    <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-    <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-    <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-    <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-    <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-    <properties name="VariantObject" value="" source="DIALOG"/>
-    <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-    <properties name="ActiveVariant" value="" source="DIALOG"/>
-    <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-    <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-    <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-    <properties name="RTWFcnName" value="" source="DIALOG"/>
-    <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-    <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-    <properties name="BlockChoice" value="" source="DIALOG"/>
-    <properties name="RTWFileName" value="" source="DIALOG"/>
-    <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-    <properties name="TemplateBlock" value="" source="DIALOG"/>
-    <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-    <properties name="ActiveVariantBlock" value="" source="DIALOG"/>
-    <properties name="Variant" value="off" source="DIALOG"/>
+    <parameters name="RTWSystemCode" value="Auto" />
+    <parameters name="PermitHierarchicalResolution" value="All" />
+    <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+    <parameters name="OverrideUsingVariant" value="" />
+    <parameters name="IsSubsystemVirtual" value="on" />
+    <parameters name="ErrorFcn" value="" />
+    <parameters name="ShowPortLabels" value="FromPortIcon" />
+    <parameters name="MemberBlocks" value="" />
+    <parameters name="MinAlgLoopOccurrences" value="off" />
+    <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+    <parameters name="SystemSampleTime" value="-1" />
+    <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+    <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+    <parameters name="VariantObject" value="" />
+    <parameters name="Permissions" value="ReadWrite" />
+    <parameters name="ActiveVariant" value="" />
+    <parameters name="PropExecContextOutsideSubsystem" value="off" />
+    <parameters name="TreatAsAtomicUnit" value="off" />
+    <parameters name="GeneratePreprocessorConditionals" value="off" />
+    <parameters name="RTWFcnName" value="" />
+    <parameters name="RTWFileNameOpts" value="Auto" />
+    <parameters name="FunctionWithSeparateData" value="off" />
+    <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+    <parameters name="BlockChoice" value="" />
+    <parameters name="RTWFileName" value="" />
+    <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+    <parameters name="TemplateBlock" value="" />
+    <parameters name="RTWFcnNameOpts" value="Auto" />
+    <parameters name="ActiveVariantBlock" value="" />
+    <parameters name="Variant" value="off" />
     <ports xsi:type="simulink:InPort" portBlock="//@contains.8/@subBlocks.0" connection="//@contains.6/@ports.0/@connection/@connections.1">
       <simulinkRef name="inport.1" qualifier="tst_bus_complex_combined/Subsystem3"/>
     </ports>
     <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems"/>
     <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.8/@ports.0">
       <simulinkRef name="In1" qualifier="tst_bus_complex_combined/Subsystem3"/>
-      <properties name="LockScale" value="off" source="DIALOG"/>
-      <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-      <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-      <properties name="OutMin" value="[]" source="DIALOG"/>
-      <properties name="Interpolate" value="on" source="DIALOG"/>
-      <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-      <properties name="SamplingMode" value="auto" source="DIALOG"/>
-      <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-      <properties name="PortDimensions" value="-1" source="DIALOG"/>
-      <properties name="Port" value="1" source="DIALOG"/>
-      <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-      <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-      <properties name="SignalType" value="auto" source="DIALOG"/>
-      <properties name="OutMax" value="[]" source="DIALOG"/>
-      <properties name="SampleTime" value="-1" source="DIALOG"/>
-      <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-      <properties name="DataType" value="Inherit: auto"/>
-      <properties name="SampleTime" value="-1"/>
+      <parameters name="LockScale" value="off" />
+      <parameters name="BusOutputAsStruct" value="off" />
+      <parameters name="LatchByDelayingOutsideSignal" value="off" />
+      <parameters name="OutMin" value="[]" />
+      <parameters name="Interpolate" value="on" />
+      <parameters name="VarSizeSig" value="Inherit" />
+      <parameters name="SamplingMode" value="auto" />
+      <parameters name="OutDataTypeStr" value="Inherit: auto" />
+      <parameters name="PortDimensions" value="-1" />
+      <parameters name="Port" value="1" />
+      <parameters name="IconDisplay" value="Port number" />
+      <parameters name="OutputFunctionCall" value="off" />
+      <parameters name="SignalType" value="auto" />
+      <parameters name="OutMax" value="[]" />
+      <parameters name="SampleTime" value="-1" />
+      <parameters name="LatchInputForFeedbackSignals" value="off" />
+      <parameters name="DataType" value="Inherit: auto"/>
+      <parameters name="SampleTime" value="-1"/>
       <ports xsi:type="simulink:OutPort">
         <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem3/In1"/>
         <connection xsi:type="simulink:SingleConnection" lineName="level1_1" to="//@contains.8/@subBlocks.1/@ports.0">
@@ -588,60 +588,60 @@
     </subBlocks>
     <subBlocks xsi:type="simulink:SubSystem" tag="">
       <simulinkRef name="Subsystem2" qualifier="tst_bus_complex_combined/Subsystem3"/>
-      <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-      <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-      <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-      <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-      <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-      <properties name="ErrorFcn" value="" source="DIALOG"/>
-      <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-      <properties name="MemberBlocks" value="" source="DIALOG"/>
-      <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-      <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-      <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-      <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-      <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-      <properties name="VariantObject" value="" source="DIALOG"/>
-      <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-      <properties name="ActiveVariant" value="" source="DIALOG"/>
-      <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-      <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-      <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-      <properties name="RTWFcnName" value="" source="DIALOG"/>
-      <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-      <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-      <properties name="BlockChoice" value="" source="DIALOG"/>
-      <properties name="RTWFileName" value="" source="DIALOG"/>
-      <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-      <properties name="TemplateBlock" value="" source="DIALOG"/>
-      <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-      <properties name="ActiveVariantBlock" value="" source="DIALOG"/>
-      <properties name="Variant" value="off" source="DIALOG"/>
+      <parameters name="RTWSystemCode" value="Auto" />
+      <parameters name="PermitHierarchicalResolution" value="All" />
+      <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+      <parameters name="OverrideUsingVariant" value="" />
+      <parameters name="IsSubsystemVirtual" value="on" />
+      <parameters name="ErrorFcn" value="" />
+      <parameters name="ShowPortLabels" value="FromPortIcon" />
+      <parameters name="MemberBlocks" value="" />
+      <parameters name="MinAlgLoopOccurrences" value="off" />
+      <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+      <parameters name="SystemSampleTime" value="-1" />
+      <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+      <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+      <parameters name="VariantObject" value="" />
+      <parameters name="Permissions" value="ReadWrite" />
+      <parameters name="ActiveVariant" value="" />
+      <parameters name="PropExecContextOutsideSubsystem" value="off" />
+      <parameters name="TreatAsAtomicUnit" value="off" />
+      <parameters name="GeneratePreprocessorConditionals" value="off" />
+      <parameters name="RTWFcnName" value="" />
+      <parameters name="RTWFileNameOpts" value="Auto" />
+      <parameters name="FunctionWithSeparateData" value="off" />
+      <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+      <parameters name="BlockChoice" value="" />
+      <parameters name="RTWFileName" value="" />
+      <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+      <parameters name="TemplateBlock" value="" />
+      <parameters name="RTWFcnNameOpts" value="Auto" />
+      <parameters name="ActiveVariantBlock" value="" />
+      <parameters name="Variant" value="off" />
       <ports xsi:type="simulink:InPort" portBlock="//@contains.8/@subBlocks.1/@subBlocks.0" connection="//@contains.8/@subBlocks.0/@ports.0/@connection">
         <simulinkRef name="inport.1" qualifier="tst_bus_complex_combined/Subsystem3/Subsystem2"/>
       </ports>
       <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems"/>
       <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.8/@subBlocks.1/@ports.0">
         <simulinkRef name="In1" qualifier="tst_bus_complex_combined/Subsystem3/Subsystem2"/>
-        <properties name="LockScale" value="off" source="DIALOG"/>
-        <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-        <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-        <properties name="OutMin" value="[]" source="DIALOG"/>
-        <properties name="Interpolate" value="on" source="DIALOG"/>
-        <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-        <properties name="SamplingMode" value="auto" source="DIALOG"/>
-        <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-        <properties name="PortDimensions" value="-1" source="DIALOG"/>
-        <properties name="Port" value="1" source="DIALOG"/>
-        <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-        <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-        <properties name="SignalType" value="auto" source="DIALOG"/>
-        <properties name="OutMax" value="[]" source="DIALOG"/>
-        <properties name="SampleTime" value="-1" source="DIALOG"/>
-        <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-        <properties name="DataType" value="Inherit: auto"/>
-        <properties name="SampleTime" value="-1"/>
+        <parameters name="LockScale" value="off" />
+        <parameters name="BusOutputAsStruct" value="off" />
+        <parameters name="LatchByDelayingOutsideSignal" value="off" />
+        <parameters name="OutMin" value="[]" />
+        <parameters name="Interpolate" value="on" />
+        <parameters name="VarSizeSig" value="Inherit" />
+        <parameters name="SamplingMode" value="auto" />
+        <parameters name="OutDataTypeStr" value="Inherit: auto" />
+        <parameters name="PortDimensions" value="-1" />
+        <parameters name="Port" value="1" />
+        <parameters name="IconDisplay" value="Port number" />
+        <parameters name="OutputFunctionCall" value="off" />
+        <parameters name="SignalType" value="auto" />
+        <parameters name="OutMax" value="[]" />
+        <parameters name="SampleTime" value="-1" />
+        <parameters name="LatchInputForFeedbackSignals" value="off" />
+        <parameters name="DataType" value="Inherit: auto"/>
+        <parameters name="SampleTime" value="-1"/>
         <ports xsi:type="simulink:OutPort">
           <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem3/Subsystem2/In1"/>
           <connection xsi:type="simulink:SingleConnection" lineName="level1_'" to="//@contains.8/@subBlocks.1/@subBlocks.1/@ports.0">
@@ -652,60 +652,60 @@
       </subBlocks>
       <subBlocks xsi:type="simulink:SubSystem" tag="">
         <simulinkRef name="Subsystem1" qualifier="tst_bus_complex_combined/Subsystem3/Subsystem2"/>
-        <properties name="RTWSystemCode" value="Auto" source="DIALOG"/>
-        <properties name="PermitHierarchicalResolution" value="All" source="DIALOG"/>
-        <properties name="RTWMemSecFuncExecute" value="Inherit from model" source="DIALOG"/>
-        <properties name="OverrideUsingVariant" value="" source="DIALOG"/>
-        <properties name="IsSubsystemVirtual" value="on" source="DIALOG"/>
-        <properties name="ErrorFcn" value="" source="DIALOG"/>
-        <properties name="ShowPortLabels" value="FromPortIcon" source="DIALOG"/>
-        <properties name="MemberBlocks" value="" source="DIALOG"/>
-        <properties name="MinAlgLoopOccurrences" value="off" source="DIALOG"/>
-        <properties name="RTWMemSecDataParameters" value="Inherit from model" source="DIALOG"/>
-        <properties name="SystemSampleTime" value="-1" source="DIALOG"/>
-        <properties name="RTWMemSecDataInternal" value="Inherit from model" source="DIALOG"/>
-        <properties name="RTWMemSecDataConstants" value="Inherit from model" source="DIALOG"/>
-        <properties name="VariantObject" value="" source="DIALOG"/>
-        <properties name="Permissions" value="ReadWrite" source="DIALOG"/>
-        <properties name="ActiveVariant" value="" source="DIALOG"/>
-        <properties name="PropExecContextOutsideSubsystem" value="off" source="DIALOG"/>
-        <properties name="TreatAsAtomicUnit" value="off" source="DIALOG"/>
-        <properties name="GeneratePreprocessorConditionals" value="off" source="DIALOG"/>
-        <properties name="RTWFcnName" value="" source="DIALOG"/>
-        <properties name="RTWFileNameOpts" value="Auto" source="DIALOG"/>
-        <properties name="FunctionWithSeparateData" value="off" source="DIALOG"/>
-        <properties name="CheckFcnCallInpInsideContextMsg" value="off" source="DIALOG"/>
-        <properties name="BlockChoice" value="" source="DIALOG"/>
-        <properties name="RTWFileName" value="" source="DIALOG"/>
-        <properties name="RTWMemSecFuncInitTerm" value="Inherit from model" source="DIALOG"/>
-        <properties name="TemplateBlock" value="" source="DIALOG"/>
-        <properties name="RTWFcnNameOpts" value="Auto" source="DIALOG"/>
-        <properties name="ActiveVariantBlock" value="" source="DIALOG"/>
-        <properties name="Variant" value="off" source="DIALOG"/>
+        <parameters name="RTWSystemCode" value="Auto" />
+        <parameters name="PermitHierarchicalResolution" value="All" />
+        <parameters name="RTWMemSecFuncExecute" value="Inherit from model" />
+        <parameters name="OverrideUsingVariant" value="" />
+        <parameters name="IsSubsystemVirtual" value="on" />
+        <parameters name="ErrorFcn" value="" />
+        <parameters name="ShowPortLabels" value="FromPortIcon" />
+        <parameters name="MemberBlocks" value="" />
+        <parameters name="MinAlgLoopOccurrences" value="off" />
+        <parameters name="RTWMemSecDataParameters" value="Inherit from model" />
+        <parameters name="SystemSampleTime" value="-1" />
+        <parameters name="RTWMemSecDataInternal" value="Inherit from model" />
+        <parameters name="RTWMemSecDataConstants" value="Inherit from model" />
+        <parameters name="VariantObject" value="" />
+        <parameters name="Permissions" value="ReadWrite" />
+        <parameters name="ActiveVariant" value="" />
+        <parameters name="PropExecContextOutsideSubsystem" value="off" />
+        <parameters name="TreatAsAtomicUnit" value="off" />
+        <parameters name="GeneratePreprocessorConditionals" value="off" />
+        <parameters name="RTWFcnName" value="" />
+        <parameters name="RTWFileNameOpts" value="Auto" />
+        <parameters name="FunctionWithSeparateData" value="off" />
+        <parameters name="CheckFcnCallInpInsideContextMsg" value="off" />
+        <parameters name="BlockChoice" value="" />
+        <parameters name="RTWFileName" value="" />
+        <parameters name="RTWMemSecFuncInitTerm" value="Inherit from model" />
+        <parameters name="TemplateBlock" value="" />
+        <parameters name="RTWFcnNameOpts" value="Auto" />
+        <parameters name="ActiveVariantBlock" value="" />
+        <parameters name="Variant" value="off" />
         <ports xsi:type="simulink:InPort" portBlock="//@contains.8/@subBlocks.1/@subBlocks.1/@subBlocks.0" connection="//@contains.8/@subBlocks.1/@subBlocks.0/@ports.0/@connection">
           <simulinkRef name="inport.1" qualifier="tst_bus_complex_combined/Subsystem3/Subsystem2/Subsystem1"/>
         </ports>
         <sourceBlockRef name="Subsystem" qualifier="simulink/Ports &amp; Subsystems"/>
         <subBlocks xsi:type="simulink:InPortBlock" port="//@contains.8/@subBlocks.1/@subBlocks.1/@ports.0">
           <simulinkRef name="In1" qualifier="tst_bus_complex_combined/Subsystem3/Subsystem2/Subsystem1"/>
-          <properties name="LockScale" value="off" source="DIALOG"/>
-          <properties name="BusOutputAsStruct" value="off" source="DIALOG"/>
-          <properties name="LatchByDelayingOutsideSignal" value="off" source="DIALOG"/>
-          <properties name="OutMin" value="[]" source="DIALOG"/>
-          <properties name="Interpolate" value="on" source="DIALOG"/>
-          <properties name="VarSizeSig" value="Inherit" source="DIALOG"/>
-          <properties name="SamplingMode" value="auto" source="DIALOG"/>
-          <properties name="OutDataTypeStr" value="Inherit: auto" source="DIALOG"/>
-          <properties name="PortDimensions" value="-1" source="DIALOG"/>
-          <properties name="Port" value="1" source="DIALOG"/>
-          <properties name="IconDisplay" value="Port number" source="DIALOG"/>
-          <properties name="OutputFunctionCall" value="off" source="DIALOG"/>
-          <properties name="SignalType" value="auto" source="DIALOG"/>
-          <properties name="OutMax" value="[]" source="DIALOG"/>
-          <properties name="SampleTime" value="-1" source="DIALOG"/>
-          <properties name="LatchInputForFeedbackSignals" value="off" source="DIALOG"/>
-          <properties name="DataType" value="Inherit: auto"/>
-          <properties name="SampleTime" value="-1"/>
+          <parameters name="LockScale" value="off" />
+          <parameters name="BusOutputAsStruct" value="off" />
+          <parameters name="LatchByDelayingOutsideSignal" value="off" />
+          <parameters name="OutMin" value="[]" />
+          <parameters name="Interpolate" value="on" />
+          <parameters name="VarSizeSig" value="Inherit" />
+          <parameters name="SamplingMode" value="auto" />
+          <parameters name="OutDataTypeStr" value="Inherit: auto" />
+          <parameters name="PortDimensions" value="-1" />
+          <parameters name="Port" value="1" />
+          <parameters name="IconDisplay" value="Port number" />
+          <parameters name="OutputFunctionCall" value="off" />
+          <parameters name="SignalType" value="auto" />
+          <parameters name="OutMax" value="[]" />
+          <parameters name="SampleTime" value="-1" />
+          <parameters name="LatchInputForFeedbackSignals" value="off" />
+          <parameters name="DataType" value="Inherit: auto"/>
+          <parameters name="SampleTime" value="-1"/>
           <ports xsi:type="simulink:OutPort">
             <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem3/Subsystem2/Subsystem1/In1"/>
             <connection xsi:type="simulink:SingleConnection" lineName="level1_1" to="//@contains.8/@subBlocks.1/@subBlocks.1/@subBlocks.1/@ports.2">
@@ -716,8 +716,8 @@
         </subBlocks>
         <subBlocks xsi:type="simulink:BusSelector">
           <simulinkRef name="Bus Selector1" qualifier="tst_bus_complex_combined/Subsystem3/Subsystem2/Subsystem1"/>
-          <properties name="OutputAsBus" value="off" source="DIALOG"/>
-          <properties name="OutputSignals" value="level0_1,level0_2" source="DIALOG"/>
+          <parameters name="OutputAsBus" value="off" />
+          <parameters name="OutputSignals" value="level0_1,level0_2" />
           <ports xsi:type="simulink:OutPort">
             <simulinkRef name="outport.1" qualifier="tst_bus_complex_combined/Subsystem3/Subsystem2/Subsystem1/Bus Selector1"/>
             <connection xsi:type="simulink:SingleConnection" lineName="&lt;level0_1>" to="//@contains.8/@subBlocks.1/@subBlocks.1/@subBlocks.2/@ports.0">

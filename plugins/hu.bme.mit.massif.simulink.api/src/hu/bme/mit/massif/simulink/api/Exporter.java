@@ -12,16 +12,13 @@
 package hu.bme.mit.massif.simulink.api;
 
 import java.io.File;
-import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.eclipse.core.internal.resources.ProjectPathVariableManager;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -45,7 +42,6 @@ import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
-import hu.bme.mit.massif.communication.datavisitor.IMatlabDataVisitor;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusCreator;
 import hu.bme.mit.massif.simulink.BusSelector;
@@ -168,7 +164,8 @@ public class Exporter {
         String path = fileNameWithoutExtension + ".simulink";
 
         // Load the resource
-        Resource loadResource = rs.getResource(URI.createURI(path), true);
+        URI fileUri = URI.createFileURI(path);
+        Resource loadResource = rs.getResource(fileUri, true);
         Object resourceContent = loadResource.getContents().get(0);
 
         // Make a log entry if the root object isn't a SimulinkModel
@@ -204,7 +201,17 @@ public class Exporter {
         // Save the current directory
         String currentWorkdirectory = MatlabString.getMatlabStringData(commandFactory.cd().execute());
 
-        String[] savePathSegments = modelNameWithPath.split(File.separator);
+        String separator = FileSystems.getDefault().getSeparator();
+        String[] savePathSegments;
+        String[] workDirSegments;
+        if(separator.equals("\\")){            
+            savePathSegments = modelNameWithPath.split(separator + "\\"); // Add regex escape for windows environment      
+            workDirSegments = currentWorkdirectory.split("\\\\"); // The original working directory location            
+        } else {
+            savePathSegments = modelNameWithPath.split(separator);
+            workDirSegments = currentWorkdirectory.split(separator);        
+        }  
+        
         String modelName = savePathSegments[savePathSegments.length - 1];
 
         // Navigate to the save location
@@ -218,11 +225,10 @@ public class Exporter {
         MatlabCommand saveSystem = commandFactory.saveSystem().addParam(modelName).addParam(modelName + "." + fileExtension);
         saveSystem.execute();
 
-        // Navigate back to the original working directory
-        String[] workDirSegments = currentWorkdirectory.split(File.separator);
+
         for (int i = 0; i < workDirSegments.length; i++) {
             String segment = workDirSegments[i];
-            MatlabCommand changeToWorkDir = commandFactory.cd().addParam(segment + File.separator);
+            MatlabCommand changeToWorkDir = commandFactory.cd().addParam(segment + separator);                  
             changeToWorkDir.execute();
         }
 
@@ -248,10 +254,8 @@ public class Exporter {
         
         // The list of blocks on the top level
         EList<Block> topLevelBlocks = model.getContains();
-
         
-        // Create the model in Simulink
-        
+        // Create the model in Simulink        
         String modelFQN = getFQN(model);
 
         int existValue = Handle.getHandleData(commandFactory.exist().addParam(modelFQN).execute()).intValue();

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>hu.bme.mit.massif.parent</artifactId>
+        <groupId>hu.bme.mit.massif</groupId>
+        <version>0.7.0-SNAPSHOT</version>
+        <relativePath>../../releng/hu.bme.mit.massif.parent/pom.xml</relativePath>
+    </parent>
+    <artifactId>hu.bme.mit.massif.doc</artifactId>
+    <packaging>eclipse-plugin</packaging>
+    <properties>
+        <asciidoc.highligher>coderay</asciidoc.highligher>
+        <asciidoc.header>true</asciidoc.header>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>html</directory>
+                            <excludes>
+                                    <exclude>.gitignore</exclude>
+                            </excludes>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>1.5.6</version>
+                <executions>
+                    <execution>
+                        <id>generate-help-contents</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <sourceDocumentExtensions>
+                                <sourceDocumentExtension>asciidoc</sourceDocumentExtension>
+                            </sourceDocumentExtensions>	
+                            <sourceHighlighter>${asciidoc.highlighter}</sourceHighlighter>
+                            <preserveDirectories>true</preserveDirectories>
+                            <outputDirectory>html</outputDirectory>
+                            <attributes>
+                                <linkcss>true</linkcss>
+                                <last-update-label>false</last-update-label>
+                            </attributes>
+                            <headerFooter>${asciidoc.header}</headerFooter>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

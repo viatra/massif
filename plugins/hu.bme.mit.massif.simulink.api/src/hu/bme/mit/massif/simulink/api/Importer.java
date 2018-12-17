@@ -1192,12 +1192,15 @@ public class Importer {
      *            the type of the port (written in a string)
      */
     private void createAndAddPort(Block parent, PortProvider portProvider, Handle portHandle, String portType) {
+        
         // Get the port adapter that contains block creation and processing logic
         IPortAdapter portAdapter = portProvider.adapt(portType.toLowerCase());
+        
         // Setting the name of the port according to its port number
         MatlabCommand getPortNumber = commandFactory.getParam().addParam(portHandle).addParam("PortNumber");
         Integer portNumber = Handle.getHandleData(getPortNumber.execute()).intValue();
         Port port;
+        
         // State is a special outport kind
         if ("outport".equalsIgnoreCase(portType) || "state".equalsIgnoreCase(portType)) {
             port = portAdapter.createPort(this, parent, portHandle, outPorts);

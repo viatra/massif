@@ -28,6 +28,7 @@ pipeline {
 		    //sh "mvn clean deploy -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository"
                 }
             	sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
+				sh './maven/massif-simulink-cli-package/prepareCLIPackage.sh'
             }
         }
 		stage('Deploy to Nexus') {
@@ -82,7 +83,7 @@ pipeline {
         always {
             archiveArtifacts 'releng/hu.bme.mit.massif.site/target/repository/**'
             archiveArtifacts 'releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip'
-            archiveArtifacts 'releng/hu.bme.mit.massif.simulink.cli-package/hu.bme.mit.massif.simulink.cli-example.zip'
+            archiveArtifacts 'maven/massif-simulink-cli-package/massif-simulink-cli-package.zip'
    		}
         success {
             slackSend channel: "massif-notifications", 

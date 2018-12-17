@@ -13,8 +13,11 @@ package hu.bme.mit.massif.simulink.api;
 import hu.bme.mit.massif.communication.ICommandEvaluator;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 
+import org.eclipse.emf.common.util.URI;
 import java.util.HashSet;
 import java.util.Set;
+
+
 
 /**
  * This class represents the Simulink model in the API, but not to be confused with SimulinkModel. Instances of this
@@ -26,7 +29,7 @@ public class ModelObject {
     /**
      * Stores the Simulink model's load path
      */
-    private String loadPath;
+    private URI loadPath;
 
     /**
      * Filter set for the importer. Filters are used to determine which subsystems should be further traversed.
@@ -108,6 +111,12 @@ public class ModelObject {
      * @return the model load path in Simulink
      */
     public String getLoadPath() {
+        return loadPath.path();
+    }
+    /**
+     * @return the model load path in Simulink as URI
+     */
+    public URI getLoadPathAsURI() {
         return loadPath;
     }
 
@@ -116,6 +125,14 @@ public class ModelObject {
      *            the model load path in Simulink
      */
     public void setLoadPath(String loadPath) {
+        this.loadPath = URI.createURI(loadPath);
+    }
+    
+    /**
+     * @param loadPath
+     *            the model load path in Simulink as URI
+     */
+    public void setLoadPath(URI loadPath) {
         this.loadPath = loadPath;
     }
 

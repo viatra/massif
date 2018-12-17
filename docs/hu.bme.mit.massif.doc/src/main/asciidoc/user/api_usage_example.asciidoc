@@ -6,6 +6,29 @@ In the following sections code fragments are from the corresponding example clas
 
 == Prerequisites
 
+=== Headless usage (Massif in non-eclipse environment)
+If you wish to use massif in non-eclipse environment, you have to run the following
+setup found in 'hu.bme.mit.massif.simulink.cli' package:
+[source, java]
+----
+"CLIInitializationUtil.setupEnvironment()"
+----
+
+Also, the default VIATRA backends must be provided:
+[source, java]
+----
+import org.eclipse.viatra.query.runtime.api.ViatraQueryEngineOptions;
+import org.eclipse.viatra.query.runtime.localsearch.matcher.integration.LocalSearchEMFBackendFactory;
+import org.eclipse.viatra.query.runtime.rete.matcher.ReteBackendFactory;
+----
+
+[source, java]
+----
+ViatraQueryEngineOptions.setSystemDefaultBackends(ReteBackendFactory.INSTANCE, ReteBackendFactory.INSTANCE, LocalSearchEMFBackendFactory.INSTANCE);
+----
+
+
+=== General prerequisites
 In order to successfully use the Importer (`ImporterExample` class) or the Exporter (`ExporterExample` class),
 some other components has to be created first in both classes, namely:
 
@@ -21,7 +44,7 @@ In order to be able to execute commands in Matlab, a command evaluator has to be
 In the example we use helper method to do this work, but the main logic can be written in one line:
 [source, java]
 ----
-ICommandEvaluator commandEvaluator = new CommandEvaluatorImpl(new MatlabClient(hostAddress, hostPort, serviceName)); 
+ICommandEvaluator commandEvaluator = new CommandEvaluatorImpl(new MatlabClient(hostAddress, hostPort, serviceName));
 ----
 This provides low level command evaluation,
 like sending commands to Matlab in form of strings and receiving the results in array of objects.
@@ -32,7 +55,7 @@ It is recommended to use the `CommandFactory` instead for executing commands.
 To wrap low level Matlab commands a command factory is provided,
 which can be used to create objects that represent common commands in Matlab,
 and have methods like parameter addition, execution initiation.
-The factory is to be instantiated in the following way using the previously provided command evaluator: 
+The factory is to be instantiated in the following way using the previously provided command evaluator:
 [source, java]
 ----
 MatlabCommandFactory factory = new MatlabCommandFactory(commandEvaluator);
@@ -76,7 +99,7 @@ The exporter - compared to the importer - has much less to configure. Its usage 
 ----
 Exporter exporter = new Exporter();
 SimulinkModel loadedModel = exporter.loadSimulinkModel(/*Model path with name as string comes here*/);
-exporter.export(loadedModel, commandFactory);	
+exporter.export(loadedModel, commandFactory);
 ----
 
 It simply loads the EMF representation from the specified location, then exports it using a specified command factory.
@@ -90,3 +113,18 @@ The extension of the model to save can be `slx` or `mdl`.
 (The default by MATLAB is `slx`).
 Please note, that the save path and save name is already set in the EMF representation,
 so it can be obtained by the `loadedModel.getSimulinkRef().getFQN()` call.
+
+== Caveats
+
+If a model is already loaded by Simulink, you can't re-import or re-export them.
+Use "bdclose('all')" simulink command to close all opened systems.
+
+It can be run via Massif programmatically:
+[source, java]
+----
+ICommandEvaluator commandEvaluator = ... // The commandEvaluator of your choice
+MatlabCommandFactory commandFactory = new MatlabCommandFactory(commandEvaluator);
+MatlabCommand closeAllCommand = commandFactory.customCommand("bdclose", 0);
+closeAllCommand.addParam("all");
+closeAllCommand.execute();
+----

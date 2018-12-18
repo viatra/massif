@@ -6,14 +6,15 @@
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation
+ *     Krisztian Gabor Mayer - additional features       
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.SimulinkReference;
-import hu.bme.mit.massif.simulink.api.Importer;
+import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
  * Adapter class for the trigger port block
@@ -21,13 +22,13 @@ import hu.bme.mit.massif.simulink.api.Importer;
 public class TriggerPortAdapter extends InportBlockAdapter {
 
     @Override
-    public Block getBlock(Importer traverser) {
+    public Block getBlock(ImportMode importMode) {
         return SimulinkFactory.eINSTANCE.createTriggerBlock();
     }
 
     @Override
-    public void process(Importer traverser, SimulinkReference parentSimRef, Block blockToProcess) {
-        super.process(traverser, parentSimRef, blockToProcess);
+    public void process(BlockDTO dto) {
+        super.process(dto);
     }
 
 }

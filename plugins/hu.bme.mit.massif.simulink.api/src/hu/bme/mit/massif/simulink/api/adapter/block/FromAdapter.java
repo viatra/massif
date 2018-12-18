@@ -6,15 +6,16 @@
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation
+ *     Krisztian Gabor Mayer - additional features       
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.From;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.SimulinkReference;
-import hu.bme.mit.massif.simulink.api.Importer;
+import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
  * Adapter class for the from block
@@ -22,15 +23,15 @@ import hu.bme.mit.massif.simulink.api.Importer;
 public class FromAdapter extends DefaultBlockAdapter {
 
     @Override
-    public Block getBlock(Importer traverser) {
+    public Block getBlock(ImportMode importMode) {
         return SimulinkFactory.eINSTANCE.createFrom();
     }
 
     @Override
-    public void process(Importer traverser, SimulinkReference parentSimRef, Block blockToProcess) {
-        super.process(traverser, parentSimRef, blockToProcess);
-        From fromBlock = (From) blockToProcess;
-        traverser.getFroms().put(fromBlock.getSimulinkRef().getFQN().replaceAll("\n", " "), fromBlock);
+    public void process(BlockDTO dto) {
+        super.process(dto);
+        From fromBlock = (From) dto.getBlockToProcess();
+        dto.getFroms().put(fromBlock.getSimulinkRef().getFQN().replaceAll("\n", " "), fromBlock);
         // This block is processed further during the creation of connections between blocks
     }
 

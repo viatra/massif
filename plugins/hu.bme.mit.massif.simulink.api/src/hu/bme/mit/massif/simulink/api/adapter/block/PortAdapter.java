@@ -7,6 +7,7 @@
  *
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Krisztian Gabor Mayer - additional features      
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
@@ -24,7 +25,8 @@ import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.PortBlock;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
-import hu.bme.mit.massif.simulink.api.Importer;
+import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
  * Generic adapter class for the port block
@@ -32,15 +34,15 @@ import hu.bme.mit.massif.simulink.api.Importer;
 public abstract class PortAdapter extends DefaultBlockAdapter {
 
     @Override
-    public abstract Block getBlock(Importer traverser);
+    public abstract Block getBlock(ImportMode importMode);
 
     @Override
-    public void process(Importer traverser, SimulinkReference parentSimRef, Block blockToProcess) {
-        super.process(traverser, parentSimRef, blockToProcess);
+    public void process(BlockDTO dto) {
+        super.process(dto);
 
-        PortBlock portBlock = (PortBlock) blockToProcess;
+        PortBlock portBlock = (PortBlock) dto.getBlockToProcess();
         String portBlockName = portBlock.getSimulinkRef().getFQN();
-        MatlabCommandFactory commandFactory = traverser.getCommandFactory();
+        MatlabCommandFactory commandFactory = dto.getCommandFactory();
         
         // Get DataType and SampleTime properties
         MatlabCommand getDataTypeString = commandFactory.getParam().addParam(portBlockName).addParam("OutDataTypeStr");
@@ -48,7 +50,7 @@ public abstract class PortAdapter extends DefaultBlockAdapter {
 
         if (dataTypeString.indexOf("Bus") == 0) {
 
-        	MatlabCommand getBusObjectName = commandFactory.getParam().addParam(blockToProcess.getSimulinkRef().getFQN()).addParam("BusObject");
+        	MatlabCommand getBusObjectName = commandFactory.getParam().addParam(portBlock.getSimulinkRef().getFQN()).addParam("BusObject");
             String busObjectName = MatlabString.getMatlabStringData(getBusObjectName.execute());
 
             BusSignal busSignal = processBusObject(busObjectName,commandFactory);
@@ -60,7 +62,7 @@ public abstract class PortAdapter extends DefaultBlockAdapter {
             busObject.setValue(busSignal.toString());
             portBlock.getParameters().add(busObject);
             // for now, only log it
-            traverser.getLogger().debug(String.format("BusObject in %s was processed to %s", portBlockName, busSignal));
+            dto.getLogger().debug(String.format("BusObject in %s was processed to %s", portBlockName, busSignal));
         }
 
     }

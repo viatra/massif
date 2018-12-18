@@ -6,7 +6,8 @@
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation
+ *     Krisztian Gabor Mayer - additional features       
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
@@ -26,8 +27,8 @@ import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusSelector;
 import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.SimulinkReference;
-import hu.bme.mit.massif.simulink.api.Importer;
+import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
  * Adapter class for the bus selector
@@ -35,23 +36,23 @@ import hu.bme.mit.massif.simulink.api.Importer;
 public class BusSelectorAdapter extends DefaultBlockAdapter {
 
     @Override
-    public Block getBlock(Importer traverser) {
+    public Block getBlock(ImportMode importMode) {
         return SimulinkFactory.eINSTANCE.createBusSelector();
     }
 
     @Override
-    public void process(Importer traverser, SimulinkReference parentSimRef, Block blockToProcess) {
-        super.process(traverser, parentSimRef, blockToProcess);
+    public void process(BlockDTO dto) {
+        super.process(dto);
 
         // Cast block to the correct type
-        BusSelector busSelector = (BusSelector) blockToProcess;
+        BusSelector busSelector = (BusSelector) dto.getBlockToProcess();
 
         // Cache the FQN for the block
         String busSelectorFQN = busSelector.getSimulinkRef().getFQN();
         // Cache the command evaluator instance
-        MatlabCommandFactory commandFactory = traverser.getCommandFactory();
+        MatlabCommandFactory commandFactory = dto.getCommandFactory();
         // Cache bus selector mappings
-        Map<BusSelector, List<Handle>> selectorToDestinationPorts = traverser.getBusSelectorToDestinationPorts();
+        Map<BusSelector, List<Handle>> selectorToDestinationPorts = dto.getBusSelectorToDestinationPorts();
 
         // Get relevant properties - don't have to be queried again from MATLAB, super.process() already obtained all
         // mask/dialog

@@ -9,19 +9,20 @@
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
  *     Marton Bur - script-based parameter querying
  *     Marton Bur - support for parameter filtering
+ *     Krisztian Gabor Mayer - additional features      
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
 import java.util.List;
 
-import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
-import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
+import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
  * Generic adapter for non-specific blocks. This adapter is used when no adapter is registered for a block type. The
@@ -30,20 +31,15 @@ import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
 public class DefaultBlockAdapter implements IBlockAdapter {
 
     @Override
-    public Block getBlock(Importer traverser) {
+    public Block getBlock(ImportMode importMode) {
         return SimulinkFactory.eINSTANCE.createBlock();
     }
 
     @Override
-    public void process(Importer traverser, SimulinkReference parentSimRef, Block blockToProcess) {
+    public void process(BlockDTO dto) {
         // The default block processing implementation goes here
-
-        MatlabCommandFactory commandFactory = traverser.getCommandFactory();
-        String blockFQN = blockToProcess.getSimulinkRef().getFQN();
-        
-        Handle blockHandle = traverser.getBlockHandleCache().get(blockFQN);
-        List<Parameter> blockProperties = ParameterHelper.collectParameters(traverser, commandFactory, blockHandle);
-        blockToProcess.getParameters().addAll(blockProperties);
+        List<Parameter> blockProperties = ParameterHelper.collectParameters(dto);
+        dto.getBlockToProcess().getParameters().addAll(blockProperties);
     }
 
 }

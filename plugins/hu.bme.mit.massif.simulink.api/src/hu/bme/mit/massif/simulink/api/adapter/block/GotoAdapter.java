@@ -7,8 +7,12 @@
  *
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Krisztian Gabor Mayer - additional features      
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
@@ -19,12 +23,9 @@ import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.Goto;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.TagVisibility;
-import hu.bme.mit.massif.simulink.api.Importer;
-
-import java.util.LinkedList;
-import java.util.List;
+import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
  * Adapter class for the goto block
@@ -32,16 +33,16 @@ import java.util.List;
 public class GotoAdapter extends DefaultBlockAdapter {
 
     @Override
-    public Block getBlock(Importer traverser) {
+    public Block getBlock(ImportMode importMode) {
         return SimulinkFactory.eINSTANCE.createGoto();
     }
 
     @Override
-    public void process(Importer traverser, SimulinkReference parentSimRef, Block blockToProcess) {
-        super.process(traverser, parentSimRef, blockToProcess);
+    public void process(BlockDTO dto) {
+        super.process(dto);
         // TODO revisit implementation
-        Goto gotoBlock = (Goto) blockToProcess;
-        MatlabCommandFactory commandFactory = traverser.getCommandFactory();
+        Goto gotoBlock = (Goto) dto.getBlockToProcess();
+        MatlabCommandFactory commandFactory = dto.getCommandFactory();
         String blockName = gotoBlock.getSimulinkRef().getFQN();
 
         MatlabCommand getGotoTag = commandFactory.getParam().addParam(blockName).addParam("GotoTag");
@@ -83,8 +84,7 @@ public class GotoAdapter extends DefaultBlockAdapter {
             String fromName = MatlabString.getMatlabStringData(structFromData.getData("name"));
             fromNames.add(fromName.replaceAll("\n", " "));
         }
-        traverser.getGotos().put(gotoBlock, fromNames);
-
+        dto.getGotos().put(gotoBlock, fromNames);
         // This block is processed further during the creation of connections between blocks
     }
 

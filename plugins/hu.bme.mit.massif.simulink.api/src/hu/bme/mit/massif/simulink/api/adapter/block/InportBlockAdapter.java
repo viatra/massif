@@ -7,17 +7,19 @@
  *
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Krisztian Gabor Mayer - additional features    
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
+
+import java.util.LinkedHashSet;
+import java.util.Map;
 
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.InPortBlock;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
-import hu.bme.mit.massif.simulink.api.Importer;
-
-import java.util.LinkedHashSet;
-import java.util.Map;
+import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
  * Adapter class for the in port block
@@ -25,24 +27,26 @@ import java.util.Map;
 public class InportBlockAdapter extends PortAdapter {
 
     @Override
-    public Block getBlock(Importer traverser) {
+    public Block getBlock(ImportMode importMode) {
         return SimulinkFactory.eINSTANCE.createInPortBlock();
     }
 
     @Override
-    public void process(Importer traverser, SimulinkReference parentSimRef, Block blockToProcess) {
-        super.process(traverser, parentSimRef, blockToProcess);
+    public void process(BlockDTO dto) {
+        super.process(dto);
 
-        Map<String, LinkedHashSet<InPortBlock>> inPortBlocks = traverser.getInPortBlocks();
+        Map<String, LinkedHashSet<InPortBlock>> inPortBlocks = dto.getInPortBlocks();
+        SimulinkReference parentSimRef = dto.getParentSimRef();
+        Block blockToProcess = dto.getBlockToProcess();
         if (parentSimRef != null) {
             if (inPortBlocks.get(parentSimRef.getFQN()) == null) {
                 inPortBlocks.put(parentSimRef.getFQN(), new LinkedHashSet<InPortBlock>());
             }
             // Cache the inport block
-            inPortBlocks.get(parentSimRef.getFQN()).add((InPortBlock) blockToProcess);
+            inPortBlocks.get(parentSimRef.getFQN()).add((InPortBlock) dto.getBlockToProcess());
         }
         
-        traverser.getInportBlocksByName().put(blockToProcess.getSimulinkRef().getFQN(), (InPortBlock) blockToProcess);
+        dto.getInportBlocksByName().put(dto.getBlockToProcess().getSimulinkRef().getFQN(), (InPortBlock) blockToProcess);
 
     }
 

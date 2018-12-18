@@ -13,11 +13,10 @@ package hu.bme.mit.massif.simulink.api.adapter;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import hu.bme.mit.massif.communication.command.MatlabCommand;
-import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
 import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.communication.datatype.IVisitableMatlabData;
@@ -25,18 +24,19 @@ import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.api.Importer;
+import hu.bme.mit.massif.simulink.api.dto.AbstractImporterDTO;
+import hu.bme.mit.massif.simulink.api.dto.PortDTO;
 import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 
 public class ParameterHelper {
 
-    public static List<Parameter> collectParameters(Importer traverser, MatlabCommandFactory commandFactory, Handle objectHandle) {
+    public static List<Parameter> collectParameters(AbstractImporterDTO dto) {
         List<Parameter> blockProperties = new LinkedList<Parameter>();
 
-        MatlabCommand getAllBlockParameters = commandFactory.customCommand("massif.get_all_parameters", 1).addParam(objectHandle);
+        MatlabCommand getAllBlockParameters = dto.getCommandFactory().customCommand("massif.get_all_parameters", 1).addParam(dto.getHandle());
         Map<String, IVisitableMatlabData> blockPropsMap = StructMatlabData.getStructMatlabDataData(getAllBlockParameters.execute());
 
-        Set<IParameterImportFilter> parameterFilters = traverser.getParameterFilters();
+        Set<IParameterImportFilter> parameterFilters = dto.getParameterFilters();
 
         Set<Entry<String, IVisitableMatlabData>> entries = blockPropsMap.entrySet();
         for (Entry<String, IVisitableMatlabData> entry : entries) {
@@ -44,7 +44,7 @@ public class ParameterHelper {
 
             boolean isFiltered = false;
             for (IParameterImportFilter paramFilter : parameterFilters) {
-                isFiltered |= paramFilter.filter(commandFactory, propertyName);
+                isFiltered |= paramFilter.filter(dto.getCommandFactory(), propertyName);
             }
 
             if (isFiltered) {

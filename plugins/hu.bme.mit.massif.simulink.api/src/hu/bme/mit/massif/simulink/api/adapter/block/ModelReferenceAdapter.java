@@ -7,8 +7,13 @@
  *
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Krisztian Gabor Mayer - additional features       
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
+
+import java.util.Map;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import hu.bme.mit.massif.communication.command.MatlabCommand;
 import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
@@ -18,17 +23,14 @@ import hu.bme.mit.massif.simulink.IdentifierReference;
 import hu.bme.mit.massif.simulink.ModelReference;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkModel;
-import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
+import hu.bme.mit.massif.simulink.api.dto.AbstractImporterDTO;
+import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 import hu.bme.mit.massif.simulink.api.util.SimulinkUtil;
-
-import java.util.Map;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * Adapter class for the model reference
@@ -36,8 +38,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 public class ModelReferenceAdapter extends DefaultBlockAdapter {
 
     @Override
-    public Block getBlock(Importer traverser) {
-        switch (traverser.getImportMode()) {
+    public Block getBlock(ImportMode importMode) {
+        switch (importMode) {
         case FLATTENING:
             return SimulinkFactory.eINSTANCE.createSubSystem();
         default:
@@ -46,12 +48,13 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
     }
 
     @Override
-    public void process(Importer traverser, SimulinkReference parentSimRef, Block blockToProcess) {
-        super.process(traverser, parentSimRef, blockToProcess);
+    public void process(BlockDTO dto) {
+        super.process(dto);
 
-        ImportMode importMode = traverser.getImportMode();
+        Block blockToProcess = dto.getBlockToProcess();
+        ImportMode importMode = dto.getImportMode();
         String modelReferenceFQN = blockToProcess.getSimulinkRef().getFQN();
-        MatlabCommandFactory commandFactory = traverser.getCommandFactory();
+        MatlabCommandFactory commandFactory = dto.getCommandFactory();
         String referencedModelName;
         SimulinkModel actualReferredModel;
         ModelReference modelReference = null;
@@ -85,14 +88,14 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
         case DEEP:
             // Create individual EMF models for the referenced models.
             try {
-                actualReferredModel = traverseReferencedModel(traverser, modelReferenceFQN, commandFactory,
+                actualReferredModel = traverseReferencedModel(dto, modelReferenceFQN, commandFactory,
                         ImportMode.DEEP);
                 IdentifierReference actualReferredModelSimRef = EcoreUtil.copy(actualReferredModel.getSimulinkRef());
                 if(modelReference != null) {
                     modelReference.setModelRef(actualReferredModelSimRef);
                 }
             } catch (SimulinkApiException e) {
-                traverser.getLogger().error("Exception occurred while traversing referenced model in deep copy!", e);
+                dto.getLogger().error("Exception occurred while traversing referenced model in deep copy!", e);
             }
             break;
         case FLATTENING:
@@ -100,7 +103,7 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
             // as though they were in the currently traversed model
             SubSystem modelReferenceSubSystem = (SubSystem) blockToProcess;
             try {
-                actualReferredModel = traverseReferencedModel(traverser, modelReferenceFQN, commandFactory,
+                actualReferredModel = traverseReferencedModel(dto, modelReferenceFQN, commandFactory,
                         ImportMode.FLATTENING);
                 // Set the level 0 elements of the model as the children of the SubSystem block
                 // so that flattening completes
@@ -108,7 +111,7 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
                     modelReferenceSubSystem.getSubBlocks().add(EcoreUtil.copy(b));
                 }
             } catch (SimulinkApiException e) {
-                traverser.getLogger().error("Exception occurred while traversing referenced model in flattening copy!",
+                dto.getLogger().error("Exception occurred while traversing referenced model in flattening copy!",
                         e);
             }
             break;
@@ -118,7 +121,7 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
 
     }
 
-    private SimulinkModel traverseReferencedModel(final Importer traverser, String modelReferenceFQN,
+    private SimulinkModel traverseReferencedModel(final AbstractImporterDTO importerDTO, String modelReferenceFQN,
             MatlabCommandFactory commandFactory, ImportMode importMode) throws SimulinkApiException {
         String referencedModelName;
         ModelObject referencedModel;
@@ -128,7 +131,7 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
         referencedModelName = MatlabString.getMatlabStringData(getReferencedModelName.execute());
         referencedModelName = handleSpecialCharacters(referencedModelName);
 
-        Map<String, SimulinkModel> modelRegistry = traverser.getReferencedModels();
+        Map<String, SimulinkModel> modelRegistry = importerDTO.getReferencedModels();
 
         if (modelRegistry.get(referencedModelName) != null) {
             return modelRegistry.get(referencedModelName);
@@ -136,9 +139,9 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
 
         referencedModel = new ModelObject(referencedModelName, commandFactory.getCommandEvaluator());
         
-        Importer referencedModelTraverser = new Importer(referencedModel, traverser.getLogger());
-        referencedModelTraverser.registerBlockFilters(traverser.getBlockFilters());
-        referencedModelTraverser.registerParameterFilters(traverser.getParameterFilters());
+        Importer referencedModelTraverser = new Importer(referencedModel, importerDTO.getLogger());
+        referencedModelTraverser.registerBlockFilters(importerDTO.getBlockFilters());
+        referencedModelTraverser.registerParameterFilters(importerDTO.getParameterFilters());
 
         // Add all already referenced and imported models to the new traverser registry
         referencedModelTraverser.getReferencedModels().putAll(modelRegistry);

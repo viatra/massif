@@ -7,23 +7,9 @@
  *
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Krisztian Gabor Mayer - additional features      
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
-
-import hu.bme.mit.massif.communication.command.MatlabCommand;
-import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
-import hu.bme.mit.massif.communication.datatype.MatlabString;
-import hu.bme.mit.massif.simulink.Block;
-import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.SimulinkModel;
-import hu.bme.mit.massif.simulink.SimulinkReference;
-import hu.bme.mit.massif.simulink.SubSystem;
-import hu.bme.mit.massif.simulink.api.Importer;
-import hu.bme.mit.massif.simulink.api.ModelObject;
-import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
-import hu.bme.mit.massif.simulink.api.extension.impl.ReferencingImportFilter;
-import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
-import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 import java.io.File;
 import java.text.ParseException;
@@ -39,6 +25,22 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
+import hu.bme.mit.massif.communication.command.MatlabCommand;
+import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
+import hu.bme.mit.massif.communication.datatype.MatlabString;
+import hu.bme.mit.massif.simulink.Block;
+import hu.bme.mit.massif.simulink.SimulinkFactory;
+import hu.bme.mit.massif.simulink.SimulinkModel;
+import hu.bme.mit.massif.simulink.SubSystem;
+import hu.bme.mit.massif.simulink.api.Importer;
+import hu.bme.mit.massif.simulink.api.ModelObject;
+import hu.bme.mit.massif.simulink.api.dto.AbstractImporterDTO;
+import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
+import hu.bme.mit.massif.simulink.api.extension.impl.ReferencingImportFilter;
+import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
+import hu.bme.mit.massif.simulink.api.util.ImportMode;
+
 /**
  * Adapter class for the subsystem
  */
@@ -48,15 +50,15 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
     private static ReferencingImportFilter referencingFilter = new ReferencingImportFilter();
 
     @Override
-    public Block getBlock(Importer traverser) {
+    public Block getBlock(ImportMode importMode) {
         return SimulinkFactory.eINSTANCE.createSubSystem();
     }
 
     @Override
-    public void process(Importer traverser, SimulinkReference parentSimRef, Block blockToProcess) {
-        super.process(traverser, parentSimRef, blockToProcess);
-        MatlabCommandFactory commandFactory = traverser.getCommandFactory();
-        SubSystem subSys = (SubSystem) blockToProcess;
+    public void process(BlockDTO dto) {
+        super.process(dto);
+        MatlabCommandFactory commandFactory = dto.getCommandFactory();
+        SubSystem subSys = (SubSystem) dto.getBlockToProcess();
         String blockFQN = subSys.getSimulinkRef().getFQN();
 
         MatlabCommand getTagValue = commandFactory.getParam().addParam(blockFQN).addParam("Tag");
@@ -64,7 +66,7 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
 
         subSys.setTag(tagValue);
 
-        if (ImportMode.REFERENCING == traverser.getImportMode()) {
+        if (ImportMode.REFERENCING == dto.getImportMode()) {
             // If the block is filtered, create the referenced library
             if (referencingFilter.filter(commandFactory, blockFQN)) {
             	MatlabCommand getReferenceBlockFQN = commandFactory.getParam().addParam(blockFQN).addParam("ReferenceBlock");
@@ -73,10 +75,10 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
                 int endIndex = sourceBlockFQN.indexOf("/");
                 String libraryName = sourceBlockFQN.substring(0, endIndex);
 
-                Set<String> libs = traverser.getLibrariesBeingImported();
+                Set<String> libs = dto.getLibrariesBeingImported();
                 if (!libs.contains(libraryName) && !libraryName.startsWith("simulink")) {
                     libs.add(libraryName);
-                    traverseReferencedLibrary(traverser, libraryName, commandFactory, ImportMode.REFERENCING);
+                    traverseReferencedLibrary(dto, libraryName, commandFactory, ImportMode.REFERENCING);
                 }
 
             }
@@ -84,40 +86,40 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
         }
     }
 
-    private SimulinkModel traverseReferencedLibrary(final Importer traverser, String libraryName,
+    private SimulinkModel traverseReferencedLibrary(final AbstractImporterDTO importerDTO, String libraryName,
             MatlabCommandFactory commandFactory, ImportMode importMode) {
 
-        Map<String, SimulinkModel> libraryRegistry = traverser.getReferencedLibraries();
+        Map<String, SimulinkModel> libraryRegistry = importerDTO.getReferencedLibraries();
 
         if (libraryRegistry.get(libraryName) != null) {
             return libraryRegistry.get(libraryName);
         }
 
         ModelObject referencedLibrary = new ModelObject(libraryName, commandFactory.getCommandEvaluator());
-        Importer referencedLibraryTraverser = new Importer(referencedLibrary, traverser.getLogger());
-        referencedLibraryTraverser.registerBlockFilters(traverser.getBlockFilters());
-        referencedLibraryTraverser.registerParameterFilters(traverser.getParameterFilters());
+        Importer referencedLibraryTraverser = new Importer(referencedLibrary, importerDTO.getLogger());
+        referencedLibraryTraverser.registerBlockFilters(importerDTO.getBlockFilters());
+        referencedLibraryTraverser.registerParameterFilters(importerDTO.getParameterFilters());
 
         referencedLibraryTraverser.getReferencedLibraries().putAll(libraryRegistry);
 
-        Set<String> librariesBeingImported = traverser.getLibrariesBeingImported();
+        Set<String> librariesBeingImported = importerDTO.getLibrariesBeingImported();
         referencedLibraryTraverser.getLibrariesBeingImported().addAll(librariesBeingImported);
 
-        String referencesFolderPath = traverser.getDefaultSavePath() + File.separator + traverser.getReferencesFolderName()
-                + Importer.REFERENCES_FOLDER_SUFFIX;
+        String referencesFolderPath = importerDTO.getDefaultSavePath() + File.separator + importerDTO.getReferencesFolderName()
+                + AbstractImporterDTO.REFERENCES_FOLDER_SUFFIX;
         String referencedLibPath = referencesFolderPath + File.separator + libraryName + ".simulink";
 
         SimulinkModel actualLibrary = checkLibrary(libraryName, commandFactory, referencedLibPath,
-                traverser.getLogger());
+                importerDTO.getLogger());
 
         if (actualLibrary == null) {
             try {
-                referencedLibraryTraverser.setDefaultSavePath(traverser.getDefaultSavePath());
-                referencedLibraryTraverser.setReferencesFolderName(traverser.getReferencesFolderName());
+                referencedLibraryTraverser.setDefaultSavePath(importerDTO.getDefaultSavePath());
+                referencedLibraryTraverser.setReferencesFolderName(importerDTO.getReferencesFolderName());
                 referencedLibraryTraverser.traverseAndCreateEMFModel(importMode);
                 actualLibrary = referencedLibraryTraverser.getSimulinkModel();
             } catch (SimulinkApiException e) {
-                traverser.getLogger().error("Error during importing the library " + libraryName, e);
+                importerDTO.getLogger().error("Error during importing the library " + libraryName, e);
             }
         } 
         

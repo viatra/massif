@@ -8,6 +8,7 @@
  * Contributors: 
  *     Peter Lunk - Modified API to allow custom Logger definition
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Krisztian Gabor Mayer - additional features      
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api;
 
@@ -71,6 +72,9 @@ import hu.bme.mit.massif.simulink.SingleConnection;
 import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.api.adapter.block.IBlockAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.IPortAdapter;
+import hu.bme.mit.massif.simulink.api.dto.AbstractImporterDTO;
+import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.dto.PortDTO;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
 import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
@@ -525,7 +529,7 @@ public class Importer {
         try {
             if (ImportMode.DEEP.equals(importMode) || ImportMode.REFERENCING.equals(importMode)) {
                 // Save all referenced models in a separate folder
-                String referencesFolder = referencesFolderName + REFERENCES_FOLDER_SUFFIX + File.separator;
+                String referencesFolder = referencesFolderName + AbstractImporterDTO.REFERENCES_FOLDER_SUFFIX + File.separator;
                 saveReferences(referencedModels.values(),savePath, rs, referencesFolder);
                 saveReferences(referencedLibraries.values(),savePath, rs, referencesFolder);
             }
@@ -933,22 +937,26 @@ public class Importer {
      * @throws IOException
      */
     private Block createBlockInstance(String blockType, String blockName, SimulinkReference parentSimRef)
-            throws SimulinkApiException {
-
+            throws SimulinkApiException {       
+            
         // Obtain the block provider corresponding to the block type
         BlockProvider provider = new BlockProvider();
         IBlockAdapter adapter = provider.adapt(blockType);
 
         // Create the block, set the SimulinkReference
-        Block createdBlock = adapter.getBlock(this);
+        Block createdBlock = adapter.getBlock(this.getImportMode());
+        String blockFQN = createdBlock.getSimulinkRef().getFQN();
+        Handle blockHandle = getBlockHandleCache().get(blockFQN);
+        
+        BlockDTO dto = new BlockDTO(this, blockHandle, parentSimRef, createdBlock);
+        
         createAndSetSimulinkRef(blockName, parentSimRef, createdBlock);
 
-        // Process the created blockk
-        adapter.process(this, parentSimRef, createdBlock);
+        // Process the created block
+        adapter.process(dto);
         // TODO a null check + return was removed from here for createdBlock - NEEDS TESTING, then delete this message
 
         // Create and set the SimulinkReference of the source block
-        String blockFQN = createdBlock.getSimulinkRef().getFQN();
 		MatlabCommand getReferenceBlockFQN = commandFactory.getParam().addParam(blockFQN).addParam("ReferenceBlock");
         String sourceBlockFQN = MatlabString.getMatlabStringData(getReferenceBlockFQN.execute());
 
@@ -1193,6 +1201,8 @@ public class Importer {
      */
     private void createAndAddPort(Block parent, PortProvider portProvider, Handle portHandle, String portType) {
         
+        PortDTO dto = new PortDTO(this, portHandle, inPorts, outPorts);
+        
         // Get the port adapter that contains block creation and processing logic
         IPortAdapter portAdapter = portProvider.adapt(portType.toLowerCase());
         
@@ -1203,12 +1213,12 @@ public class Importer {
         
         // State is a special outport kind
         if ("outport".equalsIgnoreCase(portType) || "state".equalsIgnoreCase(portType)) {
-            port = portAdapter.createPort(this, parent, portHandle, outPorts);
+            port = portAdapter.createPort(dto, parent);
             createAndSetSimulinkRef("outport." + portNumber.toString(), parent.getSimulinkRef(), port);
             cachedOutPortHandles.put((OutPort) port, Handle.getHandleData(portHandle));
         } else {
             // The case for Inport, Trigger, Enable, Ifact
-            port = portAdapter.createPort(this, parent, portHandle, inPorts);
+            port = portAdapter.createPort(dto, parent);
             createAndSetSimulinkRef("inport." + portNumber.toString(), parent.getSimulinkRef(), port);
         }
 
@@ -1216,11 +1226,10 @@ public class Importer {
         boolean isParent = parents.contains(parent);
         if (isParent) {
             // Obtaining the considerable set of OutPortBlocks and InPortBlocks
-            Set<InPortBlock> inPortBlockSet = inPortBlocks.get(parent.getSimulinkRef().getFQN());
-            Set<OutPortBlock> outPortBlockSet = outPortBlocks.get(parent.getSimulinkRef().getFQN());
+            dto.setInPortBlockSet(inPortBlocks.get(parent.getSimulinkRef().getFQN()));
+            dto.setOutPortBlockSet(outPortBlocks.get(parent.getSimulinkRef().getFQN()));
 
-            PortBlock portBlock = portAdapter.connectToBlock(port, portHandle, portNumber, inPortBlockSet,
-                    outPortBlockSet, this);
+            PortBlock portBlock = portAdapter.connectToBlock(dto, port, portNumber);
 
             // Creating the reference between the port and the portBlock
             if (portBlock != null) {

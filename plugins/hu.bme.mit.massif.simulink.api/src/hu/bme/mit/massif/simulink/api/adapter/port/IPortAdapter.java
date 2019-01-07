@@ -14,12 +14,12 @@ package hu.bme.mit.massif.simulink.api.adapter.port;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.Port;
 import hu.bme.mit.massif.simulink.PortBlock;
-import hu.bme.mit.massif.simulink.api.dto.PortDTO;
+import hu.bme.mit.massif.simulink.api.data.PortData;
 
 public interface IPortAdapter {
 
-    public Port createPort(PortDTO dto, Block parent);
+    public Port createPort(PortData dto, Block parent);
 
-    public PortBlock connectToBlock(PortDTO dto, Port port, Integer portNum);
+    public PortBlock connectToBlock(PortData dto, Port port, Integer portNum);
 
 }

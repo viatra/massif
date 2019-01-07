@@ -8,7 +8,7 @@
  * Contributors: 
  *     Krisztian Gabor Mayer - initial API and implementation 
  *******************************************************************************/
-package hu.bme.mit.massif.simulink.api.dto;
+package hu.bme.mit.massif.simulink.api.data;
 
 import java.util.Map;
 import java.util.Set;
@@ -20,14 +20,14 @@ import hu.bme.mit.massif.simulink.OutPort;
 import hu.bme.mit.massif.simulink.OutPortBlock;
 import hu.bme.mit.massif.simulink.api.Importer;
 
-public class PortDTO extends AbstractImporterDTO{
+public class PortData extends AbstractImporterData{
     
     private Map<Double, InPort> inPorts;
     private Map<Double, OutPort> outPorts;
     private Set<InPortBlock> inPortBlockSet;
     private Set<OutPortBlock> outPortBlockSet;
     
-    public PortDTO(Importer importer, Handle portHandle, Map<Double, InPort> inPorts, Map<Double, OutPort> outPorts) {
+    public PortData(Importer importer, Handle portHandle, Map<Double, InPort> inPorts, Map<Double, OutPort> outPorts) {
         super(importer, portHandle);
         this.inPorts = inPorts;
         this.outPorts = outPorts;

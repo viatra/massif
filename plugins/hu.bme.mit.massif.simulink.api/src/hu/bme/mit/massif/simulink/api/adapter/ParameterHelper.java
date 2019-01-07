@@ -24,13 +24,13 @@ import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.communication.datatype.StructMatlabData;
 import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.api.dto.AbstractImporterDTO;
-import hu.bme.mit.massif.simulink.api.dto.PortDTO;
+import hu.bme.mit.massif.simulink.api.data.AbstractImporterData;
+import hu.bme.mit.massif.simulink.api.data.PortData;
 import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 
 public class ParameterHelper {
 
-    public static List<Parameter> collectParameters(AbstractImporterDTO dto) {
+    public static List<Parameter> collectParameters(AbstractImporterData dto) {
         List<Parameter> blockProperties = new LinkedList<Parameter>();
 
         MatlabCommand getAllBlockParameters = dto.getCommandFactory().customCommand("massif.get_all_parameters", 1).addParam(dto.getHandle());

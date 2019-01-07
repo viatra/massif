@@ -13,7 +13,7 @@ package hu.bme.mit.massif.simulink.api.adapter.block;
 
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
@@ -27,7 +27,7 @@ public class EnablePortAdapter extends InportBlockAdapter {
     }
 
     @Override
-    public void process(BlockDTO dto) {
+    public void process(BlockData dto) {
         super.process(dto);
     }
 }

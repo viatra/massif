@@ -20,7 +20,7 @@ import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.GotoTagVisibility;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
@@ -34,7 +34,7 @@ public class GotoTagVisibilityAdapter extends DefaultBlockAdapter {
     }
 
     @Override
-    public void process(BlockDTO dto) {
+    public void process(BlockData dto) {
         super.process(dto);
 
         GotoTagVisibility gotoTagVisibilityBlock = (GotoTagVisibility) dto.getBlockToProcess();

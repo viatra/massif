@@ -27,7 +27,7 @@ import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.BusSelector;
 import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
@@ -41,7 +41,7 @@ public class BusSelectorAdapter extends DefaultBlockAdapter {
     }
 
     @Override
-    public void process(BlockDTO dto) {
+    public void process(BlockData dto) {
         super.process(dto);
 
         // Cast block to the correct type

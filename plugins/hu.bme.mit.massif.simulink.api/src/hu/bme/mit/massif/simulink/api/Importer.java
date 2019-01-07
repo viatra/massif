@@ -72,9 +72,9 @@ import hu.bme.mit.massif.simulink.SingleConnection;
 import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.api.adapter.block.IBlockAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.IPortAdapter;
-import hu.bme.mit.massif.simulink.api.dto.AbstractImporterDTO;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
-import hu.bme.mit.massif.simulink.api.dto.PortDTO;
+import hu.bme.mit.massif.simulink.api.data.AbstractImporterData;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
+import hu.bme.mit.massif.simulink.api.data.PortData;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 import hu.bme.mit.massif.simulink.api.extension.IBlockImportFilter;
 import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
@@ -529,7 +529,7 @@ public class Importer {
         try {
             if (ImportMode.DEEP.equals(importMode) || ImportMode.REFERENCING.equals(importMode)) {
                 // Save all referenced models in a separate folder
-                String referencesFolder = referencesFolderName + AbstractImporterDTO.REFERENCES_FOLDER_SUFFIX + File.separator;
+                String referencesFolder = referencesFolderName + AbstractImporterData.REFERENCES_FOLDER_SUFFIX + File.separator;
                 saveReferences(referencedModels.values(),savePath, rs, referencesFolder);
                 saveReferences(referencedLibraries.values(),savePath, rs, referencesFolder);
             }
@@ -948,7 +948,7 @@ public class Importer {
         String blockFQN = createdBlock.getSimulinkRef().getFQN();
         Handle blockHandle = getBlockHandleCache().get(blockFQN);
         
-        BlockDTO dto = new BlockDTO(this, blockHandle, parentSimRef, createdBlock);
+        BlockData dto = new BlockData(this, blockHandle, parentSimRef, createdBlock);
         
         createAndSetSimulinkRef(blockName, parentSimRef, createdBlock);
 
@@ -1201,7 +1201,7 @@ public class Importer {
      */
     private void createAndAddPort(Block parent, PortProvider portProvider, Handle portHandle, String portType) {
         
-        PortDTO dto = new PortDTO(this, portHandle, inPorts, outPorts);
+        PortData dto = new PortData(this, portHandle, inPorts, outPorts);
         
         // Get the port adapter that contains block creation and processing logic
         IPortAdapter portAdapter = portProvider.adapt(portType.toLowerCase());

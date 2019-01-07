@@ -21,7 +21,7 @@ import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
@@ -36,7 +36,7 @@ public class DefaultBlockAdapter implements IBlockAdapter {
     }
 
     @Override
-    public void process(BlockDTO dto) {
+    public void process(BlockData dto) {
         // The default block processing implementation goes here
         List<Parameter> blockProperties = ParameterHelper.collectParameters(dto);
         dto.getBlockToProcess().getParameters().addAll(blockProperties);

@@ -14,7 +14,7 @@ package hu.bme.mit.massif.simulink.api.adapter.block;
 import java.io.IOException;
 
 import hu.bme.mit.massif.simulink.Block;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
@@ -44,6 +44,6 @@ public interface IBlockAdapter {
      * @throws SimulinkApiException
      * @throws IOException
      */
-    void process(BlockDTO dto);
+    void process(BlockData dto);
 
 }

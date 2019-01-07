@@ -17,7 +17,7 @@ import hu.bme.mit.massif.communication.datatype.CellMatlabData;
 import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.InPortBlock;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
 
 /**
  * Adapter class for the bus creator
@@ -25,7 +25,7 @@ import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
 public class InportShadowAdapter extends InportBlockAdapter {
 
     @Override
-    public void process(BlockDTO dto) {
+    public void process(BlockData dto) {
         super.process(dto);
         Block blockToProcess = dto.getBlockToProcess();
         MatlabCommandFactory commandFactory = dto.getCommandFactory();

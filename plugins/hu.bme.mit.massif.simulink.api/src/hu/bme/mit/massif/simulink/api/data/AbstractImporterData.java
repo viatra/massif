@@ -9,7 +9,7 @@
  *     Krisztián Gábor Mayer - initial API and implementation 
  *******************************************************************************/
 
-package hu.bme.mit.massif.simulink.api.dto;
+package hu.bme.mit.massif.simulink.api.data;
 
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -32,8 +32,7 @@ import hu.bme.mit.massif.simulink.api.extension.IParameterImportFilter;
 import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
-public abstract class AbstractImporterDTO {
-    
+public abstract class AbstractImporterData {    
     
     /**
      * If this string is contained in the name it shows that the line in simulink originally was not named
@@ -41,15 +40,49 @@ public abstract class AbstractImporterDTO {
     public static final String DERIVED_LINE_NAME_INDICATOR = "DERIVED_LINE_NAME";
     public static final String REFERENCES_FOLDER_SUFFIX = "_refs";
     
+    /**
+     * Shallow copied fields from Importer, please visit the Importer class, as this class wraps an Importer's fields 
+     */
     private Handle handle;
     private Set<IParameterImportFilter> parameterFilters;
     private MatlabCommandFactory commandFactory;
     private Map<BusSelector, List<Handle>> busSelectorToDestinationPorts;
+    private Map<String, From> forms;
+    private Map<Goto, List<String>> gotos;
+    private Map<String, List<GotoTagVisibility>> gotoTagVisibilities;
+    private ImportMode importMode;
+    private ISimulinkAPILogger logger;
+    private Map<String, SimulinkModel> referencedModels;
+    private Set<IBlockImportFilter> blockFilters;
+    private Map<String, LinkedHashSet<InPortBlock>> inPortBlocks;
+    private Map<String, InPortBlock> inPortBlocksByName;
+    private Map<String, LinkedHashSet<OutPortBlock>> outPortBlocks;
+    private Set<String> librariesBeingImported;
+    private String defaultSavePath;
+    private String referencesFolderName;
+    private Map<String, SimulinkModel> referencedLibraries;
+    private Map<InPortBlock, MatlabString> shadowInports;
     
-    public AbstractImporterDTO(Importer importer, Handle handle) { 
+    
+    public AbstractImporterData(Importer importer, Handle handle) { 
         this.parameterFilters = importer.getParameterFilters();
         this.commandFactory = importer.getCommandFactory();   
         this.handle = handle; 
+        this.forms = importer.getFroms(); 
+        this.gotos = importer.getGotos();
+        this.gotoTagVisibilities = importer.getGotoTagVisibilities();  
+        this.importMode = importer.getImportMode();
+        this.logger = importer.getLogger();
+        this.referencedModels = importer.getReferencedModels();
+        this.blockFilters = importer.getBlockFilters();
+        this.inPortBlocks = importer.getInPortBlocks();
+        this.inPortBlocksByName = importer.getInportBlocksByName();
+        this.shadowInports = importer.getShadowInports();
+        this.outPortBlocks = importer.getOutPortBlocks();
+        this.librariesBeingImported = importer.getLibrariesBeingImported();
+        this.defaultSavePath = importer.getDefaultSavePath();
+        this.referencesFolderName = importer.getReferencesFolderName();
+        this.referencedLibraries = importer.getReferencedLibraries();
     }
     
     public Handle getHandle() {
@@ -64,131 +97,67 @@ public abstract class AbstractImporterDTO {
         return commandFactory;
     }
 
-    /**
-     * @return cache that contains bus selector - destination port mappings
-     */
     public Map<BusSelector, List<Handle>> getBusSelectorToDestinationPorts() {
         return busSelectorToDestinationPorts;
     }
 
-
-    /**
-     * @return
-     */
     public Map<String, From> getFroms() {
-        // TODO Auto-generated method stub
-        return null;
+        return forms;
     }
 
-    /**
-     * @return
-     */
     public Map<Goto, List<String>> getGotos() {
-        // TODO Auto-generated method stub
-        return null;
+        return gotos;
     }
 
-    /**
-     * @return
-     */
     public Map<String, List<GotoTagVisibility>> getGotoTagVisibilities() {
-        // TODO Auto-generated method stub
-        return null;
+        return gotoTagVisibilities;
     }
 
-    /**
-     * @return
-     */
     public ImportMode getImportMode() {
-        // TODO Auto-generated method stub
-        return ImportMode.FLATTENING;
+        return importMode;
     }
 
-    /**
-     * @return
-     */
     public ISimulinkAPILogger getLogger() {
-        // TODO Auto-generated method stub
-        return null;
+        return logger;
     }
 
-    /**
-     * @return
-     */
     public Map<String, SimulinkModel> getReferencedModels() {
-        // TODO Auto-generated method stub
-        return null;
+        return referencedModels;
     }
 
-    /**
-     * @return
-     */
     public Set<IBlockImportFilter> getBlockFilters() {
-        // TODO Auto-generated method stub
-        return null;
+        return blockFilters;
     }
 
-    /**
-     * @return
-     */
     public Map<String, LinkedHashSet<InPortBlock>> getInPortBlocks() {
-        // TODO Auto-generated method stub
-        return null;
+        return inPortBlocks;
     }
 
-    /**
-     * @return
-     */
     public Map<String, InPortBlock> getInportBlocksByName() {
-        // TODO Auto-generated method stub
-        return null;
+        return inPortBlocksByName;
     }
 
-    /**
-     * @return
-     */
     public Map<InPortBlock, MatlabString>  getShadowInports() {
-        // TODO Auto-generated method stub
-        return null;
+        return shadowInports;
     }
 
-    /**
-     * @return
-     */
     public Map<String, LinkedHashSet<OutPortBlock>> getOutPortBlocks() {
-        // TODO Auto-generated method stub
-        return null;
+        return outPortBlocks;
     }
 
-    /**
-     * @return
-     */
-    public Set<String> getLibrariesBeingImported() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    /**
-     * @return
-     */
     public String getDefaultSavePath() {
-        // TODO Auto-generated method stub
-        return null;
+        return defaultSavePath;
     }
-
-    /**
-     * @return
-     */
-    public String getReferencesFolderName() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    /**
-     * @return
-     */
+    
     public Map<String, SimulinkModel> getReferencedLibraries() {
-        // TODO Auto-generated method stub
-        return null;
+        return referencedLibraries;
     }   
+    
+    public String getReferencesFolderName() {
+        return referencesFolderName;
+    }
+    
+    public Set<String> getLibrariesBeingImported() {
+        return librariesBeingImported;
+    }
 }

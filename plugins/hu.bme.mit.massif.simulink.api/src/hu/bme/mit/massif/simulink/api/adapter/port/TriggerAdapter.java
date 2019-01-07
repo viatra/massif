@@ -30,13 +30,13 @@ import hu.bme.mit.massif.simulink.Trigger;
 import hu.bme.mit.massif.simulink.TriggerBlock;
 import hu.bme.mit.massif.simulink.TriggerType;
 import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
-import hu.bme.mit.massif.simulink.api.dto.PortDTO;
+import hu.bme.mit.massif.simulink.api.data.PortData;
 
 public class TriggerAdapter implements IPortAdapter {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Port createPort(PortDTO dto, Block parent) {
+    public Port createPort(PortData dto, Block parent) {
         InPort port = SimulinkFactory.eINSTANCE.createTrigger();
         parent.getPorts().add(port);
         dto.getInPorts().put(Handle.getHandleData(dto.getHandle()), port);
@@ -46,7 +46,7 @@ public class TriggerAdapter implements IPortAdapter {
     }
 
     @Override
-    public PortBlock connectToBlock(PortDTO dto, Port port, Integer portNum) {
+    public PortBlock connectToBlock(PortData dto, Port port, Integer portNum) {
         // The type is known more specifically
         Trigger trigger = (Trigger) port;
         MatlabCommandFactory commandFactory = dto.getCommandFactory();

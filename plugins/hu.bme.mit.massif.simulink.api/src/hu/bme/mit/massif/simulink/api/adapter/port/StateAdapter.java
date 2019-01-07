@@ -21,13 +21,13 @@ import hu.bme.mit.massif.simulink.PortBlock;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.State;
 import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
-import hu.bme.mit.massif.simulink.api.dto.PortDTO;
+import hu.bme.mit.massif.simulink.api.data.PortData;
 
 public class StateAdapter implements IPortAdapter {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Port createPort(PortDTO dto, Block parent) {
+    public Port createPort(PortData dto, Block parent) {
         State port = SimulinkFactory.eINSTANCE.createState();
         parent.getPorts().add(port);
         dto.getOutPorts().put(Handle.getHandleData(dto.getHandle()), port);
@@ -37,7 +37,7 @@ public class StateAdapter implements IPortAdapter {
     }
 
     @Override
-    public PortBlock connectToBlock(PortDTO dto, Port port, Integer portNum) {
+    public PortBlock connectToBlock(PortData dto, Port port, Integer portNum) {
         // A state port never has a corresponding state port block
         return null;
     }

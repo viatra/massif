@@ -8,7 +8,7 @@
  * Contributors: 
  *     Krisztián Gábor Mayer - initial API and implementation 
  *******************************************************************************/
-package hu.bme.mit.massif.simulink.api.dto;
+package hu.bme.mit.massif.simulink.api.data;
 
 import hu.bme.mit.massif.communication.datatype.Handle;
 import hu.bme.mit.massif.simulink.Block;
@@ -16,12 +16,12 @@ import hu.bme.mit.massif.simulink.SimulinkReference;
 import hu.bme.mit.massif.simulink.api.Importer;
 
 
-public class BlockDTO extends AbstractImporterDTO{
+public class BlockData extends AbstractImporterData{
 
     private SimulinkReference parentSimRef;
     private Block block;
 
-    public BlockDTO(Importer importer, Handle blockHandle, SimulinkReference parentSimRef, Block block) {
+    public BlockData(Importer importer, Handle blockHandle, SimulinkReference parentSimRef, Block block) {
         super(importer, blockHandle);
         this.parentSimRef = parentSimRef;        
         this.block = block;

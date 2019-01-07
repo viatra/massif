@@ -26,8 +26,8 @@ import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
-import hu.bme.mit.massif.simulink.api.dto.AbstractImporterDTO;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.data.AbstractImporterData;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 import hu.bme.mit.massif.simulink.api.util.SimulinkUtil;
@@ -48,7 +48,7 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
     }
 
     @Override
-    public void process(BlockDTO dto) {
+    public void process(BlockData dto) {
         super.process(dto);
 
         Block blockToProcess = dto.getBlockToProcess();
@@ -121,7 +121,7 @@ public class ModelReferenceAdapter extends DefaultBlockAdapter {
 
     }
 
-    private SimulinkModel traverseReferencedModel(final AbstractImporterDTO importerDTO, String modelReferenceFQN,
+    private SimulinkModel traverseReferencedModel(final AbstractImporterData importerDTO, String modelReferenceFQN,
             MatlabCommandFactory commandFactory, ImportMode importMode) throws SimulinkApiException {
         String referencedModelName;
         ModelObject referencedModel;

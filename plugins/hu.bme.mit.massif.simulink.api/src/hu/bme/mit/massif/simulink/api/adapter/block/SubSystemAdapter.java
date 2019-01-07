@@ -34,8 +34,8 @@ import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.SubSystem;
 import hu.bme.mit.massif.simulink.api.Importer;
 import hu.bme.mit.massif.simulink.api.ModelObject;
-import hu.bme.mit.massif.simulink.api.dto.AbstractImporterDTO;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.data.AbstractImporterData;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 import hu.bme.mit.massif.simulink.api.extension.impl.ReferencingImportFilter;
 import hu.bme.mit.massif.simulink.api.util.ISimulinkAPILogger;
@@ -55,7 +55,7 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
     }
 
     @Override
-    public void process(BlockDTO dto) {
+    public void process(BlockData dto) {
         super.process(dto);
         MatlabCommandFactory commandFactory = dto.getCommandFactory();
         SubSystem subSys = (SubSystem) dto.getBlockToProcess();
@@ -78,7 +78,7 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
                 Set<String> libs = dto.getLibrariesBeingImported();
                 if (!libs.contains(libraryName) && !libraryName.startsWith("simulink")) {
                     libs.add(libraryName);
-                    traverseReferencedLibrary(dto, libraryName, commandFactory, ImportMode.REFERENCING);
+                    traverseReferencedLibrary(dto, libraryName, commandFactory);
                 }
 
             }
@@ -86,8 +86,8 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
         }
     }
 
-    private SimulinkModel traverseReferencedLibrary(final AbstractImporterDTO importerDTO, String libraryName,
-            MatlabCommandFactory commandFactory, ImportMode importMode) {
+    private SimulinkModel traverseReferencedLibrary(final AbstractImporterData importerDTO, String libraryName,
+            MatlabCommandFactory commandFactory) {
 
         Map<String, SimulinkModel> libraryRegistry = importerDTO.getReferencedLibraries();
 
@@ -106,7 +106,7 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
         referencedLibraryTraverser.getLibrariesBeingImported().addAll(librariesBeingImported);
 
         String referencesFolderPath = importerDTO.getDefaultSavePath() + File.separator + importerDTO.getReferencesFolderName()
-                + AbstractImporterDTO.REFERENCES_FOLDER_SUFFIX;
+                + AbstractImporterData.REFERENCES_FOLDER_SUFFIX;
         String referencedLibPath = referencesFolderPath + File.separator + libraryName + ".simulink";
 
         SimulinkModel actualLibrary = checkLibrary(libraryName, commandFactory, referencedLibPath,
@@ -116,7 +116,7 @@ public class SubSystemAdapter extends DefaultBlockAdapter {
             try {
                 referencedLibraryTraverser.setDefaultSavePath(importerDTO.getDefaultSavePath());
                 referencedLibraryTraverser.setReferencesFolderName(importerDTO.getReferencesFolderName());
-                referencedLibraryTraverser.traverseAndCreateEMFModel(importMode);
+                referencedLibraryTraverser.traverseAndCreateEMFModel(importerDTO.getImportMode());
                 actualLibrary = referencedLibraryTraverser.getSimulinkModel();
             } catch (SimulinkApiException e) {
                 importerDTO.getLogger().error("Error during importing the library " + libraryName, e);

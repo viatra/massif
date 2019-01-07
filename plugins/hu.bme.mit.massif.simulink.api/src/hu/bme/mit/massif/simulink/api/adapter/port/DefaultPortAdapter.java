@@ -19,12 +19,12 @@ import hu.bme.mit.massif.simulink.Port;
 import hu.bme.mit.massif.simulink.PortBlock;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
-import hu.bme.mit.massif.simulink.api.dto.PortDTO;
+import hu.bme.mit.massif.simulink.api.data.PortData;
 
 public class DefaultPortAdapter implements IPortAdapter {
 
     @Override
-    public Port createPort(PortDTO dto, Block parent) {
+    public Port createPort(PortData dto, Block parent) {
         // Default to inport
         // Reason: the outport types are assumed to be explicitly checked when calling 
         // IPortAdapter#createPort from Importer#createAndAddPort method
@@ -35,7 +35,7 @@ public class DefaultPortAdapter implements IPortAdapter {
     }
 
     @Override
-    public PortBlock connectToBlock(PortDTO dto, Port port, Integer portNum) {
+    public PortBlock connectToBlock(PortData dto, Port port, Integer portNum) {
         // By default, a port is not assigned a port block
         return null;
     }

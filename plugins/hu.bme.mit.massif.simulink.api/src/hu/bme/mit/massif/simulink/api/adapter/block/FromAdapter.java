@@ -14,7 +14,7 @@ package hu.bme.mit.massif.simulink.api.adapter.block;
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.From;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
@@ -28,7 +28,7 @@ public class FromAdapter extends DefaultBlockAdapter {
     }
 
     @Override
-    public void process(BlockDTO dto) {
+    public void process(BlockData dto) {
         super.process(dto);
         From fromBlock = (From) dto.getBlockToProcess();
         dto.getFroms().put(fromBlock.getSimulinkRef().getFQN().replaceAll("\n", " "), fromBlock);

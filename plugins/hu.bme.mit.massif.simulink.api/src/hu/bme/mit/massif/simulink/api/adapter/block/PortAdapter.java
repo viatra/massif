@@ -25,7 +25,7 @@ import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.PortBlock;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.SimulinkReference;
-import hu.bme.mit.massif.simulink.api.dto.BlockDTO;
+import hu.bme.mit.massif.simulink.api.data.BlockData;
 import hu.bme.mit.massif.simulink.api.util.ImportMode;
 
 /**
@@ -37,7 +37,7 @@ public abstract class PortAdapter extends DefaultBlockAdapter {
     public abstract Block getBlock(ImportMode importMode);
 
     @Override
-    public void process(BlockDTO dto) {
+    public void process(BlockData dto) {
         super.process(dto);
 
         PortBlock portBlock = (PortBlock) dto.getBlockToProcess();

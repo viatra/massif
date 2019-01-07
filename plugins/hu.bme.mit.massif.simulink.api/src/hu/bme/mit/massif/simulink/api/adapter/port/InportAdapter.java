@@ -27,14 +27,14 @@ import hu.bme.mit.massif.simulink.PortBlock;
 import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.TriggerBlock;
 import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
-import hu.bme.mit.massif.simulink.api.dto.PortDTO;
+import hu.bme.mit.massif.simulink.api.data.PortData;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
 
 public class InportAdapter implements IPortAdapter {
 
     @SuppressWarnings("unchecked")
     @Override
-    public Port createPort(PortDTO dto, Block parent) {
+    public Port createPort(PortData dto, Block parent) {
         InPort port = SimulinkFactory.eINSTANCE.createInPort();
         parent.getPorts().add(port);
         dto.getInPorts().put(Handle.getHandleData(dto.getHandle()), port);
@@ -44,7 +44,7 @@ public class InportAdapter implements IPortAdapter {
     }
 
     @Override
-    public PortBlock connectToBlock(PortDTO dto, Port port, Integer portNum) {
+    public PortBlock connectToBlock(PortData dto, Port port, Integer portNum) {
         MatlabCommandFactory commandFactory = dto.getCommandFactory();
         InPortBlock portBlock = null;
         for (InPortBlock inPortBlock : dto.getInPortBlockSet()) {

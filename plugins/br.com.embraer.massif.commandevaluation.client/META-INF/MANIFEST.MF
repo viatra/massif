@@ -5,8 +5,8 @@ Bundle-SymbolicName: br.com.embraer.massif.commandevaluation.client
 Bundle-Version: 0.7.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: br.com.embraer.massif.commandevaluation.base;bundle-version="0.4.0";visibility:=reexport,
- com.sun.jna;bundle-version="4.5.1",
- com.sun.jna.platform;bundle-version="4.5.1"
+ com.sun.jna;bundle-version="4.1.0",
+ com.sun.jna.platform;bundle-version="4.1.0"
 Export-Package: br.com.embraer.massif.commandevaluation.client,
  br.com.embraer.massif.commandevaluation.client.util
 Bundle-Vendor: Budapest University of Technology and Economics, Fault Tolerant Systems Research Group & Embraer S.A.

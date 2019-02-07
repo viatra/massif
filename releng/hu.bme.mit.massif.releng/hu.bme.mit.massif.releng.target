@@ -18,8 +18,8 @@
       <repository location="http://download.eclipse.org/collections/9.2.0/repository"/>
     </location>
 	  <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
-		  <unit id="com.sun.jna" version="4.5.1.v20180403-1933"/>
-		  <unit id="com.sun.jna.platform" version="4.5.1.v20180403-1933"/>
+		  <unit id="com.sun.jna" version="4.1.0.v20170410-1117"/>
+		  <unit id="com.sun.jna.platform" version="4.1.0.v20170410-1117"/>
 		  <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository/"/>
 	  </location>
   </locations>

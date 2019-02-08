@@ -10,6 +10,11 @@
 			<name>Public Eclipse Lyo maven repository.</name>
 			<url>https://repo.eclipse.org/content/groups/lyo/</url>
 		</repository>
+		<repository>
+			<id>atlassian</id>
+			<name>Atlassian 3rd party repository containing net.oauth.core:oauth-httpclient4:jar:20090617</name>
+			<url>https://packages.atlassian.com/maven-3rdparty/</url>
+		</repository>
 	</repositories>
 	<build>
 		<sourceDirectory>src</sourceDirectory>

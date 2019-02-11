@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>API Usage Example</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>API Usage Example</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>To demonstrate the programmatic use of the Massif API, an introductory example project is placed under the
+<code>massif/examples/hu.bme.mit.massif.examples.api</code> project.
+In the following sections code fragments are from the corresponding example classes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites">Prerequisites</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_headless_usage_massif_in_non_eclipse_environment">Headless usage (Massif in non-eclipse environment)</h3>
+<div class="paragraph">
+<p>If you wish to use Massif in a non-eclipse environment, you have to run the following
+setup, found in the 'hu.bme.mit.massif.simulink.cli' package:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">"CLIInitializationUtil.setupEnvironment()"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Also, the default VIATRA backends must be provided:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">import org.eclipse.viatra.query.runtime.api.ViatraQueryEngineOptions;
+import org.eclipse.viatra.query.runtime.localsearch.matcher.integration.LocalSearchEMFBackendFactory;
+import org.eclipse.viatra.query.runtime.rete.matcher.ReteBackendFactory;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">ViatraQueryEngineOptions.setSystemDefaultBackends(ReteBackendFactory.INSTANCE, ReteBackendFactory.INSTANCE, LocalSearchEMFBackendFactory.INSTANCE);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_general_prerequisites">General prerequisites</h3>
+<div class="paragraph">
+<p>In order to successfully use the Importer (<code>ImporterExample</code> class) or the Exporter (<code>ExporterExample</code> class),
+some other components has to be created first in both classes, namely:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>command evaluator</p>
+</li>
+<li>
+<p>command factory</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the followings an example shows their creation,
+and there is also an explained example for using both the importer and exporter.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_command_evaluator">Command evaluator</h3>
+<div class="paragraph">
+<p>In order to be able to execute commands in Matlab, a command evaluator has to be created first.
+In the example we use helper method to do this work, but the main logic can be written in one line:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">ICommandEvaluator commandEvaluator = new CommandEvaluatorImpl(new MatlabClient(hostAddress, hostPort, serviceName));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This provides low level command evaluation,
+like sending commands to Matlab in form of strings and receiving the results in array of objects.
+It is recommended to use the <code>CommandFactory</code> instead for executing commands.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_command_factory">Command factory</h3>
+<div class="paragraph">
+<p>To wrap low level Matlab commands a command factory is provided,
+which can be used to create objects that represent common commands in Matlab,
+and have methods like parameter addition, execution initiation.
+The factory is to be instantiated in the following way using the previously provided command evaluator:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">MatlabCommandFactory factory = new MatlabCommandFactory(commandEvaluator);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_importer_api_example">Importer API example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The creation of the importer is shown below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">ModelObject model = new ModelObject(modelName, commandEvaluator);
+model.setLoadPath(modelPath);
+
+model.registerApplicableFilters("famfilter");
+
+Importer importer = new Importer(model);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>First a <code>ModelObject</code> is created that represents a model in Simulink.
+It is parameterized with the model name string and an assigned command evaluator,
+that is used throughout the import process of the model.
+Then the path to the containing folder of the model and the chosen filter is set on the model object.
+In the example, <code>famfilter</code> refers to a filter that skips importing the subblocks of subsystems with Tag value of "FAM Leaf".
+And after initializing the model object an <code>Importer</code> object is created.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">importer.traverseAndCreateEMFModel(ImportMode.FLATTENING);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The import process is then initiated with the <code>traverseAndCreateEMFModel</code> method of the importer.</p>
+</div>
+<div class="paragraph">
+<p>The model is not persisted until an explicit save was done like in the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">importer.saveEMFModel(/*Name of the imported model as string comes here*/);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exporter_api_example">Exporter API example</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The exporter - compared to the importer - has much less to configure. Its usage is demonstrated below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Exporter exporter = new Exporter();
+SimulinkModel loadedModel = exporter.loadSimulinkModel(/*Model path with name as string comes here*/);
+exporter.export(loadedModel, commandFactory);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It simply loads the EMF representation from the specified location, then exports it using a specified command factory.</p>
+</div>
+<div class="paragraph">
+<p>To save the model in Matlab, an explicit save has to be done:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">exporter.saveSimulinkModel(loadedModel.getSimulinkRef().getFQN(), /*extension as string comes here*/);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The extension of the model to save can be <code>slx</code> or <code>mdl</code>.
+(The default by MATLAB is <code>slx</code>).
+Please note, that the save path and save name is already set in the EMF representation,
+so it can be obtained by the <code>loadedModel.getSimulinkRef().getFQN()</code> call.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_caveats">Caveats</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If a model is already loaded by Simulink, you can&#8217;t re-import or re-export them.
+Use the "bdclose('all')" simulink command to close all opened systems.</p>
+</div>
+<div class="paragraph">
+<p>It can be run via Massif programmatically:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">ICommandEvaluator commandEvaluator = ... // The commandEvaluator of your choice
+MatlabCommandFactory commandFactory = new MatlabCommandFactory(commandEvaluator);
+MatlabCommand closeAllCommand = commandFactory.customCommand("bdclose", 0);
+closeAllCommand.addParam("all");
+closeAllCommand.execute();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

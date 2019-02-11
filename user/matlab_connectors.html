@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>MATLAB Connectors</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>MATLAB Connectors</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A possible way to work with Simulink is to parse the persisted model files.
+As a well known major problem with this approach is that the format of the serialized models might change over time
+(e.g., in 2012 suddenly the <code>.slx</code> format became default instead of the <code>.mdl</code>),
+causing extensive additional work to adapt to these changes for tools based on parsing serialized MATLAB file formats.
+For this reason, Massif uses the Java interface of a running MATLAB and discovers the model using Simulink model
+specific MATLAB commands.
+This way it is independent from the format of the files in which models are stored.
+However, it requires at least one running MATLAB instance to work.
+Currently, three MATLAB Connectors are supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#me"><strong>MatlabEngine</strong></a>:
+this is the official Java API provided for MATLAB.
+Massif can connect to an already running MATLAB instance if <code>matlab.engine.shareEngine</code> is issued.</p>
+</li>
+<li>
+<p><a href="#ces"><strong>Command Evaluation Server</strong></a> <strong>(in CE Server)</strong>:
+it runs within the running MATLAB instance itself.
+To support this version, an additional server component (called <em>MatlabServer</em>) is needed to be downloaded
+from separate links provided for each version in the <a href="./overview.html">overview</a> (details on how to set it up is discussed later).</p>
+</li>
+<li>
+<p><a href="#mc"><strong>MatlabControl</strong></a>:
+this one is based on the open source MatlabControl package.
+Currently, it starts one MATLAB instance and doesn&#8217;t close it.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="me">MatlabEngine</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Recent versions of MATLAB come with an official <a href="https://uk.mathworks.com/help/matlab/matlab-engine-api-for-java.html">Java API</a>.
+Starting from Massif version 0.7.0, you can use this as the connector for MATLAB.</p>
+</div>
+<div class="paragraph">
+<p>To do so, you need to</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Copy the <code>engine.jar</code> from <code>$MATLAB_ROOT/extern/engines/java/jar to $JAVA_HOME/jre/lib/ext</code>.</p>
+</li>
+<li>
+<p>Set the <code>-Dorg.osgi.framework.bootdelegation=com.mathworks.*</code> and <code>-Dosgi.parentClassloader=ext</code>
+Java VM arguments when starting Massif to prevent issues caused by different classloaders.</p>
+</li>
+<li>
+<p>Provide the <code>-Djava.library.path=$MATLAB_ROOT/bin/glnxa64/</code> Java VM argument
+to let Massif find the <code>libnativemvm.so</code> dynamic library required by the engine.</p>
+</li>
+<li>
+<p>Start MATLAB and execute the following commands:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addpath(%MASSIF_LOCATION%\git\massif\plugins\hu.bme.mit.massif.simulink.api\scripts')</code>
+to add MATLAB scripts used by Massif to your MATLAB workspace.</p>
+</li>
+<li>
+<p><code>matlab.engine.shareEngine('Engine_1')</code> to share the MATLAB Engine which will be used by Massif to communicate.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If you would like to use the matlabengine connector from plain java application, please use the
+<code>massif/maven/massif-matlabengine/</code>.
+In this case, <em>MATLABROOT</em> must be set as an environmental variable pointing to your MATLAB root folder
+containing the <code>/bin</code> folder (for example: C:\Program Files\MATLAB\R2018b).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ces">Command Evaluation Server (MatlabServer)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Another option is to use an RMI client-server based solution to execute MATLAB commands programmatically.
+This option can be selected under the preference page shown in the figure below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/command_evaluation_server.png" alt="Command Evaluation Server">
+</div>
+</div>
+<div class="paragraph">
+<p>This allows connection to an already running MATLAB session.
+In order to do so, a <em>MatlabServer</em> has to be started from within MATLAB.
+After you downloaded the
+<a href="https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/">zip</a>
+containing the MatlabServer, extract it to a folder on your computer, then make that folder as your current folder in MATLAB.</p>
+</div>
+<div class="paragraph">
+<p>Edit the Java properties file named <code>matlabserverconfig.properties</code> with the <code>serveraddress</code> and <code>serverport</code> parameters.
+For example, set <code>serveraddress = 127.0.0.1</code> and <code>serverport = 1098</code>. Run the <code>setup_remote</code> script.
+On the screen it will print the registered service name, which has to be entered on the preference page in Eclipse.
+If everything works well, you should get an output similar to the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>&gt;&gt; setup_remote
+Configuration path not provided, considering the following path: PATH\matlabserverconfig.properties
+
+Host address = 127.0.0.1
+Host port: 1098
+Debug mode: null
+Starting MATLAB RMI Server...
+
+Address = 127.0.0.1
+port = 1098
+serviceName = MATLABModelProviderr2012a480
+
+MATLAB RMI Server Started!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Copy the service name into the 'Service name' field in the <code>Simulink Preferences</code> window.
+Execute <code>addpath(%MASSIF_LOCATION%\git\massif\plugins\hu.bme.mit.massif.simulink.api\scripts')</code>
+command in MATLAB to add scripts used by Massif to your MATLAB workspace.</p>
+</div>
+<div class="paragraph">
+<p>After this setup, the importer is ready to use.
+Please note, that the Command Evaluation Server-based approach is currently only available for Windows.</p>
+</div>
+<div class="sect2">
+<h3 id="_enable_debug_mode">Enable debug mode</h3>
+<div class="paragraph">
+<p>Open the <code>matlabserverconfig.properties</code> file (next to the setup-remote script) and uncomment the <code>debug = true</code> line.
+If this property is set, the MATLAB console will print each executed command and you may be able to solve some issues
+that are hard to debug on the client side.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="mc">MatlabControl</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Another option is to use the open source <a href="https://code.google.com/p/matlabcontrol/">MatlabControl</a> Java API
+for communicating with MATLAB.
+This is integrated to Massif, the user can select this in Eclipse under the <em>Window/PreferencesSimulink preferences</em> page.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/matlab_control_preferences.png" alt="MatlabControl">
+</div>
+</div>
+<div class="paragraph">
+<p>This connector handles MATLAB sessions itself.
+Currently it operates the following way: opens a new MATLAB instance at the first call and executes all the required commands
+in this instance.<br>
+To use this connector you also have to execute the
+<code>addpath(%MASSIF_LOCATION%\git\massif\plugins\hu.bme.mit.massif.simulink.api\scripts')</code>
+command to add MATLAB scripts used by Massif to your MATLAB workspace.<br>
+Connection or reconnection to a running MATLAB session is not supported with this connector.</p>
+</div>
+<div class="paragraph">
+<p><strong>Important</strong>: If you use additional libraries in Simulink, you will have to make sure the
+<a href="https://github.com/viatra/massif/blob/master/plugins/hu.bme.mit.massif.simulink.api/scripts/massif_functions.m">massif_functions.m</a>
+script is on the MATLAB search path when you are running the import
+(see <a href="https://github.com/viatra/massif/issues/80#issuecomment-393805561">issue #80</a> for details).</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

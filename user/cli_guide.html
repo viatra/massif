@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Headless usage of Massif in MATLAB IDE</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Headless usage of Massif in MATLAB IDE</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_setup">Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The CLI of Massif is in this package.
+You have to download it and add its path to the MATLAB&#8217;s java path via the
+<code>javaaddpath(/<strong>jar&#8217;s location as a string goes here</strong>/)</code> command.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_matlab_model_from_massif_emf_model">Create MATLAB model from Massif EMF model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>First you have to create a <code>modelImporter</code> object which is an instance of the CLIMatlabCreator class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-MATLAB" data-lang="MATLAB">modelImporter = hu.bme.mit.massif.simulink.cli.CLIMatlabCreator;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With this you can create the MATLAB model via calling CLIMatlabCreator&#8217;s <code>createMatlabModel()</code> method like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-MATLAB" data-lang="MATLAB">modelImporter.createMatlabModel([modelName], [modelPath], [extension - optional]);</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>modelName</code> is the name of the model file without extension as a string.</p>
+</li>
+<li>
+<p>The <code>modelPath</code> is the folder path containing the model file as a string.</p>
+</li>
+<li>
+<p>The (optional) <code>extension</code> is the file extension in which the created model file will be saved.
+Its default is <code>"slx"</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_massif_emf_model_from_matlab_model">Create Massif EMF model from MATLAB model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>First you have to create a <code>modelExporter</code> object which is an instance of the CLIEMFCreator class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-MATLAB" data-lang="MATLAB">modelExporter = hu.bme.mit.massif.simulink.cli.CLIEMFCreator;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With this you can create the Massif EMF model via calling CLIEMFCreator&#8217;s <code>createSimulinkModel()</code> method like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-MATLAB" data-lang="MATLAB">modelExporter.createSimulinkModel([modelName], [outputDir], [importMode - optional]);</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>modelName</code> is the name of the model file without extension as a string.</p>
+</li>
+<li>
+<p>The <code>outputDir</code> is the folder path in which the generated Massif EMF model will be saved.</p>
+</li>
+<li>
+<p>The (optional) <code>importMode</code> is an enum to select the import mode.
+It can have the following four values:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>hu.bme.mit.massif.simulink.api.util.ImportMode.SHALLOW</code></p>
+</li>
+<li>
+<p><code>hu.bme.mit.massif.simulink.api.util.ImportMode.DEEP</code></p>
+</li>
+<li>
+<p><code>hu.bme.mit.massif.simulink.api.util.ImportMode.FLATTENING</code></p>
+</li>
+<li>
+<p><code>hu.bme.mit.massif.simulink.api.util.ImportMode.REFERENCING</code></p>
+<div class="paragraph">
+<p>The meaning of the import modes is described <a href="eclipse_overView.html#traverse_mode">here</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

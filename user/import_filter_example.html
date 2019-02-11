@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Import Filter Example</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Import Filter Example</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_example_code">Example code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An <a href="https://github.com/viatra/massif/tree/master/examples/hu.bme.mit.massif.examples.filter">example here</a>
+is provided to demonstrate the definition and usage of a custom import filter.</p>
+</div>
+<div class="sect2">
+<h3 id="_documentation_for_the_example">Documentation for the example</h3>
+<div class="paragraph">
+<p>As it is briefly described <a href="api_usage_example.html">here</a>,
+import filters can be used to drive the import process by selecting which SubSystem blocks should be
+imported as the a leaf of the hierarchy tree.
+Using filters the internal blocks of the filtered SubSystems will not be present
+in the imported EMF model.
+This approach is useful when certain blocks - based on their parameter values and properties -
+are not important from a certain aspect.</p>
+</div>
+<div class="paragraph">
+<p>For an import job arbitrary number of filters can be registered.</p>
+</div>
+<div class="paragraph">
+<p>In the following we discuss the definition/usage of an import filter using
+the uploaded example source code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_an_eclipse_plug_in_project">Create an Eclipse plug-in project</h3>
+<div class="paragraph">
+<p>Filters are registered to Massif using the extension mechanism of Eclipse.
+To use this platform service, we created an Eclipse plug-in project,
+the example project it is called <code>hu.bme.mit.massif.examples.filter</code>.</p>
+</div>
+<div class="paragraph">
+<p>We added the following projects to the list of required bundles in the project&#8217;s <code>MANIFEST.MF</code> file:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>hu.bme.mit.massif.simulink.api</code></p>
+</li>
+<li>
+<p><code>hu.bme.mit.massif.communication</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_an_extension">Create an extension</h3>
+<div class="paragraph">
+<p>We created a <code>filter</code> extension to the extension point with ID
+<code>hu.bme.mit.massif.simulink.api.import.filters</code>. (See <code>plugin.xml</code>).
+We provided a unique identifier and created an implementation class to the interface
+<code>IBlockImportFilter</code> called <code>MaskFilter</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implement_the_filter_interface">Implement the filter interface</h3>
+<div class="paragraph">
+<p>Due to technical requirements, a public constructor without parameters must be implemented
+in the filter class (can have an empty body, like in the example).</p>
+</div>
+<div class="paragraph">
+<p>Additionally, there are 3 methods in the <code>IBlockImportFilter</code> interface that has to be overridden:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>getName()</code>: This method should return the name of the filter as a String.
+In the example it is MaskFilter.</p>
+</li>
+<li>
+<p><code>getDescription()</code>: Returns a (short) explanation about the function and purpose of the filter.</p>
+</li>
+<li>
+<p><code>filter(MatlabCommandFactory commandFactory, String blockFQN)</code>:
+Returns a Boolean deciding whether the internal blocks of the SubSystem block with the
+fully qualified name <code>blockFQN</code> should be ignored/filtered (value <code>true</code> is returned)
+or not (value <code>false</code> is returned).
+The received <code>commandFactory</code> can be used to execute commands within Matlab,
+allowing the filter to query the parameters of the blocks.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_usage_of_the_filter">Usage of the filter</h3>
+<div class="paragraph">
+<p>When the filter is successfully created and the plug-in is loaded and started within Eclipse,
+the filter appears in the preference page under
+<em>Window/Preferences/Simulink Preferences/Model Import Preferences</em>.
+Then, like the inbuilt filters, it can be selected using a checkbox.
+The filter is also registered to the import popup window.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

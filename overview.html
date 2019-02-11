@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Massif: MATLAB Simulink Integration Framework for Eclipse</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Massif: MATLAB Simulink Integration Framework for Eclipse</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Massif is a new Eclipse feature to support the easy handling of MATLAB Simulink models by providing import and export
+capabilities to/from EMF.
+Just to highlight some of its unique features, Massif:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Uses a general MATLAB EMF metamodel that was designed to store all information for each MATLAB block
+and provide the type information as defined in MATLAB using library links.</p>
+</li>
+<li>
+<p>Provides automated library reference processing when importing libraries and systems.</p>
+</li>
+<li>
+<p>Supports easier bus creator and selector handling by using direct model referencing in the EMF representation that can be
+automatically translated into the required fqn format as used within MATLAB Simulink.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Please note that importing and exporting is done using the command line interface of MATLAB
+(and not by directly parsing the <code>.mdl</code> or <code>.slx</code> files), which is the API recommended by MathWorks
+for accessing Simulink model information.
+As a consequence, for using the bridge you must have an installed MATLAB Simulink instance
+(with the appropriate licence) on your computer.
+The system was tested with Simulink R2012b, however, it should work with the newer versions (and some earlier ones as well).</p>
+</div>
+<div class="paragraph">
+<p>The development of Massif was supported by multiple projects and partners, most notably:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>As the developer of the first verions the Budapest University of Technology and Economics.</p>
+</li>
+<li>
+<p>Embraer through the Trans-IMA (TRANSformation methods applied to the design of Integrated Modular Avionics systems)
+project funded by Embraer S.A.</p>
+</li>
+<li>
+<p><a href="http://www.concerto-project.org/">CONCERTO</a> Artemis EU project.</p>
+</li>
+<li>
+<p><a href="https://incquerylabs.com/">IncQuery Labs Ltd</a> that provides professional support for Massif.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_known_users">Known Users</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://www.intecs.it/">INTECS</a></p>
+</li>
+<li>
+<p><a href="http://www.math.unipd.it/it/">University of Padua</a></p>
+</li>
+<li>
+<p><a href="http://www-list.cea.fr/en/">CEA LIST</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Please let us know if you use Massif (e.g. open an <a href="https://github.com/viatra/massif/issues/new">issue</a>)!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_update_site">Update site:</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_prerequisites">Prerequisites</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Release 0.4.0: EMF-IncQuery 0.8 <a href="http://download.eclipse.org/incquery/updates/release/" class="bare">http://download.eclipse.org/incquery/updates/release/</a></p>
+</li>
+<li>
+<p>Release 0.5.0: EMF-IncQuery 1.0 <a href="http://download.eclipse.org/incquery/updates/release/" class="bare">http://download.eclipse.org/incquery/updates/release/</a></p>
+</li>
+<li>
+<p>Release 0.6.0: VIATRA Query runtime 1.7 <a href="http://download.eclipse.org/viatra/updates/release/1.7.2" class="bare">http://download.eclipse.org/viatra/updates/release/1.7.2</a></p>
+</li>
+<li>
+<p>Upcoming Release 0.7.0: VIATRA Query runtime 2.0 <a href="http://download.eclipse.org/viatra/updates/release/latest" class="bare">http://download.eclipse.org/viatra/updates/release/latest</a></p>
+</li>
+<li>
+<p>CI : VIATRA Query runtime <a href="http://download.eclipse.org/viatra/updates/release/latest" class="bare">http://download.eclipse.org/viatra/updates/release/latest</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_latest_release_0_6_0">Latest release: 0.6.0</h3>
+<div class="paragraph">
+<p>Releases: <a href="http://static.incquerylabs.com/projects/massif/release/0.6.0/repository" class="bare">http://static.incquerylabs.com/projects/massif/release/0.6.0/repository</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command evaluation server archive <a href="http://static.incquerylabs.com/projects/massif/release/0.6.0/">download</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_all_releases">All releases</h3>
+<div class="paragraph">
+<p>Release composite site: <a href="http://static.incquerylabs.com/projects/massif/release" class="bare">http://static.incquerylabs.com/projects/massif/release</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command evaluation server archive in folder of specific releases
+<a href="http://static.incquerylabs.com/projects/massif/release/">download</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integration_builds">Integration builds</h3>
+<div class="paragraph">
+<p>Integration builds: <a href="http://static.incquerylabs.com/projects/massif/integration/" class="bare">http://static.incquerylabs.com/projects/massif/integration/</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command evaluation server archive in folder of specific releases
+<a href="http://static.incquerylabs.com/projects/massif/integration/">download</a></p>
+</li>
+<li>
+<p>These are created regularly and old versions are discarded after a new release.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ci_update_site">CI update site</h3>
+<div class="paragraph">
+<p>We also provide a
+<a href="https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/">CI update site</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Command evaluation server archive
+<a href="https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/">download</a></p>
+</li>
+<li>
+<p>CI Build on Jenkins: <a href="https://build.incquerylabs.com/jenkins/job/Massif/job/master/" class="bare">https://build.incquerylabs.com/jenkins/job/Massif/job/master/</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_i_installation">I. Installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is required to have the following tools:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Eclipse with Massif and prerequisites <a href="user/insatall_guide.html">installed</a>.</p>
+</li>
+<li>
+<p>MATLAB (recommended r2012a or later)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ii_usage">II. Usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Massif provides two basic model conversion functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Import from MATLAB to EMF (referred as import or importing)</p>
+</li>
+<li>
+<p>Export from EMF to MATLAB (referred as export or exporting)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To use these features, choose a MATLAB provider.
+At this point you can choose between</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MatlabEngine, the official Java API provided for MATLAB.</p>
+</li>
+<li>
+<p>Command Evaluation Server, which is provided as part of Massif.</p>
+</li>
+<li>
+<p>MatlabControl, an existing MATLAB connector (<a href="https://github.com/jakaplan/matlabcontrol">GitHub page</a>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The functions are available in the context menu commands of <code>.mdl</code>, <code>.slx</code> and <code>.simulink</code> files
+(right click on the files in <code>Package Explorer</code>) called <code>Import Simulink Model</code> and <code>Export Simulink Model</code>.</p>
+</div>
+<div class="paragraph">
+<p>The EclipseCon 2015 demo is available from <a href="https://github.com/viatra/massif/wiki/EclipseCon2015">here</a> with its
+video presentation from <a href="https://www.youtube.com/watch?v=6mv4m5UT9YE">here</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_get_help">Get help</h3>
+<div class="paragraph">
+<p>If you run into any problems or have questions, do the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Read the <a href="https://github.com/viatra/massif/wiki">wiki</a>.</p>
+</li>
+<li>
+<p>Look at the open and closed <a href="https://github.com/viatra/massif/issues">issues</a>.
+If you need more help, open a <a href="https://github.com/viatra/massif/issues/new">new issue</a> describing your problem.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iii_contributing">III. Contributing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We welcome contributors, read the <a href="user/install_guide.html">Developer Guide</a> for setting up shop!</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

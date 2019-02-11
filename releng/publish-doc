@@ -1,0 +1,15 @@
+#!/bin/sh
+BRANCH=gh-pages
+TEMPDIR=temp
+git clone -b $BRANCH --single-branch git@github.com:viatra/massif.git $TEMPDIR
+cd $TEMPDIR
+git rm -r *
+ARCHIVE=html.zip
+wget https://build.incquerylabs.com/jenkins/job/Massif/job/master/108/artifact/docs/hu.bme.mit.massif.doc/html/*zip*/$ARCHIVE
+bsdtar --strip-components=1 -xvf $ARCHIVE
+rm $ARCHIVE
+git add .
+git commit -m "Update documentation"
+git push origin $BRANCH
+cd ..
+rm -rf $TEMPDIR

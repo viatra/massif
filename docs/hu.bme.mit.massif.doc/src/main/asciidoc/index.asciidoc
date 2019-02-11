@@ -23,4 +23,4 @@ describes how Massif represents Simulink models in EMF.
 
 == For developers
 
-https://github.com/viatra/massif/wiki/Planning[Planning]: list of ideas for improvement.
+See the https://github.com/viatra/massif/wiki[project wiki on GitHub].

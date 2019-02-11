@@ -40,27 +40,27 @@ Please let us know if you use Massif (e.g. open an https://github.com/viatra/mas
 * Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
 * Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
 * Release 0.6.0: VIATRA Query runtime 1.7 http://download.eclipse.org/viatra/updates/release/1.7.2
-* Release 0.7.0: VIATRA Query runtime 2.0 http://download.eclipse.org/viatra/updates/release/latest
-* Upcoming release 0.8.0: VIATRA Query runtime 2.0 http://download.eclipse.org/viatra/updates/release/latest
+* Release 0.7.0: VIATRA Query runtime 2.0 http://download.eclipse.org/viatra/updates/release/2.0.0
+* Upcoming release 0.8.0: VIATRA Query runtime 2.1 http://download.eclipse.org/viatra/updates/release/2.1.0
 * CI: VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/latest
 
 === Latest release: 0.7.0
-Releases: http://static.incquerylabs.com/projects/massif/release/0.7.0/repository
+Releases: https://static.incquerylabs.com/projects/massif/release/0.7.0/repository
 
 * Command evaluation server archive https://static.incquerylabs.com/projects/massif/release/0.7.0/massif.commandevaluation.server-0.7.0.zip[download]
 
 === All releases
-Release composite site: http://static.incquerylabs.com/projects/massif/release
+Release composite site: https://static.incquerylabs.com/projects/massif/release
 
 * Command evaluation server archive in folder of specific releases
-http://static.incquerylabs.com/projects/massif/release/[download]
+https://static.incquerylabs.com/projects/massif/release/[download]
 
 === Integration builds
 
-Integration builds: http://static.incquerylabs.com/projects/massif/integration/
+Integration builds: https://static.incquerylabs.com/projects/massif/integration/
 
 * Command evaluation server archive in folder of specific releases
-http://static.incquerylabs.com/projects/massif/integration/[download]
+https://static.incquerylabs.com/projects/massif/integration/[download]
 * These are created regularly and old versions are discarded after a new release.
 
 === CI update site

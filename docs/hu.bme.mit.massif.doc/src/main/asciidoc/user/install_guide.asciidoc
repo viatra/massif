@@ -3,11 +3,9 @@
 
 As it is mostly apparent from its full name (Matlab Simulink Integration Framework for Eclipse), Massif is an Eclipse-based tool. For installing just follow these steps:
 
-1. Download an Eclipse product from http://www.eclipse.org/downloads/ or use the [Eclipse installer](https://www.eclipse.org/downloads/download.php?file=/oomph/epp/photon/R/eclipse-inst-linux64.tar.gz)
+1. Download an Eclipse product from http://www.eclipse.org/downloads/ or use the [Eclipse installer](https://www.eclipse.org/downloads/packages/installer)
 
 2. Install EMF-IncQuery or VIATRA Query prerequisites:
-   * Check [ReadMe](https://github.com/viatra/massif#update-site) to see which version is needed.
+   * Check <<../overview#, Overview>> to see which version is needed.
 
-3. Install Massif components from the update site, see links on  [ReadMe](https://github.com/viatra/massif#update-site)
-
-Please note that as Massif is using the command line interface of Matlab it is required to have it installed on your computer and it has to be at least version R2018a. Additionally, the [Massif functions](https://github.com/viatra/massif/blob/master/plugins/hu.bme.mit.massif.simulink.api/scripts/massif_functions.m) need to be on the Matlab path.
+3. Install Massif components from the update site, see links on <<../overview#, Overview>>

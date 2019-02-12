@@ -1,6 +1,6 @@
 = Simulink Ecore Metamodel 
 
-The https://github.com/viatra/massif/wiki/pdf/massif-simulink-ecore-doc.pdf[Simulink Ecore model documentation]
-is a comprehensive description of the metamodel used by Massif for representing Simulink models in EMF.
-The documentation PDF describing the metamodel is generated from the ECore model with
-https://github.com/IncQueryLabs/ecoreDocGen[ecoreDocGen].
+The following image
+gives an overview of the metamodel used by Massif for representing Simulink models in EMF:
+
+image::https://raw.githubusercontent.com/wiki/viatra/massif/screenshots/Simulink.png[Metamodel]

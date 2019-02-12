@@ -32,7 +32,6 @@ pipeline {
         }
         stage('Deploy to Nexus') {
             when {
-                branch "master"
                 expression { params.DEPLOY_SNAPSHOT == true }
             }
             steps {

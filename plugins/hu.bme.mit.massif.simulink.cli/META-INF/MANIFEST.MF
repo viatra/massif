@@ -1,15 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Massif command line interface
+Bundle-Name: LocalScript
 Bundle-SymbolicName: hu.bme.mit.massif.simulink.cli
 Bundle-Version: 0.7.0.qualifier
+Automatic-Module-Name: hu.bme.mit.massif.simulink.cli.localscript
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Vendor: Budapest University of Technology and Economics
-Require-Bundle: org.eclipse.emf.ecore.xmi,
- hu.bme.mit.massif.simulink.api,
- hu.bme.mit.massif.communication.localscript,
- hu.bme.mit.massif.communication,
- br.com.embraer.massif.commandevaluation.commands,
- org.eclipse.viatra.addon.querybasedfeatures.runtime,
- org.eclipse.viatra.query.runtime,
- hu.bme.mit.massif.simulink.incquery
+Require-Bundle: br.com.embraer.massif.commandevaluation.commands;bundle-version="0.7.0",
+ hu.bme.mit.massif.communication;bundle-version="0.7.0",
+ hu.bme.mit.massif.communication.localscript;bundle-version="0.7.0",
+ hu.bme.mit.massif.simulink.cli.base;bundle-version="0.7.0"

@@ -27,7 +27,6 @@
 		<module>../../plugins/hu.bme.mit.massif.simulink.api</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.filters</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.ui</module>
-		<module>../../plugins/hu.bme.mit.massif.simulink.cli</module>
 		
 		<!-- Command evaluation connector -->
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.base</module>
@@ -54,20 +53,19 @@
 		<!-- Update site -->
 		<module>../../releng/hu.bme.mit.massif.site</module>
 		
-		<!-- CLI jar package -->
-		<module>../../releng/hu.bme.mit.massif.simulink.cli-package</module>
-		
-		<!-- Maven projects -->
+		<!-- Maven projects for those projects that require engine.jar -->
 		<module>../../maven/massif-communication-runtime</module>
 		<module>../../maven/massif-matlabcontrol-runtime</module>
 		<module>../../maven/massif-commandevaluation-runtime</module>
 		<module>../../maven/massif-simulink-emf</module>
 		<module>../../maven/massif-matlabengine</module>
+		<module>../../maven/massif-simulink-cli-base</module>
+		<module>../../maven/massif-simulink-cli</module>
+		<module>../../maven/massif-simulink-cli-package</module>
 		
 		<!--  Documentation -->
 		<module>../../docs/hu.bme.mit.massif.doc</module>
-
-		
+	
 	</modules>
 	<properties>
 		<tycho.version>1.2.0</tycho.version>

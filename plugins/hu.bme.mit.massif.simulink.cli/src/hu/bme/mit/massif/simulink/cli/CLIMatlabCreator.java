@@ -20,6 +20,8 @@ import hu.bme.mit.massif.communication.localscript.LocalScriptEvaluator;
 import hu.bme.mit.massif.simulink.SimulinkModel;
 import hu.bme.mit.massif.simulink.api.Exporter;
 import hu.bme.mit.massif.simulink.api.exception.SimulinkApiException;
+import hu.bme.mit.massif.simulink.api.layout.DummyExporterLayoutProvider;
+import hu.bme.mit.massif.simulink.api.layout.IExporterLayoutProvider;
 import hu.bme.mit.massif.simulink.cli.util.CLIInitializationUtil;
 import hu.bme.mit.massif.simulink.cli.util.CLISimulinkAPILogger;
 
@@ -37,10 +39,14 @@ public class CLIMatlabCreator {
     }
 
     public void createMatlabModel(String modelName, String modelPath) throws SimulinkApiException, ViatraQueryException {
-        createMatlabModel(modelName, modelPath, "slx");
+        createMatlabModel(modelName, modelPath, "slx", new DummyExporterLayoutProvider());
     }
     
     public void createMatlabModel(String modelName, String modelPath, String extension) throws SimulinkApiException, ViatraQueryException {
+        createMatlabModel(modelName, modelPath, extension, new DummyExporterLayoutProvider());
+    }
+
+    public void createMatlabModel(String modelName, String modelPath, String extension, IExporterLayoutProvider layoutProvider) throws SimulinkApiException, ViatraQueryException {
         CLIInitializationUtil.setupEnvironment();
         CLISimulinkAPILogger logger = new CLISimulinkAPILogger();
  
@@ -48,6 +54,7 @@ public class CLIMatlabCreator {
         controller.setDebug(debugMode);
         LocalScriptEvaluator localScriptEvaluator = new LocalScriptEvaluator(controller);
         Exporter exporter = new Exporter(logger);
+        exporter.setLayoutProvider(layoutProvider);
         SimulinkModel loadedModel;
         logger.debug("Loading Simulunk model...");
         loadedModel = exporter.loadSimulinkModel("file:/" + modelPath +File.separator+ modelName);

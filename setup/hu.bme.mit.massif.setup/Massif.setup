@@ -501,9 +501,9 @@
         <requirement
             name="com.sun.jna.platform"/>
         <requirement
-            name="org.eclipse.elk.feature.source.feature.group"/>
+            name="org.eclipse.elk.feature.feature.group"/>
         <requirement
-            name="org.eclipse.elk.algorithms.feature.source.feature.group"/>
+            name="org.eclipse.elk.algorithms.feature.feature.group"/>
         <repositoryList
             name="Mars">
           <repository

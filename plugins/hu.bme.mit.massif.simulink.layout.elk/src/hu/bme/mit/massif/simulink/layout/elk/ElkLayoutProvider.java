@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.eclipse.elk.alg.layered.options.LayeredMetaDataProvider;
 import org.eclipse.elk.alg.layered.options.LayeredOptions;
@@ -25,12 +26,7 @@ import org.eclipse.elk.core.util.BasicProgressMonitor;
 import org.eclipse.elk.graph.ElkConnectableShape;
 import org.eclipse.elk.graph.ElkEdge;
 import org.eclipse.elk.graph.ElkNode;
-import org.eclipse.elk.graph.properties.IProperty;
-import org.eclipse.elk.graph.properties.Property;
 import org.eclipse.elk.graph.util.ElkGraphUtil;
-
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Iterables;
 
 import hu.bme.mit.massif.simulink.Block;
 import hu.bme.mit.massif.simulink.Connection;
@@ -52,63 +48,69 @@ public class ElkLayoutProvider implements IExporterLayoutProvider {
     
     @Override
     public void updateSpecifications(Map<Block, BlockLayoutSpecification> layout) {
-        ElkNode graph = createGraph(layout.keySet());
+        ElkNode graph = createEmptyGraph();
+        Set<Block> blocks = layout.keySet();
+        Map<Block, ElkNode> nodes = createNodes(blocks, graph);
+        createEdges(blocks, nodes);
         layout(graph);
-        layout.putAll(getSpecifications(graph));
+        layout.putAll(getSpecifications(nodes));
     }
 
-    private static ElkNode createGraph(Set<Block> blocks) {
+    private static ElkNode createEmptyGraph() {
         ElkNode graph = ElkGraphUtil.createGraph();
-        
         graph.setProperty(CoreOptions.ALGORITHM, LayeredOptions.ALGORITHM_ID);
-        
         graph.setProperty(CoreOptions.DIRECTION, Direction.RIGHT);
-        
-        Collection<ElkNode> nodes = blocks.stream().map(block -> createNode(block, graph)).collect(Collectors.toSet());
+        return graph;
+    }
 
+    private static Map<Block, ElkNode> createNodes(Set<Block> blocks, ElkNode graph) {
+        return blocks.stream().collect(Collectors.toMap(block -> block, block -> createNode(graph)));
+    }
+
+    private static void createEdges(Set<Block> blocks, Map<Block, ElkNode> nodes) {
         for (Block block : blocks) {
             for (OutPort outPort : block.getOutports()) {
                 createEdge(outPort.getConnection(), nodes);
             }
         }
-        
-        return graph;
     }
-
-    private final static IProperty<Block> BLOCK = new Property<Block>("hu.bme.mit.massif.simulink.layout.elk.block");
-
-    private static ElkNode createNode(Block block, ElkNode graph) {
+    
+    private static ElkNode createNode(ElkNode graph) {
         ElkNode node = ElkGraphUtil.createNode(graph);
-        node.setProperty(BLOCK, block);
         node.setWidth(10);
         node.setHeight(10);
         return node;
     }
     
-    private static ElkEdge createEdge(Connection connection, Iterable<ElkNode> nodes) {
-        Iterable<ElkNode> sources = findNodes(connection.getFrom().getContainer(), nodes);
+    private static ElkEdge createEdge(Connection connection, Map<Block, ElkNode> nodes) {
+        ElkNode source = nodes.get(getSource(connection));
+        Stream<ElkNode> sources = Stream.of(source).filter(it -> it != null);
         Collection<ElkConnectableShape> sourcePorts = createPorts(sources);
         
-        Iterable<Block> targetBlocks = Iterables.transform(getSingleConnections(connection), ElkLayoutProvider::getTarget);
-        Iterable<ElkNode> targets = Iterables.concat(Iterables.transform(targetBlocks, target -> findNodes(target, nodes)));
+        Stream<Block> targetBlocks = getSingleConnections(connection).map(ElkLayoutProvider::getTarget);
+        Stream<ElkNode> targets = targetBlocks.map(target -> nodes.get(target)).filter(it -> it != null);
         Collection<ElkConnectableShape> targetPorts = createPorts(targets);
         
         return ElkGraphUtil.createHyperedge(sourcePorts, targetPorts);
     }
 
-    private static Collection<ElkConnectableShape> createPorts(Iterable<ElkNode> targets) {
-        return ImmutableSet.copyOf(Iterables.transform(targets, ElkGraphUtil::createPort));
+    private static Block getSource(Connection connection) {
+        return connection.getFrom().getContainer();
+    }
+
+    private static Collection<ElkConnectableShape> createPorts(Stream<ElkNode> nodes) {
+        return nodes.map(ElkGraphUtil::createPort).collect(Collectors.toSet());
     }
     
-    public static Iterable<SingleConnection> getSingleConnections(Connection connection) {
+    public static Stream<SingleConnection> getSingleConnections(Connection connection) {
         if (connection instanceof SingleConnection) {
             SingleConnection singleConnection = (SingleConnection) connection;
-            return ImmutableSet.of(singleConnection);
+            return Stream.of(singleConnection);
         } else if (connection instanceof MultiConnection) {
             MultiConnection multiConnection = (MultiConnection) connection;
-            return multiConnection.getConnections();
+            return multiConnection.getConnections().stream();
         } else {
-            return ImmutableSet.of();
+            return Stream.of();
         }
     }
     
@@ -116,20 +118,12 @@ public class ElkLayoutProvider implements IExporterLayoutProvider {
         return singleConnection.getTo().getContainer();
     }
 
-    private static Iterable<ElkNode> findNodes(Block block, Iterable<ElkNode> nodes) {
-        return Iterables.filter(nodes, node -> getBlock(node) == block);
-    }
-
-    private static Block getBlock(ElkNode node) {
-        return node.getProperty(BLOCK);
-    }
-
     private static void layout(ElkNode graph) {
         new RecursiveGraphLayoutEngine().layout(graph, new BasicProgressMonitor());
     }
 
-    private static Map<Block, BlockLayoutSpecification> getSpecifications(ElkNode graph) {
-        return graph.getChildren().stream().collect(Collectors.toMap(ElkLayoutProvider::getBlock, ElkLayoutProvider::getSpecification));
+    private static Map<Block, BlockLayoutSpecification> getSpecifications(Map<Block, ElkNode> nodes) {
+        return nodes.entrySet().stream().collect(Collectors.toMap(it -> it.getKey(), it -> ElkLayoutProvider.getSpecification(it.getValue())));
     }
     
     private static BlockLayoutSpecification getSpecification(ElkNode node) {

@@ -20,7 +20,6 @@
 	  <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">
 		  <unit id="com.sun.jna" version="4.1.0.v20170410-1117"/>
 		  <unit id="com.sun.jna.platform" version="4.1.0.v20170410-1117"/>
-		  <unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
 		  <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20180606145124/repository/"/>
 	  </location>
 	  <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="false" type="InstallableUnit">

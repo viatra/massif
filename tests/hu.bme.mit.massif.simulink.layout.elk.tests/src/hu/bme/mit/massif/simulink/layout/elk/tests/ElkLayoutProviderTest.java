@@ -147,7 +147,7 @@ public class ElkLayoutProviderTest {
             Block source = entry.getKey();
             BlockLayoutSpecification sourceSpecification = entry.getValue();
             for (OutPort outPort : source.getOutports()) {
-                for (SingleConnection singleConnection : ElkLayoutProvider.getSingleConnections(outPort.getConnection())) {
+                for (SingleConnection singleConnection : ElkLayoutProvider.getSingleConnections(outPort.getConnection()).collect(Collectors.toSet())) {
                     Block target = ElkLayoutProvider.getTarget(singleConnection);
                     double sourceRight = sourceSpecification.topLeft.x + sourceSpecification.width;
                     double sourceMiddle = sourceSpecification.topLeft.y + sourceSpecification.height / 2;

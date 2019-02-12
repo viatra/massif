@@ -1,6 +1,7 @@
-= Simulink Ecore Metamodel 
+= Simulink Ecore Metamodel
+:imagesdir: ../images 
 
 The following image
 gives an overview of the metamodel used by Massif for representing Simulink models in EMF:
 
-image::https://raw.githubusercontent.com/wiki/viatra/massif/screenshots/Simulink.png[Metamodel]
+image::metamodel.png[Metamodel]

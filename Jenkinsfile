@@ -6,7 +6,7 @@ pipeline {
 
     parameters {
         choice(choices: 'ci\nrelease', description: '', name: 'BUILD_TYPE')
-        string(name: 'VERSION', defaultValue: '0.7.0', description: 'Version of released Nexus artifact (used by release build)')
+        string(name: 'VERSION', defaultValue: '0.7.0', description: 'Version of released artifacts (used by release build)')
         booleanParam(defaultValue: false, description: 'Set to true if you want to deploy to snapshot repository', name: 'DEPLOY_SNAPSHOT')
         booleanParam(defaultValue: true, description: '''This parameter is used to allow not to execute Sonar analysis. It is safe to always make this true, as the Sonar-trigger job will trigger this job without the SKIP_SONAR parameter set daily.''', name: 'SKIP_SONAR') 
     }
@@ -50,17 +50,17 @@ pipeline {
         }
         stage('Deployment') {
             when {
-                branch "master"
+                expression { params.BUILD_TYPE == 'release' }
             }
             steps{
                 sh "if [ -d 'massif-install-artifacts' ]; then rm -fr massif-install-artifacts; fi"
                 sh "mkdir massif-install-artifacts"
-                sh "mkdir massif-install-artifacts/${params.BUILD_TYPE}"
-                sh "mkdir massif-install-artifacts/${params.BUILD_TYPE}/site"
+                sh "mkdir massif-install-artifacts"
+                sh "mkdir massif-install-artifacts/repository"
 
-                sh "cp -R releng/hu.bme.mit.massif.site/target/repository/* massif-install-artifacts/${params.BUILD_TYPE}/site/"
-                sh "cp releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip massif-install-artifacts/${params.BUILD_TYPE}/massif.commandevaluation.server-${params.BUILD_TYPE}_${env.BUILD_NUMBER}.zip"
-                sh "cp releng/hu.bme.mit.massif.simulink.cli-package/hu.bme.mit.massif.simulink.cli-example.zip massif-install-artifacts/${params.BUILD_TYPE}/hu.bme.mit.massif.simulink.cli-example-${params.BUILD_TYPE}_${env.BUILD_NUMBER}.zip"
+                sh "cp -R releng/hu.bme.mit.massif.site/target/repository/* massif-install-artifacts/repository/"
+                sh "cp releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip massif-install-artifacts/massif.commandevaluation.server-${params.VERSION}.zip"
+                sh "cp releng/hu.bme.mit.massif.simulink.cli-package/hu.bme.mit.massif.simulink.cli-example.zip massif-install-artifacts/hu.bme.mit.massif.simulink.cli-example-${params.BUILD_NUMBER}.zip"
                 sshagent(['24f0908d-7662-4e93-80cc-1143b7f92ff1']) {
                     sh 'scp -P 45678 -r massif-install-artifacts/* jenkins@static.incquerylabs.com:/home/jenkins/static/projects/massif/artifacts'
                 }
@@ -76,7 +76,6 @@ pipeline {
         }
         stage('Deploy to Nexus') {
             when {
-                branch "master"
                 expression { params.DEPLOY_SNAPSHOT == true || params.BUILD_TYPE == 'release' }
             }
             steps {

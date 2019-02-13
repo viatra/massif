@@ -34,36 +34,6 @@ project funded by Embraer S.A.
 
 Please let us know if you use Massif (e.g. open an https://github.com/viatra/massif/issues/new[issue])!
 
-== Update site:
-=== Prerequisites
-
-* Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
-* Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
-* Release 0.6.0: VIATRA Query and Transformation SDK 1.7 http://download.eclipse.org/viatra/updates/release/1.7.2
-* Release 0.7.0: VIATRA Query and Transformation SDK 2.0 http://download.eclipse.org/viatra/updates/release/2.0.0
-* Upcoming release 0.8.0: VIATRA Query and Transformation SDK 2.1 http://download.eclipse.org/viatra/updates/release/2.1.0
-* CI: VIATRA Query and Transformation SDK http://download.eclipse.org/viatra/updates/release/latest
-
-=== Latest release: 0.7.0
-Release: https://static.incquerylabs.com/projects/massif/release/0.7.0/repository
-
-* Command evaluation server archive https://static.incquerylabs.com/projects/massif/release/0.7.0/massif.commandevaluation.server-0.7.0.zip[download]
-
-=== All releases
-Release composite site: https://static.incquerylabs.com/projects/massif/release
-
-* Command evaluation server archive in folder of specific releases
-https://static.incquerylabs.com/projects/massif/release/[download]
-
-=== CI update site
-
-We also provide a
-https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/[CI update site].
-
-* Command evaluation server archive
-https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip[download]
-* CI Build on Jenkins: https://build.incquerylabs.com/jenkins/job/Massif/job/master/
-
 == I. Installation
 
 It is required to have the following tools:

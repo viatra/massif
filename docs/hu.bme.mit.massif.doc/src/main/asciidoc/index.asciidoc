@@ -20,7 +20,6 @@ The <<user/api_usage_example#, *API usage guide*>> describes how to build your o
 The <<user/simulink_ecore_metamodel#, *Simulink Ecore Metamodel*>> 
 describes how Massif represents Simulink models in EMF.
 
-
 == For developers
 
 See the https://github.com/viatra/massif/wiki[project wiki on GitHub].

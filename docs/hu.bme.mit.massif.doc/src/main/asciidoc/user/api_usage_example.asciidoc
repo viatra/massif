@@ -8,10 +8,10 @@ In the following sections code fragments are from the corresponding example clas
 
 === Headless usage (Massif in non-eclipse environment)
 If you wish to use Massif in a non-eclipse environment, you have to run the following
-setup, found in the 'hu.bme.mit.massif.simulink.cli' package:
+setup, found in the `hu.bme.mit.massif.simulink.cli` package:
 [source, java]
 ----
-"CLIInitializationUtil.setupEnvironment()"
+CLIInitializationUtil.setupEnvironment()
 ----
 
 Also, the default VIATRA backends must be provided:
@@ -117,7 +117,7 @@ so it can be obtained by the `loadedModel.getSimulinkRef().getFQN()` call.
 == Caveats
 
 If a model is already loaded by Simulink, you can't re-import or re-export them.
-Use the "bdclose('all')" simulink command to close all opened systems.
+Use the `bdclose('all')` simulink command to close all opened systems.
 
 It can be run via Massif programmatically:
 [source, java]

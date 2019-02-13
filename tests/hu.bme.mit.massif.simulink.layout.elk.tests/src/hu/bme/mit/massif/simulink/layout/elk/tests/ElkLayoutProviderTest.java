@@ -23,6 +23,10 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.ImageLoader;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.viatra.query.runtime.api.ViatraQueryEngineOptions;
+import org.eclipse.viatra.query.runtime.localsearch.matcher.integration.LocalSearchEMFBackendFactory;
+import org.eclipse.viatra.query.runtime.rete.matcher.ReteBackendFactory;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import hu.bme.mit.massif.simulink.Block;
@@ -36,6 +40,12 @@ import hu.bme.mit.massif.simulink.layout.elk.ElkLayoutProvider;
 
 public class ElkLayoutProviderTest {
 
+    @BeforeClass
+    public static void init() {
+        // Workaround for running with tycho-surefire-plugin
+        ViatraQueryEngineOptions.setSystemDefaultBackends(ReteBackendFactory.INSTANCE, ReteBackendFactory.INSTANCE, LocalSearchEMFBackendFactory.INSTANCE);
+    }
+    
     private static final SimulinkFactory FACTORY = SimulinkFactory.eINSTANCE;
 
     @Test

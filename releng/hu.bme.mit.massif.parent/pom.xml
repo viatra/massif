@@ -30,6 +30,9 @@
 		<module>../../plugins/hu.bme.mit.massif.simulink.cli</module>
 		<module>../../plugins/hu.bme.mit.massif.simulink.layout.elk</module>
 		
+		<!-- Tests -->
+		<module>../../tests/hu.bme.mit.massif.simulink.layout.elk.tests</module>
+		
 		<!-- Command evaluation connector -->
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.base</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.server</module>

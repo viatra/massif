@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Massif Matlab connection Client
 Bundle-SymbolicName: br.com.embraer.massif.commandevaluation.client
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.8.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: br.com.embraer.massif.commandevaluation.base;bundle-version="0.4.0";visibility:=reexport,
  com.sun.jna;bundle-version="4.1.0",

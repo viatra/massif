@@ -1,6 +1,6 @@
-= Home
+= Massif: MATLAB Simulink Integration Framework for Eclipse 
 
-Welcome to the Massif wiki! If your are new to the project start with the <<overview#, overview>>.
+Welcome to the Massif documentation! If your are new to the project start with the <<overview#, overview>>.
 
 == For users
 

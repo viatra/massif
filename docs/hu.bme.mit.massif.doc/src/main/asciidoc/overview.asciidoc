@@ -1,4 +1,4 @@
-= Massif: MATLAB Simulink Integration Framework for Eclipse
+= Overview
 
 
 Massif is a new Eclipse feature to support the easy handling of MATLAB Simulink models by providing import and export

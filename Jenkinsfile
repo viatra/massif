@@ -24,9 +24,11 @@ pipeline {
     stages {
        stage('Build') { 
             steps {
-                configFileProvider([configFile(fileId: 'default-maven-toolchains', variable: 'TOOLCHAIN'), configFile(fileId: 'default-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                    sh "mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository"
-                }
+            	wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
+	                configFileProvider([configFile(fileId: 'default-maven-toolchains', variable: 'TOOLCHAIN'), configFile(fileId: 'default-maven-settings', variable: 'MAVEN_SETTINGS')]) {
+	                    sh "mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository"
+	                }
+	            }
                 sh './releng/massif.commandevaluation.server-package/prepareMatlabServerPackage.sh'
                 sh './releng/hu.bme.mit.massif.simulink.cli-package/prepareCLIPackage.sh'
             }

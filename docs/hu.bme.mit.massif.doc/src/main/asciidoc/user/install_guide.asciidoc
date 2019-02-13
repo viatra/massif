@@ -7,11 +7,14 @@ As it is mostly apparent from its full name (Matlab Simulink Integration Framewo
 
 2. Install EMF-IncQuery or VIATRA Query prerequisites from the appropriate update site
 
-* Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
-* Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
+* Latest release 0.7.0: VIATRA Query and Transformation SDK 2.0 http://download.eclipse.org/viatra/updates/release/2.0.0
+
 * Release 0.6.0: VIATRA Query and Transformation SDK 1.7 http://download.eclipse.org/viatra/updates/release/1.7.2
-* Release 0.7.0: VIATRA Query and Transformation SDK 2.0 http://download.eclipse.org/viatra/updates/release/2.0.0
-* Upcoming release 0.8.0: VIATRA Query and Transformation SDK 2.1 http://download.eclipse.org/viatra/updates/release/2.1.0
+
+* Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
+
+* Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
+
 * CI: VIATRA Query and Transformation SDK http://download.eclipse.org/viatra/updates/release/latest
 
 3. Install Massif Core components from the appropriate update site

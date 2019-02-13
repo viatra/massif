@@ -54,9 +54,7 @@ pipeline {
             }
             steps{
                 sh "if [ -d 'massif-install-artifacts' ]; then rm -fr massif-install-artifacts; fi"
-                sh "mkdir massif-install-artifacts"
-                sh "mkdir massif-install-artifacts"
-                sh "mkdir massif-install-artifacts/repository"
+                sh "mkdir -p massif-install-artifacts/repository"
 
                 sh "cp -R releng/hu.bme.mit.massif.site/target/repository/* massif-install-artifacts/repository/"
                 sh "cp releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip massif-install-artifacts/massif.commandevaluation.server-${params.VERSION}.zip"

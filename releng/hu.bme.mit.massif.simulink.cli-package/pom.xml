@@ -10,9 +10,6 @@
   </parent>
   <groupId>hu.bme.mit.massif.features</groupId>
   <artifactId>hu.bme.mit.massif.simulink.cli-package</artifactId> 
-  	<properties>
-		<massif.version>0.7.0-SNAPSHOT</massif.version>
-	</properties>
   	<build>
 		<plugins>
 			<!-- download source code in Eclipse, best practice -->
@@ -69,13 +66,13 @@
 		<dependency>
 			<groupId>hu.bme.mit.massif</groupId>
 			<artifactId>br.com.embraer.massif.commandevaluation.base</artifactId>
-			<version>${massif.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>hu.bme.mit.massif</groupId>
 			<artifactId>br.com.embraer.massif.commandevaluation.commands</artifactId>
-			<version>${massif.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 		
 
@@ -83,43 +80,49 @@
 		<dependency>
 			<groupId>hu.bme.mit.massif</groupId>
 			<artifactId>hu.bme.mit.massif.simulink.cli</artifactId>
-			<version>${massif.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>hu.bme.mit.massif</groupId>
 			<artifactId>hu.bme.mit.massif.simulink.api</artifactId>
-			<version>${massif.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>hu.bme.mit.massif</groupId>
 			<artifactId>hu.bme.mit.massif.communication.localscript</artifactId>
-			<version>${massif.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>hu.bme.mit.massif</groupId>
 			<artifactId>hu.bme.mit.massif.communication</artifactId>
-			<version>${massif.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>hu.bme.mit.massif</groupId>
 			<artifactId>hu.bme.mit.massif.simulink</artifactId>
-			<version>${massif.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>hu.bme.mit.massif</groupId>
 			<artifactId>hu.bme.mit.massif.simulink.incquery</artifactId>
-			<version>${massif.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>hu.bme.mit.massif</groupId>
 			<artifactId>hu.bme.mit.massif.common</artifactId>
-			<version>${massif.version}</version>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>hu.bme.mit.massif.simulink.layout.elk</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 
 		<!-- Xtend -->
@@ -184,7 +187,7 @@
 	<repositories>
 		<repository>
 			<id>repo.eclipse.org.viatra</id>
-			<url>https://repo.eclipse.org/content/repositories/viatra2-snapshots/</url>
+			<url>https://repo.eclipse.org/content/repositories/viatra2/</url>
 		</repository>
 	</repositories>
 </project>

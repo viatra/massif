@@ -39,13 +39,13 @@ Please let us know if you use Massif (e.g. open an https://github.com/viatra/mas
 
 * Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
 * Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
-* Release 0.6.0: VIATRA Query runtime 1.7 http://download.eclipse.org/viatra/updates/release/1.7.2
-* Release 0.7.0: VIATRA Query runtime 2.0 http://download.eclipse.org/viatra/updates/release/2.0.0
-* Upcoming release 0.8.0: VIATRA Query runtime 2.1 http://download.eclipse.org/viatra/updates/release/2.1.0
-* CI: VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/latest
+* Release 0.6.0: VIATRA Query and Transformation SDK 1.7 http://download.eclipse.org/viatra/updates/release/1.7.2
+* Release 0.7.0: VIATRA Query and Transformation SDK 2.0 http://download.eclipse.org/viatra/updates/release/2.0.0
+* Upcoming release 0.8.0: VIATRA Query and Transformation SDK 2.1 http://download.eclipse.org/viatra/updates/release/2.1.0
+* CI: VIATRA Query and Transformation SDK http://download.eclipse.org/viatra/updates/release/latest
 
 === Latest release: 0.7.0
-Releases: https://static.incquerylabs.com/projects/massif/release/0.7.0/repository
+Release: https://static.incquerylabs.com/projects/massif/release/0.7.0/repository
 
 * Command evaluation server archive https://static.incquerylabs.com/projects/massif/release/0.7.0/massif.commandevaluation.server-0.7.0.zip[download]
 

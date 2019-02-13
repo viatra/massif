@@ -8,4 +8,5 @@ As it is mostly apparent from its full name (Matlab Simulink Integration Framewo
 2. Install EMF-IncQuery or VIATRA Query prerequisites:
    * Check <<../overview#, Overview>> to see which version is needed.
 
-3. Install Massif components from the update site, see links on <<../overview#, Overview>>
+3. Install Massif Core components from the update site, see links on <<../overview#, Overview>>
+   * Massif Matlab Communication Providers are optional, depending on which <<matlab_connectors#, connector>> you would like to use to communicate with MATLAB.

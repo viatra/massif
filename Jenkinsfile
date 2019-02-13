@@ -58,7 +58,7 @@ pipeline {
 
                 sh "cp -R releng/hu.bme.mit.massif.site/target/repository/* massif-install-artifacts/repository/"
                 sh "cp releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip massif-install-artifacts/massif.commandevaluation.server-${params.VERSION}.zip"
-                sh "cp releng/hu.bme.mit.massif.simulink.cli-package/hu.bme.mit.massif.simulink.cli-example.zip massif-install-artifacts/hu.bme.mit.massif.simulink.cli-example-${params.BUILD_NUMBER}.zip"
+                sh "cp releng/hu.bme.mit.massif.simulink.cli-package/hu.bme.mit.massif.simulink.cli-example.zip massif-install-artifacts/hu.bme.mit.massif.simulink.cli-example-${params.VERSION}.zip"
                 sshagent(['24f0908d-7662-4e93-80cc-1143b7f92ff1']) {
                     sh 'scp -P 45678 -r massif-install-artifacts/* jenkins@static.incquerylabs.com:/home/jenkins/static/projects/massif/artifacts'
                 }
@@ -69,7 +69,7 @@ pipeline {
         		expression { params.BUILD_TYPE == 'release' }
         	}
         	steps {
-                sh "mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=${params.VERSION}"
+                sh "mvn org.eclipse.tycho:tycho-versions-plugin:set-version -DnewVersion=${params.VERSION} -f releng/hu.bme.mit.massif.parent/pom.xml"
         	}
         }
         stage('Deploy to Nexus') {

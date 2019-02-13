@@ -128,7 +128,7 @@
 		<dependency>
 			<groupId>hu.bme.mit.massif</groupId>
 			<artifactId>hu.bme.mit.massif.simulink.layout.elk</artifactId>
-			<version>${massif.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<!-- Xtend -->

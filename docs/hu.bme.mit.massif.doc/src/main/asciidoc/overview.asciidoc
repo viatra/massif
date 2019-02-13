@@ -1,4 +1,4 @@
-= Massif: MATLAB Simulink Integration Framework for Eclipse
+= Overview
 
 
 Massif is a new Eclipse feature to support the easy handling of MATLAB Simulink models by providing import and export
@@ -16,7 +16,7 @@ Please note that importing and exporting is done using the command line interfac
 for accessing Simulink model information.
 As a consequence, for using the bridge you must have an installed MATLAB Simulink instance
 (with the appropriate licence) on your computer.
-The system was tested with Simulink R2012b, however, it should work with the newer versions (and some earlier ones as well).
+The system was tested with Simulink R2018b, however, it should work with the newer versions (and some earlier ones as well).
 
 The development of Massif was supported by multiple projects and partners, most notably:
 
@@ -34,49 +34,12 @@ project funded by Embraer S.A.
 
 Please let us know if you use Massif (e.g. open an https://github.com/viatra/massif/issues/new[issue])!
 
-== Update site:
-=== Prerequisites
-
-* Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
-* Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
-* Release 0.6.0: VIATRA Query runtime 1.7 http://download.eclipse.org/viatra/updates/release/1.7.2
-* Upcoming Release 0.7.0: VIATRA Query runtime 2.0 http://download.eclipse.org/viatra/updates/release/latest
-* CI : VIATRA Query runtime http://download.eclipse.org/viatra/updates/release/latest
-
-=== Latest release: 0.6.0
-Releases: http://static.incquerylabs.com/projects/massif/release/0.6.0/repository
-
-* Command evaluation server archive http://static.incquerylabs.com/projects/massif/release/0.6.0/[download]
-
-=== All releases
-Release composite site: http://static.incquerylabs.com/projects/massif/release
-
-* Command evaluation server archive in folder of specific releases
-http://static.incquerylabs.com/projects/massif/release/[download]
-
-=== Integration builds
-
-Integration builds: http://static.incquerylabs.com/projects/massif/integration/
-
-* Command evaluation server archive in folder of specific releases
-http://static.incquerylabs.com/projects/massif/integration/[download]
-* These are created regularly and old versions are discarded after a new release.
-
-=== CI update site
-
-We also provide a
-https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/[CI update site].
-
-* Command evaluation server archive
-https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/[download]
-* CI Build on Jenkins: https://build.incquerylabs.com/jenkins/job/Massif/job/master/
-
 == I. Installation
 
 It is required to have the following tools:
 
-* Eclipse with Massif and prerequisites <<user/insatall_guide#, installed>>.
-* MATLAB (recommended r2012a or later)
+* Eclipse with Massif and prerequisites <<user/install_guide#, installed>>.
+* MATLAB (recommended R2018a or later)
 
 == II. Usage
 
@@ -102,10 +65,10 @@ video presentation from https://www.youtube.com/watch?v=6mv4m5UT9YE[here].
 
 If you run into any problems or have questions, do the following:
 
-. Read the https://github.com/viatra/massif/wiki[wiki].
+. Read the https://viatra.github.io/massif[documentation].
 . Look at the open and closed https://github.com/viatra/massif/issues[issues].
 If you need more help, open a https://github.com/viatra/massif/issues/new[new issue] describing your problem.
 
 == III. Contributing
 
-We welcome contributors, read the <<user/install_guide#, Developer Guide>> for setting up shop!
+We welcome contributors, read the https://github.com/viatra/massif/wiki/Developer-Guide[Developer Guide] for setting up shop!

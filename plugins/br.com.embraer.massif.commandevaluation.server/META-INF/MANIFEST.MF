@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Modelprovider
 Bundle-SymbolicName: br.com.embraer.massif.commandevaluation.server
-Bundle-Version: 0.7.0.qualifier
+Bundle-Version: 0.8.0.qualifier
 Export-Package: br.com.embraer.massif.commandevaluation.server
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: br.com.embraer.massif.commandevaluation.commands

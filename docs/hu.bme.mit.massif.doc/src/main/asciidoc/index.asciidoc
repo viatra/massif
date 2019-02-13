@@ -1,6 +1,6 @@
-= Home
+= Massif: MATLAB Simulink Integration Framework for Eclipse 
 
-Welcome to the Massif wiki! If your are new to the project start with the <<overview#, overview>>.
+Welcome to the Massif documentation! If your are new to the project start with the <<overview#, overview>>.
 
 == For users
 
@@ -20,7 +20,6 @@ The <<user/api_usage_example#, *API usage guide*>> describes how to build your o
 The <<user/simulink_ecore_metamodel#, *Simulink Ecore Metamodel*>> 
 describes how Massif represents Simulink models in EMF.
 
-
 == For developers
 
-https://github.com/viatra/massif/wiki/Planning[Planning]: list of ideas for improvement.
+See the https://github.com/viatra/massif/wiki[project wiki on GitHub].

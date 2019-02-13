@@ -1,61 +1,36 @@
 = Install guide
 :imagesdir: ../images
 
-This page is intended for developers, contributors and anyone who wants to look at the source code
-in the development environment used for working on the tool.
+As it is mostly apparent from its full name (Matlab Simulink Integration Framework for Eclipse), Massif is an Eclipse-based tool. For installing just follow these steps:
 
-_Please note that this tutorial works for Windows systems._
-_If you want to add description for other systems you can do it via pull requests on this file, or you can submit a new issue._ 
+1. Download an Eclipse product from http://www.eclipse.org/downloads/ or use the https://www.eclipse.org/downloads/packages/installer[Eclipse installer]
 
-We recommend using https://projects.eclipse.org/projects/tools.oomph[Oomph] for deploying a new Massif environment,
-because it's awesome!
+2. Install EMF-IncQuery or VIATRA Query prerequisites from the appropriate update site
 
-. Download and run the https://wiki.eclipse.org/Eclipse_Installer[Eclipse installer] for your operating system.
-** On the first page choose advanced mode through the setting button in the right up corner.
-+
-image::eclipse_installer_advanced_mode.png[Advanced mode]
-** On the next page choose Eclipse IDE for Eclipse Committers.
-*** NOTE: VIATRA 2.0 has a conflicting dependency with Eclipse Parsley.
-For this reason, select a product that does not have Parsley added by default.
-Unfortunately, Eclipse Modeling SDK has Parsley installed.
-** On the projects page click the green plus button, select `Github Projects` enter
-`https://raw.githubusercontent.com/viatra/massif/master/setup/hu.bme.mit.massif.setup/Massif.setup` and click OK
-+
-image::eclipse_install_add_github_project.png[Add Github Project]
-** Double click on Massif under `Github.com/<User>`,
-you will see the master stream selected in the bottom table, click Next.
-+
-image::eclipse_install_select_massif.png[Select Massif]
-*** Note that checking the checkbox will add the optional subprojects (`Mylyn and Sonar`) as well.
-** On the next page, fill out the missing variables.
-*** Set the target platform `Eclipse Oxygen - 4.7` or `Eclipse Photon - 4.8`.
-+
-image::eclipse_install_target.png[Eclipse target]
-*** On the next page you can see the tasks that will be executed.
-*** Click finish and wait for the downloads and preparations to finish.
-. Once your new and shiny Eclipse starts,
-Oomph will once again pop up a wizard for completing the startup tasks.
-** Just click next and you will have your workspace prepared.
-** After it completes, click Finish.
-** You have to do some small steps to have your Massif working:
-*** Close the following projects:
-**** `massif-commandevaluation-runtime`
-**** `massif-communication-runtime`
-**** `massif-matlabcontrol-runtime`
-**** `massif-matlabengine`
-**** `massif-simulink-emf`
-+
-image::eclipse_install_close_unused_projects.png[Close unused projects]
-*** Right click on `matlab.engine.api.bundle/lib/engine.jar` and open properties.
-Edit the location if its not perfect.
-Usually the `engine.jar` is located in the `$MATLAB_ROOT/extern/engines/java/jar` folder.
-*** Open the `matlab.engine.api.bundle/META-INF/MANIFEST.MF` file,
-and delete the row containing `com.mathworks.util.osgi,`
-*** Clean projects via `Project/Clean...` with the clean all option.
-. Finally, if you want, do some additional optional steps:
-** In the local menu of Package Explorer,
-set Top level elements to Working sets and click OK on the presented list.
-** Open the following views (with Window/Show view):
-*** Mylyn: Task lists, Builds (if you added the Mylyn and Sonar subproject)
-*** Git: Git repositories
-*** General: Properties
+* Latest release 0.7.0: VIATRA Query and Transformation SDK 2.0 http://download.eclipse.org/viatra/updates/release/2.0.0
+
+* Release 0.6.0: VIATRA Query and Transformation SDK 1.7 http://download.eclipse.org/viatra/updates/release/1.7.2
+
+* Release 0.5.0: EMF-IncQuery 1.0 http://download.eclipse.org/incquery/updates/release/
+
+* Release 0.4.0: EMF-IncQuery 0.8 http://download.eclipse.org/incquery/updates/release/
+
+* CI: VIATRA Query and Transformation SDK http://download.eclipse.org/viatra/updates/release/latest
+
+3. Install Massif Core components from the appropriate update site
+
+* Latest release: https://static.incquerylabs.com/projects/massif/release/0.7.0/repository
+
+* All releases: https://static.incquerylabs.com/projects/massif/release
+
+* CI: https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/
+
+4. (Optional) Depending on which <<matlab_connectors#, connector>> you would like to use to communicate with MATLAB, install also the appropriate Communication Provider Feature from the update site and the following additional components:
+
+* Command Evaluation Server:
+
+** https://static.incquerylabs.com/projects/massif/release/0.7.0/massif.commandevaluation.server-0.7.0.zip[Latest release]
+
+** https://static.incquerylabs.com/projects/massif/release/[All releases]
+
+** https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip[CI]

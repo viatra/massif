@@ -32,7 +32,7 @@ representation.
 How this traversal is configured is defined in the model import preferences in
 _Window/Preferences/Simulink Preferences/Model Import Preferences_.
 
-image::/model_import_preferences.png[Model Import Preferences]
+image::model_import_preferences.png[Model Import Preferences]
 
 The available options are the followings:
 

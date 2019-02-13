@@ -55,14 +55,6 @@ Release composite site: https://static.incquerylabs.com/projects/massif/release
 * Command evaluation server archive in folder of specific releases
 https://static.incquerylabs.com/projects/massif/release/[download]
 
-=== Integration builds
-
-Integration builds: https://static.incquerylabs.com/projects/massif/integration/
-
-* Command evaluation server archive in folder of specific releases
-https://static.incquerylabs.com/projects/massif/integration/[download]
-* These are created regularly and old versions are discarded after a new release.
-
 === CI update site
 
 We also provide a

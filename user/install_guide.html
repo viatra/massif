@@ -15,172 +15,70 @@
 </div>
 <div id="content">
 <div class="paragraph">
-<p>This page is intended for developers, contributors and anyone who wants to look at the source code
-in the development environment used for working on the tool.</p>
-</div>
-<div class="paragraph">
-<p><em>Please note that this tutorial works for Windows systems.</em>
-<em>If you want to add description for other systems you can do it via pull requests on this file, or you can submit a new issue.</em></p>
-</div>
-<div class="paragraph">
-<p>We recommend using <a href="https://projects.eclipse.org/projects/tools.oomph">Oomph</a> for deploying a new Massif environment,
-because it&#8217;s awesome!</p>
+<p>As it is mostly apparent from its full name (Matlab Simulink Integration Framework for Eclipse), Massif is an Eclipse-based tool. For installing just follow these steps:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Download and run the <a href="https://wiki.eclipse.org/Eclipse_Installer">Eclipse installer</a> for your operating system.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>On the first page choose advanced mode through the setting button in the right up corner.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/eclipse_installer_advanced_mode.png" alt="Advanced mode">
-</div>
-</div>
+<p>Download an Eclipse product from <a href="http://www.eclipse.org/downloads/" class="bare">http://www.eclipse.org/downloads/</a> or use the <a href="https://www.eclipse.org/downloads/packages/installer">Eclipse installer</a></p>
 </li>
 <li>
-<p>On the next page choose Eclipse IDE for Eclipse Committers.</p>
+<p>Install EMF-IncQuery or VIATRA Query prerequisites from the appropriate update site</p>
 <div class="ulist">
 <ul>
 <li>
-<p>NOTE: VIATRA 2.0 has a conflicting dependency with Eclipse Parsley.
-For this reason, select a product that does not have Parsley added by default.
-Unfortunately, Eclipse Modeling SDK has Parsley installed.</p>
+<p>Release 0.4.0: EMF-IncQuery 0.8 <a href="http://download.eclipse.org/incquery/updates/release/" class="bare">http://download.eclipse.org/incquery/updates/release/</a></p>
+</li>
+<li>
+<p>Release 0.5.0: EMF-IncQuery 1.0 <a href="http://download.eclipse.org/incquery/updates/release/" class="bare">http://download.eclipse.org/incquery/updates/release/</a></p>
+</li>
+<li>
+<p>Release 0.6.0: VIATRA Query and Transformation SDK 1.7 <a href="http://download.eclipse.org/viatra/updates/release/1.7.2" class="bare">http://download.eclipse.org/viatra/updates/release/1.7.2</a></p>
+</li>
+<li>
+<p>Release 0.7.0: VIATRA Query and Transformation SDK 2.0 <a href="http://download.eclipse.org/viatra/updates/release/2.0.0" class="bare">http://download.eclipse.org/viatra/updates/release/2.0.0</a></p>
+</li>
+<li>
+<p>Upcoming release 0.8.0: VIATRA Query and Transformation SDK 2.1 <a href="http://download.eclipse.org/viatra/updates/release/2.1.0" class="bare">http://download.eclipse.org/viatra/updates/release/2.1.0</a></p>
+</li>
+<li>
+<p>CI: VIATRA Query and Transformation SDK <a href="http://download.eclipse.org/viatra/updates/release/latest" class="bare">http://download.eclipse.org/viatra/updates/release/latest</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>On the projects page click the green plus button, select <code>Github Projects</code> enter
-<code><a href="https://raw.githubusercontent.com/viatra/massif/master/setup/hu.bme.mit.massif.setup/Massif.setup" class="bare">https://raw.githubusercontent.com/viatra/massif/master/setup/hu.bme.mit.massif.setup/Massif.setup</a></code> and click OK</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/eclipse_install_add_github_project.png" alt="Add Github Project">
-</div>
-</div>
-</li>
-<li>
-<p>Double click on Massif under <code>Github.com/&lt;User&gt;</code>,
-you will see the master stream selected in the bottom table, click Next.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/eclipse_install_select_massif.png" alt="Select Massif">
-</div>
-</div>
+<p>Install Massif Core components from the appropriate update site</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Note that checking the checkbox will add the optional subprojects (<code>Mylyn and Sonar</code>) as well.</p>
+<p>Latest release: <a href="https://static.incquerylabs.com/projects/massif/release/0.7.0/repository" class="bare">https://static.incquerylabs.com/projects/massif/release/0.7.0/repository</a></p>
+</li>
+<li>
+<p>All releases: <a href="https://static.incquerylabs.com/projects/massif/release" class="bare">https://static.incquerylabs.com/projects/massif/release</a></p>
+</li>
+<li>
+<p>CI: <a href="https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/" class="bare">https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>On the next page, fill out the missing variables.</p>
+<p>(Optional) Depending on which <a href="matlab_connectors.html">connector</a> you would like to use to communicate with MATLAB, install also the appropriate Communication Provider Feature from the update site and the following additional components:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Set the target platform <code>Eclipse Oxygen - 4.7</code> or <code>Eclipse Photon - 4.8</code>.</p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/eclipse_install_target.png" alt="Eclipse target">
-</div>
-</div>
-</li>
-<li>
-<p>On the next page you can see the tasks that will be executed.</p>
-</li>
-<li>
-<p>Click finish and wait for the downloads and preparations to finish.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Once your new and shiny Eclipse starts,
-Oomph will once again pop up a wizard for completing the startup tasks.</p>
+<p>Command Evaluation Server:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Just click next and you will have your workspace prepared.</p>
+<p><a href="https://static.incquerylabs.com/projects/massif/release/0.7.0/massif.commandevaluation.server-0.7.0.zip">Latest release</a></p>
 </li>
 <li>
-<p>After it completes, click Finish.</p>
+<p><a href="https://static.incquerylabs.com/projects/massif/release/">All releases</a></p>
 </li>
 <li>
-<p>You have to do some small steps to have your Massif working:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Close the following projects:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>massif-commandevaluation-runtime</code></p>
-</li>
-<li>
-<p><code>massif-communication-runtime</code></p>
-</li>
-<li>
-<p><code>massif-matlabcontrol-runtime</code></p>
-</li>
-<li>
-<p><code>massif-matlabengine</code></p>
-</li>
-<li>
-<p><code>massif-simulink-emf</code></p>
-<div class="imageblock">
-<div class="content">
-<img src="../images/eclipse_install_close_unused_projects.png" alt="Close unused projects">
-</div>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Right click on <code>matlab.engine.api.bundle/lib/engine.jar</code> and open properties.
-Edit the location if its not perfect.
-Usually the <code>engine.jar</code> is located in the <code>$MATLAB_ROOT/extern/engines/java/jar</code> folder.</p>
-</li>
-<li>
-<p>Open the <code>matlab.engine.api.bundle/META-INF/MANIFEST.MF</code> file,
-and delete the row containing <code>com.mathworks.util.osgi,</code></p>
-</li>
-<li>
-<p>Clean projects via <code>Project/Clean&#8230;&#8203;</code> with the clean all option.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Finally, if you want, do some additional optional steps:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>In the local menu of Package Explorer,
-set Top level elements to Working sets and click OK on the presented list.</p>
-</li>
-<li>
-<p>Open the following views (with Window/Show view):</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Mylyn: Task lists, Builds (if you added the Mylyn and Sonar subproject)</p>
-</li>
-<li>
-<p>Git: Git repositories</p>
-</li>
-<li>
-<p>General: Properties</p>
+<p><a href="https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip">CI</a></p>
 </li>
 </ul>
 </div>

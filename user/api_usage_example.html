@@ -30,11 +30,11 @@ In the following sections code fragments are from the corresponding example clas
 <h3 id="_headless_usage_massif_in_non_eclipse_environment">Headless usage (Massif in non-eclipse environment)</h3>
 <div class="paragraph">
 <p>If you wish to use Massif in a non-eclipse environment, you have to run the following
-setup, found in the 'hu.bme.mit.massif.simulink.cli' package:</p>
+setup, found in the <code>hu.bme.mit.massif.simulink.cli</code> package:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java">"CLIInitializationUtil.setupEnvironment()"</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">CLIInitializationUtil.setupEnvironment()</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -186,7 +186,7 @@ so it can be obtained by the <code>loadedModel.getSimulinkRef().getFQN()</code> 
 <div class="sectionbody">
 <div class="paragraph">
 <p>If a model is already loaded by Simulink, you can&#8217;t re-import or re-export them.
-Use the "bdclose('all')" simulink command to close all opened systems.</p>
+Use the <code>bdclose('all')</code> simulink command to close all opened systems.</p>
 </div>
 <div class="paragraph">
 <p>It can be run via Massif programmatically:</p>

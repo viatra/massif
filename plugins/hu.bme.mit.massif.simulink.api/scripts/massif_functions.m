@@ -14,7 +14,7 @@ function massif = massif_functions()
 %   Detailed explanation goes here
 
 massif.library_collector=@library_collector;
-massif.get_all_block_parameters=@get_all_block_parameters;
+massif.get_all_parameters=@get_all_parameters;
 
 end
 
@@ -72,18 +72,18 @@ end
 libraryNames = libraryNames(2:length(libraryNames));
 end
 
-function s = get_all_block_parameters(blockId)
-%get_all_block_parameters Gathers all block parameters to a struct
+function s = get_all_parameters(id)
+%get_all_parameters Gathers all parameters to a struct
 %   The following block parameters are skipped because of connector limitations:
 %    * Capabilities
 %    * MaskObject
 
 s=struct();
-TmpObjParams=get_param(blockId,'ObjectParameters');
+TmpObjParams=get_param(id,'ObjectParameters');
 names=fieldnames(TmpObjParams);
 for i = 1:numel(names)
     if strcmpi(names{i},'Capabilities') == 0 && strcmpi(names{i},'MaskObject') == 0
-        TmpParamValue=get_param(blockId,names{i});
+        TmpParamValue=get_param(id,names{i});
         isReadOnly = sum(strcmp(TmpObjParams.(names{i}).Attributes,'read-only'));
         isNeverSave = sum(strcmp(TmpObjParams.(names{i}).Attributes,'never-save'));
         if (isReadOnly + isNeverSave) > 0

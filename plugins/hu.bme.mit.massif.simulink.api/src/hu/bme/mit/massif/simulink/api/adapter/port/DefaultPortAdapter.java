@@ -7,19 +7,13 @@
  *
  * Contributors: 
  *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
- *     Krisztian Gabor Mayer - additional features        
+ *     Krisztian Gabor Mayer - additional features      
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.port;
 
 import java.util.List;
 
-import hu.bme.mit.massif.communication.command.MatlabCommand;
-import hu.bme.mit.massif.communication.command.MatlabCommandFactory;
-import hu.bme.mit.massif.communication.datatype.Handle;
-import hu.bme.mit.massif.communication.datatype.MatlabString;
 import hu.bme.mit.massif.simulink.Block;
-import hu.bme.mit.massif.simulink.OutPort;
-import hu.bme.mit.massif.simulink.OutPortBlock;
 import hu.bme.mit.massif.simulink.Parameter;
 import hu.bme.mit.massif.simulink.Port;
 import hu.bme.mit.massif.simulink.PortBlock;
@@ -27,14 +21,14 @@ import hu.bme.mit.massif.simulink.SimulinkFactory;
 import hu.bme.mit.massif.simulink.api.adapter.ParameterHelper;
 import hu.bme.mit.massif.simulink.api.data.PortData;
 
-public class OutportAdapter implements IPortAdapter {
+public class DefaultPortAdapter implements IPortAdapter {
 
-    @SuppressWarnings("unchecked")
     @Override
     public Port createPort(PortData dto, Block parent) {
-        OutPort port = SimulinkFactory.eINSTANCE.createOutPort();
-        parent.getPorts().add(port);
-        dto.getOutPorts().put(Handle.getHandleData(dto.getHandle()), port);
+        // Default to inport
+        // Reason: the outport types are assumed to be explicitly checked when calling 
+        // IPortAdapter#createPort from Importer#createAndAddPort method
+        Port port = SimulinkFactory.eINSTANCE.createInPort();
         List<Parameter> portParams = ParameterHelper.collectParameters(dto);
         port.getParameters().addAll(portParams);
         return port;
@@ -42,19 +36,7 @@ public class OutportAdapter implements IPortAdapter {
 
     @Override
     public PortBlock connectToBlock(PortData dto, Port port, Integer portNum) {
-
-        MatlabCommandFactory commandFactory = dto.getCommandFactory();
-        OutPortBlock portBlock = null;
-        for (OutPortBlock outPortBlock : dto.getOutPortBlockSet()) {
-            if (portNum == getPortBlockPortCount(outPortBlock, commandFactory))
-                portBlock = outPortBlock;
-        }
-        return portBlock;
+        // By default, a port is not assigned a port block
+        return null;
     }
-
-    private int getPortBlockPortCount(PortBlock portBlock, MatlabCommandFactory commandFactory) {
-		MatlabCommand getPortCount = commandFactory.getParam().addParam(portBlock.getSimulinkRef().getFQN()).addParam("Port");
-		return Integer.parseInt(MatlabString.getMatlabStringData(getPortCount.execute()));
-	}
-
 }

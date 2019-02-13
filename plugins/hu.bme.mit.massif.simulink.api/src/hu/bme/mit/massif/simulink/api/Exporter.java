@@ -200,6 +200,7 @@ public class Exporter {
 
         // Save the current directory
         String currentWorkdirectory = MatlabString.getMatlabStringData(commandFactory.cd().execute());
+
         String separator = FileSystems.getDefault().getSeparator();
         String[] savePathSegments;
         String[] workDirSegments;
@@ -223,6 +224,7 @@ public class Exporter {
         // Save the model
         MatlabCommand saveSystem = commandFactory.saveSystem().addParam(modelName).addParam(modelName + "." + fileExtension);
         saveSystem.execute();
+
 
         for (int i = 0; i < workDirSegments.length; i++) {
             String segment = workDirSegments[i];

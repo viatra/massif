@@ -10,7 +10,7 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.provider.port;
 
-import hu.bme.mit.massif.simulink.api.adapter.port.DefaultAdapter;
+import hu.bme.mit.massif.simulink.api.adapter.port.DefaultPortAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.EnableAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.IPortAdapter;
 import hu.bme.mit.massif.simulink.api.adapter.port.InportAdapter;
@@ -39,7 +39,7 @@ public class PortProvider {
         adapters.put("outport", new OutportAdapter());
         adapters.put("state", new StateAdapter());
 
-        adapters.put(DEFAULT_PORT_ADAPTER, new DefaultAdapter());
+        adapters.put(DEFAULT_PORT_ADAPTER, new DefaultPortAdapter());
     }
 
     /**

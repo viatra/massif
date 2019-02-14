@@ -56,7 +56,7 @@ public class CLIMatlabCreator {
         Exporter exporter = new Exporter(logger);
         exporter.setLayoutProvider(layoutProvider);
         SimulinkModel loadedModel;
-        logger.debug("Loading Simulunk model...");
+        logger.debug("Loading Simulink model...");
         loadedModel = exporter.loadSimulinkModel(modelPath +File.separator+ modelName);
         logger.debug("Simulink model loaded");
         MatlabCommandFactory commandFactory = new MatlabCommandFactory(localScriptEvaluator);

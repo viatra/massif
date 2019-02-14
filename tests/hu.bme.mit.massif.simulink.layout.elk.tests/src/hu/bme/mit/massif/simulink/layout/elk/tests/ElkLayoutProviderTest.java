@@ -135,7 +135,7 @@ public class ElkLayoutProviderTest {
 
     private void test(String name, SubSystem subSystem) {
         Map<Block, BlockLayoutSpecification> layout = subSystem.getSubBlocks().stream().collect(Collectors.toMap(Function.identity(), it -> new BlockLayoutSpecification()));
-        new ElkLayoutProvider().updateSpecifications(layout);
+        new ElkLayoutProvider(10, 20, 40).updateSpecifications(layout);
         render(name, subSystem, layout);
     }
 

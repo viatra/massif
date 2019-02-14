@@ -10,7 +10,6 @@
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.layout.elk;
 
-import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -23,9 +22,8 @@ import org.eclipse.elk.core.data.LayoutMetaDataService;
 import org.eclipse.elk.core.options.CoreOptions;
 import org.eclipse.elk.core.options.Direction;
 import org.eclipse.elk.core.util.BasicProgressMonitor;
-import org.eclipse.elk.graph.ElkConnectableShape;
-import org.eclipse.elk.graph.ElkEdge;
 import org.eclipse.elk.graph.ElkNode;
+import org.eclipse.elk.graph.ElkPort;
 import org.eclipse.elk.graph.util.ElkGraphUtil;
 
 import hu.bme.mit.massif.simulink.Block;
@@ -41,8 +39,15 @@ import hu.bme.mit.massif.simulink.api.util.Point;
  * Automatic layout provider using ELK.
  */
 public class ElkLayoutProvider implements IExporterLayoutProvider {
+    
+    private final double nodeSize;
+    private final double nodeVerticalSpacing;
+    private final double nodeHorizontalSpacing;
 
-    public ElkLayoutProvider() {
+    public ElkLayoutProvider(double nodeSize, double nodeHorizontalSpacing, double nodeVerticalSpacing) {
+        this.nodeSize = nodeSize;
+        this.nodeHorizontalSpacing = nodeHorizontalSpacing;
+        this.nodeVerticalSpacing = nodeVerticalSpacing;
         LayoutMetaDataService.getInstance().registerLayoutMetaDataProviders(new LayeredMetaDataProvider());
     }
     
@@ -56,54 +61,56 @@ public class ElkLayoutProvider implements IExporterLayoutProvider {
         layout.putAll(getSpecifications(nodes));
     }
 
-    private static ElkNode createEmptyGraph() {
+    private ElkNode createEmptyGraph() {
         ElkNode graph = ElkGraphUtil.createGraph();
         graph.setProperty(CoreOptions.ALGORITHM, LayeredOptions.ALGORITHM_ID);
         graph.setProperty(CoreOptions.DIRECTION, Direction.RIGHT);
+        graph.setProperty(CoreOptions.SPACING_NODE_NODE, nodeVerticalSpacing);
+        graph.setProperty(CoreOptions.SPACING_COMPONENT_COMPONENT, nodeVerticalSpacing);
+        graph.setProperty(LayeredMetaDataProvider.SPACING_NODE_NODE_BETWEEN_LAYERS, nodeHorizontalSpacing);
         return graph;
     }
 
-    private static Map<Block, ElkNode> createNodes(Set<Block> blocks, ElkNode graph) {
+    private Map<Block, ElkNode> createNodes(Set<Block> blocks, ElkNode graph) {
         return blocks.stream().collect(Collectors.toMap(block -> block, block -> createNode(graph)));
     }
 
+    private ElkNode createNode(ElkNode graph) {
+        ElkNode node = ElkGraphUtil.createNode(graph);
+        node.setWidth(nodeSize);
+        node.setHeight(nodeSize);
+        return node;
+    }
+    
     private static void createEdges(Set<Block> blocks, Map<Block, ElkNode> nodes) {
         for (Block block : blocks) {
             for (OutPort outPort : block.getOutports()) {
                 if (outPort.getConnection() != null) {
-                    createEdge(outPort.getConnection(), nodes);
+                    createEdges(outPort.getConnection(), nodes);
                 }
             }
         }
     }
     
-    private static ElkNode createNode(ElkNode graph) {
-        ElkNode node = ElkGraphUtil.createNode(graph);
-        node.setWidth(10);
-        node.setHeight(10);
-        return node;
-    }
-    
-    private static ElkEdge createEdge(Connection connection, Map<Block, ElkNode> nodes) {
+    private static void createEdges(Connection connection, Map<Block, ElkNode> nodes) {
         ElkNode source = nodes.get(getSource(connection));
-        Stream<ElkNode> sources = Stream.of(source).filter(it -> it != null);
-        Collection<ElkConnectableShape> sourcePorts = createPorts(sources);
-        
-        Stream<Block> targetBlocks = getSingleConnections(connection).map(ElkLayoutProvider::getTarget);
-        Stream<ElkNode> targets = targetBlocks.map(target -> nodes.get(target)).filter(it -> it != null);
-        Collection<ElkConnectableShape> targetPorts = createPorts(targets);
-        
-        return ElkGraphUtil.createHyperedge(sourcePorts, targetPorts);
+        if (source != null) {
+            ElkPort sourcePort = ElkGraphUtil.createPort(source);
+            for (SingleConnection singleConnection : getSingleConnections(connection).collect(Collectors.toSet())) {
+                Block targetBlock = getTarget(singleConnection);
+                ElkNode target = nodes.get(targetBlock);
+                if (target != null) {
+                    ElkPort targetPort = ElkGraphUtil.createPort(target);
+                    ElkGraphUtil.createSimpleEdge(sourcePort, targetPort);                    
+                }
+            }
+        }
     }
 
     private static Block getSource(Connection connection) {
         return connection.getFrom().getContainer();
     }
 
-    private static Collection<ElkConnectableShape> createPorts(Stream<ElkNode> nodes) {
-        return nodes.map(ElkGraphUtil::createPort).collect(Collectors.toSet());
-    }
-    
     public static Stream<SingleConnection> getSingleConnections(Connection connection) {
         if (connection instanceof SingleConnection) {
             SingleConnection singleConnection = (SingleConnection) connection;

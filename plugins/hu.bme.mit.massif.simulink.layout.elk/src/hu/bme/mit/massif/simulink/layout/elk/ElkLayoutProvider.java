@@ -70,7 +70,9 @@ public class ElkLayoutProvider implements IExporterLayoutProvider {
     private static void createEdges(Set<Block> blocks, Map<Block, ElkNode> nodes) {
         for (Block block : blocks) {
             for (OutPort outPort : block.getOutports()) {
-                createEdge(outPort.getConnection(), nodes);
+                if (outPort.getConnection() != null) {
+                    createEdge(outPort.getConnection(), nodes);
+                }
             }
         }
     }

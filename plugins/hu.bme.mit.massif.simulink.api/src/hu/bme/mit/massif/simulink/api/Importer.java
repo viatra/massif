@@ -799,7 +799,7 @@ public class Importer {
         // Traversing from each block
         for (IVisitableMatlabData currentBlockHandle : CellMatlabData.getCellMatlabDataData(toplevelBlockHandles)) {
             // If the handle refers to the subsystem block we are traversing, continue
-            if (Handle.getHandleData(currentBlockHandle) == modelHandle)
+            if (Handle.getHandleData(currentBlockHandle).equals(modelHandle))
                 continue;
             createBlock(simulinkModel, (Handle) currentBlockHandle);
         }

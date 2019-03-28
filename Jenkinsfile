@@ -52,6 +52,7 @@ pipeline {
         }
         stage('Deployment') {
             when {
+	        branch "master"
                 expression { params.BUILD_TYPE == 'release' }
             }
             steps{
@@ -68,6 +69,7 @@ pipeline {
         }
         stage('Set version for Nexus release') {
         	when {
+		        branch "master"
         		expression { params.BUILD_TYPE == 'release' }
         	}
         	steps {
@@ -76,6 +78,7 @@ pipeline {
         }
         stage('Deploy to Nexus') {
             when {
+		branch "master"
                 expression { params.DEPLOY_SNAPSHOT == true || params.BUILD_TYPE == 'release' }
             }
             steps {

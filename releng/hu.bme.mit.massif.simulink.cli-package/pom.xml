@@ -119,6 +119,12 @@
 			<version>${project.version}</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>hu.bme.mit.massif</groupId>
+			<artifactId>hu.bme.mit.massif.simulink.layout.elk</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<!-- Xtend -->
 		<dependency>
 			<groupId>org.eclipse.xtend</groupId>

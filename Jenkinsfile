@@ -7,7 +7,6 @@ pipeline {
     parameters {
         choice(choices: 'ci\nrelease', description: '', name: 'BUILD_TYPE')
         string(name: 'VERSION', defaultValue: '0.8.0', description: 'Version of released artifacts (used by release build)')
-        booleanParam(defaultValue: false, description: 'Set to true if you want to deploy to snapshot repository', name: 'DEPLOY_SNAPSHOT')
         booleanParam(defaultValue: true, description: '''This parameter is used to allow not to execute Sonar analysis. It is safe to always make this true, as the Sonar-trigger job will trigger this job without the SKIP_SONAR parameter set daily.''', name: 'SKIP_SONAR') 
     }
 
@@ -79,7 +78,6 @@ pipeline {
         stage('Deploy to Nexus') {
             when {
 		branch "master"
-                expression { params.DEPLOY_SNAPSHOT == true || params.BUILD_TYPE == 'release' }
             }
             steps {
                 configFileProvider([configFile(fileId: 'default-maven-toolchains', variable: 'TOOLCHAIN'), configFile(fileId: 'default-maven-settings', variable: 'MAVEN_SETTINGS')]) {

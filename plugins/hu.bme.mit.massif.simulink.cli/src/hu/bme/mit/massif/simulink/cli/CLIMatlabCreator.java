@@ -60,8 +60,8 @@ public class CLIMatlabCreator {
         loadedModel = exporter.loadSimulinkModel(modelPath +File.separator+ modelName);
         logger.debug("Simulink model loaded");
         MatlabCommandFactory commandFactory = new MatlabCommandFactory(localScriptEvaluator);
-        logger.debug("Loading model into MATLAB...");
 
+        // Exporter must be run asynchronously 
         Thread thread = new Thread(new Runnable() {
 
             @Override
@@ -79,8 +79,6 @@ public class CLIMatlabCreator {
         });
 
         thread.start();
-
-        logger.debug("Model loaded into MATLAB");
     }
 
 }

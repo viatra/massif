@@ -60,9 +60,27 @@ public class CLIMatlabCreator {
         loadedModel = exporter.loadSimulinkModel(modelPath +File.separator+ modelName);
         logger.debug("Simulink model loaded");
         MatlabCommandFactory commandFactory = new MatlabCommandFactory(localScriptEvaluator);
-        exporter.export(loadedModel, commandFactory);
-        String fqn = loadedModel.getSimulinkRef().getFQN();
-        exporter.saveSimulinkModel(fqn, extension);
+        logger.debug("Loading model into MATLAB...");
+
+        Thread thread = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    exporter.export(loadedModel, commandFactory);
+
+                    String fqn = loadedModel.getSimulinkRef().getFQN();
+                    exporter.saveSimulinkModel(fqn, extension);
+                } catch (SimulinkApiException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        thread.start();
+
+        logger.debug("Model loaded into MATLAB");
     }
 
 }

@@ -453,11 +453,10 @@ public class Exporter {
             commandFactory.clearLastErrorMessage().execute();
             MatlabCommand addBlock = commandFactory.addBlock().addParam(sourceBlockFQN).addParam(blockFQN);
             newBlockHandle = addBlock.execute();
-            MatlabCommand lastErrorMessage = commandFactory.getLastErrorMessage();
-            String lastErrorMessageString = MatlabString.getMatlabStringData(lastErrorMessage.execute());
-            if (!"".equals(lastErrorMessageString)) {
+            String lastErrorMessage = getLastErrorMessage();
+            if (!"".equals(lastErrorMessage)) {
                 logger.error("The block '" + blockFQN + "' with sourceBlock '" + sourceBlockFQN
-                        + "' could not be added");
+                        + "' could not be added because: " + lastErrorMessage);
                 continue;
             }
 
@@ -519,6 +518,11 @@ public class Exporter {
                     String commandString = prepareParameterSetterCommand(block, parameter);
                     ICommandEvaluator commandEvaluator = commandFactory.getCommandEvaluator();
                     commandEvaluator.evaluateCommand(commandString, 0);
+                    
+                    String errorMessage = getLastErrorMessage();
+                    if (!"".equals(errorMessage)) {
+                        logger.warning("Can't set parameter named " + parameter.getName() + " to " + parameter.getValue() + " because: " + lastErrorMessage);
+                    }
                 }
                 // TODO compile command string into a single command - see issue #120
             }
@@ -552,6 +556,10 @@ public class Exporter {
         
         // create connections between the exported blocks
         exportLines(sameLevelBlocks);
+    }
+
+    private String getLastErrorMessage() {
+        return MatlabString.getMatlabStringData(commandFactory.getLastErrorMessage().execute());
     }
 
     private String prepareParameterSetterCommand(Block block, Parameter parameter) {

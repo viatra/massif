@@ -243,6 +243,7 @@ public class Exporter {
      * @throws SimulinkApiException
      */
     public void export(SimulinkModel model, MatlabCommandFactory commandFactory) throws SimulinkApiException {
+        logger.debug("Exporting model, please wait...");
 
         // Import time measurement begin
         long beginTime = System.currentTimeMillis();

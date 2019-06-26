@@ -15,11 +15,14 @@ import java.util.Set;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.viatra.addon.querybasedfeatures.runtime.QueryBasedFeatureSettingDelegateFactory;
 import org.eclipse.viatra.query.runtime.api.IQuerySpecification;
+import org.eclipse.viatra.query.runtime.api.ViatraQueryEngineOptions;
 import org.eclipse.viatra.query.runtime.exception.ViatraQueryException;
 import org.eclipse.viatra.query.runtime.extensibility.IQuerySpecificationProvider;
 import org.eclipse.viatra.query.runtime.extensibility.SingletonQuerySpecificationProvider;
+import org.eclipse.viatra.query.runtime.localsearch.matcher.integration.LocalSearchEMFBackendFactory;
 import org.eclipse.viatra.query.runtime.registry.QuerySpecificationRegistry;
 import org.eclipse.viatra.query.runtime.registry.connector.SpecificationMapSourceConnector;
+import org.eclipse.viatra.query.runtime.rete.matcher.ReteBackendFactory;
 
 import hu.bme.mit.massif.models.simulink.derived.DerivedFeatures;
 import hu.bme.mit.massif.simulink.SimulinkPackage;
@@ -35,6 +38,7 @@ public class CLIInitializationUtil {
         registerQuerySpecifications();
         EStructuralFeature.Internal.SettingDelegate.Factory.Registry.INSTANCE.put("org.eclipse.viatra.query.querybasedfeature",
                 new QueryBasedFeatureSettingDelegateFactory());
+        ViatraQueryEngineOptions.setSystemDefaultBackends(ReteBackendFactory.INSTANCE, ReteBackendFactory.INSTANCE, LocalSearchEMFBackendFactory.INSTANCE);
     }
 
     private static void registerQuerySpecifications() throws ViatraQueryException {

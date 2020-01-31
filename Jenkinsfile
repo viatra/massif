@@ -10,6 +10,10 @@ pipeline {
         booleanParam(defaultValue: true, description: '''This parameter is used to allow not to execute Sonar analysis. It is safe to always make this true, as the Sonar-trigger job will trigger this job without the SKIP_SONAR parameter set daily.''', name: 'SKIP_SONAR') 
     }
 
+    environment {
+        TEAMS_NOTIFICATION_URL = credentials('massif-teams-channel-url')
+    }
+	
     // Keep only the last 20 builds
     options {
         buildDiscarder(logRotator(numToKeepStr: '20'))
@@ -99,19 +103,19 @@ pipeline {
             office365ConnectorSend message: "Build Successful - ${env.JOB_NAME} <${env.BUILD_URL}>", 
 				status:"Success",
 				color: "00db00",
-				webhookUrl:'https://outlook.office.com/webhook/fb444747-45d9-4919-b1cf-3f172bae2f82@93793c10-3638-4da1-ab66-24d26b844076/JenkinsCI/f11e8c4e653f4a58a5a7cec9caeb9108/67abf680-0958-4541-b58d-90ba41fb4d94'
+				webhookUrl:"${TEAMS_NOTIFICATION_URL}"
         }
         unstable {
 	    office365ConnectorSend message: "Build Unstable - ${env.JOB_NAME} <${env.BUILD_URL}>", 
 				status:"Unstable", 
 				color: "fcb019",
-				webhookUrl:'https://outlook.office.com/webhook/fb444747-45d9-4919-b1cf-3f172bae2f82@93793c10-3638-4da1-ab66-24d26b844076/JenkinsCI/f11e8c4e653f4a58a5a7cec9caeb9108/67abf680-0958-4541-b58d-90ba41fb4d94'
+				webhookUrl:"${TEAMS_NOTIFICATION_URL}"
         }
         failure {
 	    office365ConnectorSend message: "Build Failed - ${env.JOB_NAME} <${env.BUILD_URL}>", 
 				status:"Failure",
 				color: "f21607",
-				webhookUrl:'https://outlook.office.com/webhook/fb444747-45d9-4919-b1cf-3f172bae2f82@93793c10-3638-4da1-ab66-24d26b844076/JenkinsCI/f11e8c4e653f4a58a5a7cec9caeb9108/67abf680-0958-4541-b58d-90ba41fb4d94'
+				webhookUrl:"${TEAMS_NOTIFICATION_URL}"
         }
     }
 }

@@ -96,25 +96,22 @@ pipeline {
         }
       
         success {
-            slackSend channel: "massif-notifications", 
-                color: "good",
-                message: "Build Successful - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
-                teamDomain: "incquerylabs",
-                tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad" 
+            office365ConnectorSend message: "Build Successful - ${env.JOB_NAME} <${env.BUILD_URL}>", 
+				status:"Success",
+				color: "00db00",
+				webhookUrl:'https://outlook.office.com/webhook/fb444747-45d9-4919-b1cf-3f172bae2f82@93793c10-3638-4da1-ab66-24d26b844076/JenkinsCI/f11e8c4e653f4a58a5a7cec9caeb9108/67abf680-0958-4541-b58d-90ba41fb4d94'
         }
         unstable {
-            slackSend channel: "massif-notifications", 
-                color: "warning",
-                message: "Build Unstable - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
-                teamDomain: "incquerylabs",
-                tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad"
+	    office365ConnectorSend message: "Build Unstable - ${env.JOB_NAME} <${env.BUILD_URL}>", 
+				status:"Unstable", 
+				color: "fcb019",
+				webhookUrl:'https://outlook.office.com/webhook/fb444747-45d9-4919-b1cf-3f172bae2f82@93793c10-3638-4da1-ab66-24d26b844076/JenkinsCI/f11e8c4e653f4a58a5a7cec9caeb9108/67abf680-0958-4541-b58d-90ba41fb4d94'
         }
         failure {
-            slackSend channel: "massif-notifications", 
-                color: "danger",
-                message: "Build Failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)",
-                teamDomain: "incquerylabs",
-                tokenCredentialId: "6ff98023-8c20-4d9c-821a-b769b0ea0fad"
+	    office365ConnectorSend message: "Build Failed - ${env.JOB_NAME} <${env.BUILD_URL}>", 
+				status:"Failure",
+				color: "f21607",
+				webhookUrl:'https://outlook.office.com/webhook/fb444747-45d9-4919-b1cf-3f172bae2f82@93793c10-3638-4da1-ab66-24d26b844076/JenkinsCI/f11e8c4e653f4a58a5a7cec9caeb9108/67abf680-0958-4541-b58d-90ba41fb4d94'
         }
     }
 }

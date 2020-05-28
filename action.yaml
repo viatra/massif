@@ -1,0 +1,15 @@
+name: 'Massif Build'
+description: 'Massif Build'
+inputs:
+  asd-param:
+    description: 'asd-param'
+    required: true
+    default: 'asd'
+outputs:
+  shametag:
+    description: 'asdified'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.asd-param }}

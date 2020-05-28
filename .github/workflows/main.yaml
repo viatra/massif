@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  asdification:
+    runs-on: ubuntu-latest
+    name: The most important dummy workflow
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: asdification
+      id: asd
+      uses: ./
+      with:
+        asd-param: 'dsa'
+    - name: shameification
+      run: echo "*bell sound* shame *bell sound* shame ${{ steps.asd.outputs.shametag }}"

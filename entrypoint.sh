@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
-echo "Outputting the most useful and important thing: $1"
-shametag=$(date)
-echo "::set-output name=shametag::$shametag"
+vncserver :1 -geometry 1280x800 -depth 24
+vnc_pid=$!
+export DISPLAY=:1
+
+mvn clean install -B -f ${GITHUB_WORKSPACE}/releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=.repository

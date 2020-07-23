@@ -1,16 +1,14 @@
 on: [push]
 
 jobs:
-  asdification:
+  massif_build:
     runs-on: ubuntu-latest
-    name: The most important dummy workflow
+    name: Massif Build Action
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - name: asdification
-      id: asd
+    - name: build
       uses: ./
+      id: massifbuild
       with:
-        asd-param: 'dsa'
-    - name: shameification
-      run: echo "*bell sound* shame *bell sound* shame ${{ steps.asd.outputs.shametag }}"
+        vnc_password: '123456'

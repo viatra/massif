@@ -1,15 +1,13 @@
 name: 'Massif Build'
 description: 'Massif Build'
 inputs:
-  asd-param:
-    description: 'asd-param'
-    required: true
-    default: 'asd'
+  vncpass:
+    description: 'Optional VNC password'
+    required: false
 outputs:
-  shametag:
-    description: 'asdified'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.asd-param }}
+    - ${{ inputs.vncpass }}
+  entrypoint: 'entrypoint.sh'

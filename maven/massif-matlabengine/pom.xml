@@ -14,13 +14,13 @@
       <version>${project.version}</version>
     </dependency>
     <!-- MATLAB engine.jar -->
-    <dependency>
+    <!-- <dependency>
       <groupId>com.mathworks</groupId>
       <artifactId>com.mathworks.engine</artifactId>
       <version>0.0.0</version>
       <scope>system</scope>
       <systemPath>${env.MATLABROOT}/extern/engines/java/jar/engine.jar</systemPath>
-    </dependency>
+    </dependency> -->
   </dependencies>
   <parent>
     <artifactId>hu.bme.mit.massif.parent</artifactId>

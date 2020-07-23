@@ -66,7 +66,7 @@
 		<module>../../maven/massif-matlabcontrol-runtime</module>
 		<module>../../maven/massif-commandevaluation-runtime</module>
 		<module>../../maven/massif-simulink-emf</module>
-		<module>../../maven/massif-matlabengine</module>
+		<!-- <module>../../maven/massif-matlabengine</module> -->
 		
 		<!--  Documentation -->
 		<module>../../docs/hu.bme.mit.massif.doc</module>

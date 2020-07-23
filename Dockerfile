@@ -31,7 +31,7 @@ ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 #ENTRYPOINT ["/usr/local/bin/vnc-mvn-entrypoint.sh"]
 #ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-RUN echo $GITHUB_WORKSPACE && ls -l $GITHUB_WORKSPACE
+RUN echo $GITHUB_WORKSPACE && ls -l /home/
 
 RUN chmod +x ["${GITHUB_WORKSPACE}/entrypoint.sh"] 
 ENTRYPOINT ["${GITHUB_WORKSPACE}/entrypoint.sh"]

@@ -18,14 +18,14 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn \
   && apt-get update; apt-get install -y tightvncserver libgtk2.0 \
   && mkdir -p /root/.vnc; (echo ${VNCPASS}|vncpasswd -f > /root/.vnc/passwd) \
-  && chmod 700 /root/.vnc; chmod 600 /root/.vnc/passwd 
+  && chmod 700 /root/.vnc; chmod 600 /root/.vnc/passwd; mkdir -p /root/massif/
 
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG /.m2
 
-RUN ls -l /home/runner/work/massif/massif
-COPY /home/runner/work/massif/massif/ /home/root/massif/
-ENV GITHUB_WORKSPACE /home/root/massif
+COPY /home/runner/work/massif/massif/ /root/massif/
+ENV GITHUB_WORKSPACE /root/massif
+RUN ls -l ${GITHUB_WORKSPACE}
 
 #COPY vnc-mvn-entrypoint.sh /usr/local/bin/vnc-mvn-entrypoint.sh
 #COPY entrypoint.sh /usr/local/bin/entrypoint.sh

@@ -25,6 +25,7 @@ ENV MAVEN_CONFIG ~/.m2
 
 COPY / /root/massif/
 COPY /.m2/toolchains.xml ~/.m2/toolchains.xml
+RUN cat ~/.m2/toolchains.xml
 ENV GITHUB_WORKSPACE /root/massif
 
 #COPY vnc-mvn-entrypoint.sh /usr/local/bin/vnc-mvn-entrypoint.sh

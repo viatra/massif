@@ -24,7 +24,7 @@ ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG /.m2
 
 COPY / /root/massif/
-COPY /.m2/toolchains.xml /.m2/toolchains.xml
+COPY /.m2/toolchains.xml ~/.m2/toolchains.xml
 ENV GITHUB_WORKSPACE /root/massif
 
 #COPY vnc-mvn-entrypoint.sh /usr/local/bin/vnc-mvn-entrypoint.sh
@@ -39,5 +39,5 @@ ENV GITHUB_WORKSPACE /root/massif
 
 RUN chmod +x /root/massif/entrypoint.sh; echo $JAVA_HOME; cat /.m2/toolchains.xml 
 RUN /root/massif/./entrypoint.sh
-ENTRYPOINT ["/root/massif/entrypoint.sh"]
+#ENTRYPOINT ["/root/massif/entrypoint.sh"]
 

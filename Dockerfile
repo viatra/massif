@@ -16,11 +16,9 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
   && rm -f /tmp/apache-maven.tar.gz \
   && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn \
-  && apt-get update; apt-get install -y tightvncserver libgtk2.0 openssh \
+  && apt-get update; apt-get install -y tightvncserver libgtk2.0 \
   && mkdir -p /root/.vnc; (echo ${VNCPASS}|vncpasswd -f > /root/.vnc/passwd) \
-  && chmod 700 /root/.vnc; chmod 600 /root/.vnc/passwd \
-  && mkdir -p /root/.ssh/; echo "$SSH_PRIVATE_KEY" > /root.ssh/id_rsa \
-  && chmod -R 600 /root/.ssh/; ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+  && chmod 700 /root/.vnc; chmod 600 /root/.vnc/passwd 
 
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG /.m2

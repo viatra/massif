@@ -21,11 +21,10 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && chmod 700 /root/.vnc; chmod 600 /root/.vnc/passwd; mkdir -p /root/massif/
 
 ENV MAVEN_HOME /usr/share/maven
-ENV MAVEN_CONFIG ~/.m2
+ENV MAVEN_CONFIG /root/massif/.m2
 
 COPY / /root/massif/
-COPY /.m2/toolchains.xml ~/.m2/toolchains.xml
-RUN ls -l ~/.m2/
+RUN ls -l /root/massif/.m2/
 ENV GITHUB_WORKSPACE /root/massif
 
 #COPY vnc-mvn-entrypoint.sh /usr/local/bin/vnc-mvn-entrypoint.sh

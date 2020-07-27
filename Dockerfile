@@ -36,7 +36,7 @@ ENV GITHUB_WORKSPACE /root/massif
 #ENTRYPOINT ["/usr/local/bin/vnc-mvn-entrypoint.sh"]
 #ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-RUN chmod +x /root/massif/entrypoint.sh 
-RUN /root/massif/./entrypoint.sh
+RUN chmod +x /root/massif/entrypoint.sh; echo $JAVA_HOME; cat /.m2/toolchains.xml 
+#RUN /root/massif/./entrypoint.sh
 #ENTRYPOINT ["/root/massif/entrypoint.sh"]
 

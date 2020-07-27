@@ -1,13 +1,14 @@
 FROM openjdk:8-jdk
 
 ARG MAVEN_VERSION=3.6.3
-#ARG USER_HOME_DIR="/root"
+ARG USER_HOME_DIR="/root"
 ARG SHA=c35a1803a6e70a126e80b2b3ae33eed961f83ed74d18fcd16909b2d44d7dada3203f1ffe726c17ef8dcca2dcaa9fca676987befeadc9b9f759967a8cb77181c0
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
-ARG VNC_PASSWORD
+ARG VNCPASS
+ARG SSH_PRIVATE_KEY
 
-#ENV USER root
-#USER root
+ENV USER root
+USER root
 
 RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && curl -fsSL -o /tmp/apache-maven.tar.gz ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
@@ -15,12 +16,18 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
   && rm -f /tmp/apache-maven.tar.gz \
   && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn \
-  && apt-get update; apt-get install -y tightvncserver libgtk2.0 \
-  && mkdir -p /root/.vnc; (echo ${VNC_PASSWORD}|vncpasswd -f > /root/.vnc/passwd) \
-  && chmod 700 /root/.vnc; chmod 600 /root/.vnc/passwd
+  && apt-get update; apt-get install -y tightvncserver libgtk2.0 openssh \
+  && mkdir -p /root/.vnc; (echo ${VNCPASS}|vncpasswd -f > /root/.vnc/passwd) \
+  && chmod 700 /root/.vnc; chmod 600 /root/.vnc/passwd \
+  && mkdir -p /root/.ssh/; echo "$SSH_PRIVATE_KEY" > /root.ssh/id_rsa '
+  && chmod -R 600 /root/.ssh/; ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG /.m2
+
+RUN ls -l /home/runner/work/massif/massif
+COPY /home/runner/work/massif/massif/ /home/root/massif/
+ENV GITHUB_WORKSPACE /home/root/massif
 
 #COPY vnc-mvn-entrypoint.sh /usr/local/bin/vnc-mvn-entrypoint.sh
 #COPY entrypoint.sh /usr/local/bin/entrypoint.sh

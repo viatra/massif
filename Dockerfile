@@ -21,7 +21,7 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
   && chmod 700 /root/.vnc; chmod 600 /root/.vnc/passwd; mkdir -p /root/massif/
 
 ENV MAVEN_HOME /usr/share/maven
-ENV MAVEN_CONFIG /.m2
+ENV MAVEN_CONFIG /root/.m2
 
 COPY / /root/massif/
 
@@ -36,5 +36,5 @@ COPY / /root/massif/
 #ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 RUN chmod +x /root/massif/entrypoint.sh 
-ENTRYPOINT [/root/massif/entrypoint.sh]
+ENTRYPOINT ["/root/massif/entrypoint.sh"]
 

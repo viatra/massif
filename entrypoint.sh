@@ -5,4 +5,5 @@ vnc_pid=$!
 export DISPLAY=:1
 
 export GTK_IM_MODULE="ibus"
-mvn clean install -B -e -X -f ${GITHUB_WORKSPACE}/releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=.repository
+export SWT_GTK3=0
+mvn clean install -B -e -f ${GITHUB_WORKSPACE}/releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=.repository

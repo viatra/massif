@@ -36,5 +36,5 @@ COPY / /root/massif/
 #ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 RUN chmod +x /root/massif/entrypoint.sh 
-ENTRYPOINT ["bash", "/root/massif/entrypoint.sh"]
+ENTRYPOINT [/root/massif/entrypoint.sh]
 

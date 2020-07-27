@@ -37,6 +37,6 @@ RUN ls -l ${GITHUB_WORKSPACE}
 #ENTRYPOINT ["/usr/local/bin/vnc-mvn-entrypoint.sh"]
 #ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-RUN chmod +x ["${GITHUB_WORKSPACE}/entrypoint.sh"] 
+RUN chmod +x ${GITHUB_WORKSPACE}/entrypoint.sh 
 ENTRYPOINT ["${GITHUB_WORKSPACE}/entrypoint.sh"]
 

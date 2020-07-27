@@ -24,6 +24,7 @@ ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG /root/.m2
 
 COPY / /root/massif/
+ENV GITHUB_WORKSPACE /root/massif
 
 #COPY vnc-mvn-entrypoint.sh /usr/local/bin/vnc-mvn-entrypoint.sh
 #COPY entrypoint.sh /usr/local/bin/entrypoint.sh
@@ -36,5 +37,6 @@ COPY / /root/massif/
 #ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 RUN chmod +x /root/massif/entrypoint.sh 
-ENTRYPOINT ["/root/massif/entrypoint.sh"]
+RUN /root/massif/./entrypoint.sh
+#ENTRYPOINT ["/root/massif/entrypoint.sh"]
 

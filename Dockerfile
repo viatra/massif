@@ -25,7 +25,7 @@ ENV MAVEN_CONFIG /root/massif/.m2
 
 COPY / /root/massif/
 RUN ls -l /root/massif/.m2/; cat /root/massif/.m2/toolchains.xml; ls -lah ~
-COPY /root/massif/.m2 /root/.m2
+RUN cp -a /root/massif/.m2 /root/.m2
 RUN ls -lah ~; cat ~/.m2/toolchains.xml
 ENV GITHUB_WORKSPACE /root/massif
 

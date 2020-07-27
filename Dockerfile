@@ -23,7 +23,7 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG /.m2
 
-COPY /home/runner/work/massif/massif/ /root/massif/
+COPY / /root/massif/
 ENV GITHUB_WORKSPACE /root/massif
 RUN ls -l ${GITHUB_WORKSPACE}
 

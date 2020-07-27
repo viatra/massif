@@ -10,4 +10,4 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.vncpass }}
-  entrypoint: 'entrypoint.sh'
+  entrypoint: '/root/massif/entrypoint.sh'

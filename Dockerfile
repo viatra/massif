@@ -41,5 +41,5 @@ ENV GITHUB_WORKSPACE /root/massif
 
 RUN chmod +x /root/massif/entrypoint.sh
 #RUN /root/massif/./entrypoint.sh
-#ENTRYPOINT ["/root/massif/entrypoint.sh"]
+ENTRYPOINT ["/root/massif/entrypoint.sh"]
 

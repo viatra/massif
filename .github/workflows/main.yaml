@@ -11,4 +11,4 @@ jobs:
       uses: ./
       id: massifbuild
       with:
-        vncpass: '123456'
+        vncpass: '12345678'

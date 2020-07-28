@@ -6,4 +6,4 @@ export DISPLAY=:1
 
 export GTK_IM_MODULE="ibus"
 export SWT_GTK3=0
-mvn clean install -B -e -X -f ${GITHUB_WORKSPACE}/releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=.repository
+mvn clean install -B -e -X -f --fail-never ${GITHUB_WORKSPACE}/releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=.repository

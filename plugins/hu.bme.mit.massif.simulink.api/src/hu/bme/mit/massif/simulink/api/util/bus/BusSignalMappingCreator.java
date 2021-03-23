@@ -1,12 +1,14 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010-2021, Embraer S.A., Budapest University of Technology and Economics,
+ * Alessio Di Sandro
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation
+ *     Alessio Di Sandro - Fix issue #206
  *******************************************************************************/
 /**
  * 
@@ -16,6 +18,7 @@ package hu.bme.mit.massif.simulink.api.util.bus;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkState;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -210,7 +213,7 @@ public class BusSignalMappingCreator {
 
     private List<String> splitPathToFragments(String mappingPath) {
         // split path by dot
-        return Splitter.on('.').splitToList(mappingPath);
+        return new ArrayList<>(Splitter.on('.').splitToList(mappingPath));
     }
 
     private void storeFragmentsInMap(Map<String, FragmentResolution> resolutionMap, BusSignalMapping mapping,

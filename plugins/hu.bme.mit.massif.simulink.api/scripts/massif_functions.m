@@ -1,6 +1,7 @@
 %##############################################################################
-% Copyright (c) 2010-2018, IncQuery Labs Ltd., logi.cals GmbH, McGill
-% University, Embraer S.A., Budapest University of Technology and Economics
+% Copyright (c) 2010-2021, IncQuery Labs Ltd., logi.cals GmbH, McGill
+% University, Embraer S.A., Budapest University of Technology and Economics,
+% Alessio Di Sandro
 % All rights reserved. This program and the accompanying materials 
 % are made available under the terms of the Eclipse Public License v1.0 
 % which accompanies this distribution, and is available at 
@@ -8,6 +9,7 @@
 %
 % Contributors: 
 %     Marton Bur - initial API and implementation 
+%     Alessio Di Sandro - Fix issue #206
 %##############################################################################
 function massif = massif_functions()
 %MASSIF_FUNCITONS Summary of this function goes here
@@ -77,12 +79,15 @@ function s = get_all_block_parameters(blockId)
 %   The following block parameters are skipped because of connector limitations:
 %    * Capabilities
 %    * MaskObject
+%    * Binding (Simulink.HMI.SignalSpecification object)
+%    * MaskWSVariables (mpc object)
 
 s=struct();
 TmpObjParams=get_param(blockId,'ObjectParameters');
 names=fieldnames(TmpObjParams);
 for i = 1:numel(names)
-    if strcmpi(names{i},'Capabilities') == 0 && strcmpi(names{i},'MaskObject') == 0
+    if strcmpi(names{i},'Capabilities') == 0 && strcmpi(names{i},'MaskObject') == 0 && ...
+            strcmpi(names{i},'Binding') == 0 && strcmpi(names{i},'MaskWSVariables') == 0
         TmpParamValue=get_param(blockId,names{i});
         isReadOnly = sum(strcmp(TmpObjParams.(names{i}).Attributes,'read-only'));
         isNeverSave = sum(strcmp(TmpObjParams.(names{i}).Attributes,'never-save'));

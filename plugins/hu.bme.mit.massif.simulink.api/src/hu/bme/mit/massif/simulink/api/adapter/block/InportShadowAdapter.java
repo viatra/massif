@@ -1,12 +1,14 @@
 /*******************************************************************************
- * Copyright (c) 2010-2013, Embraer S.A., Budapest University of Technology and Economics
+ * Copyright (c) 2010-2021, Embraer S.A., Budapest University of Technology and Economics,
+ * Alessio Di Sandro
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
  * http://www.eclipse.org/legal/epl-v10.html 
  *
  * Contributors: 
- *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation 
+ *     Marton Bur, Abel Hegedus, Akos Horvath - initial API and implementation
+ *     Alessio Di Sandro - Fix issue #206
  *******************************************************************************/
 package hu.bme.mit.massif.simulink.api.adapter.block;
 
@@ -30,7 +32,7 @@ public class InportShadowAdapter extends InportBlockAdapter {
 
         MatlabCommandFactory commandFactory = traverser.getCommandFactory();
         String commandNameString = "find_system('" + blockToProcess.getSimulinkRef().getQualifier()
-                + "','SearchDepth','1','LookUnderMasks','all','BlockType','Inport','Port',get_param('"
+                + "','SearchDepth','1','LookUnderMasks','all','FollowLinks','on','BlockType','Inport','Port',get_param('"
                 + blockToProcess.getSimulinkRef().getFQN() + "','Port'))".replace("\r\n", " ");
         commandNameString = commandNameString.replace('\n', ' ');
         MatlabCommand getInport = commandFactory.customCommand(commandNameString, 1);

@@ -1,5 +1,6 @@
 /*******************************************************************************
- * Copyright (c) 2010-2018, IncQuery Labs Ltd., logi.cals GmbH, McGill University 
+ * Copyright (c) 2010-2021, IncQuery Labs Ltd., logi.cals GmbH, McGill University,
+ * Alessio Di Sandro
  * All rights reserved. This program and the accompanying materials 
  * are made available under the terms of the Eclipse Public License v1.0 
  * which accompanies this distribution, and is available at 
@@ -7,6 +8,7 @@
  *
  * Contributors: 
  *     Marton Bur - initial API and implementation 
+ *     Alessio Di Sandro - Fix issue #206
  *******************************************************************************/
 package hu.bme.mit.massif.communication.matlabengine;
 
@@ -107,6 +109,12 @@ public class MatlabEngineEvaluator extends AbstractCommandEvaluator<MatlabEngine
 				for (Object object : rawStructArray) {
 					Struct struct = (Struct)object;	
 					((CellMatlabData)result).addData(processStruct(struct));
+				}
+			} else if (value instanceof Object[]) { // mixed cell array
+				Object[] mixedArray = (Object[]) value;
+				result = new CellMatlabData();
+				for (Object object : mixedArray) {
+					((CellMatlabData)result).addData(convertToMatlabData(new Object[] { object }));
 				}
 			}
 		}

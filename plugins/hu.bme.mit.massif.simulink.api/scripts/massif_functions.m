@@ -81,13 +81,15 @@ function s = get_all_block_parameters(blockId)
 %    * MaskObject
 %    * Binding (Simulink.HMI.SignalSpecification object)
 %    * MaskWSVariables (mpc object)
+%    * BlockKeywords
 
 s=struct();
 TmpObjParams=get_param(blockId,'ObjectParameters');
 names=fieldnames(TmpObjParams);
 for i = 1:numel(names)
     if strcmpi(names{i},'Capabilities') == 0 && strcmpi(names{i},'MaskObject') == 0 && ...
-            strcmpi(names{i},'Binding') == 0 && strcmpi(names{i},'MaskWSVariables') == 0
+            strcmpi(names{i},'Binding') == 0 && strcmpi(names{i},'MaskWSVariables') == 0 && ...
+            strcmpi(names{i},'BlockKeywords') == 0
         TmpParamValue=get_param(blockId,names{i});
         isReadOnly = sum(strcmp(TmpObjParams.(names{i}).Attributes,'read-only'));
         isNeverSave = sum(strcmp(TmpObjParams.(names{i}).Attributes,'never-save'));

@@ -39,6 +39,7 @@
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.client</module>
 		<module>../../plugins/br.com.embraer.massif.commandevaluation.commands</module>
 		<module>../../plugins/hu.bme.mit.massif.communication.commandevaluation</module>
+		<module>../../releng/massif.commandevaluation.server-package</module>
 		
 		<!-- MatlabControl connector -->
 		<module>../../dependencies/matlabcontrol.external.bundle</module>

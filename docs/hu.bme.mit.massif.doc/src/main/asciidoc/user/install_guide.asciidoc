@@ -23,7 +23,7 @@ As it is mostly apparent from its full name (Matlab Simulink Integration Framewo
 
 * All releases: https://static.incquerylabs.com/projects/massif/release
 
-* CI: https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/hu.bme.mit.massif.site/target/repository/
+* CI (Only for testing): jar:https://build.incquerylabs.com/nexus/service/rest/v1/search/assets/download?sort=version&repository=massif-snapshots&maven.groupId=hu.bme.mit.massif&maven.artifactId=hu.bme.mit.massif.site&maven.baseVersion=0.8.0-SNAPSHOT&maven.extension=zip!
 
 4. (Optional) Depending on which <<matlab_connectors#, connector>> you would like to use to communicate with MATLAB, install also the appropriate Communication Provider Feature from the update site and the following additional components:
 
@@ -33,4 +33,4 @@ As it is mostly apparent from its full name (Matlab Simulink Integration Framewo
 
 ** https://static.incquerylabs.com/projects/massif/release/[All releases]
 
-** https://build.incquerylabs.com/jenkins/job/Massif/job/master/lastSuccessfulBuild/artifact/releng/massif.commandevaluation.server-package/massif.commandevaluation.server.zip[CI]
+** https://build.incquerylabs.com/nexus/service/rest/v1/search/assets/download?sort=version&repository=massif-snapshots&maven.groupId=hu.bme.mit.massif.features&maven.artifactId=massif.commandevaluation.server-package&maven.baseVersion=0.8.0-SNAPSHOT&maven.classifier=massif-ce-server&maven.extension=zip[CI]

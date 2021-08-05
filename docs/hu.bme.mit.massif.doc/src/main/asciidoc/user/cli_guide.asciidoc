@@ -1,11 +1,15 @@
 = Headless usage of Massif in MATLAB IDE
 
+The CLI package of Massif allows the converting between the Simulink models and Massif EMF models inside of MATLAB scripts.
+
 == Setup
 
-The CLI of Massif is in this package.
-//TODO add link to download the package (can be added after merge of #150 into master)
-You have to download it and add its path to the MATLAB's java path via the 
-`javaaddpath(/*jar's location as a string goes here*/)` command.
+Download the package from: 
+
+* https://static.incquerylabs.com/projects/massif/release/0.7.0/hu.bme.mit.massif.simulink.cli-example-0.7.0.zip[Version 0.7 (Latest release)]
+* https://build.incquerylabs.com/nexus/service/rest/v1/search/assets/download?sort=version&repository=massif-snapshots&maven.groupId=hu.bme.mit.massif.features&maven.artifactId=hu.bme.mit.massif.simulink.cli-package&maven.baseVersion=0.8.0-SNAPSHOT&maven.classifier=massif-cli&maven.extension=zip [Latest ((CI) build]
+
+You have to download it and add its path to the MATLAB's java path via the `javaaddpath(/*jar's location as a string goes here*/)` command.
 
 == Create MATLAB model from Massif EMF model
 

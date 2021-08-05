@@ -93,7 +93,7 @@ pipeline {
         always {
             archiveArtifacts 'releng/hu.bme.mit.massif.site/target/repository/**'
             archiveArtifacts 'releng/massif.commandevaluation.server-package/target/massif.commandevaluation.server-package*-massif-ce-server.zip'
-            archiveArtifacts 'releng/hu.bme.mit.massif.simulink.cli-package/hu.bme.mit.massif.simulink.cli-package-*-massif-cli.zip'
+            archiveArtifacts 'releng/hu.bme.mit.massif.simulink.cli-package/target/hu.bme.mit.massif.simulink.cli-package-*-massif-cli.zip'
             archiveArtifacts 'docs/hu.bme.mit.massif.doc/html/**'		
         }
       

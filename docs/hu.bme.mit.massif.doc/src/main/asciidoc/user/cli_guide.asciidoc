@@ -7,7 +7,7 @@ The CLI package of Massif allows the converting between the Simulink models and 
 Download the package from: 
 
 * https://static.incquerylabs.com/projects/massif/release/0.7.0/hu.bme.mit.massif.simulink.cli-example-0.7.0.zip[Version 0.7 (Latest release)]
-* https://build.incquerylabs.com/nexus/service/rest/v1/search/assets/download?sort=version&repository=massif-snapshots&maven.groupId=hu.bme.mit.massif.features&maven.artifactId=hu.bme.mit.massif.simulink.cli-package&maven.baseVersion=0.8.0-SNAPSHOT&maven.classifier=massif-cli&maven.extension=zip [Latest ((CI) build]
+* https://build.incquerylabs.com/nexus/service/rest/v1/search/assets/download?sort=version&repository=massif-snapshots&maven.groupId=hu.bme.mit.massif.features&maven.artifactId=hu.bme.mit.massif.simulink.cli-package&maven.baseVersion=0.8.0-SNAPSHOT&maven.classifier=massif-cli&maven.extension=zip[Latest build (CI)]
 
 You have to download it and add its path to the MATLAB's java path via the `javaaddpath(/*jar's location as a string goes here*/)` command.
 

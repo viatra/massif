@@ -7,7 +7,6 @@ pipeline {
     parameters {
         choice(choices: 'ci\nrelease', description: '', name: 'BUILD_TYPE')
         string(name: 'VERSION', defaultValue: '0.8.0', description: 'Version of released artifacts (used by release build)')
-        booleanParam(defaultValue: true, description: '''This parameter is used to allow not to execute Sonar analysis. It is safe to always make this true, as the Sonar-trigger job will trigger this job without the SKIP_SONAR parameter set daily.''', name: 'SKIP_SONAR') 
     }
 
     environment {
@@ -32,23 +31,6 @@ pipeline {
 	                    sh "mvn clean install -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository"
 	                }
 	            }
-            }
-        }
-        stage('Sonar') {
-            when {
-                branch "master"
-                expression {return !params.SKIP_SONAR }
-            }
-            steps {
-                wrap([$class: 'TimestamperBuildWrapper']) {
-                    configFileProvider([
-                        configFile(fileId: 'maven-toolchain-oldjdk', variable: 'TOOLCHAIN'),
-                        configFile(fileId: 'default-maven-settings', variable: 'MAVEN_SETTINGS')]) {
-                            withSonarQubeEnv('IncQuery Labs SonarQube') {
-                                sh "mvn sonar:sonar -B -t $TOOLCHAIN -s $MAVEN_SETTINGS -f releng/hu.bme.mit.massif.parent/pom.xml -Dmaven.repo.local=$WORKSPACE/.repository -DBUILD_TYPE=${params.BUILD_TYPE} -Dmirror-integration=false -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.scm.disabled=true"
-                            }
-                    }
-                }
             }
         }
         stage('Deployment') {
